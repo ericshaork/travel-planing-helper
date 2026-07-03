@@ -7,15 +7,21 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { GenerateLoading } from "@/components/trip/GenerateLoading";
+import { MissingFieldsSummary } from "@/components/trip/MissingFieldsSummary";
 import { ParsedTripCard } from "@/components/trip/ParsedTripCard";
 import {
   PLAN_STEPS,
   StepQuestionForm,
 } from "@/components/trip/StepQuestionForm";
 import {
+  getMissingTripRequestFieldDetails,
+  getPlanFieldMeta,
+  getTripRequestIssueFieldDetails,
+  type PlanFormField,
+} from "@/lib/trip/plan-fields";
+import {
   getMissingTripRequestFields,
   normalizeTripRequestDraft,
-  type MissingTripRequestField,
   type TripRequestNormalizationIssue,
 } from "@/lib/trip/normalize";
 import {
@@ -36,51 +42,6 @@ import type { ApiErrorResponse } from "@/lib/utils/errors";
 type PageState = "loading" | "missing" | "editing" | "prepared";
 
 class FriendlyGenerationError extends Error {}
-
-const STEP_FIELDS: Array<Array<MissingTripRequestField["field"]>> = [
-  ["departureCity", "destinationCity", "daysOrDates", "startDate", "endDate"],
-  ["budget", "interests", "travelStyles"],
-  [],
-];
-
-function stepForMissingFields(fields: MissingTripRequestField[]): number {
-  const firstField = fields[0]?.field;
-
-  if (!firstField) {
-    return 0;
-  }
-
-  const stepIndex = STEP_FIELDS.findIndex((stepFields) =>
-    stepFields.includes(firstField),
-  );
-
-  return stepIndex === -1 ? 0 : stepIndex;
-}
-
-function stepForIssues(issues: TripRequestNormalizationIssue[]): number {
-  const firstField = issues[0]?.field.split(".")[0];
-
-  if (
-    firstField === "budget" ||
-    firstField === "interests" ||
-    firstField === "travelStyles"
-  ) {
-    return 1;
-  }
-
-  if (
-    firstField === "mustVisitPlaces" ||
-    firstField === "avoidPlaces" ||
-    firstField === "accommodationPreference" ||
-    firstField === "localTransportPreference" ||
-    firstField === "schedulePreference" ||
-    firstField === "specialRequirements"
-  ) {
-    return 2;
-  }
-
-  return 0;
-}
 
 function mergeParsedSessionDraft(
   draft: TripRequestDraft,
@@ -120,6 +81,9 @@ export default function PlanPage() {
   const [currentStep, setCurrentStep] = useState(0);
   const [issues, setIssues] = useState<TripRequestNormalizationIssue[]>([]);
   const [stepMessage, setStepMessage] = useState<string>();
+  const [highlightedField, setHighlightedField] = useState<PlanFormField>();
+  const requestedFocusField = useRef<PlanFormField | undefined>(undefined);
+  const [focusRequestKey, setFocusRequestKey] = useState(0);
 
   useEffect(() => {
     const restoreTimer = window.setTimeout(() => {
@@ -138,10 +102,12 @@ export default function PlanPage() {
           parsedSession?.selectedInterests ?? [],
           parsedSession?.selectedTravelStyles ?? [],
         );
-      const missingFields = getMissingTripRequestFields(restoredDraft);
+      const missingFieldDetails = getMissingTripRequestFieldDetails(
+        getMissingTripRequestFields(restoredDraft),
+      );
 
       setDraft(restoredDraft);
-      setCurrentStep(stepForMissingFields(missingFields));
+      setCurrentStep(missingFieldDetails[0]?.step ?? 0);
       saveTripRequestDraft(restoredDraft);
       setPageState("editing");
     }, 0);
@@ -159,6 +125,61 @@ export default function PlanPage() {
     () => (draft ? getMissingTripRequestFields(draft) : []),
     [draft],
   );
+  const missingFieldDetails = useMemo(
+    () => getMissingTripRequestFieldDetails(missingFields),
+    [missingFields],
+  );
+  const issueFieldDetails = useMemo(
+    () => getTripRequestIssueFieldDetails(issues),
+    [issues],
+  );
+  const fieldErrors = useMemo(() => {
+    const nextFieldErrors: Partial<Record<PlanFormField, string>> = {};
+
+    for (const field of missingFieldDetails) {
+      nextFieldErrors[field.field] = field.message;
+    }
+
+    for (const field of issueFieldDetails) {
+      nextFieldErrors[field.field] = field.message;
+    }
+
+    return nextFieldErrors;
+  }, [issueFieldDetails, missingFieldDetails]);
+
+  useEffect(() => {
+    const field = requestedFocusField.current;
+
+    if (!field) {
+      return;
+    }
+
+    const meta = getPlanFieldMeta(field);
+    const element = document.getElementById(meta.elementId);
+
+    if (!(element instanceof HTMLElement)) {
+      return;
+    }
+
+    const focusTimer = window.requestAnimationFrame(() => {
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+      element.focus({ preventScroll: true });
+      requestedFocusField.current = undefined;
+    });
+
+    return () => window.cancelAnimationFrame(focusTimer);
+  }, [currentStep, focusRequestKey]);
+
+  function focusField(field: PlanFormField) {
+    const meta = getPlanFieldMeta(field);
+    requestedFocusField.current = field;
+    setHighlightedField(field);
+    setFocusRequestKey((value) => value + 1);
+    setCurrentStep(meta.step);
+  }
 
   function updateDraft(patch: Partial<TripRequestDraft>) {
     setDraft((current) => ({
@@ -167,15 +188,17 @@ export default function PlanPage() {
     }));
     setIssues([]);
     setStepMessage(undefined);
+    setHighlightedField(undefined);
   }
 
   function handleNext() {
-    const blockers = missingFields.filter((field) =>
-      STEP_FIELDS[currentStep].includes(field.field),
+    const blockers = missingFieldDetails.filter(
+      (field) => field.step === currentStep,
     );
 
     if (blockers.length > 0) {
-      setStepMessage(blockers.map((item) => item.message).join(" "));
+      setStepMessage("这一步还有几项没补完，点提示就能继续改。");
+      focusField(blockers[0].field);
       return;
     }
 
@@ -244,14 +267,19 @@ export default function PlanPage() {
       setIssues(result.issues);
       setStepMessage(
         result.missingFields.length > 0
-          ? result.missingFields.map((item) => item.message).join(" ")
+          ? "还差几项信息，补完这些就能生成行程。"
           : "有几项还对不上，按提示改一下。",
       );
-      setCurrentStep(
-        result.missingFields.length > 0
-          ? stepForMissingFields(result.missingFields)
-          : stepForIssues(result.issues),
+      const missingDetails = getMissingTripRequestFieldDetails(
+        result.missingFields,
       );
+      const issueDetails = getTripRequestIssueFieldDetails(result.issues);
+      const firstField = missingDetails[0]?.field ?? issueDetails[0]?.field;
+
+      if (firstField) {
+        focusField(firstField);
+      }
+
       return;
     }
 
@@ -355,19 +383,28 @@ export default function PlanPage() {
             draft={draft}
             missingFields={missingFields}
           />
-          <StepQuestionForm
-            draft={draft}
-            currentStep={currentStep}
-            issues={issues}
-            stepMessage={stepMessage}
-            onChange={updateDraft}
-            onBack={() => {
-              setStepMessage(undefined);
-              setCurrentStep((step) => Math.max(0, step - 1));
-            }}
-            onNext={handleNext}
-            onSubmit={handleSubmit}
-          />
+          <div className="min-w-0 space-y-4">
+            <MissingFieldsSummary
+              missingFields={missingFieldDetails}
+              onSelect={focusField}
+            />
+            <StepQuestionForm
+              draft={draft}
+              currentStep={currentStep}
+              issues={issues}
+              fieldErrors={fieldErrors}
+              highlightedField={highlightedField}
+              stepMessage={stepMessage}
+              onChange={updateDraft}
+              onBack={() => {
+                setStepMessage(undefined);
+                setHighlightedField(undefined);
+                setCurrentStep((step) => Math.max(0, step - 1));
+              }}
+              onNext={handleNext}
+              onSubmit={handleSubmit}
+            />
+          </div>
         </div>
       </main>
       <Footer />

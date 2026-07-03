@@ -4,6 +4,10 @@ import { FormEvent } from "react";
 
 import { InterestSelector } from "@/components/trip/InterestSelector";
 import { TravelStyleSelector } from "@/components/trip/TravelStyleSelector";
+import {
+  getPlanFieldMeta,
+  type PlanFormField,
+} from "@/lib/trip/plan-fields";
 import type { TripRequestNormalizationIssue } from "@/lib/trip/normalize";
 import type { TripRequestDraft } from "@/lib/trip/types";
 
@@ -26,6 +30,8 @@ interface StepQuestionFormProps {
   draft: TripRequestDraft;
   currentStep: number;
   issues: TripRequestNormalizationIssue[];
+  fieldErrors: Partial<Record<PlanFormField, string>>;
+  highlightedField?: PlanFormField;
   stepMessage?: string;
   onChange: (patch: Partial<TripRequestDraft>) => void;
   onBack: () => void;
@@ -35,6 +41,44 @@ interface StepQuestionFormProps {
 
 const inputClassName =
   "mt-2 min-h-11 w-full rounded-none border border-[var(--line-strong)] bg-[var(--paper-bright)] px-3 py-2.5 text-sm text-[var(--ink)] outline-none placeholder:text-[var(--ink-faint)] focus-visible:ring-2 focus-visible:ring-[var(--sage-deep)]";
+
+function fieldErrorId(field: PlanFormField): string {
+  return `plan-field-error-${field}`;
+}
+
+function panelClass(invalid: boolean, highlighted: boolean): string {
+  return invalid || highlighted
+    ? "rounded-sm border border-[var(--clay)] bg-[var(--clay-soft)] p-3"
+    : "";
+}
+
+function inputWithStateClass(invalid: boolean): string {
+  return invalid
+    ? `${inputClassName} border-[var(--clay)]`
+    : inputClassName;
+}
+
+function FieldError({
+  field,
+  message,
+}: {
+  field: PlanFormField;
+  message?: string;
+}) {
+  if (!message) {
+    return null;
+  }
+
+  return (
+    <p
+      id={fieldErrorId(field)}
+      role="alert"
+      className="mt-2 break-words text-xs leading-5 text-[var(--clay-deep)]"
+    >
+      {message}
+    </p>
+  );
+}
 
 function parseList(value: string): string[] {
   return value
@@ -95,6 +139,8 @@ export function StepQuestionForm({
   draft,
   currentStep,
   issues,
+  fieldErrors,
+  highlightedField,
   stepMessage,
   onChange,
   onBack,
@@ -102,6 +148,31 @@ export function StepQuestionForm({
   onSubmit,
 }: StepQuestionFormProps) {
   const step = PLAN_STEPS[currentStep];
+
+  function getFieldMessage(field: PlanFormField): string | undefined {
+    return fieldErrors[field];
+  }
+
+  function getFieldState(field: PlanFormField) {
+    const message = getFieldMessage(field);
+
+    return {
+      message,
+      invalid: Boolean(message),
+      highlighted: highlightedField === field,
+      describedBy: message ? fieldErrorId(field) : undefined,
+    };
+  }
+
+  const departureCityState = getFieldState("departureCity");
+  const destinationCityState = getFieldState("destinationCity");
+  const daysOrDatesState = getFieldState("daysOrDates");
+  const daysState = getFieldState("days");
+  const startDateState = getFieldState("startDate");
+  const endDateState = getFieldState("endDate");
+  const budgetState = getFieldState("budget");
+  const interestsState = getFieldState("interests");
+  const travelStylesState = getFieldState("travelStyles");
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -164,38 +235,79 @@ export function StepQuestionForm({
         {currentStep === 0 ? (
           <div className="space-y-5">
             <div className="grid gap-4 sm:grid-cols-2">
-              <label className="text-sm font-semibold">
+              <label
+                className={`block text-sm font-semibold ${panelClass(
+                  departureCityState.invalid,
+                  departureCityState.highlighted,
+                )}`}
+              >
                 从哪个城市出发
                 <input
+                  id={getPlanFieldMeta("departureCity").elementId}
                   value={draft.departureCity ?? ""}
                   onChange={(event) =>
                     onChange({ departureCity: event.target.value })
                   }
                   placeholder="例如：深圳"
-                  className={inputClassName}
+                  aria-invalid={departureCityState.invalid || undefined}
+                  aria-describedby={departureCityState.describedBy}
+                  className={inputWithStateClass(departureCityState.invalid)}
+                />
+                <FieldError
+                  field="departureCity"
+                  message={departureCityState.message}
                 />
               </label>
-              <label className="text-sm font-semibold">
+              <label
+                className={`block text-sm font-semibold ${panelClass(
+                  destinationCityState.invalid,
+                  destinationCityState.highlighted,
+                )}`}
+              >
                 想去哪个城市
                 <input
+                  id={getPlanFieldMeta("destinationCity").elementId}
                   value={draft.destinationCity ?? ""}
                   onChange={(event) =>
                     onChange({ destinationCity: event.target.value })
                   }
                   placeholder="例如：厦门"
-                  className={inputClassName}
+                  aria-invalid={destinationCityState.invalid || undefined}
+                  aria-describedby={destinationCityState.describedBy}
+                  className={inputWithStateClass(destinationCityState.invalid)}
+                />
+                <FieldError
+                  field="destinationCity"
+                  message={destinationCityState.message}
                 />
               </label>
             </div>
 
-            <div className="break-words border-l-2 border-[var(--sage-deep)] bg-[var(--sage-soft)] px-4 py-3 text-sm leading-6 text-[var(--sage-deep)]">
-              天数和完整日期，填一组就行。日期没定，也可以先按天数排通用方案。
+            <div
+              className={`scroll-mt-28 ${panelClass(
+                daysOrDatesState.invalid,
+                daysOrDatesState.highlighted,
+              )}`}
+            >
+              <div className="break-words border-l-2 border-[var(--sage-deep)] bg-[var(--sage-soft)] px-4 py-3 text-sm leading-6 text-[var(--sage-deep)]">
+                天数和完整日期，填一组就行。日期没定，也可以先按天数排通用方案。
+              </div>
+              <FieldError
+                field="daysOrDates"
+                message={daysOrDatesState.message}
+              />
             </div>
 
             <div className="grid gap-4 sm:grid-cols-3">
-              <label className="text-sm font-semibold">
+              <label
+                className={`block text-sm font-semibold ${panelClass(
+                  daysState.invalid,
+                  daysState.highlighted,
+                )}`}
+              >
                 玩几天
                 <input
+                  id={getPlanFieldMeta("days").elementId}
                   type="number"
                   min={1}
                   max={60}
@@ -209,12 +321,21 @@ export function StepQuestionForm({
                     })
                   }
                   placeholder="3"
-                  className={inputClassName}
+                  aria-invalid={daysState.invalid || undefined}
+                  aria-describedby={daysState.describedBy}
+                  className={inputWithStateClass(daysState.invalid)}
                 />
+                <FieldError field="days" message={daysState.message} />
               </label>
-              <label className="text-sm font-semibold">
+              <label
+                className={`block text-sm font-semibold ${panelClass(
+                  startDateState.invalid,
+                  startDateState.highlighted,
+                )}`}
+              >
                 开始日期
                 <input
+                  id={getPlanFieldMeta("startDate").elementId}
                   type="date"
                   value={draft.startDate ?? ""}
                   onChange={(event) =>
@@ -222,12 +343,24 @@ export function StepQuestionForm({
                       startDate: event.target.value || undefined,
                     })
                   }
-                  className={inputClassName}
+                  aria-invalid={startDateState.invalid || undefined}
+                  aria-describedby={startDateState.describedBy}
+                  className={inputWithStateClass(startDateState.invalid)}
+                />
+                <FieldError
+                  field="startDate"
+                  message={startDateState.message}
                 />
               </label>
-              <label className="text-sm font-semibold">
+              <label
+                className={`block text-sm font-semibold ${panelClass(
+                  endDateState.invalid,
+                  endDateState.highlighted,
+                )}`}
+              >
                 结束日期
                 <input
+                  id={getPlanFieldMeta("endDate").elementId}
                   type="date"
                   value={draft.endDate ?? ""}
                   onChange={(event) =>
@@ -235,8 +368,11 @@ export function StepQuestionForm({
                       endDate: event.target.value || undefined,
                     })
                   }
-                  className={inputClassName}
+                  aria-invalid={endDateState.invalid || undefined}
+                  aria-describedby={endDateState.describedBy}
+                  className={inputWithStateClass(endDateState.invalid)}
                 />
+                <FieldError field="endDate" message={endDateState.message} />
               </label>
             </div>
           </div>
@@ -244,10 +380,16 @@ export function StepQuestionForm({
 
         {currentStep === 1 ? (
           <div className="space-y-7">
-            <label className="block max-w-xs text-sm font-semibold">
+            <label
+              className={`block max-w-xs text-sm font-semibold ${panelClass(
+                budgetState.invalid,
+                budgetState.highlighted,
+              )}`}
+            >
               大概预算
               <div className="relative">
                 <input
+                  id={getPlanFieldMeta("budget").elementId}
                   type="number"
                   min={1}
                   value={draft.budget ?? ""}
@@ -260,15 +402,23 @@ export function StepQuestionForm({
                     })
                   }
                   placeholder="2500"
-                  className={`${inputClassName} pr-12`}
+                  aria-invalid={budgetState.invalid || undefined}
+                  aria-describedby={budgetState.describedBy}
+                  className={`${inputWithStateClass(budgetState.invalid)} pr-12`}
                 />
                 <span className="pointer-events-none absolute right-3 top-1/2 mt-1 -translate-y-1/2 text-sm text-[var(--ink-muted)]">
                   元
                 </span>
               </div>
+              <FieldError field="budget" message={budgetState.message} />
             </label>
 
             <InterestSelector
+              fieldId={getPlanFieldMeta("interests").elementId}
+              errorId={interestsState.describedBy}
+              errorMessage={interestsState.message}
+              invalid={interestsState.invalid}
+              highlighted={interestsState.highlighted}
               legend="更想体验什么"
               helperText="至少选一个。已经识别出来的可以继续改。"
               selected={draft.interests ?? []}
@@ -280,6 +430,11 @@ export function StepQuestionForm({
             />
 
             <TravelStyleSelector
+              fieldId={getPlanFieldMeta("travelStyles").elementId}
+              errorId={travelStylesState.describedBy}
+              errorMessage={travelStylesState.message}
+              invalid={travelStylesState.invalid}
+              highlighted={travelStylesState.highlighted}
               legend="这趟想怎么走"
               helperText="至少选一个，别怕选得不够专业。"
               selected={draft.travelStyles ?? []}

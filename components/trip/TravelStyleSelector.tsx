@@ -8,6 +8,11 @@ interface TravelStyleSelectorProps {
   disabled?: boolean;
   legend?: string;
   helperText?: string;
+  fieldId?: string;
+  errorId?: string;
+  errorMessage?: string;
+  invalid?: boolean;
+  highlighted?: boolean;
 }
 
 export function TravelStyleSelector({
@@ -16,9 +21,25 @@ export function TravelStyleSelector({
   disabled = false,
   legend = "想怎么走",
   helperText,
+  fieldId,
+  errorId,
+  errorMessage,
+  invalid = false,
+  highlighted = false,
 }: TravelStyleSelectorProps) {
   return (
-    <fieldset disabled={disabled}>
+    <fieldset
+      id={fieldId}
+      disabled={disabled}
+      tabIndex={-1}
+      aria-invalid={invalid || undefined}
+      aria-describedby={errorId}
+      className={`scroll-mt-28 ${
+        invalid || highlighted
+          ? "border border-[var(--clay)] bg-[var(--clay-soft)] p-3"
+          : ""
+      }`}
+    >
       <legend className="text-sm font-semibold text-[var(--ink)]">
         {legend}
       </legend>
@@ -48,6 +69,15 @@ export function TravelStyleSelector({
           );
         })}
       </div>
+      {errorMessage ? (
+        <p
+          id={errorId}
+          role="alert"
+          className="mt-3 text-xs leading-5 text-[var(--clay-deep)]"
+        >
+          {errorMessage}
+        </p>
+      ) : null}
     </fieldset>
   );
 }

@@ -7,13 +7,27 @@ import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { AttractionCard } from "@/components/trip/AttractionCard";
 import { BudgetSummaryCard } from "@/components/trip/BudgetSummaryCard";
-import { DayItineraryCard } from "@/components/trip/DayItineraryCard";
+import { DayCabinet } from "@/components/trip/DayCabinet";
+import { DayCabinetSummary } from "@/components/trip/DayCabinetSummary";
 import { ExportActions } from "@/components/trip/ExportActions";
 import { HotelAreaAdvice } from "@/components/trip/HotelAreaAdvice";
+import { ModificationQuickActions } from "@/components/trip/ModificationQuickActions";
+import { RegenerateShortcut } from "@/components/trip/RegenerateShortcut";
 import { RegenerateBox } from "@/components/trip/RegenerateBox";
+import { ResultDayNav } from "@/components/trip/ResultDayNav";
 import { TransportAdvice } from "@/components/trip/TransportAdvice";
 import { TripSummaryCard } from "@/components/trip/TripSummaryCard";
 import { WeatherAlertCard } from "@/components/trip/WeatherAlertCard";
+import {
+  mapTripPlanToCabinets,
+  type ItineraryBlockView,
+} from "@/lib/trip/itinerary-view";
+import {
+  buildBlockModificationRequest,
+  buildQuickModificationRequest,
+  type BlockActionType,
+  type QuickModificationType,
+} from "@/lib/trip/modification-intents";
 import {
   loadTripPlan,
   loadTripRequest,
@@ -57,6 +71,10 @@ export default function ResultPage() {
   const [pageState, setPageState] = useState<ResultPageState>("loading");
   const [tripPlan, setTripPlan] = useState<TripPlan>();
   const [tripRequest, setTripRequest] = useState<TripRequest | null>(null);
+  const [expandedDay, setExpandedDay] = useState<number | null>(null);
+  const [activeNavKey, setActiveNavKey] = useState("overview");
+  const [modificationDraft, setModificationDraft] = useState("");
+  const [externalDraftVersion, setExternalDraftVersion] = useState(0);
 
   useEffect(() => {
     const restoreTimer = window.setTimeout(() => {
@@ -81,10 +99,112 @@ export default function ResultPage() {
     () => (tripPlan ? collectAttractions(tripPlan) : []),
     [tripPlan],
   );
+  const cabinets = useMemo(
+    () => (tripPlan ? mapTripPlanToCabinets(tripPlan) : []),
+    [tripPlan],
+  );
+  const navItems = useMemo(
+    () => [
+      { key: "overview", label: "总览" },
+      ...cabinets.map((cabinet) => ({
+        key: `day-${cabinet.dayNumber}`,
+        label: `Day ${cabinet.dayNumber}`,
+      })),
+      { key: "budget", label: "预算" },
+      { key: "transport", label: "交通" },
+      { key: "regenerate", label: "修改" },
+    ],
+    [cabinets],
+  );
+
+  function scrollToSection(sectionId: string) {
+    const element = document.getElementById(sectionId);
+
+    if (!(element instanceof HTMLElement)) {
+      return;
+    }
+
+    element.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }
 
   function handleRegenerated(response: GenerateTripResponse) {
     const savedTripPlan = saveTripPlan(response.tripPlan);
     setTripPlan(savedTripPlan);
+    setExpandedDay(null);
+    setActiveNavKey("overview");
+    setModificationDraft("");
+  }
+
+  function handleBlockAction(
+    actionType: BlockActionType,
+    block: ItineraryBlockView,
+  ) {
+    const nextDraft = buildBlockModificationRequest(actionType, block);
+
+    setModificationDraft(nextDraft);
+    setExternalDraftVersion((currentVersion) => currentVersion + 1);
+    setActiveNavKey("regenerate");
+
+    window.requestAnimationFrame(() => {
+      scrollToSection("result-regenerate");
+    });
+  }
+
+  function handleQuickModification(type: QuickModificationType) {
+    const nextDraft = buildQuickModificationRequest(type);
+
+    setModificationDraft(nextDraft);
+    setExternalDraftVersion((currentVersion) => currentVersion + 1);
+    setActiveNavKey("regenerate");
+
+    window.requestAnimationFrame(() => {
+      scrollToSection("result-regenerate");
+    });
+  }
+
+  function toggleExpandedDay(dayNumber: number) {
+    setExpandedDay((currentDay) => (currentDay === dayNumber ? null : dayNumber));
+    setActiveNavKey(`day-${dayNumber}`);
+  }
+
+  function handleNavSelect(key: string) {
+    setActiveNavKey(key);
+
+    if (key === "overview") {
+      scrollToSection("result-overview");
+      return;
+    }
+
+    if (key === "budget") {
+      scrollToSection("result-budget");
+      return;
+    }
+
+    if (key === "transport") {
+      scrollToSection("result-transport");
+      return;
+    }
+
+    if (key === "regenerate") {
+      scrollToSection("result-regenerate");
+      return;
+    }
+
+    if (key.startsWith("day-")) {
+      const dayNumber = Number(key.replace("day-", ""));
+
+      if (Number.isNaN(dayNumber)) {
+        return;
+      }
+
+      setExpandedDay(dayNumber);
+      window.requestAnimationFrame(() => {
+        scrollToSection(`result-day-${dayNumber}`);
+      });
+    }
   }
 
   if (pageState === "loading") {
@@ -137,10 +257,10 @@ export default function ResultPage() {
   return (
     <div className="paper-texture min-h-screen overflow-x-clip text-[var(--ink)]">
       <Header />
-      <main className="mx-auto w-full max-w-6xl px-5 pb-20 pt-4 sm:px-8 sm:pt-8">
+      <main className="mx-auto w-full max-w-6xl px-5 pb-16 pt-3 sm:px-8 sm:pb-20 sm:pt-8">
         <nav
           aria-label="结果页返回入口"
-          className="mb-6 flex flex-wrap gap-x-5 gap-y-2 text-sm font-semibold"
+          className="mb-5 flex flex-wrap gap-x-5 gap-y-2 text-sm font-semibold sm:mb-6"
         >
           <Link
             href="/plan"
@@ -156,38 +276,95 @@ export default function ResultPage() {
           </Link>
         </nav>
 
-        <TripSummaryCard tripPlan={tripPlan} />
+        <div className="space-y-4 sm:space-y-5">
+          <div className="sticky top-2.5 z-20 -mx-1 px-1 sm:top-3">
+            <ResultDayNav
+              items={navItems}
+              activeKey={activeNavKey}
+              onSelect={handleNavSelect}
+            />
+          </div>
 
-        <div className="mt-8 grid items-start gap-6 lg:grid-cols-[1.15fr_0.85fr]">
-          <WeatherAlertCard weather={tripPlan.weatherSummary} />
-          <BudgetSummaryCard budget={tripPlan.budgetSummary} />
+          <div id="result-overview" className="scroll-mt-28 sm:scroll-mt-32">
+            <TripSummaryCard tripPlan={tripPlan} />
+          </div>
+
+          <RegenerateShortcut onJump={() => handleNavSelect("regenerate")} />
+
+          <ModificationQuickActions onSelect={handleQuickModification} />
         </div>
 
-        <section aria-labelledby="daily-title" className="mt-14">
-          <div className="mb-6 max-w-2xl">
+        <div className="mt-6 grid items-start gap-5 sm:mt-8 sm:gap-6 lg:grid-cols-[1.15fr_0.85fr]">
+          <WeatherAlertCard weather={tripPlan.weatherSummary} />
+          <div id="result-budget" className="scroll-mt-28 sm:scroll-mt-32">
+            <BudgetSummaryCard budget={tripPlan.budgetSummary} />
+          </div>
+        </div>
+
+        <section aria-labelledby="daily-title" className="mt-12 sm:mt-14">
+          <div className="mb-5 max-w-2xl sm:mb-6">
             <p className="text-xs font-semibold tracking-[0.14em] text-[var(--clay-deep)]">
               按天照着走
             </p>
-            <h2 id="daily-title" className="mt-2 text-3xl font-semibold">
+            <h2 id="daily-title" className="mt-2 text-2xl font-semibold sm:text-3xl">
               每日行程
             </h2>
             <p className="mt-2 text-sm leading-6 text-[var(--ink-muted)]">
-              同一天尽量排在相近片区。累了就删一项，别为了打卡把自己赶着走。
+              同一天尽量排在相近片区。累了就删一页，别为了打卡把自己赶着跑。
             </p>
           </div>
-          <div className="space-y-7">
-            {tripPlan.dailyItinerary.map((day) => (
-              <DayItineraryCard key={day.day} itinerary={day} />
+
+          <div className="space-y-3.5 lg:hidden">
+            {cabinets.map((cabinet) => {
+              const isExpanded = expandedDay === cabinet.dayNumber;
+
+              return (
+                <div
+                  key={cabinet.dayNumber}
+                  id={`result-day-${cabinet.dayNumber}`}
+                  className="scroll-mt-28 space-y-3 sm:scroll-mt-32"
+                >
+                  <DayCabinetSummary
+                    cabinet={cabinet}
+                    expanded={isExpanded}
+                    onToggle={toggleExpandedDay}
+                  />
+                  {isExpanded ? (
+                    <DayCabinet
+                      cabinet={cabinet}
+                      onBlockAction={handleBlockAction}
+                    />
+                  ) : null}
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="hidden space-y-7 lg:block">
+            {cabinets.map((cabinet) => (
+              <div
+                key={cabinet.dayNumber}
+                id={`result-day-${cabinet.dayNumber}`}
+                className="scroll-mt-28 sm:scroll-mt-32"
+              >
+                <DayCabinet
+                  cabinet={cabinet}
+                  onBlockAction={handleBlockAction}
+                />
+              </div>
             ))}
           </div>
         </section>
 
-        <section aria-labelledby="attraction-title" className="mt-14">
-          <div className="mb-5">
+        <section aria-labelledby="attraction-title" className="mt-12 sm:mt-14">
+          <div className="mb-4 sm:mb-5">
             <p className="text-xs font-semibold tracking-[0.14em] text-[var(--sage-deep)]">
               到地方别只看简介
             </p>
-            <h2 id="attraction-title" className="mt-2 text-3xl font-semibold">
+            <h2
+              id="attraction-title"
+              className="mt-2 text-2xl font-semibold sm:text-3xl"
+            >
               景点攻略
             </h2>
           </div>
@@ -208,28 +385,31 @@ export default function ResultPage() {
           )}
         </section>
 
-        <div className="mt-14">
+        <div className="mt-12 sm:mt-14">
           <HotelAreaAdvice advice={tripPlan.hotelAreaAdvice} />
         </div>
 
-        <div className="mt-14">
+        <div
+          id="result-transport"
+          className="mt-12 scroll-mt-28 sm:mt-14 sm:scroll-mt-32"
+        >
           <TransportAdvice advice={tripPlan.transportAdvice} />
         </div>
 
         <section
           aria-labelledby="notes-title"
-          className="mt-14 grid items-start gap-6 lg:grid-cols-[1fr_0.9fr]"
+          className="mt-12 grid items-start gap-5 sm:mt-14 sm:gap-6 lg:grid-cols-[1fr_0.9fr]"
         >
-          <div className="border border-[var(--line-strong)] bg-[var(--paper-bright)] p-5 sm:p-6">
+          <div className="border border-[var(--line-strong)] bg-[var(--paper-bright)] p-4 sm:p-6">
             <p className="text-xs font-semibold tracking-[0.14em] text-[var(--clay-deep)]">
               临走前再核实
             </p>
-            <h2 id="notes-title" className="mt-2 text-2xl font-semibold">
+            <h2 id="notes-title" className="mt-2 text-xl font-semibold sm:text-2xl">
               注意事项
             </h2>
 
             {tripPlan.warnings.length > 0 ? (
-              <ul className="mt-5 space-y-2 bg-[var(--clay-soft)] px-4 py-3 text-sm leading-6 text-[var(--clay-deep)]">
+              <ul className="mt-4 space-y-2 bg-[var(--clay-soft)] px-4 py-3 text-sm leading-6 text-[var(--clay-deep)] sm:mt-5">
                 {tripPlan.warnings.map((warning) => (
                   <li key={warning}>- {warning}</li>
                 ))}
@@ -245,15 +425,20 @@ export default function ResultPage() {
             ) : null}
           </div>
 
-          <div className="space-y-5">
-            <div className="border border-[var(--line-strong)] bg-[var(--paper-bright)] p-5 sm:p-6">
+          <div className="space-y-4 sm:space-y-5">
+            <div className="border border-[var(--line-strong)] bg-[var(--paper-bright)] p-4 sm:p-6">
               <ExportActions tripPlan={tripPlan} />
             </div>
-            <RegenerateBox
-              tripPlan={tripPlan}
-              tripRequest={tripRequest}
-              onRegenerated={handleRegenerated}
-            />
+            <div id="result-regenerate" className="scroll-mt-28 sm:scroll-mt-32">
+              <RegenerateBox
+                tripPlan={tripPlan}
+                tripRequest={tripRequest}
+                modificationRequest={modificationDraft}
+                externalDraftVersion={externalDraftVersion}
+                onModificationRequestChange={setModificationDraft}
+                onRegenerated={handleRegenerated}
+              />
+            </div>
           </div>
         </section>
       </main>

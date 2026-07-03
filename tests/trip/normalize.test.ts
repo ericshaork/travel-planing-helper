@@ -47,6 +47,41 @@ describe("trip request normalization", () => {
     ]);
   });
 
+  it("单独识别缺少预算", () => {
+    expect(
+      getMissingTripRequestFields({
+        ...baseDraft,
+        budget: undefined,
+        days: 3,
+      }),
+    ).toEqual([{ field: "budget", message: "大概预算是多少？" }]);
+  });
+
+  it("单独识别缺少兴趣", () => {
+    expect(
+      getMissingTripRequestFields({
+        ...baseDraft,
+        interests: [],
+        days: 3,
+      }),
+    ).toEqual([{ field: "interests", message: "你更喜欢哪些类型的体验？" }]);
+  });
+
+  it("单独识别缺少出行风格", () => {
+    expect(
+      getMissingTripRequestFields({
+        ...baseDraft,
+        travelStyles: [],
+        days: 3,
+      }),
+    ).toEqual([
+      {
+        field: "travelStyles",
+        message: "你希望行程轻松一点，还是高效率一点？",
+      },
+    ]);
+  });
+
   it("只有开始日期时提示补充结束日期或天数", () => {
     expect(
       getMissingTripRequestFields({
@@ -103,6 +138,15 @@ describe("trip request normalization", () => {
       expect(result.tripRequest.startDate).toBeUndefined();
       expect(result.tripRequest.endDate).toBeUndefined();
     }
+  });
+
+  it("补完核心字段后不再返回缺失项", () => {
+    expect(
+      getMissingTripRequestFields({
+        ...baseDraft,
+        days: 3,
+      }),
+    ).toEqual([]);
   });
 
   it("补齐默认币种、空地点数组和未填写的可选偏好", () => {

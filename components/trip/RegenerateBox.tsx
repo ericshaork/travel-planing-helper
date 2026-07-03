@@ -15,6 +15,9 @@ import type { ApiErrorResponse } from "@/lib/utils/errors";
 interface RegenerateBoxProps {
   tripPlan: TripPlan;
   tripRequest?: TripRequest | null;
+  modificationRequest: string;
+  externalDraftVersion?: number;
+  onModificationRequestChange: (value: string) => void;
   onRegenerated: (response: GenerateTripResponse) => void;
 }
 
@@ -24,41 +27,55 @@ const retryableErrorMessage =
 export function RegenerateBox({
   tripPlan,
   tripRequest,
+  modificationRequest,
+  externalDraftVersion = 0,
+  onModificationRequestChange,
   onRegenerated,
 }: RegenerateBoxProps) {
-  const [modificationRequest, setModificationRequest] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string>();
   const [successMessage, setSuccessMessage] = useState<string>();
   const [appliedChanges, setAppliedChanges] = useState<string[]>([]);
+  const [statusDraftVersion, setStatusDraftVersion] = useState(0);
 
   const trimmedRequest = modificationRequest.trim();
   const hasTripRequest = Boolean(tripRequest);
+  const showCurrentStatus = statusDraftVersion === externalDraftVersion;
 
   async function submitRegeneration() {
     if (!hasTripRequest) {
-      setErrorMessage("原始需求这边没留住，想改这版的话，先回 /plan 重新生成一次。");
+      setStatusDraftVersion(externalDraftVersion);
+      setErrorMessage(
+        "原始需求这边没留住，想改这版的话，先回 /plan 重新生成一次。",
+      );
       setSuccessMessage(undefined);
+      setAppliedChanges([]);
       return;
     }
 
     if (!trimmedRequest) {
+      setStatusDraftVersion(externalDraftVersion);
       setErrorMessage("想改哪儿？直接说一句就行。");
       setSuccessMessage(undefined);
+      setAppliedChanges([]);
       return;
     }
 
     if (trimmedRequest.length > TRIP_INPUT_LIMITS.modificationRequest) {
+      setStatusDraftVersion(externalDraftVersion);
       setErrorMessage(
         `修改要求先别写太长，控制在 ${TRIP_INPUT_LIMITS.modificationRequest} 个字以内。`,
       );
       setSuccessMessage(undefined);
+      setAppliedChanges([]);
       return;
     }
 
     setIsSubmitting(true);
+    setStatusDraftVersion(externalDraftVersion);
     setErrorMessage(undefined);
     setSuccessMessage(undefined);
+    setAppliedChanges([]);
 
     try {
       const response = await fetch("/api/generate-trip", {
@@ -82,14 +99,18 @@ export function RegenerateBox({
       const parsed = generateTripResponseSchema.safeParse(payload);
 
       if (!parsed.success) {
-        throw new Error("这次返回的内容不够完整，先别用这一版，再试一次。");
+        throw new Error(
+          "这次返回的内容不够完整，先别用这一版，再试一次。",
+        );
       }
 
       onRegenerated(parsed.data);
+      setStatusDraftVersion(externalDraftVersion);
       setAppliedChanges(parsed.data.appliedChanges ?? []);
       setSuccessMessage("已经按你的补充要求重排了一版。");
-      setModificationRequest("");
+      onModificationRequestChange("");
     } catch (error) {
+      setStatusDraftVersion(externalDraftVersion);
       setErrorMessage(
         error instanceof Error && error.message
           ? error.message
@@ -103,12 +124,12 @@ export function RegenerateBox({
   return (
     <section
       aria-labelledby="regenerate-title"
-      className="overflow-hidden border border-dashed border-[var(--line-strong)] bg-[var(--sand-soft)] p-5"
+      className="overflow-hidden border border-dashed border-[var(--line-strong)] bg-[var(--sand-soft)] p-4 sm:p-5"
     >
       <p className="text-xs font-semibold tracking-[0.14em] text-[var(--clay-deep)]">
         想再改一版
       </p>
-      <h2 id="regenerate-title" className="mt-2 text-xl font-semibold">
+      <h2 id="regenerate-title" className="mt-2 text-lg font-semibold sm:text-xl">
         想改哪儿？直接说。
       </h2>
       <p className="mt-2 break-words text-sm leading-6 text-[var(--ink-muted)]">
@@ -120,7 +141,7 @@ export function RegenerateBox({
         <textarea
           value={modificationRequest}
           onChange={(event) => {
-            setModificationRequest(event.target.value);
+            onModificationRequestChange(event.target.value);
             setErrorMessage(undefined);
           }}
           maxLength={TRIP_INPUT_LIMITS.modificationRequest}
@@ -153,7 +174,7 @@ export function RegenerateBox({
         </div>
       ) : null}
 
-      {successMessage ? (
+      {showCurrentStatus && successMessage ? (
         <p
           role="status"
           className="mt-4 break-words border-l-2 border-[var(--sage-deep)] bg-[var(--paper-bright)] px-4 py-3 text-sm leading-6 text-[var(--sage-deep)]"
@@ -162,7 +183,7 @@ export function RegenerateBox({
         </p>
       ) : null}
 
-      {appliedChanges.length > 0 ? (
+      {showCurrentStatus && appliedChanges.length > 0 ? (
         <div className="mt-4 border border-[var(--line)] bg-[var(--paper-bright)] px-4 py-3">
           <p className="text-xs font-semibold tracking-[0.12em] text-[var(--sage-deep)]">
             这次改了什么
@@ -177,7 +198,7 @@ export function RegenerateBox({
         </div>
       ) : null}
 
-      {errorMessage ? (
+      {showCurrentStatus && errorMessage ? (
         <p
           role="alert"
           className="mt-4 break-words border-l-2 border-[var(--clay)] bg-[var(--paper-bright)] px-4 py-3 text-sm leading-6 text-[var(--clay-deep)]"
@@ -186,17 +207,17 @@ export function RegenerateBox({
         </p>
       ) : null}
 
-      <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+      <div className="mt-4 flex flex-col gap-3 sm:mt-5 sm:flex-row sm:flex-wrap sm:items-center">
         <button
           type="button"
           onClick={() => void submitRegeneration()}
           disabled={isSubmitting || !hasTripRequest}
-          className="min-h-11 w-full border border-[var(--ink)] bg-[var(--ink)] px-5 py-2.5 text-sm font-semibold text-[var(--paper-bright)] shadow-[4px_4px_0_var(--clay)] transition-[transform,box-shadow] duration-150 ease-out hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)] active:translate-y-0 active:shadow-[2px_2px_0_var(--clay)] disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
+          className="min-h-11 w-full border border-[var(--ink)] bg-[var(--ink)] px-5 py-2.5 text-sm font-semibold text-[var(--paper-bright)] shadow-[3px_3px_0_var(--clay)] transition-[transform,box-shadow] duration-150 ease-out hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)] active:translate-y-0 active:shadow-[2px_2px_0_var(--clay)] disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto sm:shadow-[4px_4px_0_var(--clay)]"
         >
-          {isSubmitting ? "重新排一下" : "按这句重排"}
+          {isSubmitting ? "重新排一版..." : "按这句重排"}
         </button>
 
-        {errorMessage && hasTripRequest ? (
+        {showCurrentStatus && errorMessage && hasTripRequest ? (
           <button
             type="button"
             onClick={() => void submitRegeneration()}

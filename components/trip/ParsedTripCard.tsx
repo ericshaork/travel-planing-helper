@@ -1,3 +1,6 @@
+import {
+  getMissingTripRequestFieldDetails,
+} from "@/lib/trip/plan-fields";
 import type { MissingTripRequestField } from "@/lib/trip/normalize";
 import type { TripRequestDraft } from "@/lib/trip/types";
 
@@ -51,6 +54,8 @@ function travelTimeLabel(draft: TripRequestDraft): string | undefined {
 }
 
 export function ParsedTripCard({ draft, missingFields }: ParsedTripCardProps) {
+  const missingFieldDetails = getMissingTripRequestFieldDetails(missingFields);
+
   return (
     <aside className="min-w-0 lg:sticky lg:top-6">
       <div className="overflow-hidden border border-[var(--line-strong)] bg-[var(--sand-soft)] p-5 shadow-[6px_7px_0_rgb(173_96_72_/_12%)]">
@@ -91,9 +96,9 @@ export function ParsedTripCard({ draft, missingFields }: ParsedTripCardProps) {
                 还差 {missingFields.length} 项
               </p>
               <ul className="mt-2 space-y-1 text-[var(--ink-muted)]">
-                {missingFields.map((item) => (
+                {missingFieldDetails.map((item) => (
                   <li key={item.field} className="break-words">
-                    - {item.message}
+                    - {item.label}
                   </li>
                 ))}
               </ul>

@@ -456,3 +456,15 @@ MVP v0.1 可以认为完成，当且仅当：
 8. 没有明显硬编码 API Key；
 9. 没有把所有逻辑堆在一个文件；
 10. 非 MVP 功能没有被过度开发。
+
+## 13. MVP v1.1 Development Rules
+
+- v1.1 的主线是点击式行程积木编辑，轻量自然语言修改只作为辅助，不开发完整聊天系统；
+- 继续复用现有 `TripPlan`、`DailyItinerary`、`ItineraryItem` 和 `/api/generate-trip`；
+- `dailyItinerary[].morning / afternoon / evening` 分别映射为上午、下午、晚上的固定 Time Slot，不为展示概念复制一套 AI 输出 Schema；
+- “不要这个 / 换一个 / 一定保留 / 加类似”和快捷修改只能先生成 `modificationRequest` 或轻量 constraints，不得自动提交；
+- 用户确认后必须基于当前 `TripRequest`、完整 `previousPlan` 和修改要求重新生成完整 `TripPlan`，不做局部 Patch；
+- 当前完整 `TripPlan` 始终是页面展示、复制和 Markdown 导出的唯一真实来源；
+- v1.1 必须优先完成 `/plan` 缺失项摘要、字段级错误、点击定位、首错滚动，以及手机端多日摘要、Day 导航和修改入口；
+- v1.1 不做拖拽、格子高低调整、隔板增删、精确时间轴、地图 API、真实距离、实时开放时间、真实票务/酒店、登录、收藏、数据库、历史版本或多人协作；
+- 具体范围、数据流和阶段顺序以 `docs/PRD_v1.1.md`、`docs/TECH_DESIGN_v1.1.md` 和 `docs/V1.1_PHASE_PLAN.md` 为准；不得覆盖 MVP 1.0 的 `docs/PRD.md` 与 `docs/TECH_DESIGN.md`。
