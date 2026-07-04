@@ -1,23 +1,26 @@
 interface ResultDayNavItem {
   key: string;
   label: string;
+  badge?: number;
 }
 
 interface ResultDayNavProps {
   items: ResultDayNavItem[];
   activeKey?: string;
   onSelect: (key: string) => void;
+  ariaLabel?: string;
 }
 
 export function ResultDayNav({
   items,
   activeKey,
   onSelect,
+  ariaLabel = "结果页导航",
 }: ResultDayNavProps) {
   return (
     <div className="relative overflow-hidden">
       <nav
-        aria-label="结果页导航"
+        aria-label={ariaLabel}
         className="no-scrollbar overflow-x-auto overflow-y-hidden border border-[var(--line-strong)] bg-[var(--paper)] px-2.5 py-2.5 shadow-[3px_3px_0_var(--sand-soft)] touch-pan-x sm:px-3 sm:py-3 sm:shadow-[4px_4px_0_var(--sand-soft)]"
       >
         <div className="flex w-max min-w-full flex-nowrap gap-1.5 pr-3 sm:gap-2 sm:pr-4">
@@ -36,7 +39,21 @@ export function ResultDayNav({
                     : "border-[var(--line)] bg-[var(--paper-bright)] text-[var(--ink-muted)] hover:border-[var(--ink-muted)] hover:text-[var(--ink)]"
                 }`}
               >
-                {item.label}
+                <span className="flex items-center gap-1.5">
+                  <span>{item.label}</span>
+                  {item.badge && item.badge > 0 ? (
+                    <span
+                      aria-label={`${item.badge} 项待修改`}
+                      className={`min-w-5 border px-1.5 py-0.5 text-[10px] leading-none sm:text-[11px] ${
+                        isActive
+                          ? "border-[var(--clay)] bg-[var(--paper)] text-[var(--clay-deep)]"
+                          : "border-[var(--line)] bg-[var(--paper)] text-[var(--ink-muted)]"
+                      }`}
+                    >
+                      {item.badge}
+                    </span>
+                  ) : null}
+                </span>
               </button>
             );
           })}

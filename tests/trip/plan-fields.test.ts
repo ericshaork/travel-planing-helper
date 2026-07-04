@@ -38,7 +38,7 @@ describe("plan field metadata", () => {
       {
         field: "travelStyles",
         label: "出行风格",
-        step: 1,
+        step: 2,
         elementId: "plan-field-travel-styles",
         order: 8,
         kind: "missing",
@@ -103,4 +103,3 @@ describe("plan field metadata", () => {
     });
   });
 });
-

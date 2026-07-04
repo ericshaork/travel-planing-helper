@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 import type { BlockActionType } from "@/lib/trip/modification-intents";
 
 interface BlockActionsProps {
@@ -15,19 +17,47 @@ const ACTIONS: Array<{
 ];
 
 export function BlockActions({ onAction }: BlockActionsProps) {
+  const [recentAction, setRecentAction] = useState<BlockActionType | null>(null);
+
+  useEffect(() => {
+    if (!recentAction) {
+      return;
+    }
+
+    const timer = window.setTimeout(() => {
+      setRecentAction(null);
+    }, 1400);
+
+    return () => window.clearTimeout(timer);
+  }, [recentAction]);
+
   return (
-    <div className="mt-2.5 border-t border-dashed border-[var(--line)] pt-2.5">
-      <div className="flex flex-wrap gap-1.5 sm:gap-2">
-        {ACTIONS.map((action) => (
-          <button
-            key={action.type}
-            type="button"
-            onClick={() => onAction(action.type)}
-            className="min-h-9 shrink-0 rounded-none border border-[var(--line)] bg-[var(--paper)] px-2.5 py-1.5 text-xs font-semibold text-[var(--ink-muted)] transition-colors duration-150 ease-out hover:border-[var(--clay-deep)] hover:text-[var(--clay-deep)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)]"
-          >
-            {action.label}
-          </button>
-        ))}
+    <div className="mt-3 border-t border-dashed border-[var(--line)] pt-2.5">
+      <p className="text-[10px] font-semibold tracking-[0.14em] text-[var(--ink-faint)]">
+        调这一格
+      </p>
+      <div className="mt-2 flex flex-wrap gap-1.5 sm:gap-2">
+        {ACTIONS.map((action) => {
+          const isRecent = recentAction === action.type;
+
+          return (
+            <button
+              key={action.type}
+              type="button"
+              onClick={() => {
+                onAction(action.type);
+                setRecentAction(action.type);
+              }}
+              className={`min-h-9 shrink-0 border px-2.5 py-1.5 text-xs font-semibold transition-colors duration-150 ease-out focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)] ${
+                isRecent
+                  ? "border-[var(--sage-deep)] bg-[var(--sage-soft)] text-[var(--sage-deep)]"
+                  : "border-dashed border-[var(--line-strong)] bg-[var(--paper)] text-[var(--ink-muted)] hover:border-[var(--clay-deep)] hover:bg-[var(--sand-soft)] hover:text-[var(--clay-deep)]"
+              }`}
+            >
+              {isRecent ? "已加入待修改" : action.label}
+            </button>
+          );
+        })}
       </div>
     </div>
   );

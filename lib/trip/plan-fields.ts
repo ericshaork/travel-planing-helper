@@ -80,7 +80,7 @@ const PLAN_FIELD_META: Record<PlanFormField, PlanFieldMeta> = {
   travelStyles: {
     field: "travelStyles",
     label: "出行风格",
-    step: 1,
+    step: 2,
     elementId: "plan-field-travel-styles",
     order: 8,
   },

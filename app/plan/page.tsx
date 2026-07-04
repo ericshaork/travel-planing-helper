@@ -22,6 +22,7 @@ import {
 import {
   getMissingTripRequestFields,
   normalizeTripRequestDraft,
+  resolveTripRequestDraftDates,
   type TripRequestNormalizationIssue,
 } from "@/lib/trip/normalize";
 import {
@@ -102,13 +103,17 @@ export default function PlanPage() {
           parsedSession?.selectedInterests ?? [],
           parsedSession?.selectedTravelStyles ?? [],
         );
+      const syncedDraft = {
+        ...restoredDraft,
+        ...resolveTripRequestDraftDates(restoredDraft),
+      };
       const missingFieldDetails = getMissingTripRequestFieldDetails(
-        getMissingTripRequestFields(restoredDraft),
+        getMissingTripRequestFields(syncedDraft),
       );
 
-      setDraft(restoredDraft);
+      setDraft(syncedDraft);
       setCurrentStep(missingFieldDetails[0]?.step ?? 0);
-      saveTripRequestDraft(restoredDraft);
+      saveTripRequestDraft(syncedDraft);
       setPageState("editing");
     }, 0);
 
@@ -182,10 +187,17 @@ export default function PlanPage() {
   }
 
   function updateDraft(patch: Partial<TripRequestDraft>) {
-    setDraft((current) => ({
-      ...current,
-      ...patch,
-    }));
+    setDraft((current) => {
+      const nextDraft = {
+        ...current,
+        ...patch,
+      };
+
+      return {
+        ...nextDraft,
+        ...resolveTripRequestDraftDates(nextDraft),
+      };
+    });
     setIssues([]);
     setStepMessage(undefined);
     setHighlightedField(undefined);
@@ -291,9 +303,9 @@ export default function PlanPage() {
 
   if (pageState === "loading") {
     return (
-      <div className="paper-texture min-h-screen overflow-x-clip text-[var(--ink)]">
+      <div className="paper-texture flex min-h-screen flex-col overflow-x-clip text-[var(--ink)]">
         <Header />
-        <main className="mx-auto max-w-3xl px-5 py-10">
+        <main className="mx-auto flex w-full max-w-3xl flex-1 flex-col px-5 py-8">
           <ReturnHomeLink />
           <p className="py-20 text-center text-sm font-semibold text-[var(--ink-muted)]">
             正在打开这张旅行草稿…
@@ -305,9 +317,9 @@ export default function PlanPage() {
 
   if (pageState === "missing") {
     return (
-      <div className="paper-texture min-h-screen overflow-x-clip text-[var(--ink)]">
+      <div className="paper-texture flex min-h-screen flex-col overflow-x-clip text-[var(--ink)]">
         <Header />
-        <main className="mx-auto max-w-xl px-5 py-10">
+        <main className="mx-auto flex w-full max-w-xl flex-1 flex-col px-5 py-10">
           <ReturnHomeLink />
           <section className="mt-10 border border-[var(--line-strong)] bg-[var(--paper)] p-7 shadow-[8px_9px_0_var(--sand)]">
             <p className="text-xs font-semibold tracking-[0.14em] text-[var(--clay-deep)]">
@@ -333,9 +345,9 @@ export default function PlanPage() {
 
   if (pageState === "prepared" && tripRequest) {
     return (
-      <div className="paper-texture min-h-screen overflow-x-clip text-[var(--ink)]">
+      <div className="paper-texture flex min-h-screen flex-col overflow-x-clip text-[var(--ink)]">
         <Header />
-        <main className="px-5 py-10 sm:px-8">
+        <main className="flex-1 px-5 py-10 sm:px-8">
           <div className="mx-auto mb-8 max-w-4xl">
             <ReturnHomeLink />
           </div>
@@ -350,7 +362,9 @@ export default function PlanPage() {
             onRetry={() => void generateTrip(tripRequest)}
           />
         </main>
-        <Footer />
+        <div className="hidden lg:block">
+          <Footer />
+        </div>
       </div>
     );
   }
@@ -360,34 +374,65 @@ export default function PlanPage() {
   }
 
   return (
-    <div className="paper-texture min-h-screen overflow-x-clip text-[var(--ink)]">
+    <div className="paper-texture flex min-h-screen flex-col overflow-x-clip text-[var(--ink)]">
       <Header />
-      <main className="mx-auto w-full max-w-6xl px-5 pb-16 pt-6 sm:px-8 sm:pt-10">
-        <div className="mb-7">
+      <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col px-4 pb-4 pt-2 sm:px-8 sm:pb-16 sm:pt-10">
+        <div className="mb-4">
           <ReturnHomeLink />
         </div>
-        <div className="mb-8 max-w-2xl">
+
+        <div className="mb-3 max-w-2xl lg:mb-8">
           <p className="text-xs font-semibold tracking-[0.14em] text-[var(--sage-deep)]">
             补几句，就能开始排路线
           </p>
-          <h1 className="mt-3 text-3xl font-semibold tracking-[-0.035em] sm:text-4xl">
+          <h1 className="mt-2 text-2xl font-semibold tracking-[-0.035em] sm:mt-3 sm:text-4xl">
             先把旅行需求说清楚。
           </h1>
-          <p className="mt-3 text-sm leading-7 text-[var(--ink-muted)]">
+          <p className="mt-2 hidden text-sm leading-6 text-[var(--ink-muted)] sm:block sm:mt-3 sm:leading-7">
             已经认出来的都留着。你可以直接改，也可以按步骤把空白补上。
           </p>
         </div>
 
-        <div className="grid items-start gap-7 lg:grid-cols-[minmax(17rem,0.72fr)_minmax(0,1.28fr)]">
-          <ParsedTripCard
-            draft={draft}
-            missingFields={missingFields}
-          />
+        <div className="lg:hidden">
+          <div className="flex min-h-0 flex-1 flex-col gap-3">
+            <ParsedTripCard draft={draft} missingFields={missingFields} />
+
+            <MissingFieldsSummary
+              missingFields={missingFieldDetails}
+              onSelect={focusField}
+            />
+
+            <div className="min-h-[calc(100dvh-18rem)] flex-1">
+              <StepQuestionForm
+                draft={draft}
+                currentStep={currentStep}
+                issues={issues}
+                fieldErrors={fieldErrors}
+                highlightedField={highlightedField}
+                stepMessage={stepMessage}
+                mobileViewport
+                onChange={updateDraft}
+                onBack={() => {
+                  setStepMessage(undefined);
+                  setHighlightedField(undefined);
+                  setCurrentStep((step) => Math.max(0, step - 1));
+                }}
+                onNext={handleNext}
+                onSubmit={handleSubmit}
+              />
+            </div>
+          </div>
+        </div>
+
+        <div className="hidden items-start gap-4 lg:grid lg:grid-cols-[minmax(17rem,0.72fr)_minmax(0,1.28fr)] lg:gap-7">
+          <ParsedTripCard draft={draft} missingFields={missingFields} />
+
           <div className="min-w-0 space-y-4">
             <MissingFieldsSummary
               missingFields={missingFieldDetails}
               onSelect={focusField}
             />
+
             <StepQuestionForm
               draft={draft}
               currentStep={currentStep}
@@ -407,7 +452,9 @@ export default function PlanPage() {
           </div>
         </div>
       </main>
-      <Footer />
+      <div className="hidden lg:block">
+        <Footer />
+      </div>
     </div>
   );
 }

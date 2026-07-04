@@ -21,24 +21,47 @@ const ITEM_TYPE_LABELS: Record<ItineraryItemType, string> = {
   other: "安排",
 };
 
+const ITEM_TYPE_STYLES: Record<ItineraryItemType, string> = {
+  attraction:
+    "border-[var(--sage-deep)] bg-[var(--sage-soft)] text-[var(--sage-deep)]",
+  food: "border-[var(--clay)] bg-[var(--clay-soft)] text-[var(--clay-deep)]",
+  transport: "border-[var(--line-strong)] bg-[var(--paper)] text-[var(--ink)]",
+  hotel: "border-[var(--sand-deep)] bg-[var(--sand-soft)] text-[var(--ink)]",
+  free_time:
+    "border-[var(--line)] bg-[var(--paper)] text-[var(--ink-muted)]",
+  shopping:
+    "border-[var(--line-strong)] bg-[var(--paper-bright)] text-[var(--ink)]",
+  other: "border-[var(--line)] bg-[var(--paper)] text-[var(--ink-muted)]",
+};
+
 export function ItineraryBlock({ block, onAction }: ItineraryBlockProps) {
   const { item } = block;
   const [detailsOpen, setDetailsOpen] = useState(false);
 
   return (
-    <article className="min-w-0 border border-[var(--line)] bg-[var(--paper-bright)] p-2.5 shadow-[1px_2px_0_var(--sand-soft)] sm:p-3 sm:shadow-[2px_3px_0_var(--sand-soft)]">
+    <article className="cabinet-block min-w-0 p-3 sm:p-3.5">
       <div className="flex flex-wrap items-start gap-2">
         {item.timeLabel ? (
-          <span className="shrink-0 border border-[var(--line)] bg-[var(--sand-soft)] px-2 py-1 font-mono text-[11px] font-semibold text-[var(--ink-muted)]">
+          <span className="shrink-0 border border-[var(--line)] bg-[var(--paper)] px-2 py-1 font-mono text-[11px] font-semibold text-[var(--ink-muted)]">
             {item.timeLabel}
           </span>
         ) : null}
-        <h4 className="min-w-0 flex-1 break-words text-[15px] font-semibold sm:text-base">
-          {item.placeName}
-        </h4>
-        <span className="shrink-0 border border-[var(--sage-deep)] bg-[var(--sage-soft)] px-2 py-1 text-[11px] font-semibold text-[var(--sage-deep)]">
+        <span
+          className={`shrink-0 border px-2 py-1 text-[11px] font-semibold ${
+            ITEM_TYPE_STYLES[item.type]
+          }`}
+        >
           {ITEM_TYPE_LABELS[item.type]}
         </span>
+      </div>
+
+      <div className="mt-2">
+        <p className="text-[10px] font-semibold tracking-[0.14em] text-[var(--clay-deep)]">
+          这一格去哪儿
+        </p>
+        <h4 className="mt-1 min-w-0 break-words text-[15px] font-semibold sm:text-base">
+          {item.placeName}
+        </h4>
       </div>
 
       <p
@@ -57,7 +80,7 @@ export function ItineraryBlock({ block, onAction }: ItineraryBlockProps) {
         {item.reason}
       </p>
 
-      <div className="mt-2.5 flex flex-wrap items-center gap-2 text-xs">
+      <div className="mt-3 flex flex-wrap items-center gap-2 text-xs">
         {item.suggestedDuration ? (
           <span className="border border-[var(--line)] bg-[var(--paper)] px-2 py-1 font-semibold text-[var(--ink)]">
             {item.suggestedDuration}
@@ -66,9 +89,9 @@ export function ItineraryBlock({ block, onAction }: ItineraryBlockProps) {
         <button
           type="button"
           onClick={() => setDetailsOpen((open) => !open)}
-          className="border-b border-[var(--line-strong)] pb-0.5 font-semibold text-[var(--ink-muted)] transition-colors duration-150 ease-out hover:border-[var(--clay-deep)] hover:text-[var(--clay-deep)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)]"
+          className="min-h-9 border border-[var(--line-strong)] bg-[var(--paper)] px-3 py-1.5 text-xs font-semibold text-[var(--clay-deep)] transition-colors duration-150 ease-out hover:border-[var(--clay-deep)] hover:bg-[var(--sand-soft)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)]"
         >
-          {detailsOpen ? "收起详情" : "详情"}
+          {detailsOpen ? "收起详情" : "查看详情"}
         </button>
       </div>
 
@@ -77,9 +100,9 @@ export function ItineraryBlock({ block, onAction }: ItineraryBlockProps) {
       ) : null}
 
       {detailsOpen ? (
-        <>
+        <div className="mt-3 border-t border-dashed border-[var(--line)] pt-3">
           {item.matchedInterests && item.matchedInterests.length > 0 ? (
-            <div className="mt-3 flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2">
               {item.matchedInterests.map((interest) => (
                 <span
                   key={interest}
@@ -132,7 +155,7 @@ export function ItineraryBlock({ block, onAction }: ItineraryBlockProps) {
           ) : null}
 
           {item.guide.length > 0 ? (
-            <ul className="mt-3 space-y-2 border-t border-dashed border-[var(--line)] pt-3 text-sm leading-6 text-[var(--ink-muted)]">
+            <ul className="mt-3 space-y-2 text-sm leading-6 text-[var(--ink-muted)]">
               {item.guide.map((tip) => (
                 <li key={tip} className="flex gap-2">
                   <span aria-hidden="true" className="text-[var(--clay)]">
@@ -143,7 +166,7 @@ export function ItineraryBlock({ block, onAction }: ItineraryBlockProps) {
               ))}
             </ul>
           ) : null}
-        </>
+        </div>
       ) : null}
     </article>
   );

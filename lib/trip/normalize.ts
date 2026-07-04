@@ -47,6 +47,8 @@ const REQUIRED_FIELD_QUESTIONS: Record<
   endDate: "再补一个结束日期，或者直接告诉我准备玩几天。",
   daysOrDates: "准备玩几天，或者具体哪几天？",
 };
+const MILLISECONDS_PER_DAY = 24 * 60 * 60 * 1_000;
+const ISO_DATE_PATTERN = /^(\d{4})-(\d{2})-(\d{2})$/;
 
 function hasText(value: string | undefined): boolean {
   return typeof value === "string" && value.trim().length > 0;
@@ -67,6 +69,54 @@ function normalizeStringList(value: string[] | undefined): string[] {
       (value ?? []).map((item) => item.trim()).filter((item) => item.length > 0),
     ),
   ];
+}
+
+function parseIsoDate(value: string): Date | null {
+  const match = ISO_DATE_PATTERN.exec(value);
+
+  if (!match) {
+    return null;
+  }
+
+  const [, yearText, monthText, dayText] = match;
+  const year = Number(yearText);
+  const month = Number(monthText);
+  const day = Number(dayText);
+  const date = new Date(Date.UTC(year, month - 1, day));
+
+  if (
+    date.getUTCFullYear() !== year ||
+    date.getUTCMonth() !== month - 1 ||
+    date.getUTCDate() !== day
+  ) {
+    return null;
+  }
+
+  return date;
+}
+
+function formatIsoDate(date: Date): string {
+  const year = date.getUTCFullYear();
+  const month = String(date.getUTCMonth() + 1).padStart(2, "0");
+  const day = String(date.getUTCDate()).padStart(2, "0");
+
+  return `${year}-${month}-${day}`;
+}
+
+function shiftIsoDate(value: string, daysOffset: number): string | undefined {
+  const date = parseIsoDate(value);
+
+  if (!date) {
+    return undefined;
+  }
+
+  return formatIsoDate(
+    new Date(date.getTime() + daysOffset * MILLISECONDS_PER_DAY),
+  );
+}
+
+function hasPositiveDays(days: number | undefined): days is number {
+  return typeof days === "number" && Number.isInteger(days) && days > 0;
 }
 
 function missingField(
@@ -119,10 +169,63 @@ export function getMissingTripRequestFields(
   return missingFields;
 }
 
+export function resolveTripRequestDraftDates(
+  draft: Pick<TripRequestDraft, "days" | "startDate" | "endDate">,
+): Pick<TripRequestDraft, "days" | "startDate" | "endDate"> {
+  const startDate = normalizeOptionalText(draft.startDate);
+  const endDate = normalizeOptionalText(draft.endDate);
+  const days = typeof draft.days === "number" ? draft.days : undefined;
+
+  if (startDate && endDate) {
+    const calculatedDays = calculateInclusiveTripDays(startDate, endDate);
+
+    if (calculatedDays !== null) {
+      return {
+        startDate,
+        endDate,
+        days: calculatedDays,
+      };
+    }
+
+    return {
+      startDate,
+      endDate,
+      days,
+    };
+  }
+
+  if (hasPositiveDays(days) && startDate) {
+    return {
+      startDate,
+      endDate: shiftIsoDate(startDate, days - 1),
+      days,
+    };
+  }
+
+  if (hasPositiveDays(days) && endDate) {
+    return {
+      startDate: shiftIsoDate(endDate, -(days - 1)),
+      endDate,
+      days,
+    };
+  }
+
+  return {
+    startDate,
+    endDate,
+    days,
+  };
+}
+
 export function normalizeTripRequestDraft(
   draft: TripRequestDraft,
 ): TripRequestNormalizationResult {
-  const missingFields = getMissingTripRequestFields(draft);
+  const resolvedDates = resolveTripRequestDraftDates(draft);
+  const resolvedDraft = {
+    ...draft,
+    ...resolvedDates,
+  };
+  const missingFields = getMissingTripRequestFields(resolvedDraft);
 
   if (missingFields.length > 0) {
     return {
@@ -132,45 +235,48 @@ export function normalizeTripRequestDraft(
     };
   }
 
-  let days = draft.days;
-
-  if (days === undefined && draft.startDate && draft.endDate) {
-    days = calculateInclusiveTripDays(draft.startDate, draft.endDate) ?? undefined;
-
-    if (days === undefined) {
-      return {
-        success: false,
-        missingFields: [],
-        issues: [
-          {
-            field: "endDate",
-            message: "结束日期不能早于开始日期，请重新选择出行日期。",
-          },
-        ],
-      };
-    }
+  if (
+    resolvedDates.startDate &&
+    resolvedDates.endDate &&
+    calculateInclusiveTripDays(
+      resolvedDates.startDate,
+      resolvedDates.endDate,
+    ) === null
+  ) {
+    return {
+      success: false,
+      missingFields: [],
+      issues: [
+        {
+          field: "endDate",
+          message: "结束日期不能早于开始日期，请重新选择出行日期。",
+        },
+      ],
+    };
   }
 
   const candidate = {
-    departureCity: draft.departureCity?.trim() ?? "",
-    destinationCity: draft.destinationCity?.trim() ?? "",
-    startDate: normalizeOptionalText(draft.startDate),
-    endDate: normalizeOptionalText(draft.endDate),
-    days,
-    budget: draft.budget,
-    currency: normalizeOptionalText(draft.currency) ?? DEFAULT_CURRENCY,
-    interests: normalizeStringList(draft.interests),
-    travelStyles: normalizeStringList(draft.travelStyles),
-    mustVisitPlaces: normalizeStringList(draft.mustVisitPlaces),
-    avoidPlaces: normalizeStringList(draft.avoidPlaces),
+    departureCity: resolvedDraft.departureCity?.trim() ?? "",
+    destinationCity: resolvedDraft.destinationCity?.trim() ?? "",
+    startDate: resolvedDates.startDate,
+    endDate: resolvedDates.endDate,
+    days: resolvedDates.days,
+    budget: resolvedDraft.budget,
+    currency: normalizeOptionalText(resolvedDraft.currency) ?? DEFAULT_CURRENCY,
+    interests: normalizeStringList(resolvedDraft.interests),
+    travelStyles: normalizeStringList(resolvedDraft.travelStyles),
+    mustVisitPlaces: normalizeStringList(resolvedDraft.mustVisitPlaces),
+    avoidPlaces: normalizeStringList(resolvedDraft.avoidPlaces),
     accommodationPreference: normalizeOptionalText(
-      draft.accommodationPreference,
+      resolvedDraft.accommodationPreference,
     ),
     localTransportPreference: normalizeOptionalText(
-      draft.localTransportPreference,
+      resolvedDraft.localTransportPreference,
     ),
-    schedulePreference: normalizeOptionalText(draft.schedulePreference),
-    specialRequirements: normalizeOptionalText(draft.specialRequirements),
+    schedulePreference: normalizeOptionalText(resolvedDraft.schedulePreference),
+    specialRequirements: normalizeOptionalText(
+      resolvedDraft.specialRequirements,
+    ),
   };
 
   const parsed = tripRequestSchema.safeParse(candidate);

@@ -3,6 +3,7 @@ import { describe, expect, it } from "vitest";
 import {
   getMissingTripRequestFields,
   normalizeTripRequestDraft,
+  resolveTripRequestDraftDates,
 } from "../../lib/trip/normalize";
 import type { TripRequestDraft } from "../../lib/trip/types";
 
@@ -120,6 +121,32 @@ describe("trip request normalization", () => {
     }
   });
 
+  it("在填写天数和开始日期时自动补全结束日期", () => {
+    expect(
+      resolveTripRequestDraftDates({
+        days: 3,
+        startDate: "2026-07-04",
+      }),
+    ).toEqual({
+      days: 3,
+      startDate: "2026-07-04",
+      endDate: "2026-07-06",
+    });
+  });
+
+  it("在填写天数和结束日期时自动补全开始日期", () => {
+    expect(
+      resolveTripRequestDraftDates({
+        days: 3,
+        endDate: "2026-07-06",
+      }),
+    ).toEqual({
+      days: 3,
+      startDate: "2026-07-04",
+      endDate: "2026-07-06",
+    });
+  });
+
   it("允许只有天数而没有具体日期的通用方案", () => {
     const result = normalizeTripRequestDraft({
       ...baseDraft,
@@ -137,6 +164,42 @@ describe("trip request normalization", () => {
       });
       expect(result.tripRequest.startDate).toBeUndefined();
       expect(result.tripRequest.endDate).toBeUndefined();
+    }
+  });
+
+  it("在填写天数和开始日期后生成可提交的完整日期区间", () => {
+    const result = normalizeTripRequestDraft({
+      ...baseDraft,
+      days: 3,
+      startDate: "2026-07-04",
+    });
+
+    expect(result.success).toBe(true);
+
+    if (result.success) {
+      expect(result.tripRequest).toMatchObject({
+        days: 3,
+        startDate: "2026-07-04",
+        endDate: "2026-07-06",
+      });
+    }
+  });
+
+  it("在填写天数和结束日期后生成可提交的完整日期区间", () => {
+    const result = normalizeTripRequestDraft({
+      ...baseDraft,
+      days: 3,
+      endDate: "2026-07-06",
+    });
+
+    expect(result.success).toBe(true);
+
+    if (result.success) {
+      expect(result.tripRequest).toMatchObject({
+        days: 3,
+        startDate: "2026-07-04",
+        endDate: "2026-07-06",
+      });
     }
   });
 
@@ -168,7 +231,7 @@ describe("trip request normalization", () => {
     }
   });
 
-  it("拒绝与日期区间不一致的显式天数", () => {
+  it("当三者都填写但冲突时，以开始和结束日期为准修正天数", () => {
     const result = normalizeTripRequestDraft({
       ...baseDraft,
       startDate: "2026-07-10",
@@ -176,16 +239,15 @@ describe("trip request normalization", () => {
       days: 2,
     });
 
-    expect(result).toMatchObject({
-      success: false,
-      missingFields: [],
-      issues: [
-        {
-          field: "days",
-          message: "天数应与日期区间一致，共 3 天",
-        },
-      ],
-    });
+    expect(result.success).toBe(true);
+
+    if (result.success) {
+      expect(result.tripRequest).toMatchObject({
+        startDate: "2026-07-10",
+        endDate: "2026-07-12",
+        days: 3,
+      });
+    }
   });
 
   it("返回日期区间错误而不是生成无效请求", () => {
@@ -202,6 +264,60 @@ describe("trip request normalization", () => {
         {
           field: "endDate",
           message: "结束日期不能早于开始日期，请重新选择出行日期。",
+        },
+      ],
+    });
+  });
+
+  it("只填开始日期且没有天数时提示继续补充", () => {
+    const result = normalizeTripRequestDraft({
+      ...baseDraft,
+      startDate: "2026-07-10",
+    });
+
+    expect(result).toMatchObject({
+      success: false,
+      issues: [],
+      missingFields: [
+        {
+          field: "endDate",
+          message: "再补一个结束日期，或者直接告诉我准备玩几天。",
+        },
+      ],
+    });
+  });
+
+  it("只填结束日期且没有天数时提示继续补充", () => {
+    const result = normalizeTripRequestDraft({
+      ...baseDraft,
+      endDate: "2026-07-10",
+    });
+
+    expect(result).toMatchObject({
+      success: false,
+      issues: [],
+      missingFields: [
+        {
+          field: "startDate",
+          message: "再补一个开始日期，或者直接告诉我准备玩几天。",
+        },
+      ],
+    });
+  });
+
+  it("days 小于等于 0 时返回天数错误", () => {
+    const result = normalizeTripRequestDraft({
+      ...baseDraft,
+      days: 0,
+    });
+
+    expect(result).toMatchObject({
+      success: false,
+      missingFields: [],
+      issues: [
+        {
+          field: "days",
+          message: "天数必须大于 0",
         },
       ],
     });

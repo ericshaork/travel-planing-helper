@@ -29,9 +29,9 @@ export function DayCabinet({
   }
 
   return (
-    <article className="overflow-hidden border border-[var(--line-strong)] bg-[var(--paper-bright)] shadow-[4px_5px_0_var(--sand-soft)] sm:shadow-[6px_7px_0_var(--sand-soft)]">
-      <header className="grid gap-3 bg-[var(--sand-soft)] p-3.5 sm:grid-cols-[4.5rem_minmax(0,1fr)] sm:p-5">
-        <div className="flex h-12 w-12 shrink-0 flex-col items-center justify-center border border-[var(--ink)] bg-[var(--paper-bright)] font-mono sm:h-14 sm:w-14">
+    <article className="cabinet-shell">
+      <header className="relative grid gap-3 border-b border-[var(--line)] bg-[var(--sand-soft)] px-3.5 pb-3.5 pt-6 sm:grid-cols-[4.75rem_minmax(0,1fr)] sm:gap-4 sm:px-5 sm:pb-5 sm:pt-7">
+        <div className="flex h-14 w-14 shrink-0 flex-col items-center justify-center border border-[var(--ink)] bg-[var(--paper-bright)] font-mono shadow-[3px_3px_0_var(--sand)] sm:h-16 sm:w-16">
           <span className="text-[10px] font-semibold tracking-[0.12em]">
             DAY
           </span>
@@ -41,24 +41,43 @@ export function DayCabinet({
         </div>
 
         <div className="min-w-0">
+          <p className="text-[10px] font-semibold tracking-[0.16em] text-[var(--clay-deep)] sm:text-[11px]">
+            单日柜面
+          </p>
           {resolvedCabinet.date ? (
-            <p className="break-words font-mono text-[11px] text-[var(--ink-muted)] sm:text-xs">
+            <p className="mt-1 break-words font-mono text-[11px] text-[var(--ink-muted)] sm:text-xs">
               {resolvedCabinet.date}
             </p>
           ) : null}
-          <h2 className="mt-1 break-words text-lg font-semibold sm:text-2xl">
+          <h2 className="mt-1.5 break-words text-lg font-semibold sm:text-2xl">
             {resolvedCabinet.theme}
           </h2>
-          <p className="mt-1.5 break-words text-sm font-semibold leading-6">
+          <p className="mt-2 break-words text-sm font-semibold leading-6 text-[var(--ink)]">
             {resolvedCabinet.routeSummary}
           </p>
-          <p className="mt-1 break-words text-sm leading-6 text-[var(--ink-muted)]">
+          <p className="mt-1.5 break-words text-sm leading-6 text-[var(--ink-muted)]">
             {resolvedCabinet.routeReason}
           </p>
         </div>
       </header>
 
-      <div className="bg-[var(--paper)] px-3.5 py-1 sm:px-5">
+      <div className="border-b border-dashed border-[var(--line)] bg-[var(--paper)] px-3.5 py-2.5 sm:px-5 sm:py-3">
+        <div className="flex flex-wrap gap-2 text-[11px] sm:text-xs">
+          <span className="border border-[var(--line)] bg-[var(--paper-bright)] px-2.5 py-1 font-semibold text-[var(--ink)]">
+            3 层固定格
+          </span>
+          <span className="border border-[var(--line)] bg-[var(--sand-soft)] px-2.5 py-1 font-semibold text-[var(--ink)]">
+            {resolvedCabinet.itemCount} 个积木
+          </span>
+          {resolvedCabinet.dailyTips.length > 0 ? (
+            <span className="border border-[var(--sage-deep)] bg-[var(--sage-soft)] px-2.5 py-1 font-semibold text-[var(--sage-deep)]">
+              有当天提醒
+            </span>
+          ) : null}
+        </div>
+      </div>
+
+      <div className="bg-[var(--paper)] px-3.5 py-2 sm:px-5 sm:py-3">
         {resolvedCabinet.slots.map((slot) => (
           <TimeSlotSection
             key={slot.key}
@@ -69,11 +88,11 @@ export function DayCabinet({
       </div>
 
       {resolvedCabinet.dailyTips.length > 0 ? (
-        <footer className="border-t border-dashed border-[var(--line)] bg-[var(--sage-soft)] px-3.5 py-3 sm:px-5">
-          <p className="text-xs font-semibold text-[var(--sage-deep)]">
+        <footer className="border-t border-dashed border-[var(--line)] bg-[var(--sage-soft)] px-3.5 py-3 sm:px-5 sm:py-4">
+          <p className="text-xs font-semibold tracking-[0.12em] text-[var(--sage-deep)]">
             这天记一笔
           </p>
-          <ul className="mt-2 space-y-1 text-sm leading-6 text-[var(--sage-deep)]">
+          <ul className="mt-2.5 space-y-1.5 text-sm leading-6 text-[var(--sage-deep)]">
             {resolvedCabinet.dailyTips.map((tip) => (
               <li key={tip} className="break-words">
                 - {tip}

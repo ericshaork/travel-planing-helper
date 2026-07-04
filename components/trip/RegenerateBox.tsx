@@ -22,7 +22,7 @@ interface RegenerateBoxProps {
 }
 
 const retryableErrorMessage =
-  "这次没改出来，先保留原方案。可以直接再试一次。";
+  "这次没改出来，先保留原方案。可以直接再试一次；如果这次一次改了 3 项以上，先减到 1～2 项再试。";
 
 export function RegenerateBox({
   tripPlan,
@@ -100,7 +100,7 @@ export function RegenerateBox({
 
       if (!parsed.success) {
         throw new Error(
-          "这次返回的内容不够完整，先别用这一版，再试一次。",
+          "这次返回的内容不够完整，先别用这一版，再试一次；如果一次加了很多修改，先减到 1～2 项再试。",
         );
       }
 

@@ -16,21 +16,24 @@ export function TimeSlotSection({
   onBlockAction,
 }: TimeSlotSectionProps) {
   return (
-    <section className="grid gap-2.5 border-t border-dashed border-[var(--line)] py-3.5 sm:grid-cols-[4.5rem_minmax(0,1fr)] sm:gap-3 sm:py-4">
+    <section className="grid gap-3 border-t border-dashed border-[var(--line)] py-4 first:border-t-0 sm:grid-cols-[5rem_minmax(0,1fr)] sm:gap-4 sm:py-5">
       <div className="pt-0.5 sm:pt-1">
-        <h3 className="text-sm font-semibold text-[var(--clay-deep)]">
+        <p className="text-[10px] font-semibold tracking-[0.14em] text-[var(--clay-deep)]">
+          固定格层
+        </p>
+        <h3 className="mt-1 text-sm font-semibold text-[var(--ink)]">
           {slot.label}
         </h3>
-        <p className="mt-1 text-xs text-[var(--ink-muted)]">
+        <p className="mt-1 text-xs leading-5 text-[var(--ink-muted)]">
           {slot.isEmpty ? "这格先留白" : `${slot.items.length} 个积木`}
         </p>
       </div>
 
-      <div className="min-w-0 rounded-sm border border-dashed border-[var(--line)] bg-[var(--paper)] px-2.5 py-2.5 sm:px-3 sm:py-3">
+      <div className="cabinet-slot min-w-0 px-3 py-3 sm:px-4 sm:py-3.5">
         {slot.isEmpty ? (
-          <p className="min-w-0 break-words text-sm leading-6 text-[var(--ink-muted)]">
-            这格先空着，适合休息或自由安排。
-          </p>
+          <div className="rounded-sm border border-dashed border-[var(--line)] bg-[var(--paper)] px-3 py-3 text-sm leading-6 text-[var(--ink-muted)]">
+            这格先空着，适合休息、机动调整，或者把临时想去的小点塞进来。
+          </div>
         ) : (
           <div className="min-w-0 space-y-2.5 sm:space-y-3">
             {slot.items.map((block) => (

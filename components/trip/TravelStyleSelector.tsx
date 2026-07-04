@@ -48,7 +48,8 @@ export function TravelStyleSelector({
           {helperText}
         </p>
       ) : null}
-      <div className="mt-3 flex flex-wrap gap-2">
+
+      <div className="no-scrollbar -mx-1 mt-3 flex gap-2 overflow-x-auto px-1 pb-1 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0 sm:pb-0">
         {TRAVEL_STYLE_OPTIONS.map((style) => {
           const isSelected = selected.includes(style);
 
@@ -58,7 +59,7 @@ export function TravelStyleSelector({
               type="button"
               aria-pressed={isSelected}
               onClick={() => onToggle(style)}
-              className={`min-h-10 max-w-full break-words border px-3 py-2 text-sm leading-5 transition-[transform,background-color,border-color] duration-150 ease-out hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)] ${
+              className={`min-h-10 shrink-0 whitespace-nowrap border px-3 py-2 text-sm leading-5 transition-[transform,background-color,border-color] duration-150 ease-out hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)] sm:max-w-full sm:break-words sm:whitespace-normal ${
                 isSelected
                   ? "rotate-1 border-[var(--clay)] bg-[var(--clay-soft)] font-semibold text-[var(--clay-deep)]"
                   : "border-[var(--line)] bg-[var(--paper)] text-[var(--ink-muted)] hover:border-[var(--ink-muted)]"
@@ -69,6 +70,7 @@ export function TravelStyleSelector({
           );
         })}
       </div>
+
       {errorMessage ? (
         <p
           id={errorId}

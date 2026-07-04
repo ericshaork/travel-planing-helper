@@ -2,113 +2,105 @@
 
 一个面向自由行新手的 AI 旅行规划网站。
 
-你先用一句话说想去哪、玩几天、预算和偏好，系统先给你一版完整行程；拿到结果后，不用从零重写提示词，也不用硬啃一份死板攻略，可以继续点几下，把它改成更适合自己的版本。
+你先用一句话说想去哪、玩几天、预算和偏好，系统先给你一版完整行程；拿到结果后，不用从零重写提示词，也不用硬啃一份死板攻略，可以继续按步骤补信息、点积木修改、收集待修改项，再决定要不要重排。
 
-当前仓库对应 MVP 1.1。
+当前版本：MVP v1.2
 
-## 现在已经有的能力
+## 当前版本概览
 
-- 首页自然语言输入，支持真实示例和兴趣 / 风格快捷标签
-- `POST /api/parse-trip` 解析旅行需求，提取目的地、出发地、天数 / 日期、预算和偏好
-- `/plan` 分步补充旅行信息
-- `/plan` 缺失信息增强提示
-  - 顶部缺失摘要
-  - 字段级错误
-  - 点击缺失项定位
-  - 提交失败自动滚到首个错误
-  - 柔和高亮，不打断已有输入
-- `POST /api/generate-trip` 生成完整 `TripPlan`
-- `WeatherProvider` 抽象、Mock Weather、QWeather
-- `LLMProvider` 抽象、MockLLMProvider、OpenAI-Compatible Provider
-- `/result` 结果页总览、天气、预算、住宿、交通、注意事项
-- 每天按 Day Cabinet / 上午 / 下午 / 晚上展示行程
-- 移动端默认多日摘要，点某天展开
-- 顶部 `ResultDayNav` 粘性导航，可回总览 / 指定 Day / 修改区
-- 积木操作
+v1.2 的主题是：
+
+> Mobile Flow First + Cabinet Identity + Pending Changes + 轻工作台雏形
+
+这一版的重点不是新增真实地图或真实 AI，而是把已有生成与编辑能力整理成一个更适合手机、也更容易继续修改的版本。
+
+## v1.0 已有能力
+
+- 首页自然语言输入；
+- `/plan` 分步补信息；
+- Mock AI / Mock Weather 主流程；
+- `/result` 生成并展示完整行程；
+- 复制完整方案；
+- Markdown 导出；
+- 简单重新生成。
+
+## v1.1 已有能力
+
+- `/plan` 缺失字段摘要；
+- 字段级错误、点击定位、首错滚动；
+- Day Cabinet 行程展示；
+- BlockActions 积木操作：
   - 不要这个
   - 换一个
   - 一定保留
   - 加类似
-- 五种快捷修改
+- QuickActions 快捷修改：
   - 轻松一点
   - 少走路
   - 预算低一点
   - 加美食 / 夜市
   - 不早起
-- 所有修改都只会先生成 `modificationRequest`
-- 用户确认后继续复用现有 `/api/generate-trip`，重新生成完整 `TripPlan`
-- 复制完整方案
-- Markdown 导出
-- 重新生成失败时保留旧方案
-- `appliedChanges` 展示本轮修改结果
-- `localStorage` 恢复草稿、需求和最近一次结果
-- GitHub + Netlify 部署流程
 
-## MVP 1.1 的核心定位
+## v1.2 新增能力
 
-不是聊天机器人，也不是纯攻略展示页。
+- Mobile Flow First：
+  - 首页 mobile 首屏聚焦输入；
+  - `/plan` mobile 改成三步问卷式；
+  - `/result` mobile 改成分页式浏览。
+- `/plan` 手机端问卷体验：
+  - 每步只聚焦当前任务；
+  - 日期提示改成中文友好文案；
+  - 手机端草稿摘要改为紧凑折叠。
+- `/result` 手机端分页：
+  - `overview`
+  - `day-${number}`
+  - `budget`
+  - `more`
+  - `edit`
+- Cabinet Identity 视觉升级：
+  - Day Summary 更像小柜门 / 抽屉入口；
+  - DayCabinet 更像单日三层柜；
+  - ItineraryBlock 更像可操作积木；
+  - “查看详情 / 收起详情”入口更明显。
+- Pending Changes 修改篮：
+  - BlockActions 先加入修改篮；
+  - 可连续收集多个积木修改；
+  - 可删除、清空、写入修改框；
+  - 写入后不自动提交；
+  - RegenerateBox 仍是唯一提交入口。
+- 轻工作台雏形：
+  - ResultDayNav 显示待修改数量；
+  - Day 页提示“已选 N 项待修改”；
+  - edit 页整理为“修改工作台”；
+  - overview 页强化下一步入口；
+  - desktop 修改区关系更清楚。
 
-它更像一个可编辑的 AI 旅行积木板：
+## 当前仍然使用 Mock AI / Mock Weather
 
-- AI 先给你一版能走的方案
-- 你再通过点击和少量补充文字把它改成自己的版本
-- 每次修改都还是回到完整重排，避免前端局部拼补造成行程不一致
+仓库默认仍以 Mock 模式为主，方便本地零 Key 跑通完整流程：
 
-## 当前主流程
+- `USE_MOCK_AI=true`
+- `USE_MOCK_WEATHER=true`
 
-```text
-首页输入
-  -> /api/parse-trip
-  -> /plan 补充与确认
-  -> /api/generate-trip
-  -> /result 查看、复制、导出、继续修改
-  -> 复用 /api/generate-trip 重新生成完整方案
-```
-
-## 明确还没做
-
-MVP 1.1 仍然不做这些：
-
-- 拖拽排序
-- 自定义时间轴
-- 新增 / 删除时间格子
-- 地图 API
-- 真实距离和通勤计算
-- 实时开放时间
-- 真实票务 / 酒店库存 / 预订 / 支付
-- 登录、收藏、数据库、历史版本
-- 真正局部 Patch
-- 完整聊天系统
-- 多人协作
-
-这些能力的路线图见 [docs/PRODUCT_ROADMAP.md](/C:/Users/10200/Desktop/travel_planing/docs/PRODUCT_ROADMAP.md)。
-
-## 技术栈
-
-- Next.js 16
-- React 19
-- TypeScript
-- Tailwind CSS 4
-- Zod
-- Vitest
-
-MVP 仍然不使用数据库，临时状态保存在浏览器 `localStorage`。
+也就是说，当前 v1.2 仍然不是“真实 AI + 真实地图 + 真实天气”的版本。v1.2.5 才会进入真实 AI 冒烟接入。
 
 ## 本地运行
 
-先安装依赖并复制环境变量示例：
+先安装依赖：
 
 ```bash
 npm install
-cp .env.example .env.local
-npm run dev
 ```
 
-Windows PowerShell 可用：
+Windows PowerShell：
 
 ```powershell
 npm.cmd install
-Copy-Item .env.example .env.local
+```
+
+开发启动：
+
+```powershell
 npm.cmd run dev
 ```
 
@@ -116,37 +108,62 @@ npm.cmd run dev
 
 ## 常用命令
 
-```bash
-npm run dev
-npm run lint
-npm run typecheck
-npm run build
-npm test
-npm run start
+```powershell
+npm.cmd run dev
+npm.cmd run lint
+npm.cmd run typecheck
+npm.cmd run build
+npm.cmd test
 ```
-
-Windows 下把 `npm` 换成 `npm.cmd` 即可。
 
 ## 环境变量
 
-`.env.example` 默认启用 Mock AI 和 Mock Weather，不需要真实 Key 也能跑通完整流程。
+当前 `.env.example` 默认启用 Mock AI 和 Mock Weather。
 
-常用变量：
+重点变量：
 
-| 变量 | 说明 |
+| 变量 | 当前用途 |
 |---|---|
-| `LLM_BASE_URL` | OpenAI-Compatible API 根地址 |
-| `LLM_API_KEY` | 真实模型模式使用 |
-| `LLM_MODEL` | 真实模型模式使用 |
-| `USE_MOCK_AI` | `true` 时使用 `MockLLMProvider` |
+| `USE_MOCK_AI` | `true` 时使用 Mock AI 主流程 |
+| `USE_MOCK_WEATHER` | `true` 时使用 Mock Weather 主流程 |
+| `LLM_BASE_URL` | 预留给后续真实模型接入 |
+| `LLM_API_KEY` | 预留给后续真实模型接入 |
+| `LLM_MODEL` | 预留给后续真实模型接入 |
 | `WEATHER_PROVIDER` | 当前支持 `qweather` |
-| `QWEATHER_BASE_URL` | 可选，QWeather 根地址 |
-| `QWEATHER_API_KEY` | 真实天气模式使用 |
-| `USE_MOCK_WEATHER` | `true` 时使用 `MockWeatherProvider` |
+| `QWEATHER_BASE_URL` | 真实天气模式可配置 |
+| `QWEATHER_API_KEY` | 真实天气模式可配置 |
 
-## 质量检查
+说明：
 
-提交前至少运行：
+- `LLM_BASE_URL / LLM_API_KEY / LLM_MODEL` 目前主要为后续 v1.2.5 真实 AI 接入预留；
+- 当前版本即使没有真实 Key，也应该能靠 Mock 模式跑通首页 → `/plan` → `/result` 主流程。
+
+## 当前明确不做
+
+v1.2 仍然没有做这些：
+
+- 未接真实 AI；
+- 未接高德地图；
+- 未做地图；
+- 未保存分享；
+- 未登录数据库；
+- 未做已有计划导入；
+- 未拖拽积木；
+- 未手动加减格子；
+- 未做商业预订闭环；
+- 未做局部 Patch；
+- 未改 `/api/generate-trip` 协议；
+- 未改 `TripPlan` schema。
+
+## 已知限制
+
+- Mock AI 下，3 条以上 Pending Changes 同时重排可能不稳定；
+- 当前 Pending Changes 更适合单条或两条连续修改；
+- 真实 AI 接入后，需要重点复测多条修改场景。
+
+## 部署与检查
+
+部署前至少运行：
 
 ```powershell
 npm.cmd run lint
@@ -155,13 +172,18 @@ npm.cmd run build
 npm.cmd test
 ```
 
-## 文档入口
+当前 v1.2 的目标是：
+
+- 可以部署到 Netlify；
+- 可以进行朋友二轮测试；
+- 不误称已经接入真实 AI、真实地图或保存分享。
+
+## 相关文档
 
 - [AGENTS.md](/C:/Users/10200/Desktop/travel_planing/AGENTS.md)
-- [docs/PRD.md](/C:/Users/10200/Desktop/travel_planing/docs/PRD.md)
-- [docs/TECH_DESIGN.md](/C:/Users/10200/Desktop/travel_planing/docs/TECH_DESIGN.md)
-- [docs/PRODUCT_ROADMAP.md](/C:/Users/10200/Desktop/travel_planing/docs/PRODUCT_ROADMAP.md)
-- [docs/PRD_v1.1.md](/C:/Users/10200/Desktop/travel_planing/docs/PRD_v1.1.md)
-- [docs/TECH_DESIGN_v1.1.md](/C:/Users/10200/Desktop/travel_planing/docs/TECH_DESIGN_v1.1.md)
-- [docs/V1.1_PHASE_PLAN.md](/C:/Users/10200/Desktop/travel_planing/docs/V1.1_PHASE_PLAN.md)
 - [docs/MANUAL_ACCEPTANCE.md](/C:/Users/10200/Desktop/travel_planing/docs/MANUAL_ACCEPTANCE.md)
+- [docs/PRODUCT_ROADMAP.md](/C:/Users/10200/Desktop/travel_planing/docs/PRODUCT_ROADMAP.md)
+- [docs/PRD_v1.2.md](/C:/Users/10200/Desktop/travel_planing/docs/PRD_v1.2.md)
+- [docs/TECH_DESIGN_v1.2.md](/C:/Users/10200/Desktop/travel_planing/docs/TECH_DESIGN_v1.2.md)
+- [docs/V1.2_PHASE_PLAN.md](/C:/Users/10200/Desktop/travel_planing/docs/V1.2_PHASE_PLAN.md)
+- [docs/COMPETITOR_INSIGHTS.md](/C:/Users/10200/Desktop/travel_planing/docs/COMPETITOR_INSIGHTS.md)
