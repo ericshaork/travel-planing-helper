@@ -376,16 +376,16 @@ export default function PlanPage() {
   return (
     <div className="paper-texture flex min-h-screen flex-col overflow-x-clip text-[var(--ink)]">
       <Header />
-      <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col px-4 pb-4 pt-2 sm:px-8 sm:pb-16 sm:pt-10">
-        <div className="mb-4">
+      <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col overflow-hidden px-4 pb-3 pt-2 sm:px-8 sm:pb-16 sm:pt-10 lg:overflow-visible">
+        <div className="mb-3 sm:mb-4">
           <ReturnHomeLink />
         </div>
 
-        <div className="mb-3 max-w-2xl lg:mb-8">
+        <div className="mb-2 max-w-2xl lg:mb-8">
           <p className="text-xs font-semibold tracking-[0.14em] text-[var(--sage-deep)]">
             补几句，就能开始排路线
           </p>
-          <h1 className="mt-2 text-2xl font-semibold tracking-[-0.035em] sm:mt-3 sm:text-4xl">
+          <h1 className="mt-1.5 text-2xl font-semibold tracking-[-0.035em] sm:mt-3 sm:text-4xl">
             先把旅行需求说清楚。
           </h1>
           <p className="mt-2 hidden text-sm leading-6 text-[var(--ink-muted)] sm:block sm:mt-3 sm:leading-7">
@@ -393,8 +393,8 @@ export default function PlanPage() {
           </p>
         </div>
 
-        <div className="lg:hidden">
-          <div className="flex min-h-0 flex-1 flex-col gap-3">
+        <div className="min-h-0 lg:hidden">
+          <div className="flex min-h-0 flex-1 flex-col gap-2.5">
             <ParsedTripCard draft={draft} missingFields={missingFields} />
 
             <MissingFieldsSummary
@@ -402,7 +402,7 @@ export default function PlanPage() {
               onSelect={focusField}
             />
 
-            <div className="min-h-[calc(100dvh-18rem)] flex-1">
+            <div className="min-h-0 flex-1">
               <StepQuestionForm
                 draft={draft}
                 currentStep={currentStep}

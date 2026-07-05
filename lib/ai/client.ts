@@ -1,6 +1,5 @@
 import "server-only";
 
-import { AppError } from "../utils/errors";
 import {
   getServerEnvironment,
   type ServerEnvironment,
@@ -16,21 +15,13 @@ export function createLLMProvider(
     return new MockLLMProvider();
   }
 
-  if (
-    !environment.LLM_BASE_URL ||
-    !environment.LLM_API_KEY ||
-    !environment.LLM_MODEL
-  ) {
-    throw new AppError(
-      "AI_GENERATION_FAILED",
-      "真实模型配置还不完整，请检查服务端环境变量。",
-    );
-  }
+  const { LLM_BASE_URL, LLM_API_KEY, LLM_MODEL } = environment;
 
   return new OpenAICompatibleProvider({
-    baseUrl: environment.LLM_BASE_URL,
-    apiKey: environment.LLM_API_KEY,
-    model: environment.LLM_MODEL,
+    baseUrl: LLM_BASE_URL!,
+    apiKey: LLM_API_KEY!,
+    model: LLM_MODEL!,
+    timeoutMs: environment.LLM_TIMEOUT_MS,
   });
 }
 

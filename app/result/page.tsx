@@ -72,13 +72,13 @@ function MobilePageShell({
   children,
 }: MobilePageShellProps) {
   return (
-    <section className="space-y-4">
+    <section className="space-y-3 sm:space-y-4">
       <div className="max-w-2xl">
         <p className="text-xs font-semibold tracking-[0.14em] text-[var(--clay-deep)]">
           手机端分页浏览
         </p>
-        <h1 className="mt-2 text-2xl font-semibold">{title}</h1>
-        <p className="mt-2 text-sm leading-6 text-[var(--ink-muted)]">
+        <h1 className="mt-1.5 text-xl font-semibold sm:mt-2 sm:text-2xl">{title}</h1>
+        <p className="mt-1.5 text-sm leading-5 text-[var(--ink-muted)] sm:mt-2 sm:leading-6">
           {description}
         </p>
       </div>
@@ -526,35 +526,35 @@ export default function ResultPage() {
             />
           </div>
 
-          <div className="mt-4 min-h-0 flex-1 overflow-y-auto pb-3">
+          <div className="mt-3 min-h-0 flex-1 overflow-y-auto pb-2">
             {activeMobilePage === "overview" ? (
               <MobilePageShell
                 title="旅行总览"
                 description="这一页只放总览和下一步入口，不把整份结果一次性摊开。"
               >
-                <section className="space-y-4 border border-[var(--line-strong)] bg-[var(--paper-bright)] p-4 shadow-[4px_5px_0_var(--sand)]">
+                <section className="space-y-3 border border-[var(--line-strong)] bg-[var(--paper-bright)] p-3.5 shadow-[4px_5px_0_var(--sand)]">
                   <div>
                     <p className="text-xs font-semibold tracking-[0.14em] text-[var(--clay-deep)]">
                       这一版怎么走
                     </p>
-                    <h2 className="mt-2 break-words text-2xl font-semibold">
+                    <h2 className="mt-1.5 break-words text-xl font-semibold sm:text-2xl">
                       {tripPlan.tripTitle}
                     </h2>
-                    <p className="mt-2 text-sm leading-6 text-[var(--ink-muted)]">
+                    <p className="mt-1.5 text-sm leading-5 text-[var(--ink-muted)] sm:leading-6">
                       {tripPlan.summary}
                     </p>
                   </div>
 
-                  <div className="flex flex-wrap gap-2 text-sm">
-                    <span className="border border-[var(--line)] bg-[var(--sand-soft)] px-3 py-1.5 font-semibold">
+                  <div className="flex flex-wrap gap-1.5 text-sm">
+                    <span className="border border-[var(--line)] bg-[var(--sand-soft)] px-2.5 py-1 font-semibold">
                       {tripPlan.destination}
                     </span>
-                    <span className="border border-[var(--line)] bg-[var(--sage-soft)] px-3 py-1.5 font-semibold text-[var(--sage-deep)]">
+                    <span className="border border-[var(--line)] bg-[var(--sage-soft)] px-2.5 py-1 font-semibold text-[var(--sage-deep)]">
                       {tripPlan.days} 天
                     </span>
                   </div>
 
-                  <div className="grid gap-2">
+                  <div className="hidden grid gap-2">
                     <div className="rounded-sm border border-dashed border-[var(--line)] bg-[var(--paper)] px-3 py-2.5 text-sm leading-6 text-[var(--ink-muted)]">
                       预算：{tripPlan.budgetSummary.totalEstimate}
                     </div>
@@ -565,9 +565,13 @@ export default function ResultPage() {
                       交通：{summarizeTransport(tripPlan.transportAdvice)}
                     </div>
                   </div>
+
+                  <p className="rounded-sm border border-dashed border-[var(--line)] bg-[var(--paper)] px-3 py-2 text-xs leading-5 text-[var(--ink-muted)]">
+                    棰勭畻鍘汇€滈绠椻€濋〉锛屽ぉ姘斿拰浜ら€氬幓鈥滄洿澶氣€濋〉銆傝繖閲屽厛淇濈暀鏈€鏍稿績鐨勪笅涓€姝ャ€?
+                  </p>
                 </section>
 
-                <div className="grid gap-3">
+                <div className="grid gap-2.5">
                   <p className="text-xs font-semibold tracking-[0.12em] text-[var(--clay-deep)]">
                     下一步做什么
                   </p>
@@ -576,15 +580,15 @@ export default function ResultPage() {
                     <button
                       type="button"
                       onClick={() => goToMobilePage(`day-${firstCabinet.dayNumber}`)}
-                      className="w-full border border-[var(--line-strong)] bg-[var(--paper-bright)] px-4 py-4 text-left shadow-[3px_3px_0_var(--sand-soft)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)]"
+                      className="w-full border border-[var(--line-strong)] bg-[var(--paper-bright)] px-3.5 py-3 text-left shadow-[3px_3px_0_var(--sand-soft)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)]"
                     >
                       <p className="text-xs font-semibold tracking-[0.12em] text-[var(--clay-deep)]">
                         看第一天
                       </p>
-                      <p className="mt-1 text-lg font-semibold">
+                      <p className="mt-1 text-base font-semibold">
                         Day {firstCabinet.dayNumber} · {firstCabinet.theme}
                       </p>
-                      <p className="mt-1 text-sm leading-6 text-[var(--ink-muted)]">
+                      <p className="mt-1 text-sm leading-5 text-[var(--ink-muted)]">
                         {truncateSummary(firstCabinet.routeSummary, 52)}
                       </p>
                     </button>
@@ -593,17 +597,17 @@ export default function ResultPage() {
                   <button
                     type="button"
                     onClick={() => goToMobilePage("edit")}
-                    className="w-full border border-[var(--ink)] bg-[var(--ink)] px-4 py-4 text-left text-[var(--paper-bright)] shadow-[4px_4px_0_var(--clay)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)]"
+                    className="w-full border border-[var(--ink)] bg-[var(--ink)] px-3.5 py-3 text-left text-[var(--paper-bright)] shadow-[4px_4px_0_var(--clay)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)]"
                   >
                     <p className="text-xs font-semibold tracking-[0.12em] text-[var(--paper-bright)]/80">
                       想直接改
                     </p>
-                    <p className="mt-1 text-lg font-semibold">
+                    <p className="mt-1 text-base font-semibold">
                       {pendingChangesCount > 0
                         ? `去修改页处理 ${pendingChangesCount} 项`
                         : "去修改页"}
                     </p>
-                    <p className="mt-1 text-sm leading-6 text-[var(--paper-bright)]/80">
+                    <p className="mt-1 text-sm leading-5 text-[var(--paper-bright)]/80">
                       快捷修改、导出和重新生成都在那里。
                     </p>
                   </button>
@@ -611,13 +615,13 @@ export default function ResultPage() {
                   <button
                     type="button"
                     onClick={() => goToMobilePage("edit")}
-                    className="w-full border border-[var(--line-strong)] bg-[var(--paper)] px-4 py-4 text-left shadow-[3px_3px_0_var(--sand-soft)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)]"
+                    className="w-full border border-[var(--line-strong)] bg-[var(--paper)] px-3.5 py-3 text-left shadow-[3px_3px_0_var(--sand-soft)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)]"
                   >
                     <p className="text-xs font-semibold tracking-[0.12em] text-[var(--sage-deep)]">
                       想带走这版
                     </p>
                     <p className="mt-1 text-lg font-semibold">去导出方案</p>
-                    <p className="mt-1 text-sm leading-6 text-[var(--ink-muted)]">
+                    <p className="mt-1 text-sm leading-5 text-[var(--ink-muted)]">
                       复制完整方案和下载 Markdown 都放在修改工作台里。
                     </p>
                   </button>

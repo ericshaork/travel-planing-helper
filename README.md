@@ -1,110 +1,87 @@
-# 漫游草签：AI 自由行规划
+# 漫游草稿 / AI 自由行规划
 
-一个面向自由行新手的 AI 旅行规划网站。
+一个面向自由行新手的 Next.js 旅行规划网站。
 
-你先用一句话说想去哪、玩几天、预算和偏好，系统先给你一版完整行程；拿到结果后，不用从零重写提示词，也不用硬啃一份死板攻略，可以继续按步骤补信息、点积木修改、收集待修改项，再决定要不要重排。
+你先用一句话说想去哪、玩几天、预算和偏好，系统先给你一版结构化自由行草稿；拿到结果后，可以继续补信息、点积木修改、收集待修改项，再统一重新生成。
 
-当前版本：MVP v1.2
+当前版本：`MVP v1.2`
 
-## 当前版本概览
+当前开发阶段：`MVP v1.2.5 阶段 3`
 
-v1.2 的主题是：
+阶段 3 只做三件事：
 
-> Mobile Flow First + Cabinet Identity + Pending Changes + 轻工作台雏形
+- 记录真实 Qwen 冒烟结果
+- 同步阶段文档和人工验收清单
+- 做部署前检查和发布准备
 
-这一版的重点不是新增真实地图或真实 AI，而是把已有生成与编辑能力整理成一个更适合手机、也更容易继续修改的版本。
+不做新功能，不进入 `v1.3`。
 
-## v1.0 已有能力
+## 当前能力
 
-- 首页自然语言输入；
-- `/plan` 分步补信息；
-- Mock AI / Mock Weather 主流程；
-- `/result` 生成并展示完整行程；
-- 复制完整方案；
-- Markdown 导出；
-- 简单重新生成。
+`v1.0`
 
-## v1.1 已有能力
+- 首页自然语言输入
+- `/plan` 分步补信息
+- `/result` 结构化行程展示
+- 复制完整方案
+- Markdown 导出
+- 简单重新生成
+- `localStorage` 保存解析结果和方案草稿
 
-- `/plan` 缺失字段摘要；
-- 字段级错误、点击定位、首错滚动；
-- Day Cabinet 行程展示；
-- BlockActions 积木操作：
-  - 不要这个
-  - 换一个
-  - 一定保留
-  - 加类似
-- QuickActions 快捷修改：
-  - 轻松一点
-  - 少走路
-  - 预算低一点
-  - 加美食 / 夜市
-  - 不早起
+`v1.1`
 
-## v1.2 新增能力
+- `/plan` 缺失字段摘要
+- 字段级错误提示
+- 点击缺失项定位
+- Day Cabinet / Time Slot / Itinerary Block 结果结构
+- BlockActions 和 QuickActions 进入修改流
 
-- Mobile Flow First：
-  - 首页 mobile 首屏聚焦输入；
-  - `/plan` mobile 改成三步问卷式；
-  - `/result` mobile 改成分页式浏览。
-- `/plan` 手机端问卷体验：
-  - 每步只聚焦当前任务；
-  - 日期提示改成中文友好文案；
-  - 手机端草稿摘要改为紧凑折叠。
-- `/result` 手机端分页：
-  - `overview`
-  - `day-${number}`
-  - `budget`
-  - `more`
-  - `edit`
-- Cabinet Identity 视觉升级：
-  - Day Summary 更像小柜门 / 抽屉入口；
-  - DayCabinet 更像单日三层柜；
-  - ItineraryBlock 更像可操作积木；
-  - “查看详情 / 收起详情”入口更明显。
-- Pending Changes 修改篮：
-  - BlockActions 先加入修改篮；
-  - 可连续收集多个积木修改；
-  - 可删除、清空、写入修改框；
-  - 写入后不自动提交；
-  - RegenerateBox 仍是唯一提交入口。
-- 轻工作台雏形：
-  - ResultDayNav 显示待修改数量；
-  - Day 页提示“已选 N 项待修改”；
-  - edit 页整理为“修改工作台”；
-  - overview 页强化下一步入口；
-  - desktop 修改区关系更清楚。
+`v1.2`
 
-## 当前仍然使用 Mock AI / Mock Weather
+- Mobile Flow First
+- `/plan` mobile 三步问卷
+- `/result` mobile 分页浏览
+- Cabinet Identity 视觉升级
+- Pending Changes 修改篮
+- edit 页轻工作台
 
-仓库默认仍以 Mock 模式为主，方便本地零 Key 跑通完整流程：
+`v1.2.5`
 
-- `USE_MOCK_AI=true`
-- `USE_MOCK_WEATHER=true`
+- mobile 固定选项从横向滚动改为网格
+- 真实 Qwen 通过 `OpenAICompatibleProvider` 接入
+- `parse-trip` 支持 JSON extract / normalize / repair
+- `generate-trip` 支持 unwrap / normalize / repair
+- `LLM_TIMEOUT_MS` 可配置
+- 首页三个示例已完成真实 Qwen 主链路冒烟
+- `RegenerateBox` 单条修改已完成真实冒烟
+- `Pending Changes` 三条修改已完成真实冒烟
+- `USE_MOCK_AI=true` Mock 回归通过
 
-也就是说，当前 v1.2 仍然不是“真实 AI + 真实地图 + 真实天气”的版本。v1.2.5 才会进入真实 AI 冒烟接入。
+## 当前明确不做
+
+`v1.2.5` 不做：
+
+- 高德地图、POI、路线规划、地图工作台
+- 保存分享、登录、数据库、已有计划导入
+- 拖拽积木、手动加减格子、局部 patch
+- 新 API 协议
+- `TripRequest` / `TripPlan` schema 改动
 
 ## 本地运行
 
-先安装依赖：
-
-```bash
-npm install
-```
-
-Windows PowerShell：
+安装依赖：
 
 ```powershell
 npm.cmd install
 ```
 
-开发启动：
+启动开发环境：
 
 ```powershell
 npm.cmd run dev
 ```
 
-打开 [http://localhost:3000](http://localhost:3000)。
+打开 `http://localhost:3000`
 
 ## 常用命令
 
@@ -118,72 +95,59 @@ npm.cmd test
 
 ## 环境变量
 
-当前 `.env.example` 默认启用 Mock AI 和 Mock Weather。
+仓库默认是 Mock 模式：
 
-重点变量：
+```env
+USE_MOCK_AI=true
+USE_MOCK_WEATHER=true
+```
 
-| 变量 | 当前用途 |
-|---|---|
-| `USE_MOCK_AI` | `true` 时使用 Mock AI 主流程 |
-| `USE_MOCK_WEATHER` | `true` 时使用 Mock Weather 主流程 |
-| `LLM_BASE_URL` | 预留给后续真实模型接入 |
-| `LLM_API_KEY` | 预留给后续真实模型接入 |
-| `LLM_MODEL` | 预留给后续真实模型接入 |
-| `WEATHER_PROVIDER` | 当前支持 `qweather` |
-| `QWEATHER_BASE_URL` | 真实天气模式可配置 |
-| `QWEATHER_API_KEY` | 真实天气模式可配置 |
+开启真实 Qwen：
+
+```env
+USE_MOCK_AI=false
+LLM_BASE_URL=
+LLM_API_KEY=
+LLM_MODEL=qwen-plus
+LLM_TIMEOUT_MS=120000
+USE_MOCK_WEATHER=true
+```
+
+测试更快的模型也可以用：
+
+```env
+LLM_MODEL=qwen-turbo
+```
+
+切回 Mock：
+
+```env
+USE_MOCK_AI=true
+```
 
 说明：
 
-- `LLM_BASE_URL / LLM_API_KEY / LLM_MODEL` 目前主要为后续 v1.2.5 真实 AI 接入预留；
-- 当前版本即使没有真实 Key，也应该能靠 Mock 模式跑通首页 → `/plan` → `/result` 主流程。
+- 真实值放在 `.env.local`，不要提交到仓库
+- `LLM_API_KEY` 只在服务端使用，不出现在浏览器
+- `LLM_BASE_URL` 可以填兼容接口根路径，也可以填完整 `/chat/completions`
+- `LLM_TIMEOUT_MS` 默认 `120000`
+- Netlify 部署时，把这些值配置到 Environment Variables，不要写进代码
 
-## 当前明确不做
+## 真实 AI 冒烟结果
 
-v1.2 仍然没有做这些：
+当前已记录通过：
 
-- 未接真实 AI；
-- 未接高德地图；
-- 未做地图；
-- 未保存分享；
-- 未登录数据库；
-- 未做已有计划导入；
-- 未拖拽积木；
-- 未手动加减格子；
-- 未做商业预订闭环；
-- 未做局部 Patch；
-- 未改 `/api/generate-trip` 协议；
-- 未改 `TripPlan` schema。
-
-## 已知限制
-
-- Mock AI 下，3 条以上 Pending Changes 同时重排可能不稳定；
-- 当前 Pending Changes 更适合单条或两条连续修改；
-- 真实 AI 接入后，需要重点复测多条修改场景。
-
-## 部署与检查
-
-部署前至少运行：
-
-```powershell
-npm.cmd run lint
-npm.cmd run typecheck
-npm.cmd run build
-npm.cmd test
-```
-
-当前 v1.2 的目标是：
-
-- 可以部署到 Netlify；
-- 可以进行朋友二轮测试；
-- 不误称已经接入真实 AI、真实地图或保存分享。
+- 首页示例一：`parse-trip -> /plan -> generate-trip -> /result`
+- 首页示例二：`parse-trip -> /plan -> generate-trip -> /result`
+- 首页示例三：`parse-trip -> /plan -> generate-trip -> /result`
+- `RegenerateBox` 单条修改
+- `Pending Changes` 三条修改
+- `USE_MOCK_AI=true` Mock 回归
 
 ## 相关文档
 
 - [AGENTS.md](/C:/Users/10200/Desktop/travel_planing/AGENTS.md)
+- [docs/PRD_v1.2.5.md](/C:/Users/10200/Desktop/travel_planing/docs/PRD_v1.2.5.md)
+- [docs/TECH_DESIGN_v1.2.5.md](/C:/Users/10200/Desktop/travel_planing/docs/TECH_DESIGN_v1.2.5.md)
+- [docs/V1.2.5_PHASE_PLAN.md](/C:/Users/10200/Desktop/travel_planing/docs/V1.2.5_PHASE_PLAN.md)
 - [docs/MANUAL_ACCEPTANCE.md](/C:/Users/10200/Desktop/travel_planing/docs/MANUAL_ACCEPTANCE.md)
-- [docs/PRODUCT_ROADMAP.md](/C:/Users/10200/Desktop/travel_planing/docs/PRODUCT_ROADMAP.md)
-- [docs/PRD_v1.2.md](/C:/Users/10200/Desktop/travel_planing/docs/PRD_v1.2.md)
-- [docs/TECH_DESIGN_v1.2.md](/C:/Users/10200/Desktop/travel_planing/docs/TECH_DESIGN_v1.2.md)
-- [docs/V1.2_PHASE_PLAN.md](/C:/Users/10200/Desktop/travel_planing/docs/V1.2_PHASE_PLAN.md)
-- [docs/COMPETITOR_INSIGHTS.md](/C:/Users/10200/Desktop/travel_planing/docs/COMPETITOR_INSIGHTS.md)

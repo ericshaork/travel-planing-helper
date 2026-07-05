@@ -27,6 +27,11 @@ export function TravelStyleSelector({
   invalid = false,
   highlighted = false,
 }: TravelStyleSelectorProps) {
+  const optionLayoutClassName =
+    "mt-2.5 grid grid-cols-2 gap-1.5 sm:mt-3 sm:flex sm:flex-wrap sm:gap-2";
+  const optionClassName =
+    "min-h-11 min-w-0 w-full border px-3 py-2 text-center text-sm leading-5 whitespace-normal break-words transition-[transform,background-color,border-color] duration-150 ease-out focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)] sm:min-h-10 sm:w-auto sm:max-w-full";
+
   return (
     <fieldset
       id={fieldId}
@@ -44,12 +49,12 @@ export function TravelStyleSelector({
         {legend}
       </legend>
       {helperText ? (
-        <p className="mt-1 text-xs leading-5 text-[var(--ink-muted)]">
+        <p className="mt-1 text-xs leading-[1.1rem] text-[var(--ink-muted)] sm:leading-5">
           {helperText}
         </p>
       ) : null}
 
-      <div className="no-scrollbar -mx-1 mt-3 flex gap-2 overflow-x-auto px-1 pb-1 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0 sm:pb-0">
+      <div className={optionLayoutClassName}>
         {TRAVEL_STYLE_OPTIONS.map((style) => {
           const isSelected = selected.includes(style);
 
@@ -59,9 +64,9 @@ export function TravelStyleSelector({
               type="button"
               aria-pressed={isSelected}
               onClick={() => onToggle(style)}
-              className={`min-h-10 shrink-0 whitespace-nowrap border px-3 py-2 text-sm leading-5 transition-[transform,background-color,border-color] duration-150 ease-out hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)] sm:max-w-full sm:break-words sm:whitespace-normal ${
+              className={`${optionClassName} ${
                 isSelected
-                  ? "rotate-1 border-[var(--clay)] bg-[var(--clay-soft)] font-semibold text-[var(--clay-deep)]"
+                  ? "border-[var(--clay)] bg-[var(--clay-soft)] font-semibold text-[var(--clay-deep)] sm:rotate-1 sm:hover:-translate-y-0.5"
                   : "border-[var(--line)] bg-[var(--paper)] text-[var(--ink-muted)] hover:border-[var(--ink-muted)]"
               }`}
             >
@@ -75,7 +80,7 @@ export function TravelStyleSelector({
         <p
           id={errorId}
           role="alert"
-          className="mt-3 text-xs leading-5 text-[var(--clay-deep)]"
+          className="mt-2.5 text-xs leading-5 text-[var(--clay-deep)]"
         >
           {errorMessage}
         </p>

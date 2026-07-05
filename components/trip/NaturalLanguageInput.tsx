@@ -100,7 +100,7 @@ export function NaturalLanguageInput() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="paper-card relative flex min-h-[calc(100dvh-12rem)] flex-col overflow-hidden border border-[var(--line-strong)] bg-[var(--paper)] p-4 sm:min-h-0 sm:p-7"
+      className="paper-card relative flex min-h-0 flex-col overflow-hidden border border-[var(--line-strong)] bg-[var(--paper)] p-3.5 sm:min-h-0 sm:p-7"
     >
       <div
         aria-hidden="true"
@@ -120,7 +120,7 @@ export function NaturalLanguageInput() {
           </p>
         </div>
 
-        <div className="mt-4 overflow-hidden border border-[var(--line-strong)] bg-[var(--paper-bright)] shadow-[4px_4px_0_var(--sand)]">
+        <div className="mt-3 overflow-hidden border border-[var(--line-strong)] bg-[var(--paper-bright)] shadow-[4px_4px_0_var(--sand)]">
           <textarea
             id="trip-request"
             name="trip-request"
@@ -130,7 +130,7 @@ export function NaturalLanguageInput() {
             rows={4}
             disabled={isSubmitting}
             placeholder="比如：7 月从深圳去厦门玩 3 天，预算 2500，喜欢海边和美食，不想太累。"
-            className="min-h-28 w-full resize-none bg-transparent px-4 py-3 text-base leading-7 text-[var(--ink)] outline-none placeholder:text-[var(--ink-faint)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--sage-deep)] disabled:cursor-wait sm:min-h-40 sm:resize-y sm:py-4"
+            className="min-h-24 w-full resize-none bg-transparent px-4 py-3 text-base leading-7 text-[var(--ink)] outline-none placeholder:text-[var(--ink-faint)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--sage-deep)] disabled:cursor-wait sm:min-h-40 sm:resize-y sm:py-4"
           />
           <div className="flex flex-wrap items-center justify-between gap-2 border-t border-dashed border-[var(--line)] px-4 py-2 text-xs text-[var(--ink-muted)]">
             <span>知道多少写多少</span>
@@ -138,7 +138,7 @@ export function NaturalLanguageInput() {
           </div>
         </div>
 
-        <div className="mt-4 rounded-sm border border-dashed border-[var(--line)] bg-[var(--paper-bright)] p-3 sm:hidden">
+        <div className="mt-3 rounded-sm border border-dashed border-[var(--line)] bg-[var(--paper-bright)] p-2.5 sm:hidden">
           <p className="text-xs font-semibold tracking-[0.08em] text-[var(--ink-muted)]">
             试一句
           </p>
@@ -152,8 +152,8 @@ export function NaturalLanguageInput() {
           </button>
         </div>
 
-        <details className="group mt-4 overflow-hidden rounded-sm border border-dashed border-[var(--line-strong)] bg-[var(--paper-bright)] sm:hidden">
-          <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-3 px-3.5 py-2.5 text-sm font-semibold focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-[var(--clay)] [&::-webkit-details-marker]:hidden">
+        <details className="group mt-3 overflow-hidden rounded-sm border border-dashed border-[var(--line-strong)] bg-[var(--paper-bright)] sm:hidden">
+          <summary className="flex min-h-10 cursor-pointer list-none items-center justify-between gap-3 px-3 py-2.5 text-sm font-semibold focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-[var(--clay)] [&::-webkit-details-marker]:hidden">
             <span>示例和偏好</span>
             <span className="text-xs text-[var(--ink-muted)]">
               <span className="group-open:hidden">展开</span>
@@ -161,7 +161,7 @@ export function NaturalLanguageInput() {
             </span>
           </summary>
 
-          <div className="space-y-4 border-t border-dashed border-[var(--line)] px-3.5 py-4">
+          <div className="space-y-3 border-t border-dashed border-[var(--line)] px-3 py-3">
             <div className="space-y-2">
               {EXAMPLES.slice(1).map((example, index) => (
                 <button
@@ -247,15 +247,15 @@ export function NaturalLanguageInput() {
           </p>
         ) : null}
 
-        <div className="mt-auto pt-4">
-          <div className="flex flex-col gap-3 border-t border-dashed border-[var(--line)] pt-4 sm:flex-row sm:items-center sm:justify-between sm:pt-5">
+        <div className="mt-4 pt-0 sm:mt-auto sm:pt-4">
+          <div className="flex flex-col gap-2.5 border-t border-dashed border-[var(--line)] pt-3 sm:flex-row sm:items-center sm:justify-between sm:pt-5">
             <p className="text-xs leading-5 text-[var(--ink-muted)] sm:text-sm sm:leading-6">
               下一步只补缺的信息，不会直接丢给你一张长表单。
             </p>
             <button
               type="submit"
               disabled={isSubmitting}
-              className="min-h-12 w-full border border-[var(--ink)] bg-[var(--ink)] px-5 py-3 text-sm font-semibold text-[var(--paper-bright)] shadow-[4px_4px_0_var(--clay)] transition-[transform,box-shadow] duration-150 ease-out hover:-translate-y-0.5 hover:shadow-[5px_5px_0_var(--clay)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)] active:translate-y-0 active:shadow-[2px_2px_0_var(--clay)] disabled:cursor-wait disabled:opacity-70 sm:w-auto"
+              className="min-h-11 w-full border border-[var(--ink)] bg-[var(--ink)] px-5 py-2.5 text-sm font-semibold text-[var(--paper-bright)] shadow-[4px_4px_0_var(--clay)] transition-[transform,box-shadow] duration-150 ease-out hover:-translate-y-0.5 hover:shadow-[5px_5px_0_var(--clay)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)] active:translate-y-0 active:shadow-[2px_2px_0_var(--clay)] disabled:cursor-wait disabled:opacity-70 sm:min-h-12 sm:w-auto sm:py-3"
             >
               {isSubmitting ? "先把信息捋顺..." : "先排一版"}
             </button>

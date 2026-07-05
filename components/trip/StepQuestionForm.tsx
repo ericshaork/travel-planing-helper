@@ -41,7 +41,7 @@ interface StepQuestionFormProps {
 }
 
 const inputClassName =
-  "mt-2 min-h-11 w-full rounded-none border border-[var(--line-strong)] bg-[var(--paper-bright)] px-3 py-2.5 text-sm text-[var(--ink)] outline-none placeholder:text-[var(--ink-faint)] focus-visible:ring-2 focus-visible:ring-[var(--sage-deep)]";
+  "mt-1.5 min-h-10 w-full rounded-none border border-[var(--line-strong)] bg-[var(--paper-bright)] px-3 py-2 text-sm text-[var(--ink)] outline-none placeholder:text-[var(--ink-faint)] focus-visible:ring-2 focus-visible:ring-[var(--sage-deep)] sm:mt-2 sm:min-h-11 sm:py-2.5";
 const START_DATE_HELPER_ID = "plan-field-start-date-helper";
 const END_DATE_HELPER_ID = "plan-field-end-date-helper";
 
@@ -115,10 +115,15 @@ function PreferenceButtons({
   options,
   onChange,
 }: PreferenceButtonsProps) {
+  const optionLayoutClassName =
+    "mt-2 grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:gap-2";
+  const optionClassName =
+    "min-h-11 min-w-0 w-full border px-3 py-2 text-center text-sm leading-5 whitespace-normal break-words transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)] sm:min-h-10 sm:w-auto sm:max-w-full";
+
   return (
     <fieldset>
       <legend className="text-sm font-semibold">{label}</legend>
-      <div className="no-scrollbar -mx-1 mt-2 flex gap-2 overflow-x-auto px-1 pb-1 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0 sm:pb-0">
+      <div className={optionLayoutClassName}>
         {options.map((option) => {
           const selected = value === option;
 
@@ -128,7 +133,7 @@ function PreferenceButtons({
               type="button"
               aria-pressed={selected}
               onClick={() => onChange(selected ? undefined : option)}
-              className={`min-h-10 shrink-0 whitespace-nowrap border px-3 py-2 text-sm leading-5 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)] sm:max-w-full sm:break-words sm:whitespace-normal ${
+              className={`${optionClassName} ${
                 selected
                   ? "border-[var(--clay)] bg-[var(--clay-soft)] font-semibold text-[var(--clay-deep)]"
                   : "border-[var(--line)] bg-[var(--paper-bright)] text-[var(--ink-muted)] hover:border-[var(--ink-muted)]"
@@ -148,8 +153,8 @@ function OptionalPreferences({
   onChange,
 }: Pick<StepQuestionFormProps, "draft" | "onChange">) {
   return (
-    <div className="space-y-5">
-      <div className="grid gap-4 sm:grid-cols-2">
+    <div className="space-y-4 sm:space-y-5">
+      <div className="grid gap-3 sm:grid-cols-2 sm:gap-4">
         <label className="text-sm font-semibold">
           一定想去
           <input
@@ -230,6 +235,15 @@ export function StepQuestionForm({
   onSubmit,
 }: StepQuestionFormProps) {
   const step = PLAN_STEPS[currentStep];
+  const cardClassName = mobileViewport
+    ? "flex h-full min-h-0 flex-col p-3"
+    : "p-4 sm:p-7";
+  const contentClassName = mobileViewport
+    ? "mt-2.5 min-h-0 flex-1 overflow-y-auto pr-1"
+    : "mt-6 min-w-0";
+  const footerClassName = mobileViewport
+    ? "mt-2.5 border-t border-dashed border-[var(--line)] pt-2.5"
+    : "mt-7 grid grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] gap-2.5 border-t border-dashed border-[var(--line)] pt-4 sm:mt-8 sm:flex sm:items-center sm:justify-between sm:gap-3 sm:pt-5";
 
   function getFieldMessage(field: PlanFormField): string | undefined {
     return fieldErrors[field];
@@ -269,21 +283,17 @@ export function StepQuestionForm({
   return (
     <form
       onSubmit={handleSubmit}
-      className={`min-w-0 overflow-hidden border border-[var(--line-strong)] bg-[var(--paper)] shadow-[5px_6px_0_var(--sand)] sm:shadow-[8px_9px_0_var(--sand)] ${
-        mobileViewport
-          ? "flex h-full min-h-0 flex-col p-4"
-          : "p-4 sm:p-7"
-      }`}
+      className={`min-w-0 overflow-hidden border border-[var(--line-strong)] bg-[var(--paper)] shadow-[5px_6px_0_var(--sand)] sm:shadow-[8px_9px_0_var(--sand)] ${cardClassName}`}
     >
-      <div className="flex flex-col gap-3 border-b border-dashed border-[var(--line)] pb-4 sm:flex-row sm:items-start sm:justify-between sm:gap-4 sm:pb-5">
+      <div className="flex flex-col gap-2 border-b border-dashed border-[var(--line)] pb-2.5 sm:flex-row sm:items-start sm:justify-between sm:gap-4 sm:pb-5">
         <div className="min-w-0">
           <p className="text-xs font-semibold tracking-[0.12em] text-[var(--ink-muted)]">
             第 {currentStep + 1} 步，共 {PLAN_STEPS.length} 步
           </p>
-          <h2 className="mt-1.5 text-xl font-semibold sm:mt-2 sm:text-2xl">
+          <h2 className="mt-1 text-lg font-semibold sm:mt-2 sm:text-2xl">
             {step.title}
           </h2>
-          <p className="mt-1 text-sm leading-6 text-[var(--ink-muted)]">
+          <p className="mt-0.5 text-sm leading-[1.15rem] text-[var(--ink-muted)] sm:leading-6">
             {step.note}
           </p>
         </div>
@@ -306,14 +316,14 @@ export function StepQuestionForm({
       {stepMessage ? (
         <p
           role="alert"
-          className="mt-4 break-words border-l-2 border-[var(--clay)] bg-[var(--clay-soft)] px-3 py-2 text-sm leading-6 text-[var(--clay-deep)]"
+          className="mt-2.5 break-words border-l-2 border-[var(--clay)] bg-[var(--clay-soft)] px-3 py-2 text-sm leading-5 text-[var(--clay-deep)] sm:mt-4 sm:leading-6"
         >
           {stepMessage}
         </p>
       ) : null}
 
       {issues.length > 0 ? (
-        <ul className="mt-4 space-y-1 border-l-2 border-[var(--clay)] bg-[var(--clay-soft)] px-3 py-2 text-sm leading-6 text-[var(--clay-deep)]">
+        <ul className="mt-2.5 space-y-1 border-l-2 border-[var(--clay)] bg-[var(--clay-soft)] px-3 py-2 text-sm leading-5 text-[var(--clay-deep)] sm:mt-4 sm:leading-6">
           {issues.map((issue) => (
             <li key={`${issue.field}-${issue.message}`} className="break-words">
               {issue.message}
@@ -322,16 +332,10 @@ export function StepQuestionForm({
         </ul>
       ) : null}
 
-      <div
-        className={
-          mobileViewport
-            ? "mt-4 min-h-0 flex-1 overflow-y-auto pr-1"
-            : "mt-6 min-w-0"
-        }
-      >
+      <div className={contentClassName}>
         {currentStep === 0 ? (
-          <div className="space-y-4">
-            <div className="grid gap-4 sm:grid-cols-2">
+          <div className="space-y-3 sm:space-y-4">
+            <div className="grid gap-2.5 sm:grid-cols-2 sm:gap-4">
               <label
                 className={`block text-sm font-semibold ${panelClass(
                   departureCityState.invalid,
@@ -387,7 +391,7 @@ export function StepQuestionForm({
                 daysOrDatesState.highlighted,
               )}`}
             >
-              <div className="break-words border-l-2 border-[var(--sage-deep)] bg-[var(--sage-soft)] px-4 py-3 text-sm leading-6 text-[var(--sage-deep)]">
+              <div className="break-words border-l-2 border-[var(--sage-deep)] bg-[var(--sage-soft)] px-3 py-2.5 text-sm leading-5 text-[var(--sage-deep)] sm:px-4 sm:py-3 sm:leading-6">
                 天数和完整日期，填一组就行。日期没定，也可以先按天数排通用方案。
               </div>
               <FieldError
@@ -396,7 +400,7 @@ export function StepQuestionForm({
               />
             </div>
 
-            <div className="grid gap-4 sm:grid-cols-3">
+            <div className="grid gap-2.5 sm:grid-cols-3 sm:gap-4">
               <label
                 className={`block text-sm font-semibold ${panelClass(
                   daysState.invalid,
@@ -453,7 +457,7 @@ export function StepQuestionForm({
                 />
                 <p
                   id={START_DATE_HELPER_ID}
-                  className="mt-1.5 text-xs font-normal leading-5 text-[var(--ink-muted)]"
+                  className="mt-1 text-xs font-normal leading-4 text-[var(--ink-muted)] sm:mt-1.5 sm:leading-5"
                 >
                   日期可选。不填日期时，会按天数生成通用方案。
                 </p>
@@ -490,7 +494,7 @@ export function StepQuestionForm({
                 />
                 <p
                   id={END_DATE_HELPER_ID}
-                  className="mt-1.5 text-xs font-normal leading-5 text-[var(--ink-muted)]"
+                  className="mt-1 text-xs font-normal leading-4 text-[var(--ink-muted)] sm:mt-1.5 sm:leading-5"
                 >
                   若填写，请用日期选择器选择完整日期。
                 </p>
@@ -501,7 +505,7 @@ export function StepQuestionForm({
         ) : null}
 
         {currentStep === 1 ? (
-          <div className="space-y-5">
+          <div className="space-y-3">
             <label
               className={`block max-w-xs text-sm font-semibold ${panelClass(
                 budgetState.invalid,
@@ -543,6 +547,7 @@ export function StepQuestionForm({
               highlighted={interestsState.highlighted}
               legend="更想体验什么"
               helperText="至少选一个。已经识别出来的可以继续改。"
+              mobileCollapsedCount={6}
               selected={draft.interests ?? []}
               onToggle={(interest) =>
                 onChange({
@@ -554,7 +559,7 @@ export function StepQuestionForm({
         ) : null}
 
         {currentStep === 2 ? (
-          <div className="space-y-5">
+          <div className="space-y-4">
             <TravelStyleSelector
               fieldId={getPlanFieldMeta("travelStyles").elementId}
               errorId={travelStylesState.describedBy}
@@ -572,14 +577,14 @@ export function StepQuestionForm({
             />
 
             <details className="group overflow-hidden border border-dashed border-[var(--line-strong)] bg-[var(--paper-bright)] lg:hidden">
-              <summary className="flex min-h-12 cursor-pointer list-none items-center justify-between gap-3 px-3.5 py-3 text-sm font-semibold focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-[var(--clay)] [&::-webkit-details-marker]:hidden">
+              <summary className="flex min-h-10 cursor-pointer list-none items-center justify-between gap-3 px-3 py-2.5 text-sm font-semibold focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-[var(--clay)] [&::-webkit-details-marker]:hidden">
                 <span>再补一点（可选）</span>
                 <span className="text-xs text-[var(--ink-muted)]">
                   <span className="group-open:hidden">展开</span>
                   <span className="hidden group-open:inline">收起</span>
                 </span>
               </summary>
-              <div className="border-t border-dashed border-[var(--line)] px-3.5 py-4">
+              <div className="border-t border-dashed border-[var(--line)] px-3 py-3">
                 <OptionalPreferences draft={draft} onChange={onChange} />
               </div>
             </details>
@@ -588,33 +593,27 @@ export function StepQuestionForm({
               <OptionalPreferences draft={draft} onChange={onChange} />
             </div>
 
-            <p className="border-l-2 border-[var(--sage-deep)] bg-[var(--sage-soft)] px-3 py-2.5 text-sm leading-6 text-[var(--sage-deep)]">
+            <p className="border-l-2 border-[var(--sage-deep)] bg-[var(--sage-soft)] px-3 py-2 text-sm leading-5 text-[var(--sage-deep)] sm:py-2.5 sm:leading-6">
               最后看一眼左边的旅行草稿。没问题就生成，之后还可以继续修改。
             </p>
           </div>
         ) : null}
       </div>
 
-      <div
-        className={`border-t border-dashed border-[var(--line)] pt-4 ${
-          mobileViewport
-            ? "mt-4"
-            : "mt-7 grid grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] gap-2.5 sm:mt-8 sm:flex sm:items-center sm:justify-between sm:gap-3 sm:pt-5"
-        }`}
-      >
+      <div className={footerClassName}>
         <div className={mobileViewport ? "grid grid-cols-2 gap-2.5" : ""}>
           <button
             type="button"
             onClick={onBack}
             disabled={currentStep === 0}
-            className="min-h-12 w-full border border-[var(--line-strong)] bg-[var(--paper-bright)] px-3 py-2.5 text-center text-sm font-semibold text-[var(--ink-muted)] hover:text-[var(--ink)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)] disabled:cursor-not-allowed disabled:opacity-30 sm:min-h-11 sm:w-auto sm:border-0 sm:bg-transparent sm:px-2 sm:py-2"
+            className="min-h-10 w-full border border-[var(--line-strong)] bg-[var(--paper-bright)] px-3 py-2 text-center text-sm font-semibold text-[var(--ink-muted)] hover:text-[var(--ink)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)] disabled:cursor-not-allowed disabled:opacity-30 sm:min-h-11 sm:w-auto sm:border-0 sm:bg-transparent sm:px-2 sm:py-2"
           >
             上一步
           </button>
 
           <button
             type="submit"
-            className="min-h-12 w-full border border-[var(--ink)] bg-[var(--ink)] px-4 py-2.5 text-sm font-semibold text-[var(--paper-bright)] shadow-[3px_3px_0_var(--clay)] transition-[transform,box-shadow] duration-150 ease-out hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)] active:translate-y-0 active:shadow-[2px_2px_0_var(--clay)] sm:min-h-11 sm:w-auto sm:px-5 sm:shadow-[4px_4px_0_var(--clay)]"
+            className="min-h-10 w-full border border-[var(--ink)] bg-[var(--ink)] px-4 py-2 text-sm font-semibold text-[var(--paper-bright)] shadow-[3px_3px_0_var(--clay)] transition-[transform,box-shadow] duration-150 ease-out hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)] active:translate-y-0 active:shadow-[2px_2px_0_var(--clay)] sm:min-h-11 sm:w-auto sm:px-5 sm:py-2.5 sm:shadow-[4px_4px_0_var(--clay)]"
           >
             {currentStep === PLAN_STEPS.length - 1 ? "生成行程" : "下一步"}
           </button>
