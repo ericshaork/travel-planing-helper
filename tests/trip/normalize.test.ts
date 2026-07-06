@@ -322,4 +322,36 @@ describe("trip request normalization", () => {
       ],
     });
   });
+  it("plan 修改后的预算日期天数和偏好会进入最终 trip request", () => {
+    const result = normalizeTripRequestDraft({
+      ...baseDraft,
+      budget: 3000,
+      startDate: "2026-07-10",
+      endDate: "2026-07-13",
+      days: 4,
+      mustVisitPlaces: ["鼓浪屿"],
+      avoidPlaces: ["过于商业化的景点"],
+      accommodationPreference: "交通方便",
+      localTransportPreference: "少换乘",
+      schedulePreference: "不想早起",
+      specialRequirements: "想走得轻松一点",
+    });
+
+    expect(result.success).toBe(true);
+
+    if (result.success) {
+      expect(result.tripRequest).toMatchObject({
+        budget: 3000,
+        startDate: "2026-07-10",
+        endDate: "2026-07-13",
+        days: 4,
+        mustVisitPlaces: ["鼓浪屿"],
+        avoidPlaces: ["过于商业化的景点"],
+        accommodationPreference: "交通方便",
+        localTransportPreference: "少换乘",
+        schedulePreference: "不想早起",
+        specialRequirements: "想走得轻松一点",
+      });
+    }
+  });
 });

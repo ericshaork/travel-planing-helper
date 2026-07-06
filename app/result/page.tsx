@@ -20,6 +20,18 @@ import { RouteInsightPanel } from "@/components/trip/RouteInsightPanel";
 import { TransportAdvice } from "@/components/trip/TransportAdvice";
 import { TripSummaryCard } from "@/components/trip/TripSummaryCard";
 import { WeatherAlertCard } from "@/components/trip/WeatherAlertCard";
+import { DesktopWorkspaceShell } from "@/components/workspace/DesktopWorkspaceShell";
+import { WorkspaceDayPanel } from "@/components/workspace/WorkspaceDayPanel";
+import { WorkspaceDayTabs } from "@/components/workspace/WorkspaceDayTabs";
+import { WorkspaceInspector } from "@/components/workspace/WorkspaceInspector";
+import { WorkspaceMain } from "@/components/workspace/WorkspaceMain";
+import { WorkspacePlanSummary } from "@/components/workspace/WorkspacePlanSummary";
+import {
+  WorkspaceSidebar,
+  type WorkspaceSidebarItemId,
+} from "@/components/workspace/WorkspaceSidebar";
+import { WorkspaceTopBar } from "@/components/workspace/WorkspaceTopBar";
+import { WorkspaceUtilityPanel } from "@/components/workspace/WorkspaceUtilityPanel";
 import type { TripResultEnrichment } from "@/lib/trip/enrichment-types";
 import {
   mapTripPlanToCabinets,
@@ -76,6 +88,10 @@ interface MobilePageShellProps {
 
 type ResultPageState = "loading" | "missing" | "ready";
 type EnrichmentState = "idle" | "loading" | "ready" | "error";
+type SidebarNotice = {
+  title: string;
+  message: string;
+} | null;
 type MobilePageKey =
   | "overview"
   | "budget"
@@ -217,10 +233,14 @@ export default function ResultPage() {
   const [activeDesktopNavKey, setActiveDesktopNavKey] = useState("overview");
   const [activeMobilePage, setActiveMobilePage] =
     useState<MobilePageKey>("overview");
+  const [activeWorkspaceDayNumber, setActiveWorkspaceDayNumber] = useState(1);
   const [selectedInsightDay, setSelectedInsightDay] = useState(1);
   const [modificationDraft, setModificationDraft] = useState("");
   const [pendingChanges, setPendingChanges] = useState<PendingChangeItem[]>([]);
   const [externalDraftVersion, setExternalDraftVersion] = useState(0);
+  const [activeWorkspaceNav, setActiveWorkspaceNav] =
+    useState<WorkspaceSidebarItemId>("route");
+  const [sidebarNotice, setSidebarNotice] = useState<SidebarNotice>(null);
 
   useEffect(() => {
     const restoreTimer = window.setTimeout(() => {
@@ -250,6 +270,14 @@ export default function ResultPage() {
     [tripPlan],
   );
   const firstCabinet = cabinets[0];
+  const resolvedWorkspaceDayNumber = cabinets.some(
+    (cabinet) => cabinet.dayNumber === activeWorkspaceDayNumber,
+  )
+    ? activeWorkspaceDayNumber
+    : firstCabinet?.dayNumber ?? 1;
+  const activeWorkspaceCabinet = cabinets.find(
+    (cabinet) => cabinet.dayNumber === resolvedWorkspaceDayNumber,
+  );
   const pendingChangesCount = pendingChanges.length;
   const mobileNavItems = useMemo<ResultDayNavItem[]>(
     () => [
@@ -314,6 +342,18 @@ export default function ResultPage() {
       effectiveSelectedInsightDay,
     );
   }, [effectiveSelectedInsightDay, tripEnrichment, tripPlan]);
+
+  const desktopSelectedInsight = useMemo(() => {
+    if (!tripPlan || !tripEnrichment) {
+      return undefined;
+    }
+
+    return buildDayRouteInsight(
+      tripPlan,
+      tripEnrichment,
+      resolvedWorkspaceDayNumber,
+    );
+  }, [resolvedWorkspaceDayNumber, tripEnrichment, tripPlan]);
 
   useEffect(() => {
     if (!tripPlan) {
@@ -403,14 +443,25 @@ export default function ResultPage() {
     }
   }
 
+  function handleWorkspaceDaySelect(dayNumber: number) {
+    setActiveWorkspaceDayNumber(dayNumber);
+    setActiveWorkspaceNav("route");
+    setSidebarNotice(null);
+  }
+
   function handleRegenerated(response: GenerateTripResponse) {
     const savedTripPlan = saveTripPlan(response.tripPlan);
+    const nextFirstDay = savedTripPlan.dailyItinerary[0]?.day ?? 1;
 
     setTripPlan(savedTripPlan);
     setActiveDesktopNavKey("overview");
+    setActiveWorkspaceDayNumber(nextFirstDay);
+    setActiveWorkspaceNav("route");
     setActiveMobilePage("overview");
+    setSelectedInsightDay(nextFirstDay);
     setPendingChanges([]);
     setModificationDraft("");
+    setSidebarNotice(null);
   }
 
   function handleBlockAction(
@@ -430,7 +481,9 @@ export default function ResultPage() {
     setModificationDraft(nextDraft);
     setExternalDraftVersion((currentVersion) => currentVersion + 1);
     setActiveDesktopNavKey("regenerate");
+    setActiveWorkspaceNav("edit");
     setActiveMobilePage("edit");
+    setSidebarNotice(null);
     scrollToRegenerateIfDesktop();
   }
 
@@ -458,8 +511,49 @@ export default function ResultPage() {
     setPendingChanges([]);
     setExternalDraftVersion((currentVersion) => currentVersion + 1);
     setActiveDesktopNavKey("regenerate");
+    setActiveWorkspaceNav("edit");
     setActiveMobilePage("edit");
+    setSidebarNotice(null);
     scrollToRegenerateIfDesktop();
+  }
+
+  function handleWorkspaceNewTrip() {
+    setActiveWorkspaceNav("new-trip");
+    setSidebarNotice(null);
+    window.location.assign("/create");
+  }
+
+  function handleWorkspaceFocusRoute() {
+    setActiveWorkspaceNav("route");
+    setSidebarNotice(null);
+    window.requestAnimationFrame(() => {
+      scrollToSection("workspace-route-insight");
+    });
+  }
+
+  function handleWorkspaceFocusEdit() {
+    setActiveWorkspaceNav("edit");
+    setActiveDesktopNavKey("regenerate");
+    setSidebarNotice(null);
+    window.requestAnimationFrame(() => {
+      scrollToSection("workspace-edit");
+    });
+  }
+
+  function handleWorkspaceFocusExport() {
+    setActiveWorkspaceNav("export");
+    setSidebarNotice(null);
+    window.requestAnimationFrame(() => {
+      scrollToSection("workspace-export");
+    });
+  }
+
+  function handleWorkspacePlaceholder(item: WorkspaceSidebarItemId) {
+    setActiveWorkspaceNav(item);
+    setSidebarNotice({
+      title: "后续开放",
+      message: "该功能将在后续版本开放。",
+    });
   }
 
   function handleMobileNavSelect(key: string) {
@@ -481,6 +575,7 @@ export default function ResultPage() {
 
   function handleDesktopNavSelect(key: string) {
     setActiveDesktopNavKey(key);
+    setSidebarNotice(null);
 
     if (key === "overview") {
       scrollToSection("result-overview-desktop");
@@ -509,6 +604,7 @@ export default function ResultPage() {
         return;
       }
 
+      setActiveWorkspaceDayNumber(dayNumber);
       setSelectedInsightDay(dayNumber);
 
       window.requestAnimationFrame(() => {
@@ -611,13 +707,13 @@ export default function ResultPage() {
                 href="/plan"
                 className="border border-[var(--ink)] bg-[var(--ink)] px-5 py-2.5 text-sm font-semibold text-[var(--paper-bright)] shadow-[4px_4px_0_var(--clay)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)]"
               >
-                回上一步补信息
+                返回修改信息
               </Link>
               <Link
-                href="/"
+                href="/create"
                 className="border border-[var(--line-strong)] bg-[var(--paper)] px-5 py-2.5 text-sm font-semibold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)]"
               >
-                回首页重新写
+                重新填写需求
               </Link>
             </div>
           </section>
@@ -626,6 +722,303 @@ export default function ResultPage() {
       </div>
     );
   }
+
+  const desktopInspector = (
+    <div id="workspace-route-insight" className="scroll-mt-24">
+      <WorkspaceInspector
+        insight={selectedInsight}
+        loading={enrichmentState === "loading"}
+        errorMessage={enrichmentState === "error" ? enrichmentError : undefined}
+      />
+    </div>
+  );
+
+  const desktopMain = (
+    <WorkspaceMain>
+      <div className="space-y-4 sm:space-y-5">
+        <div className="sticky top-3 z-20 -mx-1 px-1">
+          <ResultDayNav
+            items={desktopNavItems}
+            activeKey={activeDesktopNavKey}
+            onSelect={handleDesktopNavSelect}
+            ariaLabel="缁撴灉椤垫粴鍔ㄥ鑸�"
+          />
+        </div>
+
+        <div
+          id="result-overview-desktop"
+          className="scroll-mt-32 space-y-4 sm:space-y-5"
+        >
+          <TripSummaryCard tripPlan={tripPlan} />
+          <RegenerateShortcut
+            onJump={() => handleDesktopNavSelect("regenerate")}
+          />
+        </div>
+      </div>
+
+      <div className="grid items-start gap-5 sm:gap-6 xl:grid-cols-[1.15fr_0.85fr]">
+        <WeatherAlertCard weather={tripPlan.weatherSummary} />
+
+        <div id="result-budget-desktop" className="scroll-mt-32">
+          <BudgetSummaryCard budget={tripPlan.budgetSummary} />
+        </div>
+      </div>
+
+      <section aria-labelledby="daily-title">
+        <div className="mb-5 max-w-2xl sm:mb-6">
+          <p className="text-xs font-semibold tracking-[0.14em] text-[var(--clay-deep)]">
+            鎸夊ぉ鐓х潃璧�?
+          </p>
+          <h2 id="daily-title" className="mt-2 text-2xl font-semibold sm:text-3xl">
+            姣忔棩琛岀▼
+          </h2>
+          <p className="mt-2 text-sm leading-6 text-[var(--ink-muted)]">
+            鍚屼竴澶╁敖閲忔帓鍦ㄧ浉杩戠墖鍖恒€傜疮浜嗗氨鍒犱竴椤癸紝鍒负浜嗘墦鍗℃妸鑷繁璧剁潃璺戙€�
+          </p>
+        </div>
+
+        {pendingChangesCount > 0 ? (
+          <div className="mb-5 flex flex-wrap items-center justify-between gap-3 border border-[var(--line-strong)] bg-[var(--paper-bright)] px-4 py-3 shadow-[3px_3px_0_var(--sand-soft)] sm:mb-6">
+            <div>
+              <p className="text-xs font-semibold tracking-[0.12em] text-[var(--clay-deep)]">
+                宸查€?{pendingChangesCount} 椤瑰緟淇敼
+              </p>
+              <p className="mt-1 text-sm leading-6 text-[var(--ink-muted)]">
+                鍙互缁х画鐪?Day锛屼篃鍙互鍘诲彸渚т慨鏀瑰尯缁熶竴鍐欏叆淇敼妗嗐€�
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={() => handleDesktopNavSelect("regenerate")}
+              className="min-h-10 border border-[var(--line-strong)] bg-[var(--paper)] px-3 py-2 text-sm font-semibold text-[var(--ink)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)]"
+            >
+              鍘讳慨鏀瑰尯鏌ョ湅
+            </button>
+          </div>
+        ) : null}
+
+        <div className="space-y-7">
+          {cabinets.map((cabinet) => (
+            <div
+              key={cabinet.dayNumber}
+              id={`result-day-desktop-${cabinet.dayNumber}`}
+              className="scroll-mt-32"
+            >
+              <DayCabinet
+                cabinet={cabinet}
+                onBlockAction={handleBlockAction}
+              />
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section
+        id="result-attractions-desktop"
+        aria-labelledby="attraction-title"
+      >
+        <div className="mb-4 sm:mb-5">
+          <p className="text-xs font-semibold tracking-[0.14em] text-[var(--sage-deep)]">
+            鍒板湴鏂瑰埆鍙湅绠€浠�?
+          </p>
+          <h2
+            id="attraction-title"
+            className="mt-2 text-2xl font-semibold sm:text-3xl"
+          >
+            鏅偣鏀荤暐
+          </h2>
+        </div>
+        {renderAttractionsContent()}
+      </section>
+
+      <HotelAreaAdvice advice={tripPlan.hotelAreaAdvice} />
+
+      <div id="result-transport-desktop" className="scroll-mt-32">
+        <TransportAdvice advice={tripPlan.transportAdvice} />
+      </div>
+
+      <section className="grid items-start gap-5 xl:grid-cols-[1fr_0.9fr] xl:gap-6">
+        {notesContent}
+
+        <div className="space-y-4 sm:space-y-5">
+          <section
+            id="result-regenerate"
+            data-workspace-section="edit"
+            className="scroll-mt-32 border border-[var(--line-strong)] bg-[var(--paper-bright)] p-4 shadow-[4px_4px_0_var(--sand-soft)] sm:p-5"
+          >
+            <div id="workspace-edit" className="scroll-mt-32" />
+            <p className="text-xs font-semibold tracking-[0.14em] text-[var(--clay-deep)]">
+              淇敼宸ヤ綔鍙�?
+            </p>
+            <h2 className="mt-2 text-xl font-semibold">鍏堟敹淇敼锛屽啀缁熶竴閲嶆帓銆�</h2>
+            <p className="mt-2 text-sm leading-6 text-[var(--ink-muted)]">
+              寰呬慨鏀规竻鍗曘€佹暣浣撳揩鎹蜂慨鏀广€侀噸鏂扮敓鎴愬拰瀵煎嚭閮芥斁鍦ㄨ繖涓€鍒椼€傜Н鏈ㄦ搷浣滀笉浼氱洿鎺ユ彁浜わ紝鏈€鍚庤繕鏄敱淇敼妗嗙粺涓€纭銆€�
+            </p>
+          </section>
+
+          <section id="workspace-export" className="scroll-mt-32">
+            <div className="border border-[var(--line-strong)] bg-[var(--paper-bright)] p-4 sm:p-6">
+              <ExportActions tripPlan={tripPlan} />
+            </div>
+          </section>
+
+          <PendingChangesPanel
+            items={pendingChanges}
+            onRemove={handleRemovePendingChange}
+            onClear={handleClearPendingChanges}
+            onWriteToDraft={handleWritePendingChangesToDraft}
+          />
+
+          <ModificationQuickActions onSelect={handleQuickModification} />
+
+          <RegenerateBox
+            tripPlan={tripPlan}
+            tripRequest={tripRequest}
+            modificationRequest={modificationDraft}
+            externalDraftVersion={externalDraftVersion}
+            onModificationRequestChange={setModificationDraft}
+            onRegenerated={handleRegenerated}
+          />
+
+        </div>
+      </section>
+    </WorkspaceMain>
+  );
+
+  const desktopWorkspaceInspector = (
+    <div id="workspace-route-insight" className="scroll-mt-24">
+      <WorkspaceInspector
+        insight={desktopSelectedInsight}
+        loading={enrichmentState === "loading"}
+        errorMessage={enrichmentState === "error" ? enrichmentError : undefined}
+      />
+    </div>
+  );
+
+  const utilitySections = [
+    {
+      id: "workspace-utility-weather",
+      title: "天气提醒",
+      summary: summarizeWeather(tripPlan.weatherSummary),
+      defaultOpen: true,
+      content: <WeatherAlertCard weather={tripPlan.weatherSummary} />,
+    },
+    {
+      id: "workspace-utility-budget",
+      title: "预算摘要",
+      summary: tripPlan.budgetSummary.totalEstimate,
+      content: <BudgetSummaryCard budget={tripPlan.budgetSummary} />,
+    },
+    {
+      id: "workspace-utility-attractions",
+      title: "景点攻略",
+      summary: summarizeAttractions(attractions),
+      content: renderAttractionsContent("grid gap-4"),
+    },
+    {
+      id: "workspace-utility-hotel",
+      title: "住宿区域建议",
+      summary: summarizeHotelAdvice(tripPlan.hotelAreaAdvice),
+      content: <HotelAreaAdvice advice={tripPlan.hotelAreaAdvice} />,
+    },
+    {
+      id: "workspace-utility-transport",
+      title: "交通建议",
+      summary: summarizeTransport(tripPlan.transportAdvice),
+      content: <TransportAdvice advice={tripPlan.transportAdvice} />,
+    },
+    {
+      id: "workspace-utility-notes",
+      title: "注意事项",
+      summary: summarizeNotes(tripPlan),
+      content: notesContent,
+    },
+  ];
+
+  const desktopWorkspaceMain = (
+    <WorkspaceMain>
+      <div id="result-overview-desktop" className="scroll-mt-32">
+        <WorkspacePlanSummary
+          tripPlan={tripPlan}
+          activeCabinet={activeWorkspaceCabinet}
+        />
+      </div>
+
+      <WorkspaceDayTabs
+        cabinets={cabinets}
+        activeDayNumber={resolvedWorkspaceDayNumber}
+        onSelect={handleWorkspaceDaySelect}
+      />
+
+      <WorkspaceDayPanel
+        cabinet={activeWorkspaceCabinet}
+        onBlockAction={handleBlockAction}
+      />
+
+      <section className="space-y-4">
+        {pendingChangesCount > 0 ? (
+          <div className="border border-[var(--line-strong)] bg-[var(--paper-bright)] px-4 py-3 shadow-[3px_3px_0_var(--sand-soft)]">
+            <p className="text-xs font-semibold tracking-[0.12em] text-[var(--clay-deep)]">
+              已收集 {pendingChangesCount} 项待修改
+            </p>
+            <p className="mt-1 text-sm leading-6 text-[var(--ink-muted)]">
+              你可以继续在当前 Day 点积木，也可以直接把这些修改写进重排请求。
+            </p>
+          </div>
+        ) : null}
+
+        <PendingChangesPanel
+          items={pendingChanges}
+          onRemove={handleRemovePendingChange}
+          onClear={handleClearPendingChanges}
+          onWriteToDraft={handleWritePendingChangesToDraft}
+        />
+      </section>
+
+      <section
+        id="result-regenerate"
+        data-workspace-section="edit"
+        className="space-y-4 scroll-mt-32"
+      >
+        <div
+          id="workspace-edit"
+          className="border border-[var(--line-strong)] bg-[var(--paper-bright)] p-4 shadow-[4px_4px_0_var(--sand-soft)] sm:p-5"
+        >
+          <p className="text-xs font-semibold tracking-[0.14em] text-[var(--clay-deep)]">
+            修改工作台
+          </p>
+          <h2 className="mt-2 text-xl font-semibold">
+            先收修改，再统一重排
+          </h2>
+          <p className="mt-2 text-sm leading-6 text-[var(--ink-muted)]">
+            当前 Day 的积木修改、快捷调整和整版重排都收在这里，主工作区不会再被所有 Day 一次性撑满。
+          </p>
+        </div>
+
+        <ModificationQuickActions onSelect={handleQuickModification} />
+
+        <RegenerateBox
+          tripPlan={tripPlan}
+          tripRequest={tripRequest}
+          modificationRequest={modificationDraft}
+          externalDraftVersion={externalDraftVersion}
+          onModificationRequestChange={setModificationDraft}
+          onRegenerated={handleRegenerated}
+        />
+      </section>
+
+      <section id="workspace-export" className="scroll-mt-32">
+        <div className="border border-[var(--line-strong)] bg-[var(--paper-bright)] p-4 shadow-[4px_4px_0_var(--sand-soft)] sm:p-6">
+          <ExportActions tripPlan={tripPlan} />
+        </div>
+      </section>
+
+      <WorkspaceUtilityPanel sections={utilitySections} />
+    </WorkspaceMain>
+  );
+
+  void desktopInspector;
+  void desktopMain;
 
   return (
     <div className="paper-texture flex min-h-screen flex-col overflow-x-clip text-[var(--ink)]">
@@ -639,13 +1032,13 @@ export default function ResultPage() {
             href="/plan"
             className="border-b border-[var(--line-strong)] pb-1 text-[var(--ink-muted)] hover:border-[var(--clay-deep)] hover:text-[var(--clay-deep)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--clay)]"
           >
-            回上一步看信息
+            返回修改信息
           </Link>
           <Link
-            href="/"
+            href="/create"
             className="border-b border-[var(--line-strong)] pb-1 text-[var(--ink-muted)] hover:border-[var(--clay-deep)] hover:text-[var(--clay-deep)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--clay)]"
           >
-            回首页重新写
+            重新填写需求
           </Link>
         </nav>
 
@@ -914,7 +1307,35 @@ export default function ResultPage() {
           </div>
         </div>
 
-        <div className="hidden lg:block">
+        <DesktopWorkspaceShell
+          sidebar={
+            <WorkspaceSidebar
+              activeItem={activeWorkspaceNav}
+              noticeTitle={sidebarNotice?.title}
+              noticeMessage={sidebarNotice?.message}
+              onNewTrip={handleWorkspaceNewTrip}
+              onFocusRoute={handleWorkspaceFocusRoute}
+              onFocusEdit={handleWorkspaceFocusEdit}
+              onFocusExport={handleWorkspaceFocusExport}
+              onPlaceholder={handleWorkspacePlaceholder}
+            />
+          }
+          topBar={
+            <WorkspaceTopBar
+              tripPlan={tripPlan}
+              tripRequest={tripRequest}
+              activeCabinet={activeWorkspaceCabinet}
+              enrichmentState={enrichmentState}
+              onFocusExport={handleWorkspaceFocusExport}
+              onFocusRegenerate={handleWorkspaceFocusEdit}
+            />
+          }
+          main={desktopWorkspaceMain}
+          inspector={desktopWorkspaceInspector}
+        />
+
+        {false ? (
+          <div className="hidden">
           <div className="space-y-4 sm:space-y-5">
             <div className="sticky top-3 z-20 -mx-1 px-1">
               <ResultDayNav
@@ -929,7 +1350,7 @@ export default function ResultPage() {
               id="result-overview-desktop"
               className="scroll-mt-32 space-y-4 sm:space-y-5"
             >
-              <TripSummaryCard tripPlan={tripPlan} />
+              <TripSummaryCard tripPlan={tripPlan!} />
               <RegenerateShortcut
                 onJump={() => handleDesktopNavSelect("regenerate")}
               />
@@ -937,10 +1358,10 @@ export default function ResultPage() {
           </div>
 
           <div className="mt-6 grid items-start gap-5 sm:mt-8 sm:gap-6 lg:grid-cols-[1.15fr_0.85fr]">
-            <WeatherAlertCard weather={tripPlan.weatherSummary} />
+            <WeatherAlertCard weather={tripPlan!.weatherSummary} />
 
             <div id="result-budget-desktop" className="scroll-mt-32">
-              <BudgetSummaryCard budget={tripPlan.budgetSummary} />
+              <BudgetSummaryCard budget={tripPlan!.budgetSummary} />
             </div>
           </div>
 
@@ -1026,14 +1447,14 @@ export default function ResultPage() {
           </section>
 
           <div className="mt-12 sm:mt-14">
-            <HotelAreaAdvice advice={tripPlan.hotelAreaAdvice} />
+            <HotelAreaAdvice advice={tripPlan!.hotelAreaAdvice} />
           </div>
 
           <div
             id="result-transport-desktop"
             className="mt-12 scroll-mt-32 sm:mt-14"
           >
-            <TransportAdvice advice={tripPlan.transportAdvice} />
+            <TransportAdvice advice={tripPlan!.transportAdvice} />
           </div>
 
           <section className="mt-12 grid items-start gap-5 sm:mt-14 sm:gap-6 lg:grid-cols-[1fr_0.9fr]">
@@ -1063,7 +1484,7 @@ export default function ResultPage() {
               <ModificationQuickActions onSelect={handleQuickModification} />
 
               <RegenerateBox
-                tripPlan={tripPlan}
+                tripPlan={tripPlan!}
                 tripRequest={tripRequest}
                 modificationRequest={modificationDraft}
                 externalDraftVersion={externalDraftVersion}
@@ -1072,11 +1493,12 @@ export default function ResultPage() {
               />
 
               <div className="border border-[var(--line-strong)] bg-[var(--paper-bright)] p-4 sm:p-6">
-                <ExportActions tripPlan={tripPlan} />
+                <ExportActions tripPlan={tripPlan!} />
               </div>
             </div>
           </section>
-        </div>
+          </div>
+        ) : null}
       </main>
       <div className="hidden lg:block">
         <Footer />

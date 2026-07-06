@@ -66,7 +66,7 @@ function ReturnHomeLink() {
       href="/"
       className="inline-flex items-center border-b border-[var(--line-strong)] pb-1 text-sm font-semibold text-[var(--ink-muted)] transition-colors duration-200 ease-out hover:border-[var(--clay-deep)] hover:text-[var(--clay-deep)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--clay)]"
     >
-      回首页重新写
+      回到工作台
     </Link>
   );
 }
@@ -332,11 +332,19 @@ export default function PlanPage() {
               先回首页写一句旅行需求。解析完以后，这里会接着帮你补齐信息。
             </p>
             <Link
-              href="/"
+              href="/create"
               className="mt-7 inline-block border border-[var(--ink)] bg-[var(--ink)] px-5 py-3 text-sm font-semibold text-[var(--paper-bright)] shadow-[4px_4px_0_var(--clay)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)]"
             >
-              回首页开一张草稿
+              重新填写需求
             </Link>
+            <div className="mt-3">
+              <Link
+                href="/"
+                className="inline-block border border-[var(--line-strong)] bg-[var(--paper)] px-5 py-3 text-sm font-semibold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)]"
+              >
+                回到工作台
+              </Link>
+            </div>
           </section>
         </main>
       </div>
@@ -390,6 +398,9 @@ export default function PlanPage() {
           </h1>
           <p className="mt-2 hidden text-sm leading-6 text-[var(--ink-muted)] sm:block sm:mt-3 sm:leading-7">
             已经认出来的都留着。你可以直接改，也可以按步骤把空白补上。
+          </p>
+          <p className="mt-2 text-sm leading-6 text-[var(--ink-muted)]">
+            这一页才是最终确认页。你现在改过的预算、日期、天数、地点和偏好，会覆盖上一页的一句话草稿，并作为最终 TripRequest 进入生成。
           </p>
         </div>
 

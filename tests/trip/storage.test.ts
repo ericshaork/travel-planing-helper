@@ -126,4 +126,34 @@ describe("parsed trip storage", () => {
     expect(storage.getItem(TRIP_DRAFT_STORAGE_KEY)).toBeNull();
     expect(storage.getItem(TRIP_REQUEST_STORAGE_KEY)).toBeNull();
   });
+  it("trip draft 和 trip request 各自存储，不会互相覆盖", () => {
+    const storage = new MemoryStorage();
+    const draft = {
+      departureCity: "深圳",
+      destinationCity: "厦门",
+      days: 4,
+      budget: 3000,
+      interests: ["海边"],
+      travelStyles: ["轻松"],
+    };
+    const tripRequest = {
+      departureCity: "深圳",
+      destinationCity: "厦门",
+      startDate: "2026-07-10",
+      endDate: "2026-07-13",
+      days: 4,
+      budget: 3000,
+      currency: "CNY",
+      interests: ["海边"],
+      travelStyles: ["轻松"],
+      mustVisitPlaces: [],
+      avoidPlaces: [],
+    };
+
+    expect(saveTripRequestDraft(draft, storage)).toBe(true);
+    saveTripRequest(tripRequest, storage);
+
+    expect(loadTripRequestDraft(storage)).toEqual(draft);
+    expect(loadTripRequest(storage)).toEqual(tripRequest);
+  });
 });
