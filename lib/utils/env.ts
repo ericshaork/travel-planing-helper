@@ -52,10 +52,16 @@ const serverEnvironmentSchema = z.object({
   LLM_MODEL: optionalEnvironmentValue,
   LLM_TIMEOUT_MS: timeoutEnvironmentValue,
   USE_MOCK_AI: booleanEnvironmentValue(true),
-  WEATHER_PROVIDER: z.enum(["qweather"]).default("qweather"),
+  USE_MOCK_POI: booleanEnvironmentValue(true),
+  USE_MOCK_ROUTE: booleanEnvironmentValue(true),
+  USE_MOCK_WEATHER: booleanEnvironmentValue(true),
+  POI_PROVIDER: z.enum(["mock", "amap"]).default("mock"),
+  ROUTE_PROVIDER: z.enum(["mock", "amap"]).default("mock"),
+  WEATHER_PROVIDER: z.enum(["mock", "qweather"]).default("mock"),
+  AMAP_API_KEY: optionalEnvironmentValue,
+  AMAP_SECURITY_JS_CODE: optionalEnvironmentValue,
   QWEATHER_BASE_URL: optionalUrl,
   QWEATHER_API_KEY: optionalEnvironmentValue,
-  USE_MOCK_WEATHER: booleanEnvironmentValue(true),
 });
 
 export type ServerEnvironment = z.infer<typeof serverEnvironmentSchema>;

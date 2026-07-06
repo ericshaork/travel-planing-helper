@@ -3,6 +3,7 @@ import "server-only";
 import { z } from "zod";
 
 import { weatherForecastSchema, weatherQuerySchema } from "../trip/schema";
+import { AppError } from "../utils/errors";
 import type { WeatherDay, WeatherForecast, WeatherQuery } from "./types";
 import {
   WEATHER_WARNINGS,
@@ -43,6 +44,7 @@ const qWeatherDailyResponseSchema = z
             tempMin: z.string().optional(),
             textDay: z.string(),
             textNight: z.string().optional(),
+            precip: z.string().optional(),
             windDirDay: z.string().optional(),
             windScaleDay: z.string().optional(),
           })
@@ -119,14 +121,20 @@ function mapDailyForecast(
   return (value ?? []).map((day) => {
     const tempMax = numberValue(day.tempMax);
     const tempMin = numberValue(day.tempMin);
-    const temperature =
-      tempMax !== undefined && tempMin !== undefined
-        ? `，约 ${tempMin}—${tempMax}℃`
-        : "";
+    const precipitation = numberValue(day.precip);
     const wind =
       day.windDirDay && day.windScaleDay
         ? `${day.windDirDay} ${day.windScaleDay} 级`
         : day.windDirDay;
+    const summaryParts = [day.textDay];
+
+    if (tempMin !== undefined && tempMax !== undefined) {
+      summaryParts.push(`${tempMin}~${tempMax}°C`);
+    }
+
+    if (wind) {
+      summaryParts.push(wind);
+    }
 
     return {
       date: day.fxDate,
@@ -134,8 +142,16 @@ function mapDailyForecast(
       ...(day.textNight ? { nightWeather: day.textNight } : {}),
       ...(tempMax === undefined ? {} : { tempMax }),
       ...(tempMin === undefined ? {} : { tempMin }),
+      ...(precipitation === undefined
+        ? {}
+        : {
+            precipitationProbability: Math.max(
+              0,
+              Math.min(100, Math.round(precipitation)),
+            ),
+          }),
       ...(wind ? { wind } : {}),
-      summary: `${day.textDay}${temperature}，出发前再确认临近预报。`,
+      summary: `${summaryParts.join("，")}，出发前再确认临近预报。`,
     };
   });
 }
@@ -164,7 +180,6 @@ export class QWeatherProvider implements WeatherProvider {
     try {
       const response = await this.fetcher(url, {
         headers: {
-          Authorization: `Bearer ${this.apiKey}`,
           Accept: "application/json",
         },
         signal: controller.signal,
@@ -199,8 +214,9 @@ export class QWeatherProvider implements WeatherProvider {
     const query = parsedQuery.data;
 
     if (!this.apiKey) {
-      return weatherForecastSchema.parse(
-        unavailableWeatherForecast(query.city, WEATHER_WARNINGS.missingKey),
+      throw new AppError(
+        "WEATHER_API_FAILED",
+        "QWeatherProvider 缺少 QWEATHER_API_KEY，无法请求真实天气。",
       );
     }
 
@@ -217,6 +233,7 @@ export class QWeatherProvider implements WeatherProvider {
       locationUrl.searchParams.set("location", query.city);
       locationUrl.searchParams.set("number", "1");
       locationUrl.searchParams.set("lang", "zh");
+      locationUrl.searchParams.set("key", this.apiKey);
 
       const locationResponse = qWeatherLocationResponseSchema.parse(
         await this.request(locationUrl),
@@ -240,6 +257,7 @@ export class QWeatherProvider implements WeatherProvider {
       forecastUrl.searchParams.set("location", location.id);
       forecastUrl.searchParams.set("lang", "zh");
       forecastUrl.searchParams.set("unit", "m");
+      forecastUrl.searchParams.set("key", this.apiKey);
 
       const forecastResponse = qWeatherDailyResponseSchema.parse(
         await this.request(forecastUrl),
@@ -247,7 +265,7 @@ export class QWeatherProvider implements WeatherProvider {
 
       if (forecastResponse.code !== "200") {
         return weatherForecastSchema.parse(
-          unavailableWeatherForecast(query.city),
+          unavailableWeatherForecast(query.city, WEATHER_WARNINGS.providerError),
         );
       }
 
@@ -280,9 +298,13 @@ export class QWeatherProvider implements WeatherProvider {
         alerts: [],
         warnings,
       });
-    } catch {
+    } catch (error) {
+      if (error instanceof AppError) {
+        throw error;
+      }
+
       return weatherForecastSchema.parse(
-        unavailableWeatherForecast(query.city),
+        unavailableWeatherForecast(query.city, WEATHER_WARNINGS.unavailable),
       );
     }
   }

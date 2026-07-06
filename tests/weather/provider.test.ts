@@ -15,67 +15,45 @@ import { getServerEnvironment } from "../../lib/utils/env";
 describe("Weather provider selection", () => {
   it.each([
     {
-      name: "Mock AI + Mock Weather",
+      name: "USE_MOCK_WEATHER=true",
       source: {
-        USE_MOCK_AI: "true",
         USE_MOCK_WEATHER: "true",
+        WEATHER_PROVIDER: "qweather",
       },
       provider: MockWeatherProvider,
     },
     {
-      name: "Mock AI + Real Weather",
+      name: "WEATHER_PROVIDER=mock",
       source: {
-        USE_MOCK_AI: "true",
         USE_MOCK_WEATHER: "false",
-        QWEATHER_API_KEY: "weather-token",
-      },
-      provider: QWeatherProvider,
-    },
-    {
-      name: "Real AI + Mock Weather",
-      source: {
-        USE_MOCK_AI: "false",
-        LLM_BASE_URL: "https://example.test/v1",
-        LLM_API_KEY: "llm-key",
-        LLM_MODEL: "example-model",
-        USE_MOCK_WEATHER: "true",
+        WEATHER_PROVIDER: "mock",
       },
       provider: MockWeatherProvider,
     },
     {
-      name: "Real AI + Real Weather",
+      name: "WEATHER_PROVIDER=qweather",
       source: {
-        USE_MOCK_AI: "false",
-        LLM_BASE_URL: "https://example.test/v1",
-        LLM_API_KEY: "llm-key",
-        LLM_MODEL: "example-model",
         USE_MOCK_WEATHER: "false",
+        WEATHER_PROVIDER: "qweather",
         QWEATHER_API_KEY: "weather-token",
       },
       provider: QWeatherProvider,
     },
-  ])("$name 可以独立选择", ({ source, provider }) => {
+  ])("$name 可以独立选择天气 Provider", ({ source, provider }) => {
     const environment = getServerEnvironment(source);
 
     expect(createWeatherProvider(environment)).toBeInstanceOf(provider);
   });
 
-  it("Real Weather 缺少 Key 时自动降级为带提示的 Mock", async () => {
+  it("真实天气模式缺少 Key 时给出明确配置错误", () => {
     const environment = getServerEnvironment({
-      USE_MOCK_AI: "true",
       USE_MOCK_WEATHER: "false",
-    });
-    const provider = createWeatherProvider(environment);
-    const forecast = await provider.getForecast({
-      city: "厦门",
-      days: 3,
+      WEATHER_PROVIDER: "qweather",
     });
 
-    expect(provider).toBeInstanceOf(MockWeatherProvider);
-    expect(weatherForecastSchema.safeParse(forecast).success).toBe(true);
-    expect(forecast.available).toBe(true);
-    expect(forecast.warnings.join("")).toContain("没有配置");
-    expect(forecast.warnings.join("")).toContain("演示天气");
+    expect(() => createWeatherProvider(environment)).toThrowError(
+      /QWEATHER_API_KEY/,
+    );
   });
 
   it("任意 Provider 抛错都会降级为 warning", async () => {
@@ -128,6 +106,6 @@ describe("Weather provider selection", () => {
     expect(weatherForecastSchema.safeParse(forecast).success).toBe(true);
     expect(forecast.available).toBe(false);
     expect(forecast.forecastDays).toEqual([]);
-    expect(forecast.warnings.join("")).toContain("查询信息还不完整");
+    expect(forecast.warnings.join("")).toContain("天气查询信息还不完整");
   });
 });

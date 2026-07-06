@@ -1,6 +1,7 @@
 import "server-only";
 
 import { weatherForecastSchema, weatherQuerySchema } from "../trip/schema";
+import { AppError } from "../utils/errors";
 import {
   getServerEnvironment,
   type ServerEnvironment,
@@ -34,14 +35,18 @@ function fallbackCity(input: unknown): string {
 export function createWeatherProvider(
   environment: ServerEnvironment = getServerEnvironment(),
 ): WeatherProvider {
-  if (environment.USE_MOCK_WEATHER) {
+  if (
+    environment.USE_MOCK_WEATHER ||
+    environment.WEATHER_PROVIDER === "mock"
+  ) {
     return new MockWeatherProvider();
   }
 
   if (!environment.QWEATHER_API_KEY) {
-    return new MockWeatherProvider({
-      additionalWarnings: [WEATHER_WARNINGS.missingKey],
-    });
+    throw new AppError(
+      "WEATHER_API_FAILED",
+      "WEATHER_PROVIDER=qweather 时缺少 QWEATHER_API_KEY，请检查服务端环境变量。",
+    );
   }
 
   return new QWeatherProvider({

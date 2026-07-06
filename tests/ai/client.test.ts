@@ -18,15 +18,16 @@ describe("LLM provider selection", () => {
   });
 
   it("关闭 Mock 时选择 OpenAICompatibleProvider 并带上 timeout", () => {
-    const provider = createLLMProvider({
-      LLM_BASE_URL: "https://example.test/v1",
-      LLM_API_KEY: "test-key",
-      LLM_MODEL: "qwen-plus",
-      LLM_TIMEOUT_MS: 180000,
-      USE_MOCK_AI: false,
-      WEATHER_PROVIDER: "qweather",
-      USE_MOCK_WEATHER: true,
-    });
+    const provider = createLLMProvider(
+      getServerEnvironment({
+        USE_MOCK_AI: "false",
+        LLM_BASE_URL: "https://example.test/v1",
+        LLM_API_KEY: "test-key",
+        LLM_MODEL: "qwen-plus",
+        LLM_TIMEOUT_MS: "180000",
+        USE_MOCK_WEATHER: "true",
+      }),
+    );
 
     expect(provider).toBeInstanceOf(OpenAICompatibleProvider);
     expect(

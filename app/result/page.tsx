@@ -16,9 +16,11 @@ import { PendingChangesPanel } from "@/components/trip/PendingChangesPanel";
 import { RegenerateBox } from "@/components/trip/RegenerateBox";
 import { RegenerateShortcut } from "@/components/trip/RegenerateShortcut";
 import { ResultDayNav } from "@/components/trip/ResultDayNav";
+import { RouteInsightPanel } from "@/components/trip/RouteInsightPanel";
 import { TransportAdvice } from "@/components/trip/TransportAdvice";
 import { TripSummaryCard } from "@/components/trip/TripSummaryCard";
 import { WeatherAlertCard } from "@/components/trip/WeatherAlertCard";
+import type { TripResultEnrichment } from "@/lib/trip/enrichment-types";
 import {
   mapTripPlanToCabinets,
   type DayCabinetView,
@@ -39,6 +41,15 @@ import {
   loadTripRequest,
   saveTripPlan,
 } from "@/lib/trip/storage";
+import {
+  getMobileOverviewAccentText,
+  MOBILE_OVERVIEW_FALLBACK,
+  safeDisplayText,
+} from "@/lib/trip/result-overview";
+import {
+  buildDayRouteInsight,
+  resolveInsightDayNumber,
+} from "@/lib/trip/route-insight";
 import type {
   GenerateTripResponse,
   ItineraryItem,
@@ -64,7 +75,14 @@ interface MobilePageShellProps {
 }
 
 type ResultPageState = "loading" | "missing" | "ready";
-type MobilePageKey = "overview" | "budget" | "more" | "edit" | `day-${number}`;
+type EnrichmentState = "idle" | "loading" | "ready" | "error";
+type MobilePageKey =
+  | "overview"
+  | "budget"
+  | "more"
+  | "edit"
+  | "route"
+  | `day-${number}`;
 
 function MobilePageShell({
   title,
@@ -176,6 +194,10 @@ function desktopNavKeyForMobilePage(page: MobilePageKey): string {
     return "transport";
   }
 
+  if (page === "route") {
+    return "overview";
+  }
+
   if (page === "edit") {
     return "regenerate";
   }
@@ -185,11 +207,17 @@ function desktopNavKeyForMobilePage(page: MobilePageKey): string {
 
 export default function ResultPage() {
   const [pageState, setPageState] = useState<ResultPageState>("loading");
+  const [enrichmentState, setEnrichmentState] =
+    useState<EnrichmentState>("idle");
   const [tripPlan, setTripPlan] = useState<TripPlan>();
   const [tripRequest, setTripRequest] = useState<TripRequest | null>(null);
+  const [tripEnrichment, setTripEnrichment] =
+    useState<TripResultEnrichment | null>(null);
+  const [enrichmentError, setEnrichmentError] = useState<string>();
   const [activeDesktopNavKey, setActiveDesktopNavKey] = useState("overview");
   const [activeMobilePage, setActiveMobilePage] =
     useState<MobilePageKey>("overview");
+  const [selectedInsightDay, setSelectedInsightDay] = useState(1);
   const [modificationDraft, setModificationDraft] = useState("");
   const [pendingChanges, setPendingChanges] = useState<PendingChangeItem[]>([]);
   const [externalDraftVersion, setExternalDraftVersion] = useState(0);
@@ -232,6 +260,7 @@ export default function ResultPage() {
       })),
       { key: "budget", label: "预算" },
       { key: "more", label: "更多" },
+      { key: "route", label: "路线" },
       { key: "edit", label: "修改", badge: pendingChangesCount },
     ],
     [cabinets, pendingChangesCount],
@@ -263,6 +292,80 @@ export default function ResultPage() {
 
     return cabinets.find((cabinet) => cabinet.dayNumber === dayNumber);
   }, [activeMobilePage, cabinets]);
+  const insightDayItems = useMemo<ResultDayNavItem[]>(
+    () =>
+      cabinets.map((cabinet) => ({
+        key: `day-${cabinet.dayNumber}`,
+        label: `Day ${cabinet.dayNumber}`,
+      })),
+    [cabinets],
+  );
+  const effectiveSelectedInsightDay = tripPlan
+    ? resolveInsightDayNumber(tripPlan, selectedInsightDay)
+    : 1;
+  const selectedInsight = useMemo(() => {
+    if (!tripPlan || !tripEnrichment) {
+      return undefined;
+    }
+
+    return buildDayRouteInsight(
+      tripPlan,
+      tripEnrichment,
+      effectiveSelectedInsightDay,
+    );
+  }, [effectiveSelectedInsightDay, tripEnrichment, tripPlan]);
+
+  useEffect(() => {
+    if (!tripPlan) {
+      return;
+    }
+
+    const controller = new AbortController();
+
+    async function loadEnrichment() {
+      setEnrichmentState("loading");
+      setEnrichmentError(undefined);
+
+      try {
+        const response = await fetch("/api/enrich-trip", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            tripPlan,
+            tripRequest,
+          }),
+          signal: controller.signal,
+        });
+
+        if (!response.ok) {
+          throw new Error("Failed to load enrichment");
+        }
+
+        const payload = (await response.json()) as TripResultEnrichment;
+
+        if (controller.signal.aborted) {
+          return;
+        }
+
+        setTripEnrichment(payload);
+        setEnrichmentState("ready");
+      } catch {
+        if (controller.signal.aborted) {
+          return;
+        }
+
+        setTripEnrichment(null);
+        setEnrichmentState("error");
+        setEnrichmentError("路线洞察暂不可用，行程方案仍可正常参考。");
+      }
+    }
+
+    void loadEnrichment();
+
+    return () => controller.abort();
+  }, [tripPlan, tripRequest]);
 
   function scrollToSection(sectionId: string) {
     const element = document.getElementById(sectionId);
@@ -290,6 +393,14 @@ export default function ResultPage() {
   function goToMobilePage(page: MobilePageKey) {
     setActiveMobilePage(page);
     setActiveDesktopNavKey(desktopNavKeyForMobilePage(page));
+
+    if (page.startsWith("day-")) {
+      const dayNumber = Number(page.replace("day-", ""));
+
+      if (!Number.isNaN(dayNumber)) {
+        setSelectedInsightDay(dayNumber);
+      }
+    }
   }
 
   function handleRegenerated(response: GenerateTripResponse) {
@@ -352,7 +463,13 @@ export default function ResultPage() {
   }
 
   function handleMobileNavSelect(key: string) {
-    if (key === "overview" || key === "budget" || key === "more" || key === "edit") {
+    if (
+      key === "overview" ||
+      key === "budget" ||
+      key === "more" ||
+      key === "route" ||
+      key === "edit"
+    ) {
       goToMobilePage(key);
       return;
     }
@@ -392,10 +509,26 @@ export default function ResultPage() {
         return;
       }
 
+      setSelectedInsightDay(dayNumber);
+
       window.requestAnimationFrame(() => {
         scrollToSection(`result-day-desktop-${dayNumber}`);
       });
     }
+  }
+
+  function handleInsightDaySelect(key: string) {
+    if (!key.startsWith("day-")) {
+      return;
+    }
+
+    const dayNumber = Number(key.replace("day-", ""));
+
+    if (Number.isNaN(dayNumber)) {
+      return;
+    }
+
+    setSelectedInsightDay(dayNumber);
   }
 
   function renderAttractionsContent(columnClassName = "grid gap-4 lg:grid-cols-2") {
@@ -541,7 +674,10 @@ export default function ResultPage() {
                       {tripPlan.tripTitle}
                     </h2>
                     <p className="mt-1.5 text-sm leading-5 text-[var(--ink-muted)] sm:leading-6">
-                      {tripPlan.summary}
+                      {safeDisplayText(
+                        tripPlan.summary,
+                        MOBILE_OVERVIEW_FALLBACK,
+                      )}
                     </p>
                   </div>
 
@@ -567,7 +703,7 @@ export default function ResultPage() {
                   </div>
 
                   <p className="rounded-sm border border-dashed border-[var(--line)] bg-[var(--paper)] px-3 py-2 text-xs leading-5 text-[var(--ink-muted)]">
-                    棰勭畻鍘汇€滈绠椻€濋〉锛屽ぉ姘斿拰浜ら€氬幓鈥滄洿澶氣€濋〉銆傝繖閲屽厛淇濈暀鏈€鏍稿績鐨勪笅涓€姝ャ€?
+                    {getMobileOverviewAccentText(tripPlan)}
                   </p>
                 </section>
 
@@ -710,6 +846,31 @@ export default function ResultPage() {
               </MobilePageShell>
             ) : null}
 
+            {activeMobilePage === "route" ? (
+              <MobilePageShell
+                title="路线洞察"
+                description="这一页只看当前 Day 的点位、路线摘要、节奏提醒和天气影响。"
+              >
+                {insightDayItems.length > 0 ? (
+                  <ResultDayNav
+                    items={insightDayItems}
+                    activeKey={`day-${effectiveSelectedInsightDay}`}
+                    onSelect={handleInsightDaySelect}
+                    ariaLabel="路线洞察日期导航"
+                  />
+                ) : null}
+
+                <RouteInsightPanel
+                  insight={selectedInsight}
+                  weatherSummary={tripEnrichment?.weatherSummary}
+                  loading={enrichmentState === "loading"}
+                  errorMessage={
+                    enrichmentState === "error" ? enrichmentError : undefined
+                  }
+                />
+              </MobilePageShell>
+            ) : null}
+
             {activeMobilePage === "edit" ? (
               <MobilePageShell
                 title="修改工作台"
@@ -816,19 +977,32 @@ export default function ResultPage() {
               </div>
             ) : null}
 
-            <div className="space-y-7">
-              {cabinets.map((cabinet) => (
-                <div
-                  key={cabinet.dayNumber}
-                  id={`result-day-desktop-${cabinet.dayNumber}`}
-                  className="scroll-mt-32"
-                >
-                  <DayCabinet
-                    cabinet={cabinet}
-                    onBlockAction={handleBlockAction}
-                  />
-                </div>
-              ))}
+            <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_22rem]">
+              <div className="space-y-7">
+                {cabinets.map((cabinet) => (
+                  <div
+                    key={cabinet.dayNumber}
+                    id={`result-day-desktop-${cabinet.dayNumber}`}
+                    className="scroll-mt-32"
+                  >
+                    <DayCabinet
+                      cabinet={cabinet}
+                      onBlockAction={handleBlockAction}
+                    />
+                  </div>
+                ))}
+              </div>
+
+              <div className="lg:sticky lg:top-24">
+                <RouteInsightPanel
+                  insight={selectedInsight}
+                  weatherSummary={tripEnrichment?.weatherSummary}
+                  loading={enrichmentState === "loading"}
+                  errorMessage={
+                    enrichmentState === "error" ? enrichmentError : undefined
+                  }
+                />
+              </div>
             </div>
           </section>
 

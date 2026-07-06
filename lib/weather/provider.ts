@@ -14,6 +14,7 @@ export const WEATHER_WARNINGS = {
   mockData: "当前使用演示天气，不代表实时预报，出发前记得再确认。",
   outOfRange: "这次出行超出当前可预报范围，临近出发时再看会更准。",
   partialForecast: "天气服务只返回了部分日期，剩余日期请临近出发时再确认。",
+  providerError: "天气服务这次返回不太正常，先按不含实时天气的版本继续。",
 } as const;
 
 export function unavailableWeatherForecast(

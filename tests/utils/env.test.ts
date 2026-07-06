@@ -5,13 +5,17 @@ vi.mock("server-only", () => ({}));
 import { getServerEnvironment } from "../../lib/utils/env";
 
 describe("server environment", () => {
-  it("默认启用相互独立的 AI 和天气 Mock", () => {
+  it("默认启用彼此独立的 AI、POI、Route 和天气 Mock", () => {
     const environment = getServerEnvironment({});
 
     expect(environment).toMatchObject({
       USE_MOCK_AI: true,
-      WEATHER_PROVIDER: "qweather",
+      USE_MOCK_POI: true,
+      USE_MOCK_ROUTE: true,
       USE_MOCK_WEATHER: true,
+      POI_PROVIDER: "mock",
+      ROUTE_PROVIDER: "mock",
+      WEATHER_PROVIDER: "mock",
       LLM_TIMEOUT_MS: 120000,
     });
   });
@@ -31,7 +35,14 @@ describe("server environment", () => {
       LLM_API_KEY: "test-key",
       LLM_MODEL: "qwen-plus",
       LLM_TIMEOUT_MS: "180000",
-      USE_MOCK_WEATHER: "true",
+      USE_MOCK_POI: "false",
+      USE_MOCK_ROUTE: "false",
+      USE_MOCK_WEATHER: "false",
+      POI_PROVIDER: "amap",
+      ROUTE_PROVIDER: "amap",
+      WEATHER_PROVIDER: "qweather",
+      AMAP_API_KEY: "amap-key",
+      QWEATHER_API_KEY: "qweather-key",
     });
 
     expect(environment).toMatchObject({
@@ -40,7 +51,14 @@ describe("server environment", () => {
       LLM_MODEL: "qwen-plus",
       LLM_TIMEOUT_MS: 180000,
       USE_MOCK_AI: false,
-      USE_MOCK_WEATHER: true,
+      USE_MOCK_POI: false,
+      USE_MOCK_ROUTE: false,
+      USE_MOCK_WEATHER: false,
+      POI_PROVIDER: "amap",
+      ROUTE_PROVIDER: "amap",
+      WEATHER_PROVIDER: "qweather",
+      AMAP_API_KEY: "amap-key",
+      QWEATHER_API_KEY: "qweather-key",
     });
   });
 
@@ -62,5 +80,22 @@ describe("server environment", () => {
     });
 
     expect(environment.LLM_TIMEOUT_MS).toBe(120000);
+  });
+
+  it("mock 模式下不要求真实高德和天气 Key", () => {
+    const environment = getServerEnvironment({
+      USE_MOCK_POI: "true",
+      USE_MOCK_ROUTE: "true",
+      USE_MOCK_WEATHER: "true",
+      POI_PROVIDER: "mock",
+      ROUTE_PROVIDER: "mock",
+      WEATHER_PROVIDER: "mock",
+    });
+
+    expect(environment.AMAP_API_KEY).toBeUndefined();
+    expect(environment.QWEATHER_API_KEY).toBeUndefined();
+    expect(environment.USE_MOCK_POI).toBe(true);
+    expect(environment.USE_MOCK_ROUTE).toBe(true);
+    expect(environment.USE_MOCK_WEATHER).toBe(true);
   });
 });

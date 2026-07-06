@@ -18,14 +18,10 @@ function jsonResponse(value: unknown, status = 200): Response {
 
 describe("QWeatherProvider", () => {
   it("服务端查询城市和预报，并转换为内部 WeatherForecast", async () => {
-    const requests: Array<{ url: string; authorization: string | null }> = [];
-    const fetcher = vi.fn(async (input: string | URL | Request, init?: RequestInit) => {
+    const requests: string[] = [];
+    const fetcher = vi.fn(async (input: string | URL | Request) => {
       const url = String(input);
-      const headers = new Headers(init?.headers);
-      requests.push({
-        url,
-        authorization: headers.get("Authorization"),
-      });
+      requests.push(url);
 
       if (url.includes("/geo/v2/city/lookup")) {
         return jsonResponse({
@@ -52,6 +48,7 @@ describe("QWeatherProvider", () => {
             tempMin: "24",
             textDay: "小雨",
             textNight: "阴",
+            precip: "70",
           },
           {
             fxDate: "2026-07-12",
@@ -91,10 +88,13 @@ describe("QWeatherProvider", () => {
       tempMin: 25,
       dayWeather: "多云",
     });
+    expect(forecast.forecastDays[1]?.precipitationProbability).toBe(70);
     expect(requests).toHaveLength(2);
-    expect(requests[0]?.url).toContain("/geo/v2/city/lookup");
-    expect(requests[1]?.url).toContain("/v7/weather/15d");
-    expect(requests.every((request) => request.authorization === "Bearer weather-token")).toBe(true);
+    expect(requests[0]).toContain("/geo/v2/city/lookup");
+    expect(requests[0]).toContain("key=weather-token");
+    expect(requests[1]).toContain("/v7/weather/15d");
+    expect(requests[1]).toContain("location=101230201");
+    expect(requests[1]).toContain("key=weather-token");
   });
 
   it("城市无法识别时返回 warning，不继续请求天气", async () => {
@@ -120,6 +120,36 @@ describe("QWeatherProvider", () => {
     expect(forecast.warnings.join("")).toContain("没认出这个城市");
   });
 
+  it("QWeather status 非 200 时返回 provider warning", async () => {
+    const fetcher = vi.fn(async (input: string | URL | Request) => {
+      const url = String(input);
+
+      if (url.includes("/geo/v2/city/lookup")) {
+        return jsonResponse({
+          code: "200",
+          location: [{ id: "101010100", name: "北京" }],
+        });
+      }
+
+      return jsonResponse({
+        code: "500",
+      });
+    });
+    const provider = new QWeatherProvider({
+      apiKey: "weather-token",
+      fetcher,
+      now,
+    });
+
+    const forecast = await provider.getForecast({
+      city: "北京",
+      days: 3,
+    });
+
+    expect(forecast.available).toBe(false);
+    expect(forecast.warnings.join("")).toContain("天气服务这次返回不太正常");
+  });
+
   it("网络错误不会暴露原始错误", async () => {
     const fetcher = vi.fn(async () => {
       throw new Error("upstream hostname and secret");
@@ -138,5 +168,19 @@ describe("QWeatherProvider", () => {
     expect(forecast.available).toBe(false);
     expect(forecast.warnings.join("")).toContain("天气接口");
     expect(forecast.warnings.join("")).not.toContain("secret");
+    expect(forecast.warnings.join("")).not.toContain("weather-token");
+  });
+
+  it("缺少 QWEATHER_API_KEY 时明确报错", async () => {
+    const provider = new QWeatherProvider({
+      now,
+    });
+
+    await expect(
+      provider.getForecast({
+        city: "杭州",
+        days: 2,
+      }),
+    ).rejects.toThrow(/QWEATHER_API_KEY/);
   });
 });
