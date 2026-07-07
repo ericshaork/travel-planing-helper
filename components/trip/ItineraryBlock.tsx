@@ -1,14 +1,18 @@
-import { useState } from "react";
+import { useState, type KeyboardEvent, type SyntheticEvent } from "react";
 
-import type { ItineraryBlockView } from "@/lib/trip/itinerary-view";
-import type { BlockActionType } from "@/lib/trip/modification-intents";
-import type { ItineraryItemType } from "@/lib/trip/types";
+import type { ItineraryBlockView } from "../../lib/trip/itinerary-view";
+import type { ItineraryBlockMapStatus } from "../../lib/trip/map-point-match";
+import type { BlockActionType } from "../../lib/trip/modification-intents";
+import type { ItineraryItemType } from "../../lib/trip/types";
 
 import { BlockActions } from "./BlockActions";
 
 interface ItineraryBlockProps {
   block: ItineraryBlockView;
   onAction?: (actionType: BlockActionType, block: ItineraryBlockView) => void;
+  isSelected?: boolean;
+  onSelect?: () => void;
+  mapStatus?: ItineraryBlockMapStatus | null;
 }
 
 const ITEM_TYPE_LABELS: Record<ItineraryItemType, string> = {
@@ -34,12 +38,70 @@ const ITEM_TYPE_STYLES: Record<ItineraryItemType, string> = {
   other: "border-[var(--line)] bg-[var(--paper)] text-[var(--ink-muted)]",
 };
 
-export function ItineraryBlock({ block, onAction }: ItineraryBlockProps) {
+const MAP_STATUS_STYLES: Record<
+  Exclude<ItineraryBlockMapStatus, "unmatched">,
+  string
+> = {
+  confirmed:
+    "border-[var(--sage-deep)] bg-[var(--sage-soft)] text-[var(--sage-deep)]",
+  unresolved:
+    "border-[var(--clay)] bg-[var(--clay-soft)] text-[var(--clay-deep)]",
+};
+
+const MAP_STATUS_LABELS: Record<
+  Exclude<ItineraryBlockMapStatus, "unmatched">,
+  string
+> = {
+  confirmed: "已定位",
+  unresolved: "待确认",
+};
+
+export function stopBlockSelectionPropagation(event: Pick<SyntheticEvent, "stopPropagation">) {
+  event.stopPropagation();
+}
+
+export function ItineraryBlock({
+  block,
+  onAction,
+  isSelected = false,
+  onSelect,
+  mapStatus = null,
+}: ItineraryBlockProps) {
   const { item } = block;
   const [detailsOpen, setDetailsOpen] = useState(false);
+  const isSelectable = Boolean(onSelect);
+  const visibleMapStatus =
+    mapStatus === "confirmed" || mapStatus === "unresolved" ? mapStatus : null;
+
+  function handleInnerInteraction(event: SyntheticEvent) {
+    stopBlockSelectionPropagation(event);
+  }
+
+  function handleKeyDown(event: KeyboardEvent<HTMLElement>) {
+    if (!onSelect) {
+      return;
+    }
+
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      onSelect();
+    }
+  }
 
   return (
-    <article className="cabinet-block min-w-0 p-3 sm:p-3.5">
+    <article
+      className={`cabinet-block min-w-0 p-3 transition-colors duration-150 ease-out sm:p-3.5 ${
+        isSelected
+          ? "border-[var(--clay-deep)] bg-[var(--sand-soft)] shadow-[3px_3px_0_var(--sand)]"
+          : ""
+      } ${isSelectable ? "cursor-pointer" : ""}`}
+      role={isSelectable ? "button" : undefined}
+      tabIndex={isSelectable ? 0 : undefined}
+      aria-pressed={isSelectable ? isSelected : undefined}
+      data-selected={isSelected ? "true" : "false"}
+      onClick={onSelect}
+      onKeyDown={handleKeyDown}
+    >
       <div className="flex flex-wrap items-start gap-2">
         {item.timeLabel ? (
           <span className="shrink-0 border border-[var(--line)] bg-[var(--paper)] px-2 py-1 font-mono text-[11px] font-semibold text-[var(--ink-muted)]">
@@ -53,6 +115,13 @@ export function ItineraryBlock({ block, onAction }: ItineraryBlockProps) {
         >
           {ITEM_TYPE_LABELS[item.type]}
         </span>
+        {visibleMapStatus ? (
+          <span
+            className={`shrink-0 border px-2 py-1 text-[11px] font-semibold ${MAP_STATUS_STYLES[visibleMapStatus]}`}
+          >
+            {MAP_STATUS_LABELS[visibleMapStatus]}
+          </span>
+        ) : null}
       </div>
 
       <div className="mt-2">
@@ -88,6 +157,7 @@ export function ItineraryBlock({ block, onAction }: ItineraryBlockProps) {
         ) : null}
         <button
           type="button"
+          onClickCapture={handleInnerInteraction}
           onClick={() => setDetailsOpen((open) => !open)}
           className="min-h-9 border border-[var(--line-strong)] bg-[var(--paper)] px-3 py-1.5 text-xs font-semibold text-[var(--clay-deep)] transition-colors duration-150 ease-out hover:border-[var(--clay-deep)] hover:bg-[var(--sand-soft)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)]"
         >
@@ -96,7 +166,10 @@ export function ItineraryBlock({ block, onAction }: ItineraryBlockProps) {
       </div>
 
       {onAction ? (
-        <BlockActions onAction={(actionType) => onAction(actionType, block)} />
+        <BlockActions
+          onAction={(actionType) => onAction(actionType, block)}
+          onInteraction={handleInnerInteraction}
+        />
       ) : null}
 
       {detailsOpen ? (

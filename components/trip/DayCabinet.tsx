@@ -1,15 +1,21 @@
-import type { DailyItinerary } from "@/lib/trip/types";
+import type { DailyItinerary } from "../../lib/trip/types";
+import type { MapPoint } from "../../lib/trip/enrichment-types";
 import {
   mapDailyItineraryToCabinet,
   type DayCabinetView,
-} from "@/lib/trip/itinerary-view";
-import type { BlockActionType } from "@/lib/trip/modification-intents";
+} from "../../lib/trip/itinerary-view";
+import type { BlockActionType } from "../../lib/trip/modification-intents";
 
 import { TimeSlotSection } from "./TimeSlotSection";
 
 interface DayCabinetProps {
   itinerary?: DailyItinerary;
   cabinet?: DayCabinetView;
+  mapPoints?: MapPoint[];
+  activeBlockId?: string | null;
+  onBlockSelect?: (
+    block: DayCabinetView["slots"][number]["items"][number],
+  ) => void;
   onBlockAction?: (
     actionType: BlockActionType,
     block: DayCabinetView["slots"][number]["items"][number],
@@ -19,6 +25,9 @@ interface DayCabinetProps {
 export function DayCabinet({
   itinerary,
   cabinet,
+  mapPoints = [],
+  activeBlockId = null,
+  onBlockSelect,
   onBlockAction,
 }: DayCabinetProps) {
   const resolvedCabinet =
@@ -82,6 +91,9 @@ export function DayCabinet({
           <TimeSlotSection
             key={slot.key}
             slot={slot}
+            mapPoints={mapPoints}
+            activeBlockId={activeBlockId}
+            onBlockSelect={onBlockSelect}
             onBlockAction={onBlockAction}
           />
         ))}

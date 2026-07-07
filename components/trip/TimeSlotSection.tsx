@@ -1,10 +1,18 @@
-import type { TimeSlotView } from "@/lib/trip/itinerary-view";
-import type { BlockActionType } from "@/lib/trip/modification-intents";
+import type { TimeSlotView } from "../../lib/trip/itinerary-view";
+import {
+  getItineraryBlockId,
+  getItineraryBlockMapStatus,
+} from "../../lib/trip/map-point-match";
+import type { BlockActionType } from "../../lib/trip/modification-intents";
+import type { MapPoint } from "../../lib/trip/enrichment-types";
 
 import { ItineraryBlock } from "./ItineraryBlock";
 
 interface TimeSlotSectionProps {
   slot: TimeSlotView;
+  mapPoints?: MapPoint[];
+  activeBlockId?: string | null;
+  onBlockSelect?: (block: TimeSlotView["items"][number]) => void;
   onBlockAction?: (
     actionType: BlockActionType,
     block: TimeSlotView["items"][number],
@@ -13,6 +21,9 @@ interface TimeSlotSectionProps {
 
 export function TimeSlotSection({
   slot,
+  mapPoints = [],
+  activeBlockId = null,
+  onBlockSelect,
   onBlockAction,
 }: TimeSlotSectionProps) {
   return (
@@ -38,8 +49,11 @@ export function TimeSlotSection({
           <div className="min-w-0 space-y-2.5 sm:space-y-3">
             {slot.items.map((block) => (
               <ItineraryBlock
-                key={`${block.ref.slot}-${block.ref.itemIndex}-${block.ref.placeName}`}
+                key={getItineraryBlockId(block)}
                 block={block}
+                isSelected={activeBlockId === getItineraryBlockId(block)}
+                mapStatus={getItineraryBlockMapStatus(block, mapPoints)}
+                onSelect={onBlockSelect ? () => onBlockSelect(block) : undefined}
                 onAction={onBlockAction}
               />
             ))}

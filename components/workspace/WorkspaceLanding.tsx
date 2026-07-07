@@ -156,6 +156,7 @@ export function WorkspaceLanding() {
           sidebar={
             <WorkspaceSidebar
               activeItem={activeItem}
+              expandable={false}
               noticeTitle={sidebarNotice?.title}
               noticeMessage={sidebarNotice?.message}
               onNewTrip={handleCreateTrip}

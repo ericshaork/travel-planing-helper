@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, type SyntheticEvent } from "react";
 
-import type { BlockActionType } from "@/lib/trip/modification-intents";
+import type { BlockActionType } from "../../lib/trip/modification-intents";
 
 interface BlockActionsProps {
   onAction: (actionType: BlockActionType) => void;
+  onInteraction?: (event: SyntheticEvent) => void;
 }
 
 const ACTIONS: Array<{
@@ -16,7 +17,7 @@ const ACTIONS: Array<{
   { type: "addSimilar", label: "加类似" },
 ];
 
-export function BlockActions({ onAction }: BlockActionsProps) {
+export function BlockActions({ onAction, onInteraction }: BlockActionsProps) {
   const [recentAction, setRecentAction] = useState<BlockActionType | null>(null);
 
   useEffect(() => {
@@ -44,6 +45,7 @@ export function BlockActions({ onAction }: BlockActionsProps) {
             <button
               key={action.type}
               type="button"
+              onClickCapture={onInteraction}
               onClick={() => {
                 onAction(action.type);
                 setRecentAction(action.type);

@@ -39,6 +39,11 @@ import {
   type ItineraryBlockView,
 } from "@/lib/trip/itinerary-view";
 import {
+  findMatchingMapPoint,
+  getItineraryBlockId,
+  getMapPointBlockId,
+} from "@/lib/trip/map-point-match";
+import {
   addPendingChangeItem,
   buildPendingChangeItem,
   buildPendingChangesRequest,
@@ -235,6 +240,13 @@ export default function ResultPage() {
     useState<MobilePageKey>("overview");
   const [activeWorkspaceDayNumber, setActiveWorkspaceDayNumber] = useState(1);
   const [selectedInsightDay, setSelectedInsightDay] = useState(1);
+  const [activeMapPointId, setActiveMapPointId] = useState<string | null>(null);
+  const [activeItineraryBlockId, setActiveItineraryBlockId] = useState<string | null>(
+    null,
+  );
+  const [unmatchedBlockPlaceName, setUnmatchedBlockPlaceName] = useState<
+    string | null
+  >(null);
   const [modificationDraft, setModificationDraft] = useState("");
   const [pendingChanges, setPendingChanges] = useState<PendingChangeItem[]>([]);
   const [externalDraftVersion, setExternalDraftVersion] = useState(0);
@@ -354,6 +366,36 @@ export default function ResultPage() {
       resolvedWorkspaceDayNumber,
     );
   }, [resolvedWorkspaceDayNumber, tripEnrichment, tripPlan]);
+  const resolvedActiveMapPointId =
+    activeMapPointId &&
+    desktopSelectedInsight?.mapPoints.some((point) => point.id === activeMapPointId)
+      ? activeMapPointId
+      : null;
+  const resolvedActiveItineraryBlockId = useMemo(() => {
+    if (
+      activeItineraryBlockId &&
+      activeWorkspaceCabinet?.slots.some((slot) =>
+        slot.items.some((block) => getItineraryBlockId(block) === activeItineraryBlockId),
+      )
+    ) {
+      return activeItineraryBlockId;
+    }
+
+    if (!resolvedActiveMapPointId || !desktopSelectedInsight) {
+      return null;
+    }
+
+    const activePoint = desktopSelectedInsight.mapPoints.find(
+      (point) => point.id === resolvedActiveMapPointId,
+    );
+
+    return activePoint ? getMapPointBlockId(activePoint) : null;
+  }, [
+    activeItineraryBlockId,
+    activeWorkspaceCabinet,
+    desktopSelectedInsight,
+    resolvedActiveMapPointId,
+  ]);
 
   useEffect(() => {
     if (!tripPlan) {
@@ -447,6 +489,9 @@ export default function ResultPage() {
     setActiveWorkspaceDayNumber(dayNumber);
     setActiveWorkspaceNav("route");
     setSidebarNotice(null);
+    setActiveMapPointId(null);
+    setActiveItineraryBlockId(null);
+    setUnmatchedBlockPlaceName(null);
   }
 
   function handleRegenerated(response: GenerateTripResponse) {
@@ -459,9 +504,12 @@ export default function ResultPage() {
     setActiveWorkspaceNav("route");
     setActiveMobilePage("overview");
     setSelectedInsightDay(nextFirstDay);
+    setActiveMapPointId(null);
+    setActiveItineraryBlockId(null);
     setPendingChanges([]);
     setModificationDraft("");
     setSidebarNotice(null);
+    setUnmatchedBlockPlaceName(null);
   }
 
   function handleBlockAction(
@@ -529,6 +577,34 @@ export default function ResultPage() {
     window.requestAnimationFrame(() => {
       scrollToSection("workspace-route-insight");
     });
+  }
+
+  function handleDesktopMapPointSelect(pointId: string) {
+    const selectedPoint = desktopSelectedInsight?.mapPoints.find(
+      (point) => point.id === pointId,
+    );
+
+    setActiveMapPointId(pointId);
+    setActiveItineraryBlockId(selectedPoint ? getMapPointBlockId(selectedPoint) : null);
+    setUnmatchedBlockPlaceName(null);
+  }
+
+  function handleWorkspaceBlockSelect(block: ItineraryBlockView) {
+    const nextBlockId = getItineraryBlockId(block);
+    const matchedPoint = desktopSelectedInsight
+      ? findMatchingMapPoint(block, desktopSelectedInsight.mapPoints)
+      : null;
+
+    setActiveItineraryBlockId(nextBlockId);
+
+    if (matchedPoint) {
+      setActiveMapPointId(matchedPoint.id);
+      setUnmatchedBlockPlaceName(null);
+      return;
+    }
+
+    setActiveMapPointId(null);
+    setUnmatchedBlockPlaceName(block.item.placeName);
   }
 
   function handleWorkspaceFocusEdit() {
@@ -606,6 +682,9 @@ export default function ResultPage() {
 
       setActiveWorkspaceDayNumber(dayNumber);
       setSelectedInsightDay(dayNumber);
+      setActiveMapPointId(null);
+      setActiveItineraryBlockId(null);
+      setUnmatchedBlockPlaceName(null);
 
       window.requestAnimationFrame(() => {
         scrollToSection(`result-day-desktop-${dayNumber}`);
@@ -729,6 +808,8 @@ export default function ResultPage() {
         insight={selectedInsight}
         loading={enrichmentState === "loading"}
         errorMessage={enrichmentState === "error" ? enrichmentError : undefined}
+        activePointId={resolvedActiveMapPointId}
+        onPointSelect={handleDesktopMapPointSelect}
       />
     </div>
   );
@@ -891,6 +972,9 @@ export default function ResultPage() {
         insight={desktopSelectedInsight}
         loading={enrichmentState === "loading"}
         errorMessage={enrichmentState === "error" ? enrichmentError : undefined}
+        activePointId={resolvedActiveMapPointId}
+        unmatchedPlaceName={unmatchedBlockPlaceName}
+        onPointSelect={handleDesktopMapPointSelect}
       />
     </div>
   );
@@ -952,6 +1036,9 @@ export default function ResultPage() {
 
       <WorkspaceDayPanel
         cabinet={activeWorkspaceCabinet}
+        insight={desktopSelectedInsight}
+        activeBlockId={resolvedActiveItineraryBlockId}
+        onBlockSelect={handleWorkspaceBlockSelect}
         onBlockAction={handleBlockAction}
       />
 

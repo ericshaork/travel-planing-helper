@@ -1,11 +1,12 @@
-import type { DayRouteInsight } from "@/lib/trip/route-insight";
+import type { DayRouteInsight } from "../../lib/trip/route-insight";
 import {
   buildWorkspaceInsightStats,
   formatRouteDistance,
   formatRouteDuration,
-} from "@/lib/trip/workspace-inspector";
+} from "../../lib/trip/workspace-inspector";
 
 import { InspectorMapPreview } from "./InspectorMapPreview";
+import { InspectorPointDetailCard } from "./InspectorPointDetailCard";
 import { InspectorPointList } from "./InspectorPointList";
 import { InspectorRouteLegs } from "./InspectorRouteLegs";
 import { InspectorRouteStats } from "./InspectorRouteStats";
@@ -15,6 +16,9 @@ interface WorkspaceInspectorProps {
   insight?: DayRouteInsight;
   loading?: boolean;
   errorMessage?: string;
+  activePointId?: string | null;
+  unmatchedPlaceName?: string | null;
+  onPointSelect?: (pointId: string) => void;
 }
 
 function formatDayDate(date?: string) {
@@ -29,6 +33,9 @@ export function WorkspaceInspector({
   insight,
   loading = false,
   errorMessage,
+  activePointId = null,
+  unmatchedPlaceName = null,
+  onPointSelect,
 }: WorkspaceInspectorProps) {
   const stats = buildWorkspaceInsightStats(insight);
 
@@ -86,9 +93,20 @@ export function WorkspaceInspector({
         insight={insight}
         loading={loading}
         errorMessage={errorMessage}
+        activePointId={activePointId}
+        onMarkerClick={onPointSelect}
+      />
+      <InspectorPointDetailCard
+        insight={insight}
+        activePointId={activePointId}
+        unmatchedPlaceName={unmatchedPlaceName}
       />
       <InspectorRouteStats insight={insight} />
-      <InspectorPointList insight={insight} />
+      <InspectorPointList
+        insight={insight}
+        activePointId={activePointId}
+        onPointSelect={onPointSelect}
+      />
       <InspectorRouteLegs insight={insight} />
       <InspectorWarningStack insight={insight} />
     </aside>

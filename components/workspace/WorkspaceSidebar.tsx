@@ -22,6 +22,7 @@ interface WorkspaceSidebarEntry {
 
 interface WorkspaceSidebarProps {
   activeItem?: WorkspaceSidebarItemId;
+  expandable?: boolean;
   noticeTitle?: string;
   noticeMessage?: string;
   onNewTrip?: () => void;
@@ -207,10 +208,12 @@ const navGroups: Array<{ label: string; entries: WorkspaceSidebarEntry[] }> = [
 function SidebarItemButton({
   entry,
   active,
+  expanded,
   onClick,
 }: {
   entry: WorkspaceSidebarEntry;
   active: boolean;
+  expanded: boolean;
   onClick: () => void;
 }) {
   return (
@@ -244,7 +247,13 @@ function SidebarItemButton({
         {entry.icon}
       </span>
 
-      <span className="min-w-0 flex-1 translate-x-1 opacity-0 transition-all duration-150 group-hover/sidebar:translate-x-0 group-hover/sidebar:opacity-100">
+      <span
+        className={`min-w-0 flex-1 ${
+          expanded
+            ? "translate-x-0 opacity-100 transition-all duration-150"
+            : "translate-x-1 opacity-0 transition-all duration-150"
+        }`}
+      >
         <span className="flex items-center gap-2">
           <span
             className={`block truncate text-sm font-semibold ${
@@ -269,6 +278,7 @@ function SidebarItemButton({
 
 export function WorkspaceSidebar({
   activeItem = "route",
+  expandable = true,
   noticeTitle,
   noticeMessage,
   onNewTrip,
@@ -301,16 +311,28 @@ export function WorkspaceSidebar({
     onPlaceholder?.(item);
   }
 
+  const rootClassName = expandable ? "group/sidebar" : "";
+  const expandedContentClassName = expandable
+    ? "translate-x-1 opacity-0 transition-all duration-150 group-hover/sidebar:translate-x-0 group-hover/sidebar:opacity-100"
+    : "hidden";
+  const showOnExpandClassName = expandable ? "hidden group-hover/sidebar:block" : "hidden";
+
   return (
-    <aside className="group/sidebar relative h-full min-h-0">
-      <div className="absolute inset-y-0 left-0 z-20 w-[76px] transition-[width] duration-200 ease-out group-hover/sidebar:w-[228px]">
+    <aside className={`${rootClassName} relative h-full min-h-0`}>
+      <div
+        className={`absolute inset-y-0 left-0 z-20 w-[76px] ${
+          expandable
+            ? "transition-[width] duration-200 ease-out group-hover/sidebar:w-[228px]"
+            : ""
+        }`}
+      >
         <div className="workspace-panel flex h-full min-h-0 flex-col p-3">
           <div className="relative z-[1] border-b border-dashed border-[var(--line)] pb-3">
             <div className="flex items-center gap-3 overflow-hidden">
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl border border-[var(--line-strong)] bg-[var(--sand-soft)] text-[var(--clay-deep)] shadow-[2px_2px_0_var(--sand)]">
                 <IconLogo />
               </div>
-              <div className="min-w-0 translate-x-1 opacity-0 transition-all duration-150 group-hover/sidebar:translate-x-0 group-hover/sidebar:opacity-100">
+              <div className={`min-w-0 ${expandedContentClassName}`}>
                 <p className="truncate text-sm font-semibold text-[var(--ink)]">
                   漫游草签
                 </p>
@@ -327,7 +349,9 @@ export function WorkspaceSidebar({
           >
             {navGroups.map((group) => (
               <div key={group.label}>
-                <p className="mb-2 hidden px-2 text-[11px] font-semibold tracking-[0.16em] text-[var(--ink-muted)] group-hover/sidebar:block">
+                <p
+                  className={`mb-2 px-2 text-[11px] font-semibold tracking-[0.16em] text-[var(--ink-muted)] ${showOnExpandClassName}`}
+                >
                   {group.label.toUpperCase()}
                 </p>
                 <div className="space-y-1.5">
@@ -336,6 +360,7 @@ export function WorkspaceSidebar({
                       key={entry.id}
                       entry={entry}
                       active={activeItem === entry.id}
+                      expanded={expandable}
                       onClick={() => handleItemClick(entry.id)}
                     />
                   ))}
@@ -346,7 +371,7 @@ export function WorkspaceSidebar({
 
           <div className="relative z-[1] mt-4 border-t border-dashed border-[var(--line)] pt-3">
             {noticeMessage ? (
-              <div className="mb-3 hidden group-hover/sidebar:block">
+              <div className={`mb-3 ${showOnExpandClassName}`}>
                 <WorkspacePlaceholderNotice
                   title={noticeTitle}
                   message={noticeMessage}
@@ -359,7 +384,7 @@ export function WorkspaceSidebar({
                 <span className="h-3 w-3 rounded-full bg-[var(--sage-deep)]" />
                 <span className="absolute right-1.5 top-1.5 h-1.5 w-1.5 rounded-full bg-[var(--clay-deep)]" />
               </div>
-              <div className="min-w-0 translate-x-1 opacity-0 transition-all duration-150 group-hover/sidebar:translate-x-0 group-hover/sidebar:opacity-100">
+              <div className={`min-w-0 ${expandedContentClassName}`}>
                 <p className="truncate text-sm font-semibold text-[var(--ink)]">
                   v1.4 Desktop Workspace
                 </p>

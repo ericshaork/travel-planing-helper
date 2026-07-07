@@ -1,9 +1,15 @@
-import { DayCabinet } from "@/components/trip/DayCabinet";
-import type { DayCabinetView } from "@/lib/trip/itinerary-view";
-import type { BlockActionType } from "@/lib/trip/modification-intents";
+import { DayCabinet } from "../trip/DayCabinet";
+import type { DayRouteInsight } from "../../lib/trip/route-insight";
+import type { DayCabinetView } from "../../lib/trip/itinerary-view";
+import type { BlockActionType } from "../../lib/trip/modification-intents";
 
 interface WorkspaceDayPanelProps {
   cabinet?: DayCabinetView;
+  insight?: DayRouteInsight;
+  activeBlockId?: string | null;
+  onBlockSelect?: (
+    block: DayCabinetView["slots"][number]["items"][number],
+  ) => void;
   onBlockAction?: (
     actionType: BlockActionType,
     block: DayCabinetView["slots"][number]["items"][number],
@@ -12,6 +18,9 @@ interface WorkspaceDayPanelProps {
 
 export function WorkspaceDayPanel({
   cabinet,
+  insight,
+  activeBlockId,
+  onBlockSelect,
   onBlockAction,
 }: WorkspaceDayPanelProps) {
   if (!cabinet) {
@@ -36,7 +45,13 @@ export function WorkspaceDayPanel({
         </div>
       </div>
 
-      <DayCabinet cabinet={cabinet} onBlockAction={onBlockAction} />
+      <DayCabinet
+        cabinet={cabinet}
+        mapPoints={insight?.mapPoints}
+        activeBlockId={activeBlockId}
+        onBlockSelect={onBlockSelect}
+        onBlockAction={onBlockAction}
+      />
     </section>
   );
 }
