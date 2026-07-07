@@ -17,6 +17,9 @@ export const PARSED_TRIP_STORAGE_KEY = "travel-planning:parsed-trip";
 export const TRIP_DRAFT_STORAGE_KEY = "travel-planning:trip-draft";
 export const TRIP_REQUEST_STORAGE_KEY = "travel-planning:trip-request";
 export const TRIP_PLAN_STORAGE_KEY = "travel-planning:trip-plan";
+export const TRIP_ENRICHMENT_STORAGE_KEY = "travel-planning:trip-enrichment";
+export const TRIP_WEATHER_SUMMARY_STORAGE_KEY = "travel-planning:trip-weather-summary";
+export const RESTORED_SAVED_TRIP_STORAGE_KEY = "travel-planning:restored-saved-trip";
 
 export interface ParsedTripSession {
   rawInput: string;
@@ -28,7 +31,18 @@ export interface ParsedTripSession {
 
 export type ParsedTripSessionInput = Omit<ParsedTripSession, "updatedAt">;
 
-type StorageLike = Pick<Storage, "getItem" | "setItem" | "removeItem">;
+export type StorageLike = Pick<Storage, "getItem" | "setItem" | "removeItem">;
+
+export interface SavedTripMetadata {
+  savedTripId: string;
+  savedTripTitle: string;
+  restoredAt?: string;
+  savedAt?: string;
+}
+
+type SavedTripMetadataInput = Omit<SavedTripMetadata, "savedAt"> & {
+  savedAt?: string;
+};
 
 const parsedTripSessionSchema: z.ZodType<ParsedTripSession> = z
   .object({
@@ -48,6 +62,104 @@ function browserStorage(storage?: StorageLike): StorageLike | undefined {
   return typeof window === "undefined" ? undefined : window.localStorage;
 }
 
+function removeSavedTripMetadata(storage?: StorageLike) {
+  browserStorage(storage)?.removeItem(RESTORED_SAVED_TRIP_STORAGE_KEY);
+}
+
+function parseSavedTripMetadata(
+  serialized: string,
+): SavedTripMetadata | null {
+  try {
+    const parsed = JSON.parse(serialized) as Partial<SavedTripMetadata>;
+
+    if (
+      typeof parsed.savedTripId === "string" &&
+      parsed.savedTripId.trim() &&
+      typeof parsed.savedTripTitle === "string" &&
+      parsed.savedTripTitle.trim()
+    ) {
+      return {
+        savedTripId: parsed.savedTripId.trim(),
+        savedTripTitle: parsed.savedTripTitle.trim(),
+        ...(typeof parsed.restoredAt === "string" && parsed.restoredAt.trim()
+          ? { restoredAt: parsed.restoredAt }
+          : {}),
+        ...(typeof parsed.savedAt === "string" && parsed.savedAt.trim()
+          ? { savedAt: parsed.savedAt }
+          : {}),
+      };
+    }
+  } catch {
+    // Invalid browser state is cleared by caller.
+  }
+
+  return null;
+}
+
+export function getSavedTripMetadata(
+  storage?: StorageLike,
+): SavedTripMetadata | null {
+  const targetStorage = browserStorage(storage);
+  const serialized = targetStorage?.getItem(RESTORED_SAVED_TRIP_STORAGE_KEY);
+
+  if (!serialized) {
+    return null;
+  }
+
+  const parsed = parseSavedTripMetadata(serialized);
+
+  if (parsed) {
+    return parsed;
+  }
+
+  removeSavedTripMetadata(targetStorage);
+  return null;
+}
+
+export function setSavedTripMetadata(
+  metadata: SavedTripMetadataInput,
+  storage?: StorageLike,
+): SavedTripMetadata {
+  const nextMetadata: SavedTripMetadata = {
+    savedTripId: metadata.savedTripId.trim(),
+    savedTripTitle: metadata.savedTripTitle.trim(),
+    ...(metadata.restoredAt ? { restoredAt: metadata.restoredAt } : {}),
+    ...(metadata.savedAt ? { savedAt: metadata.savedAt } : {}),
+  };
+
+  browserStorage(storage)?.setItem(
+    RESTORED_SAVED_TRIP_STORAGE_KEY,
+    JSON.stringify(nextMetadata),
+  );
+
+  return nextMetadata;
+}
+
+export function clearSavedTripMetadata(storage?: StorageLike) {
+  removeSavedTripMetadata(storage);
+}
+
+export function markCurrentTripAsSaved(
+  metadata: SavedTripMetadataInput,
+  storage?: StorageLike,
+) {
+  const previous = getSavedTripMetadata(storage);
+
+  return setSavedTripMetadata(
+    {
+      savedTripId: metadata.savedTripId,
+      savedTripTitle: metadata.savedTripTitle,
+      restoredAt: metadata.restoredAt ?? previous?.restoredAt,
+      savedAt: metadata.savedAt ?? new Date().toISOString(),
+    },
+    storage,
+  );
+}
+
+export function markCurrentTripAsUnsaved(storage?: StorageLike) {
+  clearSavedTripMetadata(storage);
+}
+
 export function saveParsedTripSession(
   input: ParsedTripSessionInput,
   storage?: StorageLike,
@@ -62,6 +174,7 @@ export function saveParsedTripSession(
   targetStorage?.removeItem(TRIP_DRAFT_STORAGE_KEY);
   targetStorage?.removeItem(TRIP_REQUEST_STORAGE_KEY);
   targetStorage?.removeItem(TRIP_PLAN_STORAGE_KEY);
+  removeSavedTripMetadata(targetStorage);
 
   return session;
 }

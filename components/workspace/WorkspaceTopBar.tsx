@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { ReactNode } from "react";
 
 import { safeDisplayText } from "@/lib/trip/result-overview";
 import type { DayCabinetView } from "@/lib/trip/itinerary-view";
@@ -16,6 +17,8 @@ interface WorkspaceTopBarProps {
   enrichmentState?: WorkspaceEnrichmentState;
   onFocusExport?: () => void;
   onFocusRegenerate?: () => void;
+  onStartNewTrip?: () => void;
+  saveAction?: ReactNode;
 }
 
 function FactCard({
@@ -48,6 +51,8 @@ export function WorkspaceTopBar({
   enrichmentState = "idle",
   onFocusExport,
   onFocusRegenerate,
+  onStartNewTrip,
+  saveAction,
 }: WorkspaceTopBarProps) {
   const status = getWorkspaceEnrichmentStatusMeta(enrichmentState);
   const statusClassName =
@@ -77,6 +82,7 @@ export function WorkspaceTopBar({
         </div>
 
         <div className="flex flex-wrap gap-2.5 text-sm">
+          {saveAction}
           <Link
             href="/plan"
             className="inline-flex min-h-11 items-center justify-center rounded-full border border-[var(--line-strong)] bg-[var(--paper)] px-4 py-2.5 font-semibold text-[var(--ink)] transition-colors hover:bg-[var(--paper-bright)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)]"
@@ -85,6 +91,7 @@ export function WorkspaceTopBar({
           </Link>
           <Link
             href="/create"
+            onClick={onStartNewTrip}
             className="inline-flex min-h-11 items-center justify-center rounded-full border border-[var(--line-strong)] bg-[var(--paper)] px-4 py-2.5 font-semibold text-[var(--ink)] transition-colors hover:bg-[var(--paper-bright)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)]"
           >
             创建新计划

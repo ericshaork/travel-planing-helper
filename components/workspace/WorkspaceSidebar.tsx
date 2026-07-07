@@ -26,6 +26,7 @@ interface WorkspaceSidebarProps {
   noticeTitle?: string;
   noticeMessage?: string;
   onNewTrip?: () => void;
+  onTrips?: () => void;
   onFocusRoute?: () => void;
   onFocusEdit?: () => void;
   onFocusExport?: () => void;
@@ -152,7 +153,7 @@ const navGroups: Array<{ label: string; entries: WorkspaceSidebarEntry[] }> = [
         title: "我的行程",
         subtitle: "Trips",
         icon: <IconTrips />,
-        available: false,
+        available: true,
       },
       {
         id: "explore",
@@ -282,6 +283,7 @@ export function WorkspaceSidebar({
   noticeTitle,
   noticeMessage,
   onNewTrip,
+  onTrips,
   onFocusRoute,
   onFocusEdit,
   onFocusExport,
@@ -290,6 +292,11 @@ export function WorkspaceSidebar({
   function handleItemClick(item: WorkspaceSidebarItemId) {
     if (item === "new-trip") {
       onNewTrip?.();
+      return;
+    }
+
+    if (item === "trips") {
+      onTrips?.();
       return;
     }
 
@@ -315,7 +322,9 @@ export function WorkspaceSidebar({
   const expandedContentClassName = expandable
     ? "translate-x-1 opacity-0 transition-all duration-150 group-hover/sidebar:translate-x-0 group-hover/sidebar:opacity-100"
     : "hidden";
-  const showOnExpandClassName = expandable ? "hidden group-hover/sidebar:block" : "hidden";
+  const showOnExpandClassName = expandable
+    ? "hidden group-hover/sidebar:block"
+    : "hidden";
 
   return (
     <aside className={`${rootClassName} relative h-full min-h-0`}>

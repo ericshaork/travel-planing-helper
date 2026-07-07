@@ -1,100 +1,73 @@
 # 漫游草签 / AI 自由行规划
 
-一个面向自由行新手的 Next.js 旅行规划网站。
+一个面向自由行新手的 Next.js 旅行规划网站。它先帮用户把需求整理出来，再结合 AI、天气、POI、路线和地图生成一版可执行的出行方案。
 
-当前状态：`v1.5` 已完成。
+## 当前状态
 
-`v1.5` 把 `/result` 右侧从地图占位升级成了真实高德地图基础版，并补齐了 Day marker、点位列表联动、itinerary block 联动、降级策略、环境变量说明和部署准备文档。
+当前仓库已完成 `v1.6 phase 8`，`v1.6` 主体功能已经收口。
 
-## 当前入口
+已完成能力：
 
-- `/`：Landing 欢迎页
-- `/create`：创建新计划
-- `/plan`：最终确认页
-- `/result`：结果工作台
-- `/workspace`：兼容入口，会回到主工作台流
+- `/` landing
+- `/create` 创建需求
+- `/plan` 最终确认
+- `/result` 结果工作台
+- AI 生成旅行计划
+- 高德 POI / Route / JS 地图
+- 和风天气
+- Supabase Auth 基础接入
+- Email magic link 登录
+- 登出
+- `profiles` / `trip_plans` 表与 RLS
+- 在 `/result` 保存当前计划
+- `/trips` 我的行程列表
+- 从 `/trips` 打开历史计划回到现有 `/result`
+- 更新已保存计划
+- 删除已保存计划
+- localStorage 继续作为前端工作台临时态
+- Supabase 作为云端持久态
 
-## 当前能力
+## v1.6 明确没做
 
-- 自然语言输入旅行需求
-- `/plan` 分步补充信息
-- `/result` 结构化展示方案
-- 复制、导出 Markdown、重新生成
-- mobile v1.3 分页流
-- desktop v1.4 三栏 workspace
-- v1.5 真实高德地图工作台
+- 不做 UI 大修
+- 不做分享链接
+- 不做多人协作
+- 不做多版本历史
+- 不做 `/trips/[id]` 独立详情页
+- 不做地图选点
+- 不做拖拽编辑
+- 不做自动重排
+- 不把 `/result` 改成数据库驱动页面
 
-## v1.5 已完成
+## 关键设计边界
 
-- 高德 JS SDK client-only loader
-- 前端地图 env 读取修复
-- `AmapBaseMap`、`MapLoading`、`MapErrorState`、`MapFallback`
-- `/result` desktop inspector 真实地图接入
-- 当前 Day marker 展示与视口同步
-- marker 与右侧点位列表双向高亮
-- itinerary block 与 marker / 点位详情联动
-- 缺 key、脚本失败、无点位、未确认点位的稳定降级
-- Netlify 环境变量与部署说明
+- 主链路仍然是 `/create -> /plan -> /result`
+- `TripRequest` / `TripPlan` schema 没改
+- 历史计划打开流程仍然是：
+  1. `/trips` 请求详情 API
+  2. 取回完整 JSON
+  3. 写回现有 localStorage key
+  4. 跳转回 `/result`
+- `savedTripId` metadata 用来区分“保存新计划”还是“更新已保存计划”
+- 点击“创建新计划”或进入新建流时，会清理旧的 `savedTripId`
 
-## v1.5 明确不做
+## Supabase 环境变量边界
 
-- 地图选点写回行程
-- 地图搜索地点
-- 拖拽 marker
-- 拖拽 itinerary block
-- 自动重排
-- 路线动画
-- 登录、保存、数据库
-- 内容生态
-- mobile 地图工作台重构
-- API 变更
-- TripPlan schema 变更
+前端可用：
 
-## 已知 Polish
+- `NEXT_PUBLIC_SUPABASE_URL`
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY`
 
-- 当前 active marker 的视觉样式还偏工程态，后续可以再做更自然的圆形编号、品牌色和选中态 polish。
-- 这属于视觉细化，不影响 `v1.5` 功能验收与发布准备。
+仅服务端可用：
 
-## 高德 Key 边界
+- `SUPABASE_SERVICE_ROLE_KEY`
 
-- `NEXT_PUBLIC_AMAP_JS_KEY`：浏览器端高德 JS SDK Key，会暴露给前端。
-- `NEXT_PUBLIC_AMAP_SECURITY_JS_CODE`：只有高德 JS Key 配了安全密钥时才需要。
-- `AMAP_API_KEY`：服务端高德 Web 服务 Key，只给 POI / Route Provider 用，不能暴露给前端。
-- `NEXT_PUBLIC_AMAP_JS_KEY` 和 `AMAP_API_KEY` 不能混用。
+说明：
 
-如果没有 `NEXT_PUBLIC_AMAP_JS_KEY`，地图会走 fallback，但行程、点位列表、详情卡、导出和重新生成仍可正常使用。
-
-如果 POI / Route 继续用 mock，真实地图底图仍可显示，但点位质量仍取决于 enrichment 数据。
-
-## 环境变量
-
-前端地图：
-
-- `NEXT_PUBLIC_AMAP_JS_KEY`
-- `NEXT_PUBLIC_AMAP_SECURITY_JS_CODE`
-
-服务端高德：
-
-- `AMAP_API_KEY`
-- `USE_MOCK_POI`
-- `POI_PROVIDER`
-- `USE_MOCK_ROUTE`
-- `ROUTE_PROVIDER`
-
-AI：
-
-- `USE_MOCK_AI`
-- `LLM_BASE_URL`
-- `LLM_API_KEY`
-- `LLM_MODEL`
-- `LLM_TIMEOUT_MS`
-
-天气：
-
-- `USE_MOCK_WEATHER`
-- `WEATHER_PROVIDER`
-- `QWEATHER_API_KEY`
-- `QWEATHER_BASE_URL`
+- 浏览器端只允许使用 `anon key`
+- `service role key` 不能进入前端 bundle
+- 普通登录、保存、列表、详情、更新、删除链路使用 `bearer token + anon key + RLS`
+- 不信任前端传入的 `user_id`
 
 ## 本地运行
 
@@ -114,53 +87,11 @@ npm.cmd run typecheck
 npm.cmd test
 ```
 
-## Netlify 部署准备
-
-最小真实地图配置：
-
-```env
-NEXT_PUBLIC_AMAP_JS_KEY=你的高德 JS API Key
-NEXT_PUBLIC_AMAP_SECURITY_JS_CODE=你的高德安全密钥（如有）
-```
-
-如果要启用真实 POI / Route：
-
-```env
-USE_MOCK_POI=false
-POI_PROVIDER=amap
-USE_MOCK_ROUTE=false
-ROUTE_PROVIDER=amap
-AMAP_API_KEY=你的高德 Web 服务 Key
-```
-
-部署前建议：
-
-1. 先跑 `lint / build / typecheck / test`
-2. 在 Netlify 配好环境变量
-3. 如刚改过环境变量，执行 `Clear cache and deploy`
-4. 打开 `/result`，确认地图能加载或能稳定降级
-5. 确认浏览器侧看不到 `AMAP_API_KEY`、`LLM_API_KEY`、`QWEATHER_API_KEY`
-
-## 发布准备说明
-
-建议命令：
-
-```powershell
-git status --short
-git add .
-git commit -m "feat: add real map workspace v1.5"
-git push
-git tag v1.5
-git push origin v1.5
-```
-
-本轮不会代替用户执行 commit、tag 或 deploy。
-
 ## 相关文档
 
-- [AGENTS.md](/C:/Users/10200/Desktop/travel_planing/AGENTS.md)
-- [docs/PRD_v1.5.md](/C:/Users/10200/Desktop/travel_planing/docs/PRD_v1.5.md)
-- [docs/TECH_DESIGN_v1.5.md](/C:/Users/10200/Desktop/travel_planing/docs/TECH_DESIGN_v1.5.md)
-- [docs/V1.5_PHASE_PLAN.md](/C:/Users/10200/Desktop/travel_planing/docs/V1.5_PHASE_PLAN.md)
+- [docs/PRD_v1.6.md](/C:/Users/10200/Desktop/travel_planing/docs/PRD_v1.6.md)
+- [docs/TECH_DESIGN_v1.6.md](/C:/Users/10200/Desktop/travel_planing/docs/TECH_DESIGN_v1.6.md)
+- [docs/V1.6_PHASE_PLAN.md](/C:/Users/10200/Desktop/travel_planing/docs/V1.6_PHASE_PLAN.md)
+- [docs/SUPABASE_SETUP_v1.6.md](/C:/Users/10200/Desktop/travel_planing/docs/SUPABASE_SETUP_v1.6.md)
 - [docs/MANUAL_ACCEPTANCE.md](/C:/Users/10200/Desktop/travel_planing/docs/MANUAL_ACCEPTANCE.md)
 - [docs/PRODUCT_ROADMAP.md](/C:/Users/10200/Desktop/travel_planing/docs/PRODUCT_ROADMAP.md)

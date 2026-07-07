@@ -20,6 +20,7 @@ import { RouteInsightPanel } from "@/components/trip/RouteInsightPanel";
 import { TransportAdvice } from "@/components/trip/TransportAdvice";
 import { TripSummaryCard } from "@/components/trip/TripSummaryCard";
 import { WeatherAlertCard } from "@/components/trip/WeatherAlertCard";
+import { SaveCurrentTripButton } from "@/components/trips/SaveCurrentTripButton";
 import { DesktopWorkspaceShell } from "@/components/workspace/DesktopWorkspaceShell";
 import { WorkspaceDayPanel } from "@/components/workspace/WorkspaceDayPanel";
 import { WorkspaceDayTabs } from "@/components/workspace/WorkspaceDayTabs";
@@ -54,6 +55,7 @@ import {
   type QuickModificationType,
 } from "@/lib/trip/modification-intents";
 import {
+  markCurrentTripAsUnsaved,
   loadTripPlan,
   loadTripRequest,
   saveTripPlan,
@@ -568,6 +570,7 @@ export default function ResultPage() {
   function handleWorkspaceNewTrip() {
     setActiveWorkspaceNav("new-trip");
     setSidebarNotice(null);
+    markCurrentTripAsUnsaved();
     window.location.assign("/create");
   }
 
@@ -577,6 +580,12 @@ export default function ResultPage() {
     window.requestAnimationFrame(() => {
       scrollToSection("workspace-route-insight");
     });
+  }
+
+  function handleWorkspaceTrips() {
+    setActiveWorkspaceNav("trips");
+    setSidebarNotice(null);
+    window.location.assign("/trips");
   }
 
   function handleDesktopMapPointSelect(pointId: string) {
@@ -1401,6 +1410,7 @@ export default function ResultPage() {
               noticeTitle={sidebarNotice?.title}
               noticeMessage={sidebarNotice?.message}
               onNewTrip={handleWorkspaceNewTrip}
+              onTrips={handleWorkspaceTrips}
               onFocusRoute={handleWorkspaceFocusRoute}
               onFocusEdit={handleWorkspaceFocusEdit}
               onFocusExport={handleWorkspaceFocusExport}
@@ -1415,6 +1425,22 @@ export default function ResultPage() {
               enrichmentState={enrichmentState}
               onFocusExport={handleWorkspaceFocusExport}
               onFocusRegenerate={handleWorkspaceFocusEdit}
+              onStartNewTrip={handleWorkspaceNewTrip}
+              saveAction={
+                <SaveCurrentTripButton
+                  key={[
+                    tripPlan.tripTitle,
+                    tripPlan.summary,
+                    tripRequest?.destinationCity ?? "",
+                    tripRequest?.startDate ?? "",
+                    tripRequest?.endDate ?? "",
+                    tripRequest?.budget ?? "",
+                  ].join("|")}
+                  tripPlan={tripPlan}
+                  tripRequest={tripRequest}
+                  tripEnrichment={tripEnrichment}
+                />
+              }
             />
           }
           main={desktopWorkspaceMain}

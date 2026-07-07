@@ -1,24 +1,25 @@
 # MANUAL ACCEPTANCE
 
-## 0. 当前说明
+## 0. 当前范围
 
-- 当前仓库处于 `v1.5` 完成态
-- `/result` desktop 已接入真实高德地图
-- 当前 Day marker、点位列表联动、itinerary block 联动已落地
-- 本文档用于最终人工回归和发布前检查
+当前手动验收范围覆盖到 `v1.6 phase 8`：
 
-## 1. 验收记录
+- 现有旅行生成主链路
+- 登录
+- 保存当前方案
+- 我的行程列表
+- 从历史计划回到现有工作台
+- 更新已保存计划
+- 删除已保存计划
 
-- 验收日期：
-- 验收人：
-- 构建版本：
-- 浏览器与版本：
-- 设备 / 分辨率：
-- 测试地址：
+当前不在本轮范围内：
 
-## 2. 部署前四项检查
+- 分享 trip
+- 多版本历史
+- 数据库驱动版 `/result`
+- v1.7 UI 大修
 
-先确认以下命令全部通过：
+## 1. 先跑四项检查
 
 ```powershell
 npm.cmd run lint
@@ -27,146 +28,103 @@ npm.cmd run typecheck
 npm.cmd test
 ```
 
-## 3. 基础路由回归
+## 2. Supabase 基础检查
 
-- [ ] `/` 是 Landing，而不是创建表单页
-- [ ] 点击“创建新计划”会进入 `/create`
-- [ ] `/create` 能正常完成起草
-- [ ] `/plan` 仍是最终确认页
-- [ ] `/result` 能展示完整 `TripPlan`
-- [ ] `/workspace` 兼容入口正常
-- [ ] copy / export / regenerate 正常
-- [ ] Pending Changes 流程正常
+- [ ] `.env.local` 已配置 `NEXT_PUBLIC_SUPABASE_URL`
+- [ ] `.env.local` 已配置 `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+- [ ] `.env.local` 已配置 `SUPABASE_SERVICE_ROLE_KEY`
+- [ ] migration 已执行
+- [ ] `profiles` 表存在
+- [ ] `trip_plans` 表存在
+- [ ] `profiles` 已开启 RLS
+- [ ] `trip_plans` 已开启 RLS
+- [ ] `trip_plans_delete_own` policy 存在
+- [ ] Data API 已开启
+- [ ] Exposed tables 包含 `profiles`
+- [ ] Exposed tables 包含 `trip_plans`
+- [ ] Authentication Site URL 已配置
+- [ ] Authentication Redirect URL 已配置
 
-## 4. 创建流程回归
+## 3. 主链路回归
 
-- [ ] “AI 帮我先排一版”路径正常
-- [ ] “自己探索”入口仍保留 v1.5 占位语义，不误导为真实 Explore
-- [ ] `parse-trip -> /plan -> /result` 主链路正常
-- [ ] `/plan` 修改能覆盖 `/create` 初始草稿
+- [ ] `/` 正常打开
+- [ ] `/create -> /plan -> /result` 仍可用
+- [ ] `/result` 复制 / 导出 / 重新生成正常
+- [ ] 地图、天气、route inspector 未因 `v1.6` 回归损坏
+- [ ] mobile 没有严重破版
 
-## 5. 地图无 Key 场景
+## 4. 登录验收
 
-- [ ] 去掉 `NEXT_PUBLIC_AMAP_JS_KEY` 后，`/result` 右侧显示友好 fallback
-- [ ] 点位列表仍可用
-- [ ] 详情卡仍可用
-- [ ] 路线统计、route legs、warning stack 仍可用
-- [ ] 行程仍可导出和重新生成
+- [ ] 未登录时仍可访问生成主链路
+- [ ] `/login` 可发送 magic link
+- [ ] 登录后 Header 显示邮箱或登录态
+- [ ] 刷新后登录状态保留
+- [ ] 退出登录后不再显示用户信息
 
-## 6. 地图有 Key 场景
+## 5. 保存验收
 
-- [ ] `/result` desktop inspector 显示真实地图
-- [ ] 当前 Day resolved 点位显示 marker
-- [ ] 切换 Day 后 marker 同步更新
-- [ ] 多点时视口能覆盖当前 Day marker
-- [ ] 单点时地图能聚焦到该点
-- [ ] 没有 marker 时不会出现空白地图
-- [ ] 全 unresolved 时显示“这一天的地点还没确认到具体位置”
-- [ ] 地图脚本失败时不影响行程主体
+- [ ] 未登录时在 `/result` 点击保存会跳转 `/login?returnTo=/result`
+- [ ] 登录后在 `/result` 可以保存当前计划
+- [ ] 点击保存后命中 `POST /api/trips`
+- [ ] Supabase `trip_plans` 新增一条记录
+- [ ] 保存成功后按钮状态正确
 
-## 7. 阶段 4 联动验收
+## 6. 我的行程验收
 
-- [ ] 点击 marker 后，右侧点位列表对应项高亮
-- [ ] 点击右侧已确认点位后，地图对应 marker 高亮
-- [ ] 右侧显示当前 active 点位详情
-- [ ] 点击未确认点位后，显示“待确认 / 无法在地图中定位”提示
-- [ ] 切换 Day 后，active 点位会清空或合理重置
-- [ ] 地图 fallback 时，点位列表和详情卡仍可查看
+- [ ] 未登录访问 `/trips` 时看到登录引导
+- [ ] 登录引导跳转 `/login?returnTo=/trips`
+- [ ] 已登录且无数据时显示空状态
+- [ ] 已登录且有数据时显示 trip list
+- [ ] 列表只显示轻量字段，不暴露完整大 JSON
 
-## 8. 阶段 5 联动验收
+## 7. 打开历史验收
 
-- [ ] 点击中间 itinerary block 后，右侧 marker / 点位列表 / 详情卡同步到对应地点
-- [ ] 点击已确认 block 时，地图 marker 高亮
-- [ ] 点击待确认 block 时，详情卡显示“待确认 / 无法在地图中定位”
-- [ ] 点击未匹配 block 时，详情卡显示“暂时没有匹配到地图点”
-- [ ] `BlockActions` 只会加入 Pending Changes，不会误触 block 选中
-- [ ] 切换 Day 后，block 选中态和 active point 会清理
-- [ ] 重新生成后，block 选中态和 active point 会清理
-- [ ] mobile 路由页未被这轮联动改坏
+- [ ] `/trips` 卡片有“打开到工作台”
+- [ ] 点击后会请求 `GET /api/trips/[tripId]`
+- [ ] API 只允许当前登录用户读取自己的 trip
+- [ ] 返回内容包含 `trip_request_json`
+- [ ] 返回内容包含 `trip_plan_json`
+- [ ] 返回内容包含 `enrichment_json`
+- [ ] 返回内容包含 `weather_summary_json`
+- [ ] 客户端会恢复到既有 localStorage key
+- [ ] 恢复后跳转到 `/result`
+- [ ] 刷新后仍能继续显示当前恢复结果
 
-## 9. 桌面布局检查
+## 8. 更新验收
 
-- [ ] 1280 宽度下布局正常
-- [ ] 1440 宽度下布局正常
-- [ ] 1920 宽度下布局正常
-- [ ] sidebar、topbar、current day workspace、inspector 层级正常
-- [ ] 右侧地图栏不会挤爆布局
+- [ ] 登录
+- [ ] 创建并保存一条新计划
+- [ ] 回到 `/trips` 打开这条计划
+- [ ] 回到 `/result`
+- [ ] 对计划做修改或重新生成
+- [ ] 按钮显示“更新已保存计划”或等价状态
+- [ ] 点击后命中 `PATCH /api/trips/[tripId]`
+- [ ] 同一条记录的 `updated_at` 更新
+- [ ] 不会新增重复记录，除非用户重新走新建流
 
-## 10. Mobile 回归
+## 9. 删除验收
 
-- [ ] `/` 在 mobile 上仍是轻量欢迎页
-- [ ] `/create` 在 mobile 上可起草
-- [ ] `/plan` 在 mobile 上可用
-- [ ] `/result` 在 mobile 上保持既有 flow
-- [ ] desktop 三栏没有被强行下放到 mobile
+- [ ] 打开 `/trips`
+- [ ] 点击某条计划的删除
+- [ ] 出现确认框
+- [ ] 取消时不删除
+- [ ] 确认时命中 `DELETE /api/trips/[tripId]`
+- [ ] 删除成功后列表移除
+- [ ] Supabase 对应记录消失
+- [ ] 删除当前工作台关联计划时，会清理本地 `savedTripId`
+- [ ] 不能删除其他用户的计划
 
-## 11. 安全检查
+## 10. 安全检查
 
-- [ ] 浏览器中不会出现 `AMAP_API_KEY`
-- [ ] 浏览器中不会出现 `LLM_API_KEY`
-- [ ] 浏览器中不会出现 `QWEATHER_API_KEY`
-- [ ] `NEXT_PUBLIC_AMAP_JS_KEY` 出现在前端是正常行为
+- [ ] 浏览器端不暴露 `SUPABASE_SERVICE_ROLE_KEY`
+- [ ] 浏览器端不暴露 `AMAP_API_KEY`
+- [ ] 浏览器端不暴露 `LLM_API_KEY`
+- [ ] 浏览器端不暴露 `QWEATHER_API_KEY`
+- [ ] 保存、更新、删除都使用 `bearer token + anon key + RLS`
+- [ ] 服务端不信任前端传入的 `user_id`
 
-## 12. 环境变量确认
-
-前端地图：
-
-- [ ] `NEXT_PUBLIC_AMAP_JS_KEY`
-- [ ] `NEXT_PUBLIC_AMAP_SECURITY_JS_CODE`
-
-服务端高德：
-
-- [ ] `AMAP_API_KEY`
-- [ ] `USE_MOCK_POI`
-- [ ] `POI_PROVIDER`
-- [ ] `USE_MOCK_ROUTE`
-- [ ] `ROUTE_PROVIDER`
-
-AI：
-
-- [ ] `USE_MOCK_AI`
-- [ ] `LLM_BASE_URL`
-- [ ] `LLM_API_KEY`
-- [ ] `LLM_MODEL`
-- [ ] `LLM_TIMEOUT_MS`
-
-天气：
-
-- [ ] `USE_MOCK_WEATHER`
-- [ ] `WEATHER_PROVIDER`
-- [ ] `QWEATHER_API_KEY`
-- [ ] `QWEATHER_BASE_URL`
-
-## 13. Netlify 部署前确认
-
-- [ ] 已配置 `NEXT_PUBLIC_AMAP_JS_KEY`
-- [ ] 如需要，已配置 `NEXT_PUBLIC_AMAP_SECURITY_JS_CODE`
-- [ ] 如使用真实 POI / Route，已配置 `AMAP_API_KEY`
-- [ ] 如使用真实 POI / Route，已配置 `USE_MOCK_POI=false`、`POI_PROVIDER=amap`
-- [ ] 如使用真实 Route，已配置 `USE_MOCK_ROUTE=false`、`ROUTE_PROVIDER=amap`
-- [ ] 如继续使用 mock，已明确保留 mock 配置
-- [ ] 改完环境变量后，已执行 `Clear cache and deploy`
-
-## 14. 已知不做项复核
-
-- [ ] 未做地图选点写回行程
-- [ ] 未做搜索地点
-- [ ] 未做拖拽 marker
-- [ ] 未做拖拽 itinerary block
-- [ ] 未做自动重排
-- [ ] 未做路线动画
-- [ ] 未做登录和保存
-- [ ] 未做内容生态
-- [ ] 未改 API / schema
-
-## 15. 验收结论
+## 11. 结论
 
 - 结论：通过 / 有条件通过 / 不通过
-
-阻塞项：
-
-- 
-
-非阻塞问题：
-
-- 
+- 阻塞项：
+- 非阻塞项：

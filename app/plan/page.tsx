@@ -26,6 +26,7 @@ import {
   type TripRequestNormalizationIssue,
 } from "@/lib/trip/normalize";
 import {
+  markCurrentTripAsUnsaved,
   loadParsedTripSession,
   loadTripRequestDraft,
   saveTripPlan,
@@ -295,6 +296,7 @@ export default function PlanPage() {
       return;
     }
 
+    markCurrentTripAsUnsaved();
     saveTripRequest(result.tripRequest);
     setTripRequest(result.tripRequest);
     setPageState("prepared");
