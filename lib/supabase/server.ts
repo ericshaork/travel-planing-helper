@@ -5,7 +5,7 @@ import { createClient } from "@supabase/supabase-js";
 import {
   assertSupabaseBrowserEnv,
   assertSupabaseServiceRoleEnv,
-} from "./env";
+} from "./env.ts";
 
 type EnvironmentSource = Readonly<Record<string, string | undefined>>;
 

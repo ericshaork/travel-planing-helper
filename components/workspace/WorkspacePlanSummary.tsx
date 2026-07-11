@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import type { DayCabinetView } from "@/lib/trip/itinerary-view";
 import { safeDisplayText } from "@/lib/trip/result-overview";
 import type { TripPlan } from "@/lib/trip/types";
@@ -12,7 +14,17 @@ export function WorkspacePlanSummary({
   activeCabinet,
 }: WorkspacePlanSummaryProps) {
   return (
-    <section className="workspace-panel px-5 py-5 sm:px-6">
+    <section className="workspace-panel relative overflow-hidden px-5 py-5 sm:px-6">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-16 opacity-20">
+        <Image
+          src="/images/ui/background/paper-noise-soft.png"
+          alt=""
+          fill
+          aria-hidden
+          sizes="960px"
+          className="object-cover object-top"
+        />
+      </div>
       <div className="relative z-[1] flex flex-wrap items-start justify-between gap-4">
         <div className="max-w-3xl">
           <p className="workspace-kicker">PLAN SUMMARY</p>
@@ -22,19 +34,19 @@ export function WorkspacePlanSummary({
           <p className="mt-2 text-sm leading-6 text-[var(--ink-muted)]">
             {safeDisplayText(
               tripPlan.summary,
-              "先按这版走通，再决定哪一天最值得细改。",
+              "Use this version as the baseline, then decide which day deserves the most careful editing.",
             )}
           </p>
         </div>
 
         {activeCabinet ? (
           <div className="workspace-panel-soft min-w-[15rem] bg-[linear-gradient(180deg,rgba(223,232,216,0.62)_0%,rgba(255,253,247,0.98)_100%)] px-4 py-3">
-            <p className="workspace-kicker">当前聚焦</p>
+            <p className="workspace-kicker">CURRENT FOCUS</p>
             <p className="mt-1.5 text-base font-semibold text-[var(--ink)]">
-              Day {activeCabinet.dayNumber} · {activeCabinet.theme}
+              Day {activeCabinet.dayNumber} - {activeCabinet.theme}
             </p>
             <p className="mt-1 text-sm text-[var(--ink-muted)]">
-              {activeCabinet.date ?? "日期待确认"}
+              {activeCabinet.date ?? "date pending"}
             </p>
           </div>
         ) : null}
@@ -43,7 +55,7 @@ export function WorkspacePlanSummary({
       <div className="relative z-[1] mt-4 flex flex-wrap gap-2.5 text-sm">
         <span className="workspace-chip">{tripPlan.destination}</span>
         <span className="workspace-chip workspace-chip-accent">
-          {tripPlan.days} 天
+          {tripPlan.days} days
         </span>
         <span className="workspace-chip">
           {tripPlan.budgetSummary.totalEstimate}
@@ -53,7 +65,7 @@ export function WorkspacePlanSummary({
       <p className="relative z-[1] mt-4 rounded-[20px] border border-dashed border-[var(--line)] bg-[var(--paper)] px-4 py-3 text-sm leading-6 text-[var(--ink-muted)]">
         {safeDisplayText(
           tripPlan.travelStyleSummary,
-          "先把路线和节奏摆平，再看哪些地方要更松一点，哪些地方还能再丰富一点。",
+          "Smooth out route and pace first, then decide which parts should feel lighter and which parts can still become richer.",
         )}
       </p>
     </section>

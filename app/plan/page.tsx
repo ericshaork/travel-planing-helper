@@ -26,9 +26,11 @@ import {
   type TripRequestNormalizationIssue,
 } from "@/lib/trip/normalize";
 import {
+  loadTripPlanDraft,
   markCurrentTripAsUnsaved,
   loadParsedTripSession,
   loadTripRequestDraft,
+  saveTripPlanDraft,
   saveTripPlan,
   saveTripRequest,
   saveTripRequestDraft,
@@ -36,6 +38,7 @@ import {
 import { generateTripResponseSchema } from "@/lib/trip/schema";
 import type {
   GenerateTripResponse,
+  TripPlanDraft,
   TripRequest,
   TripRequestDraft,
 } from "@/lib/trip/types";
@@ -79,6 +82,7 @@ export default function PlanPage() {
   const [tripRequest, setTripRequest] = useState<TripRequest>();
   const [isGenerating, setIsGenerating] = useState(false);
   const [generationError, setGenerationError] = useState<string>();
+  const [tripPlanDraft, setTripPlanDraft] = useState<TripPlanDraft | null>(null);
   const generationInFlight = useRef(false);
   const [currentStep, setCurrentStep] = useState(0);
   const [issues, setIssues] = useState<TripRequestNormalizationIssue[]>([]);
@@ -89,15 +93,17 @@ export default function PlanPage() {
 
   useEffect(() => {
     const restoreTimer = window.setTimeout(() => {
+      const savedPlanDraft = loadTripPlanDraft();
       const savedDraft = loadTripRequestDraft();
       const parsedSession = loadParsedTripSession();
 
-      if (!savedDraft && !parsedSession) {
+      if (!savedPlanDraft && !savedDraft && !parsedSession) {
         setPageState("missing");
         return;
       }
 
       const restoredDraft =
+        savedPlanDraft?.tripRequestDraft ??
         savedDraft ??
         mergeParsedSessionDraft(
           parsedSession?.parseResult.parsed ?? {},
@@ -113,6 +119,7 @@ export default function PlanPage() {
       );
 
       setDraft(syncedDraft);
+      setTripPlanDraft(savedPlanDraft);
       setCurrentStep(missingFieldDetails[0]?.step ?? 0);
       saveTripRequestDraft(syncedDraft);
       setPageState("editing");
@@ -124,8 +131,15 @@ export default function PlanPage() {
   useEffect(() => {
     if (pageState === "editing" && draft) {
       saveTripRequestDraft(draft);
+
+      if (tripPlanDraft) {
+        saveTripPlanDraft({
+          ...tripPlanDraft,
+          tripRequestDraft: draft,
+        });
+      }
     }
-  }, [draft, pageState]);
+  }, [draft, pageState, tripPlanDraft]);
 
   const missingFields = useMemo(
     () => (draft ? getMissingTripRequestFields(draft) : []),
@@ -256,7 +270,7 @@ export default function PlanPage() {
 
       const result: GenerateTripResponse = parsed.data;
       saveTripPlan(result.tripPlan);
-      router.push("/result");
+      router.push("/workspace");
     } catch (error) {
       setGenerationError(
         error instanceof FriendlyGenerationError

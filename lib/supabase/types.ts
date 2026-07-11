@@ -72,3 +72,97 @@ export interface TripPlanUpdate {
   weather_summary_json?: Record<string, unknown> | null;
   cover_image_url?: string | null;
 }
+
+export interface ExploreTripContentRow {
+  id: string;
+  external_id: string;
+  slug: string;
+  title: string;
+  summary: string;
+  city: string;
+  city_code: string;
+  region: string | null;
+  trip_type: string;
+  theme: string | null;
+  days: number;
+  tags: string[];
+  pace: string | null;
+  budget_level: string | null;
+  budget_note: string | null;
+  status: "draft" | "reviewing" | "published" | "archived";
+  review_status: "pending" | "approved" | "rejected";
+  image_prompt: string | null;
+  cover_image_url: string | null;
+  source_pipeline: string;
+  source_batch_id: string | null;
+  source_content_key: string | null;
+  source_file_path: string | null;
+  highlights_json: unknown[];
+  itinerary_days_json: unknown[];
+  poi_highlights_json: unknown[];
+  food_highlights_json: unknown[];
+  raw_content_json: Record<string, unknown>;
+  published_at: string | null;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface ExploreTripContentInsert {
+  external_id: string;
+  slug: string;
+  title: string;
+  summary: string;
+  city: string;
+  city_code: string;
+  region?: string | null;
+  trip_type: string;
+  theme?: string | null;
+  days: number;
+  tags: string[];
+  pace?: string | null;
+  budget_level?: string | null;
+  budget_note?: string | null;
+  status: "draft" | "reviewing" | "published" | "archived";
+  review_status: "pending" | "approved" | "rejected";
+  image_prompt?: string | null;
+  cover_image_url?: string | null;
+  source_pipeline: string;
+  source_batch_id?: string | null;
+  source_content_key?: string | null;
+  source_file_path?: string | null;
+  highlights_json: unknown[];
+  itinerary_days_json: unknown[];
+  poi_highlights_json: unknown[];
+  food_highlights_json: unknown[];
+  raw_content_json: Record<string, unknown>;
+  published_at?: string | null;
+}
+
+export interface ExploreTripContentUpdate {
+  title?: string;
+  summary?: string;
+  city?: string;
+  city_code?: string;
+  region?: string | null;
+  trip_type?: string;
+  theme?: string | null;
+  days?: number;
+  tags?: string[];
+  pace?: string | null;
+  budget_level?: string | null;
+  budget_note?: string | null;
+  status?: "draft" | "reviewing" | "published" | "archived";
+  review_status?: "pending" | "approved" | "rejected";
+  image_prompt?: string | null;
+  cover_image_url?: string | null;
+  source_pipeline?: string;
+  source_batch_id?: string | null;
+  source_content_key?: string | null;
+  source_file_path?: string | null;
+  highlights_json?: unknown[];
+  itinerary_days_json?: unknown[];
+  poi_highlights_json?: unknown[];
+  food_highlights_json?: unknown[];
+  raw_content_json?: Record<string, unknown>;
+  published_at?: string | null;
+}

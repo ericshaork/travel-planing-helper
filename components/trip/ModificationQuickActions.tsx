@@ -8,11 +8,11 @@ const ACTIONS: Array<{
   type: QuickModificationType;
   label: string;
 }> = [
-  { type: "relax", label: "轻松一点" },
-  { type: "lessWalking", label: "少走路" },
-  { type: "lowerBudget", label: "预算低一点" },
-  { type: "addFoodNightMarket", label: "加美食 / 夜市" },
-  { type: "noEarlyStart", label: "不早起" },
+  { type: "relax", label: "Make it lighter" },
+  { type: "lessWalking", label: "Less walking" },
+  { type: "lowerBudget", label: "Lower the budget" },
+  { type: "addFoodNightMarket", label: "Add food / night market" },
+  { type: "noEarlyStart", label: "No early start" },
 ];
 
 export function ModificationQuickActions({
@@ -22,13 +22,13 @@ export function ModificationQuickActions({
     <section className="cabinet-door p-4 pt-7 sm:p-5 sm:pt-8">
       <div className="max-w-3xl">
         <p className="text-xs font-semibold tracking-[0.14em] text-[var(--sage-deep)]">
-          先挑一个修改方向
+          QUICK EDIT DIRECTION
         </p>
         <h2 className="mt-2 text-base font-semibold sm:text-lg">
-          不用想太复杂，先把想调的方向点出来。
+          Start from one clear travel adjustment
         </h2>
         <p className="mt-2 text-sm leading-6 text-[var(--ink-muted)]">
-          这里只负责把修改句准备好，真正提交还是下面那个重新生成框。
+          These buttons only prepare the edit direction. The actual AI rewrite still happens in the regenerate box below.
         </p>
       </div>
 
@@ -38,7 +38,7 @@ export function ModificationQuickActions({
             key={action.type}
             type="button"
             onClick={() => onSelect(action.type)}
-            className="min-h-10 max-w-full border border-[var(--line-strong)] bg-[var(--paper)] px-3 py-2 text-sm font-semibold text-[var(--ink)] transition-colors duration-150 ease-out hover:border-[var(--clay-deep)] hover:bg-[var(--sand-soft)] hover:text-[var(--clay-deep)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)] sm:min-h-11 sm:px-3.5"
+            className="min-h-10 max-w-full rounded-full border border-[var(--line-strong)] bg-[var(--paper)] px-3 py-2 text-sm font-semibold text-[var(--ink)] transition-colors duration-150 ease-out hover:border-[var(--clay-deep)] hover:bg-[var(--sand-soft)] hover:text-[var(--clay-deep)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)] sm:min-h-11 sm:px-3.5"
           >
             {action.label}
           </button>

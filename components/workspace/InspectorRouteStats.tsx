@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import type { DayRouteInsight } from "@/lib/trip/route-insight";
 import {
   buildWorkspaceInsightStats,
@@ -28,30 +30,40 @@ export function InspectorRouteStats({ insight }: InspectorRouteStatsProps) {
   const stats = buildWorkspaceInsightStats(insight);
 
   return (
-    <section className="workspace-panel px-4 py-4">
+    <section className="workspace-panel relative overflow-hidden px-4 py-4">
+      <div className="pointer-events-none absolute right-3 top-0 h-14 w-12 opacity-65">
+        <Image
+          src="/images/archive/bookmark/archive-bookmark-default.png"
+          alt=""
+          fill
+          aria-hidden
+          sizes="48px"
+          className="object-contain object-top"
+        />
+      </div>
       <div className="relative z-[1] space-y-3">
         <div>
-          <p className="workspace-kicker">ROUTE STATS</p>
-          <h3 className="mt-1 text-base font-semibold">路线摘要</h3>
+          <p className="workspace-kicker">ROUTE SUMMARY</p>
+          <h3 className="mt-1 text-base font-semibold">Planning stats</h3>
         </div>
 
         <div className="grid grid-cols-2 gap-3">
-          <StatCard label="已确认点位" value={stats.resolvedPoints} />
-          <StatCard label="待确认点位" value={stats.unresolvedPoints} />
+          <StatCard label="Mapped stops" value={stats.resolvedPoints} />
+          <StatCard label="Pending stops" value={stats.unresolvedPoints} />
           <StatCard
-            label="总距离"
+            label="Distance"
             value={
               insight?.routeSummary
                 ? formatRouteDistance(stats.totalDistanceMeters)
-                : "暂不可用"
+                : "pending"
             }
           />
           <StatCard
-            label="总通勤"
+            label="Travel time"
             value={
               insight?.routeSummary
                 ? formatRouteDuration(stats.totalDurationMinutes)
-                : "暂不可用"
+                : "pending"
             }
           />
         </div>

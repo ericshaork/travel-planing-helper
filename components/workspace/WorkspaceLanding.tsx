@@ -153,19 +153,6 @@ export function WorkspaceLanding() {
         </section>
 
         <DesktopWorkspaceShell
-          sidebar={
-            <WorkspaceSidebar
-              activeItem={activeItem}
-              expandable={false}
-              noticeTitle={sidebarNotice?.title}
-              noticeMessage={sidebarNotice?.message}
-              onNewTrip={handleCreateTrip}
-              onFocusRoute={() => handleLandingWorkspaceAction("route")}
-              onFocusEdit={() => handleLandingWorkspaceAction("edit")}
-              onFocusExport={() => handleLandingWorkspaceAction("export")}
-              onPlaceholder={handlePlaceholder}
-            />
-          }
           topBar={
             <section className="workspace-panel px-6 py-6">
               <div className="relative z-[1] flex flex-wrap items-start justify-between gap-5">
@@ -193,6 +180,18 @@ export function WorkspaceLanding() {
           }
           main={
             <WorkspaceMain>
+              <WorkspaceSidebar
+                activeItem={activeItem}
+                expandable={false}
+                noticeTitle={sidebarNotice?.title}
+                noticeMessage={sidebarNotice?.message}
+                onNewTrip={handleCreateTrip}
+                onFocusRoute={() => handleLandingWorkspaceAction("route")}
+                onFocusEdit={() => handleLandingWorkspaceAction("edit")}
+                onFocusExport={() => handleLandingWorkspaceAction("export")}
+                onPlaceholder={handlePlaceholder}
+              />
+
               <section className="grid gap-4 xl:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
                 <article className="workspace-panel px-6 py-6">
                   <div className="relative z-[1]">

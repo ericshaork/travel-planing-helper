@@ -1,73 +1,79 @@
-# 漫游草签 / AI 自由行规划
+# 漫游草签 / AI 自由行规划助手
 
-一个面向自由行新手的 Next.js 旅行规划网站。它先帮用户把需求整理出来，再结合 AI、天气、POI、路线和地图生成一版可执行的出行方案。
+一个面向自由行新手的 Next.js 旅行规划网站。它先帮用户把旅行需求整理清楚，再结合 AI、天气、POI、路线和地图能力，生成一版可继续修改、保存和导出的旅行方案。
 
 ## 当前状态
 
-当前仓库已完成 `v1.6 phase 8`，`v1.6` 主体功能已经收口。
+当前仓库主线已完成到 `v1.6`：
 
-已完成能力：
-
-- `/` landing
-- `/create` 创建需求
-- `/plan` 最终确认
+- `/` 欢迎页
+- `/create` 创建页
+- `/plan` 最终确认页
 - `/result` 结果工作台
 - AI 生成旅行计划
-- 高德 POI / Route / JS 地图
 - 和风天气
-- Supabase Auth 基础接入
+- 高德 POI / Route / JS 地图
+- `/api/enrich-trip` 路线洞察
 - Email magic link 登录
-- 登出
-- `profiles` / `trip_plans` 表与 RLS
-- 在 `/result` 保存当前计划
-- `/trips` 我的行程列表
-- 从 `/trips` 打开历史计划回到现有 `/result`
-- 更新已保存计划
-- 删除已保存计划
-- localStorage 继续作为前端工作台临时态
-- Supabase 作为云端持久态
+- Supabase 持久化保存
+- `/trips` 我的行程
+- 已保存计划的打开、更新、删除
 
-## v1.6 明确没做
+## 下一阶段
 
-- 不做 UI 大修
-- 不做分享链接
-- 不做多人协作
-- 不做多版本历史
-- 不做 `/trips/[id]` 独立详情页
-- 不做地图选点
-- 不做拖拽编辑
-- 不做自动重排
-- 不把 `/result` 改成数据库驱动页面
+下一阶段是 `v1.7 UI / UX polish`。
 
-## 关键设计边界
+当前仅进入 `v1.7 phase 0`：
 
-- 主链路仍然是 `/create -> /plan -> /result`
-- `TripRequest` / `TripPlan` schema 没改
-- 历史计划打开流程仍然是：
-  1. `/trips` 请求详情 API
-  2. 取回完整 JSON
-  3. 写回现有 localStorage key
-  4. 跳转回 `/result`
-- `savedTripId` metadata 用来区分“保存新计划”还是“更新已保存计划”
-- 点击“创建新计划”或进入新建流时，会清理旧的 `savedTripId`
+- 做 UI/UX 审计
+- 冻结视觉方向
+- 产出问题清单、PRD 和阶段计划
 
-## Supabase 环境变量边界
+本阶段不代表 UI 大修已经完成，也不改业务链路。
 
-前端可用：
+## 当前主链路
 
-- `NEXT_PUBLIC_SUPABASE_URL`
-- `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+项目当前核心流程仍然是：
 
-仅服务端可用：
+`/create -> /plan -> /result`
 
-- `SUPABASE_SERVICE_ROLE_KEY`
+同时保留：
 
-说明：
+- `/login` 登录入口
+- `/trips` 已保存行程列表
+- `/workspace` 兼容入口
 
-- 浏览器端只允许使用 `anon key`
-- `service role key` 不能进入前端 bundle
-- 普通登录、保存、列表、详情、更新、删除链路使用 `bearer token + anon key + RLS`
-- 不信任前端传入的 `user_id`
+## 已完成版本概览
+
+- `v1.0`：AI 生成旅行计划、主链路、复制与 Markdown 导出
+- `v1.1`：积木式行程查看、快捷修改、Pending Changes 初版
+- `v1.2`：Mobile Flow First、Day Cabinet、移动端工作台收敛
+- `v1.2.5`：接入真实 AI，修复移动端表单体验
+- `v1.3`：POI / Route / Weather 增强、路线洞察
+- `v1.4`：Desktop workspace UI、landing、create、desktop result
+- `v1.5`：高德前端地图接入、marker 联动、地图降级
+- `v1.6`：登录、保存、我的行程、Supabase 持久化
+- `v1.7`：规划中，定位为 UI/UX 大修
+
+## v1.7 当前明确做什么
+
+- `/result` 布局与导航修复
+- 地图区域放大与展开方案评估
+- 天气展示重构为更偏旅行建议的表达
+- marker / icon / 状态表达统一
+- 欢迎页氛围与视觉层级增强
+- mobile 回归检查
+
+## v1.7 当前明确不做什么
+
+- 地图选点
+- 拖拽编辑
+- 自动重排
+- 分享协作
+- 内容生态
+- 登录系统大改
+- 数据库结构变更
+- AI / Weather / Map / Route 主链路改造
 
 ## 本地运行
 
@@ -87,8 +93,18 @@ npm.cmd run typecheck
 npm.cmd test
 ```
 
+如果 `typecheck` 依赖 `.next/types`，请先执行：
+
+```powershell
+npm.cmd run build
+npm.cmd run typecheck
+```
+
 ## 相关文档
 
+- [docs/UI_AUDIT_v1.7.md](/C:/Users/10200/Desktop/travel_planing/docs/UI_AUDIT_v1.7.md)
+- [docs/PRD_v1.7.md](/C:/Users/10200/Desktop/travel_planing/docs/PRD_v1.7.md)
+- [docs/V1.7_PHASE_PLAN.md](/C:/Users/10200/Desktop/travel_planing/docs/V1.7_PHASE_PLAN.md)
 - [docs/PRD_v1.6.md](/C:/Users/10200/Desktop/travel_planing/docs/PRD_v1.6.md)
 - [docs/TECH_DESIGN_v1.6.md](/C:/Users/10200/Desktop/travel_planing/docs/TECH_DESIGN_v1.6.md)
 - [docs/V1.6_PHASE_PLAN.md](/C:/Users/10200/Desktop/travel_planing/docs/V1.6_PHASE_PLAN.md)

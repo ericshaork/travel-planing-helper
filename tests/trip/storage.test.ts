@@ -2,13 +2,16 @@ import { describe, expect, it } from "vitest";
 
 import {
   loadParsedTripSession,
+  loadTripPlanDraft,
   loadTripRequest,
   loadTripRequestDraft,
   PARSED_TRIP_STORAGE_KEY,
   saveParsedTripSession,
+  saveTripPlanDraft,
   saveTripRequest,
   saveTripRequestDraft,
   TRIP_DRAFT_STORAGE_KEY,
+  TRIP_PLAN_DRAFT_STORAGE_KEY,
   TRIP_REQUEST_STORAGE_KEY,
 } from "../../lib/trip/storage";
 
@@ -30,47 +33,47 @@ class MemoryStorage {
 
 const parseResult = {
   parsed: {
-    departureCity: "深圳",
-    destinationCity: "厦门",
+    departureCity: "Shenzhen",
+    destinationCity: "Xiamen",
     days: 3,
     budget: 2500,
-    interests: ["海边"],
-    travelStyles: ["轻松"],
+    interests: ["sea"],
+    travelStyles: ["relaxed"],
   },
   missingFields: [],
   followUpQuestions: [],
 };
 
-describe("parsed trip storage", () => {
-  it("没有首页解析或补充草稿时返回空状态", () => {
+describe("trip storage", () => {
+  it("returns null when there is no parsed session or draft", () => {
     const storage = new MemoryStorage();
 
     expect(loadParsedTripSession(storage)).toBeNull();
     expect(loadTripRequestDraft(storage)).toBeNull();
   });
 
-  it("保存并恢复首页解析会话", () => {
+  it("saves and restores a parsed session", () => {
     const storage = new MemoryStorage();
 
     saveParsedTripSession(
       {
-        rawInput: "从深圳去厦门玩 3 天",
-        selectedInterests: ["海边"],
-        selectedTravelStyles: ["轻松"],
+        rawInput: "Go from Shenzhen to Xiamen for 3 days",
+        selectedInterests: ["sea"],
+        selectedTravelStyles: ["relaxed"],
         parseResult,
       },
       storage,
     );
 
     expect(loadParsedTripSession(storage)).toMatchObject({
-      rawInput: "从深圳去厦门玩 3 天",
-      selectedInterests: ["海边"],
-      selectedTravelStyles: ["轻松"],
+      rawInput: "Go from Shenzhen to Xiamen for 3 days",
+      selectedInterests: ["sea"],
+      selectedTravelStyles: ["relaxed"],
       parseResult,
     });
   });
 
-  it("损坏的浏览器数据不会进入后续页面", () => {
+  it("clears invalid parsed-session JSON", () => {
     const storage = new MemoryStorage();
     storage.setItem(PARSED_TRIP_STORAGE_KEY, "{bad-json");
 
@@ -78,28 +81,28 @@ describe("parsed trip storage", () => {
     expect(storage.getItem(PARSED_TRIP_STORAGE_KEY)).toBeNull();
   });
 
-  it("保存并恢复分步补充页的旅行草稿", () => {
+  it("saves and restores a trip request draft", () => {
     const storage = new MemoryStorage();
     const draft = {
       ...parseResult.parsed,
-      mustVisitPlaces: ["鼓浪屿"],
-      accommodationPreference: "交通方便",
+      mustVisitPlaces: ["Gulangyu"],
+      accommodationPreference: "Near transit",
     };
 
     expect(saveTripRequestDraft(draft, storage)).toBe(true);
     expect(loadTripRequestDraft(storage)).toEqual(draft);
   });
 
-  it("保存并恢复标准化后的完整 TripRequest", () => {
+  it("saves and restores a normalized trip request", () => {
     const storage = new MemoryStorage();
     const tripRequest = {
-      departureCity: "深圳",
-      destinationCity: "厦门",
+      departureCity: "Shenzhen",
+      destinationCity: "Xiamen",
       days: 3,
       budget: 2500,
       currency: "CNY",
-      interests: ["海边"],
-      travelStyles: ["轻松"],
+      interests: ["sea"],
+      travelStyles: ["relaxed"],
       mustVisitPlaces: [],
       avoidPlaces: [],
     };
@@ -108,16 +111,17 @@ describe("parsed trip storage", () => {
     expect(loadTripRequest(storage)).toEqual(tripRequest);
   });
 
-  it("新的首页解析会清理旧草稿和旧完整请求", () => {
+  it("a new parsed session clears previous draft and request keys", () => {
     const storage = new MemoryStorage();
     storage.setItem(TRIP_DRAFT_STORAGE_KEY, JSON.stringify({ days: 2 }));
     storage.setItem(TRIP_REQUEST_STORAGE_KEY, JSON.stringify({ days: 2 }));
+    storage.setItem(TRIP_PLAN_DRAFT_STORAGE_KEY, JSON.stringify({ tripTitle: "stale" }));
 
     saveParsedTripSession(
       {
-        rawInput: "从深圳去厦门玩 3 天",
-        selectedInterests: ["海边"],
-        selectedTravelStyles: ["轻松"],
+        rawInput: "Go from Shenzhen to Xiamen for 3 days",
+        selectedInterests: ["sea"],
+        selectedTravelStyles: ["relaxed"],
         parseResult,
       },
       storage,
@@ -125,27 +129,29 @@ describe("parsed trip storage", () => {
 
     expect(storage.getItem(TRIP_DRAFT_STORAGE_KEY)).toBeNull();
     expect(storage.getItem(TRIP_REQUEST_STORAGE_KEY)).toBeNull();
+    expect(storage.getItem(TRIP_PLAN_DRAFT_STORAGE_KEY)).toBeNull();
   });
-  it("trip draft 和 trip request 各自存储，不会互相覆盖", () => {
+
+  it("draft and request stay isolated in storage", () => {
     const storage = new MemoryStorage();
     const draft = {
-      departureCity: "深圳",
-      destinationCity: "厦门",
+      departureCity: "Shenzhen",
+      destinationCity: "Xiamen",
       days: 4,
       budget: 3000,
-      interests: ["海边"],
-      travelStyles: ["轻松"],
+      interests: ["sea"],
+      travelStyles: ["relaxed"],
     };
     const tripRequest = {
-      departureCity: "深圳",
-      destinationCity: "厦门",
+      departureCity: "Shenzhen",
+      destinationCity: "Xiamen",
       startDate: "2026-07-10",
       endDate: "2026-07-13",
       days: 4,
       budget: 3000,
       currency: "CNY",
-      interests: ["海边"],
-      travelStyles: ["轻松"],
+      interests: ["sea"],
+      travelStyles: ["relaxed"],
       mustVisitPlaces: [],
       avoidPlaces: [],
     };
@@ -155,5 +161,84 @@ describe("parsed trip storage", () => {
 
     expect(loadTripRequestDraft(storage)).toEqual(draft);
     expect(loadTripRequest(storage)).toEqual(tripRequest);
+  });
+
+  it("stores and restores a trip plan draft with source metadata", () => {
+    const storage = new MemoryStorage();
+    const draft = {
+      tripTitle: "Explore inspiration draft",
+      sourceType: "explore_inspiration" as const,
+      tripRequestDraft: {
+        destinationCity: "Chengdu",
+        days: 3,
+        interests: ["spicy", "city"],
+        travelStyles: ["couple", "summer"],
+      },
+      tripPlanSeed: {
+        tripTitle: "Explore inspiration draft",
+        summary: "summary",
+        destination: "Chengdu",
+        days: 1,
+        travelStyleSummary: "couple · summer",
+        weatherSummary: {
+          available: false,
+          overview: "overview",
+          dailyForecast: [],
+          alerts: [],
+          reminders: ["reminder"],
+          dataNote: "note",
+        },
+        budgetSummary: {
+          totalEstimate: "TBD",
+          transport: "TBD",
+          hotel: "TBD",
+          food: "TBD",
+          tickets: "TBD",
+          localTransport: "TBD",
+          flexibleSpending: "TBD",
+          note: "note",
+        },
+        hotelAreaAdvice: [],
+        transportAdvice: {
+          summary: "summary",
+          options: [
+            {
+              mode: "other" as const,
+              pros: ["pro"],
+              cons: ["con"],
+              recommendation: "recommendation",
+            },
+          ],
+          suggestedPlatforms: [],
+          note: "note",
+        },
+        dailyItinerary: [
+          {
+            day: 1,
+            theme: "Draft",
+            routeOrder: ["Chengdu"],
+            routeReason: "summary",
+            morning: [
+              {
+                placeName: "Chengdu",
+                type: "other" as const,
+                reason: "summary",
+                guide: ["guide"],
+              },
+            ],
+            afternoon: [],
+            evening: [],
+            dailyTips: ["tip"],
+          },
+        ],
+        generalTips: ["tip"],
+        warnings: ["warning"],
+      },
+    };
+
+    saveTripPlanDraft(draft, storage);
+
+    expect(loadTripPlanDraft(storage)).toEqual(draft);
+    expect(loadTripRequestDraft(storage)).toEqual(draft.tripRequestDraft);
   });
 });

@@ -2,6 +2,7 @@ import { z } from "zod";
 
 import {
   parseTripResponseSchema,
+  tripPlanDraftSchema,
   tripPlanSchema,
   tripRequestDraftSchema,
   tripRequestSchema,
@@ -9,12 +10,14 @@ import {
 import type {
   ParseTripResponse,
   TripPlan,
+  TripPlanDraft,
   TripRequest,
   TripRequestDraft,
 } from "./types";
 
 export const PARSED_TRIP_STORAGE_KEY = "travel-planning:parsed-trip";
 export const TRIP_DRAFT_STORAGE_KEY = "travel-planning:trip-draft";
+export const TRIP_PLAN_DRAFT_STORAGE_KEY = "travel-planning:trip-plan-draft";
 export const TRIP_REQUEST_STORAGE_KEY = "travel-planning:trip-request";
 export const TRIP_PLAN_STORAGE_KEY = "travel-planning:trip-plan";
 export const TRIP_ENRICHMENT_STORAGE_KEY = "travel-planning:trip-enrichment";
@@ -172,6 +175,7 @@ export function saveParsedTripSession(
   const targetStorage = browserStorage(storage);
   targetStorage?.setItem(PARSED_TRIP_STORAGE_KEY, JSON.stringify(session));
   targetStorage?.removeItem(TRIP_DRAFT_STORAGE_KEY);
+  targetStorage?.removeItem(TRIP_PLAN_DRAFT_STORAGE_KEY);
   targetStorage?.removeItem(TRIP_REQUEST_STORAGE_KEY);
   targetStorage?.removeItem(TRIP_PLAN_STORAGE_KEY);
   removeSavedTripMetadata(targetStorage);
@@ -220,6 +224,10 @@ export function saveTripRequestDraft(
   return true;
 }
 
+export function clearTripRequestDraft(storage?: StorageLike) {
+  browserStorage(storage)?.removeItem(TRIP_DRAFT_STORAGE_KEY);
+}
+
 export function loadTripRequestDraft(
   storage?: StorageLike,
 ): TripRequestDraft | null {
@@ -242,6 +250,53 @@ export function loadTripRequestDraft(
 
   targetStorage?.removeItem(TRIP_DRAFT_STORAGE_KEY);
   return null;
+}
+
+export function saveTripPlanDraft(
+  draft: TripPlanDraft,
+  storage?: StorageLike,
+): TripPlanDraft {
+  const parsed = tripPlanDraftSchema.parse(draft);
+  const targetStorage = browserStorage(storage);
+
+  targetStorage?.setItem(
+    TRIP_PLAN_DRAFT_STORAGE_KEY,
+    JSON.stringify(parsed),
+  );
+  targetStorage?.setItem(
+    TRIP_DRAFT_STORAGE_KEY,
+    JSON.stringify(parsed.tripRequestDraft),
+  );
+
+  return parsed;
+}
+
+export function loadTripPlanDraft(
+  storage?: StorageLike,
+): TripPlanDraft | null {
+  const targetStorage = browserStorage(storage);
+  const serialized = targetStorage?.getItem(TRIP_PLAN_DRAFT_STORAGE_KEY);
+
+  if (!serialized) {
+    return null;
+  }
+
+  try {
+    const parsed = tripPlanDraftSchema.safeParse(JSON.parse(serialized));
+
+    if (parsed.success) {
+      return parsed.data;
+    }
+  } catch {
+    // Invalid browser state is cleared below.
+  }
+
+  targetStorage?.removeItem(TRIP_PLAN_DRAFT_STORAGE_KEY);
+  return null;
+}
+
+export function clearTripPlanDraft(storage?: StorageLike) {
+  browserStorage(storage)?.removeItem(TRIP_PLAN_DRAFT_STORAGE_KEY);
 }
 
 export function saveTripRequest(

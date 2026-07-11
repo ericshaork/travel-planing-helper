@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import type { DailyItinerary } from "../../lib/trip/types";
 import type { MapPoint } from "../../lib/trip/enrichment-types";
 import {
@@ -12,6 +14,7 @@ interface DayCabinetProps {
   itinerary?: DailyItinerary;
   cabinet?: DayCabinetView;
   mapPoints?: MapPoint[];
+  showActions?: boolean;
   activeBlockId?: string | null;
   onBlockSelect?: (
     block: DayCabinetView["slots"][number]["items"][number],
@@ -26,6 +29,7 @@ export function DayCabinet({
   itinerary,
   cabinet,
   mapPoints = [],
+  showActions = false,
   activeBlockId = null,
   onBlockSelect,
   onBlockAction,
@@ -38,8 +42,18 @@ export function DayCabinet({
   }
 
   return (
-    <article className="cabinet-shell">
-      <header className="relative grid gap-3 border-b border-[var(--line)] bg-[var(--sand-soft)] px-3.5 pb-3.5 pt-6 sm:grid-cols-[4.75rem_minmax(0,1fr)] sm:gap-4 sm:px-5 sm:pb-5 sm:pt-7">
+    <article className="cabinet-shell overflow-hidden">
+      <header className="relative grid gap-3 border-b border-[var(--line)] bg-[linear-gradient(180deg,rgba(248,241,226,0.98)_0%,rgba(255,253,247,0.98)_100%)] px-3.5 pb-4 pt-7 sm:grid-cols-[4.75rem_minmax(0,1fr)] sm:gap-4 sm:px-5 sm:pb-5 sm:pt-8">
+        <div className="pointer-events-none absolute right-4 top-0 h-16 w-12 opacity-85">
+          <Image
+            src="/images/archive/bookmark/archive-bookmark-default.png"
+            alt=""
+            fill
+            aria-hidden
+            sizes="48px"
+            className="object-contain object-top"
+          />
+        </div>
         <div className="flex h-14 w-14 shrink-0 flex-col items-center justify-center border border-[var(--ink)] bg-[var(--paper-bright)] font-mono shadow-[3px_3px_0_var(--sand)] sm:h-16 sm:w-16">
           <span className="text-[10px] font-semibold tracking-[0.12em]">
             DAY
@@ -51,7 +65,7 @@ export function DayCabinet({
 
         <div className="min-w-0">
           <p className="text-[10px] font-semibold tracking-[0.16em] text-[var(--clay-deep)] sm:text-[11px]">
-            单日柜面
+            TRAVEL JOURNAL
           </p>
           {resolvedCabinet.date ? (
             <p className="mt-1 break-words font-mono text-[11px] text-[var(--ink-muted)] sm:text-xs">
@@ -62,36 +76,37 @@ export function DayCabinet({
             {resolvedCabinet.theme}
           </h2>
           <p className="mt-2 break-words text-sm font-semibold leading-6 text-[var(--ink)]">
-            {resolvedCabinet.routeSummary}
+            {resolvedCabinet.routeReason}
           </p>
           <p className="mt-1.5 break-words text-sm leading-6 text-[var(--ink-muted)]">
-            {resolvedCabinet.routeReason}
+            {resolvedCabinet.routeSummary}
           </p>
         </div>
       </header>
 
-      <div className="border-b border-dashed border-[var(--line)] bg-[var(--paper)] px-3.5 py-2.5 sm:px-5 sm:py-3">
+      <div className="border-b border-dashed border-[var(--line)] bg-[var(--paper)] px-3.5 py-3 sm:px-5 sm:py-3.5">
         <div className="flex flex-wrap gap-2 text-[11px] sm:text-xs">
           <span className="border border-[var(--line)] bg-[var(--paper-bright)] px-2.5 py-1 font-semibold text-[var(--ink)]">
-            3 层固定格
+            上午 / 下午 / 晚上
           </span>
           <span className="border border-[var(--line)] bg-[var(--sand-soft)] px-2.5 py-1 font-semibold text-[var(--ink)]">
-            {resolvedCabinet.itemCount} 个积木
+            {resolvedCabinet.itemCount} 个行程地点
           </span>
           {resolvedCabinet.dailyTips.length > 0 ? (
             <span className="border border-[var(--sage-deep)] bg-[var(--sage-soft)] px-2.5 py-1 font-semibold text-[var(--sage-deep)]">
-              有当天提醒
+              含当天提醒
             </span>
           ) : null}
         </div>
       </div>
 
-      <div className="bg-[var(--paper)] px-3.5 py-2 sm:px-5 sm:py-3">
+      <div className="bg-[var(--paper)] px-3.5 py-2.5 sm:px-5 sm:py-3">
         {resolvedCabinet.slots.map((slot) => (
           <TimeSlotSection
             key={slot.key}
             slot={slot}
             mapPoints={mapPoints}
+            showActions={showActions}
             activeBlockId={activeBlockId}
             onBlockSelect={onBlockSelect}
             onBlockAction={onBlockAction}
@@ -102,7 +117,7 @@ export function DayCabinet({
       {resolvedCabinet.dailyTips.length > 0 ? (
         <footer className="border-t border-dashed border-[var(--line)] bg-[var(--sage-soft)] px-3.5 py-3 sm:px-5 sm:py-4">
           <p className="text-xs font-semibold tracking-[0.12em] text-[var(--sage-deep)]">
-            这天记一笔
+            DAY NOTES
           </p>
           <ul className="mt-2.5 space-y-1.5 text-sm leading-6 text-[var(--sage-deep)]">
             {resolvedCabinet.dailyTips.map((tip) => (

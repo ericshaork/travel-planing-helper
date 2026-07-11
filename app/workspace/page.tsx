@@ -1,5 +1,5 @@
-import { redirect } from "next/navigation";
+import { WorkspaceRoutePage } from "@/components/workspace/WorkspaceRoutePage";
 
-export default function WorkspaceCompatPage() {
-  redirect("/");
+export default function WorkspacePage() {
+  return <WorkspaceRoutePage mode="workspace" />;
 }

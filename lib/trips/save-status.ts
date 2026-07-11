@@ -20,7 +20,7 @@ export function getSaveButtonCopy(
   if (actionState === "saving") {
     return {
       label: "保存中...",
-      message: "正在把当前方案写进你的账号。",
+      message: "正在把当前方案写进你的账户。",
     };
   }
 

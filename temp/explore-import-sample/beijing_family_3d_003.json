@@ -1,0 +1,184 @@
+{
+  "id": "exp_beijing_family_3d_imperial_hutong_v1",
+  "slug": "beijing-family-3d-imperial-hutong",
+  "title": "牵着孩子的手，走一趟皇城根下的胡同与中轴线",
+  "summary": "为带娃家庭设计的三日慢游，在故宫外沿感受帝王气度，登景山俯瞰京城，沿什刹海胡同散步、坐黄包车，再走进天坛公园看古柏与跳广场舞的北京人。节奏舒缓，吃住方便，每天只安排一个大景点，留足午休和自由玩耍时间。",
+  "city": {
+    "code": "beijing",
+    "name": "Beijing",
+    "region_name": "Beijing"
+  },
+  "trip_type": "family",
+  "days": 3,
+  "budget": {
+    "level": "medium",
+    "note": "家庭出行以舒适为主，门票、交通、餐饮预算适中，不追求奢华但也不苛刻。"
+  },
+  "pace": "slow",
+  "tags": [
+    "imperial-history",
+    "hutong-life",
+    "family-friendly",
+    "cultural-landmarks",
+    "citywalk",
+    "heritage"
+  ],
+  "image_prompt": "National Geographic style photo of a family walking along a hutong alley in Beijing, late afternoon golden light, parents and young child holding hands, bicycles leaning against grey brick walls, traditional red door frames, warm atmosphere, shallow depth of field, cinematic composition.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "皇城中轴线的第一眼",
+      "summary": "上午从故宫外沿开始，不进入深宫，只在午门广场感受气势，然后登上景山公园俯瞰紫禁城全景。下午在什刹海胡同区散步，坐黄包车，傍晚在湖边找一家家庭友好的餐厅吃炸酱面和烤鸭。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "从午门广场开始，给孩子讲讲皇帝的家有多大。不买票进故宫，只在外面走走，感受中轴线的开阔。然后步行到景山公园，爬上万春亭，俯瞰整个故宫和北京城——这是孩子最容易理解的“北京说明书”。",
+          "poi_refs": [
+            "poi_forbidden_city_edge",
+            "poi_jingshan"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "什刹海胡同区是家庭散步的好地方：路面平坦，有湖有柳，可以租一辆黄包车让师傅带着钻胡同，孩子会兴奋地数门墩。沿途随时可以停下吃糖葫芦或喝老酸奶。",
+          "poi_refs": [
+            "poi_shichahai_hutong"
+          ],
+          "food_refs": [
+            "food_shichahai"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "在什刹海边的家庭餐厅吃晚饭，点一份烤鸭和炸酱面，孩子可以边吃边看湖面灯光。饭后沿湖散步消食，看大爷们下棋，感受北京人的日常。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_shichahai"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "天坛的松柏与城南的旧味道",
+      "summary": "上午在天坛公园里慢慢走，看祈年殿、回音壁，孩子可以在古柏林里跑一跑。中午在前门传统美食区吃一顿地道的北京小吃。下午回酒店午休，傍晚再去前门大街逛逛老字号。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "天坛公园面积大但路好走，适合家庭。先看祈年殿的蓝色琉璃瓦，再带孩子去回音壁试试声音的奇妙。公园里有很多老人打太极、唱戏，孩子会觉得很有趣。",
+          "poi_refs": [
+            "poi_temple_of_heaven"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "步行到前门传统美食区，找一家有北京特色的餐馆吃午饭，推荐豆汁儿（孩子可能不习惯，但可以尝一口）、焦圈、豌豆黄。饭后如果精力够，可以去前门大街看老字号招牌，或者回酒店休息。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_qianmen"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "傍晚再出门，前门大街灯火初上，带孩子看铛铛车，买一块茯苓饼当零食。如果孩子不累，可以走到正阳门下拍张夜景。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_qianmen"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "胡同深处的老北京",
+      "summary": "上午在南锣鼓巷轻松逛逛，吃零食、看小店，孩子喜欢那些有趣的小玩意儿。中午在附近吃一碗卤煮或炒肝，下午收拾行李，结束慢悠悠的北京家庭之旅。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "南锣鼓巷虽然热闹，但早上人少一些，适合带娃慢逛。两侧的小店卖兔儿爷、泥人、糖画，孩子会挪不动脚。可以随时停下来吃串糖葫芦或喝杯梨汤。",
+          "poi_refs": [
+            "poi_nanluoguxiang"
+          ],
+          "food_refs": [
+            "food_nanluoguxiang"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "中午在南锣鼓巷附近的胡同里找一家家庭友好的小馆子，吃一顿卤煮火烧或炒肝包子，让孩子尝尝地道的北京味。饭后回酒店取行李，准备返程。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_nanluoguxiang"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_forbidden_city_edge",
+      "name": "故宫午门广场",
+      "district": "东城区",
+      "type": "imperial landmark",
+      "reason": "不进入故宫深处，只在午门外感受皇城的气派，对孩子来说已经足够震撼。开阔的广场可以跑一跑，也是绝佳的拍照点。",
+      "recommended_duration_minutes": 60
+    },
+    {
+      "id": "poi_jingshan",
+      "name": "景山公园",
+      "district": "西城区",
+      "type": "city viewpoint",
+      "reason": "登上万春亭，整个故宫和中轴线尽收眼底，孩子能一眼看懂北京城的格局。坡度平缓，适合家庭慢慢爬。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_shichahai_hutong",
+      "name": "什刹海胡同区",
+      "district": "西城区",
+      "type": "hutong district",
+      "reason": "有湖有胡同，路面平坦，可以坐黄包车、看野鸭、吃小吃。家庭散步的首选，既有老北京味又不累人。",
+      "recommended_duration_minutes": 150
+    },
+    {
+      "id": "poi_temple_of_heaven",
+      "name": "天坛公园",
+      "district": "东城区",
+      "type": "cultural landmark",
+      "reason": "古柏林立，祈年殿壮观，回音壁有趣。公园里充满市民生活气息，孩子可以跑跳，老人可以休息，是家庭出游的完美平衡点。",
+      "recommended_duration_minutes": 150
+    },
+    {
+      "id": "poi_nanluoguxiang",
+      "name": "南锣鼓巷",
+      "district": "东城区",
+      "type": "historic lane district",
+      "reason": "热闹但不拥挤的胡同商业街，孩子会被各种传统手工艺品和零食吸引。节奏自由，适合家庭随意逛。",
+      "recommended_duration_minutes": 120
+    }
+  ],
+  "food": [
+    {
+      "id": "food_shichahai",
+      "name": "什刹海胡同美食区",
+      "district": "西城区",
+      "category": "hutong dining area",
+      "reason": "沿湖分布着多家家庭友好餐厅，提供烤鸭、炸酱面等经典北京菜，孩子容易接受。饭后湖边散步更是惬意。"
+    },
+    {
+      "id": "food_qianmen",
+      "name": "前门传统美食区",
+      "district": "东城区",
+      "category": "heritage food zone",
+      "reason": "老字号云集，豆汁、焦圈、豌豆黄等北京小吃一应俱全。带孩子体验最地道的北京味道，还能看到传统手艺表演。"
+    },
+    {
+      "id": "food_nanluoguxiang",
+      "name": "南锣鼓巷小吃街",
+      "district": "东城区",
+      "category": "snack street",
+      "reason": "糖葫芦、梨汤、糖画……孩子喜欢的零食这里都有。中午还能找到卤煮、炒肝等本地小馆，丰俭由人。"
+    }
+  ]
+}

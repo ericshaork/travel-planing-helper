@@ -1,4 +1,7 @@
+import Image from "next/image";
 import type { ReactNode } from "react";
+
+import { getWorkspaceSidebarAccent } from "@/lib/trip/workspace-visuals";
 
 import { WorkspacePlaceholderNotice } from "./WorkspacePlaceholderNotice";
 
@@ -42,7 +45,7 @@ function IconStroke({ children }: { children: ReactNode }) {
       strokeWidth="1.75"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="h-[19px] w-[19px]"
+      className="relative z-[1] h-[19px] w-[19px]"
       aria-hidden="true"
     >
       {children}
@@ -143,29 +146,29 @@ const navGroups: Array<{ label: string; entries: WorkspaceSidebarEntry[] }> = [
     entries: [
       {
         id: "new-trip",
-        title: "新建计划",
-        subtitle: "New Trip",
+        title: "New trip",
+        subtitle: "Create",
         icon: <IconNewTrip />,
         available: true,
       },
       {
         id: "trips",
-        title: "我的行程",
-        subtitle: "Trips",
+        title: "My trips",
+        subtitle: "History",
         icon: <IconTrips />,
         available: true,
       },
       {
         id: "explore",
-        title: "探索灵感",
-        subtitle: "Explore",
+        title: "Explore",
+        subtitle: "Archive hall",
         icon: <IconExplore />,
         available: false,
       },
       {
         id: "saved",
-        title: "收藏地点",
-        subtitle: "Saved",
+        title: "Saved spots",
+        subtitle: "Bookmarks",
         icon: <IconSaved />,
         available: false,
       },
@@ -176,29 +179,29 @@ const navGroups: Array<{ label: string; entries: WorkspaceSidebarEntry[] }> = [
     entries: [
       {
         id: "route",
-        title: "路线洞察",
-        subtitle: "Route Insight",
+        title: "Route insight",
+        subtitle: "Map sync",
         icon: <IconRoute />,
         available: true,
       },
       {
         id: "edit",
-        title: "修改工作台",
-        subtitle: "Edit Workspace",
+        title: "Edit plan",
+        subtitle: "Adjust trip",
         icon: <IconEdit />,
         available: true,
       },
       {
         id: "export",
-        title: "导出方案",
-        subtitle: "Export",
+        title: "Export",
+        subtitle: "Take away",
         icon: <IconExport />,
         available: true,
       },
       {
         id: "settings",
-        title: "设置",
-        subtitle: "Settings",
+        title: "Settings",
+        subtitle: "Soon",
         icon: <IconSettings />,
         available: false,
       },
@@ -217,6 +220,8 @@ function SidebarItemButton({
   expanded: boolean;
   onClick: () => void;
 }) {
+  const accentSrc = getWorkspaceSidebarAccent(entry.id);
+
   return (
     <button
       type="button"
@@ -226,8 +231,8 @@ function SidebarItemButton({
       title={entry.title}
       className={`group/item relative flex h-12 w-full items-center gap-3 overflow-hidden rounded-[18px] border border-transparent px-3 text-left transition-all duration-200 ease-out focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)] ${
         active
-          ? "bg-[rgb(255_255_255_/_0.28)] text-[var(--ink)]"
-          : "bg-transparent text-[var(--ink-muted)] hover:bg-[rgb(255_255_255_/_0.22)] hover:text-[var(--ink)]"
+          ? "bg-[rgb(255_255_255_/_0.4)] text-[var(--ink)] shadow-[2px_2px_0_var(--sand-soft)]"
+          : "bg-transparent text-[var(--ink-muted)] hover:bg-[rgb(255_255_255_/_0.24)] hover:text-[var(--ink)]"
       }`}
     >
       <span
@@ -237,14 +242,30 @@ function SidebarItemButton({
       />
 
       <span
-        className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-2xl border transition-colors ${
+        className={`relative flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-2xl border transition-colors ${
           active
             ? "border-[rgb(122_63_49_/_0.18)] bg-[var(--paper-bright)] text-[var(--clay-deep)]"
             : entry.available
-              ? "border-[var(--line)] bg-[rgb(255_255_255_/_0.44)] text-[var(--clay-deep)] group-hover/item:border-[rgb(142_139_127_/_0.7)]"
+              ? "border-[var(--line)] bg-[rgb(255_255_255_/_0.5)] text-[var(--clay-deep)] group-hover/item:border-[rgb(142_139_127_/_0.7)]"
               : "border-[var(--line)] bg-[var(--paper)] text-[var(--ink-muted)] group-hover/item:border-[rgb(142_139_127_/_0.7)]"
         }`}
       >
+        <span
+          className={`pointer-events-none absolute inset-0 transition-opacity duration-200 ${
+            active
+              ? "opacity-40"
+              : "opacity-0 group-hover/item:opacity-25"
+          }`}
+        >
+          <Image
+            src={accentSrc}
+            alt=""
+            fill
+            aria-hidden
+            sizes="36px"
+            className="object-cover"
+          />
+        </span>
         {entry.icon}
       </span>
 
@@ -335,25 +356,46 @@ export function WorkspaceSidebar({
             : ""
         }`}
       >
-        <div className="workspace-panel flex h-full min-h-0 flex-col p-3">
+        <div className="workspace-panel relative flex h-full min-h-0 flex-col overflow-hidden p-3">
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-16 opacity-20">
+            <Image
+              src="/images/ui/background/paper-noise-soft.png"
+              alt=""
+              fill
+              aria-hidden
+              sizes="228px"
+              className="object-cover object-top"
+            />
+          </div>
+
           <div className="relative z-[1] border-b border-dashed border-[var(--line)] pb-3">
             <div className="flex items-center gap-3 overflow-hidden">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl border border-[var(--line-strong)] bg-[var(--sand-soft)] text-[var(--clay-deep)] shadow-[2px_2px_0_var(--sand)]">
+              <div className="relative flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-2xl border border-[var(--line-strong)] bg-[var(--sand-soft)] text-[var(--clay-deep)] shadow-[2px_2px_0_var(--sand)]">
+                <span className="pointer-events-none absolute inset-0 opacity-25">
+                  <Image
+                    src="/images/icons/hover/workspace-hover.png"
+                    alt=""
+                    fill
+                    aria-hidden
+                    sizes="40px"
+                    className="object-cover"
+                  />
+                </span>
                 <IconLogo />
               </div>
               <div className={`min-w-0 ${expandedContentClassName}`}>
                 <p className="truncate text-sm font-semibold text-[var(--ink)]">
-                  漫游草签
+                  Travel workspace
                 </p>
                 <p className="truncate text-[11px] tracking-[0.12em] text-[var(--ink-muted)]">
-                  Desktop Workspace
+                  Edit your trip
                 </p>
               </div>
             </div>
           </div>
 
           <nav
-            aria-label="桌面工作台导航"
+            aria-label="Workspace navigation"
             className="relative z-[1] mt-4 flex-1 space-y-4 overflow-y-auto overflow-x-hidden pr-1 no-scrollbar"
           >
             {navGroups.map((group) => (
@@ -388,17 +430,27 @@ export function WorkspaceSidebar({
               </div>
             ) : null}
 
-            <div className="workspace-panel-soft flex items-center gap-3 px-2.5 py-2.5">
-              <div className="relative flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[var(--line)] bg-[var(--paper-bright)]">
-                <span className="h-3 w-3 rounded-full bg-[var(--sage-deep)]" />
+            <div className="workspace-panel-soft relative flex items-center gap-3 overflow-hidden px-2.5 py-2.5">
+              <div className="relative flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-full border border-[var(--line)] bg-[var(--paper-bright)]">
+                <span className="pointer-events-none absolute inset-0 opacity-30">
+                  <Image
+                    src="/images/ui/button/button-accent-soft.png"
+                    alt=""
+                    fill
+                    aria-hidden
+                    sizes="36px"
+                    className="object-cover"
+                  />
+                </span>
+                <span className="relative h-3 w-3 rounded-full bg-[var(--sage-deep)]" />
                 <span className="absolute right-1.5 top-1.5 h-1.5 w-1.5 rounded-full bg-[var(--clay-deep)]" />
               </div>
               <div className={`min-w-0 ${expandedContentClassName}`}>
                 <p className="truncate text-sm font-semibold text-[var(--ink)]">
-                  v1.4 Desktop Workspace
+                  Workspace ready
                 </p>
                 <p className="truncate text-[11px] tracking-[0.1em] text-[var(--ink-muted)]">
-                  Visual Acceptance Ready
+                  Travel journal mode
                 </p>
               </div>
             </div>

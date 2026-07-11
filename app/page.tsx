@@ -1,5 +1,5 @@
-import { WorkspaceLanding } from "@/components/workspace/WorkspaceLanding";
+import { LandingPage } from "@/components/landing/LandingPage";
 
 export default function HomePage() {
-  return <WorkspaceLanding />;
+  return <LandingPage />;
 }

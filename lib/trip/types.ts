@@ -18,6 +18,20 @@ export interface TripRequestDraft {
   specialRequirements?: string;
 }
 
+export type TripSourceType =
+  | "manual"
+  | "ai_generate"
+  | "ai_generated"
+  | "explore_archive"
+  | "explore_inspiration"
+  | "user_created";
+
+export interface TripSourceMeta {
+  sourceType: TripSourceType;
+  sourceExploreId?: string;
+  sourceExploreSlug?: string;
+}
+
 export interface TripRequest {
   departureCity: string;
   destinationCity: string;
@@ -134,6 +148,12 @@ export interface TripPlan {
   dailyItinerary: DailyItinerary[];
   generalTips: string[];
   warnings: string[];
+}
+
+export interface TripPlanDraft extends TripSourceMeta {
+  tripTitle: string;
+  tripRequestDraft: TripRequestDraft;
+  tripPlanSeed: TripPlan;
 }
 
 export interface ParseTripRequest {

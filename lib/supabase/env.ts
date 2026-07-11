@@ -1,9 +1,9 @@
-import { SupabaseConfigError } from "./errors";
+import { SupabaseConfigError } from "./errors.ts";
 import type {
   SupabaseBrowserEnv,
   SupabaseConfigStatus,
   SupabaseServerEnv,
-} from "./types";
+} from "./types.ts";
 
 type EnvironmentSource = Readonly<Record<string, string | undefined>>;
 

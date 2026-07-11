@@ -25,14 +25,18 @@ export function InspectorPointList({
     <section className="workspace-panel px-4 py-4">
       <div className="relative z-[1] space-y-3">
         <div>
-          <p className="workspace-kicker">POINT LIST</p>
-          <h3 className="mt-1 text-base font-semibold">当天点位</h3>
+          <p className="workspace-kicker">ROUTE TIMELINE</p>
+          <h3 className="mt-1 text-base font-semibold">路线顺序</h3>
         </div>
 
         {points.length > 0 ? (
-          <ol className="space-y-2.5">
+          <ol className="space-y-3">
             {points.map((point, index) => (
-              <li key={point.id}>
+              <li key={point.id} className="relative pl-12">
+                {index < points.length - 1 ? (
+                  <span className="pointer-events-none absolute left-[1.1rem] top-8 h-[calc(100%-1rem)] w-px bg-[var(--line)]" />
+                ) : null}
+
                 <button
                   type="button"
                   onClick={() => onPointSelect?.(point.id)}
@@ -43,17 +47,17 @@ export function InspectorPointList({
                       : "hover:-translate-y-0.5 hover:border-[var(--line-strong)]"
                   }`}
                 >
-                  <div className="flex items-start gap-3">
-                    <span
-                      className={`mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border text-xs font-semibold ${
-                        activePointId === point.id
-                          ? "border-[var(--ink)] bg-[var(--ink)] text-[var(--paper-bright)]"
-                          : "border-[var(--line)] bg-[var(--paper-bright)] text-[var(--clay-deep)]"
-                      }`}
-                    >
-                      {index + 1}
-                    </span>
+                  <span
+                    className={`absolute left-0 top-2.5 flex h-9 w-9 items-center justify-center rounded-full border text-xs font-semibold ${
+                      activePointId === point.id
+                        ? "border-[var(--ink)] bg-[var(--ink)] text-[var(--paper-bright)]"
+                        : "border-[var(--line)] bg-[var(--paper-bright)] text-[var(--clay-deep)]"
+                    }`}
+                  >
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
 
+                  <div className="flex items-start gap-3">
                     <div className="min-w-0 flex-1">
                       <div className="flex flex-wrap items-center gap-2">
                         <p className="text-sm font-semibold">{point.name}</p>
@@ -64,7 +68,7 @@ export function InspectorPointList({
                               : "workspace-chip workspace-chip-warm"
                           }
                         >
-                          {point.resolved ? "已确认" : "待确认"}
+                          {point.resolved ? "已定位" : "待确认"}
                         </span>
                         {activePointId === point.id ? (
                           <span className="workspace-chip workspace-chip-accent">
@@ -74,7 +78,7 @@ export function InspectorPointList({
                       </div>
 
                       <p className="mt-1 text-xs text-[var(--ink-muted)]">
-                        {SLOT_LABELS[point.slot]} · {point.provider ?? "待确认来源"}
+                        {SLOT_LABELS[point.slot]} · {point.provider ?? "位置来源待确认"}
                       </p>
 
                       {point.address ? (
@@ -83,13 +87,13 @@ export function InspectorPointList({
                         </p>
                       ) : (
                         <p className="mt-2 text-sm leading-6 text-[var(--ink-muted)]">
-                          暂时没有明确地址，出发前再确认一下。
+                          地址还没有完全确认，先把它当作这一天的路线笔记保留下来。
                         </p>
                       )}
 
                       {!isResolvedMapPoint(point) ? (
                         <p className="mt-2 text-xs leading-5 text-[var(--clay-deep)]">
-                          这个地点还没确认，点开后会先看详情提示，不会在地图上高亮。
+                          这个地点还没确认，所以会先留在路线列表里，不会直接压到地图上。
                         </p>
                       ) : null}
 
@@ -106,7 +110,7 @@ export function InspectorPointList({
           </ol>
         ) : (
           <p className="text-sm leading-6 text-[var(--ink-muted)]">
-            这一天暂时没有可确认点位，但路线统计、提示和行程本身还可以继续看。
+            这一天暂时还没有完整的地点顺序，但你仍然可以先阅读左侧时间线。
           </p>
         )}
       </div>

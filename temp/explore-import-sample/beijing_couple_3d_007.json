@@ -1,0 +1,194 @@
+{
+  "id": "exp_beijing_couple_3d_romantic_axis_v1",
+  "slug": "beijing-couple-3d-romantic-axis",
+  "title": "皇城慢行：两个人的中轴线私藏时光",
+  "summary": "为情侣设计的北京慢行之旅，避开拥挤的打卡节奏，用三天时间沿着皇城中轴线与什刹海夜色，捕捉属于两个人的浪漫光影。从晨光中的景山俯瞰，到暮色里胡同深处的牵手漫步，每一站都留有足够的时间驻足、拍照、品尝地道小食，让北京的宏大历史在亲密的步伐中变得柔软。",
+  "city": {
+    "code": "beijing",
+    "name": "Beijing",
+    "region_name": "Beijing"
+  },
+  "trip_type": "couple",
+  "days": 3,
+  "budget": {
+    "level": "medium",
+    "note": "中等预算，兼顾经典景点门票与舒适餐饮，不追求奢华但注重体验品质。"
+  },
+  "pace": "slow",
+  "tags": [
+    "citywalk",
+    "photo",
+    "food",
+    "romantic",
+    "heritage"
+  ],
+  "image_prompt": "National Geographic travel magazine style photo of a couple walking hand in hand along a hutong alley at dusk, warm lantern light reflecting on ancient brick walls, shallow depth of field, cinematic composition, moody and romantic atmosphere, Beijing city texture visible.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "中轴初印象：从皇家威严到市井烟火",
+      "summary": "从故宫外轴漫步开始，登上景山俯瞰整座皇城，傍晚在南锣鼓巷的巷弄里找一家小店，共享一份甜蜜的糖葫芦。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "从故宫外轴开始，沿着护城河散步，感受皇城正门的庄严气势。不急于入宫，而是在角楼前停留拍照，看晨光勾勒出金色琉璃瓦的轮廓。",
+          "poi_refs": [
+            "poi_forbidden_city_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "登上景山公园的万春亭，这里是俯瞰故宫全景的最佳位置。两人并肩坐在石阶上，看中轴线向南北延伸，感受北京城最经典的画面。下山后在附近胡同里随意吃一碗炸酱面。",
+          "poi_refs": [
+            "poi_jingshan"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "漫步南锣鼓巷，避开主街的人流，拐进两侧的安静胡同。找一家亮着暖灯的小吃摊，分享一份糖葫芦和热腾腾的卤煮，感受老北京的市井温情。",
+          "poi_refs": [
+            "poi_nanluoguxiang"
+          ],
+          "food_refs": [
+            "food_nanluoguxiang"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "天坛晨光与什刹海暮色",
+      "summary": "在晨光中探访天坛的祈年殿，午后在什刹海的胡同里穿行，傍晚沿着湖岸牵手散步，看夕阳把水面染成金色。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "清晨抵达天坛，在古柏林中深呼吸，看当地人在回音壁前练太极。祈年殿的蓝色琉璃瓦在晨光下格外纯净，适合两人安静地拍照留念。",
+          "poi_refs": [
+            "poi_temple_of_heaven"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "转往什刹海区域，钻进银锭桥附近的胡同群落。租一辆双人自行车，穿梭于鸦儿胡同与后海北沿，在烟袋斜街淘点有趣的小物件。",
+          "poi_refs": [
+            "poi_shichahai_hutong"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "在什刹海边选一家临湖的餐厅，点上几道京味小菜，看湖面倒映着岸边的灯笼。饭后沿着湖岸散步，找个长椅坐下，听水声和远处传来的民谣吉他。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_shichahai"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "艺术漫游与前门旧味",
+      "summary": "上午在798艺术区感受当代北京的创意脉搏，下午回到前门大街寻找老字号的味道，为旅程画上一个温暖的句号。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "前往798艺术区，在旧厂房改建的画廊与咖啡馆之间漫步。找一面涂鸦墙为彼此拍一张随性的合影，在艺术书店里翻翻画册，享受悠闲的二人世界。",
+          "poi_refs": [
+            "poi_798_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "回到前门区域，穿过正阳门箭楼，走进大栅栏的百年老店。尝一块刚出炉的豌豆黄，喝一碗地道的面茶，感受老北京最正宗的滋味。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_qianmen"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "在前门附近的胡同里找一家安静的小酒馆，点两杯桂花酒，复盘这次旅程中拍下的照片，为北京之行写下浪漫的最后一页。",
+          "poi_refs": [],
+          "food_refs": []
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_forbidden_city_edge",
+      "name": "故宫外轴漫步",
+      "district": "东城区",
+      "type": "imperial landmark",
+      "reason": "避开人潮，从护城河与角楼的角度欣赏故宫的庄严轮廓，适合情侣在晨光中安静地拍照与漫步。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_jingshan",
+      "name": "景山观景台",
+      "district": "西城区",
+      "type": "city viewpoint",
+      "reason": "登上万春亭，故宫全景与中轴线尽收眼底，是情侣共享北京天际线的最佳地点，尤其适合日落时分。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_shichahai_hutong",
+      "name": "什刹海胡同漫步",
+      "district": "西城区",
+      "type": "hutong district",
+      "reason": "湖光与胡同交织的浪漫区域，适合两人牵手穿行于银锭桥与后海之间，感受老北京的水岸柔情。",
+      "recommended_duration_minutes": 150
+    },
+    {
+      "id": "poi_temple_of_heaven",
+      "name": "天坛公园",
+      "district": "东城区",
+      "type": "cultural landmark",
+      "reason": "祈年殿的蓝色琉璃瓦与古柏林营造出神圣而宁静的氛围，适合情侣在晨光中一起感受古都的呼吸。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_nanluoguxiang",
+      "name": "南锣鼓巷",
+      "district": "东城区",
+      "type": "historic lane district",
+      "reason": "热闹主街背后藏着安静的胡同支巷，适合情侣在暮色中探索小店与小吃，体验北京最生动的市井夜晚。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_798_edge",
+      "name": "798艺术区",
+      "district": "朝阳区",
+      "type": "creative district",
+      "reason": "工业遗迹与当代艺术交融的创意空间，情侣可以在这里找到独特的拍照背景与文艺咖啡馆，为旅程增添现代气息。",
+      "recommended_duration_minutes": 120
+    }
+  ],
+  "food": [
+    {
+      "id": "food_shichahai",
+      "name": "什刹海湖畔餐厅",
+      "district": "西城区",
+      "category": "lakeside dining",
+      "reason": "临湖而坐，京味小菜配上夜景灯光，营造出浪漫的晚餐氛围，适合情侣慢享二人时光。"
+    },
+    {
+      "id": "food_nanluoguxiang",
+      "name": "南锣鼓巷小吃摊",
+      "district": "东城区",
+      "category": "snack street",
+      "reason": "糖葫芦、卤煮、豌豆黄等传统小吃，边走边尝，适合情侣在闲逛中分享甜蜜与惊喜。"
+    },
+    {
+      "id": "food_qianmen",
+      "name": "前门老字号食坊",
+      "district": "东城区",
+      "category": "heritage eatery",
+      "reason": "大栅栏里的百年老店，提供地道的北京小吃与经典菜肴，让情侣在传统味道中感受古都的岁月沉淀。"
+    }
+  ]
+}

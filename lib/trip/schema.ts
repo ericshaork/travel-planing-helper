@@ -13,8 +13,10 @@ import type {
   TransportAdvice,
   TransportOption,
   TripPlan,
+  TripPlanDraft,
   TripRequest,
   TripRequestDraft,
+  TripSourceMeta,
   WeatherSummary,
 } from "./types";
 import {
@@ -81,6 +83,15 @@ const positiveBudget = z
     TRIP_INPUT_LIMITS.maxBudget,
     `预算不能超过 ${TRIP_INPUT_LIMITS.maxBudget}`,
   );
+
+const tripSourceTypeSchema = z.enum([
+  "manual",
+  "ai_generate",
+  "ai_generated",
+  "explore_archive",
+  "explore_inspiration",
+  "user_created",
+]);
 
 function validateRequestDates(
   request: Pick<TripRequestDraft, "startDate" | "endDate" | "days">,
@@ -345,6 +356,25 @@ export const tripPlanSchema: z.ZodType<TripPlan> = z
       });
     }
   });
+
+export const tripSourceMetaSchema: z.ZodType<TripSourceMeta> = z
+  .object({
+    sourceType: tripSourceTypeSchema,
+    sourceExploreId: optionalText(TRIP_INPUT_LIMITS.shortText),
+    sourceExploreSlug: optionalText(TRIP_INPUT_LIMITS.shortText),
+  })
+  .strict();
+
+export const tripPlanDraftSchema: z.ZodType<TripPlanDraft> = z
+  .object({
+    tripTitle: requiredShortText,
+    sourceType: tripSourceTypeSchema,
+    sourceExploreId: optionalText(TRIP_INPUT_LIMITS.shortText),
+    sourceExploreSlug: optionalText(TRIP_INPUT_LIMITS.shortText),
+    tripRequestDraft: tripRequestDraftSchema,
+    tripPlanSeed: tripPlanSchema,
+  })
+  .strict();
 
 export const parseTripRequestSchema: z.ZodType<ParseTripRequest> = z
   .object({

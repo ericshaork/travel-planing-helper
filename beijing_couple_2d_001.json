@@ -1,0 +1,130 @@
+{
+  "id": "exp_beijing_couple_2d_shichahai_night_v1",
+  "slug": "beijing-couple-2d-shichahai-night",
+  "title": "什刹海夜色与胡同烟火：两人慢时光",
+  "summary": "为喜欢拍照、城市漫步和美食的情侣设计。避开北京的宏大喧嚣，聚焦什刹海湖边的温柔夜色、胡同深处的烟火气，以及两人牵手慢行的自在节奏。从景山俯瞰紫禁城全景，到南锣鼓巷的灯火小食，再到后海的静谧晚风，每一步都是属于两个人的记忆画面。",
+  "city": {
+    "code": "beijing",
+    "name": "Beijing",
+    "region_name": "Beijing"
+  },
+  "trip_type": "couple",
+  "days": 2,
+  "budget": {
+    "level": "medium",
+    "note": "适中预算，兼顾一处主要文化景点与两片氛围感街区，在胡同与湖畔享受不紧不慢的二人晚餐。"
+  },
+  "pace": "balanced",
+  "tags": [
+    "citywalk",
+    "food",
+    "photo",
+    "hutong-life",
+    "romantic",
+    "evening-scene"
+  ],
+  "image_prompt": "National Geographic travel magazine style photo of a couple walking hand in hand along Shichahai lake at dusk, warm golden light reflecting on the water, traditional hutong rooftops in the background, a few willow trees framing the scene, soft bokeh, romantic and intimate mood, cinematic composition.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "紫禁城之巅到后海夜风",
+      "summary": "从景山俯瞰紫禁城全景开始，穿过胡同抵达什刹海，傍晚沿湖漫步，在湖边小馆享用晚餐。",
+      "activities": [
+        {
+          "time_block": "afternoon",
+          "description": "下午抵达景山公园，登上万春亭，两人并肩俯瞰紫禁城金色屋顶与北京城的天际线，拍下属于北京的第一张合影。随后沿着胡同慢慢走向什刹海，感受老北京的生活肌理。",
+          "poi_refs": [
+            "poi_jingshan",
+            "poi_shichahai_hutong"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "夜幕降临，什刹海的湖面倒映着两岸灯火，牵手沿湖散步，找一家临水的胡同小馆坐下，点上几道家常北京菜，在微风中慢慢聊。饭后还可以在湖边找个长椅，静静看夜色。",
+          "poi_refs": [
+            "poi_shichahai_hutong"
+          ],
+          "food_refs": [
+            "food_shichahai"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "天坛晨光与南锣烟火",
+      "summary": "上午在天坛感受古柏与蓝瓦的宁静，午后在南锣鼓巷的窄巷里边走边尝，傍晚前结束旅程。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "清晨前往天坛公园，在祈年殿前拍下蓝瓦红墙的经典画面，两人在古柏林中散步，感受北京早晨的宁静与庄严。",
+          "poi_refs": [
+            "poi_temple_of_heaven"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "午后转入南锣鼓巷，避开主街的人潮，拐进两侧的支巷，在文艺小店和胡同咖啡馆里消磨时光。一路尝遍糖葫芦、炸酱面等小食，为这次短途旅行画上甜蜜句号。",
+          "poi_refs": [
+            "poi_nanluoguxiang"
+          ],
+          "food_refs": [
+            "food_nanluo"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_jingshan",
+      "name": "景山公园",
+      "district": "西城区",
+      "type": "城市观景台",
+      "reason": "登上万春亭，紫禁城全景尽收眼底，是情侣拍下北京第一张合影的绝佳地点。金瓦红墙在脚下铺展，两人共享这一刻的辽阔与静谧。",
+      "recommended_duration_minutes": 75
+    },
+    {
+      "id": "poi_shichahai_hutong",
+      "name": "什刹海胡同",
+      "district": "西城区",
+      "type": "胡同区",
+      "reason": "白天的胡同有生活气息，夜晚的湖面有浪漫倒影。牵手穿行在蜿蜒的巷弄里，感受老北京最温柔的一面。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_temple_of_heaven",
+      "name": "天坛公园",
+      "district": "东城区",
+      "type": "文化地标",
+      "reason": "清晨的天坛人少宁静，祈年殿的蓝瓦在晨光中格外动人。两人在古柏林中漫步，仿佛走入一幅古老画卷。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_nanluoguxiang",
+      "name": "南锣鼓巷",
+      "district": "东城区",
+      "type": "历史街区",
+      "reason": "避开主街喧嚣，钻进支巷寻找有趣的小店和咖啡馆。这里既有老北京胡同的骨架，又填充着年轻活力的细节，适合情侣慢慢逛。",
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food": [
+    {
+      "id": "food_shichahai",
+      "name": "什刹海胡同美食区",
+      "district": "西城区",
+      "category": "胡同餐饮区",
+      "reason": "沿湖分布着许多有氛围的胡同小馆，可以坐在窗边或露天位，边吃京味家常菜边看湖景夜色，是情侣晚餐的理想选择。"
+    },
+    {
+      "id": "food_nanluo",
+      "name": "南锣鼓巷小吃街",
+      "district": "东城区",
+      "category": "小吃街",
+      "reason": "从糖葫芦到炸酱面，从酸奶到创意小点，两人可以边走边尝，轻松又甜蜜，为旅行增添一份随性的味觉记忆。"
+    }
+  ]
+}

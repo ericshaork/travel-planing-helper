@@ -40,29 +40,27 @@ export function WorkspaceInspector({
   const stats = buildWorkspaceInsightStats(insight);
 
   return (
-    <aside className="space-y-4 lg:sticky lg:top-5 xl:space-y-5">
-      <section className="workspace-panel px-5 py-5">
-        <div className="relative z-[1]">
-          <p className="workspace-kicker">MAP / ROUTE INSPECTOR</p>
-          <div className="mt-2 flex flex-wrap items-start justify-between gap-3">
-            <div>
-              <h2 className="text-lg font-semibold text-[var(--ink)]">
-                {insight
-                  ? `Day ${insight.dayNumber} 路线检查器`
-                  : "路线提醒会固定停在这里"}
-              </h2>
-              <p className="mt-1.5 text-sm leading-6 text-[var(--ink-muted)]">
-                {insight
-                  ? `${insight.dayTitle} · ${formatDayDate(insight.date)}`
-                  : "生成计划后，当前 Day 的点位、路线和节奏提醒都会收进右侧，不需要再把中间主区拉成长报告。"}
-              </p>
-            </div>
-            <span className="workspace-chip">active day sync</span>
+    <aside className="space-y-4 xl:space-y-5">
+      <section className="workspace-panel-soft px-4 py-4">
+        <div className="flex flex-wrap items-start justify-between gap-3">
+          <div>
+            <p className="workspace-kicker">ROUTE NOTE</p>
+            <h3 className="mt-1 text-base font-semibold text-[var(--ink)]">
+              {insight
+                ? `${insight.dayTitle} route archive`
+                : "Route archive stays ready here"}
+            </h3>
+            <p className="mt-1.5 text-sm leading-6 text-[var(--ink-muted)]">
+              {insight
+                ? `Follow stop order, map placement, and pace checks for ${formatDayDate(insight.date)}.`
+                : "Once route insight is available, map, sequence, and travel warnings will stay together on the right."}
+            </p>
           </div>
-
-          <div className="mt-3 flex flex-wrap gap-2">
-            <span className="workspace-chip">已确认 {stats.resolvedPoints}</span>
-            <span className="workspace-chip">待确认 {stats.unresolvedPoints}</span>
+          <div className="flex flex-wrap gap-2">
+            <span className="workspace-chip">resolved {stats.resolvedPoints}</span>
+            <span className="workspace-chip">
+              pending {stats.unresolvedPoints}
+            </span>
             {insight?.routeSummary ? (
               <>
                 <span className="workspace-chip">
@@ -74,19 +72,19 @@ export function WorkspaceInspector({
               </>
             ) : null}
           </div>
-
-          {errorMessage ? (
-            <p className="mt-4 rounded-[18px] border border-dashed border-[var(--clay)] bg-[var(--clay-soft)] px-3 py-2.5 text-sm leading-6 text-[var(--clay-deep)]">
-              {errorMessage}
-            </p>
-          ) : null}
-
-          {!loading && !insight ? (
-            <p className="mt-4 text-sm leading-6 text-[var(--ink-muted)]">
-              路线洞察暂不可用时，行程方案仍然可以正常参考。
-            </p>
-          ) : null}
         </div>
+
+        {errorMessage ? (
+          <p className="mt-4 rounded-[18px] border border-dashed border-[var(--clay)] bg-[var(--clay-soft)] px-3 py-2.5 text-sm leading-6 text-[var(--clay-deep)]">
+            {errorMessage}
+          </p>
+        ) : null}
+
+        {!loading && !insight ? (
+          <p className="mt-4 text-sm leading-6 text-[var(--ink-muted)]">
+            Route insight is optional. The itinerary stays readable even when map enrichment is not available.
+          </p>
+        ) : null}
       </section>
 
       <InspectorMapPreview

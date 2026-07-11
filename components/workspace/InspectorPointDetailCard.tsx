@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import type { DayRouteInsight } from "../../lib/trip/route-insight";
 
 interface InspectorPointDetailCardProps {
@@ -24,15 +26,25 @@ export function InspectorPointDetailCard({
 
   if (!activePoint && unmatchedPlaceName) {
     return (
-      <section className="workspace-panel px-4 py-4">
+      <section className="workspace-panel relative overflow-hidden px-4 py-4">
+        <div className="pointer-events-none absolute right-4 top-3 h-10 w-16 opacity-65">
+          <Image
+            src="/images/archive/decoration/archive-label-note.png"
+            alt=""
+            fill
+            aria-hidden
+            sizes="64px"
+            className="object-contain"
+          />
+        </div>
         <div className="relative z-[1]">
-          <p className="workspace-kicker">POINT DETAIL</p>
+          <p className="workspace-kicker">CURRENT PLACE</p>
           <h3 className="mt-1 text-base font-semibold">{unmatchedPlaceName}</h3>
           <p className="mt-3 text-sm leading-6 text-[var(--ink-muted)]">
-            这个地点暂时没有匹配到地图点，行程本身还能正常看，出发前再核对一下名称会更稳。
+            这个地点暂时没有匹配到地图点，但它仍然保留在今天的阅读线路里。
           </p>
           <p className="mt-3 rounded-[18px] border border-dashed border-[var(--line)] bg-[var(--paper)] px-3 py-2.5 text-sm leading-6 text-[var(--ink-muted)]">
-            这轮不会自动创建假 marker，也不会把它写回地图位置。后面如果要更细的手动选点，会放到后续版本再做。
+            后续如果补充了更准确的名称或地址，这里就能继续联动到地图高亮。
           </p>
         </div>
       </section>
@@ -43,10 +55,10 @@ export function InspectorPointDetailCard({
     return (
       <section className="workspace-panel px-4 py-4">
         <div className="relative z-[1]">
-          <p className="workspace-kicker">POINT DETAIL</p>
-          <h3 className="mt-1 text-base font-semibold">点位详情</h3>
+          <p className="workspace-kicker">CURRENT PLACE</p>
+          <h3 className="mt-1 text-base font-semibold">地点卡片</h3>
           <p className="mt-3 text-sm leading-6 text-[var(--ink-muted)]">
-            点一下地图点位，或者右侧列表里的地点，这里就会显示更具体的信息。
+            点一下地图点位，或者右侧列表里的地点，这里就会显示当前地点的细节。
           </p>
         </div>
       </section>
@@ -56,12 +68,12 @@ export function InspectorPointDetailCard({
   return (
     <section className="workspace-panel px-4 py-4">
       <div className="relative z-[1]">
-        <p className="workspace-kicker">POINT DETAIL</p>
+        <p className="workspace-kicker">CURRENT PLACE</p>
         <div className="mt-1 flex items-start justify-between gap-3">
           <div>
             <h3 className="text-base font-semibold">{activePoint.name}</h3>
             <p className="mt-1 text-xs text-[var(--ink-muted)]">
-              {SLOT_LABELS[activePoint.slot]} · {activePoint.provider ?? "待确认来源"}
+              {SLOT_LABELS[activePoint.slot]} · {activePoint.provider ?? "位置来源待确认"}
             </p>
           </div>
           <span
@@ -76,13 +88,14 @@ export function InspectorPointDetailCard({
         </div>
 
         <p className="mt-3 text-sm leading-6 text-[var(--ink-muted)]">
-          {activePoint.address || "暂时还没有明确地址，出发前再核对一下会更稳。"}
+          {activePoint.address ||
+            "地址还没有完全确认，可以先把它当作路线阅读中的地点笔记。"}
         </p>
 
         <p className="mt-3 rounded-[18px] border border-dashed border-[var(--line)] bg-[var(--paper)] px-3 py-2.5 text-sm leading-6 text-[var(--ink-muted)]">
           {activePoint.resolved
-            ? "这个地点已经在地图里定位好了，可以直接结合右侧路线信息一起看。"
-            : "该地点暂未确认，无法在地图中定位。出发前请再核对名称和地址。"}
+            ? "这个地点已经在地图里定位好了，路线图与地点顺序会一起高亮。"
+            : "该地点暂未确认，无法在地图中定位，出发前建议再核对一下名称和地址。"}
         </p>
 
         {activePoint.warning ? (
