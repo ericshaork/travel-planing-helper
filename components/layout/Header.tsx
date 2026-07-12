@@ -51,18 +51,18 @@ export function Header({
     if (overlay) {
       return (
         <header className="absolute inset-x-0 top-0 z-20">
-          <div className="absolute left-[48px] right-[48px] top-[32px] flex items-start justify-between gap-6">
+          <div className="absolute left-[48px] right-[48px] top-[28px] flex items-start justify-between gap-6">
             <Link
               href="/"
-              className="inline-flex focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--paper-bright)]"
+              className="inline-flex rounded-[20px] border border-[rgba(193,181,158,0.18)] bg-[rgba(255,249,239,0.32)] px-2.5 py-1.5 text-[var(--ink)] shadow-[0_4px_10px_rgba(65,58,45,0.025)] backdrop-blur-[5px] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--paper-bright)]"
             >
               <Image
-                src="/images/brand/logo/logo-horizontal.png"
+                src="/images/brand/logo/logo-horizontal-transparent.svg"
                 alt="Wanderly"
-                width={156}
-                height={44}
+                width={182}
+                height={102}
                 priority
-                className="h-[44px] w-auto"
+                className="h-auto w-[9.8rem]"
               />
             </Link>
 
@@ -79,15 +79,15 @@ export function Header({
       <header className="mx-auto flex w-full max-w-[86rem] items-start justify-between gap-6 px-4 py-5 sm:px-8 sm:py-7">
         <Link
           href="/"
-          className="inline-flex shrink-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--clay)]"
+          className="inline-flex shrink-0 rounded-[20px] border border-[rgba(193,181,158,0.18)] bg-[rgba(255,249,239,0.32)] px-2.5 py-1.5 text-[var(--ink)] shadow-[0_4px_10px_rgba(65,58,45,0.025)] backdrop-blur-[5px] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--clay)]"
         >
           <Image
-            src="/images/brand/logo/logo-horizontal.png"
+            src="/images/brand/logo/logo-horizontal-transparent.svg"
             alt="Wanderly"
-            width={156}
-            height={44}
+            width={182}
+            height={102}
             priority
-            className="h-[44px] w-auto"
+            className="h-auto w-[9.8rem]"
           />
         </Link>
 

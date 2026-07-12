@@ -3,119 +3,103 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 
-const examplePrompts = [
-  "7 月从深圳去厦门玩 3 天，想吃海鲜，也想留时间拍照。",
-  "想找个周末能慢慢走的城市，不想太赶，也别太商业化。",
-  "先帮我看看最近适合去哪里，再决定要不要立刻做计划。",
-];
-
-const heroEntries = [
+const primaryActions = [
   {
     title: "探索灵感",
     href: "/explore",
     className:
-      "border-[rgba(205,221,198,0.94)] bg-[rgba(233,242,228,0.88)] text-[var(--sage-deep)]",
+      "border-[rgba(83,107,82,0.88)] bg-[var(--sage-deep)] text-[var(--paper-bright)] shadow-[0_18px_34px_rgba(52,76,54,0.24)] hover:bg-[rgb(72_94_71)]",
   },
   {
     title: "创建计划",
     href: "/create",
     className:
-      "border-[rgba(244,221,209,0.96)] bg-[rgba(247,228,216,0.9)] text-[var(--clay-deep)]",
-  },
-  {
-    title: "我的旅程",
-    href: "/workspace",
-    className:
-      "border-[rgba(225,220,234,0.96)] bg-[rgba(232,229,238,0.88)] text-[#5f5b70]",
+      "border-[rgba(142,139,127,0.72)] bg-[rgba(255,253,247,0.9)] text-[var(--ink)] shadow-[0_14px_28px_rgba(65,58,45,0.1)] hover:bg-[var(--paper-bright)]",
   },
 ];
 
-const deferredNotes = [
-  "先帮你抓重点，不用一上来填长表单。",
-  "能先逛灵感，也能直接开始做自己的版本。",
-  "生成后还能继续改，不是一段文本丢给你就结束。",
+const inspirationExamples = [
+  "周末想找个能慢下来、吃得舒服的海边城市",
+  "还没定城市，先给我一些适合两三天放松的灵感",
 ];
 
 export function LandingPage() {
   return (
-    <div className="relative h-screen overflow-hidden bg-[var(--paper)] text-[var(--ink)]">
+    <div className="relative min-h-screen overflow-hidden bg-[var(--paper)] text-[var(--ink)]">
       <div className="absolute inset-0">
         <Image
-          src="/images/landing/hero/hero-main.png"
-          alt="旅行封面主视觉"
+          src="/images/landing/hero/hero-main-china-v18.png"
+          alt="中国旅行档案风格的 Landing 主视觉"
           fill
           priority
-          className="object-cover"
+          className="object-cover object-[72%_center]"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(21,24,20,0.08)_0%,rgba(21,24,20,0.06)_34%,rgba(21,24,20,0.18)_72%,rgba(21,24,20,0.3)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(243,238,223,0.995)_0%,rgba(243,238,223,0.96)_16%,rgba(243,238,223,0.84)_31%,rgba(243,238,223,0.42)_47%,rgba(243,238,223,0.12)_62%,rgba(243,238,223,0.02)_78%,rgba(243,238,223,0)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,253,247,0.05)_0%,rgba(255,253,247,0)_42%,rgba(37,40,35,0.06)_100%)]" />
+        <div className="absolute left-0 top-0 h-full w-[58%] bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.28),transparent_46%)]" />
       </div>
 
       <Header minimal />
 
-      <main className="relative z-10 flex h-full flex-col">
-        <section className="relative flex flex-1 items-end justify-center px-4 pb-14 pt-28 sm:px-8 sm:pb-16 sm:pt-32 lg:pb-18">
-          <div className="flex w-full max-w-4xl flex-wrap items-center justify-center gap-3 sm:gap-4">
-            {heroEntries.map((entry) => (
-              <Link
-                key={entry.title}
-                href={entry.href}
-                className={`inline-flex min-h-12 items-center justify-center rounded-full border px-6 py-3 text-sm font-semibold tracking-[0.06em] shadow-[0_14px_32px_rgba(65,58,45,0.12)] backdrop-blur-[8px] transition-transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--paper-bright)] sm:min-h-14 sm:px-7 sm:text-base ${entry.className}`}
-              >
-                {entry.title}
-              </Link>
-            ))}
-          </div>
-        </section>
-      </main>
+      <main className="relative z-10 mx-auto flex min-h-screen w-full max-w-[120rem] flex-col px-4 pb-10 pt-24 sm:px-8 sm:pb-12 sm:pt-28 xl:px-12">
+        <section className="grid flex-1 items-start pt-6 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:pt-10">
+          <div className="max-w-[32rem] pb-6 lg:pb-0">
+            <h1
+              className="text-[2.35rem] font-semibold leading-[1.08] tracking-[-0.04em] text-[rgb(47_60_50)] sm:text-[3rem] xl:text-[3.74rem]"
+              style={{ fontFamily: "var(--font-serif-display)", fontWeight: 600 }}
+            >
+              <span className="block">打开你的</span>
+              <span className="mt-1 block">中国旅行档案</span>
+            </h1>
 
-      <section aria-hidden="true" className="hidden">
-        <section className="workspace-panel-soft px-5 py-5 sm:px-6">
-          <p className="workspace-kicker">你可以这样开头</p>
-          <div className="mt-3 space-y-2.5">
-            {examplePrompts.map((prompt) => (
-              <p
-                key={prompt}
-                className="rounded-[18px] bg-[rgba(255,253,247,0.9)] px-4 py-3 text-sm leading-6 text-[var(--ink-muted)]"
-              >
-                {prompt}
-              </p>
-            ))}
-          </div>
-        </section>
+            <p className="mt-5 max-w-[31rem] text-base leading-8 text-[rgba(62,66,58,0.88)] sm:text-lg sm:leading-9">
+              从一页灵感开始，让 AI 帮你生成可继续编辑的自由行计划。
+            </p>
 
-        <section className="workspace-panel px-5 py-5 sm:px-6 sm:py-6">
-          <div className="relative z-[1] grid gap-3">
-            <div>
-              <p className="workspace-kicker">WHY THIS HOME EXISTS</p>
-              <h2 className="mt-2 text-2xl font-semibold sm:text-[2rem]">
-                第一次进来，也该知道下一步去哪。
-              </h2>
+            <div className="mt-8 flex flex-wrap items-center gap-3 sm:gap-4">
+              {primaryActions.map((entry) => (
+                <Link
+                  key={entry.title}
+                  href={entry.href}
+                  className={`inline-flex min-h-12 items-center justify-center rounded-full border px-6 py-3 text-sm font-semibold tracking-[0.04em] transition-all duration-200 hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--paper-bright)] sm:min-h-14 sm:px-7 sm:text-base ${entry.className}`}
+                >
+                  {entry.title}
+                </Link>
+              ))}
             </div>
 
-            {deferredNotes.map((note, index) => (
-              <div
-                key={note}
-                className="rounded-[20px] border border-[var(--line)] bg-[rgba(255,253,247,0.88)] px-4 py-4"
-              >
-                <p className="text-[11px] font-semibold tracking-[0.14em] text-[var(--clay-deep)]">
-                  0{index + 1}
-                </p>
-                <p className="mt-2 text-sm leading-6 text-[var(--ink-muted)]">
-                  {note}
-                </p>
-              </div>
-            ))}
-          </div>
-        </section>
-      </section>
+            <section className="mt-7 max-w-[29rem]" aria-label="灵感示例">
+              <p className="text-[11px] font-semibold tracking-[0.16em] text-[rgba(88,69,52,0.72)]">
+                灵感示例
+              </p>
 
-      <div className="hidden">
-        <Footer />
-      </div>
+              <div className="mt-3 space-y-2.5">
+                {inspirationExamples.map((example) => (
+                  <div
+                    key={example}
+                    className="flex items-start gap-3 rounded-[18px] border border-[rgba(205,193,171,0.24)] bg-[rgba(255,251,243,0.22)] px-4 py-3 text-[13px] leading-6 text-[rgba(98,102,94,0.9)]"
+                  >
+                    <span
+                      aria-hidden="true"
+                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[rgba(156,140,112,0.52)]"
+                    />
+                    <span>{example}</span>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            <p className="mt-6 max-w-[28rem] text-sm leading-6 text-[rgba(98,102,94,0.9)]">
+              先逛灵感，再生成属于你的行程。
+            </p>
+          </div>
+
+          <div aria-hidden="true" className="hidden lg:block" />
+        </section>
+      </main>
     </div>
   );
 }

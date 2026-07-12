@@ -18,6 +18,8 @@
   --line: #d6cdbb;
   --line-strong: #8e8b7f;
   --tape: #dfd0a7;
+  --font-serif-display:
+    "Noto Serif SC", "Source Han Serif SC", "Songti SC", "STSong", "SimSun", serif;
   background: var(--paper);
   color: var(--ink);
   font-family:
