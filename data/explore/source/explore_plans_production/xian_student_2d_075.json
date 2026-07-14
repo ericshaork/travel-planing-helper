@@ -1,0 +1,137 @@
+{
+  "id": "exp_xian_student_2d_food_citywalk_v1",
+  "slug": "xian-student-2d-food-citywalk",
+  "title": "城墙下走街串巷：两天吃透西安老城",
+  "summary": "预算有限但胃口无限？这趟旅程专为爱逛爱吃的大学生设计。两天内密集穿梭于城墙内外、回坊深处，用脚步丈量历史，用味蕾捕捉烟火气。没有走马观花的景点打卡，只有街头巷尾的真实西安。",
+  "city": {
+    "code": "xian",
+    "name": "Xi'an",
+    "region_name": "Shaanxi"
+  },
+  "trip_type": "student",
+  "days": 2,
+  "budget": {
+    "level": "low",
+    "note": "全程依靠步行和公共交通，餐饮以小吃和街边摊为主，景点选择免费或低门票区域。"
+  },
+  "pace": "dense",
+  "tags": [
+    "food",
+    "citywalk",
+    "budget-friendly",
+    "old-city",
+    "local-food"
+  ],
+  "image_prompt": "A vibrant street scene in Xi'an's Muslim Quarter at dusk, with glowing lanterns, steam rising from food stalls, and a mix of locals and young travelers. Shot from a low angle with a wide lens, capturing the energy and depth of the narrow alley. Warm color tones, National Geographic travel photography style.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "回坊烟火与城墙夜风",
+      "summary": "从钟鼓楼出发，一头扎进回坊迷宫般的小巷，用一下午的时间边逛边吃。傍晚登上城墙，在夕阳和晚风中骑行，俯瞰古城的天际线。",
+      "activities": [
+        {
+          "time_block": "afternoon",
+          "description": "下午从钟鼓楼广场开始，感受西安的市中心脉搏。随后步行进入回坊，穿梭于洒金桥、大皮院等小巷，随走随吃，品尝肉夹馍、凉皮、柿子饼等地道小吃。",
+          "poi_refs": [
+            "poi_bell_tower_area",
+            "poi_muslim_quarter"
+          ],
+          "food_refs": [
+            "food_muslim_quarter"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "傍晚从南门登上城墙，租一辆自行车沿城墙骑行，看夕阳把古城染成金色。入夜后城墙灯亮起，感受古老城墙与现代都市的交融。",
+          "poi_refs": [
+            "poi_city_wall"
+          ],
+          "food_refs": []
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "古刹静谧与市井食光",
+      "summary": "上午探访小雁塔的清净院落，在古树下放空。中午转战永兴坊，体验更有条理的陕西小吃集合。下午在顺城巷或老城区随意穿行，淘些有趣的小店。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "上午前往小雁塔，这里游客较少，可以安静地在园林中散步，登塔远眺，感受古都的宁静一面。",
+          "poi_refs": [
+            "poi_small_yanta"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "中午到永兴坊，这里汇集了陕西各地特色小吃，比回坊更规整，适合快速品尝多种风味。下午在附近的老城区随意漫步，探索顺城巷的文艺小店和涂鸦墙。",
+          "poi_refs": [
+            "poi_yongxingfang"
+          ],
+          "food_refs": [
+            "food_yongxingfang"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_city_wall",
+      "name": "西安城墙",
+      "district": "碑林区",
+      "type": "historic landmark",
+      "reason": "城墙是西安的脊梁，骑车或步行其上，能最直观地感受古城的方正格局与历史纵深。傍晚时分尤其动人，夕阳、晚风与城楼剪影，是学生党拍照和放空的绝佳选择。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_bell_tower_area",
+      "name": "钟鼓楼广场",
+      "district": "莲湖区",
+      "type": "historic city core",
+      "reason": "作为西安的地理中心，钟鼓楼是理解城市布局的起点。广场上人来人往，周边小巷藏着无数平价美食，是开启两天密集探索的自然原点。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_muslim_quarter",
+      "name": "回民街（回坊）",
+      "district": "莲湖区",
+      "type": "historic food district",
+      "reason": "回坊不只是游客街，深入洒金桥、大皮院等小巷，才是本地人的美食江湖。这里烟火气十足，价格亲民，适合学生党边走边吃，感受最鲜活的市井生活。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_small_yanta",
+      "name": "小雁塔",
+      "district": "碑林区",
+      "type": "historic garden landmark",
+      "reason": "相比大雁塔的喧嚣，小雁塔更清幽古朴。园林式的环境适合放慢脚步，在古树下发呆或看书，是两天密集行程中难得的喘息角落。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_yongxingfang",
+      "name": "永兴坊",
+      "district": "新城区",
+      "type": "food and folk-culture district",
+      "reason": "永兴坊把陕西各地的非遗小吃集中在一起，环境整洁又有文化氛围。对于想高效品尝多种风味的同学来说，这里比回坊更省心，还能看到民俗表演。",
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food": [
+    {
+      "id": "food_muslim_quarter",
+      "name": "回坊小吃街",
+      "district": "莲湖区",
+      "category": "snack street",
+      "reason": "回坊是西安街头美食的灵魂所在。从肉夹馍、羊肉泡馍到柿子饼、甑糕，几十种小吃密集分布在迷宫般的小巷里。价格实惠，适合学生党边走边尝，体验最地道的市井味道。"
+    },
+    {
+      "id": "food_yongxingfang",
+      "name": "永兴坊陕西小吃集合",
+      "district": "新城区",
+      "category": "food court",
+      "reason": "永兴坊将陕西各地代表性小吃汇聚一堂，环境干净有序。对于时间有限又想吃遍三秦味道的学生来说，这里是高效的美食补给站。推荐尝试子长煎饼、宁强核桃馍等特色。"
+    }
+  ]
+}

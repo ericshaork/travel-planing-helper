@@ -1,0 +1,198 @@
+{
+  "id": "exp_shanghai_family_4d_bund_french_concession",
+  "slug": "shanghai-family-4d-bund-french-concession",
+  "title": "黄浦江畔的慢时光：带家人漫步法租界，看外滩夜景",
+  "summary": "为家庭旅行者设计的4日慢节奏行程，融合黄浦江夜景的璀璨与法租界梧桐树下的宁静。从外滩的百年建筑到武康路的文艺街角，再到豫园的老城烟火，每一步都兼顾老人与孩子的舒适度，让全家人在上海找到各自的乐趣。",
+  "city": {
+    "code": "shanghai",
+    "name": "Shanghai",
+    "region_name": "Shanghai"
+  },
+  "trip_type": "family",
+  "days": 4,
+  "budget": {
+    "level": "high",
+    "note": "注重舒适体验，选择环境优雅的餐厅和便捷的交通方式。"
+  },
+  "pace": "slow",
+  "tags": [
+    "family-friendly",
+    "night-view",
+    "citywalk",
+    "architecture",
+    "slow-travel",
+    "黄浦江夜景"
+  ],
+  "image_prompt": "A warm evening shot of a family walking along the Bund, with the illuminated Pudong skyline reflected in the Huangpu River. Soft golden light, shallow depth of field, editorial travel photography style, capturing a sense of togetherness and urban beauty.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "外滩初印象：江风与历史",
+      "summary": "抵达上海后，以轻松的节奏感受外滩的百年风华，傍晚乘船欣赏浦江两岸灯光。",
+      "activities": [
+        {
+          "time_block": "afternoon",
+          "description": "从酒店出发，沿着外滩漫步，欣赏万国建筑群与对岸陆家嘴的摩天楼。孩子可以数一数不同风格的建筑，老人可以在江边长椅休息。",
+          "poi_refs": [
+            "poi_bund"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "在黄浦江边的景观餐厅享用晚餐，一边品尝本帮菜，一边看江上船只与灯火。餐后继续沿江散步，感受魔都的璀璨夜色。",
+          "poi_refs": [
+            "poi_bund"
+          ],
+          "food_refs": [
+            "food_bund_dining"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "法租界的梧桐树下",
+      "summary": "在法租界的梧桐树荫下，全家人一起探访武康路的文艺小店和咖啡馆，节奏舒缓，适合老人和孩子。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "从武康大楼开始，沿武康路慢行，欣赏各式老洋房和街头艺术。路边的小咖啡馆可以歇脚，给孩子买一份甜点。",
+          "poi_refs": [
+            "poi_wukang_road"
+          ],
+          "food_refs": [
+            "food_french_concession"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "继续深入法租界腹地，在梧桐树荫下的街心公园稍作休息，之后前往一家环境优雅的餐厅用午餐。",
+          "poi_refs": [
+            "poi_french_concession_walk"
+          ],
+          "food_refs": [
+            "food_french_concession"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "豫园与老城厢的烟火气",
+      "summary": "上午在豫园感受老上海的传统韵味，下午在城隍庙品尝小吃，悠闲度过一天。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "游览豫园，欣赏江南园林的精致，孩子可以在九曲桥上喂锦鲤，老人可以逛逛周边的古玩店。",
+          "poi_refs": [
+            "poi_yuyuan_edge"
+          ],
+          "food_refs": [
+            "food_yuyuan"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "在豫园老街品尝南翔小笼包等经典小吃，之后在城隍庙广场闲坐，看人来人往。",
+          "poi_refs": [
+            "poi_yuyuan_edge"
+          ],
+          "food_refs": [
+            "food_yuyuan"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 4,
+      "title": "新天地与现代上海的从容告别",
+      "summary": "最后一天在新天地享受精致的早午餐，在石库门建筑间漫步，为上海之旅画上圆满句号。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "在新天地的露天座位享用早午餐，感受石库门改造的时尚氛围。孩子可以在广场上跑动，老人可以欣赏建筑细节。",
+          "poi_refs": [
+            "poi_xintiandi_edge"
+          ],
+          "food_refs": [
+            "food_bund_dining"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "最后在周边逛逛，购买一些伴手礼，然后轻松前往机场或火车站。",
+          "poi_refs": [
+            "poi_xintiandi_edge"
+          ],
+          "food_refs": []
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_bund",
+      "name": "外滩",
+      "district": "黄浦区",
+      "type": "滨江地标",
+      "reason": "外滩是上海的名片，白天看历史建筑，夜晚看璀璨天际线。对家庭游客来说，这里开阔的步道适合推婴儿车或轮椅，老人也能轻松漫步，孩子则会被江上的游船吸引。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_french_concession_walk",
+      "name": "法租界漫步",
+      "district": "徐汇区",
+      "type": "历史街区",
+      "reason": "梧桐树荫下的法租界是上海最温柔的一面。适合全家慢行，沿途有众多咖啡馆和精品店，随时可以停下来休息。这里没有拥挤的人潮，只有悠闲的市井气息。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_yuyuan_edge",
+      "name": "豫园及老城厢",
+      "district": "黄浦区",
+      "type": "历史城区",
+      "reason": "豫园是上海保存最完好的明代园林，九曲桥、湖心亭充满了传统韵味。旁边的老城厢街区充满了小吃和手工艺品，孩子会喜欢这里的糖画和面人，老人则能感受到老上海的市井生活。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_wukang_road",
+      "name": "武康路",
+      "district": "徐汇区",
+      "type": "建筑漫步区",
+      "reason": "武康路是法租界最文艺的街道，武康大楼是标志性打卡点。道路两旁的老洋房和梧桐树构成了一幅幅优雅的画面，适合全家拍照留念，沿途的甜品店和书店也为旅途增添了趣味。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_xintiandi_edge",
+      "name": "新天地",
+      "district": "黄浦区",
+      "type": "时尚街区",
+      "reason": "新天地将石库门老建筑改造为时尚餐饮和购物区，既有历史感又不失现代便利。露天座位和广场适合家庭休息，环境整洁优雅，是结束旅程的完美地点。",
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food": [
+    {
+      "id": "food_french_concession",
+      "name": "法租界餐饮区",
+      "district": "徐汇区",
+      "category": "时尚休闲餐饮",
+      "reason": "法租界聚集了许多环境优雅的餐厅和咖啡馆，既有本帮菜也有西式简餐，适合家庭氛围。推荐武康路附近的精致面馆或小馆，孩子也能找到喜欢的口味。"
+    },
+    {
+      "id": "food_yuyuan",
+      "name": "豫园老城美食区",
+      "district": "黄浦区",
+      "category": "传统小吃",
+      "reason": "豫园周边汇集了上海最经典的小吃，如南翔小笼包、蟹粉生煎等。热闹的市集氛围让孩子兴奋，老人也能找到熟悉的老味道，是全家体验地道上海风味的好去处。"
+    },
+    {
+      "id": "food_bund_dining",
+      "name": "外滩滨江餐饮区",
+      "district": "黄浦区",
+      "category": "景观餐厅",
+      "reason": "外滩沿线有多家适合家庭的景观餐厅，提供本帮菜和国际美食。晚餐时可以一边品尝美食，一边欣赏黄浦江夜景，为一天的行程画上完美的句号。"
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "id": "exp_shenzhen_couple_2d_photo_citywalk_food_v1",
+  "slug": "shenzhen-couple-2d-photo-citywalk-food",
+  "title": "创想园与天际线：两个人的深圳慢调时光",
+  "summary": "为爱拍照、爱漫步的你们设计的两日深圳之旅。从OCT Loft的创意午后到深圳湾的日落天际线，节奏舒缓，每一帧都值得珍藏。",
+  "city": {
+    "code": "shenzhen",
+    "name": "Shenzhen",
+    "region_name": "Guangdong"
+  },
+  "trip_type": "couple",
+  "days": 2,
+  "budget": {
+    "level": "high",
+    "note": "全程选择舒适、有氛围的体验，包括湾景晚餐和精品咖啡馆，无需顾虑预算。"
+  },
+  "pace": "balanced",
+  "tags": [
+    "photo-friendly",
+    "citywalk",
+    "bay-view",
+    "modern-city",
+    "couple"
+  ],
+  "image_prompt": "Editorial travel magazine style photo of a couple walking hand in hand along Shenzhen Bay waterfront at golden hour, skyline in background, soft warm light, shallow depth of field, cinematic composition, modern urban atmosphere.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "创意园午后与湾畔日落",
+      "summary": "从OCT Loft的文艺街巷开始，漫步、拍照、喝咖啡，傍晚转至深圳湾，在晚霞中定格两人身影。",
+      "activities": [
+        {
+          "time_block": "afternoon",
+          "description": "两人在OCT Loft创意园区漫无目的地闲逛，钻进独立画廊，在街角咖啡馆共享一杯手冲，用镜头捕捉涂鸦与光影。",
+          "poi_refs": [
+            "poi_oct_loft"
+          ],
+          "food_refs": [
+            "food_oct_cafe"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "沿着深圳湾海滨步道散步，看城市天际线在暮色中亮起。找一家湾景餐厅，在微风中享用晚餐，为这一天画上温柔句点。",
+          "poi_refs": [
+            "poi_shenzhen_bay"
+          ],
+          "food_refs": [
+            "food_sea_world_dining"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "城市中轴与海岸慢调",
+      "summary": "上午登莲花山俯瞰城市全景，午后漫步市民中心中轴线，傍晚转至海上世界感受灯火与海风。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "登上莲花山公园山顶，在邓小平雕像旁俯瞰福田CBD全景，两人一起辨认地标，拍照留念。",
+          "poi_refs": [
+            "poi_lianhuashan"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "沿市民中心中轴线漫步，感受深圳的现代尺度与建筑美学，在广场上拍一组城市人像。",
+          "poi_refs": [
+            "poi_civic_center"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "来到海上世界，在明华轮璀璨灯光下散步，选一家海边餐厅共享晚餐，最后以甜品和夜色收尾。",
+          "poi_refs": [
+            "poi_sea_world"
+          ],
+          "food_refs": [
+            "food_sea_world_dining"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_oct_loft",
+      "name": "华侨城创意文化园",
+      "district": "南山区",
+      "type": "创意园区",
+      "reason": "这里藏着深圳最文艺的角落，旧厂房改造的画廊、设计店铺和咖啡馆，每一步都是风景，适合两人慢悠悠地探索和拍照。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_shenzhen_bay",
+      "name": "深圳湾海滨",
+      "district": "南山区",
+      "type": "海滨景观带",
+      "reason": "开阔的湾岸线，对岸香港的山影与深圳的天际线在此交汇，日落时分尤其浪漫，是两人散步和拍照的绝佳地点。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_lianhuashan",
+      "name": "莲花山公园",
+      "district": "福田区",
+      "type": "城市公园",
+      "reason": "登上山顶，福田CBD的摩天楼群在眼前铺开，是俯瞰深圳城市中轴的最佳观景台，清晨的清新空气让两人倍感舒适。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_civic_center",
+      "name": "市民中心中轴线",
+      "district": "福田区",
+      "type": "城市地标区",
+      "reason": "宽阔的广场、现代建筑群和对称的布局，构成深圳最具代表性的城市景观，适合拍摄具有都市感的合影。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_sea_world",
+      "name": "海上世界",
+      "district": "南山区",
+      "type": "夜生活区",
+      "reason": "明华轮与周围现代建筑交相辉映，夜晚灯光璀璨，海风轻拂，是两人享受晚餐和夜间漫步的理想去处。",
+      "recommended_duration_minutes": 120
+    }
+  ],
+  "food": [
+    {
+      "id": "food_oct_cafe",
+      "name": "OCT Loft 咖啡馆与轻食区",
+      "district": "南山区",
+      "category": "咖啡馆",
+      "reason": "园区内遍布独立咖啡馆，设计感十足，适合两人午后小憩，共享一杯精品咖啡和一份创意甜品。"
+    },
+    {
+      "id": "food_sea_world_dining",
+      "name": "海上世界餐饮圈",
+      "district": "南山区",
+      "category": "海滨餐厅聚集区",
+      "reason": "汇集多种风格的餐厅，从海鲜到国际料理，大多拥有户外座位，可以边用餐边欣赏海湾夜景，氛围满分。"
+    }
+  ]
+}

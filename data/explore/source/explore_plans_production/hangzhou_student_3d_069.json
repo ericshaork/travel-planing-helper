@@ -1,0 +1,199 @@
+{
+  "id": "exp_hangzhou_student_3d_food_nightlife_v1",
+  "slug": "hangzhou-student-3d-food-nightlife",
+  "title": "西湖日落与江南巷弄：三日青春烟火漫游",
+  "summary": "这是一条为学生设计的杭州漫游路线，用三天时间串联西湖边的免费风景、老街里的烟火气和小巷中的夜生活。节奏平衡，预算友好，适合和好友一起边走边吃，用镜头记录湖光与街灯交织的青春记忆。",
+  "city": {
+    "code": "hangzhou",
+    "name": "Hangzhou",
+    "region_name": "Zhejiang"
+  },
+  "trip_type": "student",
+  "days": 3,
+  "budget": {
+    "level": "low",
+    "note": "以免费湖景、老街小吃和公共交通为主，餐饮和购物均控制在学生预算内。"
+  },
+  "pace": "balanced",
+  "tags": [
+    "food",
+    "nightlife",
+    "shopping",
+    "lake-view",
+    "old-street",
+    "budget-friendly"
+  ],
+  "image_prompt": "Editorial travel photography style, wide-angle shot of a group of young friends walking along West Lake at sunset, golden light reflecting on the water, willow trees framing the scene, casual student outfits, backpacks, laughing and taking photos, warm atmosphere, high resolution, National Geographic travel magazine aesthetic.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "湖岸漫步与老街烟火",
+      "summary": "从西湖边开始，沿着湖岸散步感受杭州的柔软，傍晚转入河坊街，在小吃和灯火里结束第一天。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "从湖滨出发，沿西湖东岸漫步，看晨光里的湖面与游船，走走停停，拍下雷峰塔的远景。",
+          "poi_refs": [
+            "poi_west_lake"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "继续沿湖向南，在长桥公园附近找片树荫坐下，看水鸟和来往行人，享受学生时代特有的闲散午后。",
+          "poi_refs": [
+            "poi_west_lake"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "转入河坊街，在熙攘的老街上边逛边吃，尝尝定胜糕、葱包烩等本地小吃，感受市井夜生活的热闹。",
+          "poi_refs": [
+            "poi_hefang_street"
+          ],
+          "food_refs": [
+            "food_hefang_snacks"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "茶山绿意与湿地黄昏",
+      "summary": "上午去龙井村边缘看茶田，下午在云栖竹径里穿行，傍晚到西溪湿地外围感受水乡暮色。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "乘公交前往龙井村，不深入茶山，只在村边走走，看层层茶田和采茶人，在茶农小摊喝杯新茶。",
+          "poi_refs": [
+            "poi_longjing_area"
+          ],
+          "food_refs": [
+            "food_longjing_tea"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "转往云栖竹径，在竹林小道上漫步，感受满眼绿意和清凉，适合拍些森系照片。",
+          "poi_refs": [
+            "poi_yunqi_path"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "前往西溪湿地边缘，不进入景区，只在免费的外围步道散步，看黄昏时分水塘与芦苇的剪影。",
+          "poi_refs": [
+            "poi_xixi_edge"
+          ],
+          "food_refs": []
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "湖滨夜游与购物尾声",
+      "summary": "白天在湖滨路上闲逛购物，傍晚回到西湖边看日落，最后在湖滨的夜色里为旅程画上句号。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "在湖滨路一带闲逛，逛逛平价小店和文创摊位，买些明信片和小纪念品。",
+          "poi_refs": [],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "找一处湖边长椅坐下，看湖水波光，吃个冰淇淋，享受最后一整个下午的西湖时光。",
+          "poi_refs": [
+            "poi_west_lake"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "沿着湖滨夜游步道散步，看城市灯光在湖面上倒映，找家奶茶店坐下，聊聊天，结束旅程。",
+          "poi_refs": [
+            "poi_lakeside_evening"
+          ],
+          "food_refs": [
+            "food_lakeside_dining"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_west_lake",
+      "name": "西湖湖岸",
+      "district": "西湖区",
+      "type": "湖滨风景区",
+      "reason": "西湖是杭州的灵魂，对预算有限的学生来说，免费开放的湖岸就是最好的社交场。沿着湖走，可以看游船、远山和雷峰塔，随时停下拍照，是青春漫游的天然背景板。",
+      "recommended_duration_minutes": 150
+    },
+    {
+      "id": "poi_longjing_area",
+      "name": "龙井茶园边缘",
+      "district": "西湖区",
+      "type": "茶园景观",
+      "reason": "不深入景区，只在龙井村外围走一走，就能看到层层叠叠的茶田和安静的山村氛围。学生可以花很少的钱在茶农那里喝杯茶，感受杭州慢生活。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_hefang_street",
+      "name": "河坊街",
+      "district": "上城区",
+      "type": "历史街区",
+      "reason": "河坊街是杭州最热闹的老街之一，对学生来说，这里是晚上觅食和闲逛的好去处。小吃摊、小商品店和街头艺人让整条街充满烟火气。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_yunqi_path",
+      "name": "云栖竹径",
+      "district": "西湖区",
+      "type": "自然步道",
+      "reason": "一条清幽的竹林小道，适合想要暂时逃离城市喧嚣的学生。走在竹影里，空气清新，拍照非常出片，而且门票便宜。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_xixi_edge",
+      "name": "西溪湿地外围",
+      "district": "西湖区",
+      "type": "湿地景观",
+      "reason": "不进入收费景区，只在湿地外围的免费步道散步，就能感受到水乡的宁静。傍晚时分，芦苇和倒影特别美，适合安静的黄昏漫步。",
+      "recommended_duration_minutes": 150
+    },
+    {
+      "id": "poi_lakeside_evening",
+      "name": "湖滨夜游步道",
+      "district": "上城区",
+      "type": "夜间滨水区",
+      "reason": "湖滨路的夜晚是杭州最具活力的地方之一，灯光、湖水和城市天际线交织，学生可以在这里散步、拍照、坐着聊天，感受城市的青春脉搏。",
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food": [
+    {
+      "id": "food_hefang_snacks",
+      "name": "河坊街小吃区",
+      "district": "上城区",
+      "category": "小吃街",
+      "reason": "河坊街汇集了杭州各种传统小吃，定胜糕、葱包烩、龙须糖等价格亲民，学生可以边走边尝，用很少的钱体验地道的杭州味道。"
+    },
+    {
+      "id": "food_longjing_tea",
+      "name": "龙井村茶摊",
+      "district": "西湖区",
+      "category": "茶摊",
+      "reason": "在龙井村边缘的茶农小摊上，花几块钱就能喝到一杯新茶，配上简单的茶点，是学生体验茶乡氛围最经济的方式。"
+    },
+    {
+      "id": "food_lakeside_dining",
+      "name": "湖滨茶饮区",
+      "district": "上城区",
+      "category": "茶饮店",
+      "reason": "湖滨路沿线有不少平价奶茶店和甜品铺，学生可以在夜晚的湖边买杯饮料，坐在长椅上吹风看景，轻松又惬意。"
+    }
+  ]
+}

@@ -1,0 +1,194 @@
+{
+  "id": "exp_harbin_solo_3d_citywalk_photo_v1",
+  "slug": "harbin-solo-3d-citywalk-photo",
+  "title": "冰雪街巷与松花江风：一个人的哈尔滨漫游",
+  "summary": "为独自旅行的你设计——三天里，你将在中央大街的石板路上漫步，在圣索菲亚教堂前驻足，在松花江畔感受开阔的风。这是一次以城市漫步为节奏、以摄影为眼光的自由探索，既有欧洲街区的优雅，也有老道外的市井烟火，节奏从容，适合你用镜头和脚步去理解这座冬日的北方之城。",
+  "city": {
+    "code": "harbin",
+    "name": "Harbin",
+    "region_name": "Heilongjiang"
+  },
+  "trip_type": "solo",
+  "days": 3,
+  "budget": {
+    "level": "medium",
+    "note": "餐饮和交通以实用为主，兼顾品质体验，无需高消费即可享受城市精华。"
+  },
+  "pace": "balanced",
+  "tags": [
+    "citywalk",
+    "photo-friendly",
+    "local-culture",
+    "winter-atmosphere",
+    "solo-travel"
+  ],
+  "image_prompt": "A solo traveler with a camera walking along a snow-dusted European-style street in Harbin, with tramlines and baroque architecture in the background, soft winter light, moody sky, National Geographic travel photography style, candid composition, shallow depth of field, warm coat against cool tones.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "中央大街与教堂光影",
+      "summary": "从中央大街的晨光开始，经过圣索菲亚教堂的穹顶，傍晚再回到灯火下的街道。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "从中央大街南端开始漫步，感受两侧欧式建筑的细节，在面包石路上拍下晨光中的街景。途中可在街边小吃店买一个热乎的哈尔滨红肠面包或马迭尔冰棍，边吃边逛。",
+          "poi_refs": [
+            "poi_central_street"
+          ],
+          "food_refs": [
+            "food_central_casual"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "步行至圣索菲亚教堂广场，围绕这座拜占庭风格建筑寻找拍摄角度，广场上的鸽子与教堂的绿色洋葱顶是经典画面。之后在广场附近找一家温暖的咖啡馆歇脚，整理照片。",
+          "poi_refs": [
+            "poi_saint_sofia"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "再次回到中央大街，此时华灯初上，建筑轮廓被灯光勾勒，是拍摄夜景的好时机。沿街漫步至防洪纪念塔方向，感受夜晚的街道氛围，之后在中央大街附近找一家东北菜馆吃一顿热乎的晚餐。",
+          "poi_refs": [
+            "poi_central_evening"
+          ],
+          "food_refs": [
+            "food_central_casual"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "松花江畔与老道外的烟火",
+      "summary": "上午在松花江边吹风看冰面，下午钻进老道外的巷子里，感受最地道的哈尔滨日常。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "前往松花江畔，沿江边的步道散步，冬天江面结冰，可看到当地人滑冰、冬泳的热闹景象。找一处长椅坐下，静静看江景，拍下开阔的河面和远处的铁路桥。",
+          "poi_refs": [
+            "poi_songhua_riverfront"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "穿过松花江公路大桥或乘坐缆车到太阳岛边缘，在岛上简单走走，感受更开阔的冰雪景观。之后返回市区，前往老道外区域，在中华巴洛克风格的街区里穿行，拍摄斑驳的老建筑和街头生活。",
+          "poi_refs": [
+            "poi_sun_island_edge",
+            "poi_laodaowai"
+          ],
+          "food_refs": [
+            "food_laodaowai_local"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "在老道外的本地餐馆吃一顿东北菜，比如锅包肉、炖菜，感受实诚的分量和朴实的味道。饭后在老道外的巷子里再走一走，夜晚的老街区更有生活气息。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_laodaowai_local"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "自由收尾与江畔告别",
+      "summary": "最后一天留给自己的节奏，再走一遍喜欢的角落，或在松花江边度过一个安静的上午。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "根据前两天的感受，选择再去中央大街补拍一些照片，或者到圣索菲亚教堂附近看晨光中的广场。如果天气好，也可以到松花江边最后一次感受江风。",
+          "poi_refs": [
+            "poi_central_street",
+            "poi_saint_sofia",
+            "poi_songhua_riverfront"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "在中央大街或老道外买些伴手礼，比如哈尔滨红肠、俄罗斯套娃等。之后找一家安静的餐厅吃一顿午餐，整理旅途中的照片和心情。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_central_casual"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "如果时间充裕，可以在中央大街附近找一家小酒馆或咖啡馆，为这次独自旅行画上温柔的句号。",
+          "poi_refs": [],
+          "food_refs": []
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_central_street",
+      "name": "中央大街",
+      "district": "Daoli",
+      "type": "historic commercial street",
+      "reason": "中央大街是哈尔滨最鲜明的城市名片，欧式建筑林立、石板路延伸，每一步都是风景。作为独行旅客，你可以自由地在人群中穿梭，用镜头捕捉建筑细节与街头瞬间，节奏完全由自己掌控。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_songhua_riverfront",
+      "name": "松花江畔",
+      "district": "Daoli",
+      "type": "riverfront district",
+      "reason": "松花江赋予了哈尔滨开阔的气质，尤其在冬季，江面冰封，人们在其上活动，形成独特的北方生活图景。独行至此，可以安静地感受江风与天际线，是放空和拍照的好地方。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_saint_sofia",
+      "name": "圣索菲亚教堂",
+      "district": "Daoli",
+      "type": "architectural landmark",
+      "reason": "这座拜占庭风格的教堂是哈尔滨多元文化交融的视觉象征，绿色的洋葱顶与广场上的鸽子构成经典画面。独行时，你可以围绕它慢慢走，寻找不同角度的光影构图。",
+      "recommended_duration_minutes": 75
+    },
+    {
+      "id": "poi_laodaowai",
+      "name": "老道外街区",
+      "district": "Daowai",
+      "type": "historic neighborhood",
+      "reason": "老道外保留了哈尔滨更市井的一面，中华巴洛克风格的建筑与老字号店铺交织，充满生活气息。独行在这里可以钻进小巷，拍摄剥落的墙皮、晾晒的衣物和当地人的日常，感受城市真实的纹理。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_sun_island_edge",
+      "name": "太阳岛边缘",
+      "district": "Songbei",
+      "type": "scenic leisure area",
+      "reason": "太阳岛是松花江北岸的一片开阔绿地，冬季被白雪覆盖，视野极佳。独行至此，可以远离市中心的喧嚣，在雪地上漫步或拍摄纯净的雪景，适合需要安静的时刻。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_central_evening",
+      "name": "中央大街夜景",
+      "district": "Daoli",
+      "type": "evening district",
+      "reason": "夜晚的中央大街灯火璀璨，建筑轮廓在灯光下更加立体，是拍摄夜景人像和街景的绝佳场景。独行时可以融入人群，感受热闹而不被打扰的夜晚氛围。",
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food": [
+    {
+      "id": "food_central_casual",
+      "name": "中央大街沿途小吃与餐厅",
+      "district": "Daoli",
+      "category": "casual dining",
+      "reason": "中央大街沿线聚集了众多小吃摊和东北菜馆，从马迭尔冰棍到锅包肉，选择丰富。独行时可以在逛累时随时停下来补充能量，既方便又能体验地道的街头味道。"
+    },
+    {
+      "id": "food_laodaowai_local",
+      "name": "老道外本地菜馆",
+      "district": "Daowai",
+      "category": "local cuisine",
+      "reason": "老道外是哈尔滨本地美食的聚集地，老字号餐馆遍布，主打东北家常菜。独自来此，可以点一份锅包肉、一盘地三鲜，在热闹的市井氛围中享受一顿实惠又温暖的晚餐。"
+    }
+  ]
+}

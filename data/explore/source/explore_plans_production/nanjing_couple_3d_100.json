@@ -1,0 +1,186 @@
+{
+  "id": "exp_nanjing_couple_3d_photowalk_v1",
+  "slug": "nanjing-couple-3d-photowalk",
+  "title": "梧桐树下的双人南京：三天慢镜头，把秦淮灯影装进回忆",
+  "summary": "为喜欢拍照、偏爱自然与慢节奏的情侣设计。这三天不赶景点，而是沿着梧桐大道散步、在玄武湖边等日落、在老门东的巷弄里尝甜点。夜晚属于秦淮河的灯火，每一步都有值得按下快门的瞬间。",
+  "city": {
+    "code": "nanjing",
+    "name": "Nanjing",
+    "region_name": "Jiangsu"
+  },
+  "trip_type": "couple",
+  "days": 3,
+  "budget": {
+    "level": "medium",
+    "note": "中等预算，适合在经典景点和特色餐饮间取得平衡。"
+  },
+  "pace": "slow",
+  "tags": [
+    "couple",
+    "photo",
+    "nature",
+    "romantic",
+    "old-street",
+    "river-evening",
+    "citywalk"
+  ],
+  "image_prompt": "A moody editorial travel photo of a couple walking hand in hand under a canopy of plane trees (梧桐) in Nanjing, with soft dappled sunlight filtering through the leaves. The scene is framed from a low angle, capturing the long tree-lined avenue disappearing into the distance. Warm golden hour light, shallow depth of field, film grain texture, National Geographic style.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "梧桐光影与秦淮暮色",
+      "summary": "从梧桐大道开始，用脚步丈量南京的浪漫，傍晚在老门东和秦淮河畔共享灯火。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "在梧桐大道（中山东路或陵园路）漫步，阳光透过树叶洒下斑驳光影，是情侣拍照的绝佳开场。两人可以慢慢走，互相拍下对方在树影里的模样。",
+          "poi_refs": [],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "前往老门东，在青石板巷弄里闲逛，探访藏在院落里的小店和咖啡馆。找一家能看到屋顶瓦片的甜品店，一起分享一份桂花糖芋苗。",
+          "poi_refs": [
+            "poi_laomendong"
+          ],
+          "food_refs": [
+            "food_laomendong"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "日落时分走到秦淮河畔，看两岸灯笼逐一亮起。在夫子庙区域的秦淮小吃街找一家临河的餐馆，边吃鸭血粉丝汤和盐水鸭，边看画舫划过水面。饭后沿着河岸散步，拍下灯火倒影。",
+          "poi_refs": [
+            "poi_qinhuai"
+          ],
+          "food_refs": [
+            "food_qinhuai_snack"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "城墙上的风与湖边的慢时光",
+      "summary": "登上明城墙俯瞰城市脉络，再在玄武湖边找一片草地，安静地看水光山色。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "从玄武门登上一段明城墙，两人并肩走在城砖之上，看城墙内外的新旧南京。风很大，适合拍下头发被吹起的自然瞬间。",
+          "poi_refs": [
+            "poi_city_wall"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "下城墙后沿着玄武湖散步，在湖边长椅上坐下，看游船和远处的紫金山。可以租一艘双人脚踏船，在湖心感受微风。",
+          "poi_refs": [
+            "poi_xuanwu_lake"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "在玄武湖附近找一家氛围轻松的餐厅，尝试南京特色的江浙菜。饭后可以再去湖边的步道走一圈，看城市灯火在湖面上闪烁。",
+          "poi_refs": [],
+          "food_refs": []
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "总统府的旧时光与新街口的烟火",
+      "summary": "上午在民国建筑群里感受历史，下午在新街口商圈逛吃，为旅程画上甜蜜句号。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "参观总统府，在民国时期的办公楼和花园里穿行。两人可以探讨历史，也可以在走廊和庭院里拍出复古风格的照片。",
+          "poi_refs": [
+            "poi_presidential_palace"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "前往新街口，在德基广场或周边商场逛逛，也可以钻进小巷里的独立店铺。买一些南京特色的伴手礼，比如云锦小物或雨花石。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_xinjiekou"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "在新街口找一家口碑好的淮扬菜馆，享用一顿精致的告别晚餐。饭后可以散步到附近的1912街区，在酒吧或清吧里喝一杯，回味这三天。",
+          "poi_refs": [],
+          "food_refs": []
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_qinhuai",
+      "name": "秦淮河与夫子庙",
+      "district": "秦淮",
+      "type": "historic riverside district",
+      "reason": "夜晚的秦淮河是南京最浪漫的地方之一，两岸灯火、河上画舫，情侣可以并肩散步、拍照，感受‘烟笼寒水月笼纱’的诗意。",
+      "recommended_duration_minutes": 150
+    },
+    {
+      "id": "poi_xuanwu_lake",
+      "name": "玄武湖",
+      "district": "玄武",
+      "type": "lakefront scenic area",
+      "reason": "湖面开阔，绿柳成荫，适合情侣放慢节奏。在湖边坐一坐、踩踩双人船，是自然与亲密感兼备的体验。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_city_wall",
+      "name": "南京明城墙（玄武门段）",
+      "district": "玄武",
+      "type": "historic landmark",
+      "reason": "登上城墙，两人可以俯瞰城市全景，感受历史的厚重与风的自由。城墙上的开阔视野非常适合拍出有故事感的合影。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_presidential_palace",
+      "name": "总统府",
+      "district": "玄武",
+      "type": "historical site",
+      "reason": "民国时期的建筑群，既有历史深度，又有复古的拍照场景。两人可以一起探索近代史的痕迹，在花园和走廊里留下有质感的照片。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_laomendong",
+      "name": "老门东",
+      "district": "秦淮",
+      "type": "historic street district",
+      "reason": "比夫子庙更安静、更文艺的巷弄街区，青砖黛瓦、小店咖啡馆，适合情侣慢慢逛、随时停下来拍照或吃点甜点。",
+      "recommended_duration_minutes": 120
+    }
+  ],
+  "food": [
+    {
+      "id": "food_qinhuai_snack",
+      "name": "秦淮小吃街",
+      "district": "秦淮",
+      "category": "snack street",
+      "reason": "临河而坐，品尝鸭血粉丝汤、盐水鸭等经典南京小吃，夜景与美食兼得，是情侣晚餐的理想选择。"
+    },
+    {
+      "id": "food_laomendong",
+      "name": "老门东小吃院落",
+      "district": "秦淮",
+      "category": "snack street",
+      "reason": "藏在巷弄里的江南小吃和甜品店，环境雅致，适合情侣歇脚、分享一份桂花糖芋苗或赤豆元宵。"
+    },
+    {
+      "id": "food_xinjiekou",
+      "name": "新街口美食区",
+      "district": "秦淮",
+      "category": "casual dining",
+      "reason": "南京最繁华的商圈，汇集众多口碑餐厅和特色小吃，适合最后一天购物后轻松解决午餐。"
+    }
+  ]
+}

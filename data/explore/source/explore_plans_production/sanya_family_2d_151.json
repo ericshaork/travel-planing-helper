@@ -1,0 +1,141 @@
+{
+  "id": "exp_sanya_family_2d_coastal_ease",
+  "slug": "sanya-family-2d-coastal-ease",
+  "title": "椰风湾影：三亚两日慢享亲子时光",
+  "summary": "这是一段专为家庭设计的轻松海滨假期，以亚龙湾的碧海白沙和椰梦长廊的温柔晚风为主线，穿插便捷的海鲜晚餐与亲子漫步，让大人和孩子都能在三亚的阳光下找到属于自己的节奏。",
+  "city": {
+    "code": "sanya",
+    "name": "Sanya",
+    "region_name": "Hainan"
+  },
+  "trip_type": "family",
+  "days": 2,
+  "budget": {
+    "level": "high",
+    "note": "舒适为主，减少奔波，优先选择海景餐厅和便捷交通。"
+  },
+  "pace": "slow",
+  "tags": [
+    "beach",
+    "family-friendly",
+    "sunset",
+    "slow-travel",
+    "sea-view",
+    "coastal-relaxation"
+  ],
+  "image_prompt": "National Geographic travel magazine style photo of a family walking along the Coconut Dream Corridor at golden hour, soft sea breeze, palm trees silhouetted against warm orange sky, shallow depth of field, cinematic composition, serene and joyful mood.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "亚龙湾的碧海白沙与轻松午后",
+      "summary": "上午在亚龙湾公共海岸享受亲子戏水时光，下午前往椰梦长廊漫步，傍晚在湾畔餐厅共享海鲜晚餐。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "抵达三亚后，直接前往亚龙湾公共海岸。这里沙质细腻、海面开阔，非常适合孩子玩沙踏浪。家长可在沙滩椅上放松，看孩子嬉戏，享受悠闲的上午。",
+          "poi_refs": [
+            "poi_yalong_bay"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "午后转场至椰梦长廊，这是一条宽阔的海滨步道，椰影婆娑，海风轻拂。全家人可以慢慢散步，或租一辆多人自行车骑行，感受海边的慢节奏。",
+          "poi_refs": [
+            "poi_coconut_dream"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "晚餐选在亚龙湾附近的海景餐厅，享用一顿轻松的海鲜大餐。孩子们可以尝到新鲜的虾蟹，大人则能伴着海风小酌，一家人共享温馨的夜晚。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_bayfront_dining"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "大东海的便捷与鹿回头的落日",
+      "summary": "上午在大东海区域悠闲活动，下午登上鹿回头景区俯瞰山海，傍晚在市区简单晚餐后结束行程。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "上午前往大东海区域，这里的海滩同样适合家庭，且周边餐饮、商店齐全。可以在沙滩上玩一会，再带孩子在附近逛逛，感受三亚的市井气息。",
+          "poi_refs": [
+            "poi_dadonghai"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "下午前往鹿回头景区，这里地势平缓，适合全家登高。在山顶观景台俯瞰三亚湾与城市风光，等待一场壮丽的日落，给孩子留下难忘的视觉记忆。",
+          "poi_refs": [
+            "poi_luhuitou_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "晚餐在大东海附近的休闲海鲜区解决，选择一家环境舒适的餐厅，品尝地道的海南风味。饭后可以在海边散散步，为这次家庭之旅画上圆满句号。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_dadonghai_casual"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_yalong_bay",
+      "name": "亚龙湾公共海岸",
+      "district": "亚龙湾",
+      "type": "海滩风景区",
+      "reason": "亚龙湾的沙质与海景在三亚首屈一指，开阔的沙滩和缓坡浅水区对儿童非常友好，是家庭亲水时光的理想选择。",
+      "recommended_duration_minutes": 150
+    },
+    {
+      "id": "poi_coconut_dream",
+      "name": "椰梦长廊",
+      "district": "天涯区",
+      "type": "海滨步道",
+      "reason": "椰梦长廊是一条充满热带风情的海滨步道，傍晚时分海风习习，椰树剪影与晚霞交织，适合全家人悠闲漫步或骑行，享受慢节奏的亲子陪伴。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_dadonghai",
+      "name": "大东海区域",
+      "district": "吉阳区",
+      "type": "海滩与城区",
+      "reason": "大东海是三亚最便捷的滨海区域之一，沙滩平缓、配套完善，周边餐厅和商店密集，适合家庭在轻松的氛围中度过半日时光。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_luhuitou_edge",
+      "name": "鹿回头景区",
+      "district": "吉阳区",
+      "type": "观景台风景区",
+      "reason": "鹿回头是俯瞰三亚全景和观赏日落的绝佳地点，地势平缓，适合全家登高。当夕阳将海面染成金色，孩子眼中映出的光芒便是旅途中最珍贵的画面。",
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food": [
+    {
+      "id": "food_bayfront_dining",
+      "name": "湾畔海景餐厅",
+      "district": "海棠区",
+      "category": "海景餐厅",
+      "reason": "位于海棠湾的湾畔海景餐厅，以精致的海鲜料理和浪漫的海景著称。家庭游客可以在此享受一顿不被打扰的晚餐，品尝新鲜捕捞的海味，同时欣赏夜幕下的海面波光。"
+    },
+    {
+      "id": "food_dadonghai_casual",
+      "name": "大东海休闲海鲜区",
+      "district": "吉阳区",
+      "category": "海鲜排档",
+      "reason": "大东海周边的休闲海鲜区以轻松的氛围和实惠的价格吸引家庭游客。这里提供各种海南特色海鲜，做法地道，环境亲切，适合带孩子来体验当地人的饮食日常。"
+    }
+  ]
+}

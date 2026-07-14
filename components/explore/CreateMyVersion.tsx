@@ -1,59 +1,45 @@
 "use client";
 
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 
+import type { ArchiveReaderViewModel } from "@/lib/explore/archive-reader";
 import { startExploreCreateFlow } from "@/lib/explore/flow";
-import { buildTripPlanDraftFromExplore } from "@/lib/explore/to-trip-draft";
-import type { ExploreTripContent } from "@/lib/explore/types";
 
 import { FavoriteButton } from "./FavoriteButton";
 import { GenerateTripButton } from "./GenerateTripButton";
+import { ArchiveDecorations } from "./archive/ArchiveDecorations";
 
 interface CreateMyVersionProps {
-  item: ExploreTripContent;
+  item: ArchiveReaderViewModel;
 }
 
 export function CreateMyVersion({ item }: CreateMyVersionProps) {
   const router = useRouter();
-  const draft = buildTripPlanDraftFromExplore(item);
+  const draft = item.createDraftSeed;
 
   return (
-    <article className="workspace-panel relative overflow-hidden px-4 py-4 sm:px-5 sm:py-5">
-      <div className="pointer-events-none absolute right-4 top-3 h-14 w-14 opacity-80">
-        <Image
-          src="/images/archive/decoration/archive-label-note.png"
-          alt=""
-          fill
-          sizes="56px"
-          aria-hidden
-          className="object-contain"
-        />
+    <section className="relative space-y-4 border-t border-[rgba(158,136,110,0.12)] pt-8">
+      <ArchiveDecorations variant="footer" />
+      <div className="relative z-[1] max-w-3xl">
+        <p className="workspace-kicker">CREATE</p>
+        <h2 className="text-lg font-semibold text-[var(--ink)]">用这篇档案开始创建</h2>
+        <p className="mt-2 text-sm leading-7 text-[var(--ink-muted)]">
+          会把这篇档案的城市、天数和灵感标签一起带入 Create，后面还能继续按你的预算和节奏微调。
+        </p>
       </div>
-      <div className="relative z-[1] space-y-4">
-        <div>
-          <p className="workspace-kicker">NEXT STEP</p>
-          <h2 className="text-lg font-semibold text-[var(--ink)]">
-            把这份档案带进你的旅行计划
-          </h2>
-          <p className="mt-2 text-sm leading-6 text-[var(--ink-muted)]">
-            先收藏，或者直接基于这份档案生成一版属于你的路线。
-          </p>
-        </div>
 
-        <div className="flex flex-wrap gap-3">
-          <FavoriteButton archiveId={item.slug} />
-          <GenerateTripButton
-            label="AI生成类似旅行"
-            payload={{
-              entry: "archive_create_version",
-              draft,
-            }}
-            onGenerate={() => startExploreCreateFlow(draft, router)}
-            helperText="会带着这份档案的城市、节奏和灵感进入 Create。"
-          />
-        </div>
+      <div className="relative z-[1] flex flex-wrap gap-3">
+        <GenerateTripButton
+          label="用此行程创建"
+          payload={{
+            entry: "archive_create_version",
+            draft,
+          }}
+          onGenerate={() => startExploreCreateFlow(draft, router)}
+          helperText="创建后会自动带入这篇档案的核心路线和灵感。"
+        />
+        <FavoriteButton archiveId={item.slug} />
       </div>
-    </article>
+    </section>
   );
 }

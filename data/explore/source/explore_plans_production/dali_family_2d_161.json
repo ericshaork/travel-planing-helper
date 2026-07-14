@@ -1,0 +1,166 @@
+{
+  "id": "exp_dali_family_2d_slow_nature_v1",
+  "slug": "dali-family-2d-slow-nature",
+  "title": "苍山洱海间的慢亲子时光：大理两日云影与古城日光",
+  "summary": "为带孩子的家庭设计，两天里不赶路、不折腾，用苍山的云影和古城的日光串联起一段轻松温暖的亲子旅程。从古镇石板路到湖畔微风的餐桌，每一站都留够了休息和玩耍的时间，让大人和孩子都能在大理的慢节奏里找到自己的节奏。",
+  "city": {
+    "code": "dali",
+    "name": "Dali",
+    "region_name": "Yunnan"
+  },
+  "trip_type": "family",
+  "days": 2,
+  "budget": {
+    "level": "high",
+    "note": "全程舒适型安排，住宿优选古城精品客栈，餐饮侧重湖景与本地风味，留出充裕时间享受慢节奏。"
+  },
+  "pace": "slow",
+  "tags": [
+    "亲子",
+    "自然",
+    "慢旅行",
+    "苍山洱海",
+    "古城漫步",
+    "家庭友好"
+  ],
+  "image_prompt": "A warm, soft-lit travel editorial photo of a family walking along a stone-paved lane in Dali Old Town, with the Cangshan mountains in the background under golden afternoon light. The child is holding a parent's hand, looking at a craft shop window. Shallow depth of field, earthy tones, National Geographic style.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "古城慢走，湖畔微风",
+      "summary": "第一天从古城开始，用悠闲的脚步探索石板巷弄，午后转至洱海边，在湖景餐厅享受一顿慢午餐，傍晚回到古城看灯火初上。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "从古城南门进入，沿着人民路慢慢逛，孩子会被路边的手工店和小吃摊吸引，父母可以随时停下来喝杯茶。不必走完每一条巷子，重点感受古城的石头路和苍山背景。",
+          "poi_refs": [
+            "poi_dali_old_town"
+          ],
+          "food_refs": [
+            "food_dali_old_town_casual"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "乘车前往龙龛码头附近，沿湖岸散步，看洱海波光粼粼。在湖景餐厅选个户外座位，让孩子在草地上跑一跑，大人享受一顿慢午餐。",
+          "poi_refs": [
+            "poi_longkan_wharf"
+          ],
+          "food_refs": [
+            "food_erhai_lake_dining"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "返回古城，在复兴路上走走，看晚霞渐暗、灯笼亮起。找一家安静的餐厅吃晚餐，饭后在古城广场看当地老人跳舞，孩子会觉得新鲜有趣。",
+          "poi_refs": [
+            "poi_old_town_night"
+          ],
+          "food_refs": [
+            "food_dali_old_town_casual"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "苍山脚下，田园探访",
+      "summary": "第二天上午前往苍山观景台，感受山影的壮阔，之后转到喜洲古镇，在白族老宅间散步，品尝当地小吃，午后返回古城，结束轻松的两日行程。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "开车到苍山观景台，不用爬山，在观景平台看苍山十九峰在云中若隐若现。给孩子讲讲山的故事，拍几张全家福。",
+          "poi_refs": [
+            "poi_cangshan_view"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "前往喜洲古镇，逛一逛白族老宅和田园边的石板路，在喜洲的农家餐厅吃午饭，尝尝破酥粑粑和砂锅鱼。饭后在古镇里随意走走，买点扎染小物件。",
+          "poi_refs": [
+            "poi_xizhou_edge"
+          ],
+          "food_refs": [
+            "food_xizhou_local"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "返回古城，最后在古城里吃一顿轻松的晚餐，如果孩子还有精力，可以在古城夜市买点水果或小玩具，为旅程画上甜美的句号。",
+          "poi_refs": [
+            "poi_dali_old_town"
+          ],
+          "food_refs": [
+            "food_dali_old_town_casual"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_dali_old_town",
+      "name": "大理古城漫步",
+      "district": "大理古城",
+      "type": "古镇街区",
+      "reason": "古城是家庭最舒适的基地，石板路平缓，街边小店和咖啡馆随时可以歇脚。孩子会被手工艺品和小吃吸引，父母则能感受苍山下的慢生活气息。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_longkan_wharf",
+      "name": "龙龛码头湖畔",
+      "district": "洱海",
+      "type": "湖滨步道",
+      "reason": "相比洱海其他段，龙龛码头更安静、开阔，适合家庭散步和野餐。湖光山色扑面而来，孩子可以安全地在水边看船、看鸟。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_cangshan_view",
+      "name": "苍山观景台",
+      "district": "大理西",
+      "type": "山景眺望点",
+      "reason": "不用爬山就能感受苍山的磅礴，观景台视野开阔，适合全家一起看云从山间升起，是拍照和深呼吸的好地方。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_xizhou_edge",
+      "name": "喜洲古镇边缘",
+      "district": "喜洲",
+      "type": "历史村落",
+      "reason": "喜洲比古城更安静、更有田园感，白族老宅和稻田相映成趣。孩子可以在田埂上跑一跑，父母则能品尝到最地道的喜洲粑粑。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_old_town_night",
+      "name": "古城夜巷",
+      "district": "大理古城",
+      "type": "夜间散步区",
+      "reason": "夜晚的古城灯光柔和，气温凉爽，适合全家饭后散步。看街头艺人表演、逛夜市小摊，是孩子最喜欢的放松时刻。",
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food": [
+    {
+      "id": "food_dali_old_town_casual",
+      "name": "古城家常菜与小吃街",
+      "district": "大理古城",
+      "category": "美食街区",
+      "reason": "古城内遍布适合家庭的云南菜馆和小吃摊，口味温和，孩子容易接受。用餐环境轻松，可以随时根据孩子的状态调整吃饭节奏。"
+    },
+    {
+      "id": "food_erhai_lake_dining",
+      "name": "洱海湖景轻餐",
+      "district": "洱海",
+      "category": "湖景餐厅",
+      "reason": "面朝洱海的户外餐厅，提供本地风味的轻食和鲜鱼，大人可以边吃边看湖景，孩子则可以在附近安全地玩耍。"
+    },
+    {
+      "id": "food_xizhou_local",
+      "name": "喜洲农家菜馆",
+      "district": "喜洲",
+      "category": "乡土菜馆",
+      "reason": "喜洲的农家餐厅以新鲜食材和传统做法取胜，破酥粑粑、酸辣鱼、乳扇等都是孩子会喜欢的美味。用餐环境质朴，充满田园气息。"
+    }
+  ]
+}

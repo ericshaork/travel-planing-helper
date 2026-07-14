@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import type { MouseEvent } from "react";
 
 import type { ExploreTripListItem } from "@/lib/explore/types";
 
@@ -44,7 +45,17 @@ interface ExploreCardProps {
 export function ExploreCard({
   item,
   priorityImage = false,
+  onOpenArchive,
 }: ExploreCardProps) {
+  function handleOpenArchive(event: MouseEvent<HTMLAnchorElement>) {
+    if (!onOpenArchive) {
+      return;
+    }
+
+    event.preventDefault();
+    onOpenArchive(item.slug);
+  }
+
   return (
     <article className="workspace-panel overflow-hidden px-4 py-4 sm:px-5 sm:py-5">
       <div className="relative z-[1] space-y-4">
@@ -106,6 +117,7 @@ export function ExploreCard({
         <div className="flex flex-wrap gap-3">
           <Link
             href={`/explore/${item.slug}`}
+            onClick={handleOpenArchive}
             className="inline-flex min-h-11 items-center justify-center rounded-full border border-[var(--ink)] bg-[rgba(255,253,247,0.82)] px-4 py-2 text-sm font-semibold text-[var(--ink)]"
           >
             <span className="sr-only">Open archive</span>

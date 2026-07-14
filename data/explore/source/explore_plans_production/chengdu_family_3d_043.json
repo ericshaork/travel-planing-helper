@@ -1,0 +1,160 @@
+{
+  "id": "exp_chengdu_family_3d_teahouse_lane",
+  "slug": "chengdu-family-3d-teahouse-lane",
+  "title": "与孩子一起，泡在成都的慢时光里",
+  "summary": "这是一趟专为家庭设计的慢节奏成都之旅。避开拥挤的打卡点，我们选择在宽窄巷子的茶馆里喝茶发呆，在人民公园看本地人下棋遛鸟，在锦里夜色中边逛边尝。三天里，没有赶路，只有一家人共享的安逸与烟火气。",
+  "city": {
+    "code": "chengdu",
+    "name": "Chengdu",
+    "region_name": "Sichuan"
+  },
+  "trip_type": "family",
+  "days": 3,
+  "budget": {
+    "level": "medium",
+    "note": "以舒适为导向，穿插特色茶馆和家庭友好型餐饮，整体花费适中。"
+  },
+  "pace": "slow",
+  "tags": [
+    "family",
+    "slow-travel",
+    "tea-house-vibe",
+    "historic-districts",
+    "local-culture",
+    "food"
+  ],
+  "image_prompt": "A warm, sunlit afternoon in a traditional Chengdu tea house, a family of three sitting around a wooden table, bamboo chairs, cups of tea, steam rising, children smiling, soft golden light filtering through lattice windows, relaxed atmosphere, National Geographic documentary style, shallow depth of field, muted earth tones.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "宽窄巷子里，泡一壶成都的慢",
+      "summary": "从宽窄巷子的青砖灰瓦开始，放慢脚步，在茶馆里消磨一个下午。",
+      "activities": [
+        {
+          "time_block": "afternoon",
+          "description": "抵达后先到宽窄巷子，牵着孩子的手穿行于宽巷子与窄巷子之间。挑一家有院落的茶馆坐下，点一壶盖碗茶，看孩子好奇地观察竹椅和铜壶。饿了就在巷子里的美食小铺买几份蛋烘糕和三大炮，边吃边逛。",
+          "poi_refs": [
+            "poi_kuanzhai_alley"
+          ],
+          "food_refs": [
+            "food_kuanzhai_snacks"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "夜幕降临时，转去人民公园附近的街巷，找一家本地人常去的小馆子吃晚餐。饭后在公园门口散步，感受成都人慢悠悠的夜生活节奏。",
+          "poi_refs": [
+            "poi_people_park"
+          ],
+          "food_refs": []
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "公园里看成都，锦里夜色尝百味",
+      "summary": "在人民公园度过一个悠闲的上午，下午和晚上流连于锦里的古街与美食。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "睡到自然醒，前往人民公园。在鹤鸣茶社找个临湖的位置，看老人打太极、孩子喂锦鲤。给家人点一份钟水饺或甜水面，简单又满足。",
+          "poi_refs": [
+            "poi_people_park"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "回酒店午休后，前往武侯祠区域。不赶景点，只在武侯祠外围的红墙竹影下散步，给孩子讲讲三国故事。",
+          "poi_refs": [
+            "poi_wuhou_shrine"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "傍晚走进锦里古街，灯笼亮起，满街飘香。一家人从街头尝到街尾，豆腐脑、糖油果子、钵钵鸡……每样来一小份。孩子拿着糖画，大人端着盖碗茶，在戏台前听一段川剧变脸。",
+          "poi_refs": [
+            "poi_jinli"
+          ],
+          "food_refs": [
+            "food_jinli_snacks"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "慢悠悠告别，把成都味道带回家",
+      "summary": "最后一天不安排太多，在宽窄巷子附近买些伴手礼，再吃一顿地道川菜，轻松结束旅程。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "在酒店享用早餐后，到宽窄巷子补拍几张照片，买点熊猫玩偶和花椒作为纪念。再去附近的老茶馆坐坐，享受最后的闲适。",
+          "poi_refs": [
+            "poi_kuanzhai_alley"
+          ],
+          "food_refs": [
+            "food_kuanzhai_snacks"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "找一家本地口碑好的川菜馆，点一桌不辣的菜（如宫保鸡丁、龙抄手），让孩子也吃得开心。饭后收拾行李，轻松前往机场或车站。",
+          "poi_refs": [],
+          "food_refs": []
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_kuanzhai_alley",
+      "name": "宽窄巷子",
+      "district": "青羊区",
+      "type": "historic district",
+      "reason": "宽窄巷子是成都慢生活的第一张名片。青砖黛瓦、梧桐树影，巷子里藏着老成都的院落茶馆和手工作坊。带孩子来，既能在宽巷子看民俗，也能在窄巷子寻一处安静茶馆，让大人小孩都找到自己的节奏。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_people_park",
+      "name": "人民公园",
+      "district": "青羊区",
+      "type": "city park",
+      "reason": "人民公园是成都人日常生活的缩影。鹤鸣茶社里竹椅木桌，湖面上游船点点。一家人可以在这里看本地人打牌、掏耳朵、唱川剧，孩子也不会觉得无聊——喂鱼、看鸽子，都是简单的快乐。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_jinli",
+      "name": "锦里",
+      "district": "武侯区",
+      "type": "historic commercial street",
+      "reason": "锦里的夜晚比白天更有韵味。红灯笼、木楼、戏台，仿佛走进了古装剧。对家庭来说，这里的好处是吃喝选择多、氛围热闹，孩子会被各种小玩意吸引，大人也能在茶楼里歇脚听戏。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_wuhou_shrine",
+      "name": "武侯祠",
+      "district": "武侯区",
+      "type": "cultural site",
+      "reason": "武侯祠的红墙夹道和竹林是绝佳的散步路线。不一定要进去参观，光是外围的园林就足够让孩子跑跑跳跳。如果孩子对三国故事感兴趣，可以顺便讲几个经典情节，让历史变得生动。",
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food": [
+    {
+      "id": "food_kuanzhai_snacks",
+      "name": "宽窄巷子美食街",
+      "district": "青羊区",
+      "category": "snack street",
+      "reason": "宽窄巷子里藏着许多成都特色小吃，蛋烘糕、三大炮、糖油果子……分量小巧，适合一家人分着尝。路边的小摊和店铺都很有烟火气，边走边吃就是最地道的成都体验。"
+    },
+    {
+      "id": "food_jinli_snacks",
+      "name": "锦里小吃走廊",
+      "district": "武侯区",
+      "category": "snack street",
+      "reason": "锦里的小吃街是夜游的高潮。豆腐脑、钵钵鸡、龙须糖……品种丰富，口味兼顾辣与不辣。孩子可以拿着糖画或棉花糖，大人则来一碗冰粉解腻，全家各取所需。"
+    }
+  ]
+}

@@ -1,0 +1,197 @@
+{
+  "id": "exp_nanjing_family_4d_qinhuai_walk_v1",
+  "slug": "nanjing-family-4d-qinhuai-walk",
+  "title": "秦淮灯影里，牵着孩子慢慢走",
+  "summary": "这是一段专为家庭设计的南京慢旅行。避开拥挤的打卡节奏，沿着秦淮河畔的灯火与老城南的街巷，用四天时间陪孩子看城墙、喂湖鸭、尝小吃、听历史。行程宽松，随时可以停下来歇脚，让大人和孩子都能在金陵的从容里找到自己的节奏。",
+  "city": {
+    "code": "nanjing",
+    "name": "Nanjing",
+    "region_name": "Jiangsu"
+  },
+  "trip_type": "family",
+  "days": 4,
+  "budget": {
+    "level": "high",
+    "note": "以舒适为导向，选择高品质餐饮和便利交通，减少疲劳感。"
+  },
+  "pace": "slow",
+  "tags": [
+    "亲子",
+    "秦淮河",
+    "老城南",
+    "历史人文",
+    "自然风光",
+    "城市漫步"
+  ],
+  "image_prompt": "A warm, soft-lit travel photography shot of a family walking along the Qinhuai River at dusk, with traditional lanterns glowing in the background, the Confucius Temple area visible, parents holding a child's hand, reflections on the water, shallow depth of field, cinematic composition, National Geographic style, mood of gentle discovery and togetherness.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "秦淮初印象：河畔灯影与老城味道",
+      "summary": "抵达后不赶路，从秦淮河畔开始慢慢融入南京的节奏。傍晚看灯，夜里尝鲜。",
+      "activities": [
+        {
+          "time_block": "afternoon",
+          "description": "抵达南京后前往酒店安顿，随后在夫子庙秦淮河一带散步，让孩子看看河上的画舫和两岸的灯笼，感受金陵古韵。",
+          "poi_refs": [
+            "poi_qinhuai"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "在秦淮小吃街找一家干净舒适的老店，全家一起品尝鸭血粉丝汤、小笼包等地道小吃，饭后沿着河岸慢走看夜景。",
+          "poi_refs": [
+            "poi_qinhuai"
+          ],
+          "food_refs": [
+            "food_qinhuai_snack"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "城墙漫步与湖光休憩",
+      "summary": "上午在城墙上远眺金陵，下午在玄武湖边野餐喂鱼，轻松又惬意。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "从玄武门登上南京城墙，选一段平坦好走的段落，和孩子一起俯瞰城市与湖景，讲解城墙的历史故事，走累了随时可以下来。",
+          "poi_refs": [
+            "poi_city_wall"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "在玄武湖边找一片树荫铺开野餐垫，享受自带或就近买来的点心，看湖面波光、水鸟游弋，让孩子在草地上跑一跑。",
+          "poi_refs": [
+            "poi_xuanwu_lake"
+          ],
+          "food_refs": []
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "老门东的慢时光与民国往事",
+      "summary": "走进老门东的青石小巷，感受城南旧事；午后在总统府一带了解近代历史，节奏舒缓。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "漫步老门东，逛一逛手工艺小店，给孩子买一个糖画或面人，在巷子里拍些有味道的照片。",
+          "poi_refs": [
+            "poi_laomendong"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "前往总统府，参观民国时期的建筑和花园，用孩子能理解的方式讲述历史故事，不赶时间。",
+          "poi_refs": [
+            "poi_presidential_palace"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "在老门东的庭院餐厅享用一顿家庭晚餐，尝尝精致的江南菜，饭后在灯笼下散步回酒店。",
+          "poi_refs": [
+            "poi_laomendong"
+          ],
+          "food_refs": [
+            "food_laomendong"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 4,
+      "title": "牛首山下的宁静收尾",
+      "summary": "最后一天去牛首山，在山水之间为旅程画上句号，轻松返程。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "驱车前往牛首山，在山脚下漫步，欣赏佛顶宫的建筑与自然景观，孩子可以在开阔地带奔跑嬉戏。",
+          "poi_refs": [
+            "poi_niushoushan_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "在山脚附近的餐厅用午餐，然后返回市区整理行李，结束愉快的南京亲子之旅。",
+          "poi_refs": [],
+          "food_refs": []
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_qinhuai",
+      "name": "秦淮河与夫子庙",
+      "district": "秦淮区",
+      "type": "历史河流街区",
+      "reason": "秦淮河是南京的灵魂，夜晚灯火璀璨，画舫游弋，最适合全家一起感受金陵的温柔与繁华。孩子会被河上的灯笼和热闹的街景吸引，大人则能品味六朝古都的韵味。",
+      "recommended_duration_minutes": 150
+    },
+    {
+      "id": "poi_city_wall",
+      "name": "南京城墙（玄武门段）",
+      "district": "玄武区",
+      "type": "历史遗迹",
+      "reason": "城墙是南京的脊梁，选一段平坦的路段，和孩子一起登高望远，看城市与湖水交织的风景。脚步可以放慢，随时停下来拍照或休息，是亲子家庭感受历史的好方式。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_xuanwu_lake",
+      "name": "玄武湖",
+      "district": "玄武区",
+      "type": "湖滨风景区",
+      "reason": "玄武湖是南京的天然氧吧，湖面开阔，绿树成荫。全家可以在这里野餐、喂鱼、散步，享受悠闲的午后时光，孩子可以尽情奔跑，大人也能放松身心。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_laomendong",
+      "name": "老门东",
+      "district": "秦淮区",
+      "type": "历史街区",
+      "reason": "老门东保留了南京城南的旧时风貌，青石板路、老宅院墙、手工艺小店，处处透着生活气息。带孩子逛一逛，买些传统小玩意儿，在巷弄里发现惊喜。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_presidential_palace",
+      "name": "总统府",
+      "district": "玄武区",
+      "type": "历史遗址",
+      "reason": "总统府是中国近代史的缩影，园林与建筑相映成趣。带孩子参观时，可以挑一些有趣的历史故事讲给他们听，让历史变得生动而不枯燥。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_niushoushan_edge",
+      "name": "牛首山",
+      "district": "江宁区",
+      "type": "文化景观",
+      "reason": "牛首山以佛顶宫闻名，山水壮丽，文化氛围浓厚。在山脚下漫步，感受自然与建筑的和谐，孩子可以在开阔空间自由活动，为旅程画上宁静的句号。",
+      "recommended_duration_minutes": 150
+    }
+  ],
+  "food": [
+    {
+      "id": "food_qinhuai_snack",
+      "name": "秦淮小吃街",
+      "district": "秦淮区",
+      "category": "小吃街",
+      "reason": "紧邻夫子庙，汇集了南京最地道的小吃，鸭血粉丝汤、小笼包、盐水鸭等一应俱全。环境热闹，选择多样，适合全家各取所爱，边逛边吃。"
+    },
+    {
+      "id": "food_laomendong",
+      "name": "老门东庭院餐厅",
+      "district": "秦淮区",
+      "category": "特色餐厅",
+      "reason": "老门东内的餐厅多设在传统院落中，环境雅致，菜品以精致江南菜为主。适合家庭在逛累后坐下来，享受一顿不紧不慢的晚餐，感受老城南的宁静夜晚。"
+    }
+  ]
+}

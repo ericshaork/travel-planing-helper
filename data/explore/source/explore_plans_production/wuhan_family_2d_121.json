@@ -1,0 +1,152 @@
+{
+  "id": "exp_wuhan_family_2d_riverlife_v1",
+  "slug": "wuhan-family-2d-riverlife",
+  "title": "江城慢时光：带家人走老街、看江景、吃地道",
+  "summary": "这是一次为家庭设计的武汉慢游计划，节奏舒缓，重在陪伴与共享。两天里，你们会沿着东湖散步、在黄鹤楼下听故事、漫步汉口江滩看夜景，再钻进老街巷尝一碗热干面。没有匆忙的赶路，只有一家人在一起的温暖时光。",
+  "city": {
+    "code": "wuhan",
+    "name": "Wuhan",
+    "region_name": "Hubei"
+  },
+  "trip_type": "family",
+  "days": 2,
+  "budget": {
+    "level": "high",
+    "note": "舒适优先，精选优质餐饮与便捷交通，减少步行疲劳。"
+  },
+  "pace": "slow",
+  "tags": [
+    "家庭出游",
+    "江景",
+    "老街",
+    "地道美食",
+    "慢旅行",
+    "亲子"
+  ],
+  "image_prompt": "A warm family portrait at dusk on the Hankou Riverfront, with the Yangtze River and city skyline in the background. Soft golden light, parents and a child smiling, casual clothing, editorial travel photography style, wide-angle composition, Wuhan city texture.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "东湖晨光与黄鹤楼下的历史初遇",
+      "summary": "第一天从东湖的清新晨风开始，一家人沿着湖岸慢慢走，感受自然的舒展。午后登上黄鹤楼区域，给孩子讲讲古老的故事。傍晚在户部巷的烟火气里，围坐一桌尝遍地道小吃。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "上午抵达东湖，沿着湖边步道悠闲散步。湖面开阔，绿树成荫，适合全家人放慢脚步，呼吸新鲜空气。孩子可以在草地上跑一跑，大人则享受湖光山色的宁静。",
+          "poi_refs": [
+            "poi_east_lake_edge"
+          ],
+          "food_refs": [
+            "food_east_lake_light"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "午餐后前往黄鹤楼区域，不一定要登楼，在周边广场和公园里走走就很舒服。这里视野开阔，可以远眺长江大桥，给孩子讲讲这座城市的古老传说。",
+          "poi_refs": [
+            "poi_yellow_crane_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "傍晚转入户部巷，这里是武汉最有烟火气的美食街。一家人可以慢慢逛，尝尝热干面、豆皮、面窝等地道小吃。找一家干净的店坐下，共享一顿热闹的晚餐。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_hubu_lane"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "江滩漫步与老街里的闲适午后",
+      "summary": "第二天上午在汉口江滩漫步，看江水东流，感受江城开阔。午后走进江汉路一带，在百年建筑群里悠闲逛街，大人看老建筑，孩子找新奇。傍晚在江滩边吹风，结束这趟轻松的家庭旅行。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "上午来到汉口江滩，沿着江边步道慢慢走。江面宽阔，船只往来，对岸的天际线清晰可见。找一处长椅坐下，看江水拍岸，享受一家人在一起的安静时光。",
+          "poi_refs": [
+            "poi_hankou_riverfront"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "午餐后逛江汉路，这里是武汉最热闹的商业街，但老建筑和步行街的氛围很适合家庭闲逛。孩子会被街头艺人和小玩意吸引，大人则能感受百年老街的韵味。",
+          "poi_refs": [
+            "poi_jianghan_road"
+          ],
+          "food_refs": [
+            "food_jianghan_casual"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "傍晚再次回到江滩，找一家景观好的餐厅吃晚餐。夜幕降临，两岸灯火亮起，江面倒映着流光溢彩。一家人吹着江风，为这趟旅程画上温馨的句号。",
+          "poi_refs": [
+            "poi_hankou_riverfront"
+          ],
+          "food_refs": []
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_east_lake_edge",
+      "name": "东湖湖畔漫步",
+      "district": "武昌区",
+      "type": "湖滨风景区",
+      "reason": "东湖是武汉的肺，湖面辽阔，绿道平缓，特别适合家庭慢行。清晨或傍晚，一家人沿着湖岸散步，看水鸟掠过，感受城市里难得的自然呼吸。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_yellow_crane_edge",
+      "name": "黄鹤楼公园",
+      "district": "武昌区",
+      "type": "文化地标",
+      "reason": "黄鹤楼是武汉的精神地标，即便不登楼，公园广场也足够开阔。在这里可以远眺长江大桥，给孩子讲崔颢和李白的诗句，让历史变得生动。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_hankou_riverfront",
+      "name": "汉口江滩",
+      "district": "江岸区",
+      "type": "滨江景观带",
+      "reason": "汉口江滩是江城最开阔的滨水空间，白天看江流浩荡，夜晚看灯火璀璨。一家人可以在步道上慢慢走，或坐在台阶上看船来船往，是家庭旅行中最好的放松时刻。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_jianghan_road",
+      "name": "江汉路步行街",
+      "district": "江汉区",
+      "type": "商业历史街区",
+      "reason": "江汉路是武汉百年商业的缩影，老建筑与时尚店铺并存。孩子会被街头的热闹吸引，大人则能感受城市的历史肌理，适合一家人边逛边歇。",
+      "recommended_duration_minutes": 120
+    }
+  ],
+  "food": [
+    {
+      "id": "food_hubu_lane",
+      "name": "户部巷",
+      "district": "武昌区",
+      "category": "小吃街",
+      "reason": "户部巷是武汉最有名的早餐街，但傍晚同样热闹。一家人可以在这里尝遍热干面、豆皮、面窝、糊汤粉等地道小吃，烟火气十足，孩子也会喜欢这种热闹的用餐氛围。"
+    },
+    {
+      "id": "food_east_lake_light",
+      "name": "东湖轻食",
+      "district": "武昌区",
+      "category": "轻食简餐",
+      "reason": "东湖周边有不少环境清雅的咖啡馆和简餐店，适合家庭在湖边漫步后歇脚。点几份三明治、沙拉或本地特色饮品，在绿意中恢复体力。"
+    },
+    {
+      "id": "food_jianghan_casual",
+      "name": "江汉路家常菜",
+      "district": "江汉区",
+      "category": "家常餐厅",
+      "reason": "江汉路周边藏着不少适合家庭的餐厅，菜品以湖北家常菜为主，口味温和，分量实在。逛累了找一家坐下，点上排骨藕汤、清蒸武昌鱼，一家人吃得舒心。"
+    }
+  ]
+}

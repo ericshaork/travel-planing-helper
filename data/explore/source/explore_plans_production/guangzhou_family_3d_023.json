@@ -1,0 +1,188 @@
+{
+  "id": "exp_guangzhou_family_3d_arcade_tea_v1",
+  "slug": "guangzhou-family-3d-arcade-tea",
+  "title": "骑楼下的慢时光：带娃在广州老街里叹早茶、看江景",
+  "summary": "为带娃家庭设计的广州慢旅行，不赶路、不折腾，每天只专注一两个老城区。从荔湾骑楼街巷到沙面绿荫，从陈家祠的屋檐到珠江边的晚风，穿插着茶楼点心与街头糖水，让大人和孩子都能在岭南日常里找到自己的节奏。",
+  "city": {
+    "code": "guangzhou",
+    "name": "Guangzhou",
+    "region_name": "Guangdong"
+  },
+  "trip_type": "family",
+  "days": 3,
+  "budget": {
+    "level": "medium",
+    "note": "适中预算，兼顾舒适用餐和轻松交通，适合家庭出行。"
+  },
+  "pace": "slow",
+  "tags": [
+    "family-friendly",
+    "lingnan-culture",
+    "old-street",
+    "riverside-evening",
+    "cantonese-food",
+    "slow-travel"
+  ],
+  "image_prompt": "National Geographic travel magazine style photo of a family walking under arcade buildings in Guangzhou's Liwan district, soft morning light, warm tones, child holding a steamed bun, shallow depth of field, authentic street atmosphere, cinematic composition.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "荔湾骑楼与沙面绿荫",
+      "summary": "从永庆坊的岭南街巷开始，漫步至沙面岛感受殖民建筑与绿荫，午后在陈家祠欣赏精致木雕，傍晚在珠江边吹风看灯火。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "从永庆坊的骑楼街巷开始，孩子会被彩色满洲窗和铜人雕塑吸引，大人则可以慢慢逛文创小店。找一家老字号茶楼坐下，一盅两件，教孩子如何用筷子夹虾饺。",
+          "poi_refs": [
+            "poi_yongqingfang"
+          ],
+          "food_refs": [
+            "food_liwan_pockets"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "穿过人民桥来到沙面岛，绿树成荫，路面平坦，适合推婴儿车散步。看老建筑、喂鸽子，在树荫长椅上歇脚。之后打车前往陈家祠，带孩子欣赏屋顶上的灰塑和木雕故事，停留约1小时。",
+          "poi_refs": [
+            "poi_shamian",
+            "poi_chen_clan"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "前往珠江边的广州塔区域，找一家河畔餐厅吃晚饭，饭后在江边步道散步，看广州塔灯光变幻。孩子可以在广场上奔跑，大人享受江风。",
+          "poi_refs": [
+            "poi_canton_tower_riverfront"
+          ],
+          "food_refs": [
+            "food_pearl_river"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "北京路古今叠层与老城味道",
+      "summary": "上午逛北京路，看千年古道遗址，中午在西华路找地道小馆，下午在人民公园或附近绿地休息，傍晚再回北京路感受夜市热闹。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "北京路步行街是孩子认识城市历史的好地方——脚下的玻璃地板露出唐宋路面。边逛边尝路边小吃，买一个手工糖画给孩子。",
+          "poi_refs": [
+            "poi_beijing_road"
+          ],
+          "food_refs": [
+            "food_xihua_road"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "中午在西华路附近找一家老面馆，点一碗云吞面和一份牛杂，孩子也能找到爱吃的肠粉。饭后在人民公园的榕树下散步，看广州老人下棋、遛鸟，感受悠闲日常。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_xihua_road"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "返回北京路，夜晚灯光亮起，更显热闹。在美食街买一份钵仔糕或双皮奶，边走边吃，孩子累了就找长椅坐下看街头艺人表演。",
+          "poi_refs": [
+            "poi_beijing_road"
+          ],
+          "food_refs": []
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "陈家祠再访与悠闲收尾",
+      "summary": "上午再访陈家祠（若前一天未尽兴），或在荔湾湖公园划船，中午在泮塘路吃地道小吃，下午收拾行李，轻松结束旅程。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "如果前一天在陈家祠没看够，今天可以再花一小时细细欣赏。或者去附近的荔湾湖公园，租一艘脚踏船，和孩子在湖上吹风。",
+          "poi_refs": [
+            "poi_chen_clan"
+          ],
+          "food_refs": [
+            "food_liwan_pockets"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "在泮塘路找一家老字号吃艇仔粥和拉肠，作为在广州的最后一顿午餐。饭后在街上买些鸡仔饼做手信，然后回酒店取行李，结束行程。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_liwan_pockets"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_yongqingfang",
+      "name": "永庆坊",
+      "district": "荔湾区",
+      "type": "historic district",
+      "reason": "骑楼、麻石路、满洲窗——这里是广州旧城生活的微缩博物馆。孩子会被彩色玻璃和铜人雕塑吸引，大人则能在文创店里找到岭南手信。漫步其间，仿佛走进一部粤语老电影。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_shamian",
+      "name": "沙面岛",
+      "district": "荔湾区",
+      "type": "historic island district",
+      "reason": "绿树成荫、路面平坦，是家庭散步的理想之地。殖民时期的老建筑在树影中静立，孩子可以喂鸽子、跑跳，大人则在长椅上享受片刻宁静。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_chen_clan",
+      "name": "陈家祠",
+      "district": "荔湾区",
+      "type": "cultural landmark",
+      "reason": "岭南建筑的集大成者，屋顶上的灰塑、木雕、砖雕讲述着古老故事。孩子会好奇那些彩色的屋脊装饰，大人则惊叹于匠人的精湛技艺。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_beijing_road",
+      "name": "北京路步行街",
+      "district": "越秀区",
+      "type": "commercial street",
+      "reason": "脚下的玻璃地板露出千年古道遗址，孩子可以直观感受历史层叠。两旁店铺林立，小吃摊飘香，是体验广州现代与古典交织的绝佳地点。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_canton_tower_riverfront",
+      "name": "广州塔江畔",
+      "district": "海珠区",
+      "type": "riverfront landmark zone",
+      "reason": "傍晚时分，江风习习，广州塔灯光渐亮。孩子可以在广场上奔跑，大人则倚栏眺望，感受广州现代都市的温柔一面。",
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food": [
+    {
+      "id": "food_liwan_pockets",
+      "name": "泮塘路老字号小吃",
+      "district": "荔湾区",
+      "category": "local snack street",
+      "reason": "这里聚集了多家地道老店，艇仔粥、拉肠、马蹄糕都是孩子会喜欢的味道。坐在街边小凳上，看着蒸笼冒出的热气，就是最地道的广州早餐场景。"
+    },
+    {
+      "id": "food_xihua_road",
+      "name": "西华路美食街",
+      "district": "越秀区",
+      "category": "food street",
+      "reason": "本地人常去的美食街，云吞面、牛杂、煲仔饭样样经典。价格亲民，分量实在，适合一家三口各点所爱，分享一桌烟火气。"
+    },
+    {
+      "id": "food_pearl_river",
+      "name": "珠江边河畔餐厅",
+      "district": "海珠区",
+      "category": "riverfront dining",
+      "reason": "在江边找一家环境舒适的粤菜餐厅，点一份白切鸡、一碟菜心，孩子可以边吃边看江上的游船。饭后在步道上散步，是家庭旅行中最惬意的收尾。"
+    }
+  ]
+}

@@ -1,0 +1,205 @@
+{
+  "id": "exp_xian_family_3d_tang_night_huimin_v1",
+  "slug": "xian-family-3d-tang-night-huimin",
+  "title": "与家人同游长安：在唐风夜色与回坊烟火中穿行",
+  "summary": "这趟为家庭设计的西安之旅，节奏舒缓，兼顾历史厚度与开放空间。一家人白天登上古城墙骑行吹风，傍晚在大雁塔广场看音乐喷泉，夜里钻进回民街的烟火小巷分享一碗羊肉泡馍。没有博物馆的疲惫感，只有属于长安的从容与温暖。",
+  "city": {
+    "code": "xian",
+    "name": "Xi'an",
+    "region_name": "Shaanxi"
+  },
+  "trip_type": "family",
+  "days": 3,
+  "budget": {
+    "level": "medium",
+    "note": "每天安排一个主要历史景点，搭配开放式空间和轻松餐饮，整体花费适中。"
+  },
+  "pace": "balanced",
+  "tags": [
+    "family-friendly",
+    "history",
+    "ancient-capital",
+    "local-food",
+    "nature"
+  ],
+  "image_prompt": "A warm family travel photo at dusk on the Xi'an City Wall, with the ancient city wall stretching into the distance, soft golden sunlight, a family of three or four walking or cycling, the Bell Tower faintly visible in the background, editorial style, natural light, National Geographic travel magazine aesthetic.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "城墙之上与回坊烟火",
+      "summary": "上午登上古城墙，一家人骑行或散步，俯瞰老城格局；傍晚深入回民街，在喧闹的食巷里品尝西安最地道的街头味道。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "从南门登西安古城墙，租一辆双人自行车，带着孩子在宽阔的城墙上慢慢骑行，感受古城轮廓与城市呼吸。城墙平坦开阔，适合家庭停留拍照，累了就在敌楼边歇脚。",
+          "poi_refs": [
+            "poi_city_wall"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "前往钟鼓楼广场，在周边老城街巷里散步，看看鼓楼上的巨鼓和钟楼的古韵。广场上有鸽子，孩子们可以喂食嬉戏。之后在钟楼附近的老城区餐厅简单午餐。",
+          "poi_refs": [
+            "poi_bell_tower_area"
+          ],
+          "food_refs": [
+            "food_bell_tower_dining"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "钻进回民街的烟火深处，一家人围坐在小摊前，分享一碗热气腾腾的羊肉泡馍，再尝尝镜糕、灌汤包子、烤串。巷子里灯火通明，人声鼎沸，是孩子和大人都能兴奋起来的夜晚。",
+          "poi_refs": [
+            "poi_muslim_quarter"
+          ],
+          "food_refs": [
+            "food_muslim_quarter"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "雁塔晨钟与园林闲步",
+      "summary": "上午探访小雁塔，在清静的园林里听晨钟；下午逛永兴坊，在仿古街区里品尝关中风味小吃，节奏轻松，适合全家慢慢走。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "前往小雁塔，这里比大雁塔更清幽，塔身古朴，园林雅致。带孩子看唐代古塔，在荐福寺庭院里散步，听一听“雁塔晨钟”的悠扬回响。",
+          "poi_refs": [
+            "poi_small_yanta"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "转到永兴坊，这里汇聚了陕西各地的民俗小吃，布局规整，适合家庭边逛边吃。看一场皮影戏或老手艺表演，孩子们会很喜欢。",
+          "poi_refs": [
+            "poi_yongxingfang"
+          ],
+          "food_refs": [
+            "food_yongxingfang"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "回到钟鼓楼附近，找一家环境舒适的餐厅享用晚餐，饭后在灯光下的钟楼广场散步，看夜景，结束轻松的一天。",
+          "poi_refs": [
+            "poi_bell_tower_area"
+          ],
+          "food_refs": [
+            "food_bell_tower_dining"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "大雁塔下的唐风余韵",
+      "summary": "上午在大雁塔广场感受唐代佛教文化，看喷泉与古塔相映；下午自由活动，可以再逛回民街补些美食，或是在老城区的茶馆歇脚。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "来到大雁塔南广场，仰望这座唐代标志性建筑，在开阔的广场上散步，欣赏玄奘铜像。如果时间合适，还能看到音乐喷泉表演，水柱与古塔相映成趣。",
+          "poi_refs": [
+            "poi_big_wild_goose"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "可以再次前往回民街，把前两天没尝够的小吃补上，或者就在钟楼附近的老街区里找一家茶馆，喝杯陕南绿茶，让孩子在广场上跑一跑。",
+          "poi_refs": [
+            "poi_muslim_quarter"
+          ],
+          "food_refs": [
+            "food_muslim_quarter"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "最后一晚，可以在永兴坊或回民街选一家热闹的餐馆，全家人围坐，点几道陕西家常菜，为这次长安之旅画上温暖的句号。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_yongxingfang",
+            "food_muslim_quarter"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_city_wall",
+      "name": "西安古城墙",
+      "district": "碑林区",
+      "type": "historic landmark",
+      "reason": "城墙是西安最从容的历史载体。一家人可以骑行或散步其上，俯瞰老城街巷与新城轮廓，开阔平坦，适合孩子奔跑。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_bell_tower_area",
+      "name": "钟鼓楼广场",
+      "district": "莲湖区",
+      "type": "historic city core",
+      "reason": "这里是老城的心脏，广场开阔，鸽子成群，孩子们可以尽情奔跑。钟楼与鼓楼相对而立，夜景尤为动人。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_muslim_quarter",
+      "name": "回民街",
+      "district": "莲湖区",
+      "type": "historic food district",
+      "reason": "一条充满烟火气的巷子，羊肉泡馍、镜糕、灌汤包……一家人可以边走边吃，感受西安最鲜活的市井气息。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_big_wild_goose",
+      "name": "大雁塔广场",
+      "district": "雁塔区",
+      "type": "cultural landmark",
+      "reason": "唐代佛教文化的象征，广场开阔，音乐喷泉与古塔相映，是家庭拍照和悠闲散步的好去处。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_small_yanta",
+      "name": "小雁塔",
+      "district": "碑林区",
+      "type": "historic garden landmark",
+      "reason": "比大雁塔更清静，园林雅致，古塔沧桑。适合一家人慢慢走，听晨钟，感受长安的静谧时光。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_yongxingfang",
+      "name": "永兴坊",
+      "district": "新城区",
+      "type": "food and folk-culture district",
+      "reason": "陕西民俗小吃汇集地，布局规整，还有皮影戏等表演，孩子和大人都能尽兴。",
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food": [
+    {
+      "id": "food_muslim_quarter",
+      "name": "回民街美食巷",
+      "district": "莲湖区",
+      "category": "snack street",
+      "reason": "西安最浓烈的街头美食体验，一家人可以分食羊肉泡馍、烤串、镜糕，热闹的氛围让晚餐变成一场家庭欢聚。"
+    },
+    {
+      "id": "food_yongxingfang",
+      "name": "永兴坊小吃集群",
+      "district": "新城区",
+      "category": "food court",
+      "reason": "陕西各地小吃集中呈现，环境整洁有序，适合带孩子的家庭轻松品尝多种风味，还有民俗表演助兴。"
+    },
+    {
+      "id": "food_bell_tower_dining",
+      "name": "钟楼老城餐饮区",
+      "district": "莲湖区",
+      "category": "local restaurant area",
+      "reason": "紧邻钟鼓楼，餐厅选择丰富，既有地道陕菜也有适合孩子的清淡选择，夜景迷人，适合家庭晚餐。"
+    }
+  ]
+}

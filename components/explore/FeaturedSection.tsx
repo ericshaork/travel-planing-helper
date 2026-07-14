@@ -1,15 +1,66 @@
 "use client";
 
 import Link from "next/link";
+import type { MouseEvent } from "react";
+import { useEffect, useState } from "react";
 
-import { getMockExploreList } from "@/lib/explore/mock-archives";
+import { fetchExploreList } from "@/lib/explore/client";
+import type { ExploreTripListItem } from "@/lib/explore/types";
+import { getFeaturedImageCandidates } from "@/lib/explore/image-resolver";
 
 import { ResolvedImage } from "./ResolvedImage";
 
-const archiveWallCards = getMockExploreList();
+interface FeaturedSectionProps {
+  onOpenArchive?: (archiveId: string) => void;
+}
 
-export function FeaturedSection() {
+export function FeaturedSection({ onOpenArchive }: FeaturedSectionProps) {
+  const [archiveWallCards, setArchiveWallCards] = useState<ExploreTripListItem[]>([]);
+
+  useEffect(() => {
+    let active = true;
+
+    async function load() {
+      try {
+        const items = await fetchExploreList({
+          featured: true,
+          limit: 9,
+        });
+
+        if (active) {
+          setArchiveWallCards(items);
+        }
+      } catch {
+        if (active) {
+          setArchiveWallCards([]);
+        }
+      }
+    }
+
+    void load();
+
+    return () => {
+      active = false;
+    };
+  }, []);
+
   const [heroCard, ...gridCards] = archiveWallCards;
+
+  function handleOpenArchive(
+    event: MouseEvent<HTMLAnchorElement>,
+    archiveId: string,
+  ) {
+    if (!onOpenArchive) {
+      return;
+    }
+
+    event.preventDefault();
+    onOpenArchive(archiveId);
+  }
+
+  if (!heroCard) {
+    return null;
+  }
 
   return (
     <section className="workspace-panel px-4 py-4 sm:px-5 sm:py-5">
@@ -20,7 +71,7 @@ export function FeaturedSection() {
             先翻开一张封面，再继续往下逛
           </h2>
           <p className="mt-2 text-sm leading-6 text-[var(--ink-muted)]">
-            这一组档案会把不同城市的旅行节奏铺开。先看精选主视觉，再继续浏览下面的旅行档案墙。
+            这一组档案会把不同城市的旅行节奏铺开。现在优先展示 v1.8 标准化档案库里的中国内容。
           </p>
         </div>
 
@@ -28,7 +79,7 @@ export function FeaturedSection() {
           <div className="grid gap-0 lg:grid-cols-[1.25fr_0.75fr]">
             <div className="relative min-h-[26rem] overflow-hidden">
               <ResolvedImage
-                sources={[heroCard.coverImageUrl ?? "/images/explore/cities/xian-city-card.png"]}
+                sources={getFeaturedImageCandidates(heroCard)}
                 alt={heroCard.city}
                 sizes="(min-width: 1024px) 56vw, 100vw"
                 wrapperClassName="absolute inset-0 bg-[var(--paper)]"
@@ -73,6 +124,7 @@ export function FeaturedSection() {
               <div className="mt-6">
                 <Link
                   href={`/explore/${heroCard.slug}`}
+                  onClick={(event) => handleOpenArchive(event, heroCard.slug)}
                   className="inline-flex min-h-11 items-center justify-center rounded-full border border-[var(--ink)] bg-[rgba(255,253,247,0.92)] px-5 py-2.5 text-sm font-semibold text-[var(--ink)]"
                 >
                   阅读档案 →
@@ -90,7 +142,7 @@ export function FeaturedSection() {
             >
               <div className="relative aspect-[16/11] overflow-hidden">
                 <ResolvedImage
-                  sources={[item.coverImageUrl ?? "/images/explore/cities/xian-city-card.png"]}
+                  sources={getFeaturedImageCandidates(item)}
                   alt={item.city}
                   sizes="(min-width: 1024px) 22vw, 100vw"
                   wrapperClassName="absolute inset-0 bg-[var(--paper)]"
@@ -124,6 +176,7 @@ export function FeaturedSection() {
                 <div className="pt-1">
                   <Link
                     href={`/explore/${item.slug}`}
+                    onClick={(event) => handleOpenArchive(event, item.slug)}
                     className="inline-flex min-h-10 items-center justify-center rounded-full border border-[var(--ink)] bg-[rgba(255,253,247,0.92)] px-4 py-2 text-sm font-semibold text-[var(--ink)]"
                   >
                     阅读档案 →

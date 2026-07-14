@@ -1,0 +1,183 @@
+{
+  "id": "exp_guangzhou_student_3d_river_arcade_v1",
+  "slug": "guangzhou-student-3d-river-arcade",
+  "title": "珠江晚风与骑楼烟火：广州青春漫游三日",
+  "summary": "这是一趟属于学生时代的广州旅行——白天钻进西关的骑楼老街，傍晚沿着珠江散步，夜里在小吃摊前排队。用最低的预算，吃最地道的味道，逛最鲜活的街区。节奏不紧不慢，刚好够感受这座城市的烟火气与市井浪漫。",
+  "city": {
+    "code": "guangzhou",
+    "name": "Guangzhou",
+    "region_name": "Guangdong"
+  },
+  "trip_type": "student",
+  "days": 3,
+  "budget": {
+    "level": "low",
+    "note": "全程以地铁+步行为主，餐饮聚焦街头小吃和老字号面店，住宿建议选越秀或荔湾的青旅或经济酒店。"
+  },
+  "pace": "balanced",
+  "tags": [
+    "cantonese-food",
+    "old-street",
+    "riverside-evening",
+    "citywalk",
+    "budget-friendly",
+    "local-life"
+  ],
+  "image_prompt": "A cinematic street-level shot at dusk in Guangzhou's Liwan district: a narrow lane lined with old arcade buildings, warm neon signs, a few students walking and holding snacks, soft evening light filtering through banyan trees, shallow depth of field, vibrant yet nostalgic mood, editorial travel photography style.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "骑楼初探与西关味道",
+      "summary": "从荔湾的骑楼老街开始，在永庆坊的巷弄里感受岭南建筑的细节，中午钻进西华路吃地道小吃，傍晚到北京路感受新旧交织的商业活力。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "从地铁站步行进入永庆坊，在骑楼间穿行，看看麻石路、趟栊门和满洲窗，感受老广州的生活肌理。这里适合慢慢走，随时停下来拍照或钻进一家小铺。",
+          "poi_refs": [
+            "poi_yongqingfang"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "转去西华路觅食，这条街是老广的日常食堂，肠粉、云吞面、糖水铺子一家挨一家，随便挑一家排队多的都不会踩雷。吃饱后坐地铁到北京路，在千年古道遗址上逛街，看看现代商圈与历史层叠的奇妙共存。",
+          "poi_refs": [
+            "poi_beijing_road"
+          ],
+          "food_refs": [
+            "food_xihua_road"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "在北京路附近找一家老字号甜品店，点一碗双皮奶或杨枝甘露，然后散步回地铁站，顺路看看夜晚的骑楼灯光。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_liwan_pockets"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "陈家祠的雕梁与沙面的树影",
+      "summary": "上午去陈家祠看岭南建筑最精致的木雕和灰塑，下午到沙面岛在榕树下散步，感受殖民时期建筑群的安静氛围，晚上转去珠江新城看广州塔的灯光。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "坐地铁到陈家祠，花一个半小时细看这座百年祠堂的砖雕、陶塑和壁画，是了解岭南文化最直观的一站。门票对学生友好，记得带学生证。",
+          "poi_refs": [
+            "poi_chen_clan"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "从陈家祠步行或坐一两站地铁到沙面岛，这里没有车流喧嚣，只有老建筑和参天古树。适合在树荫下长椅坐一会儿，看看拍婚纱照的新人和遛狗的居民，节奏完全慢下来。",
+          "poi_refs": [
+            "poi_shamian"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "坐地铁到珠江新城，沿花城广场走到广州塔脚下，看小蛮腰亮灯。然后沿着珠江边散步，对岸的CBD灯光倒映在水面，是广州最现代的一面。不需要花钱登塔，江边的免费视角就很好。",
+          "poi_refs": [
+            "poi_canton_tower_riverfront",
+            "poi_zhujiang_night_walk"
+          ],
+          "food_refs": []
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "老街早茶与最后的骑楼时光",
+      "summary": "最后一天以一顿地道的广式早茶开始，再回到永庆坊附近逛没走完的小巷，买些手信，午后带着满满的烟火气离开。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "在荔湾找一家本地人光顾的老茶楼，点一盅两件，虾饺、烧卖、凤爪，体验广州早茶文化。人均三四十就能吃得很满足。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_liwan_pockets"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "回到永庆坊周边，把昨天没钻的巷子再走一遍，或者去粤剧艺术博物馆的外围看看（免费区域）。在骑楼下的杂货铺里挑几张明信片，给这次旅行收个尾。",
+          "poi_refs": [
+            "poi_yongqingfang"
+          ],
+          "food_refs": []
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_yongqingfang",
+      "name": "永庆坊",
+      "district": "荔湾区",
+      "type": "historic district",
+      "reason": "永庆坊是广州骑楼风貌保存得最生动的街区之一，麻石路、满洲窗、趟栊门随处可见，适合学生党用脚步丈量老城肌理，拍照、闲逛、吃小吃都很方便。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_shamian",
+      "name": "沙面岛",
+      "district": "荔湾区",
+      "type": "historic island district",
+      "reason": "沙面是广州最安静的散步区之一，古树成荫，欧式建筑群错落有致，适合在热闹的行程中插入一段放空时间，感受广州的另一面。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_beijing_road",
+      "name": "北京路步行街",
+      "district": "越秀区",
+      "type": "commercial street",
+      "reason": "北京路是广州最老牌的商业街，脚下是千年古道遗址，头顶是霓虹招牌，逛街的同时能触摸到城市的历史层叠，对学生来说既有消费乐趣又有文化看点。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_canton_tower_riverfront",
+      "name": "广州塔江畔",
+      "district": "海珠区",
+      "type": "riverfront landmark zone",
+      "reason": "广州塔是城市地标，但最佳打开方式不是登塔，而是沿着江边散步，看塔身灯光倒映在珠江上，免费又浪漫，傍晚时分尤其出片。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_chen_clan",
+      "name": "陈家祠",
+      "district": "荔湾区",
+      "type": "cultural landmark",
+      "reason": "陈家祠是岭南建筑工艺的集大成者，木雕、石雕、砖雕、陶塑、灰塑应有尽有，学生凭学生证可享优惠票价，是了解广府文化性价比最高的去处。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_zhujiang_night_walk",
+      "name": "珠江夜游步道",
+      "district": "天河区",
+      "type": "evening waterfront district",
+      "reason": "从花城广场到广州塔的江边步道是广州最经典的夜间散步路线，两岸灯光璀璨，江风习习，适合学生党在一天暴走后放松聊天。",
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food": [
+    {
+      "id": "food_xihua_road",
+      "name": "西华路美食街",
+      "district": "越秀区",
+      "category": "snack street",
+      "reason": "西华路是广州老城区的美食集中地，肠粉、云吞面、牛杂、糖水样样俱全，价格亲民，学生党可以花很少的钱吃遍地道广式小吃。"
+    },
+    {
+      "id": "food_liwan_pockets",
+      "name": "荔湾老字号小吃",
+      "district": "荔湾区",
+      "category": "snack street",
+      "reason": "永庆坊周边藏着许多老字号小吃店，从肠粉到双皮奶，从云吞面到煲仔饭，人均二三十就能吃得心满意足，是体验广州日常烟火气的最佳选择。"
+    }
+  ]
+}

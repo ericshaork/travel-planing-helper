@@ -1,0 +1,174 @@
+{
+  "id": "exp_dunhuang_solo_2d_citywalk_culture_photo_v1",
+  "slug": "dunhuang-solo-2d-citywalk-culture-photo",
+  "title": "戈壁星空与壁画时光：一个人的敦煌漫游",
+  "summary": "这是一趟为独行旅人设计的敦煌之旅。你将在莫高窟的壁画前感受千年时光，在鸣沙山的日落中与沙漠对话，在星空下独享戈壁的辽阔。节奏从容，既有文化深度，也有光影带来的摄影灵感。",
+  "city": {
+    "code": "dunhuang",
+    "name": "Dunhuang",
+    "region_name": "Gansu"
+  },
+  "trip_type": "solo",
+  "days": 2,
+  "budget": {
+    "level": "medium",
+    "note": "合理覆盖核心景点门票与当地餐饮，无需奢侈，也无需拮据。"
+  },
+  "pace": "balanced",
+  "tags": [
+    "silk-road",
+    "desert-scenery",
+    "sunset",
+    "cultural-landmarks",
+    "photo-friendly",
+    "theme-led-travel",
+    "citywalk",
+    "solo-travel"
+  ],
+  "image_prompt": "National Geographic travel magazine style photo of a solo traveler standing on a sand dune at sunset, with the crescent moon lake in the background, warm golden light, long shadows, desert texture, Dunhuang atmosphere, wide-angle composition, cinematic mood.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "壁画前凝望，沙漠中独行",
+      "summary": "上午沉浸在莫高窟的艺术海洋，下午在鸣沙山感受沙漠的呼吸，傍晚登上沙丘等待一场属于一个人的日落。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "清晨抵达莫高窟，避开人流高峰。在洞窟中静静欣赏壁画与彩塑，感受丝绸之路上的信仰与艺术。独自漫步于窟区，让思绪穿越千年。",
+          "poi_refs": [
+            "poi_mogao_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "午餐后前往鸣沙山月牙泉。脱掉鞋履，赤脚踏沙，攀上沙丘俯瞰月牙泉的碧蓝。坐在沙脊上，看光影在沙面上流动，用相机记录沙漠的纹理与曲线。",
+          "poi_refs": [
+            "poi_mingsha_edge"
+          ],
+          "food_refs": [
+            "food_desert_route"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "在鸣沙山附近寻找一处僻静的沙漠观景点，等待日落。戈壁的晚霞将天空染成橙红与紫蓝，沙丘的轮廓愈发柔美。入夜后，抬头便是璀璨星河，独享这份寂静与壮阔。",
+          "poi_refs": [
+            "poi_desert_evening"
+          ],
+          "food_refs": [
+            "food_shazhou_night"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "从博物馆到老城，慢读敦煌",
+      "summary": "上午用博物馆补全丝路画卷，下午在老城街巷里漫无目的地闲逛，夜晚在沙洲夜市用味蕾结束旅程。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "前往敦煌博物馆，通过文物与史料更深入地理解莫高窟和丝绸之路的历史脉络。展厅内光线柔和，适合独自细细品味每一件展品背后的故事。",
+          "poi_refs": [
+            "poi_museum_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "从博物馆步行至老城街区，进行一场随性的城市漫步。没有固定路线，遇见感兴趣的巷子就拐进去，看看当地人的生活日常，拍拍充满西北风情的街景。",
+          "poi_refs": [
+            "poi_town_walk"
+          ],
+          "food_refs": [
+            "food_town_center"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "夜幕降临后，前往沙洲夜市。在熙攘的人群中寻找地道西北小吃——烤羊肉串、杏皮水、驴肉黄面。坐在小摊前，感受敦煌夜晚的烟火气，为这次独行画上圆满句号。",
+          "poi_refs": [
+            "poi_shazhou_market"
+          ],
+          "food_refs": [
+            "food_shazhou_night"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_mogao_edge",
+      "name": "莫高窟景区",
+      "district": "敦煌",
+      "type": "cultural landmark",
+      "reason": "莫高窟是敦煌的灵魂所在。对于独行旅人而言，这里不仅是艺术殿堂，更是一个能让人静心与历史对话的空间。避开人群，在壁画前驻足，感受信仰与美穿越时空的力量。",
+      "recommended_duration_minutes": 150
+    },
+    {
+      "id": "poi_mingsha_edge",
+      "name": "鸣沙山月牙泉",
+      "district": "敦煌",
+      "type": "desert scenic area",
+      "reason": "沙漠与清泉的奇景是敦煌最震撼的自然画面。攀上沙丘，俯瞰月牙泉，感受风与沙的流动。这里的光影变化丰富，是摄影爱好者的天堂，也是独行时与自己相处的绝佳场所。",
+      "recommended_duration_minutes": 150
+    },
+    {
+      "id": "poi_desert_evening",
+      "name": "沙漠日落观景点",
+      "district": "敦煌",
+      "type": "sunset scenic area",
+      "reason": "戈壁的日落与星空是独行旅人最珍贵的体验。远离城市光污染，在沙丘上静静等待太阳沉入地平线，而后繁星渐显。这一刻，天地之间只有你和无垠的宇宙。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_museum_edge",
+      "name": "敦煌博物馆",
+      "district": "敦煌",
+      "type": "museum area",
+      "reason": "博物馆是理解敦煌文化的钥匙。丰富的文物与清晰的展陈，为莫高窟之行提供了珍贵的背景知识。独自漫步其中，可以按自己的节奏深入学习，是文化之旅不可或缺的一环。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_town_walk",
+      "name": "老城街区",
+      "district": "敦煌",
+      "type": "town district",
+      "reason": "离开景点，走进老城，才能触摸到敦煌真实的脉搏。街巷里藏着西北小城的日常：晒太阳的老人、飘香的烤馕店、斑驳的土墙。适合漫无目的地闲逛，用相机记录不经意的瞬间。",
+      "recommended_duration_minutes": 75
+    },
+    {
+      "id": "poi_shazhou_market",
+      "name": "沙洲夜市",
+      "district": "敦煌",
+      "type": "food and evening district",
+      "reason": "沙洲夜市是敦煌夜晚最热闹的地方。灯火通明，人声鼎沸，各种西北小吃琳琅满目。独行旅人可以在这里放松身心，融入当地人的夜生活，用一顿丰盛的晚餐犒劳自己。",
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food": [
+    {
+      "id": "food_shazhou_night",
+      "name": "沙洲夜市美食区",
+      "district": "敦煌",
+      "category": "snack street",
+      "reason": "集中了敦煌最地道的西北小吃，烤羊肉串、杏皮水、驴肉黄面等应有尽有。夜晚灯火辉煌，气氛热烈，适合独行旅人一边品尝一边感受市井活力。"
+    },
+    {
+      "id": "food_town_center",
+      "name": "市中心便餐区",
+      "district": "敦煌",
+      "category": "casual dining",
+      "reason": "位于老城中心，提供各类西北面食和家常菜，价格实惠，上菜快。是博物馆与城市漫步之间理想的午餐选择，简单不折腾。"
+    },
+    {
+      "id": "food_desert_route",
+      "name": "沙漠沿线简餐点",
+      "district": "敦煌",
+      "category": "route-side dining",
+      "reason": "从莫高窟前往鸣沙山途中，选择一家路边的简餐店，吃一碗热乎的牛肉面或拌面，补充体力。环境朴素，但味道实在，是沙漠行程中实用的补给站。"
+    }
+  ]
+}

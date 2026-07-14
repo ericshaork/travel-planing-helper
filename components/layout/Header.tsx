@@ -76,7 +76,7 @@ export function Header({
     }
 
     return (
-      <header className="mx-auto flex w-full max-w-[86rem] items-start justify-between gap-6 px-4 py-5 sm:px-8 sm:py-7">
+      <header className="mx-auto flex w-full max-w-[clamp(1280px,88vw,1680px)] items-start justify-between gap-6 px-4 py-5 sm:px-6 sm:py-7 lg:px-8">
         <Link
           href="/"
           className="inline-flex shrink-0 rounded-[20px] border border-[rgba(193,181,158,0.18)] bg-[rgba(255,249,239,0.32)] px-2.5 py-1.5 text-[var(--ink)] shadow-[0_4px_10px_rgba(65,58,45,0.025)] backdrop-blur-[5px] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--clay)]"

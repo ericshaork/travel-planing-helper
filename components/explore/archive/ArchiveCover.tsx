@@ -1,102 +1,97 @@
-import type { ExploreTripContent } from "@/lib/explore/types";
+"use client";
 
-import { getArchiveAssetBundle } from "../../../lib/explore/image-resolver";
+import { useRouter } from "next/navigation";
 
+import type { ArchiveReaderViewModel } from "@/lib/explore/archive-reader";
+import {
+  cleanDisplayText,
+  formatDaysText,
+  formatTripTypeLabel,
+} from "@/lib/explore/archive-display";
+import { startExploreCreateFlow } from "@/lib/explore/flow";
+import { getArchiveHeroCoverSlot } from "@/lib/explore/image-resolver";
+
+import { FavoriteButton } from "../FavoriteButton";
+import { GenerateTripButton } from "../GenerateTripButton";
 import { ResolvedImage } from "../ResolvedImage";
-import { ArchivePaperPanel } from "./ArchivePaperPanel";
+import { ArchiveTagsPanel } from "./ArchiveTagsPanel";
 
 interface ArchiveCoverProps {
-  item: ExploreTripContent;
+  item: ArchiveReaderViewModel;
+}
+
+function buildMetaTags(item: ArchiveReaderViewModel) {
+  return [
+    cleanDisplayText(item.city, "目的地"),
+    formatDaysText(item.days),
+    cleanDisplayText(item.theme),
+    formatTripTypeLabel(item.tripType),
+    cleanDisplayText(item.pace),
+  ].filter(Boolean);
 }
 
 export function ArchiveCover({ item }: ArchiveCoverProps) {
-  const assets = getArchiveAssetBundle(item);
+  const router = useRouter();
+  const heroCoverSlot = getArchiveHeroCoverSlot(item);
+  const metaTags = buildMetaTags(item);
 
   return (
-    <ArchivePaperPanel
-      paper="warm"
-      bookmark="active"
-      decoration={item.featured ? "stamp" : "label"}
-      className="px-4 py-4 sm:px-5 sm:py-5"
-      contentClassName="space-y-4"
-    >
-      <div className="space-y-3">
-        <div className="grid gap-3 sm:grid-cols-[1.4fr_1fr]">
-          <ResolvedImage
-            sources={[assets.template]}
-            alt="Archive template"
-            sizes="(min-width: 640px) 50vw, 100vw"
-            priority
-            wrapperClassName="relative aspect-[16/10] overflow-hidden rounded-[20px] border border-[var(--line)] bg-[var(--paper)]"
-            imageClassName="object-cover"
-          />
-          <div className="grid gap-3">
-            <div className="relative">
-              <ResolvedImage
-                sources={assets.coverCandidates}
-                alt={`${item.title} archive cover`}
-                sizes="(min-width: 640px) 24vw, 100vw"
-                wrapperClassName="relative aspect-[4/3] overflow-hidden rounded-[20px] border border-[var(--line)] bg-[var(--paper)]"
-                imageClassName="object-cover"
-              />
-              <ResolvedImage
-                sources={[
-                  "/images/archive/frame/archive-photo-frame-01.png",
-                  "/images/archive/frame/archive-photo-frame-02.png",
-                ]}
-                alt=""
-                sizes="(min-width: 640px) 24vw, 100vw"
-                wrapperClassName="pointer-events-none absolute inset-0 overflow-hidden rounded-[20px]"
-                imageClassName="object-contain opacity-90"
-              />
+    <section className="relative overflow-hidden py-6">
+      <div className="grid gap-7 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-start">
+        <div className="max-w-[38rem] space-y-4">
+          <p className="workspace-kicker">TRAVEL ARCHIVE</p>
+          <div className="space-y-3">
+            <h1 className="text-[2rem] font-semibold tracking-[-0.05em] text-[var(--ink)] sm:text-[2.65rem]">
+              {cleanDisplayText(item.title, "旅行档案")}
+            </h1>
+            <div className="flex flex-wrap gap-2 text-xs font-medium text-[var(--ink-muted)]">
+              {metaTags.map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded-full border border-[rgba(158,136,110,0.16)] bg-[rgba(255,252,246,0.34)] px-2.5 py-1"
+                >
+                  {tag}
+                </span>
+              ))}
             </div>
-            <ResolvedImage
-              sources={[assets.paper, assets.frame]}
-              alt="Archive paper texture"
-              sizes="(min-width: 640px) 24vw, 100vw"
-              wrapperClassName="relative aspect-[4/3] overflow-hidden rounded-[20px] border border-[var(--line)] bg-[var(--paper)]"
-              imageClassName="object-cover"
+            <p className="max-w-3xl text-[15px] leading-7 text-[var(--ink-muted)]">
+              {cleanDisplayText(item.summary, "这份路线正在整理中。")}
+            </p>
+            {item.featuredReason ? (
+              <p className="max-w-3xl text-sm leading-7 text-[var(--ink-muted)]">
+                {cleanDisplayText(item.featuredReason)}
+              </p>
+            ) : null}
+          </div>
+
+          <ArchiveTagsPanel item={item} compact />
+
+          <div className="flex flex-wrap items-start gap-3 pt-1">
+            <GenerateTripButton
+              label="用此行程创建"
+              payload={{
+                entry: "archive_cover_create",
+                draft: item.createDraftSeed,
+              }}
+              onGenerate={() => startExploreCreateFlow(item.createDraftSeed, router)}
             />
+            <FavoriteButton archiveId={item.slug} />
           </div>
         </div>
 
-        <p className="workspace-kicker">TRAVEL ARCHIVE</p>
-        <h1 className="text-2xl font-semibold tracking-[-0.04em] text-[var(--ink)] sm:text-4xl">
-          {item.title}
-        </h1>
-        <p className="text-sm leading-6 text-[var(--ink-muted)] sm:text-[15px]">
-          {item.summary}
-        </p>
-        <div className="flex flex-wrap gap-2 text-xs font-medium text-[var(--ink-muted)]">
-          <span className="rounded-full border border-[var(--line)] bg-[rgb(255_255_255_/_0.8)] px-2.5 py-1">
-            {item.city}
-          </span>
-          <span className="rounded-full border border-[var(--line)] bg-[rgb(255_255_255_/_0.8)] px-2.5 py-1">
-            {item.days} 天
-          </span>
-          <span className="rounded-full border border-[var(--line)] bg-[rgb(255_255_255_/_0.8)] px-2.5 py-1">
-            {item.tripType}
-          </span>
-          {item.theme ? (
-            <span className="rounded-full border border-dashed border-[var(--line)] px-2.5 py-1">
-              {item.theme}
-            </span>
-          ) : null}
-          {item.tags.slice(0, 3).map((tag) => (
-            <span
-              key={tag}
-              className="rounded-full border border-dashed border-[var(--line)] px-2.5 py-1"
-            >
-              #{tag}
-            </span>
-          ))}
-          {item.creator ? (
-            <span className="rounded-full border border-dashed border-[var(--line)] px-2.5 py-1">
-              {item.creator}
-            </span>
-          ) : null}
+        <div className="relative justify-self-start lg:justify-self-end">
+          <div className="pointer-events-none absolute -left-3 top-2 h-7 w-16 -rotate-[8deg] bg-[rgba(214,191,152,0.48)] blur-[0.3px]" />
+          <div className="pointer-events-none absolute left-6 top-[-0.4rem] h-5 w-20 rotate-[3deg] rounded-full bg-[rgba(255,245,214,0.72)]" />
+          <ResolvedImage
+            sources={heroCoverSlot.sources}
+            alt={`${item.title} 档案封面`}
+            sizes="(min-width: 1024px) 320px, 72vw"
+            priority
+            wrapperClassName="relative aspect-[16/10] w-[17rem] rotate-[1.6deg] overflow-hidden rounded-[10px] border border-[rgba(158,136,110,0.12)] bg-[rgba(255,250,241,0.18)] shadow-[0_14px_28px_rgba(88,76,57,0.08)] sm:w-[19rem] lg:w-[20rem]"
+            imageClassName="object-cover"
+          />
         </div>
       </div>
-    </ArchivePaperPanel>
+    </section>
   );
 }

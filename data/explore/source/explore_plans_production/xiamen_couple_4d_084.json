@@ -1,0 +1,200 @@
+{
+  "id": "exp_xiamen_couple_4d_gulangyu_romance_v1",
+  "slug": "xiamen-couple-4d-gulangyu-romance",
+  "title": "鼓浪屿光影与海风骑行：写给两个人的厦门慢情书",
+  "summary": "这是一段为情侣设计的厦门慢节奏旅程，以鼓浪屿的光影记忆、环岛路的海风骑行和夜色里的城市约会为主线。你们会在老街上牵手尝小吃，在海边并肩看日落，在港湾咖啡馆里消磨午后——每一帧都是属于两个人的温柔画面。",
+  "city": {
+    "code": "xiamen",
+    "name": "Xiamen",
+    "region_name": "Fujian"
+  },
+  "trip_type": "couple",
+  "days": 4,
+  "budget": {
+    "level": "medium",
+    "note": "适度升级的用餐和体验，兼顾氛围与舒适感。"
+  },
+  "pace": "slow",
+  "tags": [
+    "romantic",
+    "coastal-city",
+    "slow-travel",
+    "photography",
+    "sunset",
+    "walkable"
+  ],
+  "image_prompt": "A couple walking hand-in-hand along a coastal promenade at golden hour, with Gulangyu Island in the background, soft sea breeze, warm light, editorial travel magazine style, shallow depth of field, romantic mood.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "初见厦门·老街烟火与港湾黄昏",
+      "summary": "抵达后从中山路开始感受厦门的老城温度，傍晚在沙坡尾的港口边找一家小馆，看渔船灯火渐亮。",
+      "activities": [
+        {
+          "time_block": "afternoon",
+          "description": "从中山路步行街开始你们的厦门故事。骑楼下的老字号小吃店、手作小铺和南洋风情建筑，让两个人边逛边吃，轻松融入这座城市的悠闲节奏。",
+          "poi_refs": [
+            "poi_zhongshan_road"
+          ],
+          "food_refs": [
+            "food_zhongshan_snack"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "转场到沙坡尾，这里是厦门最有年轻气息的港湾。找一家看得见渔船的咖啡馆或小酒馆，在暮色里碰杯，看对岸的灯火一点点亮起来。",
+          "poi_refs": [
+            "poi_shapowei"
+          ],
+          "food_refs": [
+            "food_shapowei_harbor"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "海风骑行·环岛路的二人时光",
+      "summary": "租两辆单车沿着环岛路慢慢骑，累了就在海边坐下，看潮水和云朵。傍晚在白鹭洲享受属于情侣的夜色。",
+      "activities": [
+        {
+          "time_block": "afternoon",
+          "description": "从环岛路海滨步道开始，租一辆双人自行车或各自骑行。海风拂面，一侧是沙滩和浪花，一侧是椰林和草地。随时停下来拍照、踩水、或者就在长椅上靠着看海。",
+          "poi_refs": [
+            "poi_huandao_road"
+          ],
+          "food_refs": [
+            "food_seafront_dining"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "骑行终点来到白鹭洲公园，这里是厦门本地情侣偏爱的晚间去处。湖面倒映着城市灯光，牵手散步、看音乐喷泉，感受这座城市的浪漫底色。",
+          "poi_refs": [
+            "poi_bailuzhou_evening"
+          ],
+          "food_refs": []
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "文艺漫步·南普陀与大学路的慢调",
+      "summary": "上午去南普陀寺祈福，午后在厦大周边的小巷里闲逛，找一家安静的咖啡馆消磨时间。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "南普陀寺香火袅袅，和爱人一起在古刹里走一走，感受片刻的宁静。寺后的五老峰可以俯瞰厦门，是拍合影的好地方。",
+          "poi_refs": [
+            "poi_nanputuo_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "从南普陀寺出来，沿着厦大周边的大学路、顶澳仔路散步。这里遍布文艺小店和独立咖啡馆，选一家有院子的坐一下午，聊聊天、拍拍照，享受慢下来的二人世界。",
+          "poi_refs": [],
+          "food_refs": []
+        }
+      ]
+    },
+    {
+      "day": 4,
+      "title": "鼓浪屿印象·最后的岛屿眺望",
+      "summary": "最后一天不去鼓浪屿岛，而是从厦门一侧的最佳观景点远眺它的轮廓，把那份朦胧的美留在记忆里。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "来到鼓浪屿观景平台，隔着鹭江眺望对岸的万国建筑和日光岩。晨光中的岛屿安静而浪漫，是合照和自拍的绝佳背景。",
+          "poi_refs": [
+            "poi_gulangyu_view"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "最后半天回到中山路，补上没尝够的小吃，买些伴手礼。在骑楼下慢慢走，为这趟旅行画一个悠闲的句号。",
+          "poi_refs": [
+            "poi_zhongshan_road"
+          ],
+          "food_refs": [
+            "food_zhongshan_snack"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_zhongshan_road",
+      "name": "中山路步行街",
+      "district": "思明区",
+      "type": "历史文化商业街",
+      "reason": "作为厦门最经典的老城街道，中山路是情侣们牵手逛吃的第一站。南洋骑楼、老字号小吃和热闹的市井气息，让每一次散步都充满发现感。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_shapowei",
+      "name": "沙坡尾",
+      "district": "思明区",
+      "type": "港口创意街区",
+      "reason": "沙坡尾是厦门最有文艺气息的港湾角落。旧渔船、创意小店和临海咖啡馆交织出独特的城市肌理，特别适合情侣在黄昏时分来这里感受海风与慢时光。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_huandao_road",
+      "name": "环岛路海滨步道",
+      "district": "思明区",
+      "type": "沿海景观道",
+      "reason": "厦门最美的海岸线，骑行或散步都极为惬意。开阔的海景、柔软的沙滩和不时出现的礁石，为两个人的旅途提供了无数个停下来看海的理由。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_nanputuo_edge",
+      "name": "南普陀寺与厦大周边",
+      "district": "思明区",
+      "type": "文化校园区",
+      "reason": "古刹的宁静与校园的青春气息在这里奇妙融合。一起祈福、一起在寺后山坡俯瞰城市，再溜达到厦大周边的小巷里探咖啡店，是慢节奏约会日的完美选择。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_bailuzhou_evening",
+      "name": "白鹭洲夜景区",
+      "district": "思明区",
+      "type": "城市滨水夜景区",
+      "reason": "本地情侣钟爱的晚间去处，湖面倒映着璀璨的城市灯火。音乐喷泉和散步道营造出轻松浪漫的氛围，是结束一天行程的温柔句点。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_gulangyu_view",
+      "name": "鼓浪屿观景平台",
+      "district": "思明区",
+      "type": "海岸观景点",
+      "reason": "不必登岛也能感受鼓浪屿的美——从这个观景平台望去，对岸的万国建筑和日光岩在晨光或暮色中如同一幅油画。这里是情侣合影的绝佳位置，也是把厦门印象装进心里的地方。",
+      "recommended_duration_minutes": 75
+    }
+  ],
+  "food": [
+    {
+      "id": "food_zhongshan_snack",
+      "name": "中山路小吃带",
+      "district": "思明区",
+      "category": "小吃街",
+      "reason": "厦门地道小吃的集中地，从沙茶面、海蛎煎到花生汤，两个人可以一路分享各种味道，边走边吃本身就是一种浪漫。"
+    },
+    {
+      "id": "food_shapowei_harbor",
+      "name": "沙坡尾港湾食区",
+      "district": "思明区",
+      "category": "港口休闲餐饮",
+      "reason": "聚集了创意咖啡馆和轻海鲜小馆，适合情侣在傍晚时分选一家看得见渔船的座位，边吃边等日落，氛围感满分。"
+    },
+    {
+      "id": "food_seafront_dining",
+      "name": "环岛路海滨轻食站",
+      "district": "思明区",
+      "category": "滨海简餐",
+      "reason": "沿着环岛路散布着一些面向大海的轻食小摊和饮品店，骑行间隙停下来喝一杯鲜榨果汁或吃一份海蛎煎，海风就是最好的调味料。"
+    }
+  ]
+}

@@ -1,141 +1,214 @@
 "use client";
 
-import { getInspirationCardImageCandidates } from "@/lib/explore/image-resolver";
-import type { InspirationFacetKey, InspirationSelection } from "@/lib/explore/types";
+import { useMemo, useState } from "react";
 
-import { ResolvedImage } from "./ResolvedImage";
+import { fetchExploreList } from "@/lib/explore/client";
+import { filterV18ExploreVisibleArchives } from "@/lib/explore/display";
+import {
+  clearInspirationSelection,
+  getInspirationSearchKeywords,
+  getInspirationSelectionCount,
+  getSelectedInspirationLabels,
+  INSPIRATION_CATEGORY_CONFIG,
+  toggleInspirationSelection,
+} from "@/lib/explore/inspiration";
+import type { ExploreTripListItem, InspirationSelection } from "@/lib/explore/types";
 
-const categoryCards: Array<{
-  key: InspirationFacetKey;
-  title: string;
-  description: string;
-  items: string[];
-  accent: string;
-}> = [
-  {
-    key: "location",
-    title: "地点",
-    description: "从风景和城市气质开始挑一段旅程。",
-    items: ["海边城市", "古城", "山野", "城市漫步"],
-    accent:
-      "border-[rgba(205,221,198,0.92)] bg-[rgba(233,242,228,0.68)] text-[var(--sage-deep)]",
-  },
-  {
-    key: "food",
-    title: "美食",
-    description: "让味道先带路，路线自然会长出来。",
-    items: ["火锅", "海鲜", "甜品", "夜市"],
-    accent:
-      "border-[rgba(244,221,209,0.96)] bg-[rgba(247,228,216,0.74)] text-[var(--clay-deep)]",
-  },
-  {
-    key: "season",
-    title: "季节",
-    description: "用气候和氛围决定这次旅行的底色。",
-    items: ["春游", "夏日海岛", "秋季赏景", "冬季旅行"],
-    accent:
-      "border-[rgba(225,220,234,0.96)] bg-[rgba(232,229,238,0.72)] text-[#5f5b70]",
-  },
-  {
-    key: "companion",
-    title: "同行",
-    description: "不同旅伴，会把城市走成不同版本。",
-    items: ["情侣", "朋友", "家庭", "独自旅行"],
-    accent:
-      "border-[rgba(226,221,205,0.92)] bg-[rgba(241,235,221,0.72)] text-[#756248]",
-  },
-];
-
-const selectionMap: Record<InspirationFacetKey, string[]> = {
-  location: ["beach", "old-town", "mountain", "city"],
-  food: ["hotpot", "seafood", "dessert", "snack"],
-  season: ["spring", "summer", "autumn", "winter"],
-  companion: ["couple", "friends", "family", "solo"],
-};
+import { ExploreCard } from "./ExploreCard";
+import { InspirationActionBar } from "./InspirationActionBar";
+import { InspirationCategory } from "./InspirationCategory";
+import { InspirationTagPanel } from "./InspirationTagPanel";
 
 interface InspirationDeckProps {
   selection: InspirationSelection;
   onSelectionChange: (selection: InspirationSelection) => void;
   onGenerate?: () => void | Promise<void>;
+  onOpenArchive?: (archiveId: string) => void;
+}
+
+function buildSearchableText(item: ExploreTripListItem) {
+  return [
+    item.city,
+    item.cityCode,
+    item.title,
+    item.summary,
+    item.theme,
+    item.tripType,
+    item.pace,
+    ...(item.tags ?? []),
+    ...(item.terrainTags ?? []),
+    ...(item.cuisineTags ?? []),
+    ...(item.seasonTags ?? []),
+    ...(item.companionTags ?? []),
+    ...(item.highlights ?? []),
+  ]
+    .filter((value): value is string => typeof value === "string" && value.length > 0)
+    .join(" ")
+    .toLowerCase();
+}
+
+function rankArchiveMatches(
+  items: ExploreTripListItem[],
+  selection: InspirationSelection,
+) {
+  const keywords = getInspirationSearchKeywords(selection).map((keyword) =>
+    keyword.trim().toLowerCase(),
+  );
+
+  if (keywords.length === 0) {
+    return [];
+  }
+
+  return items
+    .map((item) => {
+      const haystack = buildSearchableText(item);
+      const score = keywords.reduce(
+        (count, keyword) => (haystack.includes(keyword) ? count + 1 : count),
+        0,
+      );
+
+      return { item, score };
+    })
+    .filter((entry) => entry.score > 0)
+    .sort((left, right) => right.score - left.score)
+    .map((entry) => entry.item);
 }
 
 export function InspirationDeck({
   selection,
   onSelectionChange,
   onGenerate,
+  onOpenArchive,
 }: InspirationDeckProps) {
-  function activateCategory(key: InspirationFacetKey) {
-    onSelectionChange({
-      ...selection,
-      [key]: selectionMap[key],
-    });
+  const [searchingArchives, setSearchingArchives] = useState(false);
+  const [archiveResults, setArchiveResults] = useState<ExploreTripListItem[]>([]);
+  const [hasSearchedArchives, setHasSearchedArchives] = useState(false);
+  const [searchError, setSearchError] = useState("");
+  const selectedLabels = useMemo(
+    () => getSelectedInspirationLabels(selection),
+    [selection],
+  );
+  const totalSelections = getInspirationSelectionCount(selection);
+
+  function handleToggleOption(key: keyof InspirationSelection, label: string) {
+    onSelectionChange(toggleInspirationSelection(selection, key, label));
+  }
+
+  function handleClearSelection() {
+    onSelectionChange(clearInspirationSelection());
+    setArchiveResults([]);
+    setHasSearchedArchives(false);
+    setSearchError("");
+  }
+
+  async function handleSearchArchives() {
+    if (totalSelections === 0) {
+      return;
+    }
+
+    setSearchingArchives(true);
+    setSearchError("");
+    setHasSearchedArchives(true);
+
+    try {
+      const items = await fetchExploreList({ limit: 60 });
+      const visibleItems = filterV18ExploreVisibleArchives(items);
+      const rankedItems = rankArchiveMatches(visibleItems, selection).slice(0, 12);
+      setArchiveResults(rankedItems);
+    } catch (error) {
+      setArchiveResults([]);
+      setSearchError(
+        error instanceof Error && error.message.trim()
+          ? error.message
+          : "暂时没把相关档案找出来，可以先直接用这些灵感创建一版。",
+      );
+    } finally {
+      setSearchingArchives(false);
+    }
   }
 
   return (
-    <div className="grid gap-3 sm:grid-cols-2">
-      {categoryCards.map((card) => {
-        const isSelected = (selection[card.key]?.length ?? 0) > 0;
-
-        return (
-          <button
-            key={card.key}
-            type="button"
-            onClick={() => activateCategory(card.key)}
-            className={`overflow-hidden rounded-[24px] border text-left transition-transform hover:-translate-y-0.5 ${card.accent} ${
-              isSelected ? "shadow-[0_14px_28px_rgba(72,58,39,0.08)]" : ""
-            }`}
+    <div className="space-y-2.5">
+      <div className="space-y-1.5 rounded-[24px] bg-[rgba(255,250,241,0.38)] px-2 py-2">
+        {INSPIRATION_CATEGORY_CONFIG.map((category) => (
+          <div
+            key={category.key}
+            className="grid gap-3 border-b border-[rgba(214,205,187,0.48)] py-1.5 last:border-b-0 xl:grid-cols-[18.25rem_minmax(0,1fr)] xl:items-center"
           >
-            <div className="relative aspect-[16/10] overflow-hidden">
-              <ResolvedImage
-                sources={getInspirationCardImageCandidates(card.key)}
-                alt={`${card.title} inspiration`}
-                sizes="(min-width: 1024px) 28vw, 100vw"
-                wrapperClassName="absolute inset-0 bg-[var(--paper)]"
-                imageClassName="object-cover"
+            <div className="xl:w-[18.25rem]">
+              <InspirationCategory
+                title={category.title}
+                description={category.description}
+                categoryKey={category.key}
+                previewItems={category.options.slice(0, 4).map((option) => option.label)}
+                selectedCount={selection[category.key]?.length ?? 0}
               />
-              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(22,24,20,0.02)_0%,rgba(22,24,20,0.12)_52%,rgba(22,24,20,0.42)_100%)]" />
-              <div className="absolute inset-x-4 bottom-4 text-[var(--paper-bright)]">
-                <p className="text-[11px] font-semibold tracking-[0.16em] text-[rgba(255,253,247,0.82)]">
-                  {card.title}
-                </p>
-                <p className="mt-2 text-sm leading-6 text-[rgba(255,253,247,0.92)]">
-                  {card.description}
-                </p>
-              </div>
             </div>
 
-            <div className="space-y-3 px-4 py-4">
-              <div className="flex flex-wrap gap-2">
-                {card.items.map((item) => (
-                  <span
-                    key={item}
-                    className="rounded-full border border-[rgba(255,253,247,0.5)] bg-[rgba(255,253,247,0.7)] px-3 py-1 text-xs text-current/85"
-                  >
-                    {item}
-                  </span>
+            <div className="min-w-0 flex-1">
+              <InspirationTagPanel
+                title={category.title}
+                categoryKey={category.key}
+                options={category.options.map((option) => option.label)}
+                selected={selection[category.key] ?? []}
+                onToggle={(label) => handleToggleOption(category.key, label)}
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <InspirationActionBar
+        selectedLabels={selectedLabels}
+        searching={searchingArchives}
+        onSearchArchives={handleSearchArchives}
+        onCreateTrip={() => void onGenerate?.()}
+        onClear={handleClearSelection}
+      />
+
+      {hasSearchedArchives ? (
+        <section className="workspace-panel px-4 py-4 sm:px-5 sm:py-5">
+          <div className="relative z-[1] space-y-4">
+            <div className="max-w-2xl">
+              <p className="workspace-kicker">RELATED ARCHIVES</p>
+              <h3 className="mt-2 text-xl font-semibold tracking-[-0.03em] text-[var(--ink)]">
+                先从这些现有档案看看
+              </h3>
+              <p className="mt-2 text-sm leading-6 text-[var(--ink-muted)]">
+                第一版先按已选灵感在现有档案池里做轻量匹配，不额外引入新的搜索系统。
+              </p>
+            </div>
+
+            {searchError ? (
+              <p className="text-sm leading-6 text-[var(--clay-deep)]">{searchError}</p>
+            ) : null}
+
+            {!searchError && archiveResults.length === 0 ? (
+              <div className="rounded-[18px] border border-dashed border-[var(--line)] px-4 py-4">
+                <p className="text-base font-semibold text-[var(--ink)]">
+                  这组灵感暂时还没在现有档案里撞到特别近的结果
+                </p>
+                <p className="mt-2 text-sm leading-6 text-[var(--ink-muted)]">
+                  可以直接用这些灵感创建一版计划，或者再补几个更具体的标签试试。
+                </p>
+              </div>
+            ) : null}
+
+            {!searchError && archiveResults.length > 0 ? (
+              <div className="grid gap-4 lg:grid-cols-3">
+                {archiveResults.map((item, index) => (
+                  <ExploreCard
+                    key={item.id}
+                    item={item}
+                    priorityImage={index === 0}
+                    onOpenArchive={onOpenArchive}
+                  />
                 ))}
               </div>
-
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-semibold text-current/80">
-                  {isSelected ? "已加入当前灵感" : "浏览灵感"}
-                </span>
-                <span className="text-sm text-current/75">进入</span>
-              </div>
-            </div>
-          </button>
-        );
-      })}
-
-      <div className="sm:col-span-2">
-        <button
-          type="button"
-          onClick={() => void onGenerate?.()}
-          className="inline-flex min-h-11 items-center justify-center rounded-full border border-[var(--ink)] bg-[rgba(255,253,247,0.92)] px-5 py-2.5 text-sm font-semibold text-[var(--ink)]"
-        >
-          按这些灵感生成旅行
-        </button>
-      </div>
+            ) : null}
+          </div>
+        </section>
+      ) : null}
     </div>
   );
 }

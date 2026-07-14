@@ -1,0 +1,166 @@
+{
+  "id": "exp_hangzhou_couple_2d_slow_tea_lake_v1",
+  "slug": "hangzhou-couple-2d-slow-tea-lake",
+  "title": "茶山晨雾与湖岸晚灯：写给两个人的杭州慢章",
+  "summary": "这是一段为情侣设计的杭州慢时光。两天里，你们将漫步在龙井茶山的晨光中，沿着西子湖岸追逐光影变化，在河坊街的烟火气里分享小吃，最后在湖滨的夜色中并肩看灯火倒影。不赶路，不打卡，只让江南的温柔悄悄落在两人之间。",
+  "city": {
+    "code": "hangzhou",
+    "name": "Hangzhou",
+    "region_name": "Zhejiang"
+  },
+  "trip_type": "couple",
+  "days": 2,
+  "budget": {
+    "level": "medium",
+    "note": "适中预算，兼顾湖景茶舍体验与一顿有氛围的晚餐，不追求奢华但注重品质感。"
+  },
+  "pace": "balanced",
+  "tags": [
+    "romantic",
+    "lake-view",
+    "tea-culture",
+    "slow-travel",
+    "photo-friendly",
+    "citywalk"
+  ],
+  "image_prompt": "A romantic editorial travel photo of a couple walking hand in hand along West Lake at golden hour, with soft reflections on the water, willow trees framing the shot, and distant hills in soft focus. Warm amber light, cinematic depth, shot from behind with a slight side angle, evoking calm intimacy and timelessness. National Geographic travel magazine style.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "茶山晨光与老街烟火",
+      "summary": "清晨从龙井茶山开始，在绿意中牵手漫步；午后转入河坊街，在旧街巷里品尝小吃；傍晚回到湖滨，看夕阳把湖面染成金色。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "从住处出发，乘坐公交或打车前往龙井茶村边缘。沿着茶山小道慢慢走，呼吸带着茶香的空气，两人在茶田间拍照，感受杭州最安静的清晨。可以在村里的茶摊歇脚，喝一杯明前龙井。",
+          "poi_refs": [
+            "poi_longjing_area"
+          ],
+          "food_refs": [
+            "food_longjing_tea"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "转往河坊街，这里保留着老杭州的市井气息。两人并肩逛过一家家传统手工艺铺子，尝一尝定胜糕、葱包烩等小食，在街边茶馆歇脚，看人来人往。",
+          "poi_refs": [
+            "poi_hefang_street"
+          ],
+          "food_refs": [
+            "food_hefang_snacks"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "日落前走到湖滨，沿着湖岸线散步。灯光渐亮，湖面倒映着城市的温柔。找一家湖边的轻食餐厅坐下，边吃边看夜景，为第一天画上安静甜蜜的句号。",
+          "poi_refs": [
+            "poi_lakeside_evening"
+          ],
+          "food_refs": [
+            "food_westlake_dining"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "竹林深处与湖岸慢行",
+      "summary": "上午深入云栖竹径，在幽静的绿色隧道里独享二人世界；下午回到西湖北线，沿湖走走停停，用镜头记录彼此眼中的风景。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "清晨前往云栖竹径，这里游客稀少，只有风吹竹叶的沙沙声。两人沿着石板路深入，阳光透过竹隙洒下光斑，是绝佳的合影背景。走累了就在路边的石凳上坐一会儿，什么也不说，也很好。",
+          "poi_refs": [
+            "poi_yunqi_path"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "从云栖返回市区，来到西湖北岸的白堤或苏堤区域。不设定目的地，沿湖随意漫步，看到喜欢的角度就停下来拍照。可以租一艘手划船，在湖心漂荡片刻，从水上视角看雷峰塔和保俶塔。",
+          "poi_refs": [
+            "poi_west_lake"
+          ],
+          "food_refs": [
+            "food_westlake_dining"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "最后一晚，再次回到湖滨，但这次选一家有露台的茶馆或酒馆，两人对坐，聊一聊这两天里最喜欢的瞬间。灯光在水面碎成星点，杭州用最温柔的方式送别你们。",
+          "poi_refs": [
+            "poi_lakeside_evening"
+          ],
+          "food_refs": [
+            "food_westlake_dining"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_west_lake",
+      "name": "西子湖岸漫步",
+      "district": "西湖区",
+      "type": "湖滨风景区",
+      "reason": "西湖是杭州的灵魂，也是情侣约会的天然画布。无论是白堤的杨柳依依，还是苏堤的六桥烟雨，每一步都是风景。两人可以沿着湖岸慢慢走，随时停下来拍照，或者租一艘小船漂在湖心，让时间变慢。",
+      "recommended_duration_minutes": 150
+    },
+    {
+      "id": "poi_longjing_area",
+      "name": "龙井茶村边缘",
+      "district": "西湖区",
+      "type": "茶田景观",
+      "reason": "龙井茶山是杭州最安静的情书。清晨的茶田笼罩在薄雾中，两人沿着田埂小路穿行，空气中飘着茶叶的清香。这里没有游客的喧嚣，只有绿色和彼此，是情侣独享的私密时光。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_hefang_street",
+      "name": "河坊街",
+      "district": "上城区",
+      "type": "历史街区",
+      "reason": "河坊街是杭州最有烟火气的老街。青石板路两旁是传统店铺和茶楼，两人可以一边逛一边分享刚出炉的定胜糕，在街角的茶馆歇脚，看街上的手艺人做糖画。市井的热闹反而让两个人的世界更紧密。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_yunqi_path",
+      "name": "云栖竹径",
+      "district": "西湖区",
+      "type": "自然步道",
+      "reason": "云栖竹径是杭州最幽静的绿色隧道。密密匝匝的竹子遮住了天光，只留下一条蜿蜒的石板路。两人并肩走在其中，耳边只有风声和鸟鸣，偶尔停下拍一张逆光剪影，仿佛走进了武侠电影的场景。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_lakeside_evening",
+      "name": "湖滨晚灯漫步",
+      "district": "上城区",
+      "type": "夜间滨水区",
+      "reason": "夜晚的湖滨是杭州最浪漫的角落。灯光倒映在湖面上，随着水波轻轻晃动。两人沿着湖岸走，手牵手，不用说话就很美好。找一家湖边的茶座或酒馆，让夜景成为晚餐的背景。",
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food": [
+    {
+      "id": "food_hefang_snacks",
+      "name": "河坊街小吃段",
+      "district": "上城区",
+      "category": "小吃街",
+      "reason": "河坊街的小吃摊是情侣分享美食的好地方。定胜糕、葱包烩、龙须糖……每样买一点，两人分着吃，既有趣又能尝到多种味道。逛累了就在街边的茶铺坐下，喝一杯桂花藕粉，甜到心里。"
+    },
+    {
+      "id": "food_westlake_dining",
+      "name": "西湖茶餐区",
+      "district": "西湖区",
+      "category": "湖景轻食",
+      "reason": "西湖边的茶餐区专为慢时光而生。选一家有临湖座位的茶馆或餐厅，点上几道精致的江南小菜，配一壶龙井。窗外就是湖光山色，两人对坐，不用急着吃，慢慢聊，让一顿饭吃出整个傍晚的温柔。"
+    },
+    {
+      "id": "food_longjing_tea",
+      "name": "龙井村茶歇",
+      "district": "西湖区",
+      "category": "茶田茶舍",
+      "reason": "在龙井茶村的农家茶舍里歇脚，是情侣专属的浪漫时刻。主人会为你泡上一杯当季龙井，茶汤清亮，入口甘甜。两人坐在竹椅上，面对整片茶山，什么也不做，只享受这一刻的宁静和彼此的陪伴。"
+    }
+  ]
+}

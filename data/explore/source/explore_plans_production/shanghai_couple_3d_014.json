@@ -1,0 +1,169 @@
+{
+  "id": "exp_shanghai_couple_3d_night_romance_v1",
+  "slug": "shanghai-couple-3d-night-romance",
+  "title": "黄浦江畔的夜光约会：上海三日浪漫漫游",
+  "summary": "为情侣设计的慢节奏上海之旅，聚焦黄浦江夜景、法租界梧桐树下的散步，以及夜色中的城市约会氛围。每一天都围绕两人共享的浪漫时刻展开：从外滩的璀璨天际线到武康路的建筑光影，再到苏州河畔的宁静私语。行程轻松，留足时间拍照、依偎、品味精致晚餐，让上海成为你们爱情故事的背景板。",
+  "city": {
+    "code": "shanghai",
+    "name": "Shanghai",
+    "region_name": "Shanghai"
+  },
+  "trip_type": "couple",
+  "days": 3,
+  "budget": {
+    "level": "medium",
+    "note": "包含一次河景晚餐和精致咖啡馆体验，其余以法租界优雅小馆为主，预算适中但氛围满分。"
+  },
+  "pace": "slow",
+  "tags": [
+    "浪漫",
+    "夜景",
+    "citywalk",
+    "拍照",
+    "黄浦江",
+    "法租界",
+    "情侣"
+  ],
+  "image_prompt": "Editorial travel magazine style photo of a couple silhouetted against the Bund skyline at dusk, warm golden light reflecting on the Huangpu River, soft focus on the city lights, romantic mood, cinematic composition.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "外滩暮色与江畔晚餐",
+      "summary": "从外滩的壮丽天际线开始，沿着黄浦江漫步，捕捉日落时分的城市剪影。傍晚在河景餐厅享用双人晚餐，感受夜上海的璀璨。",
+      "activities": [
+        {
+          "time_block": "afternoon",
+          "description": "抵达后前往外滩，从黄浦公园向南漫步，欣赏万国建筑群与陆家嘴天际线的对比。找一处人少的长椅坐下，依偎着看江水流淌，拍下属于你们的城市合影。",
+          "poi_refs": [
+            "poi_bund"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "夜幕降临，华灯初上。选择外滩附近一家拥有江景露台的餐厅，享用一顿慢节奏的双人晚餐。饭后沿着外滩再次散步，感受灯火倒影在水面的浪漫。",
+          "poi_refs": [
+            "poi_bund"
+          ],
+          "food_refs": [
+            "food_bund_dining"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "法租界梧桐树下的漫步",
+      "summary": "深入法租界，在武康路和周边弄堂里悠闲漫步，欣赏老洋房与梧桐光影。午后找一家街角咖啡馆小坐，傍晚在法租界优雅小馆享用晚餐。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "从武康路开始，沿着梧桐树荫下的街道漫无目的地散步。经过武康大楼、老洋房和精致小店，不时驻足拍照。感受上海最优雅的街区氛围。",
+          "poi_refs": [
+            "poi_wukang_road"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "继续深入法租界腹地，探索永嘉路、永康路等小马路。在路边咖啡馆点两杯拿铁，看着街景发呆，享受属于两人的悠闲午后。",
+          "poi_refs": [
+            "poi_french_concession_walk"
+          ],
+          "food_refs": [
+            "food_french_dining"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "在法租界一家有情调的小餐馆吃晚餐，推荐庭院或露台座位。饭后沿着灯火温柔的小路散步回酒店，感受夜色中的老上海浪漫。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_french_dining"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "苏州河畔与新天地午后",
+      "summary": "最后一天节奏更慢：上午在苏州河畔散步，感受城市水岸的宁静。午后前往新天地，在石库门建筑群中逛街拍照，为旅程画上圆满句号。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "沿苏州河漫步，从外白渡桥附近出发，向西走一段。河水静谧，两岸新旧建筑交错，适合两人轻声聊天、拍照留念。找一处河畔长椅坐下，分享耳机听一首歌。",
+          "poi_refs": [
+            "poi_suzhou_creek"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "前往新天地，在改造后的石库门里弄中闲逛。这里有时尚买手店、画廊和露天咖啡座。点一份下午茶，看着人来人往，享受最后的上海时光。",
+          "poi_refs": [
+            "poi_xintiandi_edge"
+          ],
+          "food_refs": []
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_bund",
+      "name": "外滩",
+      "district": "黄浦区",
+      "type": "滨江地标",
+      "reason": "作为上海最经典的城市名片，外滩的夜景是情侣约会的天然舞台。宽阔的江岸线、对岸陆家嘴的璀璨灯火，以及历史建筑群的金色灯光，共同营造出浪漫而大气的氛围。适合两人牵手漫步、依偎拍照。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_french_concession_walk",
+      "name": "法租界漫步",
+      "district": "徐汇区",
+      "type": "历史街区",
+      "reason": "法租界是上海最富情调的街区之一，梧桐树影、老洋房、精致小店和安静的小马路，构成了一幅浪漫的城市画卷。情侣可以在这里放慢脚步，感受属于两人的悠闲时光，每一处转角都可能成为拍照的惊喜。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_wukang_road",
+      "name": "武康路",
+      "district": "徐汇区",
+      "type": "建筑漫步区",
+      "reason": "武康路是法租界最上镜的街道之一，武康大楼、老式公寓和梧桐树影交织出优雅的街景。情侣可以在这里一边散步一边拍照，感受上海的历史与时尚交融。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_suzhou_creek",
+      "name": "苏州河散步道",
+      "district": "静安区",
+      "type": "城市水岸步道",
+      "reason": "相比外滩的繁华，苏州河更显宁静私密。河岸步道适合情侣在清晨或傍晚散步，两岸新旧建筑对比鲜明，水面倒映着城市光影，是逃离人群、享受二人世界的理想去处。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_xintiandi_edge",
+      "name": "新天地",
+      "district": "黄浦区",
+      "type": "时尚街区",
+      "reason": "新天地将石库门老建筑与现代商业完美融合，既有历史韵味又不失时尚感。情侣可以在这里逛街、拍照、喝下午茶，感受上海精致而轻松的城市生活。",
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food": [
+    {
+      "id": "food_bund_dining",
+      "name": "外滩江景晚餐区",
+      "district": "黄浦区",
+      "category": "河景餐厅集群",
+      "reason": "外滩沿线聚集了多家拥有绝佳江景的餐厅，适合情侣在夜色中享用一顿浪漫晚餐。从窗边或露台望去，陆家嘴的灯火与江面倒影构成无与伦比的背景，让用餐成为难忘的约会记忆。"
+    },
+    {
+      "id": "food_french_dining",
+      "name": "法租界精致小馆",
+      "district": "徐汇区",
+      "category": "优雅街区餐饮",
+      "reason": "法租界散落着许多有情调的小餐馆和咖啡馆，环境私密、菜品精致，非常适合情侣慢享一餐。无论是庭院里的早午餐还是烛光下的晚餐，都能让两人沉浸在浪漫的街区氛围中。"
+    }
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "id": "exp_qingdao_family_2d_coast_walk",
+  "slug": "qingdao-family-2d-coast-walk",
+  "title": "青岛两日：海岸木栈道与红瓦老城间的家庭漫游",
+  "summary": "这是一段专为家庭设计的慢节奏青岛之旅。沿着海岸木栈道缓缓行走，看红瓦老城与碧海蓝天交相辉映，在傍晚的五四广场吹着海风，共享一顿温馨的海鲜晚餐。没有匆忙的赶路，只有一家人在一起的舒适与放松。",
+  "city": {
+    "code": "qingdao",
+    "name": "Qingdao",
+    "region_name": "Shandong"
+  },
+  "trip_type": "family",
+  "days": 2,
+  "budget": {
+    "level": "medium",
+    "note": "中等预算，包含一次舒适的海景晚餐和轻松的交通选择。"
+  },
+  "pace": "slow",
+  "tags": [
+    "family-friendly",
+    "coastal-city",
+    "red-roof-old-town",
+    "seafront-walk",
+    "relaxed-pacing",
+    "museum"
+  ],
+  "image_prompt": "National Geographic travel magazine style photo of a family walking on a wooden coastal boardwalk in Qingdao at golden hour, with red-roofed villas and the sea in the background, warm light, relaxed atmosphere, shallow depth of field, cinematic composition.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "漫步老城，初见海天一色",
+      "summary": "从栈桥出发，沿着海岸线慢慢走到八大关，感受红瓦绿树与碧海蓝天的经典青岛。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "从栈桥开始，这里是青岛的标志，也是家庭合影的好地方。沿着海岸木栈道慢慢散步，看海鸥飞翔，感受海风拂面。",
+          "poi_refs": [
+            "poi_zhanqiao"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "漫步至八大关，这里绿树成荫，道路两旁是风格各异的老别墅，非常适合全家悠闲地散步、拍照。孩子可以在草地上玩耍，老人也能轻松行走。",
+          "poi_refs": [
+            "poi_badaguan"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "前往五四广场，这里是青岛现代化的滨海空间，视野开阔，适合傍晚散步。在华灯初上时，找一家海景餐厅，享用一顿地道的海鲜晚餐，为第一天画上温馨的句号。",
+          "poi_refs": [
+            "poi_may_fourth"
+          ],
+          "food_refs": [
+            "food_waterfront_seafood"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "登高望远，感受老城烟火",
+      "summary": "上午登上信号山，俯瞰红瓦老城全景，下午在劈柴院感受老青岛的市井气息，品尝地道小吃。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "前往信号山公园，这里坡度平缓，适合全家登山。在山顶的旋转观景楼，可以360度俯瞰青岛的红瓦绿树和海岸线，是拍照留念的绝佳地点。",
+          "poi_refs": [
+            "poi_signal_hill"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "下山后，漫步至劈柴院，这里是青岛的老街区，充满生活气息。可以带着家人品尝各种海鲜小吃和本地特色，感受老城的烟火气。",
+          "poi_refs": [
+            "poi_pichaiyuan"
+          ],
+          "food_refs": [
+            "food_pichaiyuan_snack"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_zhanqiao",
+      "name": "栈桥景区",
+      "district": "市南区",
+      "type": "沿海地标",
+      "reason": "作为青岛的标志性起点，栈桥是家庭合影的绝佳背景。清晨的海风、飞翔的海鸥，让全家在轻松的漫步中开启旅程。",
+      "recommended_duration_minutes": 75
+    },
+    {
+      "id": "poi_badaguan",
+      "name": "八大关",
+      "district": "市南区",
+      "type": "历史滨海街区",
+      "reason": "绿树成荫的街道、风格各异的老别墅，八大关是家庭散步的理想之地。孩子们可以在草地上奔跑，老人也能在树荫下休息，感受青岛的慢生活。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_may_fourth",
+      "name": "五四广场",
+      "district": "市南区",
+      "type": "现代滨海广场",
+      "reason": "开阔的滨海空间，适合傍晚全家散步。红色的雕塑“五月的风”是标志性打卡点，海风习习，视野极佳，也是享用海鲜晚餐前的好去处。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_signal_hill",
+      "name": "信号山公园",
+      "district": "市北区",
+      "type": "城市公园观景台",
+      "reason": "坡度平缓，适合全家人轻松登顶。山顶的旋转观景楼可以360度俯瞰青岛老城全景，红瓦绿树与碧海蓝天尽收眼底，是家庭合影的完美地点。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_pichaiyuan",
+      "name": "劈柴院",
+      "district": "市南区",
+      "type": "美食老街",
+      "reason": "充满老青岛市井气息的街区，适合全家体验本地小吃和海鲜。热闹但不拥挤，孩子们可以尝鲜，大人也能感受老城的生活节奏。",
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food": [
+    {
+      "id": "food_waterfront_seafood",
+      "name": "滨海海鲜餐厅区",
+      "district": "市南区",
+      "category": "海鲜餐厅",
+      "reason": "位于五四广场附近，拥有绝佳的海景视野。适合全家共享一顿丰盛的海鲜晚餐，在轻松的氛围中结束第一天的旅程。"
+    },
+    {
+      "id": "food_pichaiyuan_snack",
+      "name": "劈柴院小吃街",
+      "district": "市南区",
+      "category": "小吃街",
+      "reason": "老城区内最地道的小吃聚集地，海鲜烧烤、锅贴、凉粉等应有尽有。家庭可以边走边尝，体验最接地气的青岛味道。"
+    }
+  ]
+}

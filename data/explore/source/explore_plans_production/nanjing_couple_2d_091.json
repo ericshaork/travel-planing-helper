@@ -1,0 +1,147 @@
+{
+  "id": "exp_nanjing_couple_2d_citywalk_food_v1",
+  "slug": "nanjing-couple-2d-citywalk-food",
+  "title": "秦淮灯影下的两人慢时光",
+  "summary": "为情侣打造的两日南京老城散步计划，节奏舒缓，在民国街巷、城墙光影与秦淮夜色中，为两人创造有温度的回忆。既有湖边的安静片刻，也有老街的烟火气息，适合喜欢拍照、散步和寻味的你们。",
+  "city": {
+    "code": "nanjing",
+    "name": "Nanjing",
+    "region_name": "Jiangsu"
+  },
+  "trip_type": "couple",
+  "days": 2,
+  "budget": {
+    "level": "medium",
+    "note": "包含一处主要历史景点、一个风景片区和一顿有氛围的本地晚餐，整体舒适不赶。"
+  },
+  "pace": "balanced",
+  "tags": [
+    "citywalk",
+    "photo",
+    "food",
+    "river-evening",
+    "old-street",
+    "couple"
+  ],
+  "image_prompt": "National Geographic travel magazine style photo of a couple walking hand in hand along the Qinhuai River at dusk, with traditional Chinese architecture and glowing red lanterns reflected in the water, warm golden light, shallow depth of field, cinematic composition, romantic mood.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "城墙漫步与秦淮夜色",
+      "summary": "从明城墙的辽阔视野开始，沿玄武湖岸边缓行，傍晚转入老门东的小巷，在秦淮河灯影里结束第一天的慢时光。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "登上南京明城墙的一段，两人并肩走在宽厚的城砖上，俯瞰城市与玄武湖的交界。晨光柔和，适合拍下彼此的背影。",
+          "poi_refs": [
+            "poi_city_wall"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "沿玄武湖岸边散步，找一处长椅坐下看湖光树影。午后光线穿过梧桐叶，湖面波光粼粼，是放松和拍照的好时机。",
+          "poi_refs": [
+            "poi_xuanwu_lake"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "漫步老门东的青石板小巷，两侧是修缮后的老宅与暖黄灯光。挑一家有院落的餐厅共享江南小食，然后沿秦淮河走到夫子庙一带，看画舫灯影在水面摇曳。",
+          "poi_refs": [
+            "poi_laomendong",
+            "poi_qinhuai"
+          ],
+          "food_refs": [
+            "food_laomendong",
+            "food_qinhuai_snack"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "民国旧影与街巷寻味",
+      "summary": "在总统府一带感受南京的民国气质，午后回到老城南的巷弄里，用一顿悠闲的午餐和午后散步为旅行收尾。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "参观总统府区域，两人一起走过民国时期的走廊与花园，感受历史场景。建筑细节和庭院光影都很适合拍照。",
+          "poi_refs": [
+            "poi_presidential_palace"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "返回老门东附近，在巷子里随意走走，找一家小吃店尝尝鸭血粉丝汤或小笼包。午后阳光斜洒，街角的老墙和藤蔓都是自然的取景框。",
+          "poi_refs": [
+            "poi_laomendong"
+          ],
+          "food_refs": [
+            "food_laomendong"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_city_wall",
+      "name": "南京明城墙",
+      "district": "玄武",
+      "type": "historic landmark",
+      "reason": "城墙宽阔而古老，两个人慢慢走一段，脚下是六百年的砖石，眼前是南京城的天际线。晨光或黄昏时分，城墙本身就是一张好照片。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_xuanwu_lake",
+      "name": "玄武湖岸边",
+      "district": "玄武",
+      "type": "lakefront scenic area",
+      "reason": "湖面开阔，岸边的梧桐道和垂柳是散步的天然背景。适合两人并肩走走停停，在长椅上坐一会儿，看水鸟和游船，节奏很慢。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_laomendong",
+      "name": "老门东",
+      "district": "秦淮",
+      "type": "historic street district",
+      "reason": "青砖灰瓦的老街，巷子深处藏着安静的院落和有趣的小店。白天和夜晚各有味道，适合随意穿行，随时停下来拍照。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_qinhuai",
+      "name": "秦淮河与夫子庙",
+      "district": "秦淮",
+      "type": "historic riverside district",
+      "reason": "夜晚的秦淮河是南京最浪漫的角落之一。两岸灯火倒映在水中，画舫缓缓驶过，和喜欢的人一起站在桥上看着，就是这趟旅行的高光时刻。",
+      "recommended_duration_minutes": 150
+    },
+    {
+      "id": "poi_presidential_palace",
+      "name": "总统府",
+      "district": "玄武",
+      "type": "historical site",
+      "reason": "民国时期的建筑群，长廊、花园、会议室都保留着旧日气息。两个人一起走走看看，聊聊历史，也在安静的庭院里拍几张有故事感的照片。",
+      "recommended_duration_minutes": 120
+    }
+  ],
+  "food": [
+    {
+      "id": "food_qinhuai_snack",
+      "name": "秦淮小吃街",
+      "district": "秦淮",
+      "category": "snack street",
+      "reason": "沿河的小吃摊和店铺灯火通明，鸭血粉丝汤、盐水鸭、小笼包应有尽有。边走边尝，适合两人分享，烟火气十足。"
+    },
+    {
+      "id": "food_laomendong",
+      "name": "老门东院落餐厅",
+      "district": "秦淮",
+      "category": "dining area",
+      "reason": "老门东巷子里藏着不少有院子的餐厅，环境安静，灯光温暖。两人可以坐下来慢慢吃一顿江南风味的晚餐，窗外是老宅的屋檐和灯笼。"
+    }
+  ]
+}

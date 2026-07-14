@@ -1,0 +1,206 @@
+{
+  "id": "exp_lijiang_solo_3d_atmospheric_wander_v1",
+  "slug": "lijiang-solo-3d-atmospheric-wander",
+  "title": "古城灯火与雪山天光之间：一个人的丽江漫游",
+  "summary": "这是一场为独行旅人设计的丽江漫游，节奏舒缓而自由。你将在清晨的黑龙潭边遥望雪山倒影，在束河的石板路上独自踱步，在夜晚的古城灯火中迷失又找回自己。没有赶路的疲惫，只有与这座小城慢慢相处的私密时光。",
+  "city": {
+    "code": "lijiang",
+    "name": "Lijiang",
+    "region_name": "Yunnan"
+  },
+  "trip_type": "solo",
+  "days": 3,
+  "budget": {
+    "level": "medium",
+    "note": "中等预算，兼顾古城体验与一顿氛围晚餐，不追求奢华但也不过于拮据。"
+  },
+  "pace": "balanced",
+  "tags": [
+    "old-town",
+    "mountain-view",
+    "slow-travel",
+    "photo-friendly",
+    "yunnan-atmosphere",
+    "evening-walk",
+    "solo"
+  ],
+  "image_prompt": "A solo traveler standing on a stone bridge in Lijiang Old Town at golden hour, with Jade Dragon Snow Mountain in the distant background, warm lantern light reflecting in the canal, cinematic composition, National Geographic travel photography style, rich colors, atmospheric depth.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "初见古城，雪山为伴",
+      "summary": "从黑龙潭的晨光开始，感受雪山倒影的宁静，下午深入古城街巷，傍晚在狮子山俯瞰全景。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "清晨前往黑龙潭公园，在水边找一处安静角落，看玉龙雪山倒映在湖面，光线柔和，游人稀少，是独处与拍照的绝佳时刻。",
+          "poi_refs": [
+            "poi_black_dragon_pool_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "从黑龙潭步行进入丽江古城，沿着流水与石板路随意穿行，经过四方街、大水车，拐进人少的小巷，感受古城最真实的肌理。",
+          "poi_refs": [
+            "poi_lijiang_old_town"
+          ],
+          "food_refs": [
+            "food_old_town_casual"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "登上狮子山观景台，在暮色中俯瞰古城屋顶与远处雪山轮廓，灯逐渐亮起，是整座城市最温柔的时刻。下山后在古城小巷中找一家安静的餐厅，品尝一份地道的云南菌菇锅。",
+          "poi_refs": [
+            "poi_lion_hill_edge"
+          ],
+          "food_refs": [
+            "food_local_yunnan_dining"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "束河慢行，午后咖啡",
+      "summary": "前往更安静的束河古镇，在溪边咖啡馆消磨午后，傍晚返回古城感受灯火夜景。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "从古城出发，打车或乘公交前往束河古镇。这里比大研古城更开阔、更安静，适合独自漫步，沿溪而行，看老宅与菜地交织的田园风貌。",
+          "poi_refs": [
+            "poi_shuhe"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "在束河找一家临水的咖啡馆坐下，点一杯云南小粒咖啡，翻几页书或只是看水流发呆。午后光线穿过柳枝，是独行旅人最奢侈的闲暇。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_shuhe_cafe"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "返回丽江古城，夜幕降临后再次走入古城，这次专为灯火而来。灯笼、流水、民谣酒馆的微光交织，独自穿行其中，每一步都有新的画面。",
+          "poi_refs": [
+            "poi_old_town_evening"
+          ],
+          "food_refs": [
+            "food_old_town_casual"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "白沙寻古，归途前的宁静",
+      "summary": "探访更原生态的白沙古镇，在壁画与扎染作坊间感受纳西文化的底色，午后返回古城作最后的漫步。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "前往白沙古镇，这里比束河更质朴，游客稀少。参观白沙壁画，逛逛当地人的扎染作坊，在土墙与老槐树之间感受纳西生活的日常。",
+          "poi_refs": [
+            "poi_baisha_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "在白沙找一家小馆子吃一碗鸡豆凉粉或纳西炒饭，然后慢慢走回古城。最后半日不再安排景点，只在古城里最后一次随心漫步，把喜欢的角落再走一遍。",
+          "poi_refs": [
+            "poi_lijiang_old_town"
+          ],
+          "food_refs": [
+            "food_old_town_casual"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "在古城找一家二楼的餐厅，临窗而坐，看最后一晚的灯火与行人。吃完饭后沿溪散步回住处，为这趟独自漫游画上安静的句号。",
+          "poi_refs": [
+            "poi_old_town_evening"
+          ],
+          "food_refs": [
+            "food_local_yunnan_dining"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_black_dragon_pool_edge",
+      "name": "黑龙潭公园",
+      "district": "古城区",
+      "type": "scenic park area",
+      "reason": "清晨的黑龙潭是独行旅人私藏的静谧角落，雪山倒映在潭水中，几乎没有游客打扰，你可以在这里慢慢等待天光变亮，用镜头捕捉最纯净的丽江第一眼。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_lijiang_old_town",
+      "name": "丽江古城",
+      "district": "古城区",
+      "type": "historic town district",
+      "reason": "古城的魅力在于迷路。没有固定路线，跟着水流走，遇见不同的桥、巷子和院落。独行时更容易沉浸其中，每一扇半掩的木门后都可能藏着一个故事。",
+      "recommended_duration_minutes": 150
+    },
+    {
+      "id": "poi_lion_hill_edge",
+      "name": "狮子山观景台",
+      "district": "古城区",
+      "type": "viewpoint",
+      "reason": "登上狮子山，整个古城像一幅展开的画卷，灰色瓦顶层层叠叠，远处玉龙雪山横亘天际。黄昏时分，光影变化最丰富，是独处与沉思的完美地点。",
+      "recommended_duration_minutes": 75
+    },
+    {
+      "id": "poi_shuhe",
+      "name": "束河古镇",
+      "district": "古城区",
+      "type": "historic town district",
+      "reason": "束河比大研更开阔、更安静，青龙桥下的流水和菜地间的老宅构成一幅田园画卷。适合一个人慢慢走，没有目的，只有节奏。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_baisha_edge",
+      "name": "白沙古镇",
+      "district": "玉龙县",
+      "type": "cultural village area",
+      "reason": "白沙是纳西文化的原生地带，没有过度商业化的喧嚣。在这里看古老的壁画，触摸扎染的纹理，独行旅人能感受到更贴近土地的文化温度。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_old_town_evening",
+      "name": "古城夜游",
+      "district": "古城区",
+      "type": "evening district",
+      "reason": "夜晚的古城褪去白日的喧嚣，灯笼亮起，流水声更清晰。独自走在石板路上，每一步都踩在光影里，是丽江最私密的体验。",
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food": [
+    {
+      "id": "food_old_town_casual",
+      "name": "古城小吃街巷",
+      "district": "古城区",
+      "category": "snack street",
+      "reason": "独行旅人最灵活的选择，随时可以停下来买一份烤饵块或鸡豆凉粉，边走边吃，不耽误看风景，也能尝到最地道的街头味道。"
+    },
+    {
+      "id": "food_shuhe_cafe",
+      "name": "束河咖啡馆区",
+      "district": "古城区",
+      "category": "cafe",
+      "reason": "束河溪边的咖啡馆是独处时光的最佳伴侣，一杯云南小粒咖啡配上一本书或一段发呆的时间，窗外是流水和柳枝，时间变得很慢。"
+    },
+    {
+      "id": "food_local_yunnan_dining",
+      "name": "本地云南菜馆",
+      "district": "古城区",
+      "category": "restaurant",
+      "reason": "一个人也要好好吃饭。找一家本地菜馆，点一份菌菇火锅或纳西烤鱼，坐在窗边看街景，是独行旅人对自己一天漫游的犒赏。"
+    }
+  ]
+}

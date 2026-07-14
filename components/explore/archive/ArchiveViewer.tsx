@@ -2,9 +2,11 @@
 
 import { useEffect, useState } from "react";
 
+import type { ArchiveReaderViewModel } from "@/lib/explore/archive-reader";
+import { normalizeExploreArchiveForReader } from "@/lib/explore/archive-reader";
+import { cleanDisplayText } from "@/lib/explore/archive-display";
 import { fetchExploreDetail } from "@/lib/explore/client";
 import { getMockExploreDetail } from "@/lib/explore/mock-archives";
-import type { ExploreTripContent } from "@/lib/explore/types";
 
 import { ArchiveHeader } from "./ArchiveHeader";
 import { ArchiveViewerContent } from "./ArchiveViewerContent";
@@ -16,7 +18,7 @@ interface ArchiveViewerProps {
 }
 
 export function ArchiveViewer({ id, mode, onClose }: ArchiveViewerProps) {
-  const [item, setItem] = useState<ExploreTripContent | null>(null);
+  const [item, setItem] = useState<ArchiveReaderViewModel | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
@@ -34,7 +36,7 @@ export function ArchiveViewer({ id, mode, onClose }: ArchiveViewerProps) {
           return;
         }
 
-        setItem(nextItem);
+        setItem(normalizeExploreArchiveForReader(nextItem));
         return;
       } catch (loadError) {
         const fallbackItem = getMockExploreDetail(id);
@@ -44,16 +46,17 @@ export function ArchiveViewer({ id, mode, onClose }: ArchiveViewerProps) {
         }
 
         if (fallbackItem) {
-          setItem(fallbackItem);
+          setItem(normalizeExploreArchiveForReader(fallbackItem));
           setError("");
           return;
         }
 
         setItem(null);
         setError(
-          loadError instanceof Error && loadError.message.trim()
-            ? loadError.message
-            : "这份旅行档案暂时打不开。",
+          cleanDisplayText(
+            loadError instanceof Error ? loadError.message : "",
+            "这份旅行档案暂时打不开。",
+          ),
         );
       } finally {
         if (active) {
@@ -73,8 +76,8 @@ export function ArchiveViewer({ id, mode, onClose }: ArchiveViewerProps) {
     return (
       <section className="space-y-4">
         <ArchiveHeader mode={mode} onClose={onClose} />
-        <section className="workspace-panel px-4 py-4 sm:px-5 sm:py-5">
-          <p className="workspace-kicker">LOADING ARCHIVE</p>
+        <section className="px-5 py-5 sm:px-7 sm:py-6">
+          <p className="workspace-kicker">正在展开档案</p>
           <p className="mt-2 text-sm leading-6 text-[var(--ink-muted)]">
             正在翻开这份旅行档案……
           </p>
@@ -87,10 +90,10 @@ export function ArchiveViewer({ id, mode, onClose }: ArchiveViewerProps) {
     return (
       <section className="space-y-4">
         <ArchiveHeader mode={mode} onClose={onClose} />
-        <section className="workspace-panel px-4 py-4 sm:px-5 sm:py-5">
-          <p className="workspace-kicker">ARCHIVE UNAVAILABLE</p>
+        <section className="px-5 py-5 sm:px-7 sm:py-6">
+          <p className="workspace-kicker">档案暂时打不开</p>
           <p className="mt-2 text-sm leading-6 text-[var(--dusty-rose)]">
-            {error || "这份档案暂时还没有内容。"}
+            {cleanDisplayText(error, "这份档案暂时还没有可读取的内容。")}
           </p>
         </section>
       </section>

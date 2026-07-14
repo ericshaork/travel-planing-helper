@@ -1,0 +1,200 @@
+{
+  "id": "exp_xian_student_3d_food_citywalk_v1",
+  "slug": "xian-student-3d-food-citywalk",
+  "title": "城墙风声与碳水狂欢：学生党的西安三日性价比漫游",
+  "summary": "三天时间，用学生的预算和节奏，把西安的城墙、唐风、老街和烟火气走透。从城墙上骑车吹风，到回民街深巷里跟着本地人排队，再钻进永兴坊的民俗小吃摊——历史不再是课本里的字，而是脚下砖、眼前灯、嘴里热腾腾的肉夹馍。",
+  "city": {
+    "code": "xian",
+    "name": "Xi'an",
+    "region_name": "Shaanxi"
+  },
+  "trip_type": "student",
+  "days": 3,
+  "budget": {
+    "level": "low",
+    "note": "全程步行+公交，住宿选钟楼附近青旅，餐饮以小吃和街头美食为主，日均花费控制在100元以内。"
+  },
+  "pace": "dense",
+  "tags": [
+    "food",
+    "citywalk",
+    "local-culture",
+    "budget-friendly",
+    "ancient-capital",
+    "street-food"
+  ],
+  "image_prompt": "National Geographic travel magazine style photo of a student cycling on the ancient Xi'an City Wall at golden hour, with the city skyline and bell tower in the background, warm sunlight, dynamic motion blur, cinematic depth of field, vibrant colors, editorial composition.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "城墙骑行与钟鼓楼下的烟火气",
+      "summary": "上午登上古城墙，迎着晨风骑行一圈，俯瞰老城轮廓；下午漫步钟鼓楼广场，钻进回民街深巷，从肉夹馍吃到柿子饼，感受碳水之都的初印象。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "从南门登城墙，租一辆自行车骑行半圈（约1小时），在城墙上俯瞰老城街巷与远处现代高楼的对望，感受古今交错的节奏。",
+          "poi_refs": [
+            "poi_city_wall"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "步行至钟鼓楼广场，不登楼，只在外围感受地标气场。随后一头扎进回民街主巷两侧的深巷，跟着本地学生队伍排队买老马家肉夹馍、定家小酥肉，再尝一杯桂花稠酒。",
+          "poi_refs": [
+            "poi_bell_tower_area",
+            "poi_muslim_quarter"
+          ],
+          "food_refs": [
+            "food_muslim_quarter"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "回民街越夜越热闹，在洒金桥附近找一家烤肉摊，坐在路边小板凳上吃烤串、喝冰峰，和同行的朋友分享白天的照片，感受城墙根下的市井夜生活。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_muslim_quarter"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "大雁塔的唐风与永兴坊的民俗味",
+      "summary": "上午在大雁塔广场感受唐代佛教建筑的气度，午后转场永兴坊，在民俗街区里边逛边尝三原老黄家、子长煎饼等地道小吃，傍晚看一场皮影戏，用最少的钱体验最浓的关中文化。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "乘公交至大雁塔南广场，不登塔，在广场上仰望塔身，逛一逛旁边的唐风街巷，感受唐代长安的余韵。",
+          "poi_refs": [
+            "poi_big_wild_goose"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "转场至永兴坊，这里是本地年轻人爱逛的民俗美食聚集地。从陕北羊肉面吃到陕南核桃馍，再尝一碗摔碗酒（五元一杯，图个乐），边吃边看民俗表演。",
+          "poi_refs": [
+            "poi_yongxingfang"
+          ],
+          "food_refs": [
+            "food_yongxingfang"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "永兴坊内有皮影戏和木偶戏表演（票价低廉），坐下看一场，感受关中民间艺术的鲜活。之后在坊内继续逛吃，买些可带走的花生酥当零食。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_yongxingfang"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "小雁塔的静谧与老城最后的漫步",
+      "summary": "上午去小雁塔，在园林般的环境里安静走走，避开游客高峰；中午在钟楼附近的老字号吃一碗葫芦头泡馍，下午沿着城墙根随意散步，用最本地的方式结束这趟旅程。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "乘公交至小雁塔，这里游客少，环境清幽。在塔下的园林里散步，听晨钟，看老人打太极，享受一段不赶路的宁静时光。",
+          "poi_refs": [
+            "poi_small_yanta"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "返回钟楼附近，找一家本地人常去的泡馍馆（如北广济街的老米家），掰馍、聊天、喝汤，体验最地道的西安午餐仪式。饭后沿着城墙根从西门走到南门，看下棋的大爷、遛狗的居民，用脚步丈量老城的生活。",
+          "poi_refs": [
+            "poi_city_wall"
+          ],
+          "food_refs": [
+            "food_bell_tower"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "在城墙南门附近找一家小酒吧或奶茶店，坐在露天位置，看城墙亮灯，回顾三天的见闻，用一杯便宜的饮品结束这场高性价比的探索。",
+          "poi_refs": [],
+          "food_refs": []
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_city_wall",
+      "name": "西安城墙",
+      "district": "碑林区",
+      "type": "historic landmark",
+      "reason": "作为学生党，花几十元租一辆自行车在城墙上骑行，是感受古城轮廓最直接、最畅快的方式。风从耳边过，脚下是六百年的砖，眼前是西安的天际线——比任何博物馆都生动。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_bell_tower_area",
+      "name": "钟鼓楼广场",
+      "district": "莲湖区",
+      "type": "historic city core",
+      "reason": "不花一分钱登楼，站在广场中央就能感受西安的几何中心。四周车流绕楼而行，傍晚灯光亮起时，是拍照和感受城市脉动的免费观景台。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_muslim_quarter",
+      "name": "回民街",
+      "district": "莲湖区",
+      "type": "historic food district",
+      "reason": "学生党在西安的碳水天堂。别只走主街，钻进西羊市、大皮院等深巷，跟着本地人排队，花十几元就能吃到最地道的肉夹馍、羊肉泡馍和柿子饼。烟火气足，氛围自由，适合边走边吃边聊。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_big_wild_goose",
+      "name": "大雁塔南广场",
+      "district": "雁塔区",
+      "type": "cultural landmark",
+      "reason": "不登塔，在广场上仰望大雁塔的唐风轮廓，再逛逛周边的仿唐街区，感受玄奘取经归来后的文化气场。免费开放，适合学生党以最低成本触摸盛唐余韵。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_small_yanta",
+      "name": "小雁塔",
+      "district": "碑林区",
+      "type": "historic garden landmark",
+      "reason": "相比大雁塔的热闹，小雁塔更安静、更园林化。门票低廉，游客稀少，适合一个人或三两好友在塔下散步、听钟、发呆，是学生党在密集行程中难得的喘息空间。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_yongxingfang",
+      "name": "永兴坊",
+      "district": "新城区",
+      "type": "food and folk-culture district",
+      "reason": "一个将陕西各地小吃和民俗表演集中在一起的街区，比回民街更规整，但同样充满烟火气。学生党可以花少量钱尝遍三秦味道，还能看皮影戏、听秦腔，性价比极高。",
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food": [
+    {
+      "id": "food_muslim_quarter",
+      "name": "回民街美食巷",
+      "district": "莲湖区",
+      "category": "snack street",
+      "reason": "西安街头美食的灵魂所在。从肉夹馍、羊肉泡馍到柿子饼、桂花糕，每一口都是碳水与油脂的狂欢。学生党花20元就能吃饱，30元就能吃好，而且越晚越有气氛。"
+    },
+    {
+      "id": "food_yongxingfang",
+      "name": "永兴坊小吃集群",
+      "district": "新城区",
+      "category": "food court",
+      "reason": "陕西各地小吃的集中营，从陕北的羊杂碎到陕南的蒸面，一站式搞定。价格透明，选择丰富，还有民俗表演助兴，适合学生党在短时间内体验最全的关中味道。"
+    },
+    {
+      "id": "food_bell_tower",
+      "name": "钟楼老城餐饮圈",
+      "district": "莲湖区",
+      "category": "local eatery cluster",
+      "reason": "钟楼附近藏着许多本地人光顾的老字号泡馍馆和小吃店，价格亲民，味道正宗。适合学生党在最后一天来一顿仪式感的掰馍午餐，感受西安人慢悠悠的饮食哲学。"
+    }
+  ]
+}

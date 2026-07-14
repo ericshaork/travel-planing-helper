@@ -1,0 +1,178 @@
+{
+  "id": "exp_nanjing_couple_3d_lantern_walk_v1",
+  "slug": "nanjing-couple-3d-lantern-walk",
+  "title": "秦淮灯影·老城散步：两个人的南京三日约会",
+  "summary": "为情侣设计的南京慢行计划，以秦淮河灯火为线索，串联老城门、湖岸和旧巷。白天并肩散步，傍晚依水看灯，在历史与夜色之间，找到属于两个人的城市节奏。",
+  "city": {
+    "code": "nanjing",
+    "name": "Nanjing",
+    "region_name": "Jiangsu"
+  },
+  "trip_type": "couple",
+  "days": 3,
+  "budget": {
+    "level": "medium",
+    "note": "中等预算，兼顾一处主要历史景点、一处风景区和可识别的本地餐饮区，留出舒适空间。"
+  },
+  "pace": "slow",
+  "tags": [
+    "river-evening",
+    "old-street",
+    "cultural-landmarks",
+    "citywalk",
+    "photo",
+    "couple"
+  ],
+  "image_prompt": "National Geographic travel magazine style photo of a couple walking hand in hand along the Qinhuai River at dusk, with red lanterns reflecting on the water, traditional architecture silhouetted against a warm twilight sky, shallow depth of field, romantic mood, cinematic composition.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "秦淮灯影，初见金陵",
+      "summary": "傍晚抵达秦淮河畔，在灯火初上的老街区漫步，用一顿慢晚餐开启南京的夜。",
+      "activities": [
+        {
+          "time_block": "afternoon",
+          "description": "抵达后安顿，随后散步至老门东，在青砖灰瓦的巷弄间感受旧时金陵的肌理。两人并肩走过石板路，偶遇手工艺小店，随手拍下街角的藤蔓与灯笼。",
+          "poi_refs": [
+            "poi_laomendong"
+          ],
+          "food_refs": [
+            "food_laomendong"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "秦淮河畔的灯渐次亮起，与爱人沿河慢行，看画舫驶过，听水声与市声交织。在夫子庙附近找一家临河的小馆坐下，点上几道金陵小菜，让夜色和暖光包裹这一晚。",
+          "poi_refs": [
+            "poi_qinhuai"
+          ],
+          "food_refs": [
+            "food_qinhuai_snack"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "城墙漫步，湖光相偎",
+      "summary": "上午登城墙俯瞰城市轮廓，午后在玄武湖边消磨时光，傍晚再回老城南感受另一种灯火。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "登上南京城墙的一段，从高处看城市在晨光中苏醒。两人并肩走在宽厚的城砖上，远处的紫金山和近处的玄武湖尽收眼底，风很轻，适合拍照和安静地待一会儿。",
+          "poi_refs": [
+            "poi_city_wall"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "走下城墙，沿着玄武湖岸边散步，找一处树荫下的长椅坐下，看湖水微澜、游船缓缓经过。湖边的柳树和远处的城市天际线构成一幅温柔的画面，适合放空和依偎。",
+          "poi_refs": [
+            "poi_xuanwu_lake"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "再次回到老门东附近，夜晚的巷弄比白天更安静，灯笼的光晕洒在青石板上。挑一家庭院式的小馆，尝尝江浙风味的精致小点，饭后在巷子里再走一圈，灯光下的老建筑别有一番韵味。",
+          "poi_refs": [
+            "poi_laomendong"
+          ],
+          "food_refs": [
+            "food_laomendong"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "民国旧影，一日闲情",
+      "summary": "在总统府周边感受民国余韵，午后选一处开阔的文化景观收尾，为这趟约会画上句点。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "走进总统府区域，在民国建筑群中慢慢穿行。这里没有拥挤的人潮，有的是安静的院落和树影斑驳的走廊。两人可以聊一聊那段历史，或者在花园的长廊里拍几张合影。",
+          "poi_refs": [
+            "poi_presidential_palace"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "午后前往牛首山边缘，这里融合了自然与文化，开阔的视野和静谧的氛围适合作为旅程的终点。在山脚散步，看夕阳给佛顶塔镀上一层金色，然后带着这份宁静结束南京之行。",
+          "poi_refs": [
+            "poi_niushoushan_edge"
+          ],
+          "food_refs": []
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_qinhuai",
+      "name": "秦淮河与夫子庙区域",
+      "district": "秦淮",
+      "type": "historic riverside district",
+      "reason": "秦淮的夜是南京最柔软的部分。灯火倒映在水面，画舫缓缓驶过，情侣并肩走在河岸，每一步都踩在光影里。这里的氛围天然适合两个人的约会——不喧闹，却充满故事感。",
+      "recommended_duration_minutes": 150
+    },
+    {
+      "id": "poi_laomendong",
+      "name": "老门东",
+      "district": "秦淮",
+      "type": "historic street district",
+      "reason": "老门东比夫子庙更安静，巷弄更窄，灯笼更低。青砖墙、木雕窗、藤蔓爬过门头，每一帧都像电影画面。适合情侣慢慢逛，随手拍，或者在一家茶馆里消磨一个下午。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_city_wall",
+      "name": "南京城墙（玄武湖段）",
+      "district": "玄武",
+      "type": "historic landmark",
+      "reason": "登上城墙，视野骤然开阔。玄武湖在脚下铺开，紫金山在远处静默。两个人走在宽厚的城砖上，风从湖面吹来，适合拍照，也适合安静地并肩站一会儿。这是属于南京的辽阔时刻。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_xuanwu_lake",
+      "name": "玄武湖岸边",
+      "district": "玄武",
+      "type": "lakefront scenic area",
+      "reason": "玄武湖是南京的呼吸空间。湖岸线很长，找一处树荫下的长椅坐下，看水光粼粼、游船缓缓。这里没有景点式的紧张感，只有自然流淌的闲适，适合情侣依偎着聊聊天、发发呆。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_presidential_palace",
+      "name": "总统府区域",
+      "district": "玄武",
+      "type": "historical site",
+      "reason": "总统府是民国南京的缩影。院落深深，梧桐掩映，走在其中仿佛穿越回那个风云年代。对喜欢历史氛围的情侣来说，这里比单纯的博物馆更有沉浸感，适合一起想象和对话。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_niushoushan_edge",
+      "name": "牛首山边缘",
+      "district": "江宁",
+      "type": "cultural landscape",
+      "reason": "牛首山远离市中心，却因此多了一份从容。山脚的步道开阔而安静，佛顶塔在远处若隐若现。作为旅程的收尾，这里能提供一种开阔的宁静感，让两个人带着舒展的心情告别南京。",
+      "recommended_duration_minutes": 150
+    }
+  ],
+  "food": [
+    {
+      "id": "food_qinhuai_snack",
+      "name": "秦淮小吃街",
+      "district": "秦淮",
+      "category": "snack street",
+      "reason": "秦淮河畔的小吃街是夜晚的味觉主角。鸭血粉丝、小笼包、糖芋苗……两个人可以分食几样，边走边尝，不必正襟危坐。灯火与食物的热气交织，让晚餐变成一场流动的体验。"
+    },
+    {
+      "id": "food_laomendong",
+      "name": "老门东庭院小馆",
+      "district": "秦淮",
+      "category": "courtyard dining",
+      "reason": "老门东的巷弄里藏着不少庭院式餐厅，环境比主街更安静，菜品也更精致。适合情侣在傍晚坐下来，点几道江浙风味的小菜，在灯笼和树影下慢慢吃，享受不被打扰的二人时光。"
+    }
+  ]
+}

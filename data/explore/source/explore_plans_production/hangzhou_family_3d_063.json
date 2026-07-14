@@ -1,0 +1,169 @@
+{
+  "id": "exp_hangzhou_family_3d_lake_tea_v1",
+  "slug": "hangzhou-family-3d-lake-tea",
+  "title": "西湖日落与茶山清晨：一家人的慢调杭州",
+  "summary": "这是一段专为家庭设计的杭州慢旅行。避开拥挤的景点清单，以西湖的温柔日落和龙井茶山的清晨为核心，串联起适合老人和孩子的轻松节奏。从湖边散步到竹林深呼吸，从老街小吃到茶田边的简单午餐，每一天都有充足的休息和共享的温馨时刻。",
+  "city": {
+    "code": "hangzhou",
+    "name": "Hangzhou",
+    "region_name": "Zhejiang"
+  },
+  "trip_type": "family",
+  "days": 3,
+  "budget": {
+    "level": "medium",
+    "note": "适中预算，包含一次湖边茶歇和老街小吃，住宿选择西湖附近舒适型酒店。"
+  },
+  "pace": "slow",
+  "tags": [
+    "亲子",
+    "西湖",
+    "茶文化",
+    "自然",
+    "慢旅行",
+    "家庭出游"
+  ],
+  "image_prompt": "A warm, soft-focus editorial photo of a family of three walking along West Lake at golden hour, with the setting sun casting long shadows and the lake reflecting orange and pink hues. The parents hold a child's hands, all smiling. In the background, willow trees frame the scene. Style: National Geographic travel magazine, natural light, shallow depth of field, calm mood, high detail.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "西湖夕照 · 全家漫步",
+      "summary": "抵达后以最舒缓的方式打开西湖：午后沿湖散步，傍晚在湖畔欣赏日落，然后在老街上寻找家人喜欢的味道。",
+      "activities": [
+        {
+          "time_block": "afternoon",
+          "description": "从酒店出发，沿西湖湖岸缓步慢行。孩子可以追逐湖边的鸽子，老人坐在长椅上休息，看游船缓缓划过。走走停停，不必走完全程。",
+          "poi_refs": [
+            "poi_west_lake"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "日落时分，在湖滨找一处开阔位置，全家人一起看太阳沉入远山。之后前往河坊街，在热闹但不拥挤的夜色中，品尝定胜糕、葱包烩等传统小吃，让孩子也感受老街的烟火气。",
+          "poi_refs": [
+            "poi_hefang_street"
+          ],
+          "food_refs": [
+            "food_hefang_snacks"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "茶山清晨 · 竹林深呼吸",
+      "summary": "上午前往龙井茶村，感受茶园绿意；下午转入云栖竹径，在清凉竹影中享受家庭徒步的乐趣。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "趁清晨凉爽，驱车或打车前往龙井茶村边缘。在茶田间漫步，看采茶人劳作，找一户茶农家喝一杯明前龙井。孩子可以在田埂上奔跑，呼吸满山的茶香。",
+          "poi_refs": [
+            "poi_longjing_area"
+          ],
+          "food_refs": [
+            "food_longjing_tea"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "从茶村转往云栖竹径，这里路面平缓，竹林遮天蔽日。一家人可以慢慢走在石板路上，听风吹竹叶的沙沙声。孩子喜欢数竹笋，老人也能轻松走完。",
+          "poi_refs": [
+            "poi_yunqi_path"
+          ],
+          "food_refs": []
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "湿地慢游 · 归途前的宁静",
+      "summary": "最后一天留给西溪湿地，在水巷与绿洲之间划船或散步，以最柔和的方式结束旅程。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "前往西溪湿地边缘区域，租一艘摇橹船或沿栈道步行。水面开阔，芦苇摇曳，孩子可以观察水鸟，老人享受水乡的宁静。不必深入核心区，轻松即可。",
+          "poi_refs": [
+            "poi_xixi_edge"
+          ],
+          "food_refs": [
+            "food_lake_dining"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "在湿地附近的湖滨茶餐厅享用一顿简单的江南午餐，然后根据返程时间自由安排。如果还有精力，可以在湖边最后停留片刻，给这次家庭旅行画上温柔的句号。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_lake_dining"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_west_lake",
+      "name": "西湖湖滨步道",
+      "district": "西湖区",
+      "type": "湖滨风景带",
+      "reason": "西湖是杭州的灵魂，对于家庭旅行来说，它不只是一处景点，更是一个可以随时坐下、随时起身的开放空间。老人可以闲坐，孩子可以奔跑，而日落时分的光影会成为全家人共同的记忆。",
+      "recommended_duration_minutes": 150
+    },
+    {
+      "id": "poi_longjing_area",
+      "name": "龙井茶村边缘",
+      "district": "西湖区",
+      "type": "茶田景观",
+      "reason": "带家人走进茶山，不是为了打卡，而是让城市里长大的孩子看看茶叶从哪里来。清晨的茶村安静而清新，空气里带着甜味，适合全家人一起放慢呼吸。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_yunqi_path",
+      "name": "云栖竹径",
+      "district": "西湖区",
+      "type": "自然步道",
+      "reason": "如果家人想从西湖的温柔切换到竹林的清幽，云栖竹径是最好的选择。路面平坦，绿荫如盖，走起来毫无压力，却能收获满眼翠绿和山间凉意。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_hefang_street",
+      "name": "河坊街",
+      "district": "上城区",
+      "type": "历史老街",
+      "reason": "河坊街是杭州最有生活气息的老街之一，但家庭游客不必挤在主干道上。可以拐进旁边的小巷，找一家现做现卖的小吃摊，让孩子看看糖画和定胜糕是怎么做出来的。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_xixi_edge",
+      "name": "西溪湿地边缘",
+      "district": "西湖区",
+      "type": "湿地景观",
+      "reason": "西溪湿地很大，但家庭游客只需要它的边缘就够了。一片水、一条船、几丛芦苇，就能让全家人感受到江南水乡的静谧。不必走远，轻松即好。",
+      "recommended_duration_minutes": 150
+    }
+  ],
+  "food": [
+    {
+      "id": "food_hefang_snacks",
+      "name": "河坊街小吃段",
+      "district": "上城区",
+      "category": "小吃街",
+      "reason": "河坊街的小吃种类丰富，从甜糯的定胜糕到香脆的葱包烩，孩子和老人都能找到喜欢的味道。傍晚时分，一家人边走边尝，是融入杭州最轻松的方式。"
+    },
+    {
+      "id": "food_longjing_tea",
+      "name": "龙井村茶歇",
+      "district": "西湖区",
+      "category": "茶室",
+      "reason": "在龙井茶村找一户农家茶室，坐下来喝一杯地道的龙井茶，配上简单的茶点。孩子可以在院子里玩耍，大人则享受片刻的宁静。这不仅是休息，更是体验茶乡生活的机会。"
+    },
+    {
+      "id": "food_lake_dining",
+      "name": "西湖茶餐厅",
+      "district": "西湖区",
+      "category": "餐厅",
+      "reason": "位于西溪湿地附近的湖滨茶餐厅，提供清淡可口的江南家常菜，适合全家人一起用餐。环境雅致，窗外有绿意，是结束旅程前的一顿舒心饭。"
+    }
+  ]
+}

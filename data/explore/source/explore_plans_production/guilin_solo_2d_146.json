@@ -1,0 +1,162 @@
+{
+  "id": "exp_guilin_solo_2d_oldcity_river_v1",
+  "slug": "guilin-solo-2d-oldcity-river",
+  "title": "漓江微风与老城慢步：一个人的桂林",
+  "summary": "这是一场属于独行者的桂林漫游。两天时间，不赶路，不打卡，而是沿着漓江的微风，走进老城的街巷。从清晨的象鼻山到傍晚的江边散步，从东巷的烟火气到两江四湖的安静水面——每一步都是与自己对话的节奏。适合喜欢观察、拍照、沉浸在城市纹理中的独自旅行者。",
+  "city": {
+    "code": "guilin",
+    "name": "Guilin",
+    "region_name": "Guangxi"
+  },
+  "trip_type": "solo",
+  "days": 2,
+  "budget": {
+    "level": "medium",
+    "note": "包含一到两个付费景点门票，日常餐饮以本地小吃和老街小馆为主，总体花费适中。"
+  },
+  "pace": "balanced",
+  "tags": [
+    "citywalk",
+    "local-culture",
+    "photo-friendly",
+    "solo-travel",
+    "karst-scenery",
+    "slow-travel"
+  ],
+  "image_prompt": "Editorial travel photography style, a solo traveler standing on a quiet stone bridge overlooking the Li River at golden hour, karst mountains in soft focus background, warm light reflecting on water, old city rooftops visible, Fuji film aesthetic, shallow depth of field, peaceful and contemplative mood.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "象山晨光与老街烟火",
+      "summary": "从桂林的城市名片象鼻山开始，感受清晨的宁静与山水相依。随后漫步至东西巷，在老街的纹理中寻找本地生活的味道。傍晚沿着漓江散步，看山影渐暗，灯火初上。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "清晨前往象鼻山，趁着游客不多，独自在山前水边停留，看漓江与城市在晨光中醒来。山的轮廓倒映在水面，是独属于你的安静画面。",
+          "poi_refs": [
+            "poi_elephant_trunk_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "转入东西巷，在老街的青石板路上随意穿行。巷弄里藏着本地小吃铺子和手作小摊，挑一家顺眼的坐下，吃一碗地道的桂林米粉，感受老城慢悠悠的节奏。",
+          "poi_refs": [
+            "poi_east_west_lane"
+          ],
+          "food_refs": [
+            "food_east_west_lane"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "傍晚时分，沿着漓江边的步道缓缓行走。两岸的山峰在暮色中变成剪影，江风拂面，城市的喧嚣渐渐远去。找一个安静的石阶坐下，看江面倒映的灯光，这是独行者才懂得的浪漫。",
+          "poi_refs": [
+            "poi_river_evening_walk"
+          ],
+          "food_refs": [
+            "food_riverfront_dining"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "江湖之间，独自漫游",
+      "summary": "第二天登上伏波山，从高处俯瞰桂林的山水格局。之后步入两江四湖区域，在水岸间随意走走停停。最后以一顿江边的慢餐收尾，结束这场与自己相处的旅程。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "登上伏波山，山不高，但足以俯瞰漓江与城市交织的画卷。独自站在观景台上，看江面船只缓缓移动，远处的喀斯特峰林层层叠叠，这是属于你的高光时刻。",
+          "poi_refs": [
+            "poi_fubo_hill"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "下山后漫步至两江四湖区域，沿着水岸随意行走。桥、亭、水、树构成一幅幅安静的画卷，适合随时停下拍照，或者坐在长椅上发呆。独行的自由就在于，时间完全由自己支配。",
+          "poi_refs": [
+            "poi_two_rivers"
+          ],
+          "food_refs": [
+            "food_zhengyang_street"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "最后一晚，选择漓江边一家安静的餐厅，点一份本地菜，看着江面夜色慢慢降临。独自用餐并不孤单，因为有山水为伴。饭后沿着江岸再走一段，把桂林的微风装进记忆里。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_riverfront_dining"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_elephant_trunk_edge",
+      "name": "象鼻山景区",
+      "district": "象山区",
+      "type": "landmark scenic site",
+      "reason": "作为桂林的城市象征，象鼻山在清晨尤其迷人。独自一人时，可以避开人群，静静欣赏山形倒映江中的画面，感受山水与城市共生的独特氛围。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_east_west_lane",
+      "name": "东西巷",
+      "district": "秀峰区",
+      "type": "historic street district",
+      "reason": "东西巷保留了老桂林的街巷肌理，青砖黛瓦间藏着本地小吃和手工艺店。独自穿行其中，能触摸到城市最真实的脉搏，是感受本地文化的最佳窗口。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_river_evening_walk",
+      "name": "漓江夜步道",
+      "district": "象山区",
+      "type": "riverfront district",
+      "reason": "傍晚的漓江边是独行者的治愈空间。山影、灯光、江水构成一幅流动的画卷，适合放空思绪，或举起相机捕捉暮色中的城市轮廓。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_fubo_hill",
+      "name": "伏波山",
+      "district": "秀峰区",
+      "type": "city viewpoint",
+      "reason": "伏波山不高，却拥有俯瞰漓江和城区的绝佳视角。独自登顶，在观景台上迎风而立，看山水与城市交织的壮阔景致，是独行旅程中难忘的瞬间。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_two_rivers",
+      "name": "两江四湖",
+      "district": "秀峰区",
+      "type": "central scenic district",
+      "reason": "两江四湖是桂林水系的精华，步道串联起桥、亭、塔和绿树。适合独自慢走，随时停下拍照或坐在水边发呆，感受城市中难得的宁静水域。",
+      "recommended_duration_minutes": 120
+    }
+  ],
+  "food": [
+    {
+      "id": "food_zhengyang_street",
+      "name": "正阳步行街美食区",
+      "district": "秀峰区",
+      "category": "snack street",
+      "reason": "正阳步行街是桂林最中心的小吃聚集地，米粉、油茶、糯米饭应有尽有。独自一人时，可以随心挑选几样小吃，坐在街边凳子上，看人来人往，感受市井活力。"
+    },
+    {
+      "id": "food_east_west_lane",
+      "name": "东西巷老店小吃",
+      "district": "秀峰区",
+      "category": "old street dining",
+      "reason": "东西巷深处的老店保留着桂林最地道的味道。一个人钻进巷子，点一碗米粉或一份田螺，在斑驳的老墙下慢慢吃，仿佛与这座城市的过去产生了连接。"
+    },
+    {
+      "id": "food_riverfront_dining",
+      "name": "漓江边慢食区",
+      "district": "象山区",
+      "category": "scenic dining",
+      "reason": "漓江边有几家氛围安静的餐厅，适合独行者坐下来享受一顿不被打扰的晚餐。窗外是江景和山影，菜品以本地风味为主，用餐变成了一种与山水对话的体验。"
+    }
+  ]
+}

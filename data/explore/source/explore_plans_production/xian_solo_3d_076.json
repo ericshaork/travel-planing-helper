@@ -1,0 +1,199 @@
+{
+  "id": "exp_xian_solo_3d_wall_heritage_v1",
+  "slug": "xian-solo-3d-wall-heritage",
+  "title": "城墙风声与唐风夜色：一个人的西安漫游",
+  "summary": "一个人的西安之旅，不必追赶景点，而是让城墙的风、回坊的烟火、雁塔的灯光带你走进这座古都的呼吸节奏。三天时间，在历史与市井之间从容穿行，用镜头记录独属于你的长安记忆。",
+  "city": {
+    "code": "xian",
+    "name": "Xi'an",
+    "region_name": "Shaanxi"
+  },
+  "trip_type": "solo",
+  "days": 3,
+  "budget": {
+    "level": "medium",
+    "note": "适中预算，可兼顾一处主要遗产景点、一片老城区和一顿有氛围的晚餐。"
+  },
+  "pace": "balanced",
+  "tags": [
+    "solo",
+    "citywalk",
+    "local-culture",
+    "photo",
+    "ancient-capital",
+    "history"
+  ],
+  "image_prompt": "National Geographic travel magazine style photo of a solo traveler standing on the ancient Xi'an City Wall at golden hour, with the city skyline and distant pagoda silhouettes, warm light casting long shadows, cinematic composition, rich textures of brick and sky, atmospheric and contemplative mood.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "城墙之上，初识长安",
+      "summary": "从城墙开始，用脚步丈量古城的尺度，傍晚在钟鼓楼广场感受市中心的烟火气。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "登上西安城墙，租一辆自行车或沿墙漫步，在城楼间俯瞰老城街巷，感受风从耳边掠过的自由。适合独自放空，用相机捕捉城墙的几何光影。",
+          "poi_refs": [
+            "poi_city_wall"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "漫步至钟鼓楼区域，不一定要登楼，在广场上找个长椅坐下，看车流与行人在古建筑前交织，体会古都的日常脉搏。",
+          "poi_refs": [
+            "poi_bell_tower_area"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "深入回民街的小巷，避开主干道的人潮，在洒金桥一带寻找本地人常去的小吃摊，来一碗热腾腾的羊肉泡馍，感受老城夜晚的烟火气。",
+          "poi_refs": [
+            "poi_muslim_quarter"
+          ],
+          "food_refs": [
+            "food_muslim_quarter"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "雁塔光影，唐风遗韵",
+      "summary": "在大雁塔的庄重与小雁塔的幽静之间切换节奏，夜晚的音乐喷泉为独行增添一抹梦幻。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "前往大雁塔区域，先在塔南的广场上感受开阔，再购票登塔，从高处眺望西安城的中轴线，想象盛唐时期的恢弘。适合独自沉浸在历史的纵深感中。",
+          "poi_refs": [
+            "poi_big_wild_goose"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "转至小雁塔，这里游客更少，园林更静。在古槐树下坐一会儿，听风吹过塔铃的声音，是独处者最惬意的时刻。",
+          "poi_refs": [
+            "poi_small_yanta"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "返回大雁塔北广场，等待音乐喷泉表演。灯光与水柱随乐声起舞，古塔在夜色中成为背景，适合一个人静静观赏，用手机或相机记录下流光溢彩的瞬间。",
+          "poi_refs": [
+            "poi_big_wild_goose"
+          ],
+          "food_refs": []
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "市井深处，长安味道",
+      "summary": "最后一天留给永兴坊和钟楼周边的老城小巷，在接地气的食物和街景中为旅程收尾。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "前往永兴坊，这里比回民街更规整，但同样充满陕西各地的风味小吃。在摔碗酒的热闹声中，挑几样没尝过的面食和糕点，慢慢品味。",
+          "poi_refs": [
+            "poi_yongxingfang"
+          ],
+          "food_refs": [
+            "food_yongxingfang"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "回到钟楼附近，随意钻进东大街或西大街的背街小巷，探访那些不起眼的小店和旧书店，在城心的日常中感受古都的现代脉搏。",
+          "poi_refs": [
+            "poi_bell_tower_area"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "在钟楼附近的传统餐馆吃最后一顿晚餐，点一份葫芦鸡或凉皮，配上冰峰汽水，用最地道的西安味道为三天独行画上句号。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_bell_tower_dining"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_city_wall",
+      "name": "西安城墙",
+      "district": "碑林区",
+      "type": "historic landmark",
+      "reason": "城墙是西安的脊梁，也是独行者最自由的舞台。骑一辆单车或沿墙漫步，在城砖与雉堞之间，风会告诉你这座古城千年的故事。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_bell_tower_area",
+      "name": "钟鼓楼广场",
+      "district": "莲湖区",
+      "type": "historic city core",
+      "reason": "钟鼓楼是古城的中心坐标，广场上永远有生活流淌。适合独坐观察，看本地人遛鸟、游客拍照，感受时间在这里缓慢重叠。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_muslim_quarter",
+      "name": "回民街",
+      "district": "莲湖区",
+      "type": "historic food district",
+      "reason": "回民街不只是游客的食堂，更是独行者探索味觉的迷宫。钻进小巷，避开主街的喧嚣，你会发现最地道的西安味道藏在烟火最浓处。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_big_wild_goose",
+      "name": "大雁塔",
+      "district": "雁塔区",
+      "type": "cultural landmark",
+      "reason": "大雁塔是唐代长安的精神地标，登塔望远，城市的天际线与千年古塔同框，让人瞬间穿越。夜晚的喷泉广场更是独行者的视觉盛宴。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_small_yanta",
+      "name": "小雁塔",
+      "district": "碑林区",
+      "type": "historic garden landmark",
+      "reason": "小雁塔藏在园林深处，游人稀疏，古树参天。这里没有喧闹，只有塔铃在风中的轻响，是独处者最私密的冥想角落。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_yongxingfang",
+      "name": "永兴坊",
+      "district": "新城区",
+      "type": "food and folk-culture district",
+      "reason": "永兴坊以陕西各地小吃和民俗表演为特色，热闹而不失秩序。独行者可以在这里一站式尝遍三秦风味，感受关中人的豪爽与热情。",
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food": [
+    {
+      "id": "food_muslim_quarter",
+      "name": "回民街小吃巷",
+      "district": "莲湖区",
+      "category": "snack street",
+      "reason": "回民街的小吃巷是独行者最丰盛的食堂。从肉夹馍到甑糕，从烤串到酸梅汤，每一条巷子都藏着惊喜，适合边走边吃，随心停留。"
+    },
+    {
+      "id": "food_yongxingfang",
+      "name": "永兴坊美食集群",
+      "district": "新城区",
+      "category": "food court",
+      "reason": "永兴坊的美食摊铺排列整齐，陕西各地的代表性小吃都能找到。独行者可以轻松尝试多种风味，不必担心分量太大，摔碗酒更是有趣的互动体验。"
+    },
+    {
+      "id": "food_bell_tower_dining",
+      "name": "钟楼老城餐饮区",
+      "district": "莲湖区",
+      "category": "dining area",
+      "reason": "钟楼周边的传统餐馆是独行者最后一顿晚餐的理想选择。点一份葫芦鸡、一碗biangbiang面，就着冰峰汽水，在古城的夜色中回味三天的旅程。"
+    }
+  ]
+}

@@ -1,6 +1,13 @@
 import { NextResponse } from "next/server";
 
+import {
+  getFeaturedNormalizedExploreArchives,
+  getNormalizedExploreArchives,
+  mapNormalizedArchiveToExploreContent,
+  searchNormalizedExploreArchives,
+} from "../../../lib/explore/normalized-source";
 import { createExploreRepository } from "../../../lib/explore/repository";
+import { getMockExploreList } from "../../../lib/explore/mock-archives";
 import type {
   ExploreListResponse,
   ExploreTripContent,
@@ -10,6 +17,7 @@ import type {
 import { AppError, toApiErrorResponse } from "../../../lib/utils/errors";
 
 function normalizeFilters(searchParams: URLSearchParams): ExploreTripListFilters {
+  const search = searchParams.get("q")?.trim();
   const city = searchParams.get("city")?.trim();
   const tripType = searchParams.get("trip_type")?.trim();
   const daysParam = searchParams.get("days")?.trim();
@@ -60,6 +68,7 @@ function normalizeFilters(searchParams: URLSearchParams): ExploreTripListFilters
     : undefined;
 
   return {
+    ...(search ? { search } : {}),
     ...(city ? { city } : {}),
     ...(tripType ? { tripType } : {}),
     ...(typeof days === "number" && Number.isInteger(days) && days > 0
@@ -114,15 +123,49 @@ export function createExploreListHandler(
 ) {
   return async function GET(request: Request) {
     try {
-      const resolvedRepository = repository ?? createExploreRepository();
       const filters = normalizeFilters(new URL(request.url).searchParams);
+      const normalizedItems = filters.search
+        ? searchNormalizedExploreArchives(filters.search, filters.limit ?? 40)
+        : filters.featured
+          ? getFeaturedNormalizedExploreArchives(filters.limit ?? 9)
+          : getNormalizedExploreArchives({
+              ...filters,
+              limit: filters.limit ?? 40,
+            });
+
+      if (normalizedItems.length > 0) {
+        return NextResponse.json({
+          ok: true,
+          items: normalizedItems.map((item) =>
+            toListItem(mapNormalizedArchiveToExploreContent(item)),
+          ),
+        } satisfies ExploreListResponse);
+      }
+
+      const resolvedRepository = repository ?? createExploreRepository();
       const items = await resolvedRepository.listPublished(filters);
+
+      if (items.length > 0) {
+        return NextResponse.json({
+          ok: true,
+          items: items.map(toListItem),
+        } satisfies ExploreListResponse);
+      }
 
       return NextResponse.json({
         ok: true,
-        items: items.map(toListItem),
+        items: getMockExploreList(),
       } satisfies ExploreListResponse);
     } catch (error) {
+      const fallbackItems = getMockExploreList();
+
+      if (fallbackItems.length > 0) {
+        return NextResponse.json({
+          ok: true,
+          items: fallbackItems,
+        } satisfies ExploreListResponse);
+      }
+
       if (error instanceof AppError) {
         return NextResponse.json(toApiErrorResponse(error), {
           status: 500,

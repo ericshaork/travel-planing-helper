@@ -1,56 +1,79 @@
-import type { ExploreTripContent } from "@/lib/explore/types";
+import type { ArchiveReaderViewModel } from "@/lib/explore/archive-reader";
+import {
+  cleanDisplayText,
+  formatActivityDescription,
+  formatTimeBlockLabel,
+} from "@/lib/explore/archive-display";
+import { getArchiveRouteIllustrationSlot } from "@/lib/explore/image-resolver";
 
-import { ArchivePaperPanel } from "./ArchivePaperPanel";
+import { ResolvedImage } from "../ResolvedImage";
+import { ArchiveDecorations } from "./ArchiveDecorations";
 
 interface ArchiveItineraryProps {
-  item: ExploreTripContent;
+  item: ArchiveReaderViewModel;
 }
 
 export function ArchiveItinerary({ item }: ArchiveItineraryProps) {
+  if (item.dailyItinerary.length === 0) {
+    return null;
+  }
+
+  const routeIllustrationSlot = getArchiveRouteIllustrationSlot(item);
+
   return (
-    <ArchivePaperPanel
-      paper="warm"
-      bookmark="active"
-      decoration="tape"
-      className="px-4 py-4 sm:px-5 sm:py-5"
-      contentClassName="space-y-4 pt-4"
-    >
-      <div className="space-y-4">
-        <div>
-          <p className="workspace-kicker">ROUTE PREVIEW</p>
-          <h2 className="mt-2 text-lg font-semibold text-[var(--ink)]">
-            路线预览
-          </h2>
-        </div>
-        <div className="space-y-3">
-          {item.dailyItinerary.map((day) => (
-            <section
-              key={day.dayNumber}
-              className="rounded-[20px] border border-[var(--line)] bg-[rgb(255_255_255_/_0.56)] px-4 py-4 shadow-[0_6px_18px_rgb(55_44_32_/_0.05)]"
+    <section className="relative space-y-4 border-t border-[rgba(158,136,110,0.12)] pt-7">
+      <ArchiveDecorations variant="route" />
+      <div className="max-w-3xl">
+        <p className="workspace-kicker">DAILY ROUTE</p>
+        <h2 className="mt-2 text-lg font-semibold text-[var(--ink)]">每日路线</h2>
+      </div>
+
+      <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_16rem] lg:items-start">
+        <div className="grid gap-5 xl:grid-cols-2">
+          {item.dailyItinerary.map((day, dayIndex) => (
+            <article
+              key={`${day.dayNumber}-${dayIndex}`}
+              className="space-y-3 border-l border-[rgba(158,136,110,0.16)] pl-4"
             >
-              <div className="flex flex-wrap items-center gap-2">
-                <span className="rounded-full border border-[var(--line)] px-2.5 py-1 text-[11px] font-semibold tracking-[0.08em] text-[var(--ink-muted)]">
-                  DAY {day.dayNumber}
+              <div className="flex flex-wrap items-center gap-3">
+                <span className="rounded-full border border-[rgba(158,136,110,0.14)] px-2.5 py-1 text-[11px] font-semibold tracking-[0.08em] text-[var(--ink-muted)]">
+                  Day {typeof day.dayNumber === "number" ? day.dayNumber : dayIndex + 1}
                 </span>
                 <h3 className="text-base font-semibold text-[var(--ink)]">
-                  {day.title}
+                  {cleanDisplayText(day.title, `第 ${dayIndex + 1} 天`)}
                 </h3>
               </div>
-              <p className="mt-2 text-sm leading-6 text-[var(--ink-muted)]">
-                {day.summary}
+
+              <p className="max-w-2xl text-sm leading-7 text-[var(--ink-muted)]">
+                {cleanDisplayText(day.summary, "按当天节奏慢慢走，不必排得太满。")}
               </p>
-              <ul className="mt-3 space-y-2 text-sm leading-6 text-[var(--ink)]">
-                {day.activities.map((activity, index) => (
-                  <li key={`${day.dayNumber}-${activity.timeBlock}-${index}`}>
-                    <span className="font-semibold">{activity.timeBlock}</span>
-                    {`：${activity.description}`}
+
+              <ul className="space-y-2 text-sm leading-7 text-[var(--ink)]">
+                {day.activities.slice(0, 3).map((activity, index) => (
+                  <li key={`${day.dayNumber}-${activity.timeBlock}-${index}`} className="flex gap-3">
+                    <span className="w-11 shrink-0 font-semibold text-[var(--ink-muted)]">
+                      {formatTimeBlockLabel(activity.timeBlock)}
+                    </span>
+                    <span className="min-w-0">{formatActivityDescription(activity)}</span>
                   </li>
                 ))}
               </ul>
-            </section>
+            </article>
           ))}
         </div>
+
+        {routeIllustrationSlot.sources.length > 0 ? (
+          <div className="relative hidden lg:block">
+            <ResolvedImage
+              sources={routeIllustrationSlot.sources}
+              alt={`${item.title} 路线预览插图`}
+              sizes="256px"
+              wrapperClassName="relative aspect-[4/5] overflow-hidden rounded-[10px] border border-[rgba(158,136,110,0.1)] bg-[rgba(255,250,241,0.14)] shadow-[0_12px_24px_rgba(88,76,57,0.06)]"
+              imageClassName="object-cover"
+            />
+          </div>
+        ) : null}
       </div>
-    </ArchivePaperPanel>
+    </section>
   );
 }

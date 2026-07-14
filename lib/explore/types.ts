@@ -210,6 +210,7 @@ export interface ExploreTripContentUpdate {
 }
 
 export interface ExploreTripListFilters {
+  search?: string;
   city?: string;
   tripType?: string;
   days?: number;

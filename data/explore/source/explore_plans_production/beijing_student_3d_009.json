@@ -1,0 +1,200 @@
+{
+  "id": "exp_beijing_student_3d_nightlife_shopping_v1",
+  "slug": "beijing-student-3d-nightlife-shopping",
+  "title": "皇城根下，青春烟火：什刹海夜色与中轴线漫游",
+  "summary": "三天两夜，用学生的节奏走读北京。从皇城中轴的磅礴气象，到什刹海湖边的夜色微醺，再到南锣鼓巷的烟火气与798的艺术感。全程地铁可达，吃逛结合，既有历史厚度，又有青春活力。",
+  "city": {
+    "code": "beijing",
+    "name": "Beijing",
+    "region_name": "Beijing"
+  },
+  "trip_type": "student",
+  "days": 3,
+  "budget": {
+    "level": "low",
+    "note": "以公共交通、免费或低价景点、小吃街为主，预算友好。"
+  },
+  "pace": "balanced",
+  "tags": [
+    "food",
+    "nightlife",
+    "shopping",
+    "hutong-life",
+    "budget-friendly",
+    "citywalk"
+  ],
+  "image_prompt": "A vibrant night scene at Shichahai Lake in Beijing, with glowing lanterns reflecting on the water, young people strolling along the lakeside, traditional hutong architecture in the background, warm ambient lighting, cinematic depth of field, editorial travel photography style.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "中轴初探，湖夜漫游",
+      "summary": "从皇城中轴线开始，感受帝都的庄严，傍晚转入什刹海，在胡同与湖光间体验夜生活的烟火气。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "沿故宫外围漫步，不进入宫殿，而是感受护城河与角楼的恢弘，在午门广场前拍照打卡，感受中轴线的开篇气势。",
+          "poi_refs": [
+            "poi_forbidden_city_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "登上景山公园万春亭，俯瞰故宫全景与中轴线轮廓，是学生党最经典的城市观景台。下山后沿胡同走向什刹海，探索银锭桥周边的小店与老北京生活气息。",
+          "poi_refs": [
+            "poi_jingshan",
+            "poi_shichahai_hutong"
+          ],
+          "food_refs": [
+            "food_shichahai"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "什刹海夜色是今天的重头戏——湖边的酒吧与小吃摊亮起灯火，找一家露天摊位吃烤串、喝老北京酸奶，听街头艺人唱歌，感受年轻与传统的碰撞。",
+          "poi_refs": [
+            "poi_shichahai_hutong"
+          ],
+          "food_refs": [
+            "food_shichahai"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "天坛晨韵，南锣烟火",
+      "summary": "上午在天坛公园感受老北京晨练文化，下午钻进南锣鼓巷的胡同迷宫，吃遍小吃，淘有趣杂货，晚上继续在鼓楼一带听现场音乐。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "天坛公园是北京人晨练的聚集地，看大爷大妈打太极、踢毽子，感受市井活力。回音壁和祈年殿是必看，但不必买联票，在开阔的公园里散步就足够有味道。",
+          "poi_refs": [
+            "poi_temple_of_heaven"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "南锣鼓巷主巷人头攒动，但旁边的菊儿胡同、帽儿胡同更安静，藏着独立书店、手作店和咖啡馆。一路走一路吃，糖葫芦、爆肚、卤煮，都是学生价。",
+          "poi_refs": [
+            "poi_nanluoguxiang"
+          ],
+          "food_refs": [
+            "food_nanluo"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "鼓楼东大街的livehouse和唱片店是夜生活的另一面，几十块就能听一场地下乐队演出，结束后在路边摊来一碗炒肝或包子，完美收尾。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_nanluo"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "798艺术漫游，前门老味收官",
+      "summary": "最后一天跳转到北京的另一面——798的工业风艺术区，然后回到前门大街，用一顿传统北京小吃为这趟青春漫游画上句号。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "798艺术区是北京最酷的街区之一，免费画廊、街头涂鸦、创意市集，适合边逛边拍，感受当代北京的年轻脉搏。",
+          "poi_refs": [
+            "poi_798_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "乘地铁回到前门，钻进大栅栏的胡同，找一家老字号吃炸酱面、豆汁儿、焦圈，体验最地道的北京味儿。饭后在正阳门下散步，结束旅程。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_qianmen"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "如果还有精力，在前门附近的杨梅竹斜街逛逛独立书店和设计小店，买几张明信片或手账本，把北京的青春记忆带走。",
+          "poi_refs": [],
+          "food_refs": []
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_forbidden_city_edge",
+      "name": "故宫外沿漫步",
+      "district": "东城区",
+      "type": "imperial landmark",
+      "reason": "不买票也能感受皇城的气场——护城河、角楼、午门广场，是学生党零成本触摸中轴线威严的最佳方式。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_jingshan",
+      "name": "景山公园",
+      "district": "西城区",
+      "type": "city viewpoint",
+      "reason": "登上万春亭，中轴线尽收眼底，是北京最物超所值的观景点，也是学生党拍照打卡的必到之处。",
+      "recommended_duration_minutes": 75
+    },
+    {
+      "id": "poi_shichahai_hutong",
+      "name": "什刹海胡同漫步",
+      "district": "西城区",
+      "type": "hutong district",
+      "reason": "湖面、垂柳、老胡同，白天是静谧的水乡画卷，入夜则变身青春夜生活的舞台，完美契合学生党的烟火漫游。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_temple_of_heaven",
+      "name": "天坛公园",
+      "district": "东城区",
+      "type": "cultural landmark",
+      "reason": "不只为看祈年殿，更是融入北京晨练文化的窗口——看当地人打太极、踢毽子，感受最鲜活的市井气息。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_nanluoguxiang",
+      "name": "南锣鼓巷",
+      "district": "东城区",
+      "type": "historic lane district",
+      "reason": "主巷热闹，旁巷幽静，小吃与杂货铺密集，是学生党逛吃淘货的天堂，也是感受胡同新潮文化的理想据点。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_798_edge",
+      "name": "798艺术区",
+      "district": "朝阳区",
+      "type": "creative district",
+      "reason": "工业遗存变身艺术街区，免费画廊、街头艺术、创意市集，为学生党提供北京最酷的文艺漫游体验。",
+      "recommended_duration_minutes": 120
+    }
+  ],
+  "food": [
+    {
+      "id": "food_shichahai",
+      "name": "什刹海小吃区",
+      "district": "西城区",
+      "category": "snack street",
+      "reason": "湖边的夜市摊档是学生党的深夜食堂——烤串、酸奶、爆肚，价格亲民，氛围自由，边吃边看湖景和街头表演。"
+    },
+    {
+      "id": "food_nanluo",
+      "name": "南锣鼓巷小吃街",
+      "district": "东城区",
+      "category": "snack street",
+      "reason": "从糖葫芦到卤煮，从老北京酸奶到创意小食，一路走一路吃，是学生党花小钱吃遍北京味道的经典路线。"
+    },
+    {
+      "id": "food_qianmen",
+      "name": "前门传统美食区",
+      "district": "东城区",
+      "category": "food street",
+      "reason": "大栅栏的老字号云集，炸酱面、豆汁儿、焦圈、豌豆黄，一顿饭就能把北京传统味道吃透，价格对学生也友好。"
+    }
+  ]
+}

@@ -1,0 +1,204 @@
+{
+  "id": "exp_guangzhou_couple_3d_riverside_romance",
+  "slug": "guangzhou-couple-3d-riverside-romance",
+  "title": "珠江晚风与骑楼巷陌：属于两人的慢调广州",
+  "summary": "为情侣设计的广州三日慢游，以珠江夜景和骑楼街巷为线索，穿插老城区漫步、地道茶点与河畔晚餐。节奏舒缓，注重氛围与共同记忆，适合一起拍照、散步、品尝地道粤味。",
+  "city": {
+    "code": "guangzhou",
+    "name": "Guangzhou",
+    "region_name": "Guangdong"
+  },
+  "trip_type": "couple",
+  "days": 3,
+  "budget": {
+    "level": "medium",
+    "note": "适中预算，兼顾老城区地道小吃与珠江边精致晚餐。"
+  },
+  "pace": "slow",
+  "tags": [
+    "romance",
+    "citywalk",
+    "food",
+    "photography",
+    "riverside-evening",
+    "lingnan-culture"
+  ],
+  "image_prompt": "A couple walking hand in hand along the Pearl River at dusk, with Canton Tower and skyline reflections in the water, warm golden light, soft bokeh, editorial travel photography style, shallow depth of field, romantic mood.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "骑楼记忆与珠江初夜",
+      "summary": "从荔湾老城区的骑楼街巷开始，感受岭南建筑与市井烟火，傍晚转至珠江边，在灯光与水影中开启浪漫夜。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "漫步永庆坊的蜿蜒巷弄，欣赏修缮后的骑楼与老广州生活气息。在街角的小店里品尝早茶点心，为旅程暖身。",
+          "poi_refs": [
+            "poi_yongqingfang"
+          ],
+          "food_refs": [
+            "food_yongqingfang"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "散步至沙面岛，在绿荫与欧式建筑间拍照，感受宁静的旧时光。找一家露台咖啡馆小坐，享受二人慢时光。",
+          "poi_refs": [
+            "poi_shamian"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "前往广州塔下的珠江沿岸，在灯火璀璨的河滨漫步，欣赏城市天际线。选一家河景餐厅共进晚餐，以甜蜜的甜品收尾。",
+          "poi_refs": [
+            "poi_canton_tower_riverfront"
+          ],
+          "food_refs": [
+            "food_pearl_river"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "老城烟火与河岸晚风",
+      "summary": "深入越秀区的北京路，感受历史与现代交织的街景，午后在陈家祠欣赏精妙木雕，傍晚回到珠江边，体验另一种静谧。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "逛北京路步行街，脚下是千年古道玻璃展示，两旁是热闹商铺。在附近的老字号吃一碗云吞面，感受地道广州。",
+          "poi_refs": [
+            "poi_beijing_road"
+          ],
+          "food_refs": [
+            "food_xihua"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "前往陈家祠，欣赏岭南建筑装饰艺术的精华。屋脊上的灰塑、木雕与彩绘让人流连，适合一起细品与拍照。",
+          "poi_refs": [
+            "poi_chen_clan"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "在天河区的珠江新城段散步，从花城广场走向珠江，看两岸灯光秀。找一家安静的酒吧或甜品店，以微醺或甜蜜结束一天。",
+          "poi_refs": [
+            "poi_zhujiang_night_walk"
+          ],
+          "food_refs": []
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "巷陌寻味与告别珠江",
+      "summary": "最后一天以悠闲的早茶开始，再探未被游人淹没的老巷，午后在沙面或永庆坊补拍照片，傍晚在珠江边作别。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "在荔湾区的老茶楼享受一顿慢悠悠的广式早茶，虾饺、烧卖、肠粉，两人分享一壶茶，看窗外街景。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_yongqingfang"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "回到永庆坊或沙面岛，补拍喜欢的角落，或者探索之前遗漏的小巷。买一些手信，如鸡仔饼、凉茶等。",
+          "poi_refs": [
+            "poi_yongqingfang",
+            "poi_shamian"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "最后一次来到珠江边，从海珠区一侧看对岸灯火，在江风中散步，回味三天的浪漫。选一家河畔小馆简单晚餐，为旅程画上句号。",
+          "poi_refs": [
+            "poi_canton_tower_riverfront"
+          ],
+          "food_refs": [
+            "food_pearl_river"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_yongqingfang",
+      "name": "永庆坊",
+      "district": "荔湾区",
+      "type": "historic district",
+      "reason": "修缮后的岭南骑楼街区，巷弄间藏着文艺小店与老字号，适合情侣牵手漫步，感受新旧交融的广州。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_shamian",
+      "name": "沙面岛",
+      "district": "荔湾区",
+      "type": "historic island district",
+      "reason": "绿树成荫的欧陆风情小岛，行人稀少，是拍情侣照的绝佳地点。宁静的氛围适合两人慢慢散步、靠肩细语。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_beijing_road",
+      "name": "北京路步行街",
+      "district": "越秀区",
+      "type": "commercial street",
+      "reason": "千年古道叠加现代商业，历史与活力并存。适合一起逛街、尝小吃，感受广州的日常脉搏。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_canton_tower_riverfront",
+      "name": "广州塔滨水区",
+      "district": "海珠区",
+      "type": "riverfront landmark zone",
+      "reason": "广州塔与珠江夜景的经典组合，灯光与水影交织出浪漫氛围。适合情侣傍晚散步、拍照，共享城市天际线。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_chen_clan",
+      "name": "陈家祠",
+      "district": "荔湾区",
+      "type": "cultural landmark",
+      "reason": "岭南建筑装饰的集大成者，木雕、石雕、灰塑精美绝伦。两人可以一起细品细节，感受传统工艺的魅力。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_zhujiang_night_walk",
+      "name": "珠江夜游步道",
+      "district": "天河区",
+      "type": "evening waterfront district",
+      "reason": "天河段的江岸步道视野开阔，对岸灯火璀璨。适合晚餐后牵手散步，享受都市夜晚的温柔。",
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food": [
+    {
+      "id": "food_yongqingfang",
+      "name": "永庆坊及荔湾美食区",
+      "district": "荔湾区",
+      "category": "snack street",
+      "reason": "聚集了传统茶楼与创意小食，适合情侣在逛骑楼时随时停下，分享一笼虾饺或一碗双皮奶。"
+    },
+    {
+      "id": "food_xihua",
+      "name": "西华路美食带",
+      "district": "越秀区",
+      "category": "local food street",
+      "reason": "地道老字号云集，云吞面、肠粉、煲仔饭应有尽有，性价比高，适合情侣一起尝遍街头风味。"
+    },
+    {
+      "id": "food_pearl_river",
+      "name": "珠江沿岸晚餐区",
+      "district": "海珠区",
+      "category": "river-view dining",
+      "reason": "多家餐厅拥有江景座位，适合情侣在浪漫灯光下享用精致粤菜或甜品，为一天画上完美句号。"
+    }
+  ]
+}

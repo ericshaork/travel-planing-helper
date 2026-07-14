@@ -1,0 +1,168 @@
+{
+  "id": "exp_chengdu_solo_2d_night_wander_v1",
+  "slug": "chengdu-solo-2d-night-wander",
+  "title": "巷陌夜色：一个人的成都漫游",
+  "summary": "两天时间，独自穿行在成都的老巷与灯火之间。从宽窄的文艺茶馆到九眼桥的河风，从人民公园的市井茶席到建设路的烟火小吃，节奏自由，目光敏锐。这不是一次打卡旅行，而是一场与城市呼吸同步的自我对话。",
+  "city": {
+    "code": "chengdu",
+    "name": "Chengdu",
+    "region_name": "Sichuan"
+  },
+  "trip_type": "solo",
+  "days": 2,
+  "budget": {
+    "level": "medium",
+    "note": "中等预算，兼顾经典体验与地道小吃，无需刻意省钱，也不追求奢华。"
+  },
+  "pace": "balanced",
+  "tags": [
+    "citywalk",
+    "local-culture",
+    "photo",
+    "night-scene",
+    "solo-travel",
+    "food"
+  ],
+  "image_prompt": "A solo traveler walking through a narrow Chengdu alley at dusk, warm lantern light spilling onto stone pavement, tea house doorways glowing, a bicycle leaning against a wall, soft haze, cinematic mood, National Geographic travel photography style, shallow depth of field.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "宽窄巷子与老城烟火",
+      "summary": "从宽窄巷子的青砖灰瓦开始，在人民公园的竹椅茶座里慢下来，傍晚转入锦里，看红灯笼依次亮起，感受老成都的夜色与食趣。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "独自漫步宽窄巷子，在交错的老巷中感受成都的慢生活。找一家茶馆，点一杯盖碗茶，看当地人摆龙门阵，用相机捕捉巷子里的光影和细节。",
+          "poi_refs": [
+            "poi_kuanzhai_alley"
+          ],
+          "food_refs": [
+            "food_kuanzhai_pockets"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "步行至人民公园，在鹤鸣茶社找个角落坐下，体验成都最日常的茶文化。看当地人下棋、掏耳朵，感受这座城市的松弛感。之后在公园里随意走走，拍些人文照片。",
+          "poi_refs": [
+            "poi_people_park"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "前往锦里古街，夜幕降临时红灯笼亮起，整条街弥漫着川味小吃的香气。边逛边尝，从三大炮到钵钵鸡，自由选择。在熙攘的人群中独自穿行，享受属于一个人的热闹。",
+          "poi_refs": [
+            "poi_jinli"
+          ],
+          "food_refs": [
+            "food_jinli_snacks"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "河畔漫步与市井夜宵",
+      "summary": "上午在武侯祠的历史氛围中沉淀，午后沿着望平坊河岸散步，傍晚转入建设路，用一顿热闹的街头小吃结束这次独行之旅。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "参观武侯祠，在三国的历史叙事中独自游走。红墙竹影、碑刻古柏，都是适合安静端详和拍照的角落。一个人慢慢看，不受时间催促。",
+          "poi_refs": [
+            "poi_wuhou_shrine"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "来到望平坊河岸区，沿府河散步，看两岸茶馆和咖啡馆的闲适景象。找一家河边的店坐下，喝杯咖啡或茶，翻翻书或只是发呆，享受独处的下午。",
+          "poi_refs": [
+            "poi_wangpingfang"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "转场到建设路美食区，这里被称为成都最接地气的夜宵圣地。一个人穿梭在各个摊位前，从烤猪蹄到冰粉，随心点单。在鼎沸的人声中，感受这座城市最鲜活的一面。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_construction_road"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_kuanzhai_alley",
+      "name": "宽窄巷子",
+      "district": "青羊区",
+      "type": "historic district",
+      "reason": "作为成都老城生活的缩影，宽窄巷子适合独自漫游。青砖黛瓦间藏着茶馆、文创小店和地道小吃，每一条巷弄都有不同的光影和故事，是拍摄城市人文的绝佳地点。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_people_park",
+      "name": "人民公园",
+      "district": "青羊区",
+      "type": "city park",
+      "reason": "人民公园是成都慢生活的核心现场。一个人坐在鹤鸣茶社的竹椅上，看当地人打牌、聊天、掏耳朵，能最直接地触摸到这座城市的松弛底调。适合独处观察，也适合拍下生动的市井画面。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_jinli",
+      "name": "锦里古街",
+      "district": "武侯区",
+      "type": "historic commercial street",
+      "reason": "锦里的夜晚比白天更有韵味。红灯笼、木楼、小吃摊和川剧变脸表演交织出浓厚的蜀地风情。一个人沿着青石板路慢慢走，随时停下来尝一口热腾腾的小吃，自由自在。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_wuhou_shrine",
+      "name": "武侯祠",
+      "district": "武侯区",
+      "type": "cultural site",
+      "reason": "武侯祠是三国迷的朝圣地，也是一处可以安静独处的园林。红墙竹影、碑刻古柏，历史的气息在每一处角落沉淀。一个人漫步其间，适合沉思、拍照，感受成都的历史纵深。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_wangpingfang",
+      "name": "望平坊河岸区",
+      "district": "成华区",
+      "type": "riverwalk district",
+      "reason": "府河边的望平坊是年轻人聚集的休闲地带。沿河步道、创意小店和露天茶馆咖啡馆错落有致，适合一个人散步、拍照、找家店坐下发呆。河风习习，氛围松弛。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_construction_road",
+      "name": "建设路美食区",
+      "district": "成华区",
+      "type": "food district",
+      "reason": "建设路是成都夜宵的灵魂所在。密集的小吃摊位、排队的人群、空气中交织的麻辣香气，让独行者也忍不住加入这场美食狂欢。从烤串到冰粉，一个人也能吃得酣畅淋漓。",
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food": [
+    {
+      "id": "food_kuanzhai_pockets",
+      "name": "宽窄巷子小吃巷",
+      "district": "青羊区",
+      "category": "snack street",
+      "reason": "宽窄巷子内分布着多家老字号小吃，如三大炮、糖油果子等，适合一个人边走边尝，轻松开启成都美食之旅。"
+    },
+    {
+      "id": "food_jinli_snacks",
+      "name": "锦里小吃走廊",
+      "district": "武侯区",
+      "category": "snack street",
+      "reason": "锦里古街两侧的小吃摊位琳琅满目，从钵钵鸡到叶儿粑，每一样都充满川味。夜晚灯火通明，独行者在人潮中自由品尝，别有滋味。"
+    },
+    {
+      "id": "food_construction_road",
+      "name": "建设路夜市",
+      "district": "成华区",
+      "category": "night market",
+      "reason": "建设路是成都最火爆的夜市之一，烤猪蹄、脑花、冰粉等摊位前总是排着长队。一个人来这里，可以随心所欲地尝试各种街头味道，感受最真实的成都夜宵文化。"
+    }
+  ]
+}

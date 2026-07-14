@@ -1,0 +1,236 @@
+{
+  "id": "exp_xiamen_family_5d_coastal_slow_v1",
+  "slug": "xiamen-family-5d-coastal-slow",
+  "title": "海风里的家庭时光：厦门5日慢享骑行与鼓浪屿光影",
+  "summary": "这是一段专为家庭设计的厦门慢旅行。在环岛路的温柔海风中骑行，在鼓浪屿的百年光影里漫步，每一天都从容不迫，既有孩子喜欢的开阔沙滩，也有长辈钟情的南洋老街。全家人不必赶路，只需一起感受这座海滨城市的呼吸与温度。",
+  "city": {
+    "code": "xiamen",
+    "name": "Xiamen",
+    "region_name": "Fujian"
+  },
+  "trip_type": "family",
+  "days": 5,
+  "budget": {
+    "level": "high",
+    "note": "注重舒适与品质，选择酒店周边便利设施，用餐以轻松精致的海景餐厅为主，交通以打车或包车为主，减少步行疲劳。"
+  },
+  "pace": "slow",
+  "tags": [
+    "family-friendly",
+    "coastal-city",
+    "slow-travel",
+    "nature",
+    "history",
+    "sea-breeze",
+    "walkable"
+  ],
+  "image_prompt": "National Geographic travel magazine style photo: A family of four cycling on a sunny coastal road with palm trees and turquoise sea on one side, old colonial buildings on the other. Golden afternoon light, relaxed atmosphere, Fujian coastal architecture in background. Shot from low angle with dynamic composition, warm color palette, editorial photography style.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "抵达与老城初探",
+      "summary": "慢悠悠地抵达厦门，傍晚时分走进中山路，感受骑楼下的烟火气。",
+      "activities": [
+        {
+          "time_block": "afternoon",
+          "description": "抵达后入住酒店，稍作休整。下午前往中山路，在骑楼老街中散步，品尝沙茶面、海蛎煎等本地小吃，感受厦门老城的市井气息。",
+          "poi_refs": [
+            "poi_zhongshan_road"
+          ],
+          "food_refs": [
+            "food_zhongshan_snack"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "在中山路附近找一家本地菜馆用晚餐，饭后沿街散步，感受华灯初上的骑楼夜景。",
+          "poi_refs": [],
+          "food_refs": []
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "环岛骑行与海滨慢时光",
+      "summary": "全家人租上自行车，沿着环岛路一路骑行，海风拂面，椰影婆娑。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "酒店早餐后，前往环岛路租自行车（建议选择带儿童座椅的车型），沿着海岸线骑行，随时停下来拍照、看海、玩沙。",
+          "poi_refs": [
+            "poi_huandao_road"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "在环岛路附近的海景餐厅用午餐，餐后在沙滩上休息或让孩子玩耍。下午继续骑行至音乐广场附近，享受悠闲时光。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_seafront_dining"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "返回酒店休息，晚餐选择酒店附近的轻食餐厅或海鲜排档，轻松结束一天。",
+          "poi_refs": [],
+          "food_refs": []
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "鼓浪屿光影与家庭漫步",
+      "summary": "乘船上岛，在鼓浪屿的小巷中穿行，看万国建筑，听琴声悠扬。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "早餐后乘轮渡前往鼓浪屿，上岛后先往日光岩方向慢行，沿途欣赏老别墅和花园。选择一条人少的小巷，感受岛上的宁静。",
+          "poi_refs": [
+            "poi_gulangyu_view"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "在岛上找一家家庭友好的餐厅用午餐，推荐龙头路附近的小吃。下午继续漫步，参观菽庄花园或钢琴博物馆，孩子可以在海边礁石区玩耍。",
+          "poi_refs": [],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "乘日落前的轮渡返回厦门岛，晚餐在中山路附近享用，饭后可散步至鹭江道看鼓浪屿夜景。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_zhongshan_snack"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 4,
+      "title": "南普陀寺与厦大校园的宁静",
+      "summary": "上午拜访千年古刹，午后在厦大校园里散步，感受书香与海风。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "前往南普陀寺，带家人参观寺庙建筑和放生池，孩子可以喂鸽子。寺庙免费，香火旺盛，氛围宁静。",
+          "poi_refs": [
+            "poi_nanputuo_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "从南普陀寺步行至厦门大学，在校园内的芙蓉湖和情人谷散步，感受青春气息。之后在厦大附近用午餐。",
+          "poi_refs": [],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "傍晚前往白鹭洲公园，在湖边散步，看城市灯光倒映水中，适合全家闲坐聊天。",
+          "poi_refs": [
+            "poi_bailuzhou_evening"
+          ],
+          "food_refs": []
+        }
+      ]
+    },
+    {
+      "day": 5,
+      "title": "沙坡尾的文艺告别",
+      "summary": "最后一天，在沙坡尾的渔港边吃一顿早午餐，为旅程画上温柔句点。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "前往沙坡尾，在避风坞旁散步，参观艺术西区的小店和展览。找一家临海咖啡店或轻食餐厅用早午餐，享受最后的悠闲。",
+          "poi_refs": [
+            "poi_shapowei"
+          ],
+          "food_refs": [
+            "food_shapowei_harbor"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "根据航班或火车时间，返回酒店取行李，前往机场或火车站。如果时间充裕，可在环岛路再作短暂停留。",
+          "poi_refs": [],
+          "food_refs": []
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_zhongshan_road",
+      "name": "中山路步行街",
+      "district": "思明区",
+      "type": "历史文化商业街",
+      "reason": "作为厦门最经典的老街，中山路是家庭抵达后感受城市气息的最佳起点。骑楼连绵，小吃林立，节奏舒缓，老人孩子都能自在行走。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_huandao_road",
+      "name": "环岛路海滨步道",
+      "district": "思明区",
+      "type": "海滨长廊",
+      "reason": "家庭骑行的绝佳选择，平坦开阔，一侧是蔚蓝大海，一侧是椰风绿荫。随时可以停下来玩沙、看船，是孩子释放精力的好地方。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_gulangyu_view",
+      "name": "鼓浪屿观景台",
+      "district": "思明区",
+      "type": "滨海观景点",
+      "reason": "鼓浪屿是厦门的灵魂所在，但家庭出行不必登岛太深。在观景台远眺岛屿轮廓和万国建筑，既领略了精髓，又避免了轮渡的拥挤和岛上的步行疲劳。",
+      "recommended_duration_minutes": 75
+    },
+    {
+      "id": "poi_nanputuo_edge",
+      "name": "南普陀寺及厦大校园",
+      "district": "思明区",
+      "type": "文化与校园区域",
+      "reason": "南普陀寺的宁静氛围适合全家祈福，而厦大校园的芙蓉湖和绿荫道则是散步的好去处。两者紧邻，一动一静，相得益彰。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_bailuzhou_evening",
+      "name": "白鹭洲公园",
+      "district": "思明区",
+      "type": "城市滨水公园",
+      "reason": "傍晚时分，全家人可以在白鹭洲的湖边散步，看城市灯火渐亮，是旅行中放松身心的安静角落。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_shapowei",
+      "name": "沙坡尾",
+      "district": "思明区",
+      "type": "渔港文艺区",
+      "reason": "沙坡尾保留了厦门渔港的原始肌理，又生长出年轻的文艺气息。适合家庭在最后一天悠闲地逛逛小店，在避风坞边吃一顿告别早午餐。",
+      "recommended_duration_minutes": 120
+    }
+  ],
+  "food": [
+    {
+      "id": "food_zhongshan_snack",
+      "name": "中山路小吃街",
+      "district": "思明区",
+      "category": "小吃街",
+      "reason": "厦门小吃的集中地，沙茶面、海蛎煎、土笋冻、花生汤一应俱全。家庭可以各取所爱，边走边尝，轻松解决一餐。"
+    },
+    {
+      "id": "food_seafront_dining",
+      "name": "环岛路海景餐厅",
+      "district": "思明区",
+      "category": "海景餐厅",
+      "reason": "在环岛路沿线选择一家视野开阔的海景餐厅，家庭可以一边享用海鲜和本地菜，一边看海听潮，是慢旅行中值得停留的用餐体验。"
+    },
+    {
+      "id": "food_shapowei_harbor",
+      "name": "沙坡尾渔港食坊",
+      "district": "思明区",
+      "category": "渔港美食区",
+      "reason": "沙坡尾的餐厅多以海鲜和轻食为主，环境清新，适合家庭在行程最后一天来一场不赶时间的早午餐，为旅程画上圆满句号。"
+    }
+  ]
+}

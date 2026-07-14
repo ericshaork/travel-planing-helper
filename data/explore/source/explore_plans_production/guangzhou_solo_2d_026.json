@@ -1,0 +1,173 @@
+{
+  "id": "exp_guangzhou_solo_2d_riverside_citywalk_v1",
+  "slug": "guangzhou-solo-2d-riverside-citywalk",
+  "title": "珠江晚风与早茶日常：一个人的广州漫游",
+  "summary": "一个人的广州，是清晨茶楼的点心香，是西关老街的骑楼影，是珠江边的晚风拂面。这份计划为独自旅行的你设计，用两天时间，以citywalk的方式穿行于永庆坊、沙面、陈家祠等老城肌理，再跳到天河感受现代江岸的灯火。节奏从容，既有文化深度，也有街巷烟火，让你在自由探索中与这座岭南老城安静对话。",
+  "city": {
+    "code": "guangzhou",
+    "name": "Guangzhou",
+    "region_name": "Guangdong"
+  },
+  "trip_type": "solo",
+  "days": 2,
+  "budget": {
+    "level": "medium",
+    "note": "中等预算，兼顾老城小吃和一顿珠江边正餐，交通以地铁和步行为主。"
+  },
+  "pace": "balanced",
+  "tags": [
+    "citywalk",
+    "local-culture",
+    "photo",
+    "riverside-evening",
+    "cantonese-food",
+    "lingnan-culture",
+    "solo-travel"
+  ],
+  "image_prompt": "Editorial travel magazine style photo, a solo traveler standing on the Pearl River promenade at dusk, with Canton Tower glowing in the background, warm streetlights, calm water reflection, shot from a low angle with a 35mm lens, cinematic mood, soft golden hour light, city meets river atmosphere.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "西关旧韵与珠江晚风",
+      "summary": "从永庆坊的骑楼巷弄开始，沿沙面岛绿荫漫步，午后探访陈家祠的岭南雕刻，傍晚在珠江边等一场日落。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "从地铁站步行进入永庆坊，在还没有完全喧闹起来的上午，独自穿行于麻石巷和骑楼之间。找一家老字号茶楼，点一盅两件，感受广州人的早茶日常。然后沿着荔湾湖方向随意走走，拍下那些斑驳的满洲窗和晾着衣服的旧阳台。",
+          "poi_refs": [
+            "poi_yongqingfang"
+          ],
+          "food_refs": [
+            "food_liwan_pockets"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "从永庆坊散步到沙面岛，这里是另一种节奏——绿树掩映的西式建筑群，人少安静，很适合一个人戴着耳机慢慢逛。午后移步陈家祠，细细看那些屋顶上的灰塑和木雕，感受岭南匠人的繁复之美。累了就在附近的小店喝一杯凉茶，或者钻进西华路找一碗云吞面。",
+          "poi_refs": [
+            "poi_shamian",
+            "poi_chen_clan"
+          ],
+          "food_refs": [
+            "food_xihua_road"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "坐地铁到广州塔站，出站后沿着珠江边往猎德方向走。对岸的CBD灯光渐次亮起，江风温柔。找一个江边的露天座位吃顿简餐，或者买一瓶啤酒坐在台阶上，看游船缓缓驶过。这是一个人与城市最舒服的相处方式。",
+          "poi_refs": [
+            "poi_canton_tower_riverfront",
+            "poi_zhujiang_night_walk"
+          ],
+          "food_refs": []
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "老街烟火与城市漫步",
+      "summary": "深入北京路的历史层叠，中午在西华路解决一顿实惠午餐，下午随意穿行越秀老城，傍晚以一顿珠江边的晚餐收尾。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "早上从北京路开始，这里不仅有商业街的热闹，还有千年古道遗址和南越国水关遗迹，历史就踩在脚下。一个人逛的好处是随时可以停下来，钻进旁边的小巷子，发现一座安静的祠堂或一家老式理发店。",
+          "poi_refs": [
+            "poi_beijing_road"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "从北京路步行或坐两站地铁到西华路，这里才是广州本地人的食堂。从肠粉到煲仔饭，从糖水到牛杂，一个人可以一路吃过去，每样只点一份，刚刚好。吃完沿着老城街道漫无目的地走，看看街边的玉器铺和花店，感受老城的生活气息。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_xihua_road"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "再次回到珠江边，这次选择海珠区一侧的滨江路。这里的步道更生活化，有跑步的人、钓鱼的人、跳广场舞的人。找一家评价不错的粤菜馆，一个人点一碟白切鸡和一碗汤，用一顿认真的晚餐结束这次广州漫游。饭后沿着江边再走一走，把这座城市的温柔记在心里。",
+          "poi_refs": [
+            "poi_canton_tower_riverfront"
+          ],
+          "food_refs": [
+            "food_pearl_river_dining"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_yongqingfang",
+      "name": "永庆坊",
+      "district": "荔湾区",
+      "type": "historic district",
+      "reason": "永庆坊是广州老城更新的典范，骑楼、麻石路、文创小店和传统凉茶铺交织在一起。一个人在这里可以随意拐进任何一条巷子，感受新旧共生的岭南市井气，每一个转角都可能是一幅生动的街景照片。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_shamian",
+      "name": "沙面岛",
+      "district": "荔湾区",
+      "type": "historic island district",
+      "reason": "沙面岛像是珠江边的一个安静绿洲，成排的榕树和欧式建筑让这里成为独行者放空散步的好去处。没有车流的打扰，只有光影在旧洋楼间游移，很适合一个人带着相机慢慢拍。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_beijing_road",
+      "name": "北京路步行街",
+      "district": "越秀区",
+      "type": "commercial street",
+      "reason": "北京路不只是一条购物街，它的地底下埋藏着从南越国到明清的层层路面，历史与商业在此叠合。一个人来逛，既可以感受广州的现代活力，也能在路边的遗址玻璃板前驻足，想象千年前的羊城。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_canton_tower_riverfront",
+      "name": "广州塔滨江步道",
+      "district": "海珠区",
+      "type": "riverfront landmark zone",
+      "reason": "广州塔下的江边步道是欣赏珠江夜景的最佳位置之一，对岸的珠江新城霓虹璀璨，江上游船往来。一个人在这里吹着晚风，看城市天际线从黄昏过渡到黑夜，是独属于广州的浪漫时刻。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_chen_clan",
+      "name": "陈家祠",
+      "district": "荔湾区",
+      "type": "cultural landmark",
+      "reason": "陈家祠是岭南建筑艺术的集大成者，屋顶的灰塑、木雕、砖雕繁复精美，每一处细节都值得一个人慢慢端详。这里游客虽多，但只要静下心来，就能在那些神兽和花鸟之间，读到旧时匠人的专注与匠心。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_zhujiang_night_walk",
+      "name": "珠江夜游步道",
+      "district": "天河区",
+      "type": "evening waterfront district",
+      "reason": "从天河段的珠江步道开始夜走，可以看到广州最现代的一面——高楼灯光倒映在江面上，游船彩灯流转。一个人沿着江岸慢慢走，可以随时停下来拍照，也可以找张长椅坐下，看这座城市流动的光影。",
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food": [
+    {
+      "id": "food_liwan_pockets",
+      "name": "永庆坊及荔湾美食区",
+      "district": "荔湾区",
+      "category": "old city food cluster",
+      "reason": "永庆坊周边藏着不少地道小吃店和传统茶楼，从布拉肠粉到艇仔粥，再到一盅两件的早茶，适合独自旅行的你随意坐下，用一顿早餐的时间融入广州的慢生活。"
+    },
+    {
+      "id": "food_xihua_road",
+      "name": "西华路美食街",
+      "district": "越秀区",
+      "category": "street food strip",
+      "reason": "西华路是广州本地人公认的美食街，物价亲民，选择丰富。一个人来可以毫无负担地一路从街头吃到街尾，牛杂、肠粉、煲仔饭、糖水……每样来一份，正好满足独行者什么都想尝一点的心愿。"
+    },
+    {
+      "id": "food_pearl_river_dining",
+      "name": "珠江滨江餐饮带",
+      "district": "海珠区",
+      "category": "riverside dining",
+      "reason": "海珠区滨江路沿线有不少口碑粤菜馆，环境比老城区的更精致，适合一个人点几道经典粤菜，对着江景慢慢吃，作为旅程的收尾再合适不过。"
+    }
+  ]
+}

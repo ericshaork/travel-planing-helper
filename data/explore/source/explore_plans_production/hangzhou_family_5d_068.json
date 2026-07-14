@@ -1,0 +1,215 @@
+{
+  "id": "exp_hangzhou_family_5d_lake_stroll_v1",
+  "slug": "hangzhou-family-5d-lake-stroll",
+  "title": "西湖边的五天慢生活，带家人住进江南的柔光里",
+  "summary": "这是一段为家庭设计的杭州慢旅。五天里，你们不会匆忙赶路，而是沿着西湖的晨光与暮色散步，在龙井茶山的绿意中歇脚，逛一逛烟火气十足的河坊街。节奏很轻，风景很软，每一段路程都刚好适合老人和孩子。",
+  "city": {
+    "code": "hangzhou",
+    "name": "Hangzhou",
+    "region_name": "Zhejiang"
+  },
+  "trip_type": "family",
+  "days": 5,
+  "budget": {
+    "level": "high",
+    "note": "全程舒适为主，选择湖景用餐和精品茶歇，减少体力消耗。"
+  },
+  "pace": "slow",
+  "tags": [
+    "lake-view",
+    "tea-culture",
+    "family-friendly",
+    "slow-travel",
+    "old-street",
+    "nature"
+  ],
+  "image_prompt": "A warm, soft-lit travel magazine cover shot of a multi-generational Chinese family strolling along West Lake at golden hour, with willow branches framing the view, gentle reflections on the water, and distant hills in soft focus. Editorial style, shallow depth of field, warm color palette, natural expressions. 4K, cinematic composition.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "初抵西湖，安顿在湖光里",
+      "summary": "第一天以轻松适应为主，傍晚在湖边散步，感受杭州的第一面柔光。",
+      "activities": [
+        {
+          "time_block": "afternoon",
+          "description": "抵达后入住酒店，稍作休整，然后前往西湖边开始一段悠闲的湖岸漫步。孩子们可以跑跑跳跳，老人也能从容欣赏湖光山色。",
+          "poi_refs": [
+            "poi_west_lake"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "在西湖边的茶餐厅用晚餐，品尝清淡的江南菜肴，一边看着湖面灯光渐亮，一家人聊聊天，结束第一天的慢时光。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_west_lake_dining"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "茶山漫步，竹林深呼吸",
+      "summary": "上午去龙井茶村感受绿意，下午在云栖竹径的幽静里放松身心。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "前往龙井茶村边缘，在茶田间的步道缓行，呼吸清新空气。找一家茶农家坐下来，喝一杯明前龙井，孩子们可以看茶叶在杯中舒展。",
+          "poi_refs": [
+            "poi_longjing_area"
+          ],
+          "food_refs": [
+            "food_longjing_tea"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "转往云栖竹径，步入高耸的竹林深处。路面平缓，适合全家一起走，老人和孩子都不会觉得吃力。竹影摇曳，风声沙沙，是城市里难得的安静。",
+          "poi_refs": [
+            "poi_yunqi_path"
+          ],
+          "food_refs": []
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "河坊街的烟火，老杭州的味道",
+      "summary": "今天放慢脚步逛老街区，尝小吃，看手工艺，感受杭州的市井温度。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "睡到自然醒，然后慢慢逛河坊街。石板路两旁是各种传统店铺，可以给孩子买一个糖画，老人看看丝绸扇子，节奏全由你们自己掌控。",
+          "poi_refs": [
+            "poi_hefang_street"
+          ],
+          "food_refs": [
+            "food_hefang_snacks"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "在河坊街找一家茶馆歇脚，点一壶龙井，几碟茶点，全家人围坐聊天，享受午后闲适。之后可以继续在街区里随意走走，看看民间工艺表演。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_hefang_snacks"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 4,
+      "title": "湿地水乡，另一种江南",
+      "summary": "去西溪湿地边缘感受水乡的静谧，乘摇橹船穿行在芦苇荡间。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "前往西溪湿地，选择一段轻松的岸边步道，或者租一艘摇橹船缓缓前行。水鸟、芦苇、老树，一切都慢悠悠的，老人和孩子都会喜欢这种亲近自然的节奏。",
+          "poi_refs": [
+            "poi_xixi_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "在湿地附近的农家乐用午餐，品尝地道的鱼鲜和时令蔬菜。午后可以在茶座小憩，或者让小朋友在开阔的草地上跑一跑。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_longjing_tea"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 5,
+      "title": "最后一眼西湖，带走柔光",
+      "summary": "最后一天不安排紧凑行程，在西湖边做最后的散步，然后从容告别。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "再次来到西湖边，选一段之前没走过的湖岸线，比如白堤或苏堤，慢慢走。清晨的湖面有薄雾，游人稀少，是拍照和独处的好时光。",
+          "poi_refs": [
+            "poi_west_lake"
+          ],
+          "food_refs": [
+            "food_west_lake_dining"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "在湖边的餐厅享用最后一顿午餐，然后整理行装，带着一家人的合影和回忆，结束这趟温柔的杭州之旅。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_west_lake_dining"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_west_lake",
+      "name": "西湖湖滨步道",
+      "district": "西湖区",
+      "type": "湖滨风景区",
+      "reason": "西湖是杭州的灵魂，也是全家慢游的最佳起点。湖面开阔，步道平缓，沿途柳树依依，随时可以停下来看游船、喂鸽子，老人和孩子都不会觉得累。",
+      "recommended_duration_minutes": 150
+    },
+    {
+      "id": "poi_longjing_area",
+      "name": "龙井茶村边缘",
+      "district": "西湖区",
+      "type": "茶田景观",
+      "reason": "带家人走进茶山，满眼翠绿的梯田本身就是一幅画。在茶农家里喝一杯现泡的龙井，听他们讲讲茶叶的故事，是城市里找不到的宁静体验。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_hefang_street",
+      "name": "河坊街",
+      "district": "上城区",
+      "type": "历史街区",
+      "reason": "一条充满老杭州味道的街，青石板、木楼、老字号，孩子会被糖画和面人吸引，老人能找到熟悉的旧时光。节奏自由，逛累了随处有茶座。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_yunqi_path",
+      "name": "云栖竹径区域",
+      "district": "西湖区",
+      "type": "自然步道",
+      "reason": "竹林深处的清幽小径，路面平坦，光影斑驳。全家人一起走，耳边是风声和鸟鸣，仿佛走进了一部山水电影。适合午后慢走，洗去暑气。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_xixi_edge",
+      "name": "西溪湿地边缘",
+      "district": "西湖区",
+      "type": "湿地景观",
+      "reason": "西溪的温柔在于水与树的交错，乘船或沿栈道漫步，都能感受到江南水乡的静谧。老人可以坐在岸边看风景，孩子则对水鸟和芦苇充满好奇。",
+      "recommended_duration_minutes": 150
+    }
+  ],
+  "food": [
+    {
+      "id": "food_hefang_snacks",
+      "name": "河坊街小吃段",
+      "district": "上城区",
+      "category": "小吃街",
+      "reason": "逛河坊街时，随时可以停下来尝一尝定胜糕、葱包桧、龙须糖，都是孩子会喜欢的小零嘴。一家人边走边吃，烟火气十足。"
+    },
+    {
+      "id": "food_west_lake_dining",
+      "name": "西湖茶餐区",
+      "district": "西湖区",
+      "category": "湖景餐厅",
+      "reason": "紧邻西湖的餐厅，提供清淡精致的杭帮菜，适合全家人的口味。窗外就是湖景，用餐氛围从容，老人不用走远，孩子也能安静坐一会儿。"
+    },
+    {
+      "id": "food_longjing_tea",
+      "name": "龙井村茶歇点",
+      "district": "西湖区",
+      "category": "茶舍",
+      "reason": "在龙井茶山脚下，找一家茶舍坐下，喝一杯地道龙井，配上几样茶点。大人聊天，孩子吃茶糕，这是家庭旅行中最舒服的停顿。"
+    }
+  ]
+}

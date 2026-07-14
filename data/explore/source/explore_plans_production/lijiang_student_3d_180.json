@@ -1,0 +1,186 @@
+{
+  "id": "exp_lijiang_student_3d_food_citywalk_v1",
+  "slug": "lijiang-student-3d-food-citywalk",
+  "title": "石板路青春：丽江三天的烟火漫游",
+  "summary": "以学生节奏走丽江，白天在古城石板路间穿行，用小吃和咖啡馆填满间隙，傍晚登上狮子山边缘看古城与雪山同框，夜晚再回到灯火通明的巷子里感受青春烟火。这是一场不赶景点、只贪恋街角氛围的漫游。",
+  "city": {
+    "code": "lijiang",
+    "name": "Lijiang",
+    "region_name": "Yunnan"
+  },
+  "trip_type": "student",
+  "days": 3,
+  "budget": {
+    "level": "low",
+    "note": "全程以古城步行和小吃为主，仅需少量公交或拼车前往白沙，整体花费可控。"
+  },
+  "pace": "dense",
+  "tags": [
+    "food",
+    "citywalk",
+    "budget-friendly",
+    "old-town",
+    "photo-friendly",
+    "evening-walk"
+  ],
+  "image_prompt": "National Geographic travel magazine style photo of a student wandering through Lijiang Old Town at dusk, stone lanes glowing with warm lantern light, a snow-capped mountain faintly visible in the background, shallow depth of field, cinematic composition, vibrant yet moody atmosphere.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "古城初探：从石板路到狮子山",
+      "summary": "抵达后直奔古城核心，在迷宫般的小巷里穿梭，用小吃和咖啡串联起午后时光，傍晚登上狮子山边缘俯瞰古城全景。",
+      "activities": [
+        {
+          "time_block": "afternoon",
+          "description": "从古城入口开始漫无目的地穿行，沿着流水和石板路探索四方街周边，途中随时停下尝一碗鸡豆凉粉或烤饵块。",
+          "poi_refs": [
+            "poi_lijiang_old_town"
+          ],
+          "food_refs": [
+            "food_old_town_snacks"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "登上狮子山边缘，看古城屋顶层层叠叠地亮起灯火，远处玉龙雪山轮廓隐入暮色。下山后继续在古城小巷里游荡，感受夜晚的烟火气。",
+          "poi_refs": [
+            "poi_lion_hill_edge",
+            "poi_old_town_evening"
+          ],
+          "food_refs": [
+            "food_local_yunnan_dining"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "慢行白沙：更安静的丽江",
+      "summary": "上午前往白沙古镇，体验更朴素的纳西生活，在路边小店吃一碗土鸡米线，午后返回古城，在黑龙潭边发呆。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "乘公交或拼车到白沙古镇，沿着主街慢慢走，看老奶奶在门口做手工，在不起眼的小吃摊买一份纳西粑粑。",
+          "poi_refs": [
+            "poi_baisha_edge"
+          ],
+          "food_refs": [
+            "food_old_town_snacks"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "回到古城，走到黑龙潭边，找一处树荫坐下，看雪山倒影在水面晃动，顺便解决午餐。",
+          "poi_refs": [
+            "poi_black_dragon_pool_edge"
+          ],
+          "food_refs": [
+            "food_local_yunnan_dining"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "回到古城，挑一家顺眼的小馆子吃一顿菌子火锅或腊排骨，然后继续在灯火里穿巷子，买点手工纪念品。",
+          "poi_refs": [
+            "poi_old_town_evening"
+          ],
+          "food_refs": [
+            "food_local_yunnan_dining"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "告别前的古城拾遗",
+      "summary": "最后一天留给古城里还没走到的角落，顺便在咖啡馆里消磨一个上午，再搜刮一遍没吃够的小吃。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "睡到自然醒，找一家巷子深处的咖啡馆，配一份纳西米糕和手冲咖啡，翻翻手机照片，计划下一站。",
+          "poi_refs": [
+            "poi_lijiang_old_town"
+          ],
+          "food_refs": [
+            "food_shuhe_cafe_area"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "最后再走一遍最爱的几条巷子，补拍照片，买些鲜花饼或小物件当伴手礼，然后慢慢晃到古城出口。",
+          "poi_refs": [
+            "poi_lijiang_old_town"
+          ],
+          "food_refs": [
+            "food_old_town_snacks"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_lijiang_old_town",
+      "name": "丽江古城",
+      "district": "古城区",
+      "type": "historic town district",
+      "reason": "古城是这次漫游的绝对核心，石板路、流水、咖啡馆和小吃摊构成了学生党最爱的自由探索场景。",
+      "recommended_duration_minutes": 150
+    },
+    {
+      "id": "poi_lion_hill_edge",
+      "name": "狮子山观景台",
+      "district": "古城区",
+      "type": "viewpoint",
+      "reason": "不用门票的俯瞰点，傍晚时分看古城亮灯、雪山剪影，是拍照和发呆的绝佳位置。",
+      "recommended_duration_minutes": 75
+    },
+    {
+      "id": "poi_baisha_edge",
+      "name": "白沙古镇",
+      "district": "玉龙县",
+      "type": "cultural village area",
+      "reason": "比古城更安静、更生活化，适合学生党感受纳西日常，还能吃到地道的土鸡米线。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_black_dragon_pool_edge",
+      "name": "黑龙潭公园",
+      "district": "古城区",
+      "type": "scenic park area",
+      "reason": "花一点时间在潭边看雪山倒影，是古城节奏中难得的宁静插曲。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_old_town_evening",
+      "name": "古城夜游",
+      "district": "古城区",
+      "type": "evening district",
+      "reason": "灯笼、音乐和窄巷构成的夜晚氛围是丽江最迷人的部分，适合学生党在晚餐后自由穿行。",
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food": [
+    {
+      "id": "food_old_town_snacks",
+      "name": "古城小吃街巷",
+      "district": "古城区",
+      "category": "snack street",
+      "reason": "遍布古城各处的路边摊和小吃店，鸡豆凉粉、烤饵块、纳西粑粑，花很少的钱就能尝遍云南味道。"
+    },
+    {
+      "id": "food_local_yunnan_dining",
+      "name": "古城纳西菜馆",
+      "district": "古城区",
+      "category": "local cuisine",
+      "reason": "适合学生AA的菌子火锅、腊排骨火锅，吃饱吃好又不贵，是夜游前补充能量的好选择。"
+    },
+    {
+      "id": "food_shuhe_cafe_area",
+      "name": "束河咖啡轻食区",
+      "district": "古城区",
+      "category": "cafe district",
+      "reason": "虽然不在束河，但古城里也有类似氛围的咖啡馆，适合学生党用一杯咖啡换一个悠闲上午。"
+    }
+  ]
+}

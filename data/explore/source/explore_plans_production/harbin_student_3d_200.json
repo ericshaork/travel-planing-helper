@@ -1,0 +1,203 @@
+{
+  "id": "exp_harbin_student_3d_food_citywalk_v1",
+  "slug": "harbin-student-3d-food-citywalk",
+  "title": "冰城老街与烟火青春：三日欧陆街景漫游",
+  "summary": "用学生党的节奏走哈尔滨：中央大街的面包香、老道外的市井烟火、松花江边的冰风与灯光。三天密集穿行在欧式老建筑与冰雪街景之间，用脚丈量、用胃感受，不花大钱也能把城市的性格吃透看够。",
+  "city": {
+    "code": "harbin",
+    "name": "Harbin",
+    "region_name": "Heilongjiang"
+  },
+  "trip_type": "student",
+  "days": 3,
+  "budget": {
+    "level": "low",
+    "note": "全程以步行、公交和实惠小吃为主，住宿选择青旅或经济型酒店，餐饮控制在人均30-50元每餐。"
+  },
+  "pace": "dense",
+  "tags": [
+    "food",
+    "citywalk",
+    "budget-friendly",
+    "winter-city",
+    "european-style-streets",
+    "local-food"
+  ],
+  "image_prompt": "A vibrant winter street scene in Harbin's Central Street at dusk, with ornate European architecture, glowing street lamps, light snow falling, young Chinese students in puffy jackets walking and holding skewers of food, steam rising from a food stall, warm amber lighting contrasting with cool blue snow, shot with a 35mm lens at f/2.8, shallow depth of field, editorial travel photography style.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "中央大街与欧陆初印象",
+      "summary": "从中央大街开始，用脚步感受哈尔滨最标志性的欧式街道，边逛边吃，傍晚在圣索菲亚教堂前看灯光亮起。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "抵达后直奔中央大街，沿街欣赏文艺复兴、巴洛克风格的建筑立面，随手拍下冬日街景。在街边买一根马迭尔冰棍或烤红肠，边吃边逛。",
+          "poi_refs": [
+            "poi_central_street"
+          ],
+          "food_refs": [
+            "food_central_street_casual"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "从中央大街步行至圣索菲亚教堂广场，绕教堂一周，看鸽子飞过拜占庭式穹顶。在广场长椅上坐一会儿，感受老城区的节奏。",
+          "poi_refs": [
+            "poi_saint_sofia"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "夜幕降临后重返中央大街，灯光亮起时街道比白天更有氛围。选一家实惠的东北菜馆解决晚餐，推荐锅包肉和地三鲜，然后沿着灯火通明的街道散步回住处。",
+          "poi_refs": [
+            "poi_central_evening"
+          ],
+          "food_refs": [
+            "food_central_street_casual"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "老道外的市井烟火与松花江边",
+      "summary": "钻进老道外的老胡同，吃最地道的东北小吃，然后散步到松花江边，在冰封的江面上感受北国冬日的开阔。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "坐公交前往老道外，钻进中华巴洛克街区的小巷，看斑驳的老建筑和晾晒的棉被。在街边小店吃一碗热乎的豆腐脑配烧饼，或者来一份炸酱面，感受老哈尔滨人的日常。",
+          "poi_refs": [
+            "poi_laodaowai"
+          ],
+          "food_refs": [
+            "food_laodaowai_local"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "从老道外步行至松花江畔，沿江堤漫步，看冰封的江面和远处的铁路桥。如果冰面够厚，可以下到江面上走走，体验一下“踩在松花江上”的感觉。",
+          "poi_refs": [
+            "poi_songhua_riverfront"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "傍晚在防洪纪念塔附近找一家小馆子，点一份酸菜炖粉条或铁锅炖，暖身又实惠。饭后沿着松花江边夜景步道再走一走，看对岸的灯火倒映在冰面上。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_riverfront_warm"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "阳光岛岸与收官漫步",
+      "summary": "上午去太阳岛边缘看雪地和树林，下午回到中央大街买些伴手礼，最后在老道外再吃一顿告别餐。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "坐过江索道或公交到太阳岛边缘，不进收费景区，只在岛边的免费步道走走，看雪覆盖的树林和空旷的雪地，拍几张干净的白雪照片。",
+          "poi_refs": [
+            "poi_sun_island_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "返回市区，在中央大街做最后的扫街：买点红肠、大列巴面包当伴手礼，再吃一次烤冷面或冰糖葫芦，把哈尔滨的味道装进记忆。",
+          "poi_refs": [
+            "poi_central_street"
+          ],
+          "food_refs": [
+            "food_central_street_casual"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "最后一顿晚餐选在老道外，找一家人气小馆，点一份杀猪菜或酱骨架，用最东北的方式结束这次青春漫游。饭后在灯火稀疏的老街上慢慢走回住处，感受这座冰城的余温。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_laodaowai_local"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_central_street",
+      "name": "中央大街",
+      "district": "道里区",
+      "type": "历史商业街",
+      "reason": "哈尔滨最不能错过的一条街，脚下是面包石，眼前是欧式建筑，手里是烤红肠。学生党可以毫无负担地逛上一整个上午，每一栋楼都值得抬头看。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_songhua_riverfront",
+      "name": "松花江畔",
+      "district": "道里区",
+      "type": "滨水区域",
+      "reason": "冬天的松花江是冰与风的交响，冰面上可以行走，江边有开阔的视野。适合学生党在午后散步发呆，拍一张江景人像，感受北国独有的空旷感。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_saint_sofia",
+      "name": "圣索菲亚教堂广场",
+      "district": "道里区",
+      "type": "建筑地标",
+      "reason": "绿色穹顶在雪中格外醒目，广场上鸽子盘旋，是哈尔滨最上镜的地标之一。学生党可以在这里花很少的时间，拍到足够发朋友圈的好照片。",
+      "recommended_duration_minutes": 75
+    },
+    {
+      "id": "poi_laodaowai",
+      "name": "老道外街区",
+      "district": "道外区",
+      "type": "历史街区",
+      "reason": "比中央大街更接地气的老城肌理，斑驳的中华巴洛克建筑藏着最地道的哈尔滨日常。学生党在这里能吃到最便宜的本地小吃，感受到真正的市井烟火。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_sun_island_edge",
+      "name": "太阳岛边缘",
+      "district": "松北区",
+      "type": "景观休闲区",
+      "reason": "不进收费景点，只在免费的外围雪地走走，就能收获一片安静的雪景。适合学生党在最后一天上午放松一下，拍几张干净的白雪照片。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_central_evening",
+      "name": "中央大街夜景",
+      "district": "道里区",
+      "type": "夜间街区",
+      "reason": "当路灯和建筑灯光亮起，中央大街换上另一副面孔。学生党可以在这里慢悠悠地走，看街头艺人的表演，买一根冰糖葫芦，用最便宜的方式享受哈尔滨的夜。",
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food": [
+    {
+      "id": "food_central_street_casual",
+      "name": "中央大街小吃带",
+      "district": "道里区",
+      "category": "小吃街",
+      "reason": "马迭尔冰棍、烤红肠、冰糖葫芦、大列巴……学生党不需要进餐厅，光是在街上边走边吃就能把哈尔滨的味道尝个遍。"
+    },
+    {
+      "id": "food_laodaowai_local",
+      "name": "老道外本地食街",
+      "district": "道外区",
+      "category": "本地餐馆",
+      "reason": "老道外的胡同里藏着最便宜的东北菜馆和小吃摊，豆腐脑、烧饼、炸酱面、锅包肉，学生党可以花很少的钱吃得又饱又好。"
+    },
+    {
+      "id": "food_riverfront_warm",
+      "name": "江畔暖身小馆",
+      "district": "道里区",
+      "category": "东北菜馆",
+      "reason": "靠近松花江边的实惠小馆，适合学生党在冬天傍晚来一锅酸菜炖粉条或铁锅炖，暖身又解馋，性价比超高。"
+    }
+  ]
+}

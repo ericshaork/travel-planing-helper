@@ -1,0 +1,155 @@
+{
+  "id": "exp_suzhou_solo_2d_citywalk_canal_v1",
+  "slug": "suzhou-solo-2d-citywalk-canal",
+  "title": "一个人的水巷灯影：苏州平江路与山塘的慢漫游",
+  "summary": "这是一次为独自旅行者设计的苏州城市漫游。你将在平江路的石桥边驻足，在拙政园的亭台间感受江南的静谧，在山塘街的灯火里慢品一碗糖粥。没有赶路的匆忙，只有水巷、园林和老街为你留出的从容节奏。",
+  "city": {
+    "code": "suzhou",
+    "name": "Suzhou",
+    "region_name": "Jiangsu"
+  },
+  "trip_type": "solo",
+  "days": 2,
+  "budget": {
+    "level": "medium",
+    "note": "适合在园林门票、运河边茶点和小馆晚餐之间取得平衡，无需奢华但足够舒适。"
+  },
+  "pace": "balanced",
+  "tags": [
+    "citywalk",
+    "local-culture",
+    "photo-friendly",
+    "solo-travel",
+    "canal-walk",
+    "slow-travel"
+  ],
+  "image_prompt": "A solo traveler walking along a narrow stone-paved street beside a canal in Suzhou's old town, soft evening lantern light reflecting on the water, classical white-walled buildings with dark tile roofs, a quiet and contemplative mood, editorial travel photography style, shallow depth of field, warm amber tones.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "平江路与园林的午后独行",
+      "summary": "从平江路的晨光开始，在拙政园的亭台水榭间放慢脚步，傍晚转入山塘街的灯火里。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "沿着平江路慢慢走，看运河边的老房子和石桥，偶尔在茶摊前停一停。人不多的时候，整条街都是你的。",
+          "poi_refs": [
+            "poi_pingjiang"
+          ],
+          "food_refs": [
+            "food_pingjiang"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "走进拙政园，在假山、池塘和回廊之间独自穿行。找一个安静的亭子坐下，看光影在水面上移动。",
+          "poi_refs": [
+            "poi_humble_admin"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "山塘街的灯笼亮起来，运河两岸的店铺飘出食物香气。找一家临河的小馆，点一碗苏式汤面，看着夜色慢慢沉入水里。",
+          "poi_refs": [
+            "poi_shantang"
+          ],
+          "food_refs": [
+            "food_shantang"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "虎丘塔下与狮子林的静谧时刻",
+      "summary": "上午登虎丘看古塔，下午在狮子林的石迷宫里寻找自己的节奏，最后回到平江路用一碗糖粥结束旅程。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "前往虎丘，沿着山路缓缓而上。虎丘塔的轮廓在薄雾中若隐若现，路边的古树和石碑都值得你为它们停下来。",
+          "poi_refs": [
+            "poi_tiger_hill"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "狮子林的假山群像一座石头的迷宫，你可以在里面绕来绕去，每次转弯都看到不同的景致。这里比拙政园更紧凑，适合一个人慢慢探索。",
+          "poi_refs": [
+            "poi_lion_grove"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "回到平江路，找一家安静的茶馆或甜品店，点一碗桂花糖粥或赤豆小圆子。坐在窗边，看运河边的灯笼再次亮起，为这次旅行画一个温柔的句号。",
+          "poi_refs": [
+            "poi_pingjiang"
+          ],
+          "food_refs": [
+            "food_pingjiang"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_pingjiang",
+      "name": "平江路",
+      "district": "姑苏区",
+      "type": "historic canal street",
+      "reason": "平江路是苏州最温柔的步行街，运河与石板路并行，两旁的老宅和店铺都带着江南的从容。独自一人时，这里的每一座石桥都适合停下来发呆。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_humble_admin",
+      "name": "拙政园",
+      "district": "姑苏区",
+      "type": "classical garden",
+      "reason": "作为苏州园林的代表，拙政园以水景和开阔的意境著称。一个人走在曲廊和亭台之间，很容易进入一种与自我对话的状态。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_tiger_hill",
+      "name": "虎丘",
+      "district": "姑苏区",
+      "type": "historic scenic area",
+      "reason": "虎丘的幽静和古意很适合独自探索。沿着山路慢慢走，看千年古塔和摩崖石刻，感受一种比园林更古朴的苏州气质。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_shantang",
+      "name": "山塘街",
+      "district": "姑苏区",
+      "type": "historic canal district",
+      "reason": "山塘街的夜晚属于独自漫步的人。灯笼倒映在运河里，小吃摊的热气升腾，你可以随意走走停停，不被任何人打扰。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_lion_grove",
+      "name": "狮子林",
+      "district": "姑苏区",
+      "type": "classical garden",
+      "reason": "狮子林以假山迷宫闻名，一个人穿行其中，像在玩一场安静的捉迷藏。每一步都发现新的视角，非常适合独自探索的节奏。",
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food": [
+    {
+      "id": "food_pingjiang",
+      "name": "平江路茶点小铺",
+      "district": "姑苏区",
+      "category": "snack street",
+      "reason": "平江路沿街的茶点和甜品店是独自旅行者的最佳补给站。一碗桂花糖粥或一壶碧螺春，配着窗外的运河景色，就是一顿完美的轻食。"
+    },
+    {
+      "id": "food_shantang",
+      "name": "山塘街小吃坊",
+      "district": "姑苏区",
+      "category": "snack street",
+      "reason": "山塘街的夜晚属于各种热气腾腾的小吃。从苏式汤面到糖芋艿，每一口都带着老苏州的烟火气，最适合一个人慢慢品尝。"
+    }
+  ]
+}

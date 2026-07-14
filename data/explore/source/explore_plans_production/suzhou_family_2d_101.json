@@ -1,0 +1,160 @@
+{
+  "id": "exp_suzhou_family_2d_water_lantern_slow_walk_v1",
+  "slug": "suzhou-family-2d-water-lantern-slow-walk",
+  "title": "水巷灯影与平江路慢步串起的轻松亲子时光",
+  "summary": "为家庭旅行者设计的苏州两日慢游，以平江路的水巷漫步为线索，串起古典园林的雅致与山塘街的灯影夜色。节奏舒缓，行程紧凑，让孩子和长辈都能在运河边、园林里找到属于自己的江南记忆。",
+  "city": {
+    "code": "suzhou",
+    "name": "Suzhou",
+    "region_name": "Jiangsu"
+  },
+  "trip_type": "family",
+  "days": 2,
+  "budget": {
+    "level": "high",
+    "note": "高预算安排更注重舒适度与体验深度，包含园林门票、河畔茶歇和家庭友好餐饮。"
+  },
+  "pace": "slow",
+  "tags": [
+    "family",
+    "slow-travel",
+    "classical-gardens",
+    "canal-walk",
+    "old-town",
+    "jiangnan"
+  ],
+  "image_prompt": "A warm, golden-hour scene along a narrow Suzhou canal with stone bridges and traditional white-washed buildings. A family of three walks slowly along the cobblestone path, the child pointing at a passing boat. Soft lantern light begins to glow, reflecting in the water. Editorial travel photography style, shallow depth of field, warm tones, Canon 5D Mark IV, 35mm lens.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "园林深处，水巷初探",
+      "summary": "上午在拙政园感受江南园林的精致与宁静，午后沿着平江路慢慢散步，看运河两岸的生活气息，傍晚在山塘街的灯火中享用晚餐。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "从酒店出发，前往拙政园区域。这里亭台楼阁、曲水回廊，孩子可以在假山间穿行，长辈则能欣赏园林的四季景致。园内步道平缓，适合全家慢游。",
+          "poi_refs": [
+            "poi_humble_admin"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "从拙政园步行至平江路，沿河漫步。两旁是古色古香的老宅和特色小店，孩子会被水巷里的手摇船吸引，全家可以在河边的茶馆歇脚，品尝江南点心。",
+          "poi_refs": [
+            "poi_pingjiang"
+          ],
+          "food_refs": [
+            "food_pingjiang_snacks"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "前往山塘街，这里华灯初上，水巷倒映着红灯笼，氛围温馨。找一家临河的餐厅用晚餐，尝尝松鼠鳜鱼、清炒虾仁等苏帮菜。饭后沿街散步，孩子可以买一盏小灯笼。",
+          "poi_refs": [
+            "poi_shantang"
+          ],
+          "food_refs": [
+            "food_shantang_evening"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "虎丘塔影，狮林童趣",
+      "summary": "上午探访虎丘，感受古塔与山林的开阔，下午在狮子林的石迷宫间嬉戏，最后在观前街轻松解决晚餐，结束两日慢游。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "前往虎丘景区，这里比园林更开阔，孩子可以在山坡上奔跑，一家人仰望虎丘塔。景区内绿树成荫，走走停停很惬意。",
+          "poi_refs": [
+            "poi_tiger_hill"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "回到古城，进入狮子林。这里的假山迷宫是孩子的乐园，捉迷藏、钻山洞，乐趣无穷。家长可以在亭子里休息，看孩子玩耍。",
+          "poi_refs": [
+            "poi_lion_grove"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "在观前街附近找一家家庭友好餐厅用晚餐。这条街热闹但不嘈杂，饭后可以买些糖果或小纪念品，为旅程画上甜蜜句号。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_guanqian_dining"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_humble_admin",
+      "name": "拙政园",
+      "district": "姑苏区",
+      "type": "古典园林",
+      "reason": "苏州园林的代表作，水景与建筑交融，步道平缓，适合全家慢行。孩子能在回廊间奔跑，长辈可静赏四季景致，是亲子游的文化第一站。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_pingjiang",
+      "name": "平江路",
+      "district": "姑苏区",
+      "type": "历史水巷街区",
+      "reason": "苏州最经典的水巷漫步道，沿河老宅、小桥流水、手摇船与茶馆交织。节奏缓慢，适合全家走走停停，感受江南市井生活的温柔。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_shantang",
+      "name": "山塘街",
+      "district": "姑苏区",
+      "type": "历史水巷街区",
+      "reason": "夜晚的山塘街灯笼倒映水中，氛围温馨浪漫。家庭可以沿河散步、乘船、品尝苏式小吃，是结束一天行程的完美去处。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_tiger_hill",
+      "name": "虎丘",
+      "district": "姑苏区",
+      "type": "历史风景名胜区",
+      "reason": "虎丘塔与山林相映，空间开阔，适合孩子奔跑。一家人可以轻松登山，俯瞰古城，感受苏州的自然与历史交融。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_lion_grove",
+      "name": "狮子林",
+      "district": "姑苏区",
+      "type": "古典园林",
+      "reason": "以假山迷宫闻名，孩子可以在石洞中穿梭探险，乐趣无穷。家长也能在亭台间休息，享受园林的静谧。",
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food": [
+    {
+      "id": "food_pingjiang_snacks",
+      "name": "平江路沿河茶点",
+      "district": "姑苏区",
+      "category": "茶馆与小食",
+      "reason": "沿河茶馆提供清茶和江南小点，如桂花糕、绿豆汤。全家可以在此歇脚，孩子吃点心，大人喝茶看船，是慢游中的惬意停顿。"
+    },
+    {
+      "id": "food_shantang_evening",
+      "name": "山塘街临河餐厅",
+      "district": "姑苏区",
+      "category": "苏帮菜馆",
+      "reason": "山塘街有多家临河餐厅，提供松鼠鳜鱼、响油鳝糊等经典苏帮菜。夜晚灯火璀璨，一家人临窗而坐，享受美食与水巷夜景。"
+    },
+    {
+      "id": "food_guanqian_dining",
+      "name": "观前街家庭餐厅",
+      "district": "姑苏区",
+      "category": "综合餐饮区",
+      "reason": "观前街是苏州老牌商业街，聚集了多家适合家庭的餐厅，口味清淡，选择多样。饭后还可逛逛老字号糕团店，带回甜蜜手信。"
+    }
+  ]
+}

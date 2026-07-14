@@ -1,0 +1,187 @@
+{
+  "id": "exp_guilin_student_3d_food_citywalk_v1",
+  "slug": "guilin-student-3d-food-citywalk",
+  "title": "漓江边，老街里——学生党的桂林慢行记",
+  "summary": "用三天时间，在桂林的山水与老城之间自由穿行。清晨嗦一碗米粉，午后爬上伏波山看江景，傍晚沿着漓江散步，看山影与灯光缓缓亮起。这是一条为喜欢边走边吃、边看边拍的学生党设计的路线——不赶景点，不花大钱，只把城市最有活力的一面装进记忆。",
+  "city": {
+    "code": "guilin",
+    "name": "Guilin",
+    "region_name": "Guangxi"
+  },
+  "trip_type": "student",
+  "days": 3,
+  "budget": {
+    "level": "low",
+    "note": "全程以免费或低价的城市景观、河边步道和本地小吃为主，餐饮人均每餐20-40元。"
+  },
+  "pace": "balanced",
+  "tags": [
+    "food",
+    "citywalk",
+    "local-culture",
+    "budget-friendly",
+    "karst-scenery",
+    "photo-friendly"
+  ],
+  "image_prompt": "National Geographic travel magazine style photo of a young student walking along the Li River in Guilin at golden hour, karst mountains in the background, warm light filtering through trees, casual backpack and camera, natural candid composition, rich greens and soft orange sky, film-like texture.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "初见漓江，从一碗米粉到山水画卷",
+      "summary": "从最地道的桂林米粉开始，沿着两江四湖的水岸慢慢走，感受山水城市的初印象。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "在正阳步行街附近找一家本地人排队的米粉店，吃一碗热腾腾的卤菜粉，然后沿着两江四湖的步道散步，看晨光中的榕湖和杉湖，感受桂林的慢生活。",
+          "poi_refs": [
+            "poi_two_rivers"
+          ],
+          "food_refs": [
+            "food_zhengyang"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "前往象鼻山区域，在漓江边找个好角度拍下桂林的城市名片。不用进景区，沿江步道就有很好的视野。之后到东西巷的老街巷里穿行，看看旧时的建筑和街边的手艺人。",
+          "poi_refs": [
+            "poi_elephant_trunk_edge",
+            "poi_east_west_lane"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "在东西巷的餐饮小馆里解决晚餐，点一份啤酒鱼或田螺酿，感受老城的烟火气。饭后沿着漓江边散步，看解放桥的灯光和夜山的轮廓。",
+          "poi_refs": [
+            "poi_river_evening_walk"
+          ],
+          "food_refs": [
+            "food_east_west"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "登高望远，在伏波山顶触摸城市天际",
+      "summary": "登上伏波山俯瞰漓江弯道，下午在正阳步行街扫荡小吃，晚上再回江边吹风。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "趁凉快登上伏波山，山顶可以俯瞰漓江和桂林老城的全景，是学生党最爱的性价比机位。下山后在江边石凳上坐一会儿，看游船来来往往。",
+          "poi_refs": [
+            "poi_fubo_hill"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "回到正阳步行街，从街头吃到街尾：糯米饭、马蹄糕、油炸粑粑……每样来一点，边走边逛两旁的特色小店。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_zhengyang"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "在漓江边的河滩上找块石头坐下，看夕阳把山峰染成金色，然后慢慢亮起城市灯火。如果有精力，可以沿着江堤一直走到象鼻山方向。",
+          "poi_refs": [
+            "poi_river_evening_walk"
+          ],
+          "food_refs": []
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "老城深处，再寻一碗米粉的温柔",
+      "summary": "最后一天不赶路，在东西巷和江边再转一转，用一碗米粉和一杯凉粉为旅程画上句号。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "再去东西巷深处找一家藏在老房子里的米粉店，吃一碗不一样的卤菜粉。然后逛逛清晨的东西巷，人少安静，适合拍照。",
+          "poi_refs": [
+            "poi_east_west_lane"
+          ],
+          "food_refs": [
+            "food_east_west"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "沿着两江四湖的另一段步道走到榕湖，在湖边的亭子里发发呆，或者找个树荫坐下看本地人下棋、遛鸟。如果还有时间，可以拐进旁边的老社区感受市井生活。",
+          "poi_refs": [
+            "poi_two_rivers"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "在正阳步行街吃最后一顿晚餐，点一碗螺蛳粉或炒粉，喝一杯清甜的甘蔗汁。然后慢悠悠走回酒店，告别桂林。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_zhengyang"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_two_rivers",
+      "name": "两江四湖沿岸",
+      "district": "秀峰区",
+      "type": "central scenic district",
+      "reason": "桂林城市与水系最自然的连接点，清晨和傍晚各有不同的光影，适合学生党随意散步、拍照，不用门票也能感受山水城市的精髓。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_elephant_trunk_edge",
+      "name": "象鼻山滨江步道",
+      "district": "象山区",
+      "type": "landmark scenic site",
+      "reason": "桂林的城市地标，但不需要买票进景区——沿着江边的步道就能看到标志性的象鼻山，还能拍到游船和山峰同框的画面，是学生党最爱的免费机位。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_fubo_hill",
+      "name": "伏波山",
+      "district": "秀峰区",
+      "type": "city viewpoint",
+      "reason": "登顶只需十几分钟，却能获得俯瞰漓江和桂林老城的绝佳视角。门票便宜，山顶风大凉爽，是学生党在市区内感受山水全景的首选。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_east_west_lane",
+      "name": "东西巷",
+      "district": "秀峰区",
+      "type": "historic street district",
+      "reason": "桂林保存较好的老街区，青砖灰瓦间藏着各种小吃和手工艺品店。白天和夜晚氛围不同，适合边走边逛，是学生党感受本地市井生活的好去处。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_river_evening_walk",
+      "name": "漓江夜游步道",
+      "district": "象山区",
+      "type": "riverfront district",
+      "reason": "桂林最温柔的夜晚打开方式——沿着江堤散步，看山影在暮色中变成剪影，城市灯光倒映在江面上。免费、浪漫、治愈，适合学生党结束一天行程后放松。",
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food": [
+    {
+      "id": "food_zhengyang",
+      "name": "正阳步行街小吃区",
+      "district": "秀峰区",
+      "category": "snack street",
+      "reason": "桂林最热闹的步行街，聚集了各种本地小吃和快餐店。从米粉到糯米饭、从糖水到烤串，价格亲民，适合学生党边逛边吃。"
+    },
+    {
+      "id": "food_east_west",
+      "name": "东西巷老店小吃",
+      "district": "秀峰区",
+      "category": "old street dining",
+      "reason": "藏在东西巷深处的老字号小吃店，能吃到更地道的桂林味道。环境有老街氛围，适合学生党体验本地人的日常饮食。"
+    }
+  ]
+}

@@ -1,0 +1,224 @@
+{
+  "id": "exp_xian_family_4d_tangfeng_nights_v1",
+  "slug": "xian-family-4d-tangfeng-nights",
+  "title": "唐风夜色与回坊烟火：带家人慢品长安",
+  "summary": "为家庭旅行者设计的一场松弛而深度的西安之旅。四天里，我们避开匆忙的景点打卡，以城墙漫步、唐风夜色和回坊烟火为线索，让老人和孩子都能在历史与美食间从容游走。从晨光中的小雁塔到傍晚的大雁塔广场，从回民街的喧闹到永兴坊的井然，每一天都留有充足的休息和共享时光。",
+  "city": {
+    "code": "xian",
+    "name": "Xi'an",
+    "region_name": "Shaanxi"
+  },
+  "trip_type": "family",
+  "days": 4,
+  "budget": {
+    "level": "high",
+    "note": "预算充裕，可尽情享受舒适交通、精选餐饮和轻松节奏。"
+  },
+  "pace": "slow",
+  "tags": [
+    "ancient-capital",
+    "history",
+    "old-city",
+    "family-friendly",
+    "heritage",
+    "local-food"
+  ],
+  "image_prompt": "National Geographic travel magazine style photo of a family strolling on the Xi'an City Wall at golden hour, warm sunlight, ancient brick texture, parents and child looking out over old city rooftops, shallow depth of field, nostalgic and peaceful mood.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "城墙晨光与钟鼓楼下的第一餐",
+      "summary": "以轻松的城墙漫步开启旅程，在钟鼓楼广场感受古城心跳，傍晚在回坊品味地道烟火。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "从酒店出发，沿西安城墙南段缓缓骑行或步行。城墙宽阔平坦，适合全家一起感受古城轮廓，孩子可以奔跑，老人也不觉吃力。",
+          "poi_refs": [
+            "poi_city_wall"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "步行至钟鼓楼广场，登楼远眺东西南北四条大街。附近的老字号餐厅享用一顿地道的陕西午餐，稍作休息。",
+          "poi_refs": [
+            "poi_bell_tower_area"
+          ],
+          "food_refs": [
+            "food_bell_tower_dining"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "漫步回民街，在灯火与香气中品尝羊肉泡馍、肉夹馍等小吃。孩子可以看师傅现场制作，老人也能找到合口的热汤。",
+          "poi_refs": [
+            "poi_muslim_quarter"
+          ],
+          "food_refs": [
+            "food_muslim_quarter"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "大雁塔的唐风与广场上的家庭时光",
+      "summary": "上午探访大雁塔，下午在周边公园放松，晚上欣赏音乐喷泉与唐风夜景。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "前往大雁塔，在塔下听玄奘故事，登塔俯瞰古城新貌。周边园林清幽，适合全家人慢慢游览。",
+          "poi_refs": [
+            "poi_big_wild_goose"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "在大雁塔南广场的餐厅用午餐，之后在唐大慈恩寺遗址公园散步休息，草坪和树荫让孩子有玩耍空间。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_bell_tower_dining"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "再次回到大雁塔北广场，欣赏亚洲最大的矩阵音乐喷泉。灯光与水柱随唐风乐曲舞动，是全家都会惊叹的夜景。",
+          "poi_refs": [
+            "poi_big_wild_goose"
+          ],
+          "food_refs": []
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "小雁塔的静谧与永兴坊的从容",
+      "summary": "在清静的小雁塔度过上午，午后前往永兴坊体验有条理的美食市集，傍晚自由活动。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "前往小雁塔，这里比大雁塔更安静，园林精致，适合慢慢走、细细看。庭院里常有老人下棋、唱戏，充满生活气息。",
+          "poi_refs": [
+            "poi_small_yanta"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "在附近用午餐后，转往永兴坊。这里的美食摊位排列整齐，孩子可以安全地穿梭，老人也能坐着品尝各种陕西小吃。",
+          "poi_refs": [
+            "poi_yongxingfang"
+          ],
+          "food_refs": [
+            "food_yongxingfang"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "返回酒店休息，或根据家人体力在永兴坊再逛一会儿，夜晚的灯笼和民俗表演别有风味。",
+          "poi_refs": [
+            "poi_yongxingfang"
+          ],
+          "food_refs": []
+        }
+      ]
+    },
+    {
+      "day": 4,
+      "title": "自由漫步与告别长安",
+      "summary": "上午自由活动，可补上遗漏的角落或再次品尝心仪美食，午后整理行囊结束旅程。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "睡到自然醒，在酒店享用早餐后，可去钟楼附近的老街巷走走，买些伴手礼，或再吃一碗胡辣汤。",
+          "poi_refs": [
+            "poi_bell_tower_area"
+          ],
+          "food_refs": [
+            "food_bell_tower_dining"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "午餐后回酒店取行李，前往机场或火车站。带着全家福和满足的味蕾，告别这座千年古都。",
+          "poi_refs": [],
+          "food_refs": []
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_city_wall",
+      "name": "西安城墙",
+      "district": "碑林区",
+      "type": "historic landmark",
+      "reason": "城墙是西安最从容的见面礼。宽阔的墙顶适合全家漫步或骑行，从高处俯瞰古城，既能感受历史厚度，又不会让老人和孩子感到疲惫。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_bell_tower_area",
+      "name": "钟鼓楼广场",
+      "district": "莲湖区",
+      "type": "historic city core",
+      "reason": "古城的交通心脏，也是家庭休憩的绝佳中转站。登楼远眺，东西南北四条大街尽收眼底，周边餐馆密集，随时可以歇脚用餐。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_muslim_quarter",
+      "name": "回民街",
+      "district": "莲湖区",
+      "type": "historic food district",
+      "reason": "西安最富生命力的老城食区。夜晚灯光璀璨，香气扑鼻，孩子会被现场制作的小吃吸引，老人也能找到热腾腾的汤面，全家各得其所。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_big_wild_goose",
+      "name": "大雁塔",
+      "district": "雁塔区",
+      "type": "cultural landmark",
+      "reason": "唐风文化的象征，也是家庭出游的亮点。塔下听故事、登高望远，北广场的音乐喷泉更是夜晚的视觉盛宴，老人孩子都会喜欢。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_small_yanta",
+      "name": "小雁塔",
+      "district": "碑林区",
+      "type": "historic garden landmark",
+      "reason": "比大雁塔更清幽，园林精致，游客稀少。适合全家在树荫下慢慢散步，感受长安的静谧一面，老人尤其喜欢这里的闲适氛围。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_yongxingfang",
+      "name": "永兴坊",
+      "district": "新城区",
+      "type": "food and folk-culture district",
+      "reason": "整洁有序的美食街区，摊位集中、动线清晰，很适合带孩子的家庭。可以轻松品尝多种陕西小吃，晚上还有民俗表演，趣味十足。",
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food": [
+    {
+      "id": "food_muslim_quarter",
+      "name": "回民街美食街",
+      "district": "莲湖区",
+      "category": "snack street",
+      "reason": "西安最热闹的夜市食区，羊肉泡馍、肉夹馍、凉皮应有尽有。家庭可以边逛边吃，孩子看师傅扯面、烤串，充满互动乐趣。"
+    },
+    {
+      "id": "food_yongxingfang",
+      "name": "永兴坊美食集群",
+      "district": "新城区",
+      "category": "folk food cluster",
+      "reason": "规划整齐的陕西小吃集合地，环境干净，座位充足。适合全家坐下来慢慢品尝，老人不用挤在人群中，孩子也能安全走动。"
+    },
+    {
+      "id": "food_bell_tower_dining",
+      "name": "钟楼老城餐饮区",
+      "district": "莲湖区",
+      "category": "heritage dining area",
+      "reason": "钟楼周边聚集了多家老字号餐厅，提供正餐和舒适座位。适合家庭在游览间隙享用一顿安稳的午餐或晚餐，补充体力。"
+    }
+  ]
+}

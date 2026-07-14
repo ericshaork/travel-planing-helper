@@ -1,0 +1,163 @@
+{
+  "id": "exp_wuhan_solo_2d_citywalk_night_v1",
+  "slug": "wuhan-solo-2d-citywalk-night",
+  "title": "江城独自漫游：两日老街烟火与夜色水岸",
+  "summary": "这是一趟为独自旅行者设计的武汉城市漫游。你将在长江与东湖之间自由穿行，用脚步丈量老巷的烟火气，在河岸夜色中安静停留。没有紧迫的行程，只有属于你自己的节奏——从清晨的市井热气，到午后的树影书香，再到江风拂面的夜晚。适合那些喜欢观察、偏爱散步、不愿被计划束缚的旅行者。",
+  "city": {
+    "code": "wuhan",
+    "name": "Wuhan",
+    "region_name": "Hubei"
+  },
+  "trip_type": "solo",
+  "days": 2,
+  "budget": {
+    "level": "medium",
+    "note": "中等预算，兼顾一两个标志性景点和舒适的地方饮食体验。"
+  },
+  "pace": "balanced",
+  "tags": [
+    "citywalk",
+    "local-culture",
+    "photo",
+    "river-city",
+    "night-view",
+    "solo-travel"
+  ],
+  "image_prompt": "National Geographic travel magazine style, a lone traveler standing on a riverside promenade at dusk, Wuhan's Yangtze River bridge in the background, warm golden light reflecting on water, city skyline fading into twilight, cinematic composition with depth and atmosphere.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "武昌晨光与老街漫步",
+      "summary": "从粮道街的早餐热气开始，穿行昙华林的旧巷，午后在武汉大学校园的树影下放空，傍晚登上黄鹤楼远眺长江，最后在江滩夜色中结束第一天的漫游。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "在粮道街附近找一家小店，吃一碗热气腾腾的热干面，感受武汉人一天的开始。然后步行至昙华林，在老街的咖啡馆和涂鸦墙之间随意穿行，拍下那些有故事的角落。",
+          "poi_refs": [
+            "poi_tanhualin"
+          ],
+          "food_refs": [
+            "food_hubu_lane"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "穿过武汉大学的老校门，沿校园林荫道散步，看民国建筑与年轻身影交错。在凌波门附近找个湖边长椅坐下，看东湖的水光树影。",
+          "poi_refs": [
+            "poi_hubei_university_area",
+            "poi_east_lake_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "前往黄鹤楼区域，不一定要登楼，在周边广场和城墙上感受历史轮廓与城市灯火的呼应。之后沿江滩步行，看长江大桥的灯光倒映在水面，找一处安静台阶坐下，吹风发呆。",
+          "poi_refs": [
+            "poi_yellow_crane_edge",
+            "poi_hankou_riverfront"
+          ],
+          "food_refs": []
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "汉口旧街与江岸夜色",
+      "summary": "第二天跨过长江，探索汉口的老里份和商业街，在江汉路附近解决午餐，下午随意钻进小巷寻找老建筑，傍晚再次回到江边，用江风与城市灯火为这次独行画上句号。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "坐地铁过江到汉口，先在江汉路附近的老里份中穿行，看斑驳的砖墙和晾晒的衣物，感受老武汉的生活气息。找一家本地人常去的小店，尝尝豆皮或面窝。",
+          "poi_refs": [
+            "poi_jianghan_road"
+          ],
+          "food_refs": [
+            "food_jianghan_casual"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "继续在江汉路周边漫无目的地闲逛，偶遇那些藏在巷子里的老建筑和独立小店。累了就找一家咖啡馆歇脚，翻翻手机里拍下的街景。",
+          "poi_refs": [
+            "poi_jianghan_road"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "再次来到汉口江滩，这次沿着江岸走得更远一些。看对岸武昌的灯光逐渐亮起，江轮缓缓驶过。在江滩的长椅上静静坐一会儿，让这座江城的两日记忆沉淀下来。",
+          "poi_refs": [
+            "poi_hankou_riverfront"
+          ],
+          "food_refs": []
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_east_lake_edge",
+      "name": "东湖之畔",
+      "district": "武昌",
+      "type": "湖滨风景区",
+      "reason": "东湖是独行者的呼吸空间。在湖边长椅坐下，看水光树影，听鸟鸣风声，是逃离城市喧嚣的安静时刻。",
+      "recommended_duration_minutes": 150
+    },
+    {
+      "id": "poi_hubei_university_area",
+      "name": "武汉大学老校区",
+      "district": "武昌",
+      "type": "历史校园区",
+      "reason": "武大校园是独行者的理想漫游地。民国建筑、林荫道、年轻的面孔，每一步都像走在时光里，适合放空和拍照。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_yellow_crane_edge",
+      "name": "黄鹤楼周边",
+      "district": "武昌",
+      "type": "文化地标",
+      "reason": "不必登楼，黄鹤楼周边的广场和城墙本身就是观察城市的好地方。黄昏时分，灯光初上，历史与当下在此交汇。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_hankou_riverfront",
+      "name": "汉口江滩",
+      "district": "江岸",
+      "type": "滨江步道",
+      "reason": "江滩是独行者的夜晚归处。宽阔的步道、对岸的灯火、江轮的汽笛，一个人走走停停，感受江城最温柔的一面。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_tanhualin",
+      "name": "昙华林",
+      "district": "武昌",
+      "type": "历史街区",
+      "reason": "昙华林是独行者的宝藏街区。老房子、小咖啡馆、墙上的涂鸦，每一条巷子都藏着故事，适合慢悠悠地探索和拍照。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_jianghan_road",
+      "name": "江汉路及老里份",
+      "district": "江汉",
+      "type": "商业历史街",
+      "reason": "江汉路的热闹是独行者观察城市活力的窗口。而钻进旁边的老里份，又能瞬间安静下来，感受汉口旧日生活的纹理。",
+      "recommended_duration_minutes": 120
+    }
+  ],
+  "food": [
+    {
+      "id": "food_hubu_lane",
+      "name": "户部巷及粮道街",
+      "district": "武昌",
+      "category": "小吃街",
+      "reason": "武汉早餐的灵魂所在。热干面、豆皮、面窝，一个人慢慢吃，看街边升腾的热气，是融入这座城市最直接的方式。"
+    },
+    {
+      "id": "food_jianghan_casual",
+      "name": "江汉路周边小吃",
+      "district": "江汉",
+      "category": "小吃街区",
+      "reason": "汉口中心的饮食能量场。随便钻进一家小店，点一碗藕汤或一份鸭脖，在热闹的街景中享受一个人的晚餐。"
+    }
+  ]
+}

@@ -1,0 +1,201 @@
+{
+  "id": "exp_dali_student_3d_lake_culture",
+  "slug": "dali-student-3d-lake-culture",
+  "title": "洱海微风与古城日光：大理三日学生漫游记",
+  "summary": "用三天时间，以学生友好的预算，感受大理的松弛与自由。从古城石板路到洱海湖畔，从清晨的日光到夜晚的街头烟火，这是一场不赶路的探索——吃地道小吃，逛文艺小店，在湖光山色里找到属于自己的节奏。",
+  "city": {
+    "code": "dali",
+    "name": "Dali",
+    "region_name": "Yunnan"
+  },
+  "trip_type": "student",
+  "days": 3,
+  "budget": {
+    "level": "low",
+    "note": "以步行、古城闲逛、湖景和简单本地餐饮为主，控制开销的同时体验大理精髓。"
+  },
+  "pace": "balanced",
+  "tags": [
+    "food",
+    "local-culture",
+    "nightlife",
+    "budget-friendly",
+    "student-travel",
+    "lake-view",
+    "old-town"
+  ],
+  "image_prompt": "National Geographic style, a young traveler with a backpack standing on a quiet stone lane in Dali Old Town at golden hour, soft mountain light in the background, warm tones, candid moment, photojournalistic composition, shallow depth of field.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "古城漫步与街头烟火",
+      "summary": "抵达大理，从古城开始融入当地节奏。白天穿梭于石巷与手工艺店，傍晚在人民路感受夜市氛围。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "抵达大理后前往古城，先安顿好住处，然后在古城内随意走走，感受清晨的宁静与阳光。",
+          "poi_refs": [
+            "poi_dali_old_town"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "深入古城的小巷，探索独立书店、扎染工坊和本地小吃摊，找一家便宜又好吃的饵丝或凉鸡米线作为午餐。",
+          "poi_refs": [
+            "poi_dali_old_town"
+          ],
+          "food_refs": [
+            "food_old_town_casual"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "夜幕降临后，古城人民路和洋人街热闹起来，街头艺人、小酒吧和烧烤摊充满活力，找一家性价比高的本地菜馆吃酸辣鱼，然后随意逛逛。",
+          "poi_refs": [
+            "poi_old_town_night"
+          ],
+          "food_refs": [
+            "food_old_town_casual"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "洱海骑行与湖光山色",
+      "summary": "租一辆自行车沿洱海生态廊道骑行，感受湖风与苍山的壮阔，中午在湖边野餐或找一家简餐店，傍晚返回古城。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "从古城出发，租一辆自行车前往洱海生态廊道，沿湖骑行，途经龙龛码头，在湖边拍照、发呆，享受开阔的湖景。",
+          "poi_refs": [
+            "poi_erhai_scenic_edge",
+            "poi_longkan_wharf"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "继续沿湖骑行或找一处阴凉坐下，简单吃点自带零食或路边小摊的烤乳扇，午后阳光强烈时可在湖边树荫下休息。",
+          "poi_refs": [
+            "poi_erhai_scenic_edge"
+          ],
+          "food_refs": [
+            "food_erhai_light"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "返回古城，还车后去古城外找一家实惠的农家菜馆，尝尝大理特色的黄焖鸡或砂锅鱼，饭后在古城散步消食。",
+          "poi_refs": [
+            "poi_old_town_night"
+          ],
+          "food_refs": [
+            "food_old_town_casual"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "喜洲白族风情与返程",
+      "summary": "上午前往喜洲古镇，感受白族民居和田园风光，品尝喜洲粑粑，午后返回古城整理行装，结束旅程。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "乘坐当地小巴前往喜洲，漫步于古镇的街巷，参观白族民居建筑群，在转角楼和四方街拍照留念。",
+          "poi_refs": [
+            "poi_xizhou_edge"
+          ],
+          "food_refs": [
+            "food_xizhou_local"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "在喜洲找一家小馆子吃午饭，尝尝正宗的喜洲粑粑和凉粉，之后在田园边散步，感受乡村的宁静，然后乘车返回古城。",
+          "poi_refs": [
+            "poi_xizhou_edge"
+          ],
+          "food_refs": [
+            "food_xizhou_local"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "回到古城，如果时间充裕，可以在古城最后逛逛，买些伴手礼，然后前往车站或机场离开。",
+          "poi_refs": [
+            "poi_dali_old_town"
+          ],
+          "food_refs": []
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_dali_old_town",
+      "name": "大理古城漫步区",
+      "district": "大理古城",
+      "type": "historic district",
+      "reason": "古城是感受大理慢生活的起点，石巷、流水与白族建筑交织，适合学生党不花钱地闲逛、拍照，发掘隐藏的小店和街头艺术。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_erhai_scenic_edge",
+      "name": "洱海生态廊道",
+      "district": "洱海",
+      "type": "lakefront scenic area",
+      "reason": "洱海是大理的名片，生态廊道免费开放，骑行或步行都能尽览湖光山色，是学生党低成本享受自然之美的绝佳去处。",
+      "recommended_duration_minutes": 150
+    },
+    {
+      "id": "poi_longkan_wharf",
+      "name": "龙龛码头观景台",
+      "district": "洱海",
+      "type": "lakefront promenade",
+      "reason": "龙龛码头是洱海看日出的好地方，清晨或傍晚时分，湖面倒映着苍山，光影柔和，特别适合独自发呆或拍出氛围感照片。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_xizhou_edge",
+      "name": "喜洲古镇",
+      "district": "喜洲",
+      "type": "historic village area",
+      "reason": "喜洲比古城更安静，白族民居保存完好，田园环绕，还有喜洲粑粑这种地道小吃，适合学生党体验原汁原味的大理乡村生活。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_old_town_night",
+      "name": "古城夜巷",
+      "district": "大理古城",
+      "type": "evening strolling district",
+      "reason": "夜晚的古城褪去白日的喧嚣，灯笼亮起，街头艺人弹唱，小酒馆传出民谣，是学生党感受大理自由与文艺气息的最佳时段。",
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food": [
+    {
+      "id": "food_old_town_casual",
+      "name": "古城小吃与平价餐馆",
+      "district": "大理古城",
+      "category": "snack street",
+      "reason": "古城内遍布饵丝、凉鸡米线、烤乳扇等小吃摊和人均二三十元的本地菜馆，是学生党解决三餐、体验地道风味的好去处。"
+    },
+    {
+      "id": "food_erhai_light",
+      "name": "洱海边简餐小店",
+      "district": "洱海",
+      "category": "casual dining",
+      "reason": "洱海沿线有一些面向骑行者的简餐店，提供米线、炒饭和饮料，价格实惠，坐在湖边吃一碗米线，本身就是风景。"
+    },
+    {
+      "id": "food_xizhou_local",
+      "name": "喜洲本地小吃摊",
+      "district": "喜洲",
+      "category": "local specialty",
+      "reason": "喜洲粑粑是必尝的本地美食，甜咸皆宜，现烤出炉外酥里软，还有凉粉、豌豆粉等小吃，价格低廉，充满乡野趣味。"
+    }
+  ]
+}

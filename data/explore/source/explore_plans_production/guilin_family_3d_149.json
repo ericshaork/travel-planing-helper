@@ -1,0 +1,168 @@
+{
+  "id": "exp_guilin_family_3d_slow_mountain_mist_v1",
+  "slug": "guilin-family-3d-slow-mountain-mist",
+  "title": "伴山伴水，慢步桂林——给全家人的晨雾与老城时光",
+  "summary": "这是一段为家庭设计的桂林慢旅行。节奏舒缓，路线平顺，既能在晨雾中感受漓江边的山影轮廓，也能在老城街巷里从容漫步。没有奔波，只有一家人共享的山水与烟火。",
+  "city": {
+    "code": "guilin",
+    "name": "Guilin",
+    "region_name": "Guangxi"
+  },
+  "trip_type": "family",
+  "days": 3,
+  "budget": {
+    "level": "medium",
+    "note": "适中预算，包含一处经典地标、一次山水体验和每日一餐有氛围的本地餐厅。"
+  },
+  "pace": "slow",
+  "tags": [
+    "karst-scenery",
+    "river-city",
+    "family-friendly",
+    "slow-travel",
+    "old-town",
+    "nature-led"
+  ],
+  "image_prompt": "National Geographic travel magazine style photo: a family of three walking along the Li River at dawn, mist rising from the karst peaks in the background, soft golden light, calm and warm atmosphere, shot from a low angle with the river reflecting the mountains, vivid greens and blues, film-like grain.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "抵达桂林，从象山开始慢下来",
+      "summary": "第一天以轻松为主，在象鼻山区域感受桂林的城市山水，傍晚沿着漓江散步，让全家人适应桂林的节奏。",
+      "activities": [
+        {
+          "time_block": "afternoon",
+          "description": "入住后，缓步前往象鼻山区域。这里不需要爬山，沿江步道平缓，老人和孩子都能轻松走。看象山在水中的倒影，听导游讲讲桂林的传说，一家人可以在草坪上坐一会儿。",
+          "poi_refs": [
+            "poi_elephant_trunk_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "沿着漓江边慢慢走，看山影在暮色中变淡。找个河边的长椅坐下，孩子可以数江上的船，大人聊聊天。之后去正阳步行街附近找一家米粉店，吃一碗地道的桂林米粉，简单又满足。",
+          "poi_refs": [
+            "poi_river_evening_walk"
+          ],
+          "food_refs": [
+            "food_zhengyang"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "老城巷弄与两江四湖的闲适",
+      "summary": "上午逛东巷和东西巷，感受老城的纹理；下午乘船或沿湖散步，看桂林的水城气质。节奏很慢，随时可以停下来休息。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "从酒店慢悠悠走到东巷和东西巷，石板路、老建筑、小店铺，孩子会被手工糖画吸引，大人可以看看传统手工艺。巷子里有不少小吃摊，边走边尝，不用赶时间。",
+          "poi_refs": [
+            "poi_east_west_lane"
+          ],
+          "food_refs": [
+            "food_eastwest"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "来到两江四湖区域，这里水域开阔，桥景别致。可以租一艘小船（家庭可选带篷的），或者在湖边找个咖啡馆坐坐，看水鸟和游船。老人走累了随时有长椅。",
+          "poi_refs": [
+            "poi_two_rivers"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "回到东西巷附近找一家老字号餐厅，点几道桂林家常菜，比如啤酒鱼、田螺酿。一家人围坐，聊聊今天的见闻，饭后在巷子里再散散步，灯火柔和。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_eastwest"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "晨雾中的芦笛岩，告别前的宁静",
+      "summary": "最后一天去芦笛岩外围走走，感受喀斯特地貌的另一种面貌，然后回到市中心买些伴手礼，从容结束旅程。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "早起前往芦笛岩景区外围，不一定要进洞，外围的田园和山峰在晨雾中宛如水墨画。带孩子看看田野里的水牛，深呼吸新鲜空气。这里地势平坦，适合全家慢走。",
+          "poi_refs": [
+            "poi_reed_flute_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "返回市区，在正阳步行街附近找一家安静的餐馆吃午饭，然后买一些桂林三宝（辣椒酱、桂花糕）作为手信。如果时间有余，可以在江边再坐一会儿，享受最后的桂林时光。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_zhengyang"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_two_rivers",
+      "name": "两江四湖景区",
+      "district": "秀峰区",
+      "type": "central scenic district",
+      "reason": "桂林城市水系的精华，湖桥相映，步道平缓，适合全家慢慢走、随时停。老人和孩子都不会觉得累，还能看到桂林作为水城的独特气质。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_elephant_trunk_edge",
+      "name": "象鼻山景区",
+      "district": "象山区",
+      "type": "landmark scenic site",
+      "reason": "桂林的城市名片，不用爬山就能看到标志性的象形山。江边草坪是孩子玩耍的好地方，也是全家合影的经典背景。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_east_west_lane",
+      "name": "东西巷",
+      "district": "秀峰区",
+      "type": "historic street district",
+      "reason": "保留老城肌理的步行街区，石板路、老建筑、小吃摊，既有文化氛围又有生活气息。家庭可以在这里慢慢逛，随时坐下来吃点东西。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_reed_flute_edge",
+      "name": "芦笛岩外围",
+      "district": "秀峰区",
+      "type": "scenic landmark area",
+      "reason": "芦笛岩外围的田园与山峰在晨雾中尤其动人，地势开阔平坦，适合全家散步。不进洞也能感受桂林的喀斯特地貌，是避开人群的宁静选择。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_river_evening_walk",
+      "name": "漓江夜步",
+      "district": "象山区",
+      "type": "riverfront district",
+      "reason": "傍晚的漓江边，山影渐暗，灯光初上，是桂林最温柔的时刻。一家人沿着江边散步，看渔火点点，感受山水城市的宁静夜晚。",
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food": [
+    {
+      "id": "food_zhengyang",
+      "name": "正阳步行街美食区",
+      "district": "秀峰区",
+      "category": "snack street",
+      "reason": "桂林最市中心的觅食地，米粉、甜品、小吃一应俱全。家庭可以各取所爱，孩子有甜食，大人有热粉，氛围热闹但不杂乱。"
+    },
+    {
+      "id": "food_eastwest",
+      "name": "东西巷餐饮小馆",
+      "district": "秀峰区",
+      "category": "old-street dining",
+      "reason": "藏在老巷里的本地菜馆，适合一家人围坐吃顿正餐。啤酒鱼、田螺酿等家常菜做得地道，环境有老城味道，不喧闹。"
+    }
+  ]
+}

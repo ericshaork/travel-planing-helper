@@ -1,0 +1,184 @@
+{
+  "id": "exp_shenzhen_family_3d_skyline_creative_v1",
+  "slug": "shenzhen-family-3d-skyline-creative",
+  "title": "城市天际线与创意园午后：深圳3日家庭漫游",
+  "summary": "以家庭为轴心的深圳3日计划，在宽敞的公园、开阔的海滨和充满设计感的创意园区之间，找到属于一家人的舒适节奏。从莲花山俯瞰城市轮廓，到深圳湾迎着海风漫步，再到华侨城创意园里共享一杯果汁和画廊时光——每一天都兼顾了孩子的探索欲、长辈的休息需求，以及全家人在一起的轻松感。",
+  "city": {
+    "code": "shenzhen",
+    "name": "Shenzhen",
+    "region_name": "Guangdong"
+  },
+  "trip_type": "family",
+  "days": 3,
+  "budget": {
+    "level": "medium",
+    "note": "平衡了公园、海滨等免费空间与创意园区、海景餐厅等舒适体验，适合家庭的中档花费。"
+  },
+  "pace": "balanced",
+  "tags": [
+    "家庭出游",
+    "天际线",
+    "创意园区",
+    "海滨漫步",
+    "城市公园",
+    "夜景"
+  ],
+  "image_prompt": "National Geographic travel magazine style photo of a family walking along Shenzhen Bay Waterfront at golden hour, skyline in background, soft warm light, shallow depth of field, modern city meets nature, peaceful and joyful atmosphere.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "登高望远，绿意中的城市初印象",
+      "summary": "从莲花山公园的草坪散步开始，让全家在开阔绿意中适应深圳的节奏，傍晚移至市民中心轴线，感受城市灯光的温柔升起。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "前往莲花山公园，沿着缓坡步道慢慢走上山顶广场，俯瞰福田CBD的天际线。孩子在草坪上奔跑，长辈在树荫下歇脚，全家一起享受开阔的绿色空间。",
+          "poi_refs": [
+            "poi_lianhuashan"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "在公园附近找一家适合家庭的简餐餐厅，午后在山脚的风筝广场或湖边休息，让孩子放风筝或喂鱼，节奏轻松。",
+          "poi_refs": [
+            "poi_lianhuashan"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "散步至市民中心广场，沿着中轴线漫步，看灯光逐渐点亮现代建筑群。广场开阔平坦，适合孩子奔跑，也适合全家人一起拍一张以城市为背景的合影。",
+          "poi_refs": [
+            "poi_civic_center"
+          ],
+          "food_refs": []
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "创意园区的文艺午后与海滨晚餐",
+      "summary": "上午在华侨城创意园感受艺术与设计的趣味，午后转场深圳湾海滨栈道，傍晚在海景餐厅享受一顿轻松的家庭晚餐。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "前往华侨城创意园，这里没有拥挤的人潮，却有宽敞的街道和充满设计感的店铺。孩子会被色彩鲜艳的涂鸦和有趣的装置艺术吸引，家长可以在咖啡馆里歇脚，享受一段悠闲的文艺时光。",
+          "poi_refs": [
+            "poi_oct_loft"
+          ],
+          "food_refs": [
+            "food_oct_cafe"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "从创意园乘坐短途地铁或打车到深圳湾海滨栈道，沿着海岸线慢慢散步。海风轻柔，视野开阔，孩子可以看船、看鸟，全家人在草坪上坐一会儿，感受城市中难得的宁静。",
+          "poi_refs": [
+            "poi_shenzhen_bay"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "前往海上世界广场，这里餐饮选择丰富，环境整洁，适合家庭。选一家有户外座位的海滨餐厅，边吃晚餐边看夜景，饭后还可以在广场上散步，看音乐喷泉。",
+          "poi_refs": [
+            "poi_sea_world"
+          ],
+          "food_refs": [
+            "food_sea_world"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "大梅沙的海岸时光，以海风收尾",
+      "summary": "最后一天留给大海，在大梅沙的沙滩上堆沙堡、踩浪花，享受一顿海边午餐，为深圳之旅画上清爽的句号。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "驱车或打车前往大梅沙海滨公园，这里的沙滩平缓、设施完善，适合全家一起玩沙、踏浪。孩子可以尽情挖沙，长辈可以在遮阳伞下看海，节奏完全由自己掌控。",
+          "poi_refs": [
+            "poi_dameisha_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "在海边找一家海鲜餐厅或轻食店，享用一顿有海景相伴的午餐。饭后可以在海滨栈道上再散散步，或者找一处阴凉的地方打个盹，然后轻松返回市区，结束旅程。",
+          "poi_refs": [
+            "poi_dameisha_edge"
+          ],
+          "food_refs": []
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_lianhuashan",
+      "name": "莲花山公园",
+      "district": "福田区",
+      "type": "城市公园",
+      "reason": "对家庭来说，莲花山是进入深圳最温柔的方式——缓坡步道、山顶的宽阔视野、山脚的草坪与风筝广场，让每个家庭成员都能找到自己的节奏。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_civic_center",
+      "name": "市民中心天际线",
+      "district": "福田区",
+      "type": "城市地标区",
+      "reason": "开阔的广场和对称的建筑轴线，让孩子可以自由奔跑，家长也能在傍晚的光线里拍出以城市为背景的全家福。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_oct_loft",
+      "name": "华侨城创意园",
+      "district": "南山区",
+      "type": "创意园区",
+      "reason": "这里没有拥挤的人潮，取而代之的是宽敞的街道、色彩丰富的涂鸦和充满童趣的装置艺术，适合一家人放慢脚步，在咖啡馆和画廊之间度过一个文艺而轻松的上午。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_shenzhen_bay",
+      "name": "深圳湾海滨栈道",
+      "district": "南山区",
+      "type": "海滨观光区",
+      "reason": "开阔的海景和整洁的步道，让全家可以并肩而行，看海鸟、吹海风，在草坪上席地而坐，是城市中难得的自然呼吸时刻。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_sea_world",
+      "name": "海上世界广场",
+      "district": "南山区",
+      "type": "夜间休闲区",
+      "reason": "灯光、音乐喷泉和丰富的餐饮选择，让这里成为家庭晚餐的理想据点。坐在户外，看明华轮在夜色中亮起，孩子会记住这个闪闪发光的夜晚。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_dameisha_edge",
+      "name": "大梅沙海滨公园",
+      "district": "盐田区",
+      "type": "滨海休闲区",
+      "reason": "平缓的沙滩和完备的设施，让这里成为家庭一日游的经典选择。堆沙堡、踩浪花、吃一顿海景午餐——用大海的味道为旅程收尾。",
+      "recommended_duration_minutes": 150
+    }
+  ],
+  "food": [
+    {
+      "id": "food_oct_cafe",
+      "name": "华侨城创意园轻食区",
+      "district": "南山区",
+      "category": "创意园区餐饮",
+      "reason": "创意园内散布着多家适合家庭的咖啡馆和轻食店，提供果汁、三明治和蛋糕，环境文艺且安静，是全家歇脚补给的好去处。"
+    },
+    {
+      "id": "food_sea_world",
+      "name": "海上世界餐饮区",
+      "district": "南山区",
+      "category": "海滨餐饮",
+      "reason": "这里汇集了众多适合家庭的餐厅，从粤菜到西餐应有尽有，户外座位可以边吃边看夜景，氛围轻松愉悦，孩子也不会感到无聊。"
+    }
+  ]
+}

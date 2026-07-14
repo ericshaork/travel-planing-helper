@@ -1,0 +1,239 @@
+{
+  "id": "exp_beijing_family_5d_imperial_lakeside_v1",
+  "slug": "beijing-family-5d-imperial-lakeside",
+  "title": "皇城中轴与什刹海夜色：一家人的慢调北京",
+  "summary": "这是一次为家庭设计的北京慢旅行，沿着中轴线触摸历史的厚重，又在什刹海的湖光夜色中享受惬意的团聚时光。不必赶路，不必拥挤，每一天都围绕一个核心区域展开，让老人和孩子都能从容感受北京的层次。",
+  "city": {
+    "code": "beijing",
+    "name": "Beijing",
+    "region_name": "Beijing"
+  },
+  "trip_type": "family",
+  "days": 5,
+  "budget": {
+    "level": "high",
+    "note": "以舒适节奏和优质用餐体验为核心，减少景点间的奔波，为家庭出行预留充裕的休息时间。"
+  },
+  "pace": "slow",
+  "tags": [
+    "imperial-history",
+    "hutong-life",
+    "family-friendly",
+    "cultural-landmarks",
+    "citywalk",
+    "heritage"
+  ],
+  "image_prompt": "National Geographic travel magazine style photo of a family walking along Shichahai lake at golden hour, with willow trees and traditional hutong rooftops in the background, warm light, relaxed atmosphere, shallow depth of field.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "初见皇城：天坛的呼吸与前门的味道",
+      "summary": "以开阔的天坛公园开启旅程，让家人感受北京的历史与绿意，傍晚在前门老字号区域品尝地道北京味。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "抵达北京后，先在酒店安顿休息。之后前往天坛公园，在古柏林和祈年殿前缓步漫游，看当地老人晨练，感受京城的生活气息。",
+          "poi_refs": [
+            "poi_temple_of_heaven"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "从天坛出来后，前往前门传统美食区，找一家老字号面馆或涮肉馆，让全家人坐下来好好吃一顿。饭后在前门大街散步，看看老北京建筑。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_qianmen"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "回酒店休息，为第二天的中轴线之旅储备精力。",
+          "poi_refs": [],
+          "food_refs": []
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "中轴线上的皇家庭院",
+      "summary": "上午漫步故宫外围，不深入拥挤的中轴线，而是感受整体气势；午后登上景山俯瞰全城，在夕阳中享受家庭合影的温馨时刻。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "从午门进入故宫区域，沿中轴线外侧缓行，感受太和殿广场的壮观，但不追求走完所有宫殿，以轻松步调欣赏建筑细节。",
+          "poi_refs": [
+            "poi_forbidden_city_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "从故宫神武门出来，过马路进入景山公园，缓步登顶万春亭，俯瞰故宫全景和北京中轴线。在山顶的长椅上休息，给家人拍照留念。",
+          "poi_refs": [
+            "poi_jingshan"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "在景山附近找一家安静的餐厅用晚餐，之后返回酒店休息。",
+          "poi_refs": [],
+          "food_refs": []
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "什刹海的湖光与胡同漫游",
+      "summary": "全天沉浸在什刹海区域，上午沿湖散步，下午钻入胡同深处，傍晚在湖畔餐厅享受家庭晚餐，看夜色渐浓。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "从什刹海西岸开始，沿湖缓行，看垂柳、石桥和湖面上的游船。在湖边茶馆歇脚，给孩子买一串糖葫芦。",
+          "poi_refs": [
+            "poi_shichahai_hutong"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "转入什刹海周边的胡同群，如后海北沿，探访老北京四合院改造的文创小店，感受胡同里的慢生活节奏。",
+          "poi_refs": [],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "在什刹海湖畔的餐厅用晚餐，窗外是湖面灯光与游船，一家人边吃边聊，享受北京夜晚的温柔。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_shichahai"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 4,
+      "title": "文艺一日：798的现代北京",
+      "summary": "上午前往798艺术区，在画廊和装置艺术之间漫步，中午在园区内用餐，下午自由活动，体验北京当代的一面。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "乘坐出租车或包车前往798艺术区，避开地铁的拥挤。在园区内悠闲散步，欣赏街头壁画和艺术装置，适合家庭拍照。",
+          "poi_refs": [
+            "poi_798_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "在798内的咖啡馆或餐厅用午餐，之后继续探索未看完的角落，或在园区草坪上休息。",
+          "poi_refs": [],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "返回酒店，晚上可自由活动，或在酒店附近轻松用餐。",
+          "poi_refs": [],
+          "food_refs": []
+        }
+      ]
+    },
+    {
+      "day": 5,
+      "title": "告别北京：南锣鼓巷的晨光与归程",
+      "summary": "最后一天上午在南锣鼓巷漫步，买些伴手礼，吃一碗地道炸酱面，为家庭旅行画上圆满句号。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "前往南锣鼓巷，趁人少时漫步主巷，探访两侧的特色小店，为家人挑选小纪念品。在巷子里找一家老北京炸酱面馆，吃一顿地道的早餐。",
+          "poi_refs": [
+            "poi_nanluoguxiang"
+          ],
+          "food_refs": [
+            "food_nanluoguxiang"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "根据航班或火车时间，返回酒店取行李，前往机场或车站，结束北京家庭之旅。",
+          "poi_refs": [],
+          "food_refs": []
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_forbidden_city_edge",
+      "name": "故宫外围漫步",
+      "district": "东城区",
+      "type": "imperial landmark",
+      "reason": "对家庭来说，不必深入拥挤的中轴线，在外围感受紫禁城的宏伟气势就足够震撼。让孩子在开阔的广场上奔跑，看红墙金瓦，是历史启蒙的温柔方式。",
+      "recommended_duration_minutes": 180
+    },
+    {
+      "id": "poi_jingshan",
+      "name": "景山公园",
+      "district": "西城区",
+      "type": "city viewpoint",
+      "reason": "景山是俯瞰故宫和北京中轴线的绝佳地点，缓步登顶不费力，山顶的凉亭适合全家休息。这里是家庭合影的经典背景，也是向孩子解释北京城市格局的天然课堂。",
+      "recommended_duration_minutes": 75
+    },
+    {
+      "id": "poi_shichahai_hutong",
+      "name": "什刹海胡同漫游",
+      "district": "西城区",
+      "type": "hutong district",
+      "reason": "什刹海是北京最具生活气息的水岸胡同区，湖面开阔，柳树成荫，适合家庭慢行。老人可以沿湖散步，孩子可以看游船和野鸭，傍晚的灯火更添温馨。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_temple_of_heaven",
+      "name": "天坛公园",
+      "district": "东城区",
+      "type": "cultural landmark",
+      "reason": "天坛以开阔的绿地和宏伟的祈年殿著称，是家庭旅行的理想起点。早上可以看到市民打太极、踢毽子，让孩子在古柏林中奔跑，感受北京人日常的闲适。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_nanluoguxiang",
+      "name": "南锣鼓巷",
+      "district": "东城区",
+      "type": "historic lane district",
+      "reason": "南锣鼓巷是北京最有代表性的胡同商业街，虽然热闹，但早晨人少时非常适合家庭散步。巷子里的小店卖着传统玩具和零食，孩子会喜欢，大人也能找到老北京的记忆。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_798_edge",
+      "name": "798艺术区",
+      "district": "朝阳区",
+      "type": "creative district",
+      "reason": "798是北京当代艺术的聚集地，工业遗产改造的园区开阔且充满视觉趣味。家庭可以悠闲地逛画廊、看雕塑，在咖啡馆歇脚，感受北京年轻活力的一面。",
+      "recommended_duration_minutes": 120
+    }
+  ],
+  "food": [
+    {
+      "id": "food_shichahai",
+      "name": "什刹海湖畔餐厅",
+      "district": "西城区",
+      "category": "lakeside dining",
+      "reason": "在什刹海湖畔选择一家环境雅致的餐厅，窗外就是湖景和游船，适合家庭聚餐。菜品以北京家常菜为主，口味温和，老人和孩子都能接受。"
+    },
+    {
+      "id": "food_nanluoguxiang",
+      "name": "南锣鼓巷小吃街",
+      "district": "东城区",
+      "category": "snack street",
+      "reason": "早晨的南锣鼓巷人少清净，可以在巷子里找到老北京炸酱面、豆汁焦圈等地道早餐。对家庭来说，边走边尝的形式轻松有趣，孩子也会喜欢。"
+    },
+    {
+      "id": "food_qianmen",
+      "name": "前门传统美食区",
+      "district": "东城区",
+      "category": "heritage dining",
+      "reason": "前门一带聚集了众多老字号餐厅，如全聚德烤鸭、东来顺涮肉等，是家庭体验正宗北京味的首选。环境传统，服务周到，适合带老人孩子正餐。"
+    }
+  ]
+}

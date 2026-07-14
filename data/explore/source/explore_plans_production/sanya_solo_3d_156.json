@@ -1,0 +1,186 @@
+{
+  "id": "exp_sanya_solo_3d_coastal_wander",
+  "slug": "sanya-solo-3d-coastal-wander",
+  "title": "独自漫游三亚：海边落日与椰林午后的城市节奏",
+  "summary": "这是一份为独自旅行者设计的城市漫游计划。不赶景点、不绕远路，每天只专注一个海湾或一条海岸线，在椰林、沙滩和落日之间找到自己的节奏。从亚龙湾的公共海岸开始，到大东海的市井烟火，再到椰梦长廊的黄昏漫步——一个人也能把三亚走得很舒服。",
+  "city": {
+    "code": "sanya",
+    "name": "Sanya",
+    "region_name": "Hainan"
+  },
+  "trip_type": "solo",
+  "days": 3,
+  "budget": {
+    "level": "medium",
+    "note": "适度消费，兼顾舒适与自由：一天一个海湾区域，搭配公共海滩、观景台和本地食街，不追求奢华，但也不将就。"
+  },
+  "pace": "balanced",
+  "tags": [
+    "citywalk",
+    "sunset",
+    "beach",
+    "solo-travel",
+    "local-culture",
+    "photography"
+  ],
+  "image_prompt": "National Geographic travel magazine style photo of a solo traveler standing on a quiet public beach at golden hour, palm trees framing the shot, warm light on the sand, distant mountains in haze, relaxed and contemplative mood, cinematic composition.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "亚龙湾的蓝色开场",
+      "summary": "第一天从三亚最经典的海湾开始，在亚龙湾公共海岸度过一个轻松的上午，午后转到大东海区域，感受海滩与市井交织的日常气息。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "抵达亚龙湾公共海岸，找一片安静的沙滩坐下，看海浪起伏。这里的海颜色很透，适合慢慢走、慢慢拍。没有行程压力，只有阳光和海风。",
+          "poi_refs": [
+            "poi_yalong_bay"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "转到大东海区域，这里比亚龙湾更热闹，海岸线旁就是成排的餐厅和小店。沿着沙滩走一圈，然后找一家海边的简餐店坐下，吃一份刚做好的海鲜炒饭，喝一杯冰椰水。",
+          "poi_refs": [
+            "poi_dadonghai"
+          ],
+          "food_refs": [
+            "food_dadonghai_casual"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "日落前登上鹿回头景区边缘的观景台，俯瞰三亚市区和海湾交汇的天际线。一个人站在高处看城市亮灯，海面染上金色，是这一天最安静的时刻。",
+          "poi_refs": [
+            "poi_luhuitou_edge"
+          ],
+          "food_refs": []
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "本地街巷与椰林黄昏",
+      "summary": "第二天深入三亚更生活化的一面，上午逛本地市场边缘的街巷，感受海南日常的烟火气；傍晚则留给椰梦长廊，在椰影和海风中结束这一天。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "前往天涯区的本地市场边缘区域，这里没有游客扎堆的景象，更多的是当地人买菜、喝茶、闲聊的日常。在街边摊买一份清补凉，边走边看，拍几张有生活气息的照片。",
+          "poi_refs": [
+            "poi_yiheng_market_edge"
+          ],
+          "food_refs": [
+            "food_local_market"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "午饭后在酒店或咖啡馆休息，避开正午最晒的时段。下午晚些时候前往椰梦长廊，沿着海岸步道慢慢走，两侧是高高的椰子树，海风穿过树影。偶尔停下，坐在长椅上看海。",
+          "poi_refs": [
+            "poi_coconut_dream"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "就在椰梦长廊附近找一家本地食街的小馆子，点一份文昌鸡和一碗抱罗粉，简单却有滋味。吃完继续沿着海岸散步，路灯亮起后，海面变成了深蓝色。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_local_market"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "最后的自由海岸",
+      "summary": "最后一天留给最放松的节奏，可以选择再去一次喜欢的海湾，或者探索一个之前没去过的角落。重点是：不赶时间，按自己的感觉收尾。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "回到大东海，这次不为了打卡，而是找一个沙滩边的位置坐下，看当地人晨泳、遛狗。买一份刚开的椰子，就着海风慢慢喝。",
+          "poi_refs": [
+            "poi_dadonghai"
+          ],
+          "food_refs": [
+            "food_dadonghai_casual"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "如果还有体力，可以沿着椰梦长廊再走一段，或者干脆躺在沙滩上发呆。一个人的旅行，最大的奢侈就是可以什么都不做。",
+          "poi_refs": [
+            "poi_coconut_dream"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "最后一顿晚餐选在大东海的海边排档，点一盘烤生蚝和一碗海鲜粥，用最本地的方式告别三亚。饭后在海滩上再走一圈，记住海的声音。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_dadonghai_casual"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_yalong_bay",
+      "name": "亚龙湾公共海岸",
+      "district": "亚龙湾",
+      "type": "沙滩景区",
+      "reason": "作为三亚最具代表性的海湾，亚龙湾的公共海岸线开阔、沙质细腻，适合一个人安静地看海、踏浪、拍照。这里没有过度商业化的喧嚣，只有海浪和椰风，是独自旅行者最舒服的蓝色开场。",
+      "recommended_duration_minutes": 150
+    },
+    {
+      "id": "poi_dadonghai",
+      "name": "大东海区域",
+      "district": "吉阳区",
+      "type": "海滩与城市街区",
+      "reason": "大东海是三亚少有的能把海滩和市井生活无缝衔接的区域。沙滩背后就是餐馆、小店和本地人的日常，适合独自旅行者边逛边吃，感受三亚更真实的一面。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_luhuitou_edge",
+      "name": "鹿回头景区边缘观景台",
+      "district": "吉阳区",
+      "type": "观景台景区",
+      "reason": "鹿回头边缘的观景台是三亚最值得停留的日落点之一。站在高处，整个三亚湾和城市轮廓尽收眼底，海面在夕阳下泛着碎金般的光。一个人在这里看天色变化，是旅行中最难忘的安静时刻。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_coconut_dream",
+      "name": "椰梦长廊",
+      "district": "天涯区",
+      "type": "海滨步道",
+      "reason": "椰梦长廊是一条绵长的海滨步道，两旁种满椰子树，步道紧贴沙滩。傍晚时分，阳光透过椰叶洒下斑驳光影，海风温柔。适合一个人慢慢走、慢慢拍，或者什么都不做，只是坐在长椅上看海。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_yiheng_market_edge",
+      "name": "本地市场边缘街区",
+      "district": "天涯区",
+      "type": "生活街区",
+      "reason": "这里是三亚少有的游客稀少的区域，街道两边是本地人开的杂货铺、小吃摊和茶店。独自旅行者可以在这里捕捉到最真实的海南日常：老人喝茶、小孩玩耍、摊主悠闲地削着椰子。",
+      "recommended_duration_minutes": 75
+    }
+  ],
+  "food": [
+    {
+      "id": "food_dadonghai_casual",
+      "name": "大东海海鲜简餐区",
+      "district": "吉阳区",
+      "category": "海鲜简餐区",
+      "reason": "大东海沿岸聚集了一排面向海滩的海鲜小馆和简餐店，价格适中，氛围轻松。一个人可以点一份海鲜炒饭、烤鱼或椰子鸡，坐在户外吹着海风吃，不用在意吃相，自在就好。"
+    },
+    {
+      "id": "food_local_market",
+      "name": "天涯本地食街",
+      "district": "天涯区",
+      "category": "本地小吃街",
+      "reason": "位于天涯区市场周边的食街，是体验海南本地味道的好去处。清补凉、抱罗粉、文昌鸡、椰子饭……价格亲民，味道地道。独自旅行者可以随意穿梭，看到什么想吃的就坐下，一顿饭花不了多少钱，却吃得很有满足感。"
+    }
+  ]
+}

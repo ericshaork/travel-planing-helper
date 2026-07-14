@@ -1,0 +1,207 @@
+{
+  "id": "exp_shanghai_solo_3d_wutong_bund",
+  "slug": "shanghai-solo-3d-wutong-bund",
+  "title": "梧桐深处到江岸灯火：三日独行上海",
+  "summary": "这是一次为独行旅人设计的上海漫游，节奏从容，不赶景点。你将穿梭在梧桐掩映的街区，感受老洋房的静谧与日常；傍晚时分，走向黄浦江边，让两岸灯火成为独处时刻的背景。三日行程围绕‘观察’与‘沉浸’展开——在法租界的咖啡馆里停留，在苏州河畔散步，在城隍庙旧巷中寻找烟火气。适合喜欢用脚步丈量城市、享受自我节奏的旅行者。",
+  "city": {
+    "code": "shanghai",
+    "name": "Shanghai",
+    "region_name": "Shanghai"
+  },
+  "trip_type": "solo",
+  "days": 3,
+  "budget": {
+    "level": "medium",
+    "note": "兼顾氛围餐饮与街边小食，留出空间给一杯咖啡或一顿江景晚餐。"
+  },
+  "pace": "balanced",
+  "tags": [
+    "citywalk",
+    "solo",
+    "architecture",
+    "night-view",
+    "stylish-citywalk",
+    "modern-meets-historic"
+  ],
+  "image_prompt": "National Geographic travel magazine style photo of a solo traveler walking along a tree-lined street in Shanghai's Former French Concession, dappled sunlight through plane trees, elegant historic villas in the background, a relaxed and contemplative mood, shallow depth of field, warm afternoon light.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "梧桐树下的独行起点",
+      "summary": "从法租界出发，在武康路和梧桐街区中感受上海最优雅的街道肌理。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "从武康路开始你的城市漫步。这条路上老洋房与咖啡馆交错，适合放慢脚步，观察街角的日常。你可以随意走进一家面包店或小咖啡馆，用一杯咖啡开启一天。",
+          "poi_refs": [
+            "poi_wukang_road"
+          ],
+          "food_refs": [
+            "food_french_concession_dining"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "沿着武康路延伸至整个法租界梧桐区，在复兴西路、湖南路一带自由穿行。这里没有固定的景点，但每一栋建筑、每一片树影都值得驻足。找一家有户外座位的咖啡馆，拿出笔记本或只是看路人经过。",
+          "poi_refs": [
+            "poi_french_concession_walk"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "前往外滩，在黄浦江边找一个安静的位置，看着浦东的灯火逐一亮起。独行的夜晚，这里是最好的思考场所。之后可以在外滩附近找一家小酒馆或面馆简单解决晚餐。",
+          "poi_refs": [
+            "poi_bund"
+          ],
+          "food_refs": [
+            "food_bund_evening_dining"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "旧城烟火与河岸静谧",
+      "summary": "上午在豫园老城厢感受市井气息，下午沿着苏州河寻找城市的水岸宁静。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "前往豫园及周边老城厢区域。这里的小巷、老建筑和本地小吃摊构成了一幅生动的市井画卷。你可以随意钻进一条弄堂，尝尝生煎或小笼包，感受老上海的生活气息。",
+          "poi_refs": [
+            "poi_yuyuan_edge"
+          ],
+          "food_refs": [
+            "food_yuyuan_food_area"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "从豫园步行或乘短途地铁前往苏州河沿岸。沿着河岸散步，看两岸新旧建筑交错，比外滩更安静，更适合独处。可以在河边的长椅上坐一会儿，看河水与城市倒影。",
+          "poi_refs": [
+            "poi_suzhou_creek"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "前往新天地附近，在时尚的街区里找一家氛围不错的餐厅，享受一顿不紧不慢的晚餐。饭后可以在街区里随意走走，感受上海夜晚的另一种面貌。",
+          "poi_refs": [
+            "poi_xintiandi_edge"
+          ],
+          "food_refs": [
+            "food_french_concession_dining"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "再探梧桐深处，收束于江岸",
+      "summary": "最后一天回到法租界，补上未走完的街道，傍晚再赴外滩告别。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "再次回到法租界，这次可以更随性地探索那些前一天没来得及拐进去的小路。比如永嘉路、岳阳路，每一条都有不同的建筑表情。找一家安静的咖啡馆，享受最后的悠闲上午。",
+          "poi_refs": [
+            "poi_french_concession_walk"
+          ],
+          "food_refs": [
+            "food_french_concession_dining"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "如果你还有精力，可以再去武康路走一走，或者探索一下周边的安福路。这些街道充满设计小店和画廊，适合独自淘宝或只是看看。",
+          "poi_refs": [
+            "poi_wukang_road"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "最后一晚，再次回到外滩。这次可以沿着外滩从南走到北，看灯光在水面上的倒影，作为这次独行之旅的收尾。在附近找一家有景观位的餐厅或酒吧，为旅程干杯。",
+          "poi_refs": [
+            "poi_bund"
+          ],
+          "food_refs": [
+            "food_bund_evening_dining"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_bund",
+      "name": "外滩",
+      "district": "黄浦区",
+      "type": "滨江地标",
+      "reason": "独行者的傍晚仪式：站在外滩看浦东天际线亮起，是上海送给独自旅行者的安静时刻。这里没有喧嚣的互动，只有你与城市灯火的对话。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_french_concession_walk",
+      "name": "法租界梧桐漫游区",
+      "district": "徐汇区",
+      "type": "历史街区",
+      "reason": "这是独行者的理想散步区域——梧桐树影、老洋房、街角咖啡馆，每一步都充满发现的可能。不需要目的地，漫无目的就是最好的路线。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_yuyuan_edge",
+      "name": "豫园老城厢",
+      "district": "黄浦区",
+      "type": "历史城区",
+      "reason": "独行时最适合钻进老城厢的弄堂里，看本地人的生活痕迹。这里没有精致的商业氛围，但有真实的烟火气，是理解上海另一面的切口。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_suzhou_creek",
+      "name": "苏州河沿岸步道",
+      "district": "静安区",
+      "type": "城市滨水步道",
+      "reason": "与外滩的热闹不同，苏州河畔更安静，更适合独处。你可以在这里慢慢走，看河水如何穿过城市，感受上海安静的一面。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_wukang_road",
+      "name": "武康路街区",
+      "district": "徐汇区",
+      "type": "建筑漫游区",
+      "reason": "武康路是法租界最经典的漫步路线，老建筑与时尚小店并存。独行时，你可以随时停下来拍照、观察、发呆，整条街都是你的节奏。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_xintiandi_edge",
+      "name": "新天地边缘区",
+      "district": "黄浦区",
+      "type": "时尚街区",
+      "reason": "新天地适合独行者在夜晚短暂停留——石库门建筑里的餐厅和酒吧有一种精致的松弛感，一个人也不会觉得突兀。",
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food": [
+    {
+      "id": "food_french_concession_dining",
+      "name": "法租界梧桐区餐饮带",
+      "district": "徐汇区",
+      "category": "街区餐饮集群",
+      "reason": "遍布武康路、安福路一带的咖啡馆、轻食店和小酒馆，是独行者随时可以歇脚的地方。氛围轻松，适合一个人边吃边观察街景。"
+    },
+    {
+      "id": "food_yuyuan_food_area",
+      "name": "豫园老城厢小吃区",
+      "district": "黄浦区",
+      "category": "老城小吃街",
+      "reason": "生煎、小笼、葱油拌面……这里的老字号小吃让独行者可以快速尝到地道风味，不需要大张旗鼓地点菜，边走边吃最自在。"
+    },
+    {
+      "id": "food_bund_evening_dining",
+      "name": "外滩及中央晚间餐饮带",
+      "district": "黄浦区",
+      "category": "滨江晚餐区",
+      "reason": "外滩附近既有江景餐厅也有低调的面馆，独行者可以根据心情选择。傍晚时分，找一个看得见灯火的位置，一顿饭可以吃很久。"
+    }
+  ]
+}

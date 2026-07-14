@@ -1,0 +1,182 @@
+{
+  "id": "exp_dunhuang_student_3d_low_food_shopping_citywalk_v1",
+  "slug": "dunhuang-student-3d-food-shopping-citywalk",
+  "title": "戈壁星空下的青春烟火：敦煌三日漫游",
+  "summary": "学生预算也能玩转敦煌！三天紧凑行程，白天深入莫高窟与鸣沙山，傍晚在沙洲夜市大快朵颐，夜晚仰望戈壁星空。用最地道的西北小吃、最划算的门票组合，和最自由的脚步，感受大漠与星空交织的青春浪漫。",
+  "city": {
+    "code": "dunhuang",
+    "name": "Dunhuang",
+    "region_name": "Gansu"
+  },
+  "trip_type": "student",
+  "days": 3,
+  "budget": {
+    "level": "low",
+    "note": "主要支出为莫高窟门票和鸣沙山门票，餐饮以夜市和小馆为主，交通选择公交和步行，整体花费可控。"
+  },
+  "pace": "dense",
+  "tags": [
+    "silk-road",
+    "desert-scenery",
+    "sunset",
+    "food",
+    "student-friendly",
+    "budget-travel"
+  ],
+  "image_prompt": "National Geographic style photo of a group of students sitting on a sand dune at sunset, silhouettes against a fiery sky, with the crescent moon lake in the background, wide angle, warm golden light, dust particles in air, cinematic composition.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "初见敦煌：从丝路遗迹到夜市烟火",
+      "summary": "上午沉浸莫高窟的千年壁画，下午漫步老城街巷，晚上在沙洲夜市吃遍西北小吃。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "前往莫高窟，用半天时间细细品味这个丝路最璀璨的文化宝库。学生票优惠，记得提前预约。",
+          "poi_refs": [
+            "poi_mogao_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "从莫高窟返回市区，在旧城休闲步道随意走走，感受敦煌小城的悠闲节奏，顺便逛逛路边的特色小店。",
+          "poi_refs": [
+            "poi_town_walk"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "直奔沙洲夜市，这里是小吃天堂。杏皮水、驴肉黄面、烤羊肉串……用最少的钱吃到最地道的西北风味。",
+          "poi_refs": [
+            "poi_shazhou_market"
+          ],
+          "food_refs": [
+            "food_shazhou_night"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "沙漠狂欢：骑骆驼、滑沙、等日落",
+      "summary": "一整天献给鸣沙山和月牙泉，从白天的沙漠游乐到傍晚的壮丽日落，晚上还能看星空。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "早起去鸣沙山月牙泉，避开人流高峰。可以骑骆驼、滑沙，感受沙漠的豪迈。学生证有门票优惠。",
+          "poi_refs": [
+            "poi_mingsha_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "在沙漠里找个阴凉处休息，或者继续探索月牙泉周边。午餐简单解决，自带干粮或景区外小摊。",
+          "poi_refs": [
+            "poi_mingsha_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "爬到沙丘高处等待日落，看夕阳将沙漠染成金红色。之后不要急着走，这里的星空同样震撼，和朋友们躺在沙地上数星星。",
+          "poi_refs": [
+            "poi_desert_evening"
+          ],
+          "food_refs": []
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "文化拾遗与告别：博物馆与最后的美食",
+      "summary": "上午逛逛敦煌博物馆，补充丝路知识，中午再吃一顿西北美味，下午带着满满的回忆返程。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "前往敦煌博物馆，免费参观（记得带身份证）。这里用文物和模型生动讲述敦煌历史，是拍照和涨知识的好地方。",
+          "poi_refs": [
+            "poi_museum_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "在市中心便利用餐区吃最后一顿西北面食，比如拉条子或浆水面。然后根据车次时间，在市区买点特产（如李广杏干），准备离开。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_town_center"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_mogao_edge",
+      "name": "莫高窟",
+      "district": "敦煌",
+      "type": "cultural landmark",
+      "reason": "作为敦煌的灵魂所在，莫高窟是每个学生旅行者不可错过的文化朝圣地。壁画和佛像带来的震撼远超想象，而且学生票非常划算，是性价比最高的深度体验。",
+      "recommended_duration_minutes": 150
+    },
+    {
+      "id": "poi_mingsha_edge",
+      "name": "鸣沙山月牙泉",
+      "district": "敦煌",
+      "type": "desert scenic area",
+      "reason": "沙漠与泉水共存的奇观，是学生党尽情撒野的天然游乐场。骑骆驼、滑沙、爬山，青春就该这样挥霍在金色的沙海里。",
+      "recommended_duration_minutes": 150
+    },
+    {
+      "id": "poi_shazhou_market",
+      "name": "沙洲夜市",
+      "district": "敦煌",
+      "type": "food and evening district",
+      "reason": "夜晚的沙洲夜市是学生美食家的天堂。从街头吃到街尾，几十块钱就能尝遍西北特色小吃，烟火气十足，是旅行中最热闹的社交场所。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_museum_edge",
+      "name": "敦煌博物馆",
+      "district": "敦煌",
+      "type": "museum area",
+      "reason": "免费又干货满满的博物馆，是学生党补充丝路知识的最佳地点。看完莫高窟再来这里，能更系统地理解敦煌的文化价值。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_desert_evening",
+      "name": "沙漠日落观景点",
+      "district": "敦煌",
+      "type": "sunset scenic area",
+      "reason": "鸣沙山的高处是欣赏大漠日落的绝佳位置。当夕阳沉入沙丘，天空染上绚丽的色彩，这一刻的浪漫与壮阔，是青春记忆里最闪亮的片段。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_town_walk",
+      "name": "旧城休闲步道",
+      "district": "敦煌",
+      "type": "town district",
+      "reason": "在紧凑的行程中，旧城步道提供了一个慢下来的机会。没有大景点的拥挤，只有当地人的生活日常，适合随意走走、拍拍照，感受敦煌小城的安逸。",
+      "recommended_duration_minutes": 75
+    }
+  ],
+  "food": [
+    {
+      "id": "food_shazhou_night",
+      "name": "沙洲夜市小吃区",
+      "district": "敦煌",
+      "category": "snack street",
+      "reason": "学生党的美食天堂！杏皮水、烤羊肉串、驴肉黄面、泡儿油糕……人均三四十就能吃得心满意足。夜市的热闹氛围和诱人香气，是敦煌夜晚最迷人的部分。"
+    },
+    {
+      "id": "food_town_center",
+      "name": "市中心便利用餐区",
+      "district": "敦煌",
+      "category": "casual dining",
+      "reason": "如果想吃一顿踏实的主食，这里是不错的选择。拉条子、臊子面、炒搓鱼等西北面食分量足、价格亲民，适合学生群体快速解决午餐。"
+    }
+  ]
+}

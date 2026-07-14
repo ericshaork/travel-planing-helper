@@ -1,0 +1,220 @@
+{
+  "id": "exp_dunhuang_couple_4d_desert_romance_v1",
+  "slug": "dunhuang-couple-4d-desert-romance",
+  "title": "大漠星光下的二人世界：敦煌四日浪漫漫游",
+  "summary": "为热爱自然与摄影的情侣定制，在戈壁与星空之间放慢脚步。四天行程以落日、星空和夜色约会为主线，既有莫高窟的文化震撼，也有鸣沙山的沙漠柔情，夜晚则回归小镇灯火，共享西北风味。",
+  "city": {
+    "code": "dunhuang",
+    "name": "Dunhuang",
+    "region_name": "Gansu"
+  },
+  "trip_type": "couple",
+  "days": 4,
+  "budget": {
+    "level": "medium",
+    "note": "中等预算，兼顾舒适与体验，重点放在沙漠景观和特色餐饮。"
+  },
+  "pace": "slow",
+  "tags": [
+    "desert-scenery",
+    "sunset",
+    "photo-friendly",
+    "couple",
+    "nature",
+    "silk-road"
+  ],
+  "image_prompt": "National Geographic style photo of a couple silhouetted against a golden sand dune at sunset, with crescent moon lake in the distance, warm amber light, long shadows, wide angle, cinematic composition, rich textures of sand and sky.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "初见敦煌：沙漠与小镇的温柔邂逅",
+      "summary": "午后抵达，漫步老城感受绿洲气息，傍晚在沙丘上迎接第一场大漠日落。",
+      "activities": [
+        {
+          "time_block": "afternoon",
+          "description": "抵达敦煌后，先到老城休闲漫步，感受绿洲小镇的慢节奏，手牵手穿行在白杨树荫下的小巷，为接下来的沙漠之旅预热。",
+          "poi_refs": [
+            "poi_town_walk"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "前往沙漠夕阳观景点，并肩坐在沙丘上，看太阳缓缓沉入沙海，天空从金黄渐变至玫瑰紫。这是属于两个人的安静时刻。",
+          "poi_refs": [
+            "poi_desert_evening"
+          ],
+          "food_refs": [
+            "food_desert_route"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "千年石窟与沙漠绿洲的对话",
+      "summary": "上午沉浸在莫高窟的艺术长廊，午后在鸣沙山骑骆驼、滑沙，傍晚于月牙泉边散步。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "参观莫高窟，在专业讲解中感受丝路文化的厚重。窟内壁画与佛像令人屏息，两人可以轻声交流各自最爱的洞窟。",
+          "poi_refs": [
+            "poi_mogao_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "前往鸣沙山月牙泉，一起爬沙山、骑骆驼，在沙漠中留下合影。月牙泉如翡翠般镶嵌在沙海，是绝佳的拍照点。",
+          "poi_refs": [
+            "poi_mingsha_edge"
+          ],
+          "food_refs": [
+            "food_town_center"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "在沙洲夜市品尝西北小吃，杏皮水、烤羊肉串、驴肉黄面，感受热闹的市井烟火气，为浪漫的一天画上句号。",
+          "poi_refs": [
+            "poi_shazhou_market"
+          ],
+          "food_refs": [
+            "food_shazhou"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "丝路遗珍与大漠星空",
+      "summary": "上午探访敦煌博物馆，午后自由购物，夜晚重返沙漠仰望银河。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "参观敦煌博物馆，了解丝绸之路的辉煌历史，馆内藏品丰富，适合两人慢慢品读，为行程增添文化深度。",
+          "poi_refs": [
+            "poi_museum_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "在敦煌市区闲逛，逛一逛特色小店，挑选胡杨木雕、丝路纪念品或当地手工艺品，享受两人一起挑选的乐趣。",
+          "poi_refs": [
+            "poi_town_walk"
+          ],
+          "food_refs": [
+            "food_town_center"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "再次前往沙漠夕阳观景点，但这次是为星空而来。躺在沙丘上，看银河横跨天际，流星偶尔划过，是城市里见不到的震撼。",
+          "poi_refs": [
+            "poi_desert_evening"
+          ],
+          "food_refs": [
+            "food_desert_route"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 4,
+      "title": "最后的沙漠晨光与告别",
+      "summary": "清晨再访鸣沙山，看大漠日出，然后悠闲享用早午餐，带着满满回忆离开。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "早起去鸣沙山看日出，沙漠的清晨宁静而壮美，两人在晨光中合影，留下最浪漫的纪念。",
+          "poi_refs": [
+            "poi_mingsha_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "在市区享用最后一顿西北午餐，整理行囊，带着大漠星空的记忆踏上归途。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_town_center"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_town_walk",
+      "name": "敦煌老城休闲漫步",
+      "district": "敦煌",
+      "type": "town district",
+      "reason": "老城区的白杨树荫和悠闲氛围是进入沙漠节奏前的温柔过渡，适合情侣牵手漫步，感受绿洲小镇的生活气息。",
+      "recommended_duration_minutes": 75
+    },
+    {
+      "id": "poi_desert_evening",
+      "name": "沙漠夕阳观景点",
+      "district": "敦煌",
+      "type": "sunset scenic area",
+      "reason": "专为情侣设计的日落体验点，沙丘线条柔美，光线变化丰富，是拍摄剪影和共享静谧时光的绝佳场所。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_mogao_edge",
+      "name": "莫高窟",
+      "district": "敦煌",
+      "type": "cultural landmark",
+      "reason": "世界文化遗产，丝路艺术巅峰。两人在千年壁画前低声交流，文化共鸣让旅行更有深度。",
+      "recommended_duration_minutes": 150
+    },
+    {
+      "id": "poi_mingsha_edge",
+      "name": "鸣沙山月牙泉",
+      "district": "敦煌",
+      "type": "desert scenic area",
+      "reason": "沙漠与清泉的奇景，适合情侣一起骑骆驼、滑沙，在月牙泉边留下浪漫合影，是敦煌最具标志性的拍照地。",
+      "recommended_duration_minutes": 150
+    },
+    {
+      "id": "poi_shazhou_market",
+      "name": "沙洲夜市",
+      "district": "敦煌",
+      "type": "food and evening district",
+      "reason": "夜晚的烟火气让沙漠之旅多一份温暖，两人并肩穿梭在摊位间，分享西北小吃，是约会感满满的体验。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_museum_edge",
+      "name": "敦煌博物馆",
+      "district": "敦煌",
+      "type": "museum area",
+      "reason": "为丝路文化之旅提供背景知识，馆藏丰富，适合两人慢慢浏览，加深对莫高窟和沙漠遗产的理解。",
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food": [
+    {
+      "id": "food_shazhou",
+      "name": "沙洲夜市美食区",
+      "district": "敦煌",
+      "category": "night market",
+      "reason": "杏皮水、烤羊肉串、驴肉黄面等地道西北小吃，热闹的夜市氛围非常适合情侣边逛边吃，分享美食。"
+    },
+    {
+      "id": "food_town_center",
+      "name": "市区家常餐馆",
+      "district": "敦煌",
+      "category": "casual dining",
+      "reason": "提供简单实惠的西北面食和家常菜，适合行程中快速补充能量，两人安静用餐。"
+    },
+    {
+      "id": "food_desert_route",
+      "name": "沙漠沿线简餐",
+      "district": "敦煌",
+      "category": "route-side dining",
+      "reason": "在沙漠观景点附近的简餐店，提供方便的餐食和热饮，适合看完日落或星空后暖身。"
+    }
+  ]
+}

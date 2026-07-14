@@ -1,0 +1,170 @@
+{
+  "id": "exp_chongqing_couple_2d_photo_food_v1",
+  "slug": "chongqing-couple-2d-photo-food",
+  "title": "山城夜话：两个人的火锅与江景慢时光",
+  "summary": "为情侣设计的重庆两日行程，在坡坡坎坎的老街与霓虹闪烁的江岸之间，找到属于两个人的节奏。白天一起漫步石板坡、看轻轨穿楼，傍晚在江边吹风吃火锅，入夜后依偎着看洪崖洞的灯火——这是一场充满烟火气与浪漫感的山城漫步。",
+  "city": {
+    "code": "chongqing",
+    "name": "Chongqing",
+    "region_name": "Chongqing"
+  },
+  "trip_type": "couple",
+  "days": 2,
+  "budget": {
+    "level": "medium",
+    "note": "中等预算，兼顾江景餐厅与街边小吃，体验丰富又不铺张。"
+  },
+  "pace": "balanced",
+  "tags": [
+    "night-view",
+    "street-food",
+    "urban-drama",
+    "riverfront",
+    "photo",
+    "citywalk"
+  ],
+  "image_prompt": "Editorial travel photography style, a couple standing on a high viewing platform in Chongqing at dusk, facing the skyline and the Yangtze River, warm golden light and neon glow, layered urban landscape with hills and bridges, cinematic composition, shallow depth of field, romantic mood.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "坡上坡下，老城与江岸的初见",
+      "summary": "从老重庆的坡道阶梯开始，一起走进步行街的烟火气，傍晚在南滨路看对岸灯火渐亮。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "从解放碑核心区开始，感受山城最繁华的十字路口，手牵手在步行街里穿行，顺便在街边小店尝一碗地道的重庆小面。",
+          "poi_refs": [
+            "poi_jiefangbei"
+          ],
+          "food_refs": [
+            "food_jiefangbei_snack"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "前往石板坡传统坡地，沿着老石阶慢慢向上，两旁是斑驳的老房子和爬满藤蔓的墙壁，适合边走边拍，感受老重庆的肌理与温度。",
+          "poi_refs": [
+            "poi_shibati"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "跨江到南滨路，找一家江景餐厅坐下，边吃火锅边看渝中半岛的灯光一点点亮起。饭后沿着江岸散步，对岸的洪崖洞璀璨如宫，是两个人拍照的绝佳背景。",
+          "poi_refs": [
+            "poi_nanbin_road"
+          ],
+          "food_refs": [
+            "food_nanbin_dining"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "轻轨穿楼与烟火夜市",
+      "summary": "打卡山城最标志性的魔幻场景，再一头扎进年轻人的美食街区，用一顿酣畅的夜市小吃收尾。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "去李子坝看轻轨穿楼而过的经典画面，在观景台找好角度，给彼此拍下有趣的山城纪念照。",
+          "poi_refs": [
+            "poi_liziba_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "转到观音桥青年街区，这里充满年轻活力，既有潮流店铺也有地道小吃。两人可以边逛边尝，从酸辣粉到冰汤圆，感受重庆的市井滋味。",
+          "poi_refs": [
+            "poi_guanyinqiao"
+          ],
+          "food_refs": [
+            "food_guanyinqiao_night"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "回到洪崖洞江畔，看夜景的另一种角度——从江对岸或千厮门大桥上远望，灯火倒映在江面，两人静静依偎，为这趟山城之旅画上浪漫句点。",
+          "poi_refs": [
+            "poi_hongyadong_view"
+          ],
+          "food_refs": []
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_hongyadong_view",
+      "name": "洪崖洞江岸观景",
+      "district": "渝中区",
+      "type": "江岸地标区",
+      "reason": "洪崖洞的夜景是重庆最浪漫的城市名片，层叠的吊脚楼在灯光下宛如空中楼阁，和爱人一起隔江眺望，是情侣专属的魔幻时刻。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_jiefangbei",
+      "name": "解放碑核心区",
+      "district": "渝中区",
+      "type": "城市商业中心",
+      "reason": "重庆的心脏地带，纪念碑下是本地人与游客交织的活力场。适合作为旅程的起点，在步行街里感受山城最直接的脉搏。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_shibati",
+      "name": "石板坡传统坡地",
+      "district": "渝中区",
+      "type": "历史坡地街区",
+      "reason": "保留着老重庆最真实的生活痕迹，石阶、老墙、藤蔓与炊烟，每一帧都像电影画面。适合两个人放慢脚步，在巷弄里发现意外的小风景。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_liziba_edge",
+      "name": "李子坝轻轨观景区",
+      "district": "渝中区",
+      "type": "城市景观地标",
+      "reason": "轻轨穿楼而过的奇特场景是重庆独有的视觉符号。在观景台一起等待列车驶入楼栋的瞬间，是情侣间会心一笑的有趣回忆。",
+      "recommended_duration_minutes": 60
+    },
+    {
+      "id": "poi_nanbin_road",
+      "name": "南滨路江岸长廊",
+      "district": "南岸区",
+      "type": "江岸夜景区",
+      "reason": "对岸就是渝中半岛的璀璨天际线，江风温柔，灯火迷离。找一家江景餐厅或坐在江边台阶上，是情侣享受重庆夜晚最浪漫的方式。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_guanyinqiao",
+      "name": "观音桥青年街区",
+      "district": "江北区",
+      "type": "青年潮流区",
+      "reason": "充满年轻能量的街区，既有潮流店铺也有密集的小吃摊。两个人可以边逛边吃，在热闹的市井气息里感受重庆的另一种活力。",
+      "recommended_duration_minutes": 120
+    }
+  ],
+  "food": [
+    {
+      "id": "food_jiefangbei_snack",
+      "name": "解放碑小吃集群",
+      "district": "渝中区",
+      "category": "小吃街区",
+      "reason": "紧邻解放碑的密集小吃区，从重庆小面到酸辣粉、糍粑冰粉应有尽有。适合在逛街间隙快速补给，用最地道的味道开启山城之旅。"
+    },
+    {
+      "id": "food_nanbin_dining",
+      "name": "南滨路江景餐厅带",
+      "district": "南岸区",
+      "category": "江景餐厅",
+      "reason": "沿江一字排开的餐厅，提供从火锅到川菜的多样选择，窗外就是渝中半岛的夜景。情侣在这里吃一顿慢悠悠的晚餐，美食与风景兼得。"
+    },
+    {
+      "id": "food_guanyinqiao_night",
+      "name": "观音桥夜间美食区",
+      "district": "江北区",
+      "category": "夜市街区",
+      "reason": "入夜后更加热闹的年轻人美食天堂，烧烤、串串、冰饮应有尽有。两人一起在摊位间穿梭，分享一份热腾腾的烤脑花或冰汤圆，烟火气十足。"
+    }
+  ]
+}

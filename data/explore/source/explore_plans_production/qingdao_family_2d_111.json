@@ -1,0 +1,127 @@
+{
+  "id": "exp_qingdao_family_2d_sea_sunset_red_roof_v1",
+  "slug": "qingdao-family-2d-sea-sunset-red-roof",
+  "title": "红瓦碧海间的慢时光：青岛亲子日落漫游",
+  "summary": "这是一段专为家庭设计的青岛慢旅行。两天里，你们将沿着海岸线从容漫步，在红瓦老城区的缓坡上感受城市肌理，在海风中共享一顿日落晚餐。没有赶路的匆忙，只有陪伴的温暖和青岛独有的海天色彩。",
+  "city": {
+    "code": "qingdao",
+    "name": "Qingdao",
+    "region_name": "Shandong"
+  },
+  "trip_type": "family",
+  "days": 2,
+  "budget": {
+    "level": "high",
+    "note": "精选海滨景观餐厅和舒适住宿，让家庭出行更从容。"
+  },
+  "pace": "slow",
+  "tags": [
+    "亲子",
+    "海边日落",
+    "红瓦老城",
+    "慢节奏",
+    "家庭友好"
+  ],
+  "image_prompt": "National Geographic travel magazine style photo of a family walking along a coastal promenade in Qingdao at golden hour, with red-roofed villas and the sea in the background, warm sunlight, relaxed atmosphere, shallow depth of field, cinematic composition.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "红瓦老城与海湾初印象",
+      "summary": "从老城区的标志性码头出发，沿着缓坡探访信号山公园，在红瓦绿树间俯瞰整座城市，傍晚到五四广场吹海风、看灯光。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "从栈桥区域开始漫步，这里是青岛最经典的海滨起点，孩子们可以在沙滩上捡贝壳，大人们欣赏海鸥与回澜阁的景致。",
+          "poi_refs": [
+            "poi_zhanqiao"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "前往信号山公园，坡度平缓，适合全家一起登顶。在山顶旋转观景台，孩子会惊喜地发现整片红瓦屋顶像积木般铺展开来，远处的大海闪闪发光。",
+          "poi_refs": [
+            "poi_signal_hill"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "来到五四广场海滨区，宽阔的步行道非常适合推着童车或让孩子奔跑。找一家海滨餐厅坐下，品尝新鲜的海鲜大餐，看夕阳把海面染成金色。",
+          "poi_refs": [
+            "poi_may_fourth"
+          ],
+          "food_refs": [
+            "food_waterfront_dining"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "八大关的绿荫与告别海风",
+      "summary": "在八大关的林荫道间慢慢散步，像翻阅一本建筑与自然的画册，午后在滨海步道边找一处咖啡馆歇脚，以悠闲的方式结束旅程。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "走进八大关区域，这里每条路都种着不同的树木，别墅藏在绿荫里。带孩子认识不同的建筑风格，在第二海水浴场的沙滩上堆沙堡，享受不被打扰的亲子时光。",
+          "poi_refs": [
+            "poi_badaguan"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "沿着八大关的海滨步道继续南行，找一家景观餐厅用午餐，窗外就是海浪拍岸。饭后在草坪上休息片刻，让孩子再玩一会儿，然后轻松结束这趟旅行。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_waterfront_dining"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_zhanqiao",
+      "name": "栈桥海滨区",
+      "district": "市南区",
+      "type": "海滨地标",
+      "reason": "作为青岛的城市名片，栈桥是家庭旅行的理想起点。海鸥盘旋、浪花轻拍，孩子可以近距离感受大海的呼吸，家长也能在回澜阁前留下经典的合影。",
+      "recommended_duration_minutes": 75
+    },
+    {
+      "id": "poi_signal_hill",
+      "name": "信号山公园",
+      "district": "市北区",
+      "type": "城市观景台",
+      "reason": "坡度平缓，适合全家登高。山顶的旋转观景台能让孩子们像寻宝一样发现红瓦屋顶的排列规律，大海与城市尽收眼底，是理解青岛城市格局的绝佳窗口。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_may_fourth",
+      "name": "五四广场海滨区",
+      "district": "市南区",
+      "type": "现代滨海区",
+      "reason": "开阔的广场和长长的海滨步道，让全家可以自由漫步。傍晚时分，海风习习，灯光渐起，是结束一天行程的温柔场景，尤其适合家庭晚餐后的散步。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_badaguan",
+      "name": "八大关风景区",
+      "district": "市南区",
+      "type": "历史滨海区",
+      "reason": "绿树成荫的街道和风格各异的别墅，让散步本身成为享受。孩子可以在第二海水浴场玩沙，家长则沉浸在宁静的园林氛围中，是家庭旅行中松弛感最强的段落。",
+      "recommended_duration_minutes": 120
+    }
+  ],
+  "food": [
+    {
+      "id": "food_waterfront_dining",
+      "name": "海滨景观餐饮区",
+      "district": "市南区",
+      "category": "海景餐厅",
+      "reason": "精选沿海一线的景观餐厅，提供新鲜捕捞的海鲜和舒适的用餐环境。一家人可以边品尝辣炒蛤蜊、海鲜水饺，边看窗外的海景，让晚餐成为一天中温馨的收尾。"
+    }
+  ]
+}

@@ -1,0 +1,200 @@
+{
+  "id": "exp_sanya_student_4d_budget_coastal_v1",
+  "slug": "sanya-student-4d-budget-coastal",
+  "title": "椰林与夜市：三亚四日青春漫游",
+  "summary": "为预算有限的学生党设计的三亚慢游方案，聚焦免费公共海滩、地道小吃和夜晚的烟火气。每天只守一个海湾，省去奔波，用脚步和味蕾感受椰风海韵下的年轻节奏。",
+  "city": {
+    "code": "sanya",
+    "name": "Sanya",
+    "region_name": "Hainan"
+  },
+  "trip_type": "student",
+  "days": 4,
+  "budget": {
+    "level": "low",
+    "note": "以免费公共海滩、本地小吃街和步行探索为主，降低门票和交通开支。"
+  },
+  "pace": "balanced",
+  "tags": [
+    "学生",
+    "穷游",
+    "海滩",
+    "美食",
+    "夜生活",
+    "本地文化",
+    "慢旅行"
+  ],
+  "image_prompt": "Editorial travel magazine style photo of a young traveler sitting on the sand at Yalong Bay, Sanya, with coconut in hand, casual backpack beside, golden afternoon light, turquoise sea and palm trees in background, relaxed and carefree mood, cinematic composition.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "椰林长廊与第一市场之夜",
+      "summary": "抵达后直奔椰梦长廊，傍晚漫步海岸线，晚上钻进本地市场觅食。",
+      "activities": [
+        {
+          "time_block": "afternoon",
+          "description": "抵达三亚后稍作休整，前往椰梦长廊（Coconut Dream Corridor），沿着海岸线悠闲散步，感受椰林树影下的海风。这里不需要门票，适合放空和拍照。",
+          "poi_refs": [
+            "poi_coconut_dream"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "天黑后转场至第一市场附近的本地小吃街（Local Market Food Streets），品尝海南粉、清补凉、烤生蚝等平价美食。和当地人挤在露天摊位间，体验最真实的三亚夜生活。",
+          "poi_refs": [
+            "poi_yiheng_market_edge"
+          ],
+          "food_refs": [
+            "food_local_market"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "大东海：沙滩、阳光与平价海鲜",
+      "summary": "全天泡在大东海，白天游泳晒太阳，傍晚在附近海鲜排档大快朵颐。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "上午前往大东海区域（Dadonghai Area），找一片免费沙滩铺上浴巾，下海踩水或躺在树荫下看书。这里年轻人多，气氛轻松，适合放慢节奏。",
+          "poi_refs": [
+            "poi_dadonghai"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "继续在大东海享受午后阳光，可以在沙滩边的冷饮摊买个椰子，或者沿着海岸线走到礁石区探索小螃蟹。",
+          "poi_refs": [
+            "poi_dadonghai"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "晚餐就在大东海的海鲜排档区（Dadonghai Casual Seafood Area）解决，点上椒盐皮皮虾、蒜蓉粉丝蒸扇贝，人均不过百，吹着海风吃得痛快。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_dadonghai_seafood"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "亚龙湾的蓝与鹿回头的日落",
+      "summary": "上午去亚龙湾看最清澈的海，傍晚登鹿回头俯瞰三亚湾全景。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "乘车前往亚龙湾公共海岸（Yalong Bay Public Coast），这里的沙质细腻、海水湛蓝。虽然周边多是高端酒店，但公共沙滩区域完全免费，适合游泳和浮潜（自带装备）。",
+          "poi_refs": [
+            "poi_yalong_bay"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "在亚龙湾附近简单午餐后，返回市区方向，下午可以去鹿回头风景区（Luhuitou Scenic Edge），沿着登山步道慢慢走，途中可以俯瞰三亚湾和城市天际线。",
+          "poi_refs": [
+            "poi_luhuitou_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "在鹿回头等待日落，这里是三亚最佳日落观赏点之一。夕阳将海面染成金色，城市灯火渐亮，适合和同伴一起拍照留念。下山后可以在附近随便找家小店吃碗粉。",
+          "poi_refs": [
+            "poi_luhuitou_edge"
+          ],
+          "food_refs": []
+        }
+      ]
+    },
+    {
+      "day": 4,
+      "title": "市场寻味与悠闲告别",
+      "summary": "最后一天不赶景点，去本地市场感受市井气息，买点水果，悠闲结束旅程。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "前往第一市场附近的本地市场边缘（Local Market Edge Visit），逛逛菜市场，看当地人买卖海鲜和热带水果。尝一碗抱罗粉或陵水酸粉，感受最地道的海南早餐。",
+          "poi_refs": [
+            "poi_yiheng_market_edge"
+          ],
+          "food_refs": [
+            "food_local_market"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "最后在椰梦长廊（Coconut Dream Corridor）做一次告别散步，买几个芒果或椰子带上，然后收拾行李前往机场或火车站。",
+          "poi_refs": [
+            "poi_coconut_dream"
+          ],
+          "food_refs": []
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_coconut_dream",
+      "name": "椰梦长廊",
+      "district": "天涯区",
+      "type": "海滨步道",
+      "reason": "免费开放的椰林海岸线，适合傍晚散步、骑行，看日落时分的天空颜色变化，是学生党低成本感受三亚风情的绝佳去处。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_yiheng_market_edge",
+      "name": "第一市场周边",
+      "district": "天涯区",
+      "type": "本地生活区",
+      "reason": "不同于度假区的商业气息，这里充满了三亚的日常烟火气。穿梭在水果摊、小吃铺和海鲜档之间，是体验本地文化、寻找平价美食的好地方。",
+      "recommended_duration_minutes": 75
+    },
+    {
+      "id": "poi_dadonghai",
+      "name": "大东海",
+      "district": "吉阳区",
+      "type": "海滩与城区",
+      "reason": "三亚最接地气的海滩之一，公共区域免费开放，周边餐饮密集、消费亲民。年轻人聚集，气氛活跃，适合游泳、晒日光浴和傍晚散步。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_yalong_bay",
+      "name": "亚龙湾公共海岸",
+      "district": "亚龙湾",
+      "type": "海滩景区",
+      "reason": "拥有三亚最清澈的海水和最细腻的沙滩，公共区域免费进入，是游泳和浮潜的理想选择。虽然周边酒店高端，但海滩本身对所有人开放。",
+      "recommended_duration_minutes": 150
+    },
+    {
+      "id": "poi_luhuitou_edge",
+      "name": "鹿回头风景区",
+      "district": "吉阳区",
+      "type": "观景台",
+      "reason": "登高俯瞰三亚湾全景，日落时分尤为壮观。门票价格适中，学生证可享优惠，是拍摄城市与海景合影的经典机位。",
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food": [
+    {
+      "id": "food_local_market",
+      "name": "第一市场小吃街",
+      "district": "天涯区",
+      "category": "小吃街",
+      "reason": "汇集了海南粉、清补凉、椰子冻、烤海鲜等本地小吃，价格亲民，环境热闹，是学生党体验三亚市井美食文化的首选。"
+    },
+    {
+      "id": "food_dadonghai_seafood",
+      "name": "大东海海鲜排档",
+      "district": "吉阳区",
+      "category": "海鲜排档",
+      "reason": "紧邻海滩的平价海鲜大排档，可以现选现做，椒盐皮皮虾和蒜蓉蒸生蚝是招牌。人均消费低，适合学生群体聚餐。"
+    }
+  ]
+}

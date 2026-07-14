@@ -1,0 +1,205 @@
+{
+  "id": "exp_suzhou_student_3d_garden_street_food",
+  "slug": "suzhou-student-3d-garden-street-food",
+  "title": "园林清晨与平江路的慢步：学生党的苏州三日",
+  "summary": "对于预算有限但追求体验的学生旅行者，苏州的园林、水巷和街头美食构成了性价比极高的探索路线。三日行程平衡了经典园林的清晨宁静、平江路的慢节奏漫步，以及山塘街和观前街的年轻活力，让你用最少的钱感受最地道的江南韵味。",
+  "city": {
+    "code": "suzhou",
+    "name": "Suzhou",
+    "region_name": "Jiangsu"
+  },
+  "trip_type": "student",
+  "days": 3,
+  "budget": {
+    "level": "low",
+    "note": "以步行和公共交通为主，餐饮选择本地小吃和简餐，园林门票优先选择性价比高的狮子林。"
+  },
+  "pace": "balanced",
+  "tags": [
+    "student",
+    "budget-friendly",
+    "food",
+    "local-culture",
+    "nightlife",
+    "garden",
+    "canal-walk",
+    "old-town"
+  ],
+  "image_prompt": "National Geographic travel magazine style photo of a young traveler walking along Pingjiang Road in Suzhou at golden hour, canals lined with traditional white-washed houses, weeping willows, stone bridges, warm sunlight filtering through leaves, shallow depth of field, candid and atmospheric, 35mm film look, vibrant yet soft colors.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "园林晨曦与平江路的慢时光",
+      "summary": "从狮子林的假山迷宫开始一天，午后沿着平江路水巷漫步，感受苏州最经典的江南生活画卷。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "清晨趁着人少，前往狮子林，在假山迷宫中穿行，感受园林的静谧与趣味。学生票价格友好，是开启苏州之旅的绝佳选择。",
+          "poi_refs": [
+            "poi_lion_grove"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "从狮子林步行至平江路，沿河漫步，看小桥流水、老宅店铺。在路边的茶摊或小吃店歇脚，尝尝梅花糕、海棠糕等江南点心，感受慢节奏的市井生活。",
+          "poi_refs": [
+            "poi_pingjiang"
+          ],
+          "food_refs": [
+            "food_pingjiang_snacks"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "夜幕降临后，平江路亮起灯笼，别有一番韵味。在河边找一家小酒馆或奶茶店，和朋友聊聊天，或者独自发呆，享受水巷的宁静夜色。",
+          "poi_refs": [
+            "poi_pingjiang"
+          ],
+          "food_refs": [
+            "food_pingjiang_snacks"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "虎丘斜塔与山塘街的烟火气",
+      "summary": "上午探访虎丘，登高望远；下午转战山塘街，从黄昏到夜晚，体验苏州最热闹的市井烟火。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "乘坐公交或地铁前往虎丘，游览这座历史悠久的风景名胜。虎丘塔斜而不倒，剑池神秘，登高可俯瞰苏州城景，是拍照打卡的好地方。",
+          "poi_refs": [
+            "poi_tiger_hill"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "从虎丘步行或乘船前往山塘街，傍晚时分抵达最佳。山塘街的灯笼渐次亮起，河两岸的店铺热闹非凡。边走边尝各种小吃，如生煎、糖粥、鸡头米等，感受苏州的市井活力。",
+          "poi_refs": [
+            "poi_shantang"
+          ],
+          "food_refs": [
+            "food_shantang_snacks"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "在山塘街找一家临河的餐馆，点几道地道的苏帮菜（如松鼠桂鱼、响油鳝糊），人均不高但味道正宗。饭后继续沿河散步，看游船划过，感受水乡夜生活的惬意。",
+          "poi_refs": [
+            "poi_shantang"
+          ],
+          "food_refs": [
+            "food_shantang_snacks"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "园林精粹与观前街的年轻活力",
+      "summary": "上午深入拙政园，感受江南园林的极致；下午在观前街逛吃，为旅程画上圆满句号。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "早起前往拙政园，避开人流高峰。作为苏州最大的古典园林，这里一步一景，亭台楼阁、荷塘水榭，非常适合拍照和静心欣赏。学生票同样有优惠。",
+          "poi_refs": [
+            "poi_humble_admin"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "从拙政园步行至观前街，这里是苏州最繁华的商业街，也是学生党的美食天堂。各种小吃店、奶茶铺、老字号餐厅林立，可以一路逛吃，买些特产作为伴手礼。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_guanqian_dining"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "如果时间充裕，可以前往金鸡湖畔，看看苏州现代的一面。湖边的摩天轮和灯光秀是年轻人的最爱，适合散步拍照，感受苏州的多元魅力。",
+          "poi_refs": [
+            "poi_jinji_lake_edge"
+          ],
+          "food_refs": []
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_lion_grove",
+      "name": "狮子林",
+      "district": "姑苏区",
+      "type": "古典园林",
+      "reason": "作为苏州四大名园之一，狮子林以假山迷宫闻名，学生党可以在这里体验园林的趣味与精巧，门票价格亲民，是预算有限时的首选。清晨入园，游客稀少，更能感受园林的幽静。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_pingjiang",
+      "name": "平江路",
+      "district": "姑苏区",
+      "type": "历史水巷街区",
+      "reason": "平江路是苏州保存最完好的古街之一，小桥流水、粉墙黛瓦，充满了江南水乡的韵味。这里不收门票，适合学生党慢悠悠地逛上半天，沿途的小吃和茶馆是体验当地生活的最佳窗口。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_tiger_hill",
+      "name": "虎丘",
+      "district": "姑苏区",
+      "type": "历史风景名胜区",
+      "reason": "虎丘是苏州的标志性景点，虎丘塔被誉为“中国的比萨斜塔”。学生党可以在这里登山望远，感受历史与自然的交融，门票价格适中，性价比高。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_shantang",
+      "name": "山塘街",
+      "district": "姑苏区",
+      "type": "历史水巷街区",
+      "reason": "山塘街被誉为“姑苏第一名街”，夜晚灯火璀璨，是体验苏州夜生活的绝佳去处。学生党可以在这里边逛边吃，感受市井烟火气，而且无需门票。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_humble_admin",
+      "name": "拙政园",
+      "district": "姑苏区",
+      "type": "古典园林",
+      "reason": "作为苏州最大的古典园林，拙政园是江南园林艺术的巅峰之作。虽然门票略贵，但学生票优惠后依然值得一游。清晨入园，避开人流，才能真正领略园林的静谧与精致。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_jinji_lake_edge",
+      "name": "金鸡湖",
+      "district": "工业园区",
+      "type": "现代滨水区",
+      "reason": "金鸡湖是苏州现代都市的缩影，湖边的摩天轮、音乐喷泉和现代建筑是年轻人的打卡地。傍晚散步或骑行，感受苏州的另一种活力，而且免费开放。",
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food": [
+    {
+      "id": "food_pingjiang_snacks",
+      "name": "平江路小吃茶摊",
+      "district": "姑苏区",
+      "category": "小食街",
+      "reason": "平江路沿途遍布小吃摊和茶铺，梅花糕、海棠糕、鸡头米、糖粥等江南点心价格实惠，适合学生边逛边吃。找一家临河的茶馆，点一壶碧螺春，就能消磨一个下午。"
+    },
+    {
+      "id": "food_shantang_snacks",
+      "name": "山塘街小吃聚集区",
+      "district": "姑苏区",
+      "category": "小食街",
+      "reason": "山塘街的夜晚热闹非凡，各种小吃摊位和餐馆林立。生煎、小笼包、苏式面、糖粥等应有尽有，人均几十元就能吃得心满意足。临河而坐，边吃边看游船，氛围极佳。"
+    },
+    {
+      "id": "food_guanqian_dining",
+      "name": "观前街美食区",
+      "district": "姑苏区",
+      "category": "综合美食区",
+      "reason": "观前街是苏州最繁华的商业街，也是美食集中地。从老字号餐厅（如得月楼、松鹤楼）到平价小吃店、奶茶铺，选择丰富。学生党可以在这里解决午餐或晚餐，顺便逛街购物。"
+    }
+  ]
+}

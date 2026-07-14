@@ -1,0 +1,156 @@
+{
+  "id": "exp_nanjing_student_2d_food_citywalk_v1",
+  "slug": "nanjing-student-2d-food-citywalk",
+  "title": "两天·梧桐树下的南京：学生党的城市漫游与味觉探索",
+  "summary": "为喜欢走街串巷、用味蕾认识城市的学生旅行者设计。两天里，你在梧桐大道和老城南的巷弄之间切换节奏，用一顿顿地道小吃串联起南京最有活力的日常。没有沉重的历史负担，只有街头烟火、便宜美味和随时可以停下来的自由感。",
+  "city": {
+    "code": "nanjing",
+    "name": "Nanjing",
+    "region_name": "Jiangsu"
+  },
+  "trip_type": "student",
+  "days": 2,
+  "budget": {
+    "level": "low",
+    "note": "全程以步行、地铁和街边小吃为主，门票支出极少，适合预算有限但想深度体验的学生。"
+  },
+  "pace": "dense",
+  "tags": [
+    "food",
+    "citywalk",
+    "budget-friendly",
+    "old-street",
+    "student-friendly"
+  ],
+  "image_prompt": "National Geographic travel magazine style photo of a young student walking along a Nanjing street lined with plane trees (梧桐树), dappled sunlight filtering through the leaves, casual street food stalls in the background, warm and vibrant atmosphere, shallow depth of field, cinematic composition.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "城南烟火与秦淮夜色",
+      "summary": "从老城南的巷弄开始，一路吃到秦淮河边，在灯火里结束第一天。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "从新街口附近出发，先在Xinjiekou Casual Food Zone随便找家小店吃碗鸭血粉丝汤或小笼包，感受南京人的早晨节奏。然后沿梧桐大道步行至Presidential Palace Area，不急着进去，先在门口和周围的老建筑群拍拍照，感受民国氛围。",
+          "poi_refs": [
+            "poi_presidential_palace"
+          ],
+          "food_refs": [
+            "food_xinjiekou"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "穿过街巷走到Laomendong，这里的老房子和石板路很适合慢悠悠地逛。钻进Laomendong Dining Pockets，找一家卖梅花糕或鸭油烧饼的小摊，边吃边看街边手艺人。之后继续往南，溜达到Qinhuai River and Confucius Temple Area，在河边找个台阶坐下，看来往的游船和当地人。",
+          "poi_refs": [
+            "poi_laomendong",
+            "poi_qinhuai"
+          ],
+          "food_refs": [
+            "food_laomendong"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "秦淮河两岸的灯亮起来后，整条街的气氛变得热闹又温柔。在Qinhuai Snack Streets一路逛吃，盐水鸭、鸭血粉丝、赤豆元宵……每样来一点，花不了多少钱却能吃得心满意足。河边的晚风配着灯光，是学生旅行里最放松的时刻。",
+          "poi_refs": [
+            "poi_qinhuai"
+          ],
+          "food_refs": [
+            "food_qinhuai"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "城墙漫步与湖光树影",
+      "summary": "走上城墙俯瞰城市，再绕着玄武湖走半圈，用一顿实惠的午餐收尾。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "坐地铁到玄武门，登上Nanjing City Wall Section Walk。这段城墙不算太长，但足够让你从高处看到南京新旧交错的轮廓。城墙下的梧桐树和远处的紫金山，都是很好的拍照背景。",
+          "poi_refs": [
+            "poi_city_wall"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "从城墙下来，直接走到Xuanwu Lake Edge，沿着湖边慢慢走。湖面开阔，风吹过来很舒服，可以找个长椅坐一会儿，看当地人钓鱼、跑步。中午回到新街口附近，在Xinjiekou Casual Food Zone找一家便宜又管饱的店，比如皮肚面或炒饭，结束这次紧凑又充实的南京之行。",
+          "poi_refs": [
+            "poi_xuanwu_lake"
+          ],
+          "food_refs": [
+            "food_xinjiekou"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_presidential_palace",
+      "name": "总统府周边",
+      "district": "玄武",
+      "type": "历史遗址",
+      "reason": "不一定要买票进去，总统府外的梧桐大道和老建筑群本身就是南京民国气质的最佳切片。早晨人少，光影漂亮，适合学生党用脚步丈量城市的第一站。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_laomendong",
+      "name": "老门东",
+      "district": "秦淮",
+      "type": "历史街区",
+      "reason": "比夫子庙更安静、更有巷弄感。青砖黛瓦、石板路，藏着不少便宜又地道的小吃摊。适合边走边吃、随时停下来拍照的学生式探索。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_qinhuai",
+      "name": "秦淮河与夫子庙区域",
+      "district": "秦淮",
+      "type": "历史河滨区",
+      "reason": "南京夜生活的灵魂所在。河两岸的灯笼、游船和小吃街构成一幅生动的市井画卷。学生旅行者可以在这里用很少的钱体验到最浓的城市烟火气。",
+      "recommended_duration_minutes": 150
+    },
+    {
+      "id": "poi_city_wall",
+      "name": "南京城墙（玄武门段）",
+      "district": "玄武",
+      "type": "历史地标",
+      "reason": "花很少的门票就能获得俯瞰南京的独特视角。城墙上的步道开阔，能同时看到玄武湖、紫金山和城市天际线，是学生党感受南京历史纵深的高性价比选择。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_xuanwu_lake",
+      "name": "玄武湖湖畔",
+      "district": "玄武",
+      "type": "湖滨风景区",
+      "reason": "免费开放的城市绿肺。从城墙下来后，沿着湖边走半圈，吹吹风、看看当地人悠闲的生活，是密集行程中一个自然的喘息点。",
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food": [
+    {
+      "id": "food_xinjiekou",
+      "name": "新街口平价美食圈",
+      "district": "秦淮",
+      "category": "美食聚集区",
+      "reason": "交通枢纽旁的平民食堂，鸭血粉丝汤、小笼包、皮肚面等南京标志小吃都能找到，价格对学生友好，适合作为出发或中转时的快速补给站。"
+    },
+    {
+      "id": "food_laomendong",
+      "name": "老门东巷弄小吃",
+      "district": "秦淮",
+      "category": "小吃街",
+      "reason": "藏在老门东巷子里的梅花糕、鸭油烧饼、糖芋苗，价格便宜且充满市井气息。边逛边吃的过程本身就是老城南体验的一部分。"
+    },
+    {
+      "id": "food_qinhuai",
+      "name": "秦淮小吃街",
+      "district": "秦淮",
+      "category": "小吃街",
+      "reason": "秦淮河畔最热闹的觅食地带，盐水鸭、鸭血粉丝、赤豆元宵等经典小吃一字排开。学生党可以花很少钱尝遍各种口味，夜晚的灯光下更有食欲。"
+    }
+  ]
+}

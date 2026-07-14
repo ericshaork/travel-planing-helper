@@ -8,6 +8,10 @@ import type {
 function buildExploreQuery(filters: ExploreTripListFilters) {
   const searchParams = new URLSearchParams();
 
+  if (filters.search) {
+    searchParams.set("q", filters.search);
+  }
+
   if (filters.city) {
     searchParams.set("city", filters.city);
   }

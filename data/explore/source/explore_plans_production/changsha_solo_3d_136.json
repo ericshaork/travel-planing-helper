@@ -1,0 +1,188 @@
+{
+  "id": "exp_changsha_solo_3d_nightcitywalk_v1",
+  "slug": "changsha-solo-3d-night-citywalk",
+  "title": "夜市与江火：一个人的长沙漫游",
+  "summary": "这是一次为独行者设计的城市漫游，在长沙的夜市热气与湘江灯火之间，找到属于自己的节奏。三天里，你将在老街巷弄中穿行，在江边停下脚步，在深夜的街边摊前独自品尝一碗热辣的米粉。没有匆忙，没有计划外的喧嚣，只有你和这座不夜城之间，安静而亲密的对话。",
+  "city": {
+    "code": "changsha",
+    "name": "Changsha",
+    "region_name": "Hunan"
+  },
+  "trip_type": "solo",
+  "days": 3,
+  "budget": {
+    "level": "medium",
+    "note": "中等预算，兼顾地道小吃摊与一两顿有氛围的江边简餐，交通以地铁和步行为主。"
+  },
+  "pace": "balanced",
+  "tags": [
+    "nightlife",
+    "street-food",
+    "river-evening",
+    "citywalk",
+    "local-flavor",
+    "solo"
+  ],
+  "image_prompt": "Editorial travel magazine photo of a solo traveler standing on a riverside promenade at dusk in Changsha, with warm street food stall lights in the foreground and the glowing city skyline across the river. Shallow depth of field, cinematic mood, golden hour light reflecting on water, Fujifilm color palette.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "老街烟火与江岸初遇",
+      "summary": "从太平街的旧城肌理开始，穿行于小吃摊与老建筑之间，傍晚走向湘江边，在灯火初上时感受这座城市的第一面。",
+      "activities": [
+        {
+          "time_block": "afternoon",
+          "description": "抵达后先到太平街区域漫无目的地闲逛。这里是长沙旧城的缩影，石板路两侧是改造过的老屋和层出不穷的小吃店。不必刻意寻找什么，跟着人流和香气走，在某个巷口停下来吃一份糖油粑粑，就是最好的开始。",
+          "poi_refs": [
+            "poi_taiping"
+          ],
+          "food_refs": [
+            "food_taiping"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "天色渐暗时，沿坡子街方向踱步，这里夜市正酣。挑一家人气旺的摊位坐下，点一碗热辣的米粉或几串烤串，独自享受街头烟火气。饭后散步至湘江边的橘子洲头边缘，看对岸灯光倒映水中，江风拂面，是独行最惬意的时刻。",
+          "poi_refs": [
+            "poi_pozi",
+            "poi_orange_isle_edge"
+          ],
+          "food_refs": [
+            "food_pozi"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "登高望远与城市夜行",
+      "summary": "上午去岳麓山寻一片清静，下午回到市中心感受现代长沙的活力，夜晚在超级文和友附近结束一天的漫游。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "早起乘地铁到岳麓山，避开人潮沿小径上山。山不高，但绿荫蔽日，沿途有书院和古寺可驻足。在山腰找一处石凳坐下，俯瞰湘江和城市轮廓，享受独行时难得的安静。",
+          "poi_refs": [
+            "poi_yuelu_mountain_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "下山后回到市中心，逛一逛IFS一带的现代街区。这里高楼林立，橱窗明亮，与上午的山景形成有趣对比。可以找个咖啡馆歇脚，看看这座城市的另一面。",
+          "poi_refs": [
+            "poi_ifs_river_axis"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "夜晚走向超级文和友区域，这里是长沙夜生活的标志性地点之一。即使一个人，也可以在复古装潢的楼里穿行，感受热闹的用餐氛围，点几样小吃解决晚餐。之后沿着江边散步回住处，让江风带走一天的疲惫。",
+          "poi_refs": [
+            "poi_superwenheyou_edge"
+          ],
+          "food_refs": [
+            "food_superwenheyou"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "江边晨光与告别滋味",
+      "summary": "最后一天放慢脚步，在江边度过一个安静的上午，再回到坡子街吃一顿告别午餐，带着满足离开。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "上午再次来到橘子洲边缘，但这次是白天。沿着江岸慢慢走，看阳光洒在江面上，船只缓缓驶过。找一个长椅坐下，记录下这座城市的最后印象。",
+          "poi_refs": [
+            "poi_orange_isle_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "离开前回到坡子街，补上还没来得及尝的小吃。选一家人最多的店，点一份臭豆腐和一碗米粉，作为这次独行之旅的味觉句号。然后带着饱足和回忆，踏上归途。",
+          "poi_refs": [
+            "poi_pozi"
+          ],
+          "food_refs": [
+            "food_pozi"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_taiping",
+      "name": "太平街区域",
+      "district": "天心区",
+      "type": "historic street district",
+      "reason": "太平街是长沙旧城最生动的切片，石板路、老建筑与密集的小吃摊交织出独属于这座城市的市井气息。独行者可以在这里漫无目的地穿行，每一步都可能撞见意外的风景和味道。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_pozi",
+      "name": "坡子街",
+      "district": "天心区",
+      "type": "food street",
+      "reason": "坡子街是长沙夜宵文化的核心舞台，入夜后灯火通明，人声鼎沸。对独行者而言，这里是最容易融入又随时可以抽身的地方——一个人坐在摊前，一碗粉、几串烤，就是最地道的长沙夜晚。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_ifs_river_axis",
+      "name": "IFS与城市中轴线",
+      "district": "芙蓉区",
+      "type": "modern city district",
+      "reason": "这里是长沙现代都市感的集中体现，高楼、商场和时尚人群构成与老街截然不同的城市切片。独行者可以在此感受长沙的另一面，或在咖啡馆的窗边观察这座城市的年轻脉搏。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_orange_isle_edge",
+      "name": "橘子洲边缘步道",
+      "district": "岳麓区",
+      "type": "river island scenic area",
+      "reason": "橘子洲是湘江上的绿色长廊，边缘步道开阔而安静，尤其适合独行者放空。无论是清晨的晨光还是夜晚的灯火，这里都能让人从城市的喧嚣中暂时抽离，获得一段属于自己的江畔时光。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_yuelu_mountain_edge",
+      "name": "岳麓山边缘探访",
+      "district": "岳麓区",
+      "type": "nature and culture area",
+      "reason": "岳麓山为长沙提供了一处难得的自然与文化缓冲带。独行者可以避开游客主路，沿小径上山，在树影与古建间寻找安静，俯瞰城市全景，体验这座城市温润的一面。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_superwenheyou_edge",
+      "name": "超级文和友区域",
+      "district": "天心区",
+      "type": "food and nightlife district",
+      "reason": "超级文和友是长沙夜生活的标志性目的地，复古的室内街区设计让人仿佛穿越回旧日长沙。独行者可以在这里自由穿行，感受热闹的用餐氛围，而不必担心独自吃饭的尴尬。",
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food": [
+    {
+      "id": "food_taiping",
+      "name": "太平街小吃聚落",
+      "district": "天心区",
+      "category": "snack street",
+      "reason": "太平街聚集了长沙最地道的小吃摊档，从糖油粑粑到刮凉粉，每走几步就有新发现。独行者可以边走边吃，无需正襟危坐，在味蕾的跳动中感受老街的温度。"
+    },
+    {
+      "id": "food_pozi",
+      "name": "坡子街夜市排档",
+      "district": "天心区",
+      "category": "night market",
+      "reason": "坡子街是长沙夜宵的灵魂所在，入夜后热气蒸腾，辣香四溢。独行者可以随意挑一家烟火气最旺的摊子坐下，用一碗米粉或几串烤串慰藉旅途的疲惫，周围的热闹反而让独处变得自在。"
+    },
+    {
+      "id": "food_superwenheyou",
+      "name": "超级文和友美食区",
+      "district": "天心区",
+      "category": "food court",
+      "reason": "超级文和友内部汇集了多种湖南小吃，装潢复古而有趣。独行者可以在不同楼层间穿梭，挑选感兴趣的品类，不必一次点太多，适合一个人慢慢探索。"
+    }
+  ]
+}

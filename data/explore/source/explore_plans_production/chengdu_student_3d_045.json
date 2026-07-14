@@ -1,0 +1,195 @@
+{
+  "id": "exp_chengdu_student_3d_food_citywalk_v1",
+  "slug": "chengdu-student-3d-food-citywalk",
+  "title": "巷子深处，川味正浓：一个学生的成都三日漫游",
+  "summary": "这是一趟为预算有限但胃口无限的学生准备的成都之旅。三天里，你将穿过宽窄巷子的老成都肌理，在人民公园的茶馆里发呆，沿着府河边的步道感受夜晚的微凉，最后在建设路的烟火气中吃遍街头。整趟行程靠地铁和双脚就能完成，节奏不急不赶，但每一天都让你更接近这座城市最真实、最有活力的那一面。",
+  "city": {
+    "code": "chengdu",
+    "name": "Chengdu",
+    "region_name": "Sichuan"
+  },
+  "trip_type": "student",
+  "days": 3,
+  "budget": {
+    "level": "low",
+    "note": "全程以小吃、公共交通和免费或低成本景点为主，适合学生预算。"
+  },
+  "pace": "balanced",
+  "tags": [
+    "food",
+    "citywalk",
+    "budget-friendly",
+    "local-culture",
+    "historic-districts",
+    "street-food"
+  ],
+  "image_prompt": "A young traveler walking through a narrow alley in Chengdu at dusk, warm lantern light reflecting on old brick walls, street food stalls with steam rising, shallow depth of field, cinematic mood, National Geographic travel photography style.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "第一天：宽窄巷子里的老成都节奏",
+      "summary": "从宽窄巷子开始，感受成都的慢生活，在人民公园的茶馆里喝一杯盖碗茶，傍晚去锦里体验灯火下的川味小吃。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "抵达后先到宽窄巷子，在青砖黛瓦的巷弄间漫步，看看老成都的院落和手工艺小店，顺便尝一尝巷口的蛋烘糕和三大炮。",
+          "poi_refs": [
+            "poi_kuanzhai_alley"
+          ],
+          "food_refs": [
+            "food_kuanzhai_lane_pockets"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "步行到人民公园，找一家露天茶馆坐下，点一杯盖碗茶，看当地人打牌、掏耳朵，感受成都独有的闲适节奏。",
+          "poi_refs": [
+            "poi_people_park"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "前往锦里古街，灯笼亮起时整个街区变得格外有氛围。边走边尝各种小吃，从钵钵鸡到糖油果子，一路吃到满足。",
+          "poi_refs": [
+            "poi_jinli"
+          ],
+          "food_refs": [
+            "food_jinli_snack_corridor"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "第二天：武侯祠的历史与建设路的烟火",
+      "summary": "上午在武侯祠了解三国历史，下午沿着望平滨河路散步喝咖啡，晚上直奔建设路，用一顿酣畅淋漓的街头小吃结束一天。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "参观武侯祠，在红墙竹影间感受三国文化的厚重，这里也是了解成都历史底蕴的好去处。",
+          "poi_refs": [
+            "poi_wuhou_shrine"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "转场到望平滨河路，沿着府河慢慢走，两岸有创意小店和咖啡馆，适合坐下来发发呆，看河景和来往的人。",
+          "poi_refs": [
+            "poi_wangpingfang"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "乘地铁到建设路，这里是成都学生党的美食天堂。从烤脑花到炸串，从冰粉到锅巴土豆，花很少的钱就能吃得很丰盛。",
+          "poi_refs": [
+            "poi_construction_road"
+          ],
+          "food_refs": [
+            "food_construction_road"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "第三天：自由穿梭，带走成都的味道",
+      "summary": "最后一天不赶景点，把时间留给想再去的地方：也许是宽窄巷子没吃完的小吃，也许是人民公园的茶馆，或者纯粹在街头漫无目的地走。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "回到宽窄巷子补上昨天没尝够的小吃，顺便买些特产带回家。如果时间充裕，可以钻进附近的小巷子，发现一些安静的老院子。",
+          "poi_refs": [
+            "poi_kuanzhai_alley"
+          ],
+          "food_refs": [
+            "food_kuanzhai_lane_pockets"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "最后再去人民公园坐坐，或者沿着锦江边随意走走，用一杯茶、一段慢时光结束这趟成都之行。",
+          "poi_refs": [
+            "poi_people_park"
+          ],
+          "food_refs": []
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_kuanzhai_alley",
+      "name": "宽窄巷子",
+      "district": "青羊区",
+      "type": "historic district",
+      "reason": "作为成都老城区的名片，宽窄巷子既有青砖灰瓦的怀旧感，又充满了年轻人喜欢的创意小铺和地道小吃。对于学生来说，这里既是拍照打卡的好地方，也是快速融入成都节奏的起点。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_people_park",
+      "name": "人民公园",
+      "district": "青羊区",
+      "type": "city park",
+      "reason": "成都慢生活的缩影。花几块钱在鹤鸣茶社喝一碗盖碗茶，看当地人打牌、遛鸟，这种毫无压力的闲适感正是学生旅行中最值得体验的部分。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_jinli",
+      "name": "锦里",
+      "district": "武侯区",
+      "type": "historic commercial street",
+      "reason": "夜晚的锦里比白天更有魅力——红灯笼、木楼、川剧变脸表演，再加上琳琅满目的小吃摊，是体验成都夜色与市井烟火的首选。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_wuhou_shrine",
+      "name": "武侯祠",
+      "district": "武侯区",
+      "type": "cultural site",
+      "reason": "作为中国唯一的君臣合祀祠庙，武侯祠的红墙竹影和三国故事为成都之行增添一份文化厚度，而且学生票价格友好。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_wangpingfang",
+      "name": "望平滨河路",
+      "district": "成华区",
+      "type": "riverwalk district",
+      "reason": "府河边的文艺走廊，年轻人聚集的咖啡馆、独立书店和设计小店沿河排开。适合下午散步、拍照，或者找一家河景位子发呆。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_construction_road",
+      "name": "建设路",
+      "district": "成华区",
+      "type": "food district",
+      "reason": "成都学生党公认的平价美食天堂，从街头小摊到深夜排挡，几十块钱就能吃到扶墙。这里的烟火气是成都最生动的表情。",
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food": [
+    {
+      "id": "food_kuanzhai_lane_pockets",
+      "name": "宽窄巷子小吃区",
+      "district": "青羊区",
+      "category": "snack street",
+      "reason": "作为第一站，宽窄巷子的小吃摊提供了最方便的成都味觉入门：蛋烘糕、三大炮、甜水面……边走边吃，毫无负担。"
+    },
+    {
+      "id": "food_jinli_snack_corridor",
+      "name": "锦里小吃走廊",
+      "district": "武侯区",
+      "category": "snack street",
+      "reason": "夜晚的锦里小吃区是视觉和味觉的双重享受。钵钵鸡、糖油果子、三大炮，每样来一点，就是一顿丰盛的晚餐。"
+    },
+    {
+      "id": "food_construction_road",
+      "name": "建设路小吃街",
+      "district": "成华区",
+      "category": "snack street",
+      "reason": "学生党的美食圣地。烤脑花、炸串、冰粉、锅巴土豆……价格亲民，味道正宗，是体验成都街头美食文化的终极一站。"
+    }
+  ]
+}

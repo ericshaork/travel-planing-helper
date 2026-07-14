@@ -1,0 +1,171 @@
+{
+  "id": "exp_harbin_family_2d_winter_stroll",
+  "slug": "harbin-family-2d-winter-stroll",
+  "title": "冬日冰城漫游记：与家人共享欧陆老街与江畔温情",
+  "summary": "这是一段专为家庭设计的慢节奏哈尔滨探索。两天里，你们将沿着中央大街的欧式建筑缓缓前行，在圣索菲亚教堂前驻足拍照，在松花江畔感受开阔的冬日风光。行程以舒适和便利为优先，减少户外暴露时间，穿插温暖的室内休息和地道的东北美食，让老人和孩子都能轻松享受这座冰雪之城的独特魅力。",
+  "city": {
+    "code": "harbin",
+    "name": "Harbin",
+    "region_name": "Heilongjiang"
+  },
+  "trip_type": "family",
+  "days": 2,
+  "budget": {
+    "level": "medium",
+    "note": "适中预算，涵盖主要景点、舒适餐饮和保暖休息，无需宽域交通。"
+  },
+  "pace": "slow",
+  "tags": [
+    "winter-city",
+    "european-style-streets",
+    "riverfront",
+    "family-friendly",
+    "local-food",
+    "slow-travel"
+  ],
+  "image_prompt": "National Geographic travel magazine style photo of a family walking along Central Street in Harbin on a snowy winter day. The street is lined with European-style buildings covered in snow, warm golden lights from shop windows, and a gentle snowfall. The family is bundled up in winter coats, smiling, with the iconic Harbin winter atmosphere. Shot from a low angle, capturing the depth of the street and the cozy mood. Soft natural light, slightly overcast, with a warm color palette.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "欧陆老街与冬日初印象",
+      "summary": "从中央大街的欧式建筑群开始，感受哈尔滨的异域风情；在圣索菲亚教堂前留下全家福；午后沿着松花江畔散步，享受开阔的江景与亲子时光。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "从中央大街出发，和孩子一起数着脚下的面包石，欣赏两侧巴洛克和新艺术风格的建筑。途中可以在街边的小店买一根马迭尔冰棍，感受冰城特有的甜蜜。",
+          "poi_refs": [
+            "poi_central_street"
+          ],
+          "food_refs": [
+            "food_central_street"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "前往圣索菲亚教堂广场，在洋葱头穹顶前拍一张全家合影。随后沿着松花江畔漫步，看冰封的江面和远处的太阳岛，享受开阔的冬日视野。",
+          "poi_refs": [
+            "poi_saint_sofia",
+            "poi_songhua_riverfront"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "在中央大街附近的温暖餐厅享用东北家常菜，饭后再次漫步中央大街，欣赏华灯初上的欧式夜景，感受热闹而不拥挤的冬夜氛围。",
+          "poi_refs": [
+            "poi_central_evening"
+          ],
+          "food_refs": [
+            "food_riverfront_warm"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "江畔慢行与老城烟火",
+      "summary": "上午在太阳岛边缘享受宁静的自然风光，午后探访老道外的传统街区，品尝地道的东北小吃，感受哈尔滨最市井的生活气息。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "乘车前往太阳岛边缘，在雪地和树林间散步，呼吸新鲜空气。这里视野开阔，适合孩子奔跑玩耍，也能远眺松花江的冬日画卷。",
+          "poi_refs": [
+            "poi_sun_island_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "返回老城区，探访老道外街区。这里保留着中华巴洛克建筑和热闹的市井气息，可以带家人品尝锅包肉、酱骨等东北菜，体验哈尔滨的烟火日常。",
+          "poi_refs": [
+            "poi_laodaowai"
+          ],
+          "food_refs": [
+            "food_laodaowai"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "在老道外找一家温暖的饺子馆，全家人围坐一桌，吃一顿热气腾腾的东北饺子，为这次冰城之旅画上圆满的句号。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_laodaowai"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_central_street",
+      "name": "中央大街",
+      "district": "道里区",
+      "type": "historic commercial street",
+      "reason": "中央大街是哈尔滨最富欧陆风情的步行街，面包石铺就的路面、两旁的文艺复兴和巴洛克建筑，让一家人仿佛漫步在异国街头。冬季的冰雕和灯光更添童话氛围，适合全家慢逛、拍照、品尝小吃。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_saint_sofia",
+      "name": "圣索菲亚教堂广场",
+      "district": "道里区",
+      "type": "architectural landmark",
+      "reason": "圣索菲亚教堂是哈尔滨的标志性建筑，绿色的洋葱头穹顶在白雪映衬下格外醒目。广场开阔，适合家庭拍照留念，也是了解哈尔滨多元文化历史的窗口。",
+      "recommended_duration_minutes": 75
+    },
+    {
+      "id": "poi_songhua_riverfront",
+      "name": "松花江畔",
+      "district": "道里区",
+      "type": "riverfront district",
+      "reason": "松花江畔是感受哈尔滨冬日开阔感的最佳去处。冰封的江面、远处的天际线，以及沿江的冰雪景观，为家庭提供了轻松的散步空间和绝佳的亲子互动场景。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_sun_island_edge",
+      "name": "太阳岛边缘",
+      "district": "松北区",
+      "type": "scenic leisure area",
+      "reason": "太阳岛边缘的雪地森林和开阔空地，是家庭远离城市喧嚣、享受自然宁静的理想选择。孩子们可以在这里玩雪、奔跑，大人则能欣赏松花江的冬日全景。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_laodaowai",
+      "name": "老道外街区",
+      "district": "道外区",
+      "type": "historic neighborhood",
+      "reason": "老道外是哈尔滨最具市井烟火气的老街区，中华巴洛克风格的建筑群中藏着地道的小吃和热闹的市集。一家人可以在这里感受哈尔滨最真实的生活气息，品尝锅包肉、酱骨等东北名菜。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_central_evening",
+      "name": "中央大街夜景",
+      "district": "道里区",
+      "type": "evening district",
+      "reason": "夜晚的中央大街灯光璀璨，欧式建筑在暖黄色灯光的映照下更显浪漫。一家人可以悠闲地散步，欣赏冰雕和街头表演，感受冰城冬夜的温馨与活力。",
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food": [
+    {
+      "id": "food_central_street",
+      "name": "中央大街小吃区",
+      "district": "道里区",
+      "category": "snack street",
+      "reason": "中央大街沿街遍布小吃店和甜品屋，马迭尔冰棍、哈尔滨红肠、冰糖葫芦等特色小吃随手可得。适合一家人边走边尝，轻松解决早餐或零食。"
+    },
+    {
+      "id": "food_riverfront_warm",
+      "name": "江畔暖食区",
+      "district": "道里区",
+      "category": "restaurant area",
+      "reason": "靠近松花江的暖食餐厅提供东北炖菜、酸菜白肉等暖身菜肴，环境温馨，适合家庭在寒冷冬夜享用一顿热腾腾的晚餐。"
+    },
+    {
+      "id": "food_laodaowai",
+      "name": "老道外美食街",
+      "district": "道外区",
+      "category": "local food street",
+      "reason": "老道外是哈尔滨本地人常去的美食聚集地，锅包肉、酱骨、饺子等东北菜地道实惠。家庭可以在这里体验最真实的市井餐饮氛围，感受东北人的热情与豪爽。"
+    }
+  ]
+}

@@ -1,0 +1,203 @@
+{
+  "id": "exp_nanjing_solo_3d_citywalk_culture_v1",
+  "slug": "nanjing-solo-3d-citywalk-culture",
+  "title": "梧桐深处，一个人的金陵漫游",
+  "summary": "三天时间，独自走在南京的梧桐大道与秦淮灯影之间。从民国建筑的沉静到城墙上的旷远，从老门东的巷弄到玄武湖的波光，这是一场与城市对话的自由旅程——节奏由你，风景随行。",
+  "city": {
+    "code": "nanjing",
+    "name": "Nanjing",
+    "region_name": "Jiangsu"
+  },
+  "trip_type": "solo",
+  "days": 3,
+  "budget": {
+    "level": "medium",
+    "note": "中等预算，兼顾一处主要历史景点、一个风景片区和一餐有代表性的本地饮食。"
+  },
+  "pace": "balanced",
+  "tags": [
+    "citywalk",
+    "local-culture",
+    "photo",
+    "republican-era",
+    "historic-city",
+    "river-evening",
+    "old-street"
+  ],
+  "image_prompt": "National Geographic travel magazine style photo, a solo traveler walking along a tree-lined avenue in Nanjing, dappled sunlight through plane tree leaves, vintage Republican-era architecture in background, soft afternoon light, shallow depth of field, cinematic mood, high detail, warm tones.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "民国旧影与城墙上的风",
+      "summary": "从总统府的历史走廊到城墙上的远眺，再在玄武湖畔慢走一段，感受南京的沉静与开阔。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "从总统府开始，独自穿行于民国时期的走廊与庭院，想象百年前的政要身影。这里的建筑细节和旧照片值得慢慢端详。",
+          "poi_refs": [
+            "poi_presidential_palace"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "登上南京城墙的一段，沿着斑驳的砖石行走，俯瞰城市与玄武湖的交界。风很大，视野很广，适合一个人放空。随后下城墙，沿着玄武湖边缘散步，在湖边长椅上坐一会儿，看水鸟和游船。",
+          "poi_refs": [
+            "poi_city_wall",
+            "poi_xuanwu_lake"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "前往新街口附近的便捷餐饮区，找一家本地小馆解决晚餐。这里选择众多，不用特意规划，随性就好。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_xinjiekou"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "秦淮河畔，从巷弄到灯火",
+      "summary": "在老门东的青砖巷弄里迷失，傍晚时分融入秦淮河的流光溢彩，感受南京最富烟火气的一面。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "漫步老门东，这里的巷子比夫子庙更安静，青石板路、老宅木门、偶尔探出墙头的绿植，处处是拍照的素材。可以钻进一家茶馆或小吃店歇脚。",
+          "poi_refs": [
+            "poi_laomendong"
+          ],
+          "food_refs": [
+            "food_laomendong"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "继续在老门东及周边闲逛，探索那些没有名字的小巷，偶遇一家手作店或画廊。午后光线柔和，适合拍人文街景。",
+          "poi_refs": [
+            "poi_laomendong"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "入夜后，沿着秦淮河岸走，看两岸灯笼亮起，画舫缓缓驶过。在夫子庙附近的 snack street 找一家小店，点一份鸭血粉丝汤或小笼包，边吃边看夜景。",
+          "poi_refs": [
+            "poi_qinhuai"
+          ],
+          "food_refs": [
+            "food_qinhuai_snack"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "城南旧事与最后的漫步",
+      "summary": "再探一次老门东的晨光，或者选择牛首山的一次远足，为旅程画上一个安静的句号。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "清晨的老门东几乎没有游客，只有本地老人晨练和店铺准备开门的声音。在巷子里喝一碗豆浆，吃一块烧饼，感受南京日常的节奏。",
+          "poi_refs": [
+            "poi_laomendong"
+          ],
+          "food_refs": [
+            "food_laomendong"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "如果不想远行，可以在老门东继续发掘角落里的惊喜；或者前往牛首山，在更开阔的文化景观中结束旅程。牛首山的佛教建筑和自然风光让人心静。",
+          "poi_refs": [
+            "poi_niushoushan_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "返回市区，在 Qinhuai 附近找一家小馆，吃最后一顿南京菜，然后带着满满的回忆离开。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_qinhuai_snack"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_presidential_palace",
+      "name": "总统府",
+      "district": "玄武",
+      "type": "历史遗址",
+      "reason": "作为民国历史的浓缩之地，总统府的每一间办公室、每一张旧照片都像在讲述故事。独自游览时，可以不受打扰地沉浸于那段转折岁月，感受建筑本身的美感与重量。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_city_wall",
+      "name": "南京城墙（玄武门段）",
+      "district": "玄武",
+      "type": "历史地标",
+      "reason": "城墙是南京最独特的视角之一。一个人走在宽厚的城墙上，脚下是六百年的砖石，眼前是城市与湖泊的交错，风从耳边吹过，适合放空与思考。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_xuanwu_lake",
+      "name": "玄武湖",
+      "district": "玄武",
+      "type": "湖滨风景区",
+      "reason": "玄武湖的宽阔水面和湖畔步道是独行者的喘息之地。可以租一艘小船，或只是坐在长椅上观察来往的人与鸟，享受一段不被打扰的宁静时光。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_laomendong",
+      "name": "老门东",
+      "district": "秦淮",
+      "type": "历史街区",
+      "reason": "老门东比夫子庙更安静、更生活化。青砖灰瓦、石板小巷，每一转角都可能遇到惊喜——一家独立书店、一间手工作坊、或一个可以发呆的庭院。非常适合独自漫游和街拍。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_qinhuai",
+      "name": "秦淮河与夫子庙",
+      "district": "秦淮",
+      "type": "历史滨河区",
+      "reason": "夜晚的秦淮河是南京最富魅力的场景之一。独自沿着河岸走，看灯光在水面碎成一片，听画舫上的丝竹声，有一种穿越时空的错觉。这里也是品尝地道小吃的好地方。",
+      "recommended_duration_minutes": 150
+    },
+    {
+      "id": "poi_niushoushan_edge",
+      "name": "牛首山",
+      "district": "江宁",
+      "type": "文化景观",
+      "reason": "如果时间允许，牛首山的佛教文化景观和开阔山野是独行者的另一种选择。大穹顶建筑与自然山色结合，让人在安静中感到庄严与放松。",
+      "recommended_duration_minutes": 150
+    }
+  ],
+  "food": [
+    {
+      "id": "food_qinhuai_snack",
+      "name": "秦淮小吃街",
+      "district": "秦淮",
+      "category": "小吃街",
+      "reason": "秦淮河畔的小吃街是独行者的美食天堂。鸭血粉丝汤、小笼包、盐水鸭……每样来一点，边走边吃，完美配合夜晚的河边散步。"
+    },
+    {
+      "id": "food_laomendong",
+      "name": "老门东巷弄小吃",
+      "district": "秦淮",
+      "category": "小吃街",
+      "reason": "老门东的巷子里藏着不少地道小吃和茶馆。逛累了就钻进一家小店，点一份赤豆元宵或梅花糕，在庭院里歇脚，看巷弄光影变化。"
+    },
+    {
+      "id": "food_xinjiekou",
+      "name": "新街口便捷餐饮",
+      "district": "秦淮",
+      "category": "餐饮区",
+      "reason": "新街口作为市中心，餐饮选择丰富且方便。无论是想快速解决一餐，还是找一家有氛围的餐厅，这里都能满足独行者的随意需求。"
+    }
+  ]
+}

@@ -1,0 +1,200 @@
+{
+  "id": "exp_chongqing_solo_3d_citywalk_nightview_v1",
+  "slug": "chongqing-solo-3d-citywalk-nightview",
+  "title": "山城独步：用脚步丈量重庆的垂直诗意",
+  "summary": "为独自旅行的你设计的三日漫游。不赶路，不打卡，而是沿着山城步道、老巷阶梯和江岸灯火，在重庆的立体迷宫里找回自己的节奏。从老重庆的烟火气到两江交汇的璀璨夜景，每一步都是与这座城市的私人对话。",
+  "city": {
+    "code": "chongqing",
+    "name": "Chongqing",
+    "region_name": "Chongqing"
+  },
+  "trip_type": "solo",
+  "days": 3,
+  "budget": {
+    "level": "medium",
+    "note": "中等预算，兼顾地道体验与舒适节奏。重点投入在江景晚餐和特色交通上，日常饮食以街头小吃和本地小馆为主。"
+  },
+  "pace": "balanced",
+  "tags": [
+    "citywalk",
+    "night-view",
+    "street-food",
+    "hill-city",
+    "urban-drama",
+    "riverfront",
+    "solo-travel"
+  ],
+  "image_prompt": "National Geographic travel magazine style photo of a solo traveler standing on a Chongqing hillside staircase at dusk, looking out over layered old buildings and the Yangtze River with city lights beginning to glow. Warm golden hour light, vertical composition, depth and texture of urban landscape, cinematic mood.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "老城阶梯与江岸初遇",
+      "summary": "从山城步道开始，在层层叠叠的老巷里迷路，傍晚抵达江边，用一顿河风晚餐开启独行之旅。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "从解放碑出发，感受重庆最核心的都市脉动。在密集的人流和摩天楼群中，找到这座山城的第一印象。然后步行至较场口，开始探索十八梯传统风貌区。沿着石阶上下，穿行在老重庆的民居、茶馆和小店之间，感受时间在坡坎上的沉积。",
+          "poi_refs": [
+            "poi_jiefangbei",
+            "poi_shibati"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "继续在十八梯区域漫游，找一家老茶馆歇脚，看当地人下棋聊天。下午前往李子坝，在轻轨穿楼的奇妙场景前驻足片刻，体会重庆独有的立体交通奇观。随后沿嘉陵江步道散步，看江水与城市交织。",
+          "poi_refs": [
+            "poi_liziba_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "傍晚前往南滨路，找一家江景餐厅，在露台座位上边吃晚餐边欣赏对岸渝中半岛的灯火渐次亮起。餐后沿江漫步，感受江风与城市霓虹交织的浪漫独处时光。",
+          "poi_refs": [
+            "poi_nanbin_road"
+          ],
+          "food_refs": [
+            "food_nanbin_dining"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "江岸烟火与青春街巷",
+      "summary": "白天在年轻人聚集的观音桥闲逛，晚上回到南滨路换个角度看夜景，用不同的江岸节奏串联一天。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "前往江北的观音桥，这里是重庆最富青春气息的街区。在步行街和小巷里穿行，探访独立咖啡馆、潮牌店和街角小吃。不设目标地随意漫步，享受属于一个人的悠闲上午。",
+          "poi_refs": [
+            "poi_guanyinqiao"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "在观音桥解决午餐后，继续探索周边的老居民区，观察山城特有的社区生活——人们在陡峭楼梯上挑担、在街边打牌、在树荫下乘凉。下午可以找一家高处咖啡馆，俯瞰城市天际线。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_guanyinqiao_night"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "再次前往南滨路，但这次选择不同的路段。从海棠溪开始，沿江向南漫步，寻找更安静的观景角度。对岸的渝中半岛灯火辉煌，洪崖洞的金色轮廓倒映在江面上，一个人静静欣赏这魔幻夜景。",
+          "poi_refs": [
+            "poi_nanbin_road"
+          ],
+          "food_refs": []
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "立体重庆的最终章",
+      "summary": "最后一天留给最标志性的山城印象——洪崖洞的奇幻外观和解放碑的告别漫步，用一顿地道的重庆火锅为旅程收尾。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "再次来到解放碑，但这次以更慢的节奏感受。在周边老巷里寻找早餐摊，吃一碗小面或豆花饭。然后步行至洪崖洞，白天的人流较少，可以仔细欣赏这座依山而建的吊脚楼建筑群的精妙结构。",
+          "poi_refs": [
+            "poi_jiefangbei",
+            "poi_hongyadong_view"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "在洪崖洞周边的沧白路和嘉滨路散步，从不同角度仰望洪崖洞。随后前往较场口或临江门一带，寻找一家本地人推荐的火锅店，用一顿酣畅淋漓的火锅为这次独行画上句号。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_jiefangbei_snack"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "最后一夜，如果还有精力，可以再次登上南滨路或选择一处高处观景台（如鹅岭公园），最后看一眼重庆的璀璨夜景。然后带着满脑子山城记忆，结束这次独步之旅。",
+          "poi_refs": [
+            "poi_nanbin_road"
+          ],
+          "food_refs": []
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_hongyadong_view",
+      "name": "洪崖洞江岸观景区",
+      "district": "渝中区",
+      "type": "江岸地标区",
+      "reason": "洪崖洞是重庆垂直美学的极致体现——11层依山吊脚楼在夜晚化身金色宫殿，倒映在嘉陵江中。对于独行旅人，这里既是视觉震撼，也是理解山城建筑智慧的窗口。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_jiefangbei",
+      "name": "解放碑核心区",
+      "district": "渝中区",
+      "type": "城市商业核心",
+      "reason": "作为重庆的精神地标，解放碑周围浓缩了这座山城最繁忙的都市表情。独行于此，可以感受重庆人快节奏的生活脉搏，也是开启城市漫游的自然起点。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_shibati",
+      "name": "十八梯传统风貌区",
+      "district": "渝中区",
+      "type": "历史山城街区",
+      "reason": "十八梯是重庆老城生活的标本——石阶、老屋、茶馆、剃头摊，层层叠叠地铺陈在山坡上。对于喜欢深度观察的独行者，这里每一步都能发现城市记忆的细节。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_liziba_edge",
+      "name": "李子坝轻轨观景区",
+      "district": "渝中区",
+      "type": "城市景观地标",
+      "reason": "轻轨穿楼而过的奇景是重庆立体交通的幽默注脚。独行至此，可以花几分钟看列车从居民楼中钻出，感受这座城市如何用想象力解决地形难题。",
+      "recommended_duration_minutes": 60
+    },
+    {
+      "id": "poi_nanbin_road",
+      "name": "南滨路江岸步道",
+      "district": "南岸区",
+      "type": "江岸夜景区",
+      "reason": "南滨路是欣赏渝中半岛夜景的最佳视角之一。独行于此，江风拂面，对岸灯火如星河倒挂，是整趟旅程中最适合放空和沉思的时刻。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_guanyinqiao",
+      "name": "观音桥青年街区",
+      "district": "江北区",
+      "type": "青年潮流区",
+      "reason": "观音桥是重庆最年轻的区域之一，充满街头活力、独立小店和本地年轻人的生活气息。独行时在这里漫无目的地闲逛，最能捕捉到城市跳动的脉搏。",
+      "recommended_duration_minutes": 120
+    }
+  ],
+  "food": [
+    {
+      "id": "food_jiefangbei_snack",
+      "name": "解放碑小吃聚集区",
+      "district": "渝中区",
+      "category": "小吃街",
+      "reason": "解放碑周边的小巷里藏着无数地道小吃——酸辣粉、小面、山城汤圆、糍粑。独行时最适合边走边吃，用味蕾探索山城滋味。"
+    },
+    {
+      "id": "food_guanyinqiao_night",
+      "name": "观音桥夜间美食区",
+      "district": "江北区",
+      "category": "夜宵区",
+      "reason": "观音桥的夜晚属于美食——烤鱼、串串、烧烤、冰粉，价格亲民且充满本地烟火气。适合独行者在结束一天漫步后，用一顿热闹的晚餐犒劳自己。"
+    },
+    {
+      "id": "food_nanbin_dining",
+      "name": "南滨路江景餐饮带",
+      "district": "南岸区",
+      "category": "江景餐厅",
+      "reason": "南滨路沿线汇集了众多江景餐厅，从地道川菜到精致融合菜应有尽有。独行时选一家露台座位，边用餐边看对岸灯火，是旅途中最具仪式感的时刻。"
+    }
+  ]
+}

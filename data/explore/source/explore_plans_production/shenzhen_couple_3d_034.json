@@ -1,0 +1,199 @@
+{
+  "id": "exp_shenzhen_couple_3d_skyline_romance_v1",
+  "slug": "shenzhen-couple-3d-skyline-romance",
+  "title": "深圳双人天际线：创意园午后与夜色里的城市约会",
+  "summary": "为情侣设计的慢节奏深圳之旅，融合城市天际线的浪漫、创意园区的文艺午后，以及海湾夜景中的二人时光。三天里，你们将一起漫步深圳湾畔，在OCT Loft的咖啡馆里消磨时光，在市民中心广场看灯光渐亮，最后在海世界广场的夜色中为旅程画上句点。这是一场属于两个人的城市叙事，既有现代都市的璀璨，也有属于彼此的安静角落。",
+  "city": {
+    "code": "shenzhen",
+    "name": "Shenzhen",
+    "region_name": "Guangdong"
+  },
+  "trip_type": "couple",
+  "days": 3,
+  "budget": {
+    "level": "medium",
+    "note": "适中预算，可享受一次海湾景观晚餐和创意园区精致咖啡，其余以性价比高的本地餐饮为主。"
+  },
+  "pace": "slow",
+  "tags": [
+    "bay-view",
+    "creative-district",
+    "night-view",
+    "photo-friendly",
+    "romantic",
+    "skyline"
+  ],
+  "image_prompt": "Editorial travel magazine cover style: a couple standing at the Shenzhen Bay waterfront at golden hour, skyline in the background, warm light on their faces, shallow depth of field, romantic and modern atmosphere, shot with a 35mm lens, cinematic composition.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "海湾漫步与创意午后",
+      "summary": "从深圳湾的晨光开始，沿着海岸线慢慢走，拍下属于你们的第一张合影。午后转场到OCT Loft，在艺术与咖啡中感受深圳的文艺脉搏。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "从酒店出发，前往深圳湾公园。两人沿着海滨步道慢慢散步，看城市天际线在晨光中逐渐清晰。找一处长椅坐下，看海鸟飞过，享受难得的宁静。用手机或相机记录彼此的笑容和背后的摩天大楼。",
+          "poi_refs": [
+            "poi_shenzhen_bay"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "乘坐地铁前往OCT Loft创意园。这里的老厂房改造区充满了惊喜——你们可以逛独立画廊，在特色咖啡馆里点一杯手冲，或者钻进设计小店挑选纪念品。在园区里随意穿行，每个转角都可能遇到有趣的涂鸦或装置艺术。",
+          "poi_refs": [
+            "poi_oct_loft"
+          ],
+          "food_refs": [
+            "food_oct_loft_cafe"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "留在OCT Loft区域用餐，选择一家氛围轻松的创意餐厅，享受属于两人的晚餐。饭后可以在园区里再散散步，灯光下的老厂房别有一番韵味。如果精力允许，可以步行到附近的酒吧街小酌一杯。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_oct_loft_cafe"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "城市之巅与海湾夜色",
+      "summary": "上午登莲花山俯瞰城市全景，下午在市民中心广场感受现代建筑的震撼，傍晚前往海世界广场，在灯光与水景中享受浪漫晚餐。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "前往莲花山公园，沿着缓坡慢慢上山。山顶的观景台是拍摄深圳城市全景的最佳位置——你们可以在这里拍下经典的合影，背景是福田CBD的天际线。下山后在山脚草坪上休息片刻。",
+          "poi_refs": [
+            "poi_lianhuashan"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "步行至市民中心广场，这里是深圳的行政文化中心。两人可以在宽阔的广场上漫步，欣赏深圳当代艺术馆和图书馆的现代建筑。广场上的巨大雕塑和喷泉也是拍照的好背景。如果累了，可以在附近的咖啡馆坐坐。",
+          "poi_refs": [
+            "poi_civic_center"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "乘坐地铁前往海世界广场。夜晚的这里灯火辉煌，海风轻拂。你们可以在海景餐厅预订一张靠窗的桌子，享用一顿浪漫的晚餐。餐后沿着广场散步，看灯光倒映在水面上，拍摄夜景人像。这里还有摩天轮和音乐喷泉，为夜晚增添梦幻色彩。",
+          "poi_refs": [
+            "poi_sea_world"
+          ],
+          "food_refs": [
+            "food_sea_world_dining"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "海岸线的最后回眸",
+      "summary": "最后一天放慢脚步，上午前往大梅沙海滨，感受深圳的海岸气息，下午返回市区自由活动，为旅程画上轻松句点。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "乘坐地铁转公交前往大梅沙海滨栈道。这里的海岸线比市区更开阔，人流量也相对较少。两人可以沿着栈道漫步，听海浪拍打礁石的声音，在沙滩上赤脚走一走。找一处安静的角落，一起看海发呆，享受最后的二人时光。",
+          "poi_refs": [
+            "poi_dameisha_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "从大梅沙返回市区，可以在东门老街或华强北附近逛逛，品尝一些本地小吃，或者为朋友挑选伴手礼。如果你们更喜欢安静，也可以回到OCT Loft，在那家喜欢的咖啡馆里度过最后几个小时。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_dongmen_snacks"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "根据航班或高铁时间，在市区享用最后一顿晚餐，然后前往机场或车站。如果时间充裕，可以在市民中心广场再看一眼深圳的夜景，让这座城市的灯光成为你们旅途的最后记忆。",
+          "poi_refs": [
+            "poi_civic_center"
+          ],
+          "food_refs": []
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_shenzhen_bay",
+      "name": "深圳湾海滨公园",
+      "district": "南山区",
+      "type": "海滨风景区",
+      "reason": "深圳湾是情侣漫步的绝佳去处，开阔的海景与城市天际线相映成趣。清晨或黄昏时分，两人沿着步道缓缓而行，看海鸟低飞、高楼倒映水中，每一帧都是值得珍藏的画面。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_oct_loft",
+      "name": "华侨城创意文化园",
+      "district": "南山区",
+      "type": "创意园区",
+      "reason": "由旧厂房改造的文艺地标，充满艺术气息和设计感。情侣可以在此探索独立画廊、设计师店铺和特色咖啡馆，在工业遗存与现代创意碰撞的空间里，感受深圳的另类魅力。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_civic_center",
+      "name": "市民中心广场",
+      "district": "福田区",
+      "type": "城市地标区",
+      "reason": "深圳的行政文化中心，广场开阔，现代建筑群极具视觉冲击力。情侣可以在此拍摄以CBD天际线为背景的合影，夜晚灯光亮起时更显璀璨，是感受城市脉动的好地方。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_lianhuashan",
+      "name": "莲花山公园",
+      "district": "福田区",
+      "type": "城市公园",
+      "reason": "市中心的山顶公园，登顶可俯瞰福田CBD全景。情侣可以携手登山，在山顶观景台留下城市背景的合影，下山后在山脚草坪上野餐或休息，享受悠闲的上午时光。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_sea_world",
+      "name": "海上世界广场",
+      "district": "南山区",
+      "type": "夜间休闲区",
+      "reason": "集餐饮、购物、娱乐于一体的滨海综合体，夜晚灯火璀璨，氛围浪漫。情侣可以在海景餐厅享用晚餐，饭后在广场上散步，看明华轮灯光秀和音乐喷泉，是约会的理想去处。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_dameisha_edge",
+      "name": "大梅沙海滨栈道",
+      "district": "盐田区",
+      "type": "滨海休闲区",
+      "reason": "远离市区喧嚣的海滨栈道，视野开阔，海风清新。情侣可以在此远离城市节奏，沿着海岸线漫步，听涛声、看浪花，享受属于两人的宁静时光。",
+      "recommended_duration_minutes": 150
+    }
+  ],
+  "food": [
+    {
+      "id": "food_oct_loft_cafe",
+      "name": "OCT Loft咖啡轻食区",
+      "district": "南山区",
+      "category": "创意园区餐饮",
+      "reason": "创意园内的咖啡馆和轻食餐厅氛围时尚，适合情侣午后小憩。点一杯拿铁、一份甜品，在工业风的空间中聊天或各自看书，享受悠闲的二人世界。"
+    },
+    {
+      "id": "food_sea_world_dining",
+      "name": "海上世界餐饮区",
+      "district": "南山区",
+      "category": "海滨景观餐厅",
+      "reason": "海上世界广场汇集了众多海景餐厅，从西餐到日料应有尽有。情侣可以选择一家露台餐厅，在夜色中享用晚餐，看灯光倒映在海面，浪漫指数满分。"
+    },
+    {
+      "id": "food_dongmen_snacks",
+      "name": "东门老街小吃街",
+      "district": "罗湖区",
+      "category": "小吃街",
+      "reason": "东门是深圳最热闹的步行街之一，小吃种类繁多，价格亲民。情侣可以在这里边走边吃，品尝烤串、糖水、肠粉等地道小食，感受深圳的市井活力。"
+    }
+  ]
+}

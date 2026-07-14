@@ -1,0 +1,193 @@
+{
+  "id": "exp_dunhuang_family_3d_desert_stars_v1",
+  "slug": "dunhuang-family-3d-desert-stars",
+  "title": "大漠星空下的合家欢时光：敦煌三日慢行",
+  "summary": "这趟旅程专为家庭设计，节奏舒缓，兼顾文化底蕴与自然奇观。一家人可以在莫高窟的壁画前感受历史温度，在鸣沙山共赏大漠落日，夜晚仰望戈壁星空，在沙洲夜市分享西北风味。全程减少奔波，留足休息时间，让每位家庭成员都能从容享受敦煌的壮美与温情。",
+  "city": {
+    "code": "dunhuang",
+    "name": "Dunhuang",
+    "region_name": "Gansu"
+  },
+  "trip_type": "family",
+  "days": 3,
+  "budget": {
+    "level": "medium",
+    "note": "中等预算，涵盖核心景区门票、舒适餐饮和家庭友好的交通安排。"
+  },
+  "pace": "slow",
+  "tags": [
+    "silk-road",
+    "desert-scenery",
+    "sunset",
+    "cultural-landmarks",
+    "family-friendly",
+    "stargazing"
+  ],
+  "image_prompt": "National Geographic travel magazine style photo of a family of four sitting on sand dunes at sunset, with crescent-shaped lake in the background, golden light, camels silhouetted in the distance, warm tones, wide angle, serene atmosphere, Dunhuang desert landscape.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "初见敦煌：文化浸润与夜市烟火",
+      "summary": "上午在博物馆为全家铺垫丝绸之路的知识背景，午后探访莫高窟的艺术宝库，傍晚漫步沙洲夜市，品尝地道西北小吃。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "从酒店出发，前往敦煌博物馆，通过文物和展览了解敦煌的历史与丝路文明，为接下来的行程做好知识准备。馆内环境舒适，适合全家慢慢参观。",
+          "poi_refs": [
+            "poi_museum_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "午餐后前往莫高窟，跟随讲解参观洞窟壁画与彩塑，感受千年艺术的震撼。建议提前预约，控制参观时长，避免疲劳。",
+          "poi_refs": [
+            "poi_mogao_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "返回市区，前往沙洲夜市区域。这里灯火通明，小吃摊林立，一家人可以分享烤羊肉串、杏皮水等西北风味，感受敦煌的市井活力。",
+          "poi_refs": [
+            "poi_shazhou_market"
+          ],
+          "food_refs": [
+            "food_shazhou_night"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "大漠奇观：鸣沙山与星空之夜",
+      "summary": "上午在市区悠闲漫步，下午深入鸣沙山与月牙泉，骑骆驼、滑沙，傍晚守候大漠落日，夜晚在沙漠营地仰望璀璨星空。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "在敦煌老城区的街巷中散步，看看当地人的生活节奏，找一家小馆吃碗牛肉面，悠闲地开始新的一天。",
+          "poi_refs": [
+            "poi_town_walk"
+          ],
+          "food_refs": [
+            "food_town_center"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "午后前往鸣沙山月牙泉景区，全家一起骑骆驼、滑沙，感受沙漠的壮阔。月牙泉如一弯新月镶嵌在沙山之间，是拍照留念的绝佳地点。",
+          "poi_refs": [
+            "poi_mingsha_edge"
+          ],
+          "food_refs": [
+            "food_desert_route"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "在鸣沙山等待日落，金色的余晖洒在沙丘上，景色令人难忘。之后可选择沙漠露营或返回市区，若天气晴朗，戈壁星空清晰可见，是全家共同珍藏的记忆。",
+          "poi_refs": [
+            "poi_desert_evening"
+          ],
+          "food_refs": []
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "悠然收尾：慢享敦煌余韵",
+      "summary": "上午在市区自由活动，购买特色纪念品，中午品尝最后一顿西北风味，下午整理行装，带着满满的回忆返程。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "睡到自然醒，再去一趟老城区，逛逛当地市场，选购一些敦煌元素的工艺品或干果，作为旅途的纪念。",
+          "poi_refs": [
+            "poi_town_walk"
+          ],
+          "food_refs": [
+            "food_town_center"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "午餐后根据航班或火车时间，轻松前往机场或车站，结束这次温馨的敦煌家庭之旅。",
+          "poi_refs": [],
+          "food_refs": []
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_mogao_edge",
+      "name": "莫高窟景区",
+      "district": "敦煌",
+      "type": "cultural landmark",
+      "reason": "世界文化遗产，丝绸之路上的艺术瑰宝。全家可以一起欣赏精美的壁画与彩塑，在专业讲解中感受历史的厚重，是文化熏陶与亲子共学的理想之地。",
+      "recommended_duration_minutes": 150
+    },
+    {
+      "id": "poi_mingsha_edge",
+      "name": "鸣沙山月牙泉",
+      "district": "敦煌",
+      "type": "desert scenic area",
+      "reason": "大漠与清泉共存的奇景，孩子们可以滑沙、骑骆驼，大人则沉醉于落日余晖。这里不仅是视觉盛宴，更是全家共享欢乐的沙漠乐园。",
+      "recommended_duration_minutes": 150
+    },
+    {
+      "id": "poi_shazhou_market",
+      "name": "沙洲夜市",
+      "district": "敦煌",
+      "type": "food and evening district",
+      "reason": "夜晚的敦煌最具烟火气的地方，各色西北小吃琳琅满目，一家人可以边逛边吃，感受当地人的生活热情，是轻松愉快的晚间活动。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_museum_edge",
+      "name": "敦煌博物馆",
+      "district": "敦煌",
+      "type": "museum area",
+      "reason": "了解敦煌历史与丝路文明的绝佳起点，馆内展品丰富，环境舒适，适合家庭慢慢参观，为后续的莫高窟之行做好知识铺垫。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_desert_evening",
+      "name": "沙漠日落观景点",
+      "district": "敦煌",
+      "type": "sunset scenic area",
+      "reason": "鸣沙山周边的开阔地带，是观赏大漠落日和星空的绝佳位置。全家人可以静静等待天色变幻，感受戈壁的辽阔与静谧。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_town_walk",
+      "name": "敦煌老城漫步",
+      "district": "敦煌",
+      "type": "town district",
+      "reason": "远离景区喧嚣，在古城街巷中感受当地生活节奏，适合家庭悠闲散步，偶遇特色小店，享受慢时光。",
+      "recommended_duration_minutes": 75
+    }
+  ],
+  "food": [
+    {
+      "id": "food_shazhou_night",
+      "name": "沙洲夜市美食区",
+      "district": "敦煌",
+      "category": "snack street",
+      "reason": "西北小吃汇集地，烤羊肉串、杏皮水、驴肉黄面等应有尽有。夜晚灯光璀璨，一家人可以各取所爱，分享美食，气氛热闹。"
+    },
+    {
+      "id": "food_town_center",
+      "name": "市区家常餐厅",
+      "district": "敦煌",
+      "category": "local cuisine",
+      "reason": "提供牛肉面、炒菜等家常西北料理，口味清淡可选，适合家庭用餐。环境朴实，价格实惠，是补充体力的稳妥选择。"
+    },
+    {
+      "id": "food_desert_route",
+      "name": "沙漠路线简餐点",
+      "district": "敦煌",
+      "category": "casual dining",
+      "reason": "位于鸣沙山景区附近，提供面食、烤饼等快捷餐食，方便家庭在游玩间隙快速补充能量，不耽误下午的沙漠体验。"
+    }
+  ]
+}

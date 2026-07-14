@@ -1,0 +1,205 @@
+{
+  "id": "exp_wuhan_student_3d_lake_night_food_v1",
+  "slug": "wuhan-student-3d-lake-night-food",
+  "title": "东湖慢骑与江城夜色：学生党的平价三日漫游",
+  "summary": "为预算有限但精力旺盛的学生旅行者设计，用三天时间在武汉体验东湖的骑行慢生活、江汉路的街头烟火气，以及江滩的夜色浪漫。全程聚焦高性价比的本地美食和年轻人聚集的活力街区，节奏张弛有度，不赶路，不浪费。",
+  "city": {
+    "code": "wuhan",
+    "name": "Wuhan",
+    "region_name": "Hubei"
+  },
+  "trip_type": "student",
+  "days": 3,
+  "budget": {
+    "level": "low",
+    "note": "全程以公共交通和步行衔接，餐饮以街头小吃和食堂级消费为主，景点多免费或低价，适合学生预算。"
+  },
+  "pace": "balanced",
+  "tags": [
+    "local-food",
+    "lake-view",
+    "night-view",
+    "citywalk",
+    "budget-friendly",
+    "student"
+  ],
+  "image_prompt": "A candid editorial photo of a student cycling along East Lake in Wuhan at golden hour, with willow trees and distant city skyline. Warm natural light, shallow depth of field, casual backpack and bike basket. National Geographic travel style, documentary feel.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "东湖慢骑与校园漫游",
+      "summary": "上午在东湖边租一辆共享单车，沿着湖道慢骑，感受城市绿肺的呼吸。下午拐进武汉大学的老校区，在林荫道和民国建筑群里闲逛，傍晚在昙华林的小巷里找一家咖啡馆歇脚。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "从广埠屯地铁站出，步行至东湖听涛景区，租一辆共享单车沿湖骑行，感受湖风与绿意。中途可在湖边的长椅上休息，看当地人垂钓或跑步。",
+          "poi_refs": [
+            "poi_east_lake_edge"
+          ],
+          "food_refs": [
+            "food_east_lake_cafe"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "骑行至武汉大学凌波门附近，步行进入校园，沿着樱花大道和未名湖畔的老建筑群散步，感受百年学府的宁静氛围。之后步行至广八路，在学生常去的小馆子吃一碗热干面。",
+          "poi_refs": [
+            "poi_hubei_university_area"
+          ],
+          "food_refs": [
+            "food_hubu_lane"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "前往昙华林，在青石板路上穿行，逛一逛文创小店和独立书店，最后在巷子深处的清吧点一杯饮品，听驻唱歌手弹唱，结束第一天的慢节奏。",
+          "poi_refs": [
+            "poi_tanhualin"
+          ],
+          "food_refs": []
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "江汉路的烟火与江滩夜色",
+      "summary": "白天在江汉路的老街区里穿行，尝遍街头小吃，感受武汉最热闹的商业脉搏。傍晚沿江滩散步，看长江大桥亮灯，在江风中享受属于年轻人的夜晚。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "从江汉路地铁站出，步行至江汉路步行街，在街边的老字号早点铺吃一碗糊汤粉和面窝，然后沿着百年建筑群随意闲逛，感受民国风与市井气的混搭。",
+          "poi_refs": [
+            "poi_jianghan_road"
+          ],
+          "food_refs": [
+            "food_jianghan_dining"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "继续在江汉路周边的小巷里探索，比如吉庆街、保成路，品尝豆皮、鸭脖等本地小吃。下午可到武汉美术馆前拍照，或钻进一家旧书店淘书。",
+          "poi_refs": [
+            "poi_jianghan_road"
+          ],
+          "food_refs": [
+            "food_jianghan_dining"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "步行至汉口江滩，在芦苇荡边的步道上散步，看长江二桥和江对岸的灯光秀。找一处台阶坐下，吹江风、听本地年轻人弹吉他，感受江城夜色的自由气息。",
+          "poi_refs": [
+            "poi_hankou_riverfront"
+          ],
+          "food_refs": []
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "黄鹤楼脚下与户部巷的告别餐",
+      "summary": "最后一天以黄鹤楼为背景，在蛇山脚下感受历史厚度，然后钻进户部巷用一顿丰盛的过早告别武汉。午后在首义公园的绿荫里消磨时光，结束旅程。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "前往黄鹤楼公园，不一定要登楼，在公园外围的蛇山步道上散步，从不同角度仰望这座千古名楼，感受武汉的历史层叠。之后步行至户部巷，吃一碗三鲜豆皮和蛋酒。",
+          "poi_refs": [
+            "poi_yellow_crane_edge"
+          ],
+          "food_refs": [
+            "food_hubu_lane"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "从户部巷步行至首义公园，在辛亥革命纪念馆前的广场上坐一坐，或者沿着蛇山步道走到武昌起义军政府旧址，感受近代史的痕迹。之后在公园的长椅上休息，整理照片。",
+          "poi_refs": [
+            "poi_yellow_crane_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "在司门口地铁站附近找一家学生常去的烧烤店，点上几串烤串和一瓶汽水，用一顿平价又满足的晚餐为三日武汉之行画上句号。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_jianghan_dining"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_east_lake_edge",
+      "name": "东湖听涛景区",
+      "district": "武昌区",
+      "type": "湖滨风景区",
+      "reason": "东湖是武汉的城市绿肺，学生党花几块钱租一辆共享单车就能享受一整天的湖光树影。这里没有门票的负担，只有开阔的水面和自由的骑行道，适合想要放空和拍照的年轻人。",
+      "recommended_duration_minutes": 150
+    },
+    {
+      "id": "poi_hubei_university_area",
+      "name": "武汉大学老校区",
+      "district": "武昌区",
+      "type": "历史校园区",
+      "reason": "武大不仅是名校，更是一座值得漫步的民国建筑博物馆。樱花季之外，这里安静而深邃，老斋舍、行政楼和未名湖都透着书卷气，是学生旅行者感受武汉文化底色的好去处。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_yellow_crane_edge",
+      "name": "黄鹤楼公园及蛇山步道",
+      "district": "武昌区",
+      "type": "文化地标",
+      "reason": "黄鹤楼是武汉最知名的符号，但学生党不必花门票登楼——在蛇山脚下仰视它、在步道上穿行，反而更能感受古诗里的意境。周边还有首义公园和辛亥革命遗迹，历史感层层叠加。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_hankou_riverfront",
+      "name": "汉口江滩",
+      "district": "江岸区",
+      "type": "滨江休闲区",
+      "reason": "汉口江滩是武汉年轻人夜晚的聚集地，开阔的江面、对岸的灯光秀和江风中的吉他声，构成了江城夜色最生动的画面。免费开放，适合散步、发呆和偶遇街头艺人。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_tanhualin",
+      "name": "昙华林",
+      "district": "武昌区",
+      "type": "历史街区",
+      "reason": "昙华林是武汉的文艺角落，老房子改造的咖啡馆、独立书店和手作店藏在蜿蜒的小巷里。学生党可以花很少的钱在这里消磨一下午，感受老武昌的慢节奏和年轻人的创意。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_jianghan_road",
+      "name": "江汉路步行街及周边",
+      "district": "江汉区",
+      "type": "商业老街",
+      "reason": "江汉路是武汉最热闹的街区之一，百年建筑与潮流店铺共存，街头小吃密集。学生党可以在这里从早逛到晚，吃遍豆皮、鸭脖、烧烤，感受武汉最接地气的城市活力。",
+      "recommended_duration_minutes": 120
+    }
+  ],
+  "food": [
+    {
+      "id": "food_hubu_lane",
+      "name": "户部巷过早一条街",
+      "district": "武昌区",
+      "category": "小吃街",
+      "reason": "户部巷是武汉过早文化的集中地，热干面、豆皮、面窝、蛋酒应有尽有。学生党可以花十几块钱吃到撑，而且紧邻黄鹤楼和长江大桥，地理位置极佳。"
+    },
+    {
+      "id": "food_jianghan_dining",
+      "name": "江汉路街头小吃群",
+      "district": "江汉区",
+      "category": "小吃街",
+      "reason": "江汉路周边的小巷里藏着无数平价小吃，从吉庆街的烧烤到保成路的鸭脖，学生党可以边走边吃，感受武汉夜晚的烟火气。人均二三十就能吃得心满意足。"
+    },
+    {
+      "id": "food_east_lake_cafe",
+      "name": "东湖绿道轻食驿站",
+      "district": "武昌区",
+      "category": "轻食咖啡馆",
+      "reason": "东湖绿道沿线散布着一些小型咖啡馆和便利店，适合骑行中途歇脚。学生党可以花十几元买一杯饮料，坐在湖边吹风，性价比很高。"
+    }
+  ]
+}

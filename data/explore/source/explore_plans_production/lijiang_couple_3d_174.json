@@ -1,0 +1,195 @@
+{
+  "id": "exp_lijiang_couple_3d_mountain_love",
+  "slug": "lijiang-couple-3d-mountain-love",
+  "title": "雪山下的二人世界：丽江三日慢板",
+  "summary": "为情侣设计的丽江慢旅行，以雪山天光为背景，在古城石板路上牵手漫步，夜晚沉浸在灯火阑珊的巷弄里，用镜头记录属于两个人的温柔时光。",
+  "city": {
+    "code": "lijiang",
+    "name": "Lijiang",
+    "region_name": "Yunnan"
+  },
+  "trip_type": "couple",
+  "days": 3,
+  "budget": {
+    "level": "medium",
+    "note": "适度融入景致餐饮和舒适住宿，保留古城漫步的随意感。"
+  },
+  "pace": "slow",
+  "tags": [
+    "old-town",
+    "mountain-view",
+    "slow-travel",
+    "photo-friendly",
+    "yunnan-atmosphere",
+    "evening-walk",
+    "couple"
+  ],
+  "image_prompt": "National Geographic travel magazine style photo of a couple walking hand in hand on a wet stone lane in Lijiang old town at dusk, warm lantern light reflecting on the cobblestones, snow-capped mountain silhouette in the distance, shallow depth of field, romantic and atmospheric, cinematic lighting.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "初见古城，水巷与远山",
+      "summary": "第一天慢悠悠地融入古城肌理，从石板路走到狮子山，俯瞰层层灰瓦与玉龙雪山。",
+      "activities": [
+        {
+          "time_block": "afternoon",
+          "description": "抵达后先在古城内随意穿行，感受流水与小巷的节奏，找一家临水的咖啡馆歇脚，拍下第一张合影。",
+          "poi_refs": [
+            "poi_lijiang_old_town"
+          ],
+          "food_refs": [
+            "food_old_town_casual"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "登上狮子山观景台，在日落时分看古城与雪山同框，然后沿着灯火初上的小巷散步，在古城的晚餐巷弄里享用一顿菌菇火锅。",
+          "poi_refs": [
+            "poi_lion_hill_edge",
+            "poi_old_town_evening"
+          ],
+          "food_refs": [
+            "food_local_yunnan"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "黑龙潭倒影，束河午后",
+      "summary": "上午在黑龙潭捕捉雪山倒影，午后转往更安静的束河古镇，享受二人世界的闲适时光。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "早起去黑龙潭，趁晨光柔和时拍下雪山与潭水的经典画面，在公园里慢慢散步，享受宁静。",
+          "poi_refs": [
+            "poi_black_dragon_pool_edge"
+          ],
+          "food_refs": [
+            "food_old_town_casual"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "前往束河古镇，在更稀疏的巷弄里牵手漫游，找一家安静的咖啡馆共度午后，品尝当地小吃。",
+          "poi_refs": [
+            "poi_shuhe"
+          ],
+          "food_refs": [
+            "food_shuhe_cafe"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "返回古城，在晚餐后再次进行夜晚散步，灯笼光影中感受古城的另一种表情。",
+          "poi_refs": [
+            "poi_old_town_evening"
+          ],
+          "food_refs": [
+            "food_local_yunnan"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "白沙旧时光，告别前的慢早餐",
+      "summary": "最后一天探访更原生态的白沙古镇，在壁画和土墙间感受纳西文化，然后以一顿慢早餐结束旅程。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "前往白沙古镇，在游客稀少的老街上漫步，欣赏古老的壁画和手工艺，拍下充满生活感的照片。",
+          "poi_refs": [
+            "poi_baisha_edge"
+          ],
+          "food_refs": [
+            "food_shuhe_cafe"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "返回古城，在最后的光阴里随意走走，买些伴手礼，找一家喜欢的餐厅享用午餐，然后告别丽江。",
+          "poi_refs": [
+            "poi_lijiang_old_town"
+          ],
+          "food_refs": [
+            "food_old_town_casual"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_lijiang_old_town",
+      "name": "丽江古城",
+      "district": "古城区",
+      "type": "historic district",
+      "reason": "情侣漫步的绝佳背景，流水、石桥、花巷交织出浪漫的日常景象，每一步都有画面感。",
+      "recommended_duration_minutes": 150
+    },
+    {
+      "id": "poi_lion_hill_edge",
+      "name": "狮子山观景台",
+      "district": "古城区",
+      "type": "viewpoint",
+      "reason": "俯瞰古城全貌与雪山天际线，日落时分的光线最适合两人合影，是丽江的标志性取景点。",
+      "recommended_duration_minutes": 75
+    },
+    {
+      "id": "poi_black_dragon_pool_edge",
+      "name": "黑龙潭公园",
+      "district": "古城区",
+      "type": "scenic park area",
+      "reason": "清晨的黑龙潭水面如镜，玉龙雪山倒影清晰，为情侣提供一处安静、出片的自然角落。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_shuhe",
+      "name": "束河古镇",
+      "district": "古城区",
+      "type": "historic district",
+      "reason": "比古城更清静，适合情侣慢悠悠地闲逛，咖啡馆和流水边的座位让时间变慢。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_baisha_edge",
+      "name": "白沙古镇",
+      "district": "玉龙县",
+      "type": "cultural village area",
+      "reason": "保留更原始的纳西生活气息，游客少、节奏慢，适合情侣探索壁画和手作小铺。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_old_town_evening",
+      "name": "古城夜游",
+      "district": "古城区",
+      "type": "evening district",
+      "reason": "灯笼、小桥、流水和隐约的音乐，夜晚的古城比白天更浪漫，是情侣专属的散步路线。",
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food": [
+    {
+      "id": "food_old_town_casual",
+      "name": "古城小吃巷",
+      "district": "古城区",
+      "category": "snack street",
+      "reason": "边走边尝的轻松吃法，适合情侣分享烤饵块、鸡豆凉粉等本地小食，不打断漫步节奏。"
+    },
+    {
+      "id": "food_shuhe_cafe",
+      "name": "束河咖啡轻食区",
+      "district": "古城区",
+      "category": "cafe district",
+      "reason": "环境安静、座位舒适，适合情侣在午后共度一段咖啡时光，搭配轻食和甜点。"
+    },
+    {
+      "id": "food_local_yunnan",
+      "name": "本地滇菜聚集区",
+      "district": "古城区",
+      "category": "local cuisine area",
+      "reason": "提供菌菇火锅、腊排骨等云南特色，适合情侣在夜晚围炉共享一顿有仪式感的正餐。"
+    }
+  ]
+}

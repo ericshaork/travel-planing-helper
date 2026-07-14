@@ -1,0 +1,195 @@
+{
+  "id": "exp_suzhou_student_3d_food_citywalk_v1",
+  "slug": "suzhou-student-3d-food-citywalk",
+  "title": "平江路慢步与水巷灯影：学生视角的苏州三日",
+  "summary": "苏州的节奏适合慢慢走，而平江路就是那种让人想放慢脚步的地方。这趟三日计划围绕古城区的运河老街与园林肌理展开，用步行串联起地道小吃、水巷光影和江南生活气息。适合预算有限但想深度感受苏州活力的学生旅行者。",
+  "city": {
+    "code": "suzhou",
+    "name": "Suzhou",
+    "region_name": "Jiangsu"
+  },
+  "trip_type": "student",
+  "days": 3,
+  "budget": {
+    "level": "low",
+    "note": "以步行和公共交通为主，餐饮选择平价小吃和老街餐厅，门票仅覆盖一至两个园林。"
+  },
+  "pace": "balanced",
+  "tags": [
+    "food",
+    "citywalk",
+    "local_culture",
+    "jiangnan",
+    "canal-walk",
+    "old-town"
+  ],
+  "image_prompt": "Editorial travel photography style, a young traveler walking along a narrow canal street in Suzhou's old town, warm afternoon light filtering through willow trees, traditional white-washed buildings with red lanterns, reflections on the water, a casual and authentic atmosphere, shallow depth of field, cinematic composition.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "平江路的慢节奏开场",
+      "summary": "从平江路开始，感受苏州最经典的运河街巷氛围。上午在河边漫步，下午钻进园林深处，晚上则被水巷灯影包围。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "抵达苏州后，直奔平江路。这条沿河的老街是苏州最生动的步行区，小桥、流水、老宅和店铺交错。边走边尝路边的江南小吃，比如梅花糕、海棠糕，或者找一家河边的茶馆歇脚，看船来船往。",
+          "poi_refs": [
+            "poi_pingjiang"
+          ],
+          "food_refs": [
+            "food_pingjiang_snacks"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "从平江路步行至拙政园区域，感受江南园林的精致与静谧。虽然门票不便宜，但作为苏州的标志性体验，值得一看。园内移步换景，适合慢慢逛，拍些有氛围的照片。",
+          "poi_refs": [
+            "poi_humble_admin"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "返回平江路，夜晚的运河边灯笼亮起，别有一番韵味。找一家沿河的小吃店解决晚餐，或者买些零嘴边走边吃，享受水巷灯影下的悠闲时光。",
+          "poi_refs": [
+            "poi_pingjiang"
+          ],
+          "food_refs": [
+            "food_pingjiang_snacks"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "山塘街的烟火与虎丘的视野",
+      "summary": "上午去虎丘登高望远，下午转入山塘街感受另一种运河生活，晚上在老街里吃吃喝喝，体验苏州的市井烟火。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "前往虎丘，这里比园林更开阔，有塔有山有故事。登上虎丘塔俯瞰苏州古城，感受历史与自然的交融。适合学生党拍照打卡，而且门票相对合理。",
+          "poi_refs": [
+            "poi_tiger_hill"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "从虎丘步行或坐公交到山塘街，这是另一条经典的水巷老街。相比平江路，山塘街更生活化一些，沿河有很多小吃摊和杂货铺。慢慢走，吃一碗糖粥或一份生煎，感受老苏州的日常。",
+          "poi_refs": [
+            "poi_shantang"
+          ],
+          "food_refs": [
+            "food_shantang_snacks"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "山塘街的夜景同样迷人，灯笼倒映在水中，游船缓缓划过。在街边找一家小馆子吃顿实惠的苏式晚餐，或者继续尝试各种小吃，体验学生党最爱的平价美食之旅。",
+          "poi_refs": [
+            "poi_shantang"
+          ],
+          "food_refs": [
+            "food_shantang_snacks"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "观前街的市井味与狮子林的奇石",
+      "summary": "最后一天留给苏州的市中心和另一个经典园林。上午在观前街感受本地人的日常生活，下午钻进狮子林看奇石假山，为旅程画上句号。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "前往观前街，这里是苏州最热闹的商业中心，但依然保留着老字号和传统小吃。可以在这里吃一碗奥灶面或蟹粉小笼，顺便逛逛周边的老巷子，感受城市活力。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_guanqian_dining"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "步行至狮子林，这座以假山闻名的园林比拙政园小巧，但更有趣味性。在假山迷宫里钻来钻去，适合学生群体拍照和玩耍。之后可以再在附近的老街随意走走，买些伴手礼。",
+          "poi_refs": [
+            "poi_lion_grove"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "最后在观前街附近解决晚餐，找一家性价比高的苏式餐厅，或者再尝尝之前没吃过的街头小吃，然后结束三天的苏州之旅。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_guanqian_dining"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_pingjiang",
+      "name": "平江路",
+      "district": "姑苏区",
+      "type": "historic canal street",
+      "reason": "平江路是苏州最富生活气息的运河老街，石板路两侧是小桥流水和老宅店铺。对学生旅行者来说，这里不只是一条街，而是一个可以慢悠悠逛上一整天的地方——拍照、吃小吃、看船、发呆，每步都有新发现。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_humble_admin",
+      "name": "拙政园",
+      "district": "姑苏区",
+      "type": "classical garden",
+      "reason": "作为苏州园林的代表，拙政园的精巧和水景布局让人沉浸其中。虽然门票对学生来说不算便宜，但它是理解江南审美的最佳窗口。园内一步一景，适合慢慢走、细细看，还能拍出很有意境的人像或风景照。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_tiger_hill",
+      "name": "虎丘",
+      "district": "姑苏区",
+      "type": "historic scenic area",
+      "reason": "虎丘比园林更开阔，有山有塔有故事，是苏州的制高点。登上虎丘塔可以俯瞰整个古城，视野极好。这里的历史传说和自然景观结合得很好，适合喜欢边走边听故事的学生旅行者。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_shantang",
+      "name": "山塘街",
+      "district": "姑苏区",
+      "type": "historic canal district",
+      "reason": "山塘街是苏州另一条经典水巷，但比平江路更接地气。沿街的小吃摊、杂货铺和茶馆交织出浓浓的市井烟火气。学生党可以在这里花很少的钱尝遍苏州特色小吃，晚上灯笼亮起时尤其迷人。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_lion_grove",
+      "name": "狮子林",
+      "district": "姑苏区",
+      "type": "classical garden",
+      "reason": "狮子林以奇石假山闻名，园内的假山迷宫充满了探索的乐趣。相比拙政园，这里更小巧紧凑，适合学生群体快速游览并拍照打卡。门票也相对便宜，是预算有限的旅行者的好选择。",
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food": [
+    {
+      "id": "food_pingjiang_snacks",
+      "name": "平江路小吃与茶馆",
+      "district": "姑苏区",
+      "category": "snack street",
+      "reason": "平江路沿途遍布江南特色小吃摊和河畔茶馆，梅花糕、海棠糕、鸡头米等小吃价格亲民，边走边吃最能感受苏州的悠闲节奏。学生党可以花很少的钱体验地道的江南味道。"
+    },
+    {
+      "id": "food_shantang_snacks",
+      "name": "山塘街小吃",
+      "district": "姑苏区",
+      "category": "snack street",
+      "reason": "山塘街的小吃种类丰富，从糖粥、生煎到苏式面点，价格实惠且充满市井气息。晚上灯笼亮起时，坐在河边吃一碗小馄饨，是学生旅行者最爱的平价美食体验。"
+    },
+    {
+      "id": "food_guanqian_dining",
+      "name": "观前街平价餐厅",
+      "district": "姑苏区",
+      "category": "casual dining",
+      "reason": "观前街是苏州最热闹的商业中心，聚集了许多老字号和性价比高的苏式餐厅。学生党可以在这里找到奥灶面、蟹粉小笼等经典美食，既不用花太多钱，又能吃到正宗的苏州味道。"
+    }
+  ]
+}

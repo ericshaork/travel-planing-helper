@@ -342,7 +342,12 @@ export function getMockExploreDetail(idOrSlug: string) {
   const normalized = idOrSlug.trim();
   return (
     EXPLORE_MOCK_ARCHIVES.find(
-      (item) => item.id === normalized || item.slug === normalized,
+      (item) =>
+        item.id === normalized ||
+        item.slug === normalized ||
+        item.externalId === normalized ||
+        item.cityCode === normalized ||
+        item.city === normalized,
     ) ?? null
   );
 }

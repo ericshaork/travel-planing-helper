@@ -43,7 +43,7 @@ export function GenerateTripButton({
         onClick={() => void handleClick()}
         className="inline-flex min-h-11 items-center justify-center rounded-full border border-[var(--ink)] px-4 py-2 text-sm font-semibold text-[var(--ink)] disabled:cursor-not-allowed disabled:border-[var(--line)] disabled:text-[var(--ink-muted)]"
       >
-        {isRunning ? "Preparing..." : label}
+        {isRunning ? "正在准备…" : label}
       </button>
 
       {helperText ? (
@@ -56,7 +56,7 @@ export function GenerateTripButton({
           onClick={() => setOpen((current) => !current)}
           className="text-xs font-semibold text-[var(--ink-muted)] underline-offset-4 hover:underline"
         >
-          {open ? "Hide request contract" : "Preview request contract"}
+          {open ? "收起创建参数" : "查看创建参数"}
         </button>
       ) : null}
 

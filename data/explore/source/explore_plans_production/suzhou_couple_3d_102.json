@@ -1,0 +1,186 @@
+{
+  "id": "exp_suzhou_couple_3d_slow_v1",
+  "slug": "suzhou-couple-3d-slow-garden-canal",
+  "title": "园林晨光与平江慢步：写给两人的苏州三日",
+  "summary": "为情侣设计的苏州慢行计划，以园林的清晨静谧和平江路的悠然步调为线索，串联起江南水乡的温婉与精致。两人可以一起在拙政园感受晨光透过窗棂的温柔，在平江路并肩走过青石板路，傍晚在山塘街的灯火里分享一碗糖粥。全程节奏舒缓，留足拍照和发呆的时间。",
+  "city": {
+    "code": "suzhou",
+    "name": "Suzhou",
+    "region_name": "Jiangsu"
+  },
+  "trip_type": "couple",
+  "days": 3,
+  "budget": {
+    "level": "medium",
+    "note": "包含一处经典园林门票、两次运河街区餐饮、以及一次湖畔傍晚散步，整体花费适中。"
+  },
+  "pace": "slow",
+  "tags": [
+    "江南",
+    "古典园林",
+    "运河漫步",
+    "慢旅行",
+    "拍照友好",
+    "情侣"
+  ],
+  "image_prompt": "Editorial travel photography style, a couple walking hand-in-hand on Pingjiang Road at golden hour, canalside willows and traditional white-walled buildings, soft warm light reflecting on the water, shallow depth of field, Fuji film aesthetic, cinematic composition.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "园林清晨，运河午后",
+      "summary": "从拙政园的晨光开始，感受苏州园林的静谧之美，午后沿着平江路慢慢散步，在茶馆小憩。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "清晨趁着游客还少，两人牵手走进拙政园。晨光透过漏窗洒在水榭和假山上，池中的锦鲤游动，整个园林仿佛只属于你们。慢慢走，慢慢看，在每个亭台前留影。",
+          "poi_refs": [
+            "poi_humble_admin"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "从拙政园步行到平江路，沿着运河边的小巷慢慢走。路过卖茉莉花手串的小摊，买一串戴在她手上。找一家河边的茶馆坐下，点一壶碧螺春，看船夫摇橹经过。",
+          "poi_refs": [
+            "poi_pingjiang"
+          ],
+          "food_refs": [
+            "food_pingjiang_snacks"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "狮子林的石趣，山塘街的夜灯",
+      "summary": "上午在狮子林的石迷宫间穿行，下午沿着山塘街漫步，傍晚在运河边享受一顿苏式晚餐。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "狮子林的假山石迷宫是两个人的游乐场，你们可以比赛谁先找到出口，或者在石桥上并肩坐着看锦鲤。园子不大，但处处有趣。",
+          "poi_refs": [
+            "poi_lion_grove"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "从狮子林步行到山塘街，沿途路过老苏州的居民区。山塘街的白天比夜晚安静，可以慢慢逛特色小店，买一块苏式糕点边走边吃。",
+          "poi_refs": [
+            "poi_shantang"
+          ],
+          "food_refs": [
+            "food_shantang_snacks"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "当灯笼亮起，山塘街换上了晚装。找一家临河的餐馆，点上松鼠鳜鱼和清炒时蔬，窗外是摇曳的灯影和偶尔经过的游船。饭后沿着运河散步，在桥上拍一张两人的背影。",
+          "poi_refs": [
+            "poi_shantang"
+          ],
+          "food_refs": [
+            "food_shantang_snacks"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "虎丘登高，金鸡湖的傍晚",
+      "summary": "上午登上虎丘塔俯瞰古城，下午在金鸡湖畔感受现代苏州的另一种面貌，在夕阳中结束旅程。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "虎丘比想象中开阔，两人可以沿着山路慢慢向上，在剑池边听一段传说。登上虎丘塔，俯瞰整座古城，远处的白墙黛瓦像一幅水墨画。",
+          "poi_refs": [
+            "poi_tiger_hill"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "从古城区搭乘地铁前往金鸡湖，感受苏州现代的一面。在湖边步道散步，看摩天轮倒映在水中，找一家咖啡馆坐在户外，享受悠闲的午后。",
+          "poi_refs": [
+            "poi_jinji_lake_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "日落前回到金鸡湖畔，找一处长椅并肩坐下，看天空从橙红变成深蓝，湖对岸的灯光逐渐亮起。这是属于两个人的安静时刻，为苏州之旅画上温柔的句点。",
+          "poi_refs": [
+            "poi_jinji_lake_edge"
+          ],
+          "food_refs": []
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_humble_admin",
+      "name": "拙政园",
+      "district": "姑苏区",
+      "type": "古典园林",
+      "reason": "苏州园林的代表，清晨人少时入园，能独享一份江南园林的静谧与精致。两人可以在水榭和曲桥间慢步，感受移步换景的雅趣。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_pingjiang",
+      "name": "平江路",
+      "district": "姑苏区",
+      "type": "历史运河街区",
+      "reason": "苏州最有韵味的运河老街，青石板路、小桥流水、茶馆和特色小店沿河散布。适合情侣牵手慢逛，随时停下来拍照或喝茶。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_lion_grove",
+      "name": "狮子林",
+      "district": "姑苏区",
+      "type": "古典园林",
+      "reason": "以假山迷宫著称，趣味性强，适合两人一起探索。园林小巧精致，不会太累，适合慢节奏的情侣日。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_shantang",
+      "name": "山塘街",
+      "district": "姑苏区",
+      "type": "历史运河街区",
+      "reason": "夜景尤其迷人，灯笼倒映在水中，氛围浪漫。沿街有丰富的苏式小吃和临河餐馆，适合情侣晚餐后散步。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_tiger_hill",
+      "name": "虎丘",
+      "district": "姑苏区",
+      "type": "历史风景名胜",
+      "reason": "登高望远，可俯瞰苏州古城全貌。景区开阔，适合两人慢慢走，在剑池和虎丘塔下留下合影。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_jinji_lake_edge",
+      "name": "金鸡湖",
+      "district": "苏州工业园区",
+      "type": "现代滨水区",
+      "reason": "苏州现代一面的代表，湖面开阔，有摩天轮和现代建筑群。傍晚时分适合情侣坐在湖边看日落，氛围宁静浪漫。",
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food": [
+    {
+      "id": "food_pingjiang_snacks",
+      "name": "平江路小吃与茶馆",
+      "district": "姑苏区",
+      "category": "小吃街",
+      "reason": "沿河分布着多家茶馆和点心铺，可以边看运河风景边品尝苏式糕点和碧螺春，是情侣休憩聊天的好去处。"
+    },
+    {
+      "id": "food_shantang_snacks",
+      "name": "山塘街美食",
+      "district": "姑苏区",
+      "category": "小吃街",
+      "reason": "夜晚的山塘街灯笼亮起，沿街小吃摊和餐馆热闹而不喧哗。推荐两人分享一碗桂花糖粥和一份生煎包，感受苏州的甜美夜晚。"
+    }
+  ]
+}

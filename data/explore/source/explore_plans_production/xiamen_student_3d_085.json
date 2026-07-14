@@ -1,0 +1,207 @@
+{
+  "id": "exp_xiamen_student_3d_food_shopping_citywalk_v1",
+  "slug": "xiamen-student-3d-food-shopping-citywalk",
+  "title": "沙坡尾的傍晚与鼓浪屿的光影：三日厦门学生漫游",
+  "summary": "为预算有限但渴望城市活力的学生旅行者设计。三天里，你将穿梭于中山路的烟火食街、沙坡尾的创意港湾，沿着环岛路追海风，在傍晚的码头边感受厦门最年轻的一面。节奏轻快，花销可控，每一口小吃和每一次转角都藏着这座岛城的呼吸。",
+  "city": {
+    "code": "xiamen",
+    "name": "Xiamen",
+    "region_name": "Fujian"
+  },
+  "trip_type": "student",
+  "days": 3,
+  "budget": {
+    "level": "low",
+    "note": "以小吃、步行和免费景点为主，人均每日餐饮+交通控制在60-100元。"
+  },
+  "pace": "balanced",
+  "tags": [
+    "food",
+    "citywalk",
+    "budget-friendly",
+    "coastal-city",
+    "old-street",
+    "snack-friendly"
+  ],
+  "image_prompt": "National Geographic travel magazine style photo of a young student walking through Shapowei harbor at golden hour, colorful fishing boats and creative graffiti on walls, warm light reflecting on water, casual clothing, backpack, urban coastal atmosphere, cinematic depth of field.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "中山路烟火与老城初探",
+      "summary": "从中山路的小吃阵开始，用味蕾认识厦门，傍晚在沙坡尾看渔船归港。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "抵达厦门后，直奔中山路步行街。这里是老城的味觉起点，从沙茶面到海蛎煎，用几块钱的小吃填满上午。边走边逛路边的杂货铺，感受骑楼下的市井气息。",
+          "poi_refs": [
+            "poi_zhongshan_road"
+          ],
+          "food_refs": [
+            "food_zhongshan_snack"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "从中山路步行至南普陀寺和厦门大学外围，不进入寺庙，只在周边感受学村的宁静与绿荫。坐在台阶上看看来往的学生，喝一杯路边奶茶，节奏放慢。",
+          "poi_refs": [
+            "poi_nanputuo_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "前往沙坡尾，这里是厦门最年轻的角落。在避风坞边散步，看彩色渔船和创意小店亮起灯光。找一家巷子里的沙茶面或烧肉粽当晚餐，坐在岸边吹海风。",
+          "poi_refs": [
+            "poi_shapowei"
+          ],
+          "food_refs": [
+            "food_shapowei_harbor"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "环岛路追风与鼓浪屿对望",
+      "summary": "沿着海岸线骑行，在观景台远眺鼓浪屿，傍晚回到市区感受白鹭洲的悠闲。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "租一辆共享单车，骑上环岛路。从厦大白城到会展中心一段，海风拂面，左边是沙滩，右边是椰林。随时停下来踩水、拍照，享受免费的沿海风景。",
+          "poi_refs": [
+            "poi_huandao_road"
+          ],
+          "food_refs": [
+            "food_seafront_stops"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "在环岛路中段的鼓浪屿观景台停留，隔着鹭江眺望对岸的岛屿轮廓。不坐渡轮，省下船票，在岸边长椅上发呆，看海鸥和船只往来，感受光影变化。",
+          "poi_refs": [
+            "poi_gulangyu_view"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "回到市区，散步至白鹭洲公园。这里是本地人傍晚遛弯的去处，湖面平静，灯光柔和。找一家路边摊吃海蛎饼和四果汤，结束轻松的一天。",
+          "poi_refs": [
+            "poi_bailuzhou_evening"
+          ],
+          "food_refs": [
+            "food_zhongshan_snack"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "沙坡尾的晨光与告别",
+      "summary": "在沙坡尾的咖啡馆里等日出，最后逛一逛创意市集，带走厦门的味道。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "早起再去一次沙坡尾，趁游客未至，看晨光洒在渔船和彩色房子上。在港口边的早餐摊吃一碗面线糊，配油条，感受本地人的清晨。",
+          "poi_refs": [
+            "poi_shapowei"
+          ],
+          "food_refs": [
+            "food_shapowei_harbor"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "在沙坡尾的文创小店和市集里淘些手作纪念品，明信片、冰箱贴或者手工耳环，价格友好。之后沿着大学路走到顶澳仔猫街，和墙上的猫咪涂鸦合影。",
+          "poi_refs": [
+            "poi_nanputuo_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "最后一顿，回到中山路吃没尝过的小吃，比如土笋冻和花生汤。打包一份馅饼，带着海风味的记忆离开。",
+          "poi_refs": [
+            "poi_zhongshan_road"
+          ],
+          "food_refs": [
+            "food_zhongshan_snack"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_zhongshan_road",
+      "name": "中山路步行街",
+      "district": "思明区",
+      "type": "historic commercial street",
+      "reason": "这是厦门最老牌的商业街，骑楼连绵，小吃扎堆。对于学生旅行者来说，这里是用最少的钱尝遍本地味道的起点，也是感受老城脉搏的最佳窗口。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_shapowei",
+      "name": "沙坡尾",
+      "district": "思明区",
+      "type": "harbor neighborhood",
+      "reason": "沙坡尾是厦门年轻创意的聚集地，避风坞、渔船、涂鸦和独立咖啡馆混搭出独特的海港气质。傍晚时分尤其迷人，适合学生党散步、拍照、吹风。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_huandao_road",
+      "name": "环岛路海滨步道",
+      "district": "思明区",
+      "type": "coastal promenade",
+      "reason": "环岛路是厦门的海岸线走廊，骑行或步行都能享受开阔海景。免费开放，沿途有沙滩和绿地，是学生旅行中性价比最高的风景线。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_nanputuo_edge",
+      "name": "南普陀与厦大周边",
+      "district": "思明区",
+      "type": "cultural-campus area",
+      "reason": "南普陀寺和厦门大学相邻，形成一片宁静的文化区域。不进入寺庙，只在周边走走，感受学村氛围和绿树红砖，是闹中取静的歇脚处。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_bailuzhou_evening",
+      "name": "白鹭洲夜景",
+      "district": "思明区",
+      "type": "urban evening waterfront",
+      "reason": "白鹭洲公园是本地人傍晚休闲的去处，湖面开阔，灯光柔和，没有旅游区的喧闹。适合学生旅行者安静地坐一坐，结束一天的行程。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_gulangyu_view",
+      "name": "鼓浪屿观景平台",
+      "district": "思明区",
+      "type": "coastal landmark view",
+      "reason": "在环岛路上选一处观景台，隔海眺望鼓浪屿，不用渡轮费也能欣赏到标志性的岛屿轮廓。光影变幻间，是拍照和发呆的好地方。",
+      "recommended_duration_minutes": 75
+    }
+  ],
+  "food": [
+    {
+      "id": "food_zhongshan_snack",
+      "name": "中山路小吃街",
+      "district": "思明区",
+      "category": "snack street",
+      "reason": "中山路是厦门小吃的大本营，沙茶面、海蛎煎、土笋冻、花生汤等经典都能在这里找到。价格亲民，适合学生一路逛吃。"
+    },
+    {
+      "id": "food_shapowei_harbor",
+      "name": "沙坡尾港畔食档",
+      "district": "思明区",
+      "category": "harbor dining",
+      "reason": "沙坡尾的港口边藏着不少本地人光顾的小吃摊和咖啡馆，面线糊、烧肉粽、沙茶面都是实惠的选择。坐在岸边吃，海风就是最好的调味。"
+    },
+    {
+      "id": "food_seafront_stops",
+      "name": "环岛路海滨小食",
+      "district": "思明区",
+      "category": "coastal snacks",
+      "reason": "环岛路沿线有流动小摊和简易餐车，提供烤鱿鱼、椰子汁、四果汤等清爽小食。运动后补充能量，价格便宜且充满海边度假感。"
+    }
+  ]
+}

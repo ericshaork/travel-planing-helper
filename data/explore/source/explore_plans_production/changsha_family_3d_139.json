@@ -1,0 +1,171 @@
+{
+  "id": "exp_changsha_family_3d_slow_food_history_v1",
+  "slug": "changsha-family-3d-slow-food-history",
+  "title": "三代同游长沙：老街烟火里的慢时光",
+  "summary": "这是一次为家庭设计的陪伴型旅程，节奏舒缓，兼顾历史底蕴与夜市温度。白天在橘子洲和岳麓山享受开阔的河景与绿意，傍晚漫步太平街和坡子街，在热闹而不拥挤的节奏中品尝地道的湖南小吃。无需赶路，每个停靠点都留足了休息和拍照的时间，让老人和孩子都能自在感受长沙的烟火气。",
+  "city": {
+    "code": "changsha",
+    "name": "Changsha",
+    "region_name": "Hunan"
+  },
+  "trip_type": "family",
+  "days": 3,
+  "budget": {
+    "level": "medium",
+    "note": "每日安排一处文化或景观景点，搭配一处标志性美食街区，兼顾舒适与体验。"
+  },
+  "pace": "slow",
+  "tags": [
+    "family",
+    "history",
+    "museum",
+    "street-food",
+    "river-evening",
+    "slow-travel"
+  ],
+  "image_prompt": "Editorial travel magazine photo of a multi-generational Chinese family walking along a historic street in Changsha at dusk, warm lantern light, street food stalls in the background, relaxed atmosphere, shallow depth of field, cinematic composition, soft evening glow.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "河风与老街的初遇",
+      "summary": "从橘子洲的江景开始，感受长沙的开阔与悠闲，傍晚转入太平街的巷弄，在历史建筑间品尝地道的家庭晚餐。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "抵达长沙后，前往橘子洲边缘步道，沿着湘江散步，欣赏开阔的江景和城市轮廓。老人和孩子可以在草坪上休息，享受轻松的河风。",
+          "poi_refs": [
+            "poi_orange_isle_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "从橘子洲前往太平街区域，漫步在青石板路上，感受老长沙的街巷肌理。街道两旁有传统手工艺店和小吃摊，适合全家走走停停。",
+          "poi_refs": [
+            "poi_taiping"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "在太平街的餐饮小巷里找一家有座位的本地菜馆，享用一顿不辣的合家晚餐。饭后继续在街上闲逛，感受夜市的热闹但不喧闹的氛围。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_taiping"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "山间绿意与夜市烟火",
+      "summary": "上午在岳麓山呼吸新鲜空气，下午返回市中心轻松休息，傍晚步入坡子街体验地道的湖南小吃文化。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "前往岳麓山边缘区域，选择一条平缓的步道散步，欣赏山间的古树和书院氛围。老人可以坐在山脚的长椅上休息，孩子可以在开阔处玩耍。",
+          "poi_refs": [
+            "poi_yuelu_mountain_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "返回酒店或市中心区域午休，之后可以在附近公园或商场轻松度过，为晚上的美食之旅储备精力。",
+          "poi_refs": [],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "前往坡子街，这里是长沙小吃的集中地。全家可以分头尝试臭豆腐、糖油粑粑等特色小吃，边走边吃，感受夜市的活力。注意选择排队较短、环境干净的摊位。",
+          "poi_refs": [
+            "poi_pozi"
+          ],
+          "food_refs": [
+            "food_pozi"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "江畔慢食与告别",
+      "summary": "最后一天放慢节奏，在湘江边的餐厅享受一顿悠闲的午餐，然后从容结束旅程。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "在酒店享用早餐后，再次前往橘子洲边缘步道，进行最后的散步和拍照，孩子们可以在江边捡石子，老人可以坐在长椅上感受晨光。",
+          "poi_refs": [
+            "poi_orange_isle_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "在湘江边的河景轻食区找一家视野好的餐厅，享用一顿慢午餐，品尝一些本地特色的甜品和茶饮。之后整理行李，准备返程。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_riverfront"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_orange_isle_edge",
+      "name": "橘子洲边缘步道",
+      "district": "岳麓区",
+      "type": "河岛风景区",
+      "reason": "开阔的江景步道适合全家人悠闲散步，老人可以坐在长椅上休息，孩子可以在草坪上奔跑，是家庭旅程中放松身心的理想起点。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_taiping",
+      "name": "太平街区域",
+      "district": "天心区",
+      "type": "历史街区",
+      "reason": "保留老长沙街巷肌理的步行街区，路面平整、节奏舒缓，两旁有传统手工艺和小吃，适合家庭边走边看，感受历史与现代的交融。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_yuelu_mountain_edge",
+      "name": "岳麓山边缘",
+      "district": "岳麓区",
+      "type": "自然文化区",
+      "reason": "选择平缓的边缘步道，无需爬山也能享受绿意和古树氛围，为家庭提供一处安静的自然休憩地，老人和孩子都能轻松参与。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_pozi",
+      "name": "坡子街",
+      "district": "天心区",
+      "type": "美食街",
+      "reason": "长沙小吃文化的核心地标，虽然热闹但不失秩序，家庭可以在此体验地道的湖南味道，老人也能找到不太辣的选择。",
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food": [
+    {
+      "id": "food_taiping",
+      "name": "太平街家庭餐厅",
+      "district": "天心区",
+      "category": "老街餐饮",
+      "reason": "太平街内有多家提供本地菜系的家庭友好餐厅，环境舒适、口味可选，适合全家围坐享用一顿不辣的合家晚餐。"
+    },
+    {
+      "id": "food_pozi",
+      "name": "坡子街小吃摊",
+      "district": "天心区",
+      "category": "小吃街",
+      "reason": "坡子街汇聚了臭豆腐、糖油粑粑等经典湖南小吃，摊位密集、选择丰富，家庭成员可以各取所好，体验边走边吃的乐趣。"
+    },
+    {
+      "id": "food_riverfront",
+      "name": "湘江边河景餐厅",
+      "district": "天心区",
+      "category": "河景餐饮",
+      "reason": "位于湘江边的轻食餐厅，提供甜品、茶饮和简餐，视野开阔、环境安静，适合家庭在最后一天享受一顿悠闲的告别午餐。"
+    }
+  ]
+}

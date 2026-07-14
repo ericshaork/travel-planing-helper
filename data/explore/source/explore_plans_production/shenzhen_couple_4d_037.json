@@ -1,0 +1,216 @@
+{
+  "id": "exp_shenzhen_couple_4d_waterfront_skyline",
+  "slug": "shenzhen-couple-4d-waterfront-skyline",
+  "title": "深圳湾慢行：四日浪漫天际线之旅",
+  "summary": "为情侣设计的深圳慢节奏旅程，从深圳湾的海风栈道出发，穿过创意街区的午后光影，最终融入福田CBD的璀璨夜景。全程以摄影、漫步和精致美食为线索，在舒适的高预算节奏中，捕捉属于两个人的城市记忆。",
+  "city": {
+    "code": "shenzhen",
+    "name": "Shenzhen",
+    "region_name": "Guangdong"
+  },
+  "trip_type": "couple",
+  "days": 4,
+  "budget": {
+    "level": "high",
+    "note": "全程舒适慢行，精选湾区景观餐厅与设计感咖啡馆，为二人世界营造精致氛围。"
+  },
+  "pace": "slow",
+  "tags": [
+    "bay-view",
+    "creative-district",
+    "modern-city",
+    "night-view",
+    "photo-friendly",
+    "romantic"
+  ],
+  "image_prompt": "National Geographic travel magazine style photo of a couple walking hand in hand along the Shenzhen Bay boardwalk at golden hour, with the modern skyline rising in the background, soft warm light, reflection on calm water, clean composition, romantic and serene mood.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "海风与天际线的第一面",
+      "summary": "从深圳湾的漫步开始，感受海风与城市天际线的交融，傍晚在海世界广场享用浪漫晚餐。",
+      "activities": [
+        {
+          "time_block": "afternoon",
+          "description": "抵达深圳后，前往深圳湾公园，沿着海滨栈道悠闲漫步。海风轻拂，对岸的香港山影与城市天际线构成绝佳摄影背景。两人可以找个长椅坐下，静静看海，享受抵达后的第一份宁静。",
+          "poi_refs": [
+            "poi_shenzhen_bay"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "前往海世界广场，这里灯光璀璨，餐厅林立。选择一家拥有户外座位的海鲜餐厅，边品尝精致晚餐，边欣赏广场的夜间喷泉与灯光秀。餐后沿着水边散步，氛围温馨浪漫。",
+          "poi_refs": [
+            "poi_sea_world"
+          ],
+          "food_refs": [
+            "food_sea_world"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "创意街区的午后光影",
+      "summary": "在华侨城创意园度过一个文艺的上午，逛画廊、喝手冲咖啡，下午登上莲花山俯瞰城市全景。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "睡到自然醒后，前往华侨城创意文化园。这里遍布独立画廊、设计商店和风格咖啡馆。你们可以漫无目的地穿梭于旧厂房改造的小巷，偶尔停下拍照，或在某家咖啡馆的露天座位喝一杯手冲，享受慵懒的时光。",
+          "poi_refs": [
+            "poi_oct_loft"
+          ],
+          "food_refs": [
+            "food_oct_cafe"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "从创意园乘坐地铁前往莲花山公园。沿着缓坡登上山顶，俯瞰福田CBD的壮丽天际线。这里是拍摄城市全景的绝佳位置，尤其适合情侣合影。下山后可在公园草坪上休息，感受本地人的休闲生活。",
+          "poi_refs": [
+            "poi_lianhuashan"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "前往市民中心广场，欣赏深圳中轴线的夜景。灯光勾勒出现代建筑的轮廓，广场开阔，适合牵手漫步。之后在附近选择一家高级粤菜餐厅，体验地道的广东风味。",
+          "poi_refs": [
+            "poi_civic_center"
+          ],
+          "food_refs": []
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "海岸线的另一种呼吸",
+      "summary": "远离城市喧嚣，在大梅沙海岸感受海风与沙滩的温柔，傍晚返回市区享用浪漫晚餐。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "上午从市区出发，前往大梅沙海滨公园。这里沙滩细腻，海水清澈，相比深圳湾更多了一份度假气息。两人可以赤脚踩沙、踏浪，或在海边栈道散步，拍摄以山海为背景的照片。",
+          "poi_refs": [
+            "poi_dameisha_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "在大梅沙附近的海鲜餐厅享用午餐，品尝新鲜捕捞的海产。午后可以在沙滩上的遮阳伞下小憩，或沿着海岸线继续漫步，享受慢节奏的二人世界。",
+          "poi_refs": [],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "返回市区，再次前往海世界广场，选择一家不同的餐厅体验。这次可以尝试异国料理，餐后在海边酒吧小酌一杯，听现场音乐，结束惬意的一天。",
+          "poi_refs": [
+            "poi_sea_world"
+          ],
+          "food_refs": [
+            "food_sea_world"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 4,
+      "title": "城市最后的慢板",
+      "summary": "在创意园区的咖啡馆里回味旅程，下午登高望远，为这次浪漫之旅画上句号。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "再次前往华侨城创意文化园，这次专注于那些前一天错过的角落。找一家心仪已久的独立书店，或在一家设计感十足的咖啡馆里写明信片，记录下旅途中的心情。",
+          "poi_refs": [
+            "poi_oct_loft"
+          ],
+          "food_refs": [
+            "food_oct_cafe"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "最后登上莲花山公园，在白天的光线下再看一次城市全景。然后下山在市民中心附近闲逛，拍摄现代建筑与街头艺术。在附近的甜品店享用一份下午茶，为旅程留下甜蜜的尾韵。",
+          "poi_refs": [
+            "poi_lianhuashan",
+            "poi_civic_center"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "整理行李，前往机场或高铁站，带着满满的回忆离开深圳。",
+          "poi_refs": [],
+          "food_refs": []
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_shenzhen_bay",
+      "name": "深圳湾滨海休闲带",
+      "district": "南山区",
+      "type": "滨水景观区",
+      "reason": "作为旅程的起点，深圳湾的宽阔海面和绵延栈道是情侣漫步的绝佳场所。对岸的山影与城市天际线交织，每一步都是风景，适合放慢脚步，享受海风与彼此的陪伴。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_oct_loft",
+      "name": "华侨城创意文化园",
+      "district": "南山区",
+      "type": "创意街区",
+      "reason": "文艺情侣的必到之处。旧厂房改造的画廊、独立书店和咖啡馆充满艺术气息，适合花一整个上午闲逛、拍照，在某个转角发现惊喜。这里的节奏缓慢，与深圳的快节奏形成对比。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_civic_center",
+      "name": "市民中心天际线轴",
+      "district": "福田区",
+      "type": "城市地标区",
+      "reason": "深圳现代建筑群的精华所在。开阔的广场和对称的布局在夜晚灯光下尤其壮观，是拍摄城市夜景和情侣合影的绝佳背景。傍晚时分，两人可以手牵手漫步，感受都市的脉搏。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_lianhuashan",
+      "name": "莲花山公园",
+      "district": "福田区",
+      "type": "城市公园",
+      "reason": "无需费力攀登即可俯瞰城市全景的山顶公园。适合作为轻松的半日行程，在山顶草坪上并肩而坐，看城市在脚下展开。下山后的公园绿道也适合悠闲散步。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_sea_world",
+      "name": "海上世界广场",
+      "district": "南山区",
+      "type": "夜间休闲区",
+      "reason": "夜晚的璀璨明珠。明华轮与周边现代建筑在灯光下倒映水中，餐厅和酒吧林立，氛围浪漫而精致。适合情侣在此享用晚餐、散步，感受深圳的夜生活魅力。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_dameisha_edge",
+      "name": "大梅沙海滨公园",
+      "district": "盐田区",
+      "type": "滨海休闲区",
+      "reason": "为旅程注入度假气息。相比深圳湾，大梅沙的海更蓝、沙更细，适合赤脚踩浪、拍摄海景人像。远离市区喧嚣，两人可以在这里享受一整天的悠闲时光。",
+      "recommended_duration_minutes": 150
+    }
+  ],
+  "food": [
+    {
+      "id": "food_sea_world",
+      "name": "海上世界餐饮区",
+      "district": "南山区",
+      "category": "滨水餐厅集群",
+      "reason": "汇集各国料理与海鲜餐厅，环境优雅，多数拥有户外水景座位。适合情侣在浪漫灯光下共享晚餐，推荐尝试海鲜拼盘或精致粤菜，餐后还可漫步消食。"
+    },
+    {
+      "id": "food_oct_cafe",
+      "name": "华侨城创意园咖啡轻食区",
+      "district": "南山区",
+      "category": "创意园区咖啡馆",
+      "reason": "遍布独立咖啡馆与轻食店，装修风格各异，适合文艺情侣在此度过悠闲上午。点一杯手冲咖啡和一份brunch，在艺术氛围中开启新的一天。"
+    }
+  ]
+}

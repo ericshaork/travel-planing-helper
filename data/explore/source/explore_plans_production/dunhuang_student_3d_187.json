@@ -1,0 +1,206 @@
+{
+  "id": "exp_dunhuang_student_3d_food_citywalk_v1",
+  "slug": "dunhuang-student-3d-food-citywalk",
+  "title": "壁画、星空与夜市：敦煌三日青春漫游",
+  "summary": "这是一趟属于学生党的敦煌之旅——不赶景点，不烧钱，用最自在的节奏串联莫高窟的千年壁画、鸣沙山的沙漠光影和沙洲夜市的人间烟火。白天在博物馆和古城巷弄里慢慢走，傍晚爬上沙丘等一场戈壁日落，夜里挤在夜市摊前吃一碗驴肉黄面。三天时间，刚好让你爱上这座丝路小城的活力与松弛。",
+  "city": {
+    "code": "dunhuang",
+    "name": "Dunhuang",
+    "region_name": "Gansu"
+  },
+  "trip_type": "student",
+  "days": 3,
+  "budget": {
+    "level": "low",
+    "note": "全程以公共交通、平价小吃和免费或低成本景点为主，莫高窟门票可凭学生证享半价优惠。"
+  },
+  "pace": "balanced",
+  "tags": [
+    "food",
+    "citywalk",
+    "local-culture",
+    "silk-road",
+    "desert-scenery",
+    "budget-friendly"
+  ],
+  "image_prompt": "A young traveler standing on a sand dune at sunset, looking out over the crescent-shaped oasis of Crescent Lake in Dunhuang. Warm golden light illuminates the scene, with the silhouette of a camel train in the distance. Editorial travel photography style, shallow depth of field, vibrant colors, cinematic composition.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "千年壁画与古城漫步",
+      "summary": "上午沉浸在莫高窟的壁画世界里，下午在敦煌博物馆补足丝绸之路的历史背景，傍晚钻进古城巷弄感受本地生活气息。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "早早出发前往莫高窟，避开人流高峰。在讲解员的带领下，穿梭于洞窟之间，仰望那些跨越千年的飞天壁画和彩塑。记得带好学生证，门票有优惠。窟内不允许拍照，所以用眼睛和记忆去收藏每一笔色彩吧。",
+          "poi_refs": [
+            "poi_mogao_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "从莫高窟返回市区，简单午餐后步行至敦煌博物馆。这里免费开放，展品从汉简到唐代绢画，让你对上午的壁画有更深的解读。逛完后沿着党河散步，走到老城区的巷弄里，看看当地人的生活日常。",
+          "poi_refs": [
+            "poi_museum_edge",
+            "poi_town_walk"
+          ],
+          "food_refs": [
+            "food_town_center"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "夜幕降临，直奔沙洲夜市。这里是敦煌最有烟火气的地方，烤羊肉串、杏皮水、驴肉黄面……每一样都值得尝尝。找一家热闹的摊位坐下，和摊主聊聊天，感受这座小城的夜活力。",
+          "poi_refs": [
+            "poi_shazhou_market"
+          ],
+          "food_refs": [
+            "food_shazhou_market"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "沙漠光影与星空下的青春",
+      "summary": "上午在鸣沙山骑骆驼、滑沙，下午在月牙泉边发呆，傍晚爬上沙丘看日落，晚上躺在沙漠里数星星——这是属于年轻人的沙漠狂欢。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "趁着凉爽，骑骆驼进入鸣沙山景区。驼铃声中，沙丘连绵起伏，月牙泉像一弯新月镶嵌其中。可以尝试滑沙，从沙丘顶端呼啸而下，感受速度与自由。",
+          "poi_refs": [
+            "poi_mingsha_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "在月牙泉边的凉亭里休息，脱掉鞋子踩在温热的沙子上，或者沿着泉边漫步。下午的沙漠光线柔和，适合拍出有质感的照片。如果体力允许，可以租一个滑沙板继续玩。",
+          "poi_refs": [
+            "poi_mingsha_edge"
+          ],
+          "food_refs": [
+            "food_desert_route"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "傍晚时分，爬上鸣沙山最高处的沙丘，等待日落。金色的阳光洒在沙脊上，月牙泉的水面反射出最后一抹光。日落之后，天边泛起深蓝，星星一颗颗亮起。如果天气晴朗，躺在沙丘上看银河，是敦煌最浪漫的免费体验。",
+          "poi_refs": [
+            "poi_desert_evening"
+          ],
+          "food_refs": []
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "慢逛老城，再尝一口敦煌味",
+      "summary": "最后一天不赶路，在老城里随意走走，补上想买的手信，再吃一遍最爱的小吃，用悠闲的方式和敦煌说再见。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "睡到自然醒，去老城区的早市逛逛，看看当地人买菜、吃早点的场景。可以买一些李广杏干或夜光杯作为纪念品，价格不贵又很有特色。",
+          "poi_refs": [
+            "poi_town_walk"
+          ],
+          "food_refs": [
+            "food_town_center"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "如果还有精力，可以再去一次敦煌博物馆（免费），把前两天看到的壁画和沙漠印象串联起来。或者干脆找一家茶馆，喝一杯三炮台，翻翻手机里的照片，整理这趟旅行的记忆。",
+          "poi_refs": [
+            "poi_museum_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "最后一顿晚餐，回到沙洲夜市，把最想吃的再点一遍——烤羊排、酿皮、甜醅子。坐在热闹的街边，看着往来的人群，记住这座小城的味道和温度。",
+          "poi_refs": [
+            "poi_shazhou_market"
+          ],
+          "food_refs": [
+            "food_shazhou_market"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_mogao_edge",
+      "name": "莫高窟",
+      "district": "敦煌",
+      "type": "cultural landmark",
+      "reason": "莫高窟是敦煌的灵魂，735个洞窟、4.5万平方米壁画，每一笔都是丝路文明的见证。对学生来说，这里不只是课本上的图片，更是一场穿越时空的震撼体验。半价门票让预算无压力。",
+      "recommended_duration_minutes": 150
+    },
+    {
+      "id": "poi_mingsha_edge",
+      "name": "鸣沙山与月牙泉",
+      "district": "敦煌",
+      "type": "desert scenic area",
+      "reason": "沙漠与清泉共存的奇景，是敦煌最上镜的地方。学生党可以花一整天在这里滑沙、骑骆驼、看日落，玩到尽兴。门票不贵，而且景区内可以重复进出。",
+      "recommended_duration_minutes": 150
+    },
+    {
+      "id": "poi_shazhou_market",
+      "name": "沙洲夜市",
+      "district": "敦煌",
+      "type": "food and evening district",
+      "reason": "敦煌夜晚最热闹的地方，小吃摊、手工艺品摊一字排开，烟火气十足。学生党可以花很少的钱吃到各种西北风味，是体验当地生活的最佳窗口。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_museum_edge",
+      "name": "敦煌博物馆",
+      "district": "敦煌",
+      "type": "museum area",
+      "reason": "免费开放的宝藏博物馆，馆藏丰富，从汉代简牍到唐代丝绸，帮你把莫高窟和沙漠背后的故事串联起来。适合学生党在午后慢慢逛，涨知识又不花钱。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_desert_evening",
+      "name": "沙漠日落观景点",
+      "district": "敦煌",
+      "type": "sunset scenic area",
+      "reason": "鸣沙山深处的一处安静沙丘，远离人群，是看日落和星空的绝佳位置。学生党可以在这里免费享受一场戈壁落日，然后躺着等银河升起。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_town_walk",
+      "name": "老城漫步",
+      "district": "敦煌",
+      "type": "town district",
+      "reason": "敦煌老城区保留着西北小城的质朴气质，巷弄里藏着本地人的生活日常。学生党可以漫无目的地走走，看看老房子、逛逛早市，感受慢节奏的市井气息。",
+      "recommended_duration_minutes": 75
+    }
+  ],
+  "food": [
+    {
+      "id": "food_shazhou_market",
+      "name": "沙洲夜市小吃区",
+      "district": "敦煌",
+      "category": "night market",
+      "reason": "学生党的美食天堂！烤羊肉串、驴肉黄面、杏皮水、酿皮……人均二三十元就能吃撑。夜市氛围热闹，适合和朋友一起边逛边吃，感受敦煌的夜生活。"
+    },
+    {
+      "id": "food_town_center",
+      "name": "市中心便餐区",
+      "district": "敦煌",
+      "category": "casual dining",
+      "reason": "敦煌市区里分布着许多平价小馆子，主打西北面食和家常菜。一碗牛肉面或一份炒搓鱼，简单实惠，适合学生党在景点之间快速解决午餐。"
+    },
+    {
+      "id": "food_desert_route",
+      "name": "沙漠沿线简餐点",
+      "district": "敦煌",
+      "category": "route-side dining",
+      "reason": "鸣沙山景区周边有一些简易的餐饮摊位，提供凉皮、烤饼、饮料等，价格合理。适合在沙漠玩累了之后补充能量，不用出景区就能吃饱。"
+    }
+  ]
+}

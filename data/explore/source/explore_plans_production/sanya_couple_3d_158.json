@@ -1,0 +1,168 @@
+{
+  "id": "exp_sanya_couple_3d_sunset_v1",
+  "slug": "sanya-couple-3d-sunset-romance",
+  "title": "湾区晚风与日落海岸：三亚三日双人浪漫漫游",
+  "summary": "这是一趟为情侣设计的慢节奏三亚之旅，聚焦湾区晚风、海边日落与两人共享的温柔时刻。从椰梦长廊的黄昏散步到鹿回头的城市灯火，每一天都围绕海景、光影和私密的用餐体验展开，让彼此在碧海蓝天间留下属于两人的浪漫记忆。",
+  "city": {
+    "code": "sanya",
+    "name": "Sanya",
+    "region_name": "Hainan"
+  },
+  "trip_type": "couple",
+  "days": 3,
+  "budget": {
+    "level": "medium",
+    "note": "中等预算，兼顾舒适海景用餐与精选体验，避免过度消费。"
+  },
+  "pace": "slow",
+  "tags": [
+    "couple",
+    "sunset",
+    "romance",
+    "slow-travel",
+    "beach",
+    "sea-view",
+    "photo",
+    "citywalk"
+  ],
+  "image_prompt": "Editorial travel magazine style photo of a couple walking hand in hand along a palm-fringed beach at golden hour, warm light reflecting on calm sea, soft bokeh, shallow depth of field, cinematic composition, Sanya coastal vibe.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "椰梦长廊的黄昏序曲",
+      "summary": "抵达三亚后，以一场轻松的湾区漫步开启旅程，傍晚在椰梦长廊捕捉日落，随后在海棠湾的滨海餐厅共享晚餐。",
+      "activities": [
+        {
+          "time_block": "afternoon",
+          "description": "抵达三亚后，入住酒店稍作休息，下午前往椰梦长廊，沿着海岸线悠闲散步，感受海风拂面，拍下两人与棕榈树、碧海的合影。",
+          "poi_refs": [
+            "poi_coconut_dream"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "日落时分，在椰梦长廊找一处安静的位置，并肩等待夕阳沉入海面。之后前往海棠湾的滨海餐厅，享用一顿面向大海的晚餐，以海鲜和椰香菜肴为这一晚画上浪漫句点。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_bayfront_dining"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "亚龙湾的蔚蓝与鹿回头的灯火",
+      "summary": "上午在亚龙湾公共海岸享受二人沙滩时光，下午前往鹿回头景区俯瞰山海，傍晚在市区品尝地道海鲜。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "早餐后前往亚龙湾公共海岸，铺开沙滩巾，一起踏浪、晒太阳，在清澈的海水中嬉戏，享受属于两人的悠闲上午。",
+          "poi_refs": [
+            "poi_yalong_bay"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "从亚龙湾返回市区，下午登上鹿回头景区，在山顶观景台俯瞰三亚湾与城市全景，在爱情主题雕塑前合影，感受海天一色的壮阔。",
+          "poi_refs": [
+            "poi_luhuitou_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "傍晚前往大东海区域，在沙滩边的海鲜排档选择一家氛围轻松的餐厅，品尝新鲜海产和热带饮品，饭后沿着大东海海岸散步，听海浪低语。",
+          "poi_refs": [
+            "poi_dadonghai"
+          ],
+          "food_refs": [
+            "food_dadonghai_seafood"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "海棠湾的慢调告别",
+      "summary": "最后一天在海棠湾度过，上午在海边漫步，中午享用一顿海景午餐，下午整理行装，带着美好回忆结束旅程。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "睡到自然醒，前往海棠湾边缘，沿着安静的沙滩散步，捡拾贝壳，或租一辆双人自行车沿海骑行，享受最后的二人世界。",
+          "poi_refs": [
+            "poi_haitang_bay_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "在海棠湾的滨海餐厅享用一顿悠闲的午餐，回味这趟旅程的点点滴滴。之后返回酒店取行李，前往机场，结束浪漫的三亚之旅。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_bayfront_dining"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_coconut_dream",
+      "name": "椰梦长廊",
+      "district": "天涯区",
+      "type": "滨海步道",
+      "reason": "这里是三亚最适合情侣散步的海岸线，棕榈树影、柔和海风与开阔的日落视野，让每一步都浸染着浪漫气息。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_yalong_bay",
+      "name": "亚龙湾公共海岸",
+      "district": "亚龙湾",
+      "type": "沙滩景区",
+      "reason": "亚龙湾的沙质细腻、海水清澈，是情侣享受二人沙滩时光的理想之地，远离喧嚣，只有海浪与彼此。",
+      "recommended_duration_minutes": 150
+    },
+    {
+      "id": "poi_luhuitou_edge",
+      "name": "鹿回头风景区",
+      "district": "吉阳区",
+      "type": "观景台景区",
+      "reason": "登上鹿回头，可以俯瞰三亚湾与城市全景，尤其在日落时分，金色余晖洒满海面，是情侣拍照留念的绝佳地点。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_dadonghai",
+      "name": "大东海区域",
+      "district": "吉阳区",
+      "type": "沙滩与城区",
+      "reason": "大东海兼具便利与活力，傍晚的海滩餐厅和夜间散步道为情侣提供了轻松惬意的约会氛围。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_haitang_bay_edge",
+      "name": "海棠湾边缘",
+      "district": "海棠区",
+      "type": "滨海休闲区",
+      "reason": "海棠湾更为安静私密，适合情侣在最后一天享受不被打扰的慢时光，海岸线绵长，景色纯净。",
+      "recommended_duration_minutes": 120
+    }
+  ],
+  "food": [
+    {
+      "id": "food_bayfront_dining",
+      "name": "海棠湾滨海餐厅",
+      "district": "海棠区",
+      "category": "海景餐厅",
+      "reason": "面向大海的用餐环境，主打海鲜与海南特色菜，适合情侣在日落时分共享一顿浪漫晚餐，氛围私密而温馨。"
+    },
+    {
+      "id": "food_dadonghai_seafood",
+      "name": "大东海海鲜排档",
+      "district": "吉阳区",
+      "category": "海鲜排档",
+      "reason": "大东海沿岸聚集了众多海鲜排档，价格适中、风味地道，情侣可以在此品尝新鲜海产，感受三亚的市井烟火气。"
+    }
+  ]
+}

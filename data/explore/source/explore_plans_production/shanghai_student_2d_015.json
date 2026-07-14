@@ -1,0 +1,161 @@
+{
+  "id": "exp_shanghai_student_2d_food_citywalk_v1",
+  "slug": "shanghai-student-2d-food-citywalk",
+  "title": "梧桐树下的青春漫步：上海法租界两日穿行",
+  "summary": "用学生友好的节奏，钻进上海最有活力的梧桐街区。从法租界的树影老洋房到城隍庙的烟火小吃，再沿着外滩吹吹江风——两天密集城市漫步，吃遍街角，逛出上海最年轻的一面。",
+  "city": {
+    "code": "shanghai",
+    "name": "Shanghai",
+    "region_name": "Shanghai"
+  },
+  "trip_type": "student",
+  "days": 2,
+  "budget": {
+    "level": "low",
+    "note": "全程以街边小吃、便利店补给和免费漫步为主，仅少量地铁交通费用。"
+  },
+  "pace": "dense",
+  "tags": [
+    "citywalk",
+    "food",
+    "shopping",
+    "budget-friendly",
+    "student"
+  ],
+  "image_prompt": "National Geographic travel magazine style photo of a young traveler walking under plane trees in Shanghai's Former French Concession, dappled sunlight, vintage architecture, casual backpack, warm afternoon light, street corner café, cinematic depth of field, urban exploration mood.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "法租界树影与城隍庙烟火",
+      "summary": "从武康路开始，在梧桐树荫和百年洋房间穿行，午后转场城隍庙老城厢，尝遍小吃，感受新旧上海的交错。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "从武康路出发，沿路欣赏老洋房和梧桐树影，在街角咖啡馆买一杯平价拿铁，边走边拍。这里每一条弄堂都藏着故事，适合慢慢晃悠。",
+          "poi_refs": [
+            "poi_wukang_road"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "转入法租界深处，沿着复兴中路和思南路随意穿行，看历史建筑和时髦小店交替出现。之后乘地铁到城隍庙，钻进老城厢的窄巷，尝生煎、小笼包和酒酿圆子，感受市井活力。",
+          "poi_refs": [
+            "poi_french_concession_walk",
+            "poi_yuyuan_edge"
+          ],
+          "food_refs": [
+            "food_yuyuan"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "从城隍庙步行至外滩，看浦东天际线亮起。在江边找个台阶坐下，吹风聊天，拍一张经典的上海夜景。",
+          "poi_refs": [
+            "poi_bund"
+          ],
+          "food_refs": []
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "苏州河畔与新天地转角",
+      "summary": "沿着苏州河漫步，感受安静的都市水岸，下午去新天地感受精致街区，最后在法租界的晚餐中结束旅程。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "从静安寺附近出发，沿苏州河步道东行，看老厂房改造的艺术空间和河岸绿意，人少景美，适合放空。",
+          "poi_refs": [
+            "poi_suzhou_creek"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "转场新天地，在石库门建筑群里逛逛设计小店和文创市集，感受上海时髦的一面。之后再次回到法租界，找一家平价面馆或本帮菜小馆解决晚餐。",
+          "poi_refs": [
+            "poi_xintiandi_edge"
+          ],
+          "food_refs": [
+            "food_french_concession"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "在法租界的梧桐树下散步收尾，路过小酒吧和面包店，感受夜晚的街区氛围。如果还有精力，可以再去外滩看一眼夜景。",
+          "poi_refs": [
+            "poi_french_concession_walk"
+          ],
+          "food_refs": []
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_bund",
+      "name": "外滩",
+      "district": "黄浦区",
+      "type": "滨江地标",
+      "reason": "外滩是上海的天际线舞台，傍晚时分对岸陆家嘴亮起灯光，江风扑面，是学生党拍出城市大片的最佳免费场景。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_french_concession_walk",
+      "name": "法租界漫步",
+      "district": "徐汇区",
+      "type": "历史街区",
+      "reason": "梧桐树荫下的老洋房街道，每一步都是风景。没有固定路线，适合随心穿行，感受上海最优雅的街区肌理。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_yuyuan_edge",
+      "name": "城隍庙老城厢",
+      "district": "黄浦区",
+      "type": "历史城区",
+      "reason": "老上海的味道在这里浓缩，九曲桥、茶楼、小吃摊，烟火气十足。学生党可以花很少的钱尝遍本地点心。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_suzhou_creek",
+      "name": "苏州河漫步",
+      "district": "静安区",
+      "type": "城市水岸步道",
+      "reason": "比外滩安静，比法租界更工业风。沿河步道串联起老仓库和新艺术空间，适合喜欢城市探索的学生。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_wukang_road",
+      "name": "武康路",
+      "district": "徐汇区",
+      "type": "建筑漫步街区",
+      "reason": "武康路是法租界的精华段，老洋房、网红小店和梧桐树构成最上镜的街景。学生党可以在此开启一天的 citywalk。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_xintiandi_edge",
+      "name": "新天地",
+      "district": "黄浦区",
+      "type": "时尚街区",
+      "reason": "石库门建筑改造的时尚街区，既有老上海风貌又有现代设计感。适合学生逛逛免费展览和创意市集。",
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food": [
+    {
+      "id": "food_yuyuan",
+      "name": "城隍庙小吃区",
+      "district": "黄浦区",
+      "category": "小吃街",
+      "reason": "生煎、小笼、酒酿圆子……几十块钱就能吃遍老上海经典。学生党可以边逛边吃，感受最热闹的市井气息。"
+    },
+    {
+      "id": "food_french_concession",
+      "name": "法租界平价食堂",
+      "district": "徐汇区",
+      "category": "街区美食",
+      "reason": "法租界深处藏着不少平价面馆和本帮菜小馆，一碗葱油拌面或一份红烧肉，味道地道且不贵，适合学生晚餐。"
+    }
+  ]
+}

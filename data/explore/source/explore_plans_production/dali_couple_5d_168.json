@@ -1,0 +1,244 @@
+{
+  "id": "exp_dali_couple_5d_slow_romance_v1",
+  "slug": "dali-couple-5d-slow-romance",
+  "title": "苍山洱海间的慢调浪漫：大理五日双人光影之旅",
+  "summary": "这是一段专为情侣设计的慢节奏旅程，从古城晨光到洱海日落，每一刻都浸润着大理特有的开阔与温柔。你们将牵手漫步在石板巷弄间，在湖光山色中定格彼此的笑容，在安静的小馆里共享一顿不赶时间的晚餐。五天里，没有匆忙的打卡，只有属于两个人的柔软时光。",
+  "city": {
+    "code": "dali",
+    "name": "Dali",
+    "region_name": "Yunnan"
+  },
+  "trip_type": "couple",
+  "days": 5,
+  "budget": {
+    "level": "medium",
+    "note": "每日安排一处氛围感旧城漫步、一个湖景或村落停留、一顿慢节奏的用餐体验，兼顾品质与舒适。"
+  },
+  "pace": "slow",
+  "tags": [
+    "浪漫",
+    "拍照",
+    "citywalk",
+    "美食",
+    "慢旅行",
+    "湖光山色",
+    "情侣"
+  ],
+  "image_prompt": "National Geographic travel magazine style photo of a couple walking hand in hand along the Erhai Lake edge at golden hour, soft warm light, distant Cangshan mountains, shallow depth of field, romantic and peaceful mood, high quality, 8K.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "古城初见：石板巷弄与暮色微光",
+      "summary": "抵达大理后，用一下午漫步古城，感受慢节奏的生活气息。傍晚在旧城灯笼下找一家小馆，共享第一顿云南风味晚餐。",
+      "activities": [
+        {
+          "time_block": "afternoon",
+          "description": "从古城南门开始，沿着人民路、复兴路随意穿行，逛逛有趣的手工店铺，在街角咖啡馆歇脚，感受大理的悠闲节奏。",
+          "poi_refs": [
+            "poi_dali_old_town"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "华灯初上，古城夜晚别有一番韵味。在旧城灯笼映照的巷弄里散步，随后选一家古城内的餐厅，尝尝地道的云南家常菜。",
+          "poi_refs": [
+            "poi_old_town_night"
+          ],
+          "food_refs": [
+            "food_old_town_casual"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "湖光相依：洱海边的慢镜头",
+      "summary": "全天留给洱海，从龙龛码头的清晨开始，沿着湖岸慢慢骑行或散步，在光影变幻中为彼此拍下最美的照片。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "早起前往龙龛码头，避开人潮，在晨光中看湖面泛起金色涟漪。两人沿着湖边栈道漫步，享受宁静的二人世界。",
+          "poi_refs": [
+            "poi_longkan_wharf"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "转至洱海更为开阔的湖滨区域，租一辆双人自行车或电动车，沿着环海路慢慢骑行。随时停下来拍照、发呆，感受风吹过发梢的惬意。",
+          "poi_refs": [
+            "poi_erhai_scenic_edge"
+          ],
+          "food_refs": [
+            "food_erhai_lake_dining"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "在湖边的轻食餐厅用一顿浪漫晚餐，窗外就是渐暗的湖色和远处的灯火。餐后沿着湖岸散步，看星星一颗颗亮起来。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_erhai_lake_dining"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "山色入怀：苍山脚下的静谧时光",
+      "summary": "上午在苍山脚下感受山景的壮阔，午后返回古城，找一家安静的茶馆或书店，享受慵懒的午后。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "前往苍山观景区域，远眺连绵的山脉和山脚下的白族村落。不需要登顶，只需在山脚或观景台停留，感受山风的清凉和视野的开阔。",
+          "poi_refs": [
+            "poi_cangshan_view"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "返回古城，找一家有院子的茶馆或书店，两人共读一本书或只是安静地坐着，享受慢下来的时光。",
+          "poi_refs": [
+            "poi_dali_old_town"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "在古城内随意探索，发现小巷深处的特色小店。晚餐选一家口碑好的本地菜馆，尝试大理特有的酸辣鱼或乳扇。",
+          "poi_refs": [
+            "poi_old_town_night"
+          ],
+          "food_refs": [
+            "food_old_town_casual"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 4,
+      "title": "村落漫步：喜洲的田园与旧时光",
+      "summary": "换一个节奏，前往喜洲古镇，感受更安静的白族村落气息。在田园和旧宅之间穿行，品尝喜洲粑粑，体验最接地气的大理。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "从古城出发，乘车前往喜洲古镇。在古镇边缘的田埂上散步，看稻田与白族民居相映成趣，感受不同于古城的宁静。",
+          "poi_refs": [
+            "poi_xizhou_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "深入喜洲的老街，参观保存完好的白族院落，在街边小店品尝刚出炉的喜洲粑粑。两人可以一起挑选一些手工扎染作为纪念。",
+          "poi_refs": [
+            "poi_xizhou_edge"
+          ],
+          "food_refs": [
+            "food_xizhou_local"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "在喜洲找一家有当地特色的餐厅，享用一顿慢悠悠的农家晚餐。饭后在村落里散步，看夕阳下的老建筑轮廓。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_xizhou_local"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 5,
+      "title": "再见大理：最后的古城慢早餐",
+      "summary": "最后一天不安排紧凑行程，在古城里吃一顿慵懒的早午餐，买一些伴手礼，然后带着满满的回忆告别。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "睡到自然醒，在古城找一家有阳光露台的餐厅，享用一顿丰盛的早午餐。之后在古城里做最后的漫步，买一些鲜花饼或手工制品带回家。",
+          "poi_refs": [
+            "poi_dali_old_town"
+          ],
+          "food_refs": [
+            "food_old_town_casual"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_dali_old_town",
+      "name": "大理古城漫步",
+      "district": "大理古城",
+      "type": "古城街区",
+      "reason": "古城是感受大理慢生活的起点，石板路、潺潺流水和街边的花草，每一步都充满闲适的气息。很适合情侣牵手漫无目的地闲逛。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_erhai_scenic_edge",
+      "name": "洱海湖滨观景带",
+      "district": "洱海",
+      "type": "湖滨景区",
+      "reason": "洱海是情侣照的天然背景板，开阔的水面和远处的苍山构成绝美画面。在这里骑行或漫步，每一帧都是值得珍藏的记忆。",
+      "recommended_duration_minutes": 150
+    },
+    {
+      "id": "poi_cangshan_view",
+      "name": "苍山观景台",
+      "district": "大理西",
+      "type": "山景眺望点",
+      "reason": "站在苍山脚下仰望群峰，感受大理的山水格局。两人并肩看云朵在山间流动，是只属于你们的安静时刻。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_longkan_wharf",
+      "name": "龙龛码头",
+      "district": "洱海",
+      "type": "湖滨步道",
+      "reason": "龙龛码头是洱海边最温柔的角落之一，清晨或黄昏时分，光线柔和，游人稀少，非常适合情侣享受二人世界的静谧。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_xizhou_edge",
+      "name": "喜洲古镇边缘区",
+      "district": "喜洲",
+      "type": "古镇村落",
+      "reason": "相比古城，喜洲更安静、更生活化。田埂、老宅和扎染作坊，处处透着质朴的浪漫。适合两人一起探索大理的另一种面貌。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_old_town_night",
+      "name": "古城夜巷",
+      "district": "大理古城",
+      "type": "夜间漫步区",
+      "reason": "入夜后的古城褪去喧闹，灯笼和月光下的巷弄格外有情调。两人可以手牵手在夜色中穿行，找一家小酒馆听听民谣。",
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food": [
+    {
+      "id": "food_old_town_casual",
+      "name": "古城随性美食区",
+      "district": "大理古城",
+      "category": "美食街区",
+      "reason": "古城内遍布着适合情侣的温馨小馆，从云南米线到白族特色菜，选择丰富。氛围轻松，可以随性走进一家喜欢的店，不用刻意规划。"
+    },
+    {
+      "id": "food_erhai_lake_dining",
+      "name": "洱海湖景轻食",
+      "district": "洱海",
+      "category": "湖滨餐厅",
+      "reason": "湖边的餐厅大多拥有绝佳视野，适合在午后或傍晚边用餐边看湖景。菜品偏清淡精致，与浪漫的湖滨氛围完美契合。"
+    },
+    {
+      "id": "food_xizhou_local",
+      "name": "喜洲乡土味道",
+      "district": "喜洲",
+      "category": "村落餐饮",
+      "reason": "喜洲的本地小吃和农家菜充满质朴气息，喜洲粑粑是必尝。在村落里用餐，能感受到最真实的大理田园生活。"
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "id": "exp_changsha_family_2d_slow_riverside_v1",
+  "slug": "changsha-family-2d-slow-riverside",
+  "title": "江边慢行，老街烟火：长沙两日亲子时光",
+  "summary": "这是一次为家庭设计的慢节奏长沙之旅，避开深夜喧嚣，以湘江边的开阔步道和太平街的烟火气为锚点，让孩子和家人都能从容感受这座城市的年轻活力与温润底色。",
+  "city": {
+    "code": "changsha",
+    "name": "Changsha",
+    "region_name": "Hunan"
+  },
+  "trip_type": "family",
+  "days": 2,
+  "budget": {
+    "level": "high",
+    "note": "全程舒适出行，优先选择河景餐厅和静谧用餐环境，减少奔波与等待。"
+  },
+  "pace": "slow",
+  "tags": [
+    "family-friendly",
+    "river-evening",
+    "local-culture",
+    "nature",
+    "slow-travel"
+  ],
+  "image_prompt": "A warm, editorial travel photo of a family walking along the Xiangjiang River at dusk, with the Orange Isle bridge in the background. Soft golden light, relaxed body language, a child pointing at the skyline. Shot from a low angle, capturing both the river's reflection and the city's glowing lights. National Geographic style, cinematic depth, inviting atmosphere.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "老街漫步与江畔余晖",
+      "summary": "从太平街的清晨烟火开始，午后在橘子洲边散步，傍晚在河景餐厅享受家庭晚餐。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "从太平街的清晨开始，一家人慢慢逛过青石板路，看老长沙的市井生活。孩子在街边小店前驻足，大人品尝一碗热腾腾的米粉，节奏轻松自在。",
+          "poi_refs": [
+            "poi_taiping"
+          ],
+          "food_refs": [
+            "food_taiping"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "午后来到橘子洲边缘步道，江风拂面，视野开阔。孩子可以在草坪上奔跑，全家人一起看湘江上的船只缓缓驶过，享受城市中难得的自然开阔。",
+          "poi_refs": [
+            "poi_orange_isle_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "在湘江边的河景餐厅用晚餐，窗外灯火初上，江面倒映着城市的光。一家人慢慢用餐，聊着一天的见闻，为第一天画上温柔的句号。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_riverfront"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "山间绿意与街区闲逛",
+      "summary": "上午在岳麓山边享受绿意，下午回到太平街的巷子里寻味，傍晚结束旅程。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "上午前往岳麓山边缘，不爬山，只在山脚绿荫道散步。空气清新，鸟鸣声声，孩子可以观察植物和小昆虫，全家人感受与市中心截然不同的安静。",
+          "poi_refs": [
+            "poi_yuelu_mountain_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "回到太平街区域，在更安静的巷弄里找一家本地菜馆，吃一顿地道的湘菜午餐。饭后继续在街区内闲逛，给孩子买些小纪念品，节奏舒缓。",
+          "poi_refs": [
+            "poi_taiping"
+          ],
+          "food_refs": [
+            "food_taiping"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_taiping",
+      "name": "太平街街区",
+      "district": "Tianxin",
+      "type": "historic street district",
+      "reason": "太平街是长沙老城区的缩影，青瓦白墙、石板路，既有烟火气又不失从容。对于家庭旅行来说，这里步行友好，小吃和特色小店密集，孩子和大人都能找到乐趣。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_orange_isle_edge",
+      "name": "橘子洲边缘步道",
+      "district": "Yuelu",
+      "type": "river island scenic area",
+      "reason": "橘子洲是湘江中的一片绿洲，边缘步道开阔平坦，非常适合家庭散步。这里能看到湘江两岸的城市天际线，孩子有足够的空间活动，也是拍照的好地方。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_yuelu_mountain_edge",
+      "name": "岳麓山边缘散步",
+      "district": "Yuelu",
+      "type": "nature and culture area",
+      "reason": "不爬山，只在山脚绿荫道漫步，感受岳麓山的静谧与绿意。这里是城市中的自然呼吸口，适合家庭在慢节奏中放松身心。",
+      "recommended_duration_minutes": 120
+    }
+  ],
+  "food": [
+    {
+      "id": "food_taiping",
+      "name": "太平街老巷菜馆",
+      "district": "Tianxin",
+      "category": "old-street dining",
+      "reason": "太平街深处的本地菜馆，环境亲切，菜品地道。适合家庭在闲逛后坐下来，分享几道湘味家常菜，孩子也能找到不辣的选择。"
+    },
+    {
+      "id": "food_riverfront",
+      "name": "湘江边河景餐厅",
+      "district": "Tianxin",
+      "category": "river-view dining",
+      "reason": "位于湘江边的安静餐厅，主打精致湘菜和舒适环境。窗外就是江景，夜晚灯光璀璨，适合一家人慢慢享用晚餐，给一天的行程一个温馨的收尾。"
+    }
+  ]
+}

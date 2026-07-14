@@ -1,0 +1,192 @@
+{
+  "id": "exp_shenzhen_student_3d_food_citywalk_v1",
+  "slug": "shenzhen-student-3d-food-citywalk",
+  "title": "深圳3日：海边栈道、城市天际线与街头美食的青春漫游",
+  "summary": "这是一条为预算有限但精力充沛的学生党设计的深圳探索路线。三天里，你将沿着开阔的海岸线感受城市呼吸，钻进创意街区的咖啡馆和画廊，在市民中心的灯光下仰望摩天楼群，最后用东门老街的烟火小吃填满胃和相机。全程地铁串联，节奏紧凑但不赶路，适合喜欢边走边拍的年轻旅行者。",
+  "city": {
+    "code": "shenzhen",
+    "name": "Shenzhen",
+    "region_name": "Guangdong"
+  },
+  "trip_type": "student",
+  "days": 3,
+  "budget": {
+    "level": "low",
+    "note": "全程以免费公共空间、平价小吃和地铁出行为主，无需门票开销，餐饮人均控制在30-50元/餐。"
+  },
+  "pace": "dense",
+  "tags": [
+    "bay-view",
+    "creative-district",
+    "modern-city",
+    "night-view",
+    "photo-friendly",
+    "youthful-energy",
+    "food",
+    "citywalk",
+    "budget-friendly"
+  ],
+  "image_prompt": "A vibrant street-level shot of a young traveler with a backpack standing on the Shenzhen Bay boardwalk at golden hour, with the futuristic skyline of Nanshan rising behind. The scene is bathed in warm light, with a few cyclists and pedestrians in the background. The composition is cinematic, with leading lines along the railing toward the city towers. Editorial travel magazine style, high contrast, rich colors, sense of youthful exploration.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "海湾与创意：南山区的双面漫游",
+      "summary": "上午沿着深圳湾公园的海岸线散步，看城市天际线倒映在海面上；下午钻进华侨城创意文化园，在旧厂房改造的咖啡馆和画廊里感受深圳的文艺脉搏；晚上去海上世界，看明华轮在灯光中亮起，找一家性价比高的餐厅吃晚餐。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "从地铁‘深圳湾公园’站出站，沿着海岸步道向北走，一边是开阔的海湾，一边是南山CBD的摩天楼群。找一处长椅坐下，看白鹭飞过水面，感受城市与自然的交界。适合拍照、放空、慢慢走。",
+          "poi_refs": [
+            "poi_shenzhen_bay"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "地铁转至侨城东站，步行进入华侨城创意文化园。这里由旧工业厂房改造，遍布独立咖啡馆、设计店铺和艺术画廊。可以花一两小时随意逛，在‘旧天堂书店’翻翻黑胶唱片，或找一家有户外座位的咖啡店歇脚。",
+          "poi_refs": [
+            "poi_oct_loft"
+          ],
+          "food_refs": [
+            "food_oct_cafe"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "步行或乘地铁至海上世界。明华轮在灯光中格外醒目，广场上常有街头艺人表演。这里餐饮选择丰富，找一家人均适中的餐厅（比如东南亚菜或粤式茶餐厅），吃完后在蛇口海滨散步，看对岸的灯火。",
+          "poi_refs": [
+            "poi_sea_world"
+          ],
+          "food_refs": [
+            "food_sea_world_dining"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "天际线与老街：从摩登中轴到市井烟火",
+      "summary": "上午在市民中心广场看深圳的‘城市客厅’，打卡标志性的现代建筑群；下午登上莲花山公园山顶，俯瞰福田CBD全景；傍晚转战东门老街，在人声鼎沸的小吃街里尝遍平价美食，感受深圳最接地气的一面。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "地铁至市民中心站，出站即是宽阔的市民广场。在这里可以欣赏深圳图书馆、音乐厅等标志性建筑，以‘大鹏展翅’的市民中心为背景拍一张城市天际线照片。广场上经常有晨练的市民和滑板的年轻人，充满活力。",
+          "poi_refs": [
+            "poi_civic_center"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "从市民中心步行或乘地铁到莲花山公园。沿缓坡登山道约20分钟即可登顶，在山顶广场俯瞰福田CBD的全貌，平安金融中心等摩天楼尽收眼底。下山后可以在公园草坪上休息，感受深圳的绿色空间。",
+          "poi_refs": [
+            "poi_lianhuashan"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "地铁至老街站，一头扎进东门步行街的夜市。这里的小吃摊位密密麻麻，从烤串、牛杂到糖水、钵仔糕，价格亲民，味道地道。可以边走边吃，感受深圳最热闹的市井烟火气。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_dongmen_snacks"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "海岸延伸：大梅沙的悠闲收尾",
+      "summary": "最后一天留给大海。上午乘公交前往大梅沙海滨公园，在沙滩上踩水、吹海风，沿着海岸栈道走到盐田港附近，看集装箱巨轮缓缓驶过。下午找个海边咖啡馆发呆，然后从容返程。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "从市区乘公交（如M191路）前往大梅沙，约1小时车程。抵达后沿着海岸线漫步，沙滩免费开放，可以脱鞋踩浪，或者坐在礁石上看海。往东走到海滨栈道，视野开阔，适合拍照。",
+          "poi_refs": [
+            "poi_dameisha_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "在大梅沙附近找一家海景咖啡馆或小吃店，简单吃个午餐，比如海鲜粥或炒粉。饭后继续在海边消磨时光，或者乘公交返回市区，结束三天的旅程。",
+          "poi_refs": [],
+          "food_refs": []
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_shenzhen_bay",
+      "name": "深圳湾公园",
+      "district": "南山区",
+      "type": "滨水景观带",
+      "reason": "深圳最开阔的城市海滨长廊，一边是蔚蓝海湾，一边是南山天际线。清晨或傍晚来此散步，能拍到极具都市感的照片，也是学生党低成本感受城市呼吸的理想地点。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_oct_loft",
+      "name": "华侨城创意文化园",
+      "district": "南山区",
+      "type": "创意街区",
+      "reason": "由旧厂房改造的文艺地标，遍布独立书店、设计店铺和艺术空间。这里的气氛年轻而松弛，适合漫无目的地闲逛，在咖啡馆里消磨一个下午，感受深圳的另一面。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_civic_center",
+      "name": "市民中心广场",
+      "district": "福田区",
+      "type": "城市地标区",
+      "reason": "深圳的‘城市客厅’，以‘大鹏展翅’造型的市民中心为核心，周边环绕着图书馆、音乐厅等现代建筑。广场开阔，适合拍摄城市天际线，也是观察深圳市民生活的窗口。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_lianhuashan",
+      "name": "莲花山公园",
+      "district": "福田区",
+      "type": "城市公园",
+      "reason": "福田CBD中的绿色制高点，登顶只需20分钟，却能俯瞰整个福田天际线。山顶广场是经典打卡点，山下草坪适合野餐和休息，是学生党免费观景的好去处。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_sea_world",
+      "name": "海上世界",
+      "district": "南山区",
+      "type": "夜间休闲区",
+      "reason": "以明华轮为中心的滨水商业区，夜晚灯光璀璨，餐厅和酒吧沿水岸排开。氛围轻松时尚，适合学生党在晚餐后散步，感受深圳的夜生活魅力。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_dameisha_edge",
+      "name": "大梅沙海滨公园",
+      "district": "盐田区",
+      "type": "滨海休闲区",
+      "reason": "深圳最受欢迎的免费沙滩之一，沙质细软，海岸线开阔。沿栈道可以走到盐田港附近，看集装箱巨轮与海景同框，是逃离城市喧嚣、亲近大海的性价比之选。",
+      "recommended_duration_minutes": 150
+    }
+  ],
+  "food": [
+    {
+      "id": "food_oct_cafe",
+      "name": "华侨城创意园咖啡馆与轻食区",
+      "district": "南山区",
+      "category": "咖啡馆",
+      "reason": "创意园内聚集了多家独立咖啡馆，价格适中，环境充满设计感。适合学生党在逛展间隙歇脚，点一杯手冲咖啡或一份简餐，享受文艺氛围。"
+    },
+    {
+      "id": "food_sea_world_dining",
+      "name": "海上世界餐饮区",
+      "district": "南山区",
+      "category": "餐饮聚集区",
+      "reason": "海上世界周边餐厅众多，从粤式茶餐厅到东南亚菜、日料，丰俭由人。学生党可以选择人均50元左右的餐厅，坐在户外的水岸座位，享受夜景晚餐。"
+    },
+    {
+      "id": "food_dongmen_snacks",
+      "name": "东门老街小吃街",
+      "district": "罗湖区",
+      "category": "小吃街",
+      "reason": "深圳最热闹的平价小吃聚集地，烤串、牛杂、糖水、钵仔糕等应有尽有，人均30元就能吃遍多种口味。街头烟火气十足，是学生党体验本地生活的必去之地。"
+    }
+  ]
+}

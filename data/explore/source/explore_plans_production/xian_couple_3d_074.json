@@ -1,0 +1,179 @@
+{
+  "id": "exp_xian_couple_3d_tangfeng_night",
+  "slug": "xian-couple-3d-tangfeng-night",
+  "title": "唐风夜色·两个人的长安约会",
+  "summary": "这是一场为情侣设计的西安慢行之旅，以唐风夜色和回坊烟火为双主线。你们将一起骑行古城墙、漫步大雁塔广场的璀璨灯火、钻进穆斯林巷弄分享一碗热腾腾的羊肉泡馍。三天不赶路，只把长安的温柔与热烈，都揉进两个人的回忆里。",
+  "city": {
+    "code": "xian",
+    "name": "Xi'an",
+    "region_name": "Shaanxi"
+  },
+  "trip_type": "couple",
+  "days": 3,
+  "budget": {
+    "level": "medium",
+    "note": "结合一座主要历史景点、一处老城区和一次地道美食体验，预算适中，注重用餐氛围。"
+  },
+  "pace": "slow",
+  "tags": [
+    "唐风",
+    "夜色",
+    "情侣",
+    "慢旅行",
+    "回坊烟火",
+    "摄影",
+    "古城"
+  ],
+  "image_prompt": "A romantic evening shot of a couple walking hand in hand on the Xi'an City Wall, with traditional lanterns glowing softly, the ancient city skyline in the background, warm golden light, cinematic composition, shallow depth of field, National Geographic travel photography style.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "城墙落日与回坊烟火",
+      "summary": "傍晚登上古城墙，在落日余晖中并肩骑行；夜幕降临后钻进回民街巷，让烟火气填满两个人的胃。",
+      "activities": [
+        {
+          "time_block": "afternoon",
+          "description": "下午抵达西安，入住后稍作休整。傍晚时分登上古城墙，租一辆双人自行车，沿着城墙慢慢骑行，看落日将整座古城染成金色。城墙宽阔平坦，适合两人并肩而行，随时停下拍照。",
+          "poi_refs": [
+            "poi_city_wall"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "从城墙南门下来，步行进入穆斯林巷弄。夜晚的回坊灯火通明，烤肉摊的烟火缭绕，你们可以分享一份羊肉泡馍、几串红柳烤肉，再喝一杯冰镇酸梅汤。这里的热闹与城墙的静谧形成完美对比。",
+          "poi_refs": [
+            "poi_muslim_quarter"
+          ],
+          "food_refs": [
+            "food_muslim_quarter"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "雁塔晨钟与唐风夜色",
+      "summary": "上午在荐福寺的宁静庭院里感受唐风禅意，傍晚去大雁塔广场看音乐喷泉与璀璨灯火，体验长安最浪漫的夜景。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "睡到自然醒，上午前往小雁塔所在的荐福寺。这里比大雁塔清静许多，庭院古木参天，塔影婆娑。你们可以坐在石凳上听晨钟，拍几张只有两个人的安静照片。",
+          "poi_refs": [
+            "poi_small_yanta"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "中午在钟楼附近的老城区用餐，下午在钟鼓楼广场散步，感受西安的城市心跳。之后慢慢步行至大雁塔方向，沿途经过一些特色小店，可以逛逛买点小纪念品。",
+          "poi_refs": [
+            "poi_bell_tower_area",
+            "poi_big_wild_goose"
+          ],
+          "food_refs": [
+            "food_bell_tower"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "傍晚的大雁塔广场是情侣的绝佳约会地。音乐喷泉随着灯光变幻，大雁塔在夜色中庄严而温暖。你们可以找一家广场边的茶馆坐坐，或者就在喷泉前依偎着看水幕光影。",
+          "poi_refs": [
+            "poi_big_wild_goose"
+          ],
+          "food_refs": []
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "永兴坊的烟火收尾",
+      "summary": "最后一上午，在永兴坊的美食和民俗氛围里慢慢逛，尝遍关中小吃，为这趟长安约会画上圆满句号。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "上午前往永兴坊，这里比回坊更有秩序，小吃种类也更丰富。你们可以手牵手逛遍每个摊位，尝一尝子长煎饼、柞水糍粑、岐山擀面皮。吃完后在仿古街区里拍照，留下最后的长安记忆。",
+          "poi_refs": [
+            "poi_yongxingfang"
+          ],
+          "food_refs": [
+            "food_yongxingfang"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_city_wall",
+      "name": "西安古城墙",
+      "district": "碑林区",
+      "type": "historic landmark",
+      "reason": "傍晚的古城墙是情侣骑行的最佳舞台，宽阔的城道上只有微风和落日，你们可以并肩骑行，俯瞰老城屋顶，感受长安的从容与浪漫。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_muslim_quarter",
+      "name": "回民街巷",
+      "district": "莲湖区",
+      "type": "historic food district",
+      "reason": "夜晚的回坊是西安最有烟火气的地方，灯火通明、人声鼎沸，适合情侣分享小吃、感受市井活力。巷弄深处藏着许多只有本地人知道的小摊，值得一起探索。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_bell_tower_area",
+      "name": "钟鼓楼广场",
+      "district": "莲湖区",
+      "type": "historic city core",
+      "reason": "钟鼓楼是西安的地理中心，广场上总是热闹而有序。白天可以看鸽子飞翔，夜晚灯光亮起时更适合散步拍照，是情侣约会的经典地标。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_big_wild_goose",
+      "name": "大雁塔广场",
+      "district": "雁塔区",
+      "type": "cultural landmark",
+      "reason": "大雁塔在夜色中格外庄重，广场的音乐喷泉和灯光秀营造出梦幻气氛。这里是情侣夜晚约会的首选，你们可以在塔下许愿，在喷泉前相拥。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_small_yanta",
+      "name": "小雁塔·荐福寺",
+      "district": "碑林区",
+      "type": "historic garden landmark",
+      "reason": "相比大雁塔，小雁塔更安静、更私密。清晨的荐福寺几乎没有游客，古塔与绿荫相映，适合情侣享受一段不被打扰的唐风时光。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_yongxingfang",
+      "name": "永兴坊",
+      "district": "新城区",
+      "type": "food and folk-culture district",
+      "reason": "永兴坊是美食与民俗的集合体，比回坊更整洁，小吃种类更全。你们可以在这里慢慢逛、慢慢吃，感受关中饮食文化的丰富。",
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food": [
+    {
+      "id": "food_muslim_quarter",
+      "name": "回民街美食巷",
+      "district": "莲湖区",
+      "category": "snack street",
+      "reason": "回坊的夜晚是情侣的美食探险地，从羊肉泡馍到红柳烤肉，从镜糕到酸梅汤，每一样都适合两人分享，烟火气里藏着最地道的西安味道。"
+    },
+    {
+      "id": "food_bell_tower",
+      "name": "钟楼老城美食圈",
+      "district": "莲湖区",
+      "category": "local dining area",
+      "reason": "钟楼周边聚集了许多老字号餐厅，环境比回坊更舒适，适合情侣坐下来慢慢享用一顿正餐。推荐尝试葫芦鸡和凉皮，味道正宗且不拥挤。"
+    },
+    {
+      "id": "food_yongxingfang",
+      "name": "永兴坊小吃集群",
+      "district": "新城区",
+      "category": "food market",
+      "reason": "永兴坊的小吃摊位排列整齐，种类覆盖陕西各地，从子长煎饼到柞水糍粑，你们可以一站式尝遍关中风味，拍照也好看。"
+    }
+  ]
+}

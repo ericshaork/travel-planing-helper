@@ -1,0 +1,211 @@
+{
+  "id": "exp_changsha_student_4d_food_nightlife_v1",
+  "slug": "changsha-student-4d-food-nightlife",
+  "title": "长沙四日：烟火街巷与江畔青春夜行",
+  "summary": "为预算有限但精力充沛的学生旅行者设计，用四天时间深入长沙最接地气的街头美食、最热闹的夜间街区和湘江边的灯火。节奏张弛有度，既有坡子街和太平街的人间烟火，也有橘子洲和岳麓山的舒展时刻，全程以地铁和步行为主，不赶路、不浪费。",
+  "city": {
+    "code": "changsha",
+    "name": "Changsha",
+    "region_name": "Hunan"
+  },
+  "trip_type": "student",
+  "days": 4,
+  "budget": {
+    "level": "low",
+    "note": "全程以小吃街、免费公共空间和地铁出行为主，餐饮人均每顿20-50元，住宿选择青旅或经济型酒店，整体花费可控。"
+  },
+  "pace": "balanced",
+  "tags": [
+    "food",
+    "nightlife",
+    "street-food",
+    "river-evening",
+    "youthful-energy",
+    "citywalk",
+    "local-flavor"
+  ],
+  "image_prompt": "Editorial travel magazine style photo of a lively evening street scene in Changsha, with glowing neon signs, crowded food stalls, and young people chatting and eating on the sidewalk. Warm amber and red tones, shallow depth of field, street photography composition, high energy and authentic local atmosphere.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "抵达与烟火初探",
+      "summary": "下午抵达长沙，直奔太平街和坡子街，用一顿酣畅淋漓的小吃开启旅程，晚上感受河边的灯火与街头能量。",
+      "activities": [
+        {
+          "time_block": "afternoon",
+          "description": "从火车站或高铁站乘地铁至五一广场站，步行进入太平街。在纵横交错的旧街巷中闲逛，感受老长沙的肌理和年轻活力，随手买一份糖油粑粑或臭豆腐，边走边吃。",
+          "poi_refs": [
+            "poi_taiping"
+          ],
+          "food_refs": [
+            "food_taiping"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "沿街走到坡子街，这里是小吃密集区，火宫殿、黑色经典等招牌林立，适合学生群体用最低成本尝遍湘味精华。之后沿湘江步道散步，看橘子洲大桥的灯光倒映江面，感受长沙的夜晚节奏。",
+          "poi_refs": [
+            "poi_pozi"
+          ],
+          "food_refs": [
+            "food_pozi"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "江岛漫步与市井夜宵",
+      "summary": "上午去橘子洲走走，下午在超级文和友附近探索，晚上继续深入街头夜宵文化。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "乘地铁至橘子洲站，沿着江边步道散步，看湘江开阔水面和城市天际线。学生可以花很少的交通费享受一段安静开阔的时光，适合拍照和放空。",
+          "poi_refs": [
+            "poi_orange_isle_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "返回市区，前往超级文和友区域。这里不仅是拍照打卡点，更是体验长沙年轻人夜生活氛围的好地方，周围遍布小吃和饮品店，可以边逛边吃。",
+          "poi_refs": [
+            "poi_superwenheyou_edge"
+          ],
+          "food_refs": [
+            "food_superwenheyou"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "继续在文和友周边觅食，尝试口味虾、烤串等经典夜宵，感受长沙学生党最真实的周末夜晚。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_pozi"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "城市天际线与湘江夜色",
+      "summary": "白天探索芙蓉区的现代城市面貌，傍晚回到江边看日落和夜景，体验长沙的多元面貌。",
+      "activities": [
+        {
+          "time_block": "afternoon",
+          "description": "前往芙蓉区的中央天际线区域，这里是长沙的现代核心，IFS等高楼下年轻人聚集，适合闲逛、看街拍、进一些有趣的店铺。",
+          "poi_refs": [
+            "poi_ifs_river_axis"
+          ],
+          "food_refs": [
+            "food_taiping"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "回到湘江边，找一处河岸台阶坐下，看城市灯火渐亮，江风拂面。可以买一杯茶颜悦色或路边小摊的甜品，享受学生时代最惬意的傍晚。",
+          "poi_refs": [
+            "poi_orange_isle_edge"
+          ],
+          "food_refs": []
+        }
+      ]
+    },
+    {
+      "day": 4,
+      "title": "岳麓山下的慢收尾",
+      "summary": "上午去岳麓山感受自然与文化交织的静谧，中午在附近简单吃完后返程。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "乘地铁至岳麓山站，沿山脚漫步，感受不同于市区的绿意和安静。不需要登顶，在爱晚亭附近走走，看看书院门前的氛围，体验长沙的另一面。",
+          "poi_refs": [
+            "poi_yuelu_mountain_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "在岳麓山脚下的小吃店或学生食堂解决午餐，然后根据返程时间前往车站或机场。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_pozi"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_taiping",
+      "name": "太平街历史街区",
+      "district": "天心区",
+      "type": "historic street district",
+      "reason": "长沙最有烟火气的老街之一，青砖灰瓦间藏着年轻人最爱的街头小吃和文艺小店。适合学生边逛边吃，感受老城肌理与青春活力的碰撞。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_pozi",
+      "name": "坡子街美食区",
+      "district": "天心区",
+      "type": "food street",
+      "reason": "长沙小吃密度最高的街区，臭豆腐、糖油粑粑、口味虾等经典湘味集中呈现。学生预算友好，边走边吃就能饱足，是体验本地夜宵文化的第一站。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_ifs_river_axis",
+      "name": "中央天际线与湘江轴线",
+      "district": "芙蓉区",
+      "type": "modern city district",
+      "reason": "长沙的现代心脏，IFS等高楼下年轻人川流不息，既有都市感又有街头活力。适合傍晚闲逛、看城市灯光秀，感受长沙的另一面。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_orange_isle_edge",
+      "name": "橘子洲江岸步道",
+      "district": "岳麓区",
+      "type": "river island scenic area",
+      "reason": "湘江中的绿洲，免费开放，步道开阔，可以近距离看江水和城市天际线。学生可以在这里散步、拍照、吹风，是闹市中难得的安静角落。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_yuelu_mountain_edge",
+      "name": "岳麓山脚漫步",
+      "district": "岳麓区",
+      "type": "nature and culture area",
+      "reason": "不一定要登顶，山脚的古树、爱晚亭和书院氛围已经足够。适合在最后一天用一段悠闲的绿意收尾，平衡前几日的喧嚣。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_superwenheyou_edge",
+      "name": "超级文和友片区",
+      "district": "天心区",
+      "type": "food and nightlife district",
+      "reason": "长沙年轻人夜生活的标志性区域，复古装修和密集小吃摊构成魔幻的市井场景。适合学生拍照打卡、边吃边逛，是融入本地夜生活的最快捷径。",
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food": [
+    {
+      "id": "food_pozi",
+      "name": "坡子街小吃群",
+      "district": "天心区",
+      "category": "snack street",
+      "reason": "长沙小吃的心脏地带，从经典臭豆腐到创新烤串，价格亲民，适合学生以最少的花费品尝最地道的湘味。夜晚这里灯火通明，是感受市井活力的绝佳地点。"
+    },
+    {
+      "id": "food_taiping",
+      "name": "太平街巷弄食肆",
+      "district": "天心区",
+      "category": "old street food",
+      "reason": "太平街的巷子里藏着许多老字号和小众摊位，比主街更有探索乐趣。适合学生结伴边走边吃，体验老长沙的饮食日常。"
+    },
+    {
+      "id": "food_superwenheyou",
+      "name": "文和友周边夜宵圈",
+      "district": "天心区",
+      "category": "night food district",
+      "reason": "超级文和友周边延伸出大量夜宵摊位和排档，口味虾、烤鱼、烧烤应有尽有。学生党可以在这里找到热闹的聚餐氛围，人均不高但体验十足。"
+    }
+  ]
+}

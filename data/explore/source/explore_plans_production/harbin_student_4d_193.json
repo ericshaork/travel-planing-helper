@@ -1,0 +1,252 @@
+{
+  "id": "exp_harbin_student_4d_river_street_food_v1",
+  "slug": "harbin-student-4d-river-street-food",
+  "title": "松花江风与欧陆老街：学生党的四天高性价比探索",
+  "summary": "四天时间，沿着松花江的风，漫步中央大街的欧式石板路，钻进老道外的市井烟火里。这条线路专为预算有限但渴望深度体验的学生设计，用脚步串联起哈尔滨最标志性的街头气质，在实惠的东北菜和热闹的夜市中感受这座冰城的年轻脉搏。",
+  "city": {
+    "code": "harbin",
+    "name": "Harbin",
+    "region_name": "Heilongjiang"
+  },
+  "trip_type": "student",
+  "days": 4,
+  "budget": {
+    "level": "low",
+    "note": "全程以步行、公交和实惠小吃为主，住宿建议选择中央大街附近青旅或经济酒店，日均餐饮预算控制在60-80元。"
+  },
+  "pace": "balanced",
+  "tags": [
+    "student-trip",
+    "food",
+    "local-culture",
+    "nightlife",
+    "budget-friendly",
+    "citywalk",
+    "riverfront",
+    "european-style-streets"
+  ],
+  "image_prompt": "National Geographic travel magazine style photo of a young traveler with a backpack walking along Central Street in Harbin, winter evening, warm streetlights illuminating European-style architecture, snow on the ground, soft blue hour sky, candid street photography composition, shallow depth of field, atmospheric and cinematic.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "欧式街头初印象与江畔黄昏",
+      "summary": "从中央大街的欧式建筑群开始，一路吃到松花江边，感受哈尔滨最经典的城市名片。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "抵达后先到中央大街闲逛，欣赏沿街的巴洛克和新艺术运动建筑，随手拍下街头的冰棍和面包店。在中央大街的实惠小吃摊解决早餐，尝尝大列巴和红肠。",
+          "poi_refs": [
+            "poi_central_street"
+          ],
+          "food_refs": [
+            "food_central_snacks"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "沿着中央大街走到松花江畔，在江边步道上吹风看江景，看当地人钓鱼或冬泳（冬季可看冰封江面）。找一家江边的暖饮摊歇脚。",
+          "poi_refs": [
+            "poi_songhua_riverfront"
+          ],
+          "food_refs": [
+            "food_river_warm"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "返回中央大街，体验华灯初上的夜景，在街边小店或夜市摊位解决晚餐，推荐尝试烤冷面和锅包肉。",
+          "poi_refs": [
+            "poi_central_evening"
+          ],
+          "food_refs": [
+            "food_central_snacks"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "圣索菲亚的晨光与老道外的烟火气",
+      "summary": "上午探访城市地标圣索菲亚教堂，下午钻进老道外的老街巷，寻找最地道的东北味。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "前往圣索菲亚教堂广场，欣赏这座拜占庭风格的绿色洋葱顶建筑，在广场上喂鸽子，拍下晨光中的教堂倒影。",
+          "poi_refs": [
+            "poi_saint_sofia"
+          ],
+          "food_refs": [
+            "food_central_snacks"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "步行或乘公交到老道外，穿梭在中华巴洛克风格的街巷中，探访老字号小吃店，品尝地道的东北菜如溜肉段、地三鲜，感受最接地气的市井生活。",
+          "poi_refs": [
+            "poi_laodaowai"
+          ],
+          "food_refs": [
+            "food_laodaowai_local"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "在老道外的夜市继续觅食，尝试各种炸串和烤冷面，感受学生党最爱的平价夜宵氛围。",
+          "poi_refs": [
+            "poi_laodaowai"
+          ],
+          "food_refs": [
+            "food_laodaowai_local"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "江岛漫步与城市慢节奏",
+      "summary": "上午去太阳岛边缘呼吸新鲜空气，下午回到中央大街享受悠闲的咖啡馆时光，晚上再探江畔夜景。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "乘公交或索道到太阳岛景区边缘，在免费开放的江滩公园散步，看当地人放风筝、野餐，感受哈尔滨的慢生活。",
+          "poi_refs": [
+            "poi_sun_island_edge"
+          ],
+          "food_refs": [
+            "food_river_warm"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "返回中央大街，找一家性价比高的俄式面包房或咖啡馆歇脚，写写明信片或规划接下来的行程。",
+          "poi_refs": [
+            "poi_central_street"
+          ],
+          "food_refs": [
+            "food_central_snacks"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "再次来到松花江边，看夕阳染红江面，然后沿江散步到防洪纪念塔，在江畔夜市吃烤鱼和烤串。",
+          "poi_refs": [
+            "poi_songhua_riverfront"
+          ],
+          "food_refs": [
+            "food_river_warm"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 4,
+      "title": "老道外的深度寻味与告别",
+      "summary": "最后一天留给老道外的美食和未逛完的角落，带走满满的东北味回忆。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "再次前往老道外，深入那些没走过的背街小巷，寻找本地人排队的早餐店，吃一顿热乎乎的豆腐脑和油炸糕。",
+          "poi_refs": [
+            "poi_laodaowai"
+          ],
+          "food_refs": [
+            "food_laodaowai_local"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "在老道外的旧货市场或小店里淘点纪念品，然后沿街走到靖宇公园，感受老城区的日常节奏。",
+          "poi_refs": [
+            "poi_laodaowai"
+          ],
+          "food_refs": [
+            "food_laodaowai_local"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "在中央大街附近买些红肠、大列巴作为伴手礼，然后前往车站或机场，结束四天的哈尔滨之旅。",
+          "poi_refs": [
+            "poi_central_street"
+          ],
+          "food_refs": [
+            "food_central_snacks"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_central_street",
+      "name": "中央大街",
+      "district": "道里区",
+      "type": "历史商业街",
+      "reason": "哈尔滨最不能错过的一条街。脚下是百年面包石，两侧是欧式建筑，从早到晚都充满活力。学生党可以在这里边逛边吃，感受城市的国际范儿与市井气的奇妙融合。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_songhua_riverfront",
+      "name": "松花江畔",
+      "district": "道里区",
+      "type": "滨江区域",
+      "reason": "开阔的江面让哈尔滨有了呼吸感。学生时代最爱的就是这种不花钱的风景——在江边吹风、看日落、和朋友们聊天，是旅程中最放松的时刻。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_saint_sofia",
+      "name": "圣索菲亚教堂广场",
+      "district": "道里区",
+      "type": "建筑地标",
+      "reason": "绿色洋葱顶在蓝天下格外上镜，是哈尔滨最经典的视觉符号。学生党可以在这里拍出旅行大片，而且免费开放广场，性价比满分。",
+      "recommended_duration_minutes": 75
+    },
+    {
+      "id": "poi_laodaowai",
+      "name": "老道外",
+      "district": "道外区",
+      "type": "历史街区",
+      "reason": "如果说中央大街是哈尔滨的客厅，老道外就是它的厨房。这里藏着最地道的东北小吃和中华巴洛克建筑，学生党可以花很少的钱吃遍老字号，感受真正的市井烟火。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_sun_island_edge",
+      "name": "太阳岛边缘",
+      "district": "松北区",
+      "type": "景观休闲区",
+      "reason": "不一定要买票进景区，太阳岛外围的江滩公园就足够惬意。学生党可以在这里野餐、放空，享受哈尔滨慢悠悠的午后。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_central_evening",
+      "name": "中央大街夜景",
+      "district": "道里区",
+      "type": "夜间街区",
+      "reason": "华灯初上时，中央大街换上另一副面孔。暖黄灯光勾勒出建筑的轮廓，街头艺人的歌声飘荡，是学生党夜晚溜达、感受城市浪漫的最佳去处。",
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food": [
+    {
+      "id": "food_central_snacks",
+      "name": "中央大街实惠小吃区",
+      "district": "道里区",
+      "category": "小吃街",
+      "reason": "中央大街沿街的小吃摊和面包房是学生党的天堂。马迭尔冰棍、大列巴、红肠、烤冷面，一路走一路吃，花很少的钱就能尝遍哈尔滨特色。"
+    },
+    {
+      "id": "food_laodaowai_local",
+      "name": "老道外地道餐馆街",
+      "district": "道外区",
+      "category": "老字号美食街",
+      "reason": "老道外的巷子里藏着几十年的老店，锅包肉、溜肉段、地三鲜、杀猪菜，分量大价格实惠，最适合学生党结伴来一顿地道的东北菜。"
+    },
+    {
+      "id": "food_river_warm",
+      "name": "江畔暖饮小吃摊",
+      "district": "道里区",
+      "category": "暖饮小吃",
+      "reason": "在松花江边逛累了，找一家江畔的暖饮摊，来杯热奶茶或冰糖雪梨，配上烤串或烤鱼，吹着江风看夜景，是学生党最惬意的夜晚打开方式。"
+    }
+  ]
+}

@@ -1,0 +1,181 @@
+{
+  "id": "exp_sanya_family_3d_coastal_evening_v1",
+  "slug": "sanya-family-3d-coastal-evening",
+  "title": "三亚慢时光：陪家人吹着湾区晚风，看海边落日",
+  "summary": "这是一段为家庭出游设计的慢节奏旅程，每天只聚焦一个湾区，避免奔波。从亚龙湾的公共沙滩到鹿回头的落日观景，再到海棠湾的悠闲晚餐，每一步都留出足够的时间让老人和孩子自在享受。海风、椰林、夕阳，陪伴才是这趟旅行的主题。",
+  "city": {
+    "code": "sanya",
+    "name": "Sanya",
+    "region_name": "Hainan"
+  },
+  "trip_type": "family",
+  "days": 3,
+  "budget": {
+    "level": "medium",
+    "note": "中等预算，兼顾舒适度和性价比，选择公共沙滩和湾区特色餐饮。"
+  },
+  "pace": "slow",
+  "tags": [
+    "beach",
+    "sunset",
+    "family-friendly",
+    "slow-travel",
+    "coastal-relaxation"
+  ],
+  "image_prompt": "National Geographic travel magazine style photo of a family walking along Yalong Bay beach at golden hour, warm light, gentle waves, palm trees, relaxed atmosphere, candid shot, shallow depth of field, vibrant colors.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "亚龙湾：沙滩上的家庭时光",
+      "summary": "第一天在亚龙湾公共海岸度过，上午玩沙踏浪，下午在椰梦长廊散步，晚上在大东海附近享用轻松的海鲜晚餐。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "抵达亚龙湾公共海岸，铺开沙滩垫，让孩子尽情玩沙，大人在海边漫步，享受开阔海景和轻柔海风。",
+          "poi_refs": [
+            "poi_yalong_bay"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "驱车前往椰梦长廊，沿着海岸线慢走，椰影婆娑，海风拂面，适合全家拍照和休憩。",
+          "poi_refs": [
+            "poi_coconut_dream"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "在大东海休闲海鲜区找一家氛围轻松的餐厅，全家围坐享用新鲜海鲜，饭后在海边散步消食。",
+          "poi_refs": [
+            "poi_dadonghai"
+          ],
+          "food_refs": [
+            "food_dadonghai_seafood"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "鹿回头与城市海岸：落日下的陪伴",
+      "summary": "上午在大东海区域悠闲漫步，下午登上鹿回头观景台等待日落，晚上返回大东海区域用餐，享受家庭温馨时光。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "在大东海沙滩上轻松漫步，孩子们可以捡贝壳，大人则坐在沙滩椅上享受阳光和海风。",
+          "poi_refs": [
+            "poi_dadonghai"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "前往鹿回头观景台，从高处俯瞰三亚湾和城市天际线，等待夕阳缓缓沉入海面，全家人共享这一刻的宁静与壮美。",
+          "poi_refs": [
+            "poi_luhuitou_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "回到大东海区域，选一家靠近海滩的餐厅，伴着晚风享用晚餐，饭后在沙滩上散步，听海浪声。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_dadonghai_seafood"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "海棠湾：悠闲收官，海景晚餐",
+      "summary": "最后一天在海棠湾度过，上午在湾区漫步，下午在沙滩上放松，晚上在湾区海景餐厅享用一顿告别晚餐。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "在海棠湾边缘悠闲散步，这里比亚龙湾更安静，适合全家放松，享受最后的滨海时光。",
+          "poi_refs": [
+            "poi_haitang_bay_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "在海棠湾沙滩上铺开垫子，孩子们堆沙堡，大人读读书或小憩，享受慢节奏的午后。",
+          "poi_refs": [
+            "poi_haitang_bay_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "在海棠湾海景餐厅区域享用一顿丰盛的海鲜晚餐，面朝大海，回味这三天的家庭时光。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_bayfront_dining"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_yalong_bay",
+      "name": "亚龙湾公共海岸",
+      "district": "亚龙湾",
+      "type": "beach scenic area",
+      "reason": "亚龙湾的沙质细腻、海水清澈，是家庭玩沙踏浪的理想场所。宽阔的公共区域让每个人都能找到属于自己的放松角落，孩子们可以尽情奔跑，大人们则能安心享受海风。",
+      "recommended_duration_minutes": 150
+    },
+    {
+      "id": "poi_dadonghai",
+      "name": "大东海区域",
+      "district": "吉阳区",
+      "type": "beach and city district",
+      "reason": "大东海是三亚最具生活气息的湾区之一，既有便利的沙滩，又有丰富的餐饮选择。家庭可以在这里轻松度过半天，从沙滩漫步到海鲜晚餐，一切都近在咫尺。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_luhuitou_edge",
+      "name": "鹿回头观景台",
+      "district": "吉阳区",
+      "type": "viewpoint scenic area",
+      "reason": "鹿回头是三亚最经典的日落观景点，从山顶俯瞰城市与海湾，视野开阔。全家人可以一起等待夕阳西下，感受海天一色的浪漫与宁静，是家庭合影的绝佳背景。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_coconut_dream",
+      "name": "椰梦长廊",
+      "district": "天涯区",
+      "type": "coastal promenade",
+      "reason": "椰梦长廊是一条绵延的海滨步道，两旁椰树成荫，适合全家慢走或骑行。海风轻柔，光影斑驳，是午后放松和拍照的好去处，也能让老人和孩子不感疲惫。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_haitang_bay_edge",
+      "name": "海棠湾边缘",
+      "district": "海棠区",
+      "type": "coastal leisure district",
+      "reason": "海棠湾比亚龙湾更安静，沙滩宽阔，适合家庭寻找一处宁静的海滨角落。这里没有喧嚣，只有海浪和阳光，是慢节奏度假的完美收官之地。",
+      "recommended_duration_minutes": 120
+    }
+  ],
+  "food": [
+    {
+      "id": "food_dadonghai_seafood",
+      "name": "大东海休闲海鲜区",
+      "district": "吉阳区",
+      "category": "seafood area",
+      "reason": "紧邻沙滩的海鲜餐厅区，提供新鲜实惠的海鲜，环境轻松随意，非常适合家庭在玩海后直接用餐，免去奔波。"
+    },
+    {
+      "id": "food_bayfront_dining",
+      "name": "海棠湾海景餐厅区",
+      "district": "海棠区",
+      "category": "sea-view dining",
+      "reason": "海棠湾聚集了多家面向大海的餐厅，晚餐时可以一边品尝海鲜，一边欣赏落日余晖，为家庭旅程画上浪漫的句号。"
+    }
+  ]
+}

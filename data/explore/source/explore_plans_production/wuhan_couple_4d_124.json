@@ -1,0 +1,194 @@
+{
+  "id": "exp_wuhan_couple_4d_lake_night_v1",
+  "slug": "wuhan-couple-4d-lake-night",
+  "title": "东湖慢骑与江畔约会——武汉4日双人漫游",
+  "summary": "为喜欢用镜头记录城市肌理的情侣设计，以老街烟火、东湖慢骑和夜色里的城市约会为主线，在武汉的江、湖、巷中放慢脚步，享受只属于两个人的漫步时光。",
+  "city": {
+    "code": "wuhan",
+    "name": "Wuhan",
+    "region_name": "Hubei"
+  },
+  "trip_type": "couple",
+  "days": 4,
+  "budget": {
+    "level": "medium",
+    "note": "中等预算，兼顾舒适住宿、特色餐饮与景点体验，无需刻意节省。"
+  },
+  "pace": "slow",
+  "tags": [
+    "river-city",
+    "lake-view",
+    "local-food",
+    "citywalk",
+    "night-view",
+    "couple-friendly"
+  ],
+  "image_prompt": "Golden hour over East Lake, a couple cycling on a tree-lined path, soft light filtering through leaves, distant mountains and lake shimmering, warm tones, editorial travel photography style, shallow depth of field.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "江汉路的烟火与江滩的晚风",
+      "summary": "从汉口老城区的繁华街巷开始，傍晚沿着江滩散步，感受武汉的江风与灯火。",
+      "activities": [
+        {
+          "time_block": "afternoon",
+          "description": "漫步江汉路，感受百年商业街的烟火气，尝尝街头小吃，逛逛老字号店铺。",
+          "poi_refs": [
+            "poi_jianghan_road"
+          ],
+          "food_refs": [
+            "food_jianghan_casual"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "沿着汉口江滩散步，看长江两岸灯火倒映，找一处长椅坐下，静静享受江风与夜景。",
+          "poi_refs": [
+            "poi_hankou_riverfront"
+          ],
+          "food_refs": []
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "老街咖啡馆与昙华林的文艺午后",
+      "summary": "在武昌的老街巷里穿行，探访昙华林的小店和咖啡馆，度过一个慵懒的下午。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "在昙华林附近的老街巷里闲逛，找一家有眼缘的咖啡馆，喝杯拿铁，拍几张文艺照片。",
+          "poi_refs": [
+            "poi_tanhualin"
+          ],
+          "food_refs": [
+            "food_east_lake_light"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "继续探索昙华林的特色小店，逛逛手作工坊和独立书店，感受武昌的文艺气息。",
+          "poi_refs": [
+            "poi_tanhualin"
+          ],
+          "food_refs": []
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "东湖慢骑与湖光山色",
+      "summary": "租一辆双人自行车，沿着东湖绿道慢骑，在湖光山色中享受二人世界。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "从东湖听涛景区开始，沿绿道骑行，不时停下来拍照，感受湖风拂面。",
+          "poi_refs": [
+            "poi_east_lake_edge"
+          ],
+          "food_refs": [
+            "food_east_lake_light"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "继续骑行至磨山区域，找一处湖边长椅野餐，看水鸟飞过，享受宁静时光。",
+          "poi_refs": [
+            "poi_east_lake_edge"
+          ],
+          "food_refs": []
+        }
+      ]
+    },
+    {
+      "day": 4,
+      "title": "黄鹤楼远眺与户部巷的告别早餐",
+      "summary": "登上黄鹤楼俯瞰江城，再去户部巷吃一碗热干面，为这次旅行画上句号。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "清晨前往黄鹤楼，避开人流，登楼远眺长江和武汉三镇，拍下经典合影。",
+          "poi_refs": [
+            "poi_yellow_crane_edge"
+          ],
+          "food_refs": [
+            "food_hubu_lane"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "在户部巷品尝地道早餐，热干面、豆皮、面窝，用味蕾记住武汉。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_hubu_lane"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_east_lake_edge",
+      "name": "东湖绿道",
+      "district": "武昌",
+      "type": "湖滨景区",
+      "reason": "东湖是武汉的城市绿肺，绿道蜿蜒，湖光山色，非常适合情侣骑行或散步，在自然中放慢节奏。",
+      "recommended_duration_minutes": 150
+    },
+    {
+      "id": "poi_hankou_riverfront",
+      "name": "汉口江滩",
+      "district": "江岸",
+      "type": "江滨景观带",
+      "reason": "宽阔的江滩步道，夜晚灯光璀璨，对岸高楼倒映江中，是情侣散步、看夜景的浪漫去处。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_tanhualin",
+      "name": "昙华林",
+      "district": "武昌",
+      "type": "历史街区",
+      "reason": "老武昌的文艺角落，青石板路、咖啡馆、手作店，适合情侣慢慢逛、随手拍，感受城市慢生活。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_yellow_crane_edge",
+      "name": "黄鹤楼",
+      "district": "武昌",
+      "type": "文化地标",
+      "reason": "武汉的标志性建筑，登楼可俯瞰长江和城市全景，清晨人少时更有意境，适合情侣共同留下经典回忆。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_jianghan_road",
+      "name": "江汉路",
+      "district": "江汉",
+      "type": "商业历史街",
+      "reason": "百年商业老街，欧式建筑与市井烟火交融，适合情侣逛街、吃小吃，感受汉口的热闹与活力。",
+      "recommended_duration_minutes": 120
+    }
+  ],
+  "food": [
+    {
+      "id": "food_hubu_lane",
+      "name": "户部巷",
+      "district": "武昌",
+      "category": "小吃街",
+      "reason": "武汉早餐的集中地，热干面、豆皮、面窝应有尽有，烟火气十足，适合情侣一起体验地道的武汉味道。"
+    },
+    {
+      "id": "food_jianghan_casual",
+      "name": "江汉路美食区",
+      "district": "江汉",
+      "category": "餐饮区",
+      "reason": "江汉路周边汇集了众多小吃和餐厅，从街头小吃到正餐都有，逛累了随时可以坐下补充能量。"
+    },
+    {
+      "id": "food_east_lake_light",
+      "name": "东湖轻食区",
+      "district": "武昌",
+      "category": "轻食区",
+      "reason": "东湖周边的咖啡馆和小餐吧，提供简餐和饮品，环境清幽，适合骑行途中歇脚、拍照。"
+    }
+  ]
+}

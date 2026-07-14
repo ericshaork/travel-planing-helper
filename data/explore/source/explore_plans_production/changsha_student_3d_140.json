@@ -1,0 +1,171 @@
+{
+  "id": "exp_changsha_student_3d_food_citywalk_v1",
+  "slug": "changsha-student-3d-food-citywalk",
+  "title": "长沙青春烟火漫游：夜市、老街与热辣街巷",
+  "summary": "三天密集穿行长沙最年轻、最热闹的街区，从太平街的老城烟火到坡子街的深夜辣味，再到超级文和友的魔幻夜场。用最低预算吃遍街头小吃，在河岸灯光里感受这座不夜城的青春脉搏。适合爱逛、爱吃、爱走的学生党。",
+  "city": {
+    "code": "changsha",
+    "name": "Changsha",
+    "region_name": "Hunan"
+  },
+  "trip_type": "student",
+  "days": 3,
+  "budget": {
+    "level": "low",
+    "note": "全程以街头小吃和免费街区为主，地铁+步行，预算极低。"
+  },
+  "pace": "dense",
+  "tags": [
+    "nightlife",
+    "street-food",
+    "youthful-energy",
+    "citywalk",
+    "local-flavor",
+    "budget-friendly"
+  ],
+  "image_prompt": "Editorial travel photography, wide-angle shot of a lively Changsha night market street, glowing neon signs in Chinese, crowds of young people eating and walking, steam rising from food stalls, warm amber and red tones, cinematic depth of field, high energy, urban night atmosphere.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "老街烟火与夜市序曲",
+      "summary": "从太平街的旧城纹理开始，一路吃到坡子街的深夜辣味。",
+      "activities": [
+        {
+          "time_block": "afternoon",
+          "description": "午后抵达太平街，在交错的老巷里闲逛，边吃边拍，感受长沙最集中的旧城生活气息和年轻活力。",
+          "poi_refs": [
+            "poi_taiping"
+          ],
+          "food_refs": [
+            "food_taiping"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "夜幕降临后转战坡子街，在密集的小吃摊和烧烤档之间穿行，体验长沙人最日常的夜宵文化。",
+          "poi_refs": [
+            "poi_pozi"
+          ],
+          "food_refs": [
+            "food_pozi"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "城市轴线与魔幻夜场",
+      "summary": "白天感受现代长沙的都市节奏，夜晚闯入超级文和友的赛博朋克式美食迷宫。",
+      "activities": [
+        {
+          "time_block": "afternoon",
+          "description": "前往五一商圈，沿中央天际线漫步，感受IFS等现代建筑群的城市气场，顺便在周边商场和潮店逛逛。",
+          "poi_refs": [
+            "poi_ifs_river_axis"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "傍晚进入超级文和友区域，在复古装潢的巨型美食空间里探索各种湖南小吃，沉浸式体验长沙最出片的夜生活地标。",
+          "poi_refs": [
+            "poi_superwenheyou_edge"
+          ],
+          "food_refs": [
+            "food_superwenheyou"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "江岸漫步与收尾辣味",
+      "summary": "在橘子洲的江风中放慢脚步，最后再回坡子街补一顿告别夜宵。",
+      "activities": [
+        {
+          "time_block": "afternoon",
+          "description": "下午前往橘子洲，沿着江岸步道散步，看湘江开阔水面和城市天际线，在密集行程中偷一段安静时光。",
+          "poi_refs": [
+            "poi_orange_isle_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "回到坡子街，再吃一轮之前没尝过的小吃，在热辣的烟火气里结束这趟青春漫游。",
+          "poi_refs": [
+            "poi_pozi"
+          ],
+          "food_refs": [
+            "food_pozi"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_taiping",
+      "name": "太平街街区",
+      "district": "天心区",
+      "type": "historic street district",
+      "reason": "太平街是长沙老城烟火气最浓的步行街区，青石板路、老式店铺和年轻面孔交织，适合边走边吃边拍，是学生党感受长沙旧城活力的第一站。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_pozi",
+      "name": "坡子街",
+      "district": "天心区",
+      "type": "food street",
+      "reason": "坡子街是长沙夜宵文化的代名词，从臭豆腐到烤串，整条街都是热辣香气和喧闹人声。学生党在这里可以花很少的钱吃遍地道湖南味。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_ifs_river_axis",
+      "name": "五一广场及中央天际线",
+      "district": "芙蓉区",
+      "type": "modern city district",
+      "reason": "作为长沙最繁华的商圈，这里聚集了IFS等现代建筑群，是感受城市年轻潮流脉搏的好地方，适合午后闲逛和街拍。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_orange_isle_edge",
+      "name": "橘子洲沿江步道",
+      "district": "岳麓区",
+      "type": "river island scenic area",
+      "reason": "橘子洲是湘江中的狭长绿洲，沿江步道视野开阔，可以远眺岳麓山和城市天际线，在密集行程中提供一段放松的江畔时光。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_superwenheyou_edge",
+      "name": "超级文和友区域",
+      "district": "天心区",
+      "type": "food and nightlife district",
+      "reason": "超级文和友是长沙最具视觉冲击力的美食综合体，以赛博朋克式复古装潢和密集的小吃档口著称，是学生党夜拍和聚餐的热门据点。",
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food": [
+    {
+      "id": "food_pozi",
+      "name": "坡子街小吃区",
+      "district": "天心区",
+      "category": "snack street",
+      "reason": "长沙夜宵的灵魂所在，从黑色经典臭豆腐到文和友大香肠，整条街都是平价又地道的湖南小吃，学生党可以一路吃过去。"
+    },
+    {
+      "id": "food_taiping",
+      "name": "太平街巷美食店",
+      "district": "天心区",
+      "category": "snack street",
+      "reason": "太平街两侧老房子里藏着不少本地人爱去的小吃店和糖水铺，氛围轻松，适合边逛边吃，感受老街的日常食光。"
+    },
+    {
+      "id": "food_superwenheyou",
+      "name": "超级文和友美食广场",
+      "district": "天心区",
+      "category": "food hall",
+      "reason": "在巨型复古空间里一站式体验长沙小吃，从口味虾到糖油粑粑应有尽有，价格亲民，环境魔幻，是学生党聚餐和拍照的必去之地。"
+    }
+  ]
+}

@@ -1,0 +1,196 @@
+{
+  "id": "exp_guilin_couple_3d_slow_scenic_v1",
+  "slug": "guilin-couple-3d-slow-scenic",
+  "title": "漓江晨雾与两人慢时光",
+  "summary": "为情侣设计的桂林三日慢行计划，不赶景点，只沉浸于山水之间。清晨在漓江边看雾气升腾，午后沿着旧城小巷散步，傍晚坐在河畔分享一碗米粉。这是一段属于两个人的温柔节奏。",
+  "city": {
+    "code": "guilin",
+    "name": "Guilin",
+    "region_name": "Guangxi"
+  },
+  "trip_type": "couple",
+  "days": 3,
+  "budget": {
+    "level": "medium",
+    "note": "每日包含一个核心景点、一次河畔漫步和一次地道餐饮体验，不追求奢华但注重氛围。"
+  },
+  "pace": "slow",
+  "tags": [
+    "karst-scenery",
+    "river-city",
+    "photo-friendly",
+    "slow-travel",
+    "old-town",
+    "nature-led",
+    "couple"
+  ],
+  "image_prompt": "National Geographic travel magazine style photo, early morning at Li River, two silhouettes standing on a stone bridge, karst peaks rising from mist, soft golden light, reflection in calm water, atmospheric and romantic, wide angle, high detail.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "山水初遇：漓江边的晨雾与黄昏",
+      "summary": "从漓江晨雾开始，两人慢慢走进桂林的山水画卷。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "早起前往漓江畔，在晨雾中漫步。江面薄雾缭绕，远处山影朦胧，两人并肩走在河堤上，感受桂林最温柔的初印象。",
+          "poi_refs": [
+            "poi_river_evening_walk"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "前往象鼻山景区，在标志性的象鼻山前合影。不赶时间，沿着山脚小径慢慢走，在江边石凳上坐一坐，看竹筏划过。",
+          "poi_refs": [
+            "poi_elephant_trunk_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "到正阳步行街觅食，两人分享一碗地道的桂林米粉，再尝几样街边小吃。饭后沿街散步，感受市井烟火气。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_zhengyang_street"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "旧城漫步：东西巷与伏波山的静谧时光",
+      "summary": "穿梭于老城街巷，登高望远，再在古巷里共进晚餐。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "前往东西巷，在修复后的老街区里闲逛。青砖黛瓦、石板路，两人可以慢慢拍照，走进一家手作小店挑选纪念品。",
+          "poi_refs": [
+            "poi_east_west_lane"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "登上伏波山，从山顶俯瞰漓江和桂林城景。山不高，但视野开阔，适合两人依偎着看风景，拍下彼此的背影。",
+          "poi_refs": [
+            "poi_fubo_hill"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "在东西巷的餐饮区找一家安静的餐厅，点几道本地菜，比如啤酒鱼或田螺酿。饭后在巷子里再走一圈，灯光下的老建筑别有韵味。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_east_west_lane_dining"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "诗意收尾：两江四湖与最后的河畔晚餐",
+      "summary": "以水为线索，在桂林最灵动的区域为旅程画上句点。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "漫步两江四湖景区，沿着水系走一段。湖面倒映着山和桥，适合牵手散步，不时停下来拍照。",
+          "poi_refs": [
+            "poi_two_rivers"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "前往芦笛岩附近的山野边缘，在自然环境中放松。不进入溶洞，只在周边走走，感受桂林郊外的宁静。",
+          "poi_refs": [
+            "poi_reed_flute_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "在漓江边的河畔餐饮区享用最后一顿晚餐。点一杯桂花茶，看夕阳把山染成金色，灯光逐渐亮起。两人静静坐着，记住这一刻。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_riverfront_light_dining"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_two_rivers",
+      "name": "两江四湖",
+      "district": "秀峰区",
+      "type": "central scenic district",
+      "reason": "桂林的城市水系精华，湖光山色与桥梁相映，适合情侣慢行拍照，在倒影中留下两人的身影。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_elephant_trunk_edge",
+      "name": "象鼻山景区",
+      "district": "象山区",
+      "type": "landmark scenic site",
+      "reason": "桂林的城市名片，象鼻山临江而立，山脚下有亲水步道，适合两人合影留念，在江边石凳上共享片刻宁静。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_fubo_hill",
+      "name": "伏波山",
+      "district": "秀峰区",
+      "type": "city viewpoint",
+      "reason": "登高望远的好去处，山势平缓，山顶可俯瞰漓江和城市轮廓，是情侣依偎看风景的私密角落。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_east_west_lane",
+      "name": "东西巷",
+      "district": "秀峰区",
+      "type": "historic street district",
+      "reason": "修复后的明清老街，青石板路与老建筑交织，充满文艺气息。两人可以牵手逛小店、尝小吃，感受桂林的旧城温度。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_reed_flute_edge",
+      "name": "芦笛岩周边",
+      "district": "秀峰区",
+      "type": "scenic landmark area",
+      "reason": "避开人群的山野边缘，绿树成荫，空气清新。适合喜欢自然的情侣散步谈心，享受远离喧嚣的二人世界。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_river_evening_walk",
+      "name": "漓江晨雾漫步",
+      "district": "象山区",
+      "type": "riverfront district",
+      "reason": "清晨的漓江薄雾弥漫，山水朦胧，是桂林最富诗意的时刻。两人并肩走在江边，如同走入水墨画中。",
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food": [
+    {
+      "id": "food_zhengyang_street",
+      "name": "正阳步行街美食区",
+      "district": "秀峰区",
+      "category": "snack street",
+      "reason": "桂林最热闹的美食街，米粉、田螺、马蹄糕应有尽有。适合情侣边走边尝，在烟火气中分享味蕾的惊喜。"
+    },
+    {
+      "id": "food_east_west_lane_dining",
+      "name": "东西巷餐饮区",
+      "district": "秀峰区",
+      "category": "old-street dining",
+      "reason": "老巷里的餐馆更有氛围，两人可以坐在窗边，点上啤酒鱼等本地菜肴，在古色古香的环境中享受慢晚餐。"
+    },
+    {
+      "id": "food_riverfront_light_dining",
+      "name": "漓江河畔轻食区",
+      "district": "象山区",
+      "category": "scenic dining",
+      "reason": "靠近漓江的餐厅和茶座，适合情侣在傍晚时分落座，点一壶桂花茶或一份甜品，看夕阳沉入山后。"
+    }
+  ]
+}

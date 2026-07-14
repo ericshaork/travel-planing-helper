@@ -1,15 +1,14 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 import { fetchExploreList } from "@/lib/explore/client";
 import { startExploreCreateFlow } from "@/lib/explore/flow";
 import { buildTripPlanDraftFromInspiration } from "@/lib/explore/to-trip-draft";
 import type { InspirationSelection } from "@/lib/explore/types";
 
+import { ArchiveDrawerShell } from "./archive/ArchiveDrawerShell";
 import { CitySearchSection } from "./CitySearchSection";
 import { FeaturedSection } from "./FeaturedSection";
 import { InspirationDeck } from "./InspirationDeck";
@@ -18,11 +17,62 @@ function normalizeCityQuery(value: string) {
   return value.trim().toLowerCase();
 }
 
+interface DirectCreateSectionProps {
+  onGenerate: () => void;
+}
+
+function DirectCreateSection({ onGenerate }: DirectCreateSectionProps) {
+  const examples = [
+    "深圳出发，厦门 3 天",
+    "预算 3000，成都慢游",
+    "杭州两天，轻松一点",
+  ];
+
+  return (
+    <section className="flex h-full flex-col justify-between rounded-[22px] border border-[rgba(214,205,187,0.5)] bg-[linear-gradient(180deg,rgba(255,253,247,0.88)_0%,rgba(248,241,228,0.8)_100%)] px-4 py-3 shadow-[0_8px_18px_rgba(88,76,57,0.05)]">
+      <div>
+        <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[var(--ink-faint)]">
+          AI Create
+        </p>
+        <h2 className="mt-1 text-[1.02rem] font-semibold tracking-[-0.04em] text-[var(--ink)]">
+          一句话生成你的私人旅行方案
+        </h2>
+        <p className="mt-1 text-[11px] leading-5 text-[var(--ink-muted)] sm:text-xs">
+          选好的灵感会自动带入，也可以直接输入一句话开始。
+        </p>
+      </div>
+
+      <div className="mt-3 flex flex-wrap items-center gap-2">
+        {examples.map((example) => (
+          <span
+            key={example}
+            className="rounded-full border border-[rgba(214,205,187,0.55)] bg-[rgba(255,253,247,0.82)] px-2.5 py-1 text-[10px] text-[var(--ink-muted)]"
+          >
+            {example}
+          </span>
+        ))}
+      </div>
+
+      <div className="mt-3 flex justify-end">
+        <button
+          type="button"
+          onClick={onGenerate}
+          className="inline-flex h-10 items-center justify-center rounded-full border border-[var(--ink)] bg-[var(--ink)] px-4 text-sm font-semibold text-[var(--paper-bright)] shadow-[0_8px_16px_rgba(88,76,57,0.08)] transition-transform hover:-translate-y-0.5"
+        >
+          生成我的旅行
+        </button>
+      </div>
+    </section>
+  );
+}
+
 export function ExploreHome() {
   const router = useRouter();
   const [cityInput, setCityInput] = useState("");
   const [inspirationSelection, setInspirationSelection] =
     useState<InspirationSelection>({});
+  const [selectedArchiveKey, setSelectedArchiveKey] = useState<string | null>(null);
+  const [isArchiveDrawerOpen, setIsArchiveDrawerOpen] = useState(false);
 
   function resetFilters() {
     setCityInput("");
@@ -36,7 +86,10 @@ export function ExploreHome() {
       return;
     }
 
-    const items = await fetchExploreList({ limit: 50 });
+    const items = await fetchExploreList({
+      search: cityInput,
+      limit: 24,
+    });
     const matchedItem = items.find((item) => {
       const haystacks = [item.city, item.cityCode, item.slug, item.title].map(
         (value) => value.trim().toLowerCase(),
@@ -48,135 +101,80 @@ export function ExploreHome() {
     });
 
     if (matchedItem) {
-      router.push(`/explore/${matchedItem.slug}`);
+      handleOpenArchive(matchedItem.slug);
     }
   }
 
   function handleGenerateFromInspiration() {
-    const draft = buildTripPlanDraftFromInspiration(inspirationSelection);
+    const draft = buildTripPlanDraftFromInspiration(inspirationSelection, {
+      cityQuery: cityInput,
+    });
     startExploreCreateFlow(draft, router);
   }
 
-  return (
-    <div className="space-y-5 sm:space-y-6">
-      <CitySearchSection
-        cityQuery={cityInput}
-        onCityQueryChange={setCityInput}
-        onSearch={handleCitySearch}
-        onReset={resetFilters}
-      />
+  function handleOpenArchive(slug: string) {
+    setSelectedArchiveKey(slug);
+    setIsArchiveDrawerOpen(true);
+  }
 
-      <section className="grid items-stretch gap-4 xl:grid-cols-2">
-        <article className="workspace-panel-soft h-full px-5 py-5 sm:px-6">
-          <div className="relative z-[1] flex h-full flex-col gap-4">
-            <div className="max-w-2xl">
-              <p className="workspace-kicker text-[var(--sage-deep)]">
-                灵感探索
-              </p>
-              <h2 className="mt-2 text-2xl font-semibold tracking-[-0.04em] text-[var(--ink)]">
-                先从地点、美食、季节和同行开始
-              </h2>
-              <p className="mt-2 text-sm leading-6 text-[var(--ink-muted)]">
-                四个分类直接展开在这里。先翻翻灵感，再决定你要不要继续生成一份自己的旅行计划。
-              </p>
+  function handleCloseArchiveDrawer() {
+    setIsArchiveDrawerOpen(false);
+  }
+
+  return (
+    <>
+      <div
+        aria-hidden={!isArchiveDrawerOpen}
+        className={`space-y-3 transition-[filter,opacity] duration-300 sm:space-y-3.5 ${
+          isArchiveDrawerOpen
+            ? "pointer-events-none select-none opacity-80 blur-[0.5px]"
+            : "opacity-100"
+        }`}
+      >
+        <section className="rounded-[30px] border border-[rgba(214,205,187,0.46)] bg-[linear-gradient(180deg,rgba(255,252,244,0.93)_0%,rgba(250,244,233,0.88)_100%)] px-4 py-3 shadow-[0_10px_22px_rgba(88,76,57,0.04)] supports-[backdrop-filter]:bg-[rgba(255,252,244,0.9)] supports-[backdrop-filter]:backdrop-blur-[2px] sm:px-5">
+          <div className="space-y-3">
+            <div className="grid gap-3 xl:grid-cols-[minmax(0,1.15fr)_minmax(22rem,0.72fr)] xl:items-stretch">
+              <CitySearchSection
+                cityQuery={cityInput}
+                onCityQueryChange={setCityInput}
+                onSearch={handleCitySearch}
+                onReset={resetFilters}
+              />
+
+              <DirectCreateSection onGenerate={handleGenerateFromInspiration} />
             </div>
 
-            <div className="flex-1">
+            <div className="space-y-2">
+              <div className="flex flex-wrap items-end justify-between gap-2">
+                <div>
+                  <p className="workspace-kicker text-[var(--sage-deep)]">灵感筛选</p>
+                  <h2 className="mt-1 text-[1.12rem] font-semibold tracking-[-0.04em] text-[var(--ink)]">
+                    地点、美食、季节和同行方式都先摊开看看
+                  </h2>
+                </div>
+                <p className="text-[11px] leading-5 text-[var(--ink-muted)] sm:text-xs">
+                  多选会保留，下面可以搜档案，也可以直接生成计划。
+                </p>
+              </div>
+
               <InspirationDeck
                 selection={inspirationSelection}
                 onSelectionChange={setInspirationSelection}
                 onGenerate={handleGenerateFromInspiration}
+                onOpenArchive={handleOpenArchive}
               />
             </div>
           </div>
-        </article>
+        </section>
 
-        <article className="workspace-panel-soft h-full overflow-hidden px-5 py-5 sm:px-6">
-          <div className="relative z-[1] flex h-full flex-col justify-between gap-5">
-            <div>
-              <p className="workspace-kicker text-[var(--clay-deep)]">
-                AI规划
-              </p>
-              <h2 className="mt-2 text-2xl font-semibold tracking-[-0.04em] text-[var(--ink)]">
-                一句话生成你的私人旅行方案
-              </h2>
-              <p className="mt-3 text-sm leading-6 text-[var(--ink-muted)]">
-                从模糊想法到可编辑路线，Create 会继续复用现有生成链路，只是把入口做得更像一页旅行手账。
-              </p>
-            </div>
+        <FeaturedSection onOpenArchive={handleOpenArchive} />
+      </div>
 
-            <div className="relative overflow-hidden rounded-[24px] border border-[var(--line)] bg-[rgba(255,253,247,0.84)] p-4">
-              <div className="absolute inset-0 opacity-70">
-                <Image
-                  src="/images/archive/template/archive-template-main.png"
-                  alt=""
-                  fill
-                  sizes="(min-width: 1280px) 28vw, 100vw"
-                  className="object-cover"
-                />
-              </div>
-              <div className="absolute right-4 top-4 h-16 w-16 opacity-80">
-                <Image
-                  src="/images/landing/decoration/routes/02-airplane-route.png"
-                  alt=""
-                  fill
-                  sizes="64px"
-                  className="object-contain"
-                />
-              </div>
-              <div className="absolute bottom-4 left-4 h-14 w-14 opacity-85">
-                <Image
-                  src="/images/landing/decoration/stamps/09-next-stop-ticket.png"
-                  alt=""
-                  fill
-                  sizes="56px"
-                  className="object-contain"
-                />
-              </div>
-              <div className="absolute inset-y-8 left-1/2 w-16 -translate-x-1/2 opacity-65">
-                <Image
-                  src="/images/landing/decoration/routes/12-route-notebook.png"
-                  alt=""
-                  fill
-                  sizes="64px"
-                  className="object-contain"
-                />
-              </div>
-              <div className="relative flex min-h-[14rem] items-end rounded-[18px] border border-dashed border-[rgba(134,117,97,0.25)] bg-[rgba(255,253,247,0.38)] p-4">
-                <p className="max-w-[12rem] text-sm leading-6 text-[rgba(88,69,52,0.82)]">
-                  打开的旅行笔记、路线线条和贴纸感视觉一起出现，让 AI 规划入口不再像一块空白说明卡。
-                </p>
-              </div>
-            </div>
-
-            <div className="rounded-[22px] border border-[var(--line)] bg-[rgba(255,253,247,0.78)] px-4 py-4">
-              <p className="text-sm font-semibold text-[var(--ink)]">输入示例</p>
-              <div className="mt-3 space-y-2.5 text-sm leading-6 text-[var(--ink-muted)]">
-                <p className="rounded-[16px] bg-[rgba(255,253,247,0.92)] px-4 py-3">
-                  “帮我规划一个 3 天厦门慢旅行”
-                </p>
-                <p className="rounded-[16px] bg-[rgba(255,253,247,0.92)] px-4 py-3">
-                  “寻找适合情侣的周末城市”
-                </p>
-                <p className="rounded-[16px] bg-[rgba(255,253,247,0.92)] px-4 py-3">
-                  “预算 3000 元的毕业旅行”
-                </p>
-              </div>
-
-              <div className="mt-4">
-                <Link
-                  href="/create"
-                  className="inline-flex min-h-11 items-center justify-center rounded-full border border-[var(--ink)] bg-[rgba(255,253,247,0.92)] px-5 py-2.5 text-sm font-semibold text-[var(--ink)]"
-                >
-                  生成我的旅行
-                </Link>
-              </div>
-            </div>
-          </div>
-        </article>
-      </section>
-
-      <FeaturedSection />
-    </div>
+      <ArchiveDrawerShell
+        archiveId={isArchiveDrawerOpen ? selectedArchiveKey : null}
+        isOpen={isArchiveDrawerOpen}
+        onClose={handleCloseArchiveDrawer}
+      />
+    </>
   );
 }

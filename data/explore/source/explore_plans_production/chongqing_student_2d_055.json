@@ -1,0 +1,170 @@
+{
+  "id": "exp_chongqing_student_2d_food_citywalk_v1",
+  "slug": "chongqing-student-2d-food-citywalk",
+  "title": "爬坡上坎，火锅与老街：山城两日青春暴走",
+  "summary": "用两天时间，以最接地气的方式钻进重庆的烟火气里。从解放碑的摩登到十八梯的旧时光，从轻轨穿楼的魔幻到南滨路的江风，每一步都踩在城市的脉搏上。预算友好，节奏紧凑，专为爱逛、爱吃、爱拍照的年轻人设计。",
+  "city": {
+    "code": "chongqing",
+    "name": "Chongqing",
+    "region_name": "Chongqing"
+  },
+  "trip_type": "student",
+  "days": 2,
+  "budget": {
+    "level": "low",
+    "note": "全程以公共交通和步行接驳，餐饮以街头小吃和性价比小店为主，景点多免费或低消费。"
+  },
+  "pace": "dense",
+  "tags": [
+    "hill-city",
+    "street-food",
+    "urban-drama",
+    "youthful-energy",
+    "citywalk",
+    "budget-friendly"
+  ],
+  "image_prompt": "National Geographic travel magazine style photo of a young backpacker walking up a steep stone stairway in Shibati, Chongqing, with old residential buildings on both sides, hanging laundry, and a distant view of modern skyscrapers through the gaps. Warm afternoon light, cinematic depth of field, vibrant yet gritty atmosphere.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "渝中母城：从摩天大楼到山城旧巷",
+      "summary": "从解放碑的商业心脏出发，钻进十八梯的老街肌理，傍晚在洪崖洞的灯火中感受8D魔幻。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "从解放碑开始citywalk，感受重庆最繁华的十字路口，在周边小吃街解决早餐，尝一碗地道的豌杂面或酸辣粉。",
+          "poi_refs": [
+            "poi_jiefangbei"
+          ],
+          "food_refs": [
+            "food_jiefangbei_snack"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "步行至十八梯传统风貌区，在层层叠叠的台阶和吊脚楼间穿行，感受老重庆的市井气息，随手拍下充满生活感的画面。",
+          "poi_refs": [
+            "poi_shibati"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "前往洪崖洞滨江观景区，欣赏千厮门大桥与洪崖洞的璀璨夜景，感受山城最震撼的立体灯光秀，之后在附近找一家老火锅店，用一顿热辣结束第一天。",
+          "poi_refs": [
+            "poi_hongyadong_view"
+          ],
+          "food_refs": []
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "江北与南岸：轻轨穿楼，江风夜行",
+      "summary": "上午打卡李子坝轻轨穿楼，下午在观音桥逛吃，傍晚跨江到南滨路吹江风看渝中半岛天际线。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "乘坐轻轨2号线到李子坝站，在观景平台拍摄轻轨穿楼而过的经典画面，感受重庆交通的魔幻现实。",
+          "poi_refs": [
+            "poi_liziba_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "转战观音桥青年商圈，在好吃街和北仓文创园之间自由穿梭，尝遍街头小吃，淘点有趣的小玩意。",
+          "poi_refs": [
+            "poi_guanyinqiao"
+          ],
+          "food_refs": [
+            "food_guanyinqiao_night"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "乘坐轻轨过江到南岸，沿着南滨路漫步，对岸渝中半岛的灯火如星河倒映江中，找一家江边小摊或平价餐馆，就着夜景吃一顿江湖菜。",
+          "poi_refs": [
+            "poi_nanbin_road"
+          ],
+          "food_refs": [
+            "food_nanbin_dining"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_jiefangbei",
+      "name": "解放碑核心商圈",
+      "district": "渝中区",
+      "type": "城市商业核心",
+      "reason": "作为重庆的城市原点，解放碑是感受山城快节奏与年轻活力的第一站。周围密布小吃摊和潮流店铺，适合学生党边逛边吃，开启一天的能量。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_shibati",
+      "name": "十八梯传统风貌区",
+      "district": "渝中区",
+      "type": "历史山城街区",
+      "reason": "十八梯是重庆旧时光的切片，层层石阶串联起老民居、小店铺和街边茶馆。在这里放慢脚步，能捕捉到最地道的山城生活纹理，也是出片率极高的城市漫游路线。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_hongyadong_view",
+      "name": "洪崖洞滨江观景区",
+      "district": "渝中区",
+      "type": "滨江地标景区",
+      "reason": "洪崖洞的夜景是重庆的名片，层层叠叠的吊脚楼在暖黄色灯光下宛如《千与千寻》的汤屋。站在江边或千厮门大桥上，能同时收纳江景、桥影和山城天际线，是学生党必打卡的视觉盛宴。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_liziba_edge",
+      "name": "李子坝轻轨观景区",
+      "district": "渝中区",
+      "type": "城市景观地标",
+      "reason": "轻轨2号线从居民楼中穿行而过的画面，是重庆魔幻交通的最佳代言。在观景台等待列车驶来的瞬间，按下快门，就能收获一张极具辨识度的山城名片。",
+      "recommended_duration_minutes": 60
+    },
+    {
+      "id": "poi_guanyinqiao",
+      "name": "观音桥青年商圈",
+      "district": "江北区",
+      "type": "年轻活力商圈",
+      "reason": "观音桥是重庆年轻人的聚集地，好吃街里藏着无数平价美食，北仓文创园则适合闲逛拍照。这里没有游客区的喧嚣，多了几分本地生活的自在，是学生党感受城市脉搏的理想去处。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_nanbin_road",
+      "name": "南滨路滨江步道",
+      "district": "南岸区",
+      "type": "滨江夜景区",
+      "reason": "南滨路是观赏渝中半岛夜景的最佳位置，江风拂面，对岸的灯火如流动的星河。步道沿线有众多江景餐厅和露天小摊，适合在夜色中放空自己，为紧凑的行程画上温柔的句点。",
+      "recommended_duration_minutes": 120
+    }
+  ],
+  "food": [
+    {
+      "id": "food_jiefangbei_snack",
+      "name": "解放碑小吃集群",
+      "district": "渝中区",
+      "category": "小吃街",
+      "reason": "解放碑周边的小吃街是学生党的美食天堂，酸辣粉、豌杂面、山城汤圆、烤脑花……花十几块钱就能吃遍重庆味道。适合在逛商圈时随时补充能量，节奏自由。"
+    },
+    {
+      "id": "food_guanyinqiao_night",
+      "name": "观音桥夜间美食区",
+      "district": "江北区",
+      "category": "夜间美食区",
+      "reason": "观音桥的好吃街越夜越热闹，烧烤、串串、冰粉、凉糕应有尽有，价格亲民，氛围热闹。是年轻人结伴觅食、感受山城夜生活的好去处。"
+    },
+    {
+      "id": "food_nanbin_dining",
+      "name": "南滨路江景餐饮区",
+      "district": "南岸区",
+      "category": "江景餐饮区",
+      "reason": "南滨路沿线汇集了从江湖菜小馆到江景火锅的多种选择，价格区间宽泛。学生党可以选一家性价比高的馆子，就着对岸的璀璨夜景吃一顿，为旅程增添几分浪漫的烟火气。"
+    }
+  ]
+}

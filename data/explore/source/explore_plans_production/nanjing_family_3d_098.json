@@ -1,0 +1,150 @@
+{
+  "id": "exp_nanjing_family_3d_qinhuai_walk_v1",
+  "slug": "nanjing-family-3d-qinhuai-walk",
+  "title": "秦淮灯影里的家庭慢时光——南京3日散步之旅",
+  "summary": "这是一段为家庭设计的南京探索旅程，节奏舒缓，兼顾历史底蕴与自然开阔。从秦淮河畔的灯火到玄武湖边的微风，从老门东的巷弄到城墙上的远眺，每一个停留都留有足够的歇脚空间。适合带着父母或孩子，在边走边聊中感受这座古都的从容与温度。",
+  "city": {
+    "code": "nanjing",
+    "name": "Nanjing",
+    "region_name": "Jiangsu"
+  },
+  "trip_type": "family",
+  "days": 3,
+  "budget": {
+    "level": "medium",
+    "note": "每日安排一处主要景点与一处休闲区域，餐饮选择兼顾品质与便利。"
+  },
+  "pace": "balanced",
+  "tags": [
+    "family-friendly",
+    "historical",
+    "lakeside",
+    "evening-scenery",
+    "old-street",
+    "citywalk"
+  ],
+  "image_prompt": "National Geographic travel magazine style photo of a family walking along Qinhuai River at dusk, warm lantern light reflecting on the water, traditional Chinese architecture lining the banks, parents and child holding hands, calm and joyful atmosphere, shallow depth of field, golden hour light, cinematic composition.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "秦淮河畔的初遇",
+      "summary": "抵达南京后，从夫子庙秦淮河区域开始，感受老城区的烟火与灯影，晚餐后沿河散步，适应慢节奏的家庭之旅。",
+      "activities": [
+        {
+          "time_block": "afternoon",
+          "description": "入住后前往秦淮河与夫子庙区域，沿河漫步，看河景与古建筑交织。在秦淮小吃街找一家小店，尝尝鸭血粉丝汤和锅贴，一家人边吃边聊。",
+          "poi_refs": [
+            "poi_qinhuai"
+          ],
+          "food_refs": [
+            "food_qinhuai_snack"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "华灯初上，秦淮河两岸灯笼亮起，乘凉或散步都很惬意。找一处河边长椅坐下，看游船往来，给孩子讲讲历史故事。",
+          "poi_refs": [
+            "poi_qinhuai"
+          ],
+          "food_refs": []
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "城墙与湖光",
+      "summary": "上午攀登一段南京城墙，俯瞰城市轮廓；午后转至玄武湖边，在开阔的湖景中休息、野餐，享受家庭闲适时光。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "从玄武门附近的城墙段开始登城，一家人慢慢走，在城墙上辨认远处的紫金山和城市天际线。走累了就在城垛旁歇脚，拍照留念。",
+          "poi_refs": [
+            "poi_city_wall"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "下城墙后步行至玄武湖公园，沿湖散步，找一片树荫铺上野餐垫，吃些自带的小食。孩子可以跑动，长辈可以看湖景，节奏自由。",
+          "poi_refs": [
+            "poi_xuanwu_lake"
+          ],
+          "food_refs": []
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "老门东的巷弄与告别",
+      "summary": "最后一天留给老门东，在青砖黛瓦的巷子里慢慢逛，买些手信，吃一顿地道的江浙家常菜，为旅程画上温暖的句号。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "前往老门东，避开人流高峰，在清晨的巷弄里走走。看老建筑、小店铺和墙上的爬藤，感受老城南的安静一面。",
+          "poi_refs": [
+            "poi_laomendong"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "在老门东找一家有院子的餐厅，点几道家常菜，如盐水鸭、清炒时蔬，全家围坐，聊聊这几天的见闻。饭后买些糕点带走，准备返程。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_laomendong_dining"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_qinhuai",
+      "name": "秦淮河与夫子庙区域",
+      "district": "秦淮区",
+      "type": "historic riverside district",
+      "reason": "家庭旅程的完美起点，河景与老城烟火交融，白天可逛夫子庙，晚上看灯影摇曳，老人孩子都能找到乐趣。",
+      "recommended_duration_minutes": 150
+    },
+    {
+      "id": "poi_city_wall",
+      "name": "南京城墙（玄武门段）",
+      "district": "玄武区",
+      "type": "historic landmark",
+      "reason": "城墙是南京的时空坐标，带家人步行一段，既能俯瞰城市，又能感受历史厚度，坡度平缓，适合家庭。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_xuanwu_lake",
+      "name": "玄武湖",
+      "district": "玄武区",
+      "type": "lakefront scenic area",
+      "reason": "开阔的湖面与绿荫步道，是家庭休息和放松的好去处。孩子可以在草坪上奔跑，长辈可以沿湖慢走，节奏由自己掌控。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_laomendong",
+      "name": "老门东",
+      "district": "秦淮区",
+      "type": "historic street district",
+      "reason": "比夫子庙更安静，巷弄里有老南京的生活气息。适合一家人慢慢逛，看手工艺、尝小吃，感受城南的日常温情。",
+      "recommended_duration_minutes": 120
+    }
+  ],
+  "food": [
+    {
+      "id": "food_qinhuai_snack",
+      "name": "秦淮小吃街",
+      "district": "秦淮区",
+      "category": "snack street",
+      "reason": "种类丰富，鸭血粉丝汤、牛肉锅贴、小笼包都是老少皆宜的选择，一家人各取所需，边逛边吃，氛围热闹。"
+    },
+    {
+      "id": "food_laomendong_dining",
+      "name": "老门东院落餐厅",
+      "district": "秦淮区",
+      "category": "casual dining",
+      "reason": "藏在巷弄里的家常菜馆，环境清雅，有院子可以坐。盐水鸭、清炒芦笋、炖汤，适合家庭聚餐，味道地道不油腻。"
+    }
+  ]
+}

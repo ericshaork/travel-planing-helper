@@ -1,0 +1,185 @@
+{
+  "id": "exp_changsha_couple_3d_romantic_food_citywalk_v1",
+  "slug": "changsha-couple-3d-romantic-food-citywalk",
+  "title": "灯火与辣味之间：长沙三日情侣漫游",
+  "summary": "为喜欢用镜头记录城市、用味蕾感受烟火的情侣设计。三日慢行，从太平街的旧巷光影，走到橘子洲的江风日落，再坠入坡子街与超级文和友的夜宵热气。节奏舒缓，每一站都留足时间牵手、拍照、慢慢吃。",
+  "city": {
+    "code": "changsha",
+    "name": "Changsha",
+    "region_name": "Hunan"
+  },
+  "trip_type": "couple",
+  "days": 3,
+  "budget": {
+    "level": "medium",
+    "note": "精选一处标志性街区、一处景观文化点、一处夜宵美食区，兼顾氛围与舒适度。"
+  },
+  "pace": "slow",
+  "tags": [
+    "citywalk",
+    "street-food",
+    "river-evening",
+    "romantic",
+    "photography",
+    "nightlife"
+  ],
+  "image_prompt": "Editorial travel magazine photo: a young couple walking hand in hand through a narrow lantern-lit street in Changsha at dusk, warm orange light reflecting off wet pavement, blurred background of street food stalls and neon signs, shallow depth of field, cinematic composition, moody romantic atmosphere, Fuji film simulation style.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "旧巷与新街：光影里的第一眼长沙",
+      "summary": "从太平街的麻石巷弄开始，慢逛老建筑与独立小店，午后在坡子街尝遍地道小吃，傍晚散步至湘江边的滨江步道，看城市灯火渐亮。",
+      "activities": [
+        {
+          "time_block": "afternoon",
+          "description": "下午抵达后，先在太平街区域漫无目的地闲逛。牵手穿过麻石小巷，偶遇手作工坊和旧书店，用相机记录老长沙的生活纹理。",
+          "poi_refs": [
+            "poi_taiping"
+          ],
+          "food_refs": [
+            "food_taiping_street"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "傍晚前往坡子街，在烟火气中寻找两人都爱的小吃——臭豆腐、糖油粑粑、热卤，边吃边逛。之后沿江边散步，在橘子洲大桥下看对岸灯光倒映水中，拍下属于你们的长沙夜景。",
+          "poi_refs": [
+            "poi_pozi"
+          ],
+          "food_refs": [
+            "food_pozi_street"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "江岛与山脚：慢节奏的二人时光",
+      "summary": "上午在橘子洲的江风中漫步，找一处草地坐下看船来船往；下午转至岳麓山脚，在绿荫与书院的安静氛围中感受另一种长沙。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "上午前往橘子洲，沿江边步道慢走。在洲头找一片树荫，并肩坐着看湘江水流，拍下开阔的江景合照。",
+          "poi_refs": [
+            "poi_orange_isle_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "午后前往岳麓山脚，不爬山，只在山麓的绿道和爱晚亭附近散步。感受古木参天的宁静，坐在石凳上分享耳机里的音乐，享受慢节奏的二人世界。",
+          "poi_refs": [
+            "poi_yuelu_mountain_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "晚餐选择湘江边的河畔轻食区，找一家可以看江景的餐厅，点上几道不太辣的湘菜，在温柔的灯光下慢慢吃。饭后沿江再走一段，让晚风带走一天的疲惫。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_riverfront"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "摩登与怀旧：最后一场热辣约会",
+      "summary": "白天在IFS与五一广场感受长沙的现代脉搏，傍晚深入超级文和友体验复古市井的视觉冲击，用一顿火辣的夜宵为旅程收尾。",
+      "activities": [
+        {
+          "time_block": "afternoon",
+          "description": "下午前往五一广场和IFS周边，在繁华的商业区里逛一逛，打卡地标性的KAWS雕塑，从高处俯瞰城市天际线。两人可以在这里挑选一件纪念品，留下属于长沙的纪念。",
+          "poi_refs": [
+            "poi_ifs_river_axis"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "傍晚进入超级文和友区域，仿佛穿越回1980年代的长沙老社区。在层层叠叠的复古场景里拍照，然后找一家摊位坐下，共享一份口味虾和紫苏桃子姜，用热辣与甜蜜为这次旅程画上句号。",
+          "poi_refs": [
+            "poi_superwenheyou_edge"
+          ],
+          "food_refs": [
+            "food_taiping_street"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_taiping",
+      "name": "太平街老巷区",
+      "district": "天心区",
+      "type": "historic street district",
+      "reason": "旧麻石路、斑驳砖墙与独立小店交织，适合情侣牵手漫游，在转角发现惊喜，镜头里全是故事感。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_pozi",
+      "name": "坡子街",
+      "district": "天心区",
+      "type": "food street",
+      "reason": "长沙小吃文化的核心舞台，夜晚灯光与香气蒸腾，两人从街头尝到巷尾，是共享味觉记忆的最佳场所。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_ifs_river_axis",
+      "name": "五一广场与IFS天际线",
+      "district": "芙蓉区",
+      "type": "modern city district",
+      "reason": "长沙最时尚的城市客厅，高空观景与艺术装置为情侣提供摩登合影背景，展现城市的另一面。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_orange_isle_edge",
+      "name": "橘子洲江畔步道",
+      "district": "岳麓区",
+      "type": "river island scenic area",
+      "reason": "开阔的江景与草坪，适合情侣在午后并肩而坐，看江水东流，享受湘江边的宁静与浪漫。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_yuelu_mountain_edge",
+      "name": "岳麓山脚绿道",
+      "district": "岳麓区",
+      "type": "nature and culture area",
+      "reason": "避开登山人潮，只在山脚古木下散步，古亭与书院氛围让两人对话更安静深入，是慢节奏约会的理想选择。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_superwenheyou_edge",
+      "name": "超级文和友街区",
+      "district": "天心区",
+      "type": "food and nightlife district",
+      "reason": "复刻老长沙市井的沉浸式空间，层层叠叠的霓虹招牌与旧物装置，为情侣提供独一无二的拍照场景和热辣夜宵体验。",
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food": [
+    {
+      "id": "food_pozi_street",
+      "name": "坡子街小吃带",
+      "district": "天心区",
+      "category": "snack street",
+      "reason": "长沙小吃的灵魂地带，臭豆腐、糖油粑粑、热卤琳琅满目，情侣边走边尝，在辣味与甜味之间交换笑容。"
+    },
+    {
+      "id": "food_taiping_street",
+      "name": "太平街巷食铺",
+      "district": "天心区",
+      "category": "casual dining",
+      "reason": "老巷里的苍蝇馆子和文艺小店并存，适合情侣在逛累后找一家有眼缘的小店坐下，分享一份口味虾或米粉。"
+    },
+    {
+      "id": "food_riverfront",
+      "name": "湘江畔轻食区",
+      "district": "天心区",
+      "category": "river-view dining",
+      "reason": "江景餐厅与甜品店聚集，氛围安静温柔，适合情侣在日落时分享用一顿不紧不慢的晚餐，为一天画上浪漫句点。"
+    }
+  ]
+}

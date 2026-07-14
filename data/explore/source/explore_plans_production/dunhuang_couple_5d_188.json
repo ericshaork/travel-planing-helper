@@ -1,0 +1,233 @@
+{
+  "id": "exp_dunhuang_couple_5d_photo_citywalk_food_v1",
+  "slug": "dunhuang-couple-5d-photo-citywalk-food",
+  "title": "壁画与落日：敦煌五日浪漫光影之旅",
+  "summary": "为情侣打造的敦煌慢行计划，在莫高窟的千年壁画前感受时光流转，于鸣沙山与大漠日落中定格浪漫瞬间。穿插老城漫步与夜市烟火，节奏舒缓，每一帧都是属于两人的记忆。",
+  "city": {
+    "code": "dunhuang",
+    "name": "Dunhuang",
+    "region_name": "Gansu"
+  },
+  "trip_type": "couple",
+  "days": 5,
+  "budget": {
+    "level": "medium",
+    "note": "中等预算，核心景点与舒适餐饮兼顾，无需奢华但注重体验品质。"
+  },
+  "pace": "slow",
+  "tags": [
+    "silk-road",
+    "desert-scenery",
+    "sunset",
+    "photo-friendly",
+    "romantic",
+    "couple-trip"
+  ],
+  "image_prompt": "National Geographic travel magazine style photo of a couple silhouetted against a golden desert sunset at Mingsha Mountain, with crescent-shaped lake in foreground, warm orange and purple sky, soft sand dunes, romantic mood, shallow depth of field, editorial lighting.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "初遇敦煌：老城漫步与夜市烟火",
+      "summary": "慢节奏抵达，从老城漫步开始，融入敦煌的日常气息，傍晚在夜市里尝遍西北风味。",
+      "activities": [
+        {
+          "time_block": "afternoon",
+          "description": "抵达敦煌后，先到老城休闲漫步区走走，感受小城的悠闲节奏，两人一起在街巷里发现有趣的角落。",
+          "poi_refs": [
+            "poi_town_walk"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "前往沙洲夜市，在热闹的摊位间穿梭，分享烤羊肉串、杏皮水等西北小吃，让味蕾先一步认识敦煌。",
+          "poi_refs": [
+            "poi_shazhou_market"
+          ],
+          "food_refs": [
+            "food_shazhou"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "千年壁画前的静谧时光",
+      "summary": "整个上午沉浸在莫高窟的艺术宝库中，下午在博物馆里细读丝绸之路的故事，傍晚为明天的沙漠之旅做准备。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "前往莫高窟，在专业讲解中欣赏壁画与彩塑，感受千年文明的震撼。两人并肩站在洞窟前，光影交错，安静而深刻。",
+          "poi_refs": [
+            "poi_mogao_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "参观敦煌博物馆，通过文物和复原场景更深入地理解壁画背后的历史，为接下来的沙漠体验增添文化厚度。",
+          "poi_refs": [
+            "poi_museum_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "在市中心休闲餐饮区用一顿轻松的西北晚餐，推荐尝试驴肉黄面或浆水面，为明天的沙漠行程储备体力。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_town_center"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "沙漠之吻：鸣沙山与月牙泉",
+      "summary": "午后深入鸣沙山，骑骆驼或赤脚爬沙，在月牙泉边相依，等待沙漠中最美的日落。",
+      "activities": [
+        {
+          "time_block": "afternoon",
+          "description": "前往鸣沙山月牙泉，两人一起爬上沙丘，俯瞰月牙形泉水，在沙漠中嬉戏拍照，感受天地辽阔。",
+          "poi_refs": [
+            "poi_mingsha_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "留在鸣沙山等待日落，看夕阳将沙漠染成金红色，彼此依偎，用相机记录下这浪漫一刻。之后在沙漠沿线餐饮点用简餐。",
+          "poi_refs": [
+            "poi_desert_evening"
+          ],
+          "food_refs": [
+            "food_desert_route"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 4,
+      "title": "大漠深处的落日私语",
+      "summary": "轻松的一天，上午在老城补拍照片，下午再次前往沙漠深处，找一处安静的视角，独享两人的落日私语。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "再次漫步老城，在街巷中寻找光影，拍摄充满生活气息的情侣照，留下悠闲的旅行记忆。",
+          "poi_refs": [
+            "poi_town_walk"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "前往沙漠傍晚观景点，避开人群，找一处沙丘坐下，聊天、发呆，等待夕阳西下。这里是只属于两人的静谧世界。",
+          "poi_refs": [
+            "poi_desert_evening"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "从沙漠返回，再次光顾沙洲夜市，尝试前两日没吃过的摊位，在灯火中回味这一天的浪漫。",
+          "poi_refs": [
+            "poi_shazhou_market"
+          ],
+          "food_refs": [
+            "food_shazhou"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 5,
+      "title": "最后的晨光与告别",
+      "summary": "在敦煌的最后一个早晨，去鸣沙山再看一眼沙漠晨光，然后带着满满的回忆踏上归途。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "早起前往鸣沙山，看朝阳下的沙漠与月牙泉，拍下最后一张合影。之后在市区简单用早餐，收拾行李。",
+          "poi_refs": [
+            "poi_mingsha_edge"
+          ],
+          "food_refs": [
+            "food_town_center"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_mogao_edge",
+      "name": "莫高窟",
+      "district": "敦煌",
+      "type": "cultural landmark",
+      "reason": "情侣必访的文化高地。在洞窟壁画前感受时间沉淀，两人一起静默仰望，是敦煌最深刻的共同记忆。",
+      "recommended_duration_minutes": 150
+    },
+    {
+      "id": "poi_mingsha_edge",
+      "name": "鸣沙山月牙泉",
+      "district": "敦煌",
+      "type": "desert scenic area",
+      "reason": "沙漠与泉水相依的奇景，适合情侣携手爬沙、骑骆驼，在日落时分定格浪漫剪影。",
+      "recommended_duration_minutes": 150
+    },
+    {
+      "id": "poi_shazhou_market",
+      "name": "沙洲夜市",
+      "district": "敦煌",
+      "type": "food and evening district",
+      "reason": "夜晚的烟火气是情侣约会的加分项，两人一起尝遍西北小吃，在喧闹中感受敦煌的另一面。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_museum_edge",
+      "name": "敦煌博物馆",
+      "district": "敦煌",
+      "type": "museum area",
+      "reason": "为莫高窟之行补充文化背景，让两人的对话更有深度，也是躲避午后炎热的好去处。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_desert_evening",
+      "name": "沙漠日落观景点",
+      "district": "敦煌",
+      "type": "sunset scenic area",
+      "reason": "为情侣设计的私密日落体验，远离喧嚣，在沙丘上并肩看夕阳沉入大漠，浪漫至极。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_town_walk",
+      "name": "老城休闲漫步区",
+      "district": "敦煌",
+      "type": "town district",
+      "reason": "适合情侣悠闲散步，街巷里藏着生活气息和拍照好角度，是沙漠行程之外的温柔调剂。",
+      "recommended_duration_minutes": 75
+    }
+  ],
+  "food": [
+    {
+      "id": "food_shazhou",
+      "name": "沙洲夜市美食区",
+      "district": "敦煌",
+      "category": "snack street",
+      "reason": "情侣夜游首选，烤串、杏皮水、酿皮等西北风味琳琅满目，两人分食更有滋味。"
+    },
+    {
+      "id": "food_town_center",
+      "name": "市中心休闲餐饮区",
+      "district": "敦煌",
+      "category": "casual dining",
+      "reason": "提供驴肉黄面、浆水面等本地正餐，环境舒适，适合情侣在文化游览后从容用餐。"
+    },
+    {
+      "id": "food_desert_route",
+      "name": "沙漠沿线餐饮点",
+      "district": "敦煌",
+      "category": "route-side dining",
+      "reason": "位于沙漠景区附近，提供简餐和热饮，方便情侣在日落前后快速补给，不耽误观景时光。"
+    }
+  ]
+}

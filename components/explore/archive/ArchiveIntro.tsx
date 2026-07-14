@@ -1,32 +1,21 @@
-import type { ExploreTripContent } from "@/lib/explore/types";
-
-import { ArchivePaperPanel } from "./ArchivePaperPanel";
+import type { ArchiveReaderViewModel } from "@/lib/explore/archive-reader";
+import { cleanDisplayText } from "@/lib/explore/archive-display";
 
 interface ArchiveIntroProps {
-  item: ExploreTripContent;
+  item: ArchiveReaderViewModel;
 }
 
 export function ArchiveIntro({ item }: ArchiveIntroProps) {
+  const story = cleanDisplayText(
+    item.featuredReason,
+    cleanDisplayText(item.summary, "这份档案会在创建时继续按你的偏好细化。"),
+  );
+
   return (
-    <ArchivePaperPanel
-      paper="light"
-      bookmark="default"
-      decoration="label"
-      className="px-4 py-4 sm:px-5 sm:py-5"
-      contentClassName="space-y-3 pt-5"
-    >
-      <div className="space-y-3">
-        <p className="workspace-kicker">TRAVEL STORY</p>
-        <h2 className="text-lg font-semibold text-[var(--ink)]">旅行故事</h2>
-        <p className="text-sm leading-6 text-[var(--ink-muted)]">
-          {item.archiveIntro ?? item.summary}
-        </p>
-        {item.featuredReason ? (
-          <p className="rounded-[18px] border border-dashed border-[var(--line)] bg-[rgb(255_255_255_/_0.56)] px-4 py-3 text-sm leading-6 text-[var(--ink-muted)]">
-            为什么值得体验：{item.featuredReason}
-          </p>
-        ) : null}
-      </div>
-    </ArchivePaperPanel>
+    <div className="max-w-3xl">
+      <p className="workspace-kicker">WHY IT FITS</p>
+      <h2 className="mt-2 text-lg font-semibold text-[var(--ink)]">为什么适合你</h2>
+      <p className="mt-3 text-sm leading-7 text-[var(--ink-muted)]">{story}</p>
+    </div>
   );
 }

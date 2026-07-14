@@ -1,0 +1,161 @@
+{
+  "id": "exp_shenzhen_student_2d_food_shopping_citywalk_v1",
+  "slug": "shenzhen-student-2d-food-shopping-citywalk",
+  "title": "深圳2日：海边栈道与创意园午后，属于年轻探索者的城市节奏",
+  "summary": "为预算有限但精力充沛的学生旅行者设计，用两天时间穿行深圳最富活力的两个区域：南山的海滨与创意文化带，以及福田的都市中轴线。全程地铁可达，以街头美食、创意园区和城市漫步为主线，感受这座年轻城市最真实的一面。",
+  "city": {
+    "code": "shenzhen",
+    "name": "Shenzhen",
+    "region_name": "Guangdong"
+  },
+  "trip_type": "student",
+  "days": 2,
+  "budget": {
+    "level": "low",
+    "note": "主要利用免费公共空间、平价美食街和地铁出行，控制开销。"
+  },
+  "pace": "dense",
+  "tags": [
+    "food",
+    "citywalk",
+    "budget-friendly",
+    "youthful-energy",
+    "bay-view",
+    "creative-district"
+  ],
+  "image_prompt": "Editorial travel photography style, wide angle of Shenzhen Bay waterfront at golden hour, with a young traveler in casual clothes walking along the boardwalk, skyline of modern skyscrapers in the background, soft warm light, clean composition, sense of urban exploration and freedom.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "南山海岸线到创意园：海风、涂鸦与年轻味道",
+      "summary": "从深圳湾公园的海滨栈道开始，沿开阔海岸线漫步，感受都市与自然的交融；午后转入华侨城创意园，在画廊、咖啡馆和涂鸦墙之间自由穿行；傍晚前往海上世界，在水岸灯光下寻觅平价美食。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "从深圳湾公园地铁站出发，沿着海滨栈道一路慢行。海风拂面，对岸的香港山脉若隐若现，左侧是深圳湾超级总部基地的摩天楼群。适合边走边拍照，或坐在长椅上放空。",
+          "poi_refs": [
+            "poi_shenzhen_bay"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "乘坐地铁转至华侨城创意园。这里由旧厂房改造而成，遍布独立书店、设计工作室和文艺咖啡馆。在园区里随意穿梭，看看街头涂鸦和展览，累了就在OCT Loft Cafe & Light Meal Zone找个角落喝杯咖啡，感受年轻创作者的氛围。",
+          "poi_refs": [
+            "poi_oct_loft"
+          ],
+          "food_refs": [
+            "food_oct_cafe"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "步行或短途地铁前往海上世界广场。明华轮在灯光下成为地标，周边餐饮酒吧林立。作为学生旅行者，可以在这里找到性价比高的晚餐选择，比如港式茶餐厅或日式拉面。餐后沿着水岸散步，看夜景倒映在水中。",
+          "poi_refs": [
+            "poi_sea_world"
+          ],
+          "food_refs": [
+            "food_sea_world"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 1,
+      "title": "福田都市轴线：公园、中轴线与东门美食暴走",
+      "summary": "上午登莲花山公园俯瞰市民中心，沿中轴线步行感受深圳的规划尺度；下午转入东门老街，在迷宫般的巷子里寻找地道小吃和潮流小店；傍晚在市民广场看灯光秀，结束充实的一天。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "从莲花山公园南门进入，沿缓坡登上山顶，邓小平铜像前是拍摄市民中心全景的最佳位置。下山后沿中轴线南行，经过深圳书城、音乐厅和图书馆，感受这座城市的公共文化空间。",
+          "poi_refs": [
+            "poi_lianhuashan",
+            "poi_civic_center"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "乘坐地铁至老街站，一头扎进东门步行街。这里是小吃的天堂——从肠粉、烤串到糖水，人均几十元就能吃遍各种风味。同时，这里也是淘平价服饰和创意小商品的好去处，适合学生党边逛边吃。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_dongmen"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "返回市民广场区域，在灯光渐起的时刻找个台阶坐下，看市民中心和大鹏展翅建筑群的轮廓在暮色中亮起。如果赶上周末，还能看到灯光秀。之后可以在地铁站附近找一家奶茶店，为第二天的行程储备能量。",
+          "poi_refs": [
+            "poi_civic_center"
+          ],
+          "food_refs": []
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_shenzhen_bay",
+      "name": "深圳湾公园海滨栈道",
+      "district": "南山区",
+      "type": "waterfront scenic area",
+      "reason": "开放的海滨长廊，是学生旅行者用脚步感受深圳城市天际线与自然海景交汇的最佳起点。清晨或傍晚时分，光影变化下的城市轮廓尤其动人。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_oct_loft",
+      "name": "华侨城创意文化园",
+      "district": "南山区",
+      "type": "creative district",
+      "reason": "旧厂房改造的文艺地标，聚集了独立书店、设计工作室和咖啡馆，是学生群体探索深圳年轻创意脉搏的必到之处。随意穿行，每个转角都可能遇见惊喜。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_civic_center",
+      "name": "市民中心中轴线",
+      "district": "福田区",
+      "type": "city landmark zone",
+      "reason": "深圳城市规划的集中体现，从莲花山到会展中心的宽阔轴线，适合学生党以citywalk的方式感受这座城市的现代尺度与公共空间活力。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_lianhuashan",
+      "name": "莲花山公园",
+      "district": "福田区",
+      "type": "city park",
+      "reason": "登顶可俯瞰市民中心全景，是理解深圳城市格局的绝佳观察点。免费开放，步道平缓，适合学生群体在紧凑行程中安排一段轻松的登山时光。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_sea_world",
+      "name": "海上世界广场",
+      "district": "南山区",
+      "type": "evening district",
+      "reason": "以明华轮为核心的滨水休闲区，夜晚灯光璀璨，餐饮选择丰富且价位多样。学生旅行者可以在这里享受一顿性价比不错的晚餐，并感受深圳的夜生活氛围。",
+      "recommended_duration_minutes": 120
+    }
+  ],
+  "food": [
+    {
+      "id": "food_dongmen",
+      "name": "东门老街美食街",
+      "district": "罗湖区",
+      "category": "snack street",
+      "reason": "深圳最富盛名的平价美食聚集地，从传统广式糖水到各地街头小吃应有尽有。学生旅行者可以花很少的钱吃遍多种风味，同时感受老城区的市井烟火气。"
+    },
+    {
+      "id": "food_sea_world",
+      "name": "海上世界餐饮区",
+      "district": "南山区",
+      "category": "dining cluster",
+      "reason": "水岸旁的多元餐饮选择，包含港式茶餐厅、日式拉面、泰式简餐等，人均消费适中，适合学生群体在欣赏夜景的同时解决晚餐。"
+    },
+    {
+      "id": "food_oct_cafe",
+      "name": "华侨城创意园咖啡轻食区",
+      "district": "南山区",
+      "category": "cafe zone",
+      "reason": "园区内散布着多家独立咖啡馆和轻食店，环境文艺，价格亲民。适合学生旅行者在逛完创意园后小憩，点一杯饮品感受这里的创作氛围。"
+    }
+  ]
+}

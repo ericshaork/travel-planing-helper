@@ -1,0 +1,202 @@
+{
+  "id": "exp_chengdu_couple_4d_slow_night_tea_v1",
+  "slug": "chengdu-couple-4d-slow-night-tea",
+  "title": "夜色茶馆里的二人世界：成都4日慢约会",
+  "summary": "为情侣设计的成都慢节奏之旅，围绕川味夜色、茶馆静谧和城市夜游展开。你们会在宽窄巷子的灯笼下牵手漫步，在人民公园的盖碗茶边消磨午后，在望平坊的河风里依偎，在锦里的灯火中寻觅小吃。这四天不赶景点，只属于两个人的成都记忆。",
+  "city": {
+    "code": "chengdu",
+    "name": "Chengdu",
+    "region_name": "Sichuan"
+  },
+  "trip_type": "couple",
+  "days": 4,
+  "budget": {
+    "level": "medium",
+    "note": "中等预算，兼顾氛围餐饮和舒适体验，不追求奢华但注重品质感。"
+  },
+  "pace": "slow",
+  "tags": [
+    "couple",
+    "slow-travel",
+    "night-scene",
+    "tea-house",
+    "romance",
+    "food",
+    "photo"
+  ],
+  "image_prompt": "Editorial travel photography style, a couple sitting at a wooden tea table under warm lantern light in a Chengdu tea house, steam rising from a cup, soft evening glow, blurred bamboo and old brick walls in the background, shallow depth of field, romantic and intimate mood, cinematic composition.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "初见宽窄，茶馆慢泡",
+      "summary": "抵达成都的第一天，从宽窄巷子的青砖灰瓦开始，慢悠悠地逛吃，然后躲进人民公园的茶馆里，像本地人一样享受一个悠长的下午。",
+      "activities": [
+        {
+          "time_block": "afternoon",
+          "description": "下午抵达后，散步进入宽窄巷子。窄巷子的灯笼和青砖墙很适合两个人边走边拍。找一家有院子的茶馆坐下，点两杯盖碗茶，看人来人往，感受成都的慢。晚餐就在巷子里的川菜小馆解决，尝尝夫妻肺片和担担面。",
+          "poi_refs": [
+            "poi_kuanzhai_alley"
+          ],
+          "food_refs": [
+            "food_kuanzhai_lane"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "夜幕降临后，宽窄巷子的酒吧和音乐小馆开始亮灯。选一家有驻唱的民谣酒吧，喝一杯鸡尾酒，两个人靠在沙发上听歌，结束第一晚。",
+          "poi_refs": [
+            "poi_kuanzhai_alley"
+          ],
+          "food_refs": []
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "公园晨光，河岸夜话",
+      "summary": "上午在人民公园的茶社里发发呆，下午去望平坊的河岸散步拍照，晚上在河边找一家小馆子吃串串，享受属于两个人的安静时光。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "睡到自然醒，然后去人民公园。在鹤鸣茶社找个湖边位置，点两杯竹叶青，看当地人打牌、遛鸟、掏耳朵。你们可以聊聊天，拍几张有生活气的照片。",
+          "poi_refs": [
+            "poi_people_park"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "从人民公园散步到望平坊，沿着府河慢慢走。河边的咖啡馆和涂鸦墙很适合情侣拍照。找一家河景甜品店，点一份冰粉和提拉米苏，坐看河水流过。",
+          "poi_refs": [
+            "poi_wangpingfang"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "晚餐在望平坊附近找一家冷锅串串店，两个人围着小锅边涮边聊。饭后沿着河岸散步，两岸的灯光倒映在水里，非常浪漫。",
+          "poi_refs": [
+            "poi_wangpingfang"
+          ],
+          "food_refs": []
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "武侯怀古，锦里夜游",
+      "summary": "上午去武侯祠感受三国文化，下午在锦里逛吃逛吃，晚上在锦里的红灯笼下拍情侣照，再吃一顿地道的火锅。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "早餐后前往武侯祠，在红墙竹影间漫步。你们可以一起找找诸葛亮和刘备的故事，在安静的庭院里拍几张有古韵的合照。",
+          "poi_refs": [
+            "poi_wuhou_shrine"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "从武侯祠出来，直接走进旁边的锦里。下午的锦里热闹但不拥挤，你们可以一路尝遍三大炮、糖油果子、钵钵鸡。找一家临街的茶馆歇脚，看变脸表演。",
+          "poi_refs": [
+            "poi_jinli"
+          ],
+          "food_refs": [
+            "food_jinli_snack"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "锦里的夜景是成都最上镜的场景之一。红灯笼、木楼、石板路，两个人手牵手拍照。晚餐选一家锦里附近的火锅店，点一锅麻辣牛油锅底，涮毛肚、鹅肠，感受成都的烟火气。",
+          "poi_refs": [
+            "poi_jinli"
+          ],
+          "food_refs": []
+        }
+      ]
+    },
+    {
+      "day": 4,
+      "title": "再访宽窄，告别蓉城",
+      "summary": "最后一天睡到自然醒，再去宽窄巷子买些伴手礼，吃一碗甜水面，然后带着满满的回忆离开。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "上午再次来到宽窄巷子，这次可以更悠闲地逛。在文创店里挑一些熊猫明信片和蜀绣小物，作为旅行的纪念。然后在井巷子的长椅上坐一会儿，喝一杯盖碗茶，享受最后的慢时光。",
+          "poi_refs": [
+            "poi_kuanzhai_alley"
+          ],
+          "food_refs": [
+            "food_kuanzhai_lane"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "午餐在宽窄巷子附近吃一碗甜水面和钟水饺，然后收拾行李前往机场或车站，结束这趟慢悠悠的成都约会。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_kuanzhai_lane"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_kuanzhai_alley",
+      "name": "宽窄巷子",
+      "district": "青羊区",
+      "type": "historic district",
+      "reason": "情侣漫步的绝佳起点，青砖灰瓦和红灯笼营造出浪漫的古巷氛围。白天适合逛街拍照，晚上则变身音乐酒吧聚集地，两人可以在这里找到属于成都的慢节奏约会感。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_people_park",
+      "name": "人民公园",
+      "district": "青羊区",
+      "type": "city park",
+      "reason": "成都慢生活的灵魂所在。和爱人一起在鹤鸣茶社喝盖碗茶，看当地人悠闲度日，是情侣间最放松的共处时光。公园里的湖景和竹林也非常适合拍出有生活气息的情侣照。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_jinli",
+      "name": "锦里",
+      "district": "武侯区",
+      "type": "historic commercial street",
+      "reason": "夜晚的锦里是成都最浪漫的古街之一。红灯笼、木楼和石板路构成绝佳的夜景拍摄背景，两人可以边吃小吃边逛，感受古街的热闹与温情。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_wuhou_shrine",
+      "name": "武侯祠",
+      "district": "武侯区",
+      "type": "cultural site",
+      "reason": "红墙竹影是情侣拍照的经典场景，武侯祠的古朴宁静很适合两人一起感受三国文化，在庭院里慢慢走，轻声交谈，享受没有游客喧嚣的上午。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_wangpingfang",
+      "name": "望平坊河畔",
+      "district": "成华区",
+      "type": "riverwalk district",
+      "reason": "成都新兴的河岸休闲区，适合情侣傍晚散步。河边咖啡馆、涂鸦墙和灯光倒影营造出年轻浪漫的氛围，两人可以在这里度过一段安静的河岸时光，拍出文艺感十足的照片。",
+      "recommended_duration_minutes": 120
+    }
+  ],
+  "food": [
+    {
+      "id": "food_kuanzhai_lane",
+      "name": "宽窄巷子美食区",
+      "district": "青羊区",
+      "category": "snack street",
+      "reason": "宽窄巷子内及周边聚集了众多地道川菜小馆和茶社，适合情侣第一餐轻松尝试夫妻肺片、担担面、甜水面等经典小吃，氛围轻松，选择多样。"
+    },
+    {
+      "id": "food_jinli_snack",
+      "name": "锦里小吃街",
+      "district": "武侯区",
+      "category": "snack street",
+      "reason": "锦里内的小吃走廊是情侣边逛边吃的好去处，三大炮、糖油果子、钵钵鸡等小吃充满街头乐趣，还能边吃边看变脸表演，氛围热闹又接地气。"
+    }
+  ]
+}

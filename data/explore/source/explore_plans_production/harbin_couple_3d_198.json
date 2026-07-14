@@ -1,0 +1,190 @@
+{
+  "id": "exp_harbin_couple_3d_romantic_winter_v1",
+  "slug": "harbin-couple-3d-romantic-winter",
+  "title": "冰城恋歌：三天欧陆老街与冰雪街景的浪漫漫步",
+  "summary": "为情侣设计的慢节奏哈尔滨之旅，穿梭于欧式建筑与松花江畔的冬日光影中，用镜头记录彼此依偎的瞬间，在温暖的东北菜馆里分享热气腾腾的时光。",
+  "city": {
+    "code": "harbin",
+    "name": "Harbin",
+    "region_name": "Heilongjiang"
+  },
+  "trip_type": "couple",
+  "days": 3,
+  "budget": {
+    "level": "medium",
+    "note": "中等预算，兼顾舒适住宿、特色餐饮与慢节奏体验"
+  },
+  "pace": "slow",
+  "tags": [
+    "couple",
+    "romantic",
+    "winter-city",
+    "european-style-streets",
+    "photo-friendly",
+    "local-food",
+    "citywalk"
+  ],
+  "image_prompt": "National Geographic travel magazine style photo, a couple walking hand in hand along Central Street in Harbin at dusk, with glowing European-style architecture, snowy sidewalks, and warm streetlights, shallow depth of field, soft golden hour light, romantic and cinematic mood, 4K, high detail.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "欧陆初见：中央大街的浪漫序曲",
+      "summary": "从中央大街的巴洛克建筑开始，两人漫步在面包石路上，品尝马迭尔冰棍，傍晚在圣索菲亚教堂前定格剪影。",
+      "activities": [
+        {
+          "time_block": "afternoon",
+          "description": "抵达后前往中央大街，沿着这条百年老街漫步，欣赏两侧的欧式建筑，在街角甜品店买一支马迭尔冰棍，两人分食，感受冰城的初印象。",
+          "poi_refs": [
+            "poi_central_street"
+          ],
+          "food_refs": [
+            "food_central_casual"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "日落时分步行至圣索菲亚教堂广场，在暖黄灯光与深蓝夜幕下为彼此拍下浪漫合影。随后在中央大街附近找一家温馨的俄式餐厅，共享一顿慢晚餐。",
+          "poi_refs": [
+            "poi_saint_sofia"
+          ],
+          "food_refs": [
+            "food_central_casual"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "江畔私语：松花江边的慢镜头",
+      "summary": "沿着松花江边散步，看冰雪覆盖的江面与远处的太阳岛，午后在老道外的街巷里寻找地道东北菜，傍晚回到中央大街看灯火亮起。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "睡到自然醒，之后前往松花江畔，沿着江边步道缓缓行走，看冰封的江面与对岸的太阳岛，在无人的角落依偎拍照。",
+          "poi_refs": [
+            "poi_songhua_riverfront"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "打车前往老道外，在充满生活气息的街巷里穿行，寻找一家本地小馆，点上锅包肉和地三鲜，体验最地道的东北味道。饭后在街巷里随意走走，感受老城的烟火气。",
+          "poi_refs": [
+            "poi_laodaowai"
+          ],
+          "food_refs": [
+            "food_laodaowai_local"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "返回中央大街，在璀璨的灯光下再次漫步，买两串冰糖葫芦，在零下的空气里呵着白气，享受属于两个人的安静夜晚。",
+          "poi_refs": [
+            "poi_central_evening"
+          ],
+          "food_refs": [
+            "food_riverfront_warm"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "雪境余晖：太阳岛边的告别午餐",
+      "summary": "上午前往太阳岛边缘，在雪地里撒欢、拍照，中午在松花江边的温暖餐厅享用告别午餐，午后整理回忆，踏上归程。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "乘坐缆车或打车前往太阳岛边缘，在开阔的雪景中漫步，找一片干净的雪地，写下两人的名字，拍下最后一组冬日纪念照。",
+          "poi_refs": [
+            "poi_sun_island_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "回到松花江边，在温暖的餐厅点一份热气腾腾的酸菜白肉锅，慢慢享用最后一顿东北午餐，回味这三天的浪漫时光，然后前往机场或车站。",
+          "poi_refs": [
+            "poi_songhua_riverfront"
+          ],
+          "food_refs": [
+            "food_riverfront_warm"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_central_street",
+      "name": "中央大街",
+      "district": "道里区",
+      "type": "历史商业街",
+      "reason": "哈尔滨最浪漫的步行街，面包石路面与欧式建筑群为情侣提供了天然的摄影背景，慢逛、吃冰棍、看街头表演，每一步都是属于两人的电影画面。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_songhua_riverfront",
+      "name": "松花江畔",
+      "district": "道里区",
+      "type": "河滨区域",
+      "reason": "冬日江面冰封，视野开阔，是情侣散步、拍照、静静依偎的理想地点。江风虽冷，但彼此的温度让这里成为最难忘的冬日场景。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_saint_sofia",
+      "name": "圣索菲亚教堂",
+      "district": "道里区",
+      "type": "建筑地标",
+      "reason": "拜占庭风格的绿色洋葱顶在雪夜中格外梦幻，是情侣必到的打卡点。黄昏灯光亮起时，教堂前的广场是拍摄双人剪影的绝佳位置。",
+      "recommended_duration_minutes": 75
+    },
+    {
+      "id": "poi_laodaowai",
+      "name": "老道外",
+      "district": "道外区",
+      "type": "历史街区",
+      "reason": "比中央大街更接地气的历史街区，斑驳的老建筑与街边小馆充满了生活气息，适合喜欢探索的情侣在这里发现意外的小惊喜。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_sun_island_edge",
+      "name": "太阳岛边缘",
+      "district": "松北区",
+      "type": "风景休闲区",
+      "reason": "开阔的雪地与安静的树林，远离人群，适合情侣在雪地里撒欢、堆雪人、拍出只有彼此的纯净冬日照片。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_central_evening",
+      "name": "中央大街夜景",
+      "district": "道里区",
+      "type": "夜间街区",
+      "reason": "夜晚灯光亮起后的中央大街比白天更迷人，冰灯与欧式建筑的轮廓在夜色中交织，是情侣晚餐后散步、感受冰城浪漫氛围的最佳去处。",
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food": [
+    {
+      "id": "food_central_casual",
+      "name": "中央大街休闲美食区",
+      "district": "道里区",
+      "category": "美食街区",
+      "reason": "紧邻中央大街，汇集了马迭尔冰棍、华梅西餐厅等经典选择。情侣可以边逛边吃，轻松解决餐饮，无需特意绕路。"
+    },
+    {
+      "id": "food_laodaowai_local",
+      "name": "老道外地道东北菜街",
+      "district": "道外区",
+      "category": "本地餐馆",
+      "reason": "隐藏在老道外街巷里的本地小馆，锅包肉、地三鲜、杀猪菜分量十足，味道正宗。情侣可以在这里体验最市井的东北饮食文化，共享一顿暖心的午餐。"
+    },
+    {
+      "id": "food_riverfront_warm",
+      "name": "江畔暖食区",
+      "district": "道里区",
+      "category": "暖和餐厅",
+      "reason": "松花江边的一系列温暖餐厅，提供酸菜白肉锅、铁锅炖等适合冬日共享的热菜。环境温馨，适合情侣在寒冷户外活动后进来暖和身子、慢慢用餐。"
+    }
+  ]
+}

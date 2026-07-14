@@ -1,0 +1,153 @@
+{
+  "id": "exp_beijing_solo_2d_shichahai_hutong_v1",
+  "slug": "beijing-solo-2d-shichahai-hutong",
+  "title": "什刹海夜色与胡同烟火：一个人的北京漫游",
+  "summary": "这是一场属于独行者的北京探索。避开人群，在什刹海的湖光与胡同的烟火气之间，用脚步丈量这座城市的双重性格——既有皇城的庄严背影，也有巷弄里的温热生活。两日行程张弛有度，留给独处和观察足够的空间，适合喜欢在城市中自由沉浸的旅行者。",
+  "city": {
+    "code": "beijing",
+    "name": "Beijing",
+    "region_name": "Beijing"
+  },
+  "trip_type": "solo",
+  "days": 2,
+  "budget": {
+    "level": "medium",
+    "note": "适中预算，一次文化景点加一次胡同探索，搭配地道本地餐饮区域。"
+  },
+  "pace": "balanced",
+  "tags": [
+    "citywalk",
+    "hutong-life",
+    "local-culture",
+    "photo",
+    "solo-travel",
+    "heritage"
+  ],
+  "image_prompt": "A solo traveler walking along a narrow hutong alley in Beijing at dusk, warm lantern light spilling onto cobblestones, traditional courtyard walls on both sides, a distant view of drum tower, atmospheric and contemplative, editorial travel photography style, shallow depth of field, golden hour glow.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "皇城背影与湖畔黄昏",
+      "summary": "从紫禁城的外围开始，登上景山俯瞰整个北京中轴线，傍晚转入什刹海，在湖边的胡同里寻找烟火气。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "沿着故宫外围漫步，不进入宫内，而是感受护城河与角楼的庄严轮廓。这个独处的早晨适合放空，看着城墙下的晨练人群，体会皇城根下的日常。",
+          "poi_refs": [
+            "poi_forbidden_city_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "登上景山公园的万春亭，360度俯瞰北京城。中轴线上的故宫、鼓楼、北海白塔尽收眼底。下山后在附近胡同随意穿行，偶遇一家老字号面馆解决午餐。",
+          "poi_refs": [
+            "poi_jingshan"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "转入什刹海区域，沿后海散步，看夕阳在湖面碎成金色。胡同里的酒吧和餐厅开始亮灯，但更适合独自找一家安静的小馆，尝尝地道北京小吃，听邻桌的本地闲谈。",
+          "poi_refs": [
+            "poi_shichahai_hutong"
+          ],
+          "food_refs": [
+            "food_shichahai_hutong"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "天坛晨光与南锣鼓巷的午后",
+      "summary": "清晨去天坛感受北京人的晨练文化，下午在南锣鼓巷的支巷里迷路，用一场胡同深处的糖水收尾。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "早起去天坛公园，看大爷大妈们打太极、踢毽子、唱京剧。祈年殿的蓝色琉璃瓦在晨光中格外动人，独行者的镜头可以捕捉到很多生动的瞬间。",
+          "poi_refs": [
+            "poi_temple_of_heaven"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "转战南锣鼓巷，但避开主街的人流，钻进两侧的支巷——帽儿胡同、雨儿胡同，那里有真实的北京生活。偶尔停下拍一张斑驳的门墩，或是在某个文创小店门口驻足。",
+          "poi_refs": [
+            "poi_nanluoguxiang"
+          ],
+          "food_refs": [
+            "food_nanluoguxiang_snack"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "最后回到什刹海，找一家临湖的清吧，点一杯饮料，看着湖面灯光倒影，回味两天的独自漫游。这是属于自己与北京的安静告别。",
+          "poi_refs": [
+            "poi_shichahai_hutong"
+          ],
+          "food_refs": []
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_forbidden_city_edge",
+      "name": "故宫外围漫步",
+      "district": "东城区",
+      "type": "imperial landmark",
+      "reason": "不进入故宫，而是沿着护城河和角楼行走，感受皇城的恢弘尺度与日常生活的微妙对比，是独行者最安静的北京开场。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_jingshan",
+      "name": "景山万春亭",
+      "district": "西城区",
+      "type": "city viewpoint",
+      "reason": "北京中轴线的最佳俯瞰点，独行者可以在这里独自发呆，看城市在脚下铺展，感受历史与当下的叠影。",
+      "recommended_duration_minutes": 75
+    },
+    {
+      "id": "poi_shichahai_hutong",
+      "name": "什刹海胡同区",
+      "district": "西城区",
+      "type": "hutong district",
+      "reason": "湖光与胡同交织的区域，既有开阔的水面，又有曲折的巷弄。傍晚时分尤其迷人，适合独自散步、观察、拍照。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_temple_of_heaven",
+      "name": "天坛公园",
+      "district": "东城区",
+      "type": "cultural landmark",
+      "reason": "清晨的天坛是北京最生动的日常舞台。独行者可以融入晨练的人群，感受这座城市最真实的呼吸，同时欣赏壮丽的祭天建筑。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_nanluoguxiang",
+      "name": "南锣鼓巷及支巷",
+      "district": "东城区",
+      "type": "historic lane district",
+      "reason": "主街热闹，但支巷才是精华。独行者可以随意拐进任何一条胡同，发现老北京的门楼、槐树和猫，每一步都是惊喜。",
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food": [
+    {
+      "id": "food_shichahai_hutong",
+      "name": "什刹海胡同小吃区",
+      "district": "西城区",
+      "category": "snack street",
+      "reason": "沿湖分布着众多小吃摊和胡同小馆，适合独自边逛边吃。豆汁儿、焦圈、炸酱面，都是地道北京味，烟火气十足。"
+    },
+    {
+      "id": "food_nanluoguxiang_snack",
+      "name": "南锣鼓巷支巷小吃",
+      "district": "东城区",
+      "category": "snack street",
+      "reason": "避开主街的拥挤，支巷里藏着更本地的小吃铺子。糖葫芦、酸奶、卤煮，一个人慢慢尝过去，就是一顿完美的午餐。"
+    }
+  ]
+}

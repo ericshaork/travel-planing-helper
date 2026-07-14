@@ -1,0 +1,190 @@
+{
+  "id": "exp_guilin_family_3d_karst_river_v1",
+  "slug": "guilin-family-3d-karst-river",
+  "title": "漓江边的慢时光：桂林三日家庭山水行",
+  "summary": "这是一段为家庭设计的桂林慢旅行。以漓江微风和老城步道为线索，串联起象鼻山、两江四湖等轻松景点，穿插老巷美食和河畔休憩，让大人和孩子都能在山水间找到舒服的节奏。",
+  "city": {
+    "code": "guilin",
+    "name": "Guilin",
+    "region_name": "Guangxi"
+  },
+  "trip_type": "family",
+  "days": 3,
+  "budget": {
+    "level": "medium",
+    "note": "适中预算，包含一个标志性景点门票、一次特色餐饮和舒适的交通衔接。"
+  },
+  "pace": "slow",
+  "tags": [
+    "family-friendly",
+    "karst-scenery",
+    "river-city",
+    "slow-travel",
+    "old-town"
+  ],
+  "image_prompt": "National Geographic travel magazine style photo of a family walking along the Li River at golden hour, with karst mountains in the background, soft warm light, children holding hands, relaxed atmosphere, shallow depth of field, cinematic composition.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "初见漓江，象山下的家庭时光",
+      "summary": "从象鼻山开始，孩子在山脚看水，大人在江边吹风。午后沿两江四湖散步，傍晚在正阳步行街尝一碗地道的桂林米粉。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "抵达桂林后，直奔象鼻山区域。这里地势平缓，适合全家慢慢走动。孩子可以在江边看山形如象，父母则能欣赏漓江与城市交融的景致。",
+          "poi_refs": [
+            "poi_elephant_trunk_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "沿着两江四湖的步道漫行，经过桥梁与亭台，水色与绿荫相伴。路上随时可以坐下休息，看游船往来，节奏完全由家人决定。",
+          "poi_refs": [
+            "poi_two_rivers"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "前往正阳步行街，在热闹但不拥挤的街巷里找一家干净的小店，全家人围坐吃米粉、喝糖水。饭后散步回酒店，感受桂林的市井夜风。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_zhengyang"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "老城巷弄与溶洞探秘",
+      "summary": "上午逛东西巷，看老房子、尝手工小吃。午后探访芦笛岩外围的山水环境，孩子可以在开阔地带奔跑。晚上在河畔餐厅吃一顿慢悠悠的晚餐。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "东西巷的石板路适合全家溜达，两侧的老建筑和手工艺店能吸引孩子的目光。找一家小店喝碗油茶，感受桂林老城的烟火气。",
+          "poi_refs": [
+            "poi_east_west_lane"
+          ],
+          "food_refs": [
+            "food_eastwest"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "前往芦笛岩外围区域，不进洞，只在山脚下的绿地和水边散步。这里视野开阔，孩子可以自由活动，大人则欣赏喀斯特峰林环绕的宁静。",
+          "poi_refs": [
+            "poi_reed_flute_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "在漓江边的河滨餐厅区选一家环境清幽的馆子，点上啤酒鱼、田螺酿等本地菜，一家人边吃边看江上渔火，结束舒缓的一天。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_riverfront"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "伏波远眺与江畔告别",
+      "summary": "登上伏波山俯瞰桂林城，然后沿着漓江边散步，捡石头、看钓鱼。中午在东西巷简单用餐后，带着山水记忆返程。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "伏波山不高，台阶平缓，适合全家登顶。在山顶观景台，孩子可以指着远处的山峰数数，父母则拍下漓江蜿蜒的全家福。",
+          "poi_refs": [
+            "poi_fubo_hill"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "沿着漓江边散步，从伏波山慢慢走向象山方向。江风拂面，水鸟低飞，找一处石阶坐下，让孩子玩水花，享受最后的宁静时光。",
+          "poi_refs": [
+            "poi_river_evening_walk"
+          ],
+          "food_refs": [
+            "food_eastwest"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_elephant_trunk_edge",
+      "name": "象鼻山景区",
+      "district": "象山",
+      "type": "地标景点",
+      "reason": "桂林的城市名片，江边地势平缓，家庭可以轻松走到山前看水，孩子对山形如象的天然奇观充满好奇，是全家合影的最佳背景。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_two_rivers",
+      "name": "两江四湖景区",
+      "district": "秀峰",
+      "type": "中央滨水区",
+      "reason": "水岸步道串联起桂林的城市与自然，沿途有桥、亭、绿荫，随时可坐下休息。家庭散步节奏自由，还能看到当地人在湖边垂钓、下棋。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_east_west_lane",
+      "name": "东西巷",
+      "district": "秀峰",
+      "type": "历史街区",
+      "reason": "老石板路、青砖墙和手工艺小店构成一处适合全家慢逛的巷弄。孩子会被糖画、小玩意吸引，大人则能感受桂林旧城的生活纹理。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_reed_flute_edge",
+      "name": "芦笛岩外围区域",
+      "district": "秀峰",
+      "type": "自然景观区",
+      "reason": "不进溶洞，只在山脚绿地和水边散步，就能享受喀斯特峰林环绕的开阔感。孩子能自由奔跑，大人则享受山水间的宁静。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_fubo_hill",
+      "name": "伏波山",
+      "district": "秀峰",
+      "type": "城市观景点",
+      "reason": "山不高、台阶缓，适合全家登顶。山顶能俯瞰漓江蜿蜒和城市轮廓，是给孩子讲解桂林山水的好地方，也是拍摄家庭纪念照的绝佳位置。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_river_evening_walk",
+      "name": "漓江边散步道",
+      "district": "象山",
+      "type": "滨水步道",
+      "reason": "从伏波山到象山的一段江边路，平缓安全，适合家庭饭后散步。江风、水鸟、远山构成桂林最温柔的告别场景。",
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food": [
+    {
+      "id": "food_zhengyang",
+      "name": "正阳步行街美食区",
+      "district": "秀峰",
+      "category": "小吃街",
+      "reason": "桂林最中心的步行街，聚集了多家地道米粉店和糖水铺，环境干净、选择丰富，适合家庭各取所需，孩子也能找到喜欢的口味。"
+    },
+    {
+      "id": "food_eastwest",
+      "name": "东西巷餐饮区",
+      "district": "秀峰",
+      "category": "老街餐饮",
+      "reason": "东西巷内隐藏着不少老字号小吃和家常菜馆，用餐环境有老城韵味，适合家庭在逛巷子时随时坐下，品尝油茶、马蹄糕等本地风味。"
+    },
+    {
+      "id": "food_riverfront",
+      "name": "漓江滨河餐厅带",
+      "district": "象山",
+      "category": "景观餐厅",
+      "reason": "沿江一线有多家环境优雅的餐厅，适合家庭在傍晚慢悠悠地用一顿晚餐，边吃啤酒鱼边看江景，为一天的行程画上圆满句号。"
+    }
+  ]
+}

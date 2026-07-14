@@ -1,0 +1,146 @@
+{
+  "id": "exp_lijiang_family_2d_slow_oldtown_nature_v1",
+  "slug": "lijiang-family-2d-slow-oldtown-nature",
+  "title": "石板路、流水与雪山天光：丽江慢亲子两日",
+  "summary": "这是一次为家庭设计的丽江慢游，节奏舒缓，不赶路、不爬坡。你们将一起走过古城石板路，在黑龙潭边看雪山倒影，去束河古镇找一处安静的院子吃午饭，傍晚再回到古城，看灯笼一盏盏亮起。两天里，陪伴和分享比景点更重要。",
+  "city": {
+    "code": "lijiang",
+    "name": "Lijiang",
+    "region_name": "Yunnan"
+  },
+  "trip_type": "family",
+  "days": 2,
+  "budget": {
+    "level": "high",
+    "note": "选用更舒适的餐厅、更宽敞的住宿，减少换乘和不必要的奔波。"
+  },
+  "pace": "slow",
+  "tags": [
+    "old-town",
+    "mountain-view",
+    "slow-travel",
+    "family-friendly",
+    "yunnan-atmosphere",
+    "evening-walk"
+  ],
+  "image_prompt": "National Geographic travel magazine style photo of a family walking hand-in-hand on ancient stone lanes in Lijiang Old Town, with small canals and willow trees, soft golden afternoon light, Jade Dragon Snow Mountain visible in the distance, warm and inviting atmosphere, shallow depth of field, cinematic composition.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "古城漫步与雪山天光",
+      "summary": "上午在古城石板路上慢慢走，孩子看水、看鱼、看铃铛；下午去黑龙潭，坐在水边看雪山倒影。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "从古城南门进入，沿着主街慢慢走，不刻意找路，让水流和石板带路。途中找一家有院子的咖啡馆歇脚，孩子可以在院子里玩，大人喝杯云南小粒咖啡。",
+          "poi_refs": [
+            "poi_lijiang_old_town"
+          ],
+          "food_refs": [
+            "food_old_town_casual"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "步行前往黑龙潭公园，在潭边找一处阴凉，铺上垫子或坐在长椅上，看雪山倒映在平静的水面。孩子可以喂鱼、看鸭子，大人享受安静。之后慢慢走回古城。",
+          "poi_refs": [
+            "poi_black_dragon_pool_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "在古城内找一家有院落的当地餐厅，点一锅野生菌土鸡煲，配几道清淡的蔬菜。饭后沿着四方街方向散步，看灯笼亮起，听流水声，孩子困了随时回住处。",
+          "poi_refs": [
+            "poi_old_town_evening"
+          ],
+          "food_refs": [
+            "food_local_yunnan_dining"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "束河慢时光与告别丽江",
+      "summary": "上午去束河古镇，人少、路平、节奏更慢；下午在古镇里找一家带院子的餐厅吃午饭，最后散步回古城取行李。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "打车或包车前往束河古镇（约15分钟车程），从青龙桥开始慢走。束河的石板路更宽，水流更浅，孩子可以玩水。在四方听音广场附近看当地人跳舞，感受纳西风情。",
+          "poi_refs": [
+            "poi_shuhe"
+          ],
+          "food_refs": [
+            "food_shuhe_cafe"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "在束河找一家带花园的餐厅，享用一顿轻松的午餐，推荐鸡豆凉粉、烤鱼和时令蔬菜。饭后在古镇里再逛一圈，买些小纪念品，然后返回古城，结束旅程。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_shuhe_cafe"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_lijiang_old_town",
+      "name": "丽江古城",
+      "district": "古城区",
+      "type": "historic district",
+      "reason": "古城是丽江的灵魂，石板路、小桥流水、纳西院落，每一步都是风景。对于家庭来说，这里平坦好走，随处可以停下来休息，孩子会被水渠和鱼吸引，大人则沉浸在慢节奏里。",
+      "recommended_duration_minutes": 150
+    },
+    {
+      "id": "poi_black_dragon_pool_edge",
+      "name": "黑龙潭公园",
+      "district": "古城区",
+      "type": "scenic park",
+      "reason": "黑龙潭是丽江最安静的水景之一，潭水清澈，倒映着玉龙雪山。这里适合家庭野餐、发呆、看云，孩子可以喂鱼，大人可以坐在水边享受难得的宁静。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_shuhe",
+      "name": "束河古镇",
+      "district": "古城区",
+      "type": "historic district",
+      "reason": "束河比大研古城更安静、更宽敞，石板路平整，水流浅缓，非常适合带孩子的家庭。这里游客更少，节奏更慢，适合慢慢逛、慢慢吃，感受古镇原本的样子。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_old_town_evening",
+      "name": "古城夜游",
+      "district": "古城区",
+      "type": "evening district",
+      "reason": "夜晚的古城褪去喧嚣，灯笼倒映在水面，石板路泛着微光。一家人手牵手散步，听远处传来的手鼓声，孩子看着灯笼好奇地眨眼睛——这是丽江最温柔的时刻。",
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food": [
+    {
+      "id": "food_old_town_casual",
+      "name": "古城小吃街巷",
+      "district": "古城区",
+      "category": "snack street",
+      "reason": "古城的巷子里藏着许多小吃摊和简餐店，适合边走边吃。推荐烤饵块、凉鸡米线、炸乳扇，孩子会喜欢这些有趣的小食，大人也能尝到地道的云南味道。"
+    },
+    {
+      "id": "food_shuhe_cafe",
+      "name": "束河咖啡馆与轻食区",
+      "district": "古城区",
+      "category": "cafe area",
+      "reason": "束河古镇里有许多带院子的咖啡馆，提供简餐、沙拉、意面和云南特色小吃。环境安静，适合一家人坐下来休息，孩子可以在院子里玩耍，大人享受一杯好咖啡。"
+    },
+    {
+      "id": "food_local_yunnan_dining",
+      "name": "古城纳西庭院餐厅",
+      "district": "古城区",
+      "category": "local cuisine cluster",
+      "reason": "古城内有不少由老院子改造成的餐厅，环境古朴，提供野生菌火锅、腊排骨、鸡豆凉粉等纳西家常菜。一家人围坐一桌，热气腾腾，是丽江最温暖的晚餐体验。"
+    }
+  ]
+}

@@ -1,0 +1,158 @@
+{
+  "id": "exp_chongqing_family_3d_river_night_v1",
+  "slug": "chongqing-family-3d-river-night",
+  "title": "山城江夜：陪家人慢慢走，看灯火与老街区",
+  "summary": "这是一条为家庭旅行者设计的重庆慢游路线，避开陡峭台阶和频繁转场，把节奏交给江风和夜景。三天里，一家人会一起看洪崖洞的灯火、在南滨路吹江风、在石板坡的老梯坎上慢慢走，再围坐吃一顿地道的火锅。不赶路，不折腾，只留下舒服的相处时光。",
+  "city": {
+    "code": "chongqing",
+    "name": "Chongqing",
+    "region_name": "Chongqing"
+  },
+  "trip_type": "family",
+  "days": 3,
+  "budget": {
+    "level": "medium",
+    "note": "以适中预算安排舒适节奏，兼顾江景晚餐和家庭友好型体验。"
+  },
+  "pace": "balanced",
+  "tags": [
+    "family-friendly",
+    "night-view",
+    "riverfront",
+    "hill-city",
+    "street-food",
+    "history"
+  ],
+  "image_prompt": "National Geographic travel magazine style photo of a family standing on a riverside promenade in Chongqing at dusk, the distant skyline of Hongyadong glowing with warm golden lights, the Yangtze River reflecting the city lights, a gentle breeze, parents and child looking out, candid moment, shallow depth of field, warm tones, cinematic composition.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "初见山城：解放碑的烟火气与洪崖洞的璀璨夜",
+      "summary": "从城市心脏开始，轻松漫步解放碑商圈，感受重庆的都市活力；傍晚转场洪崖洞，看层层叠叠的吊脚楼亮起灯火，在江边吹风拍照。",
+      "activities": [
+        {
+          "time_block": "afternoon",
+          "description": "抵达后先到解放碑核心区闲逛，这里地势平坦，适合一家人慢慢走。可以尝尝路边的酸辣粉和糍粑，让孩子感受山城的热闹。",
+          "poi_refs": [
+            "poi_jiefangbei"
+          ],
+          "food_refs": [
+            "food_jiefangbei_snacks"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "步行前往洪崖洞，欣赏重庆最具代表性的夜景。站在江边看灯火倒映水中，给家人拍几张合影。如果累了，就在附近的江景餐厅吃顿火锅。",
+          "poi_refs": [
+            "poi_hongyadong_view"
+          ],
+          "food_refs": []
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "江岸漫步：南滨路的悠闲午后与城市天际线",
+      "summary": "跨过长江，在南滨路度过一个轻松的下午和傍晚。这里没有陡峭楼梯，宽阔的江边步道适合全家散步，对岸的渝中半岛夜景更是震撼。",
+      "activities": [
+        {
+          "time_block": "afternoon",
+          "description": "打车或坐地铁到南滨路，沿江边步道慢慢走，看货轮往来，感受江风。找一家江景茶馆坐下歇脚，老人和孩子都不会觉得累。",
+          "poi_refs": [
+            "poi_nanbin_road"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "在南滨路选择一家适合家庭的江景餐厅，边吃晚餐边看对岸灯火渐亮。饭后继续沿江散步，享受一家人在一起的安静时光。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_nanbin_dining"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "老城记忆：石板坡的台阶与李子坝的轻轨穿楼",
+      "summary": "上午探访石板坡，感受老重庆的坡坎生活；下午去李子坝看轻轨穿楼，给这趟家庭旅行留下一个有趣的回忆。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "前往石板坡传统坡地街区，这里保留了山城原始的梯坎和街巷。虽然有些台阶，但可以走走停停，看看老房子和街边小摊，体验重庆的旧时光。",
+          "poi_refs": [
+            "poi_shibati"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "转场到李子坝观景平台，看轻轨从居民楼中穿过的奇景。孩子一定会觉得新奇，这里也是拍照打卡的好地方。之后可以在附近找家小馆子吃碗小面，结束这次山城之旅。",
+          "poi_refs": [
+            "poi_liziba_edge"
+          ],
+          "food_refs": []
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_hongyadong_view",
+      "name": "洪崖洞江景观赏区",
+      "district": "渝中区",
+      "type": "江岸地标区",
+      "reason": "重庆夜景的名片，层层叠叠的吊脚楼在灯光下宛如空中楼阁。一家人站在江边，看对岸灯火与水中倒影交相辉映，是这趟旅行最难忘的画面。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_jiefangbei",
+      "name": "解放碑核心商圈",
+      "district": "渝中区",
+      "type": "城市商业核心",
+      "reason": "重庆最繁华的步行街区，地势平坦，适合家庭闲逛。这里汇聚了老字号小吃和现代商场，是感受山城都市脉搏的第一站。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_shibati",
+      "name": "石板坡传统坡地街区",
+      "district": "渝中区",
+      "type": "历史山地街区",
+      "reason": "保留了老重庆最原汁原味的梯坎和街巷，虽然有些坡度，但走走停停间能触摸到山城的岁月纹理。适合带家人慢慢感受城市的另一面。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_liziba_edge",
+      "name": "李子坝轻轨穿楼观景区",
+      "district": "渝中区",
+      "type": "城市景观地标",
+      "reason": "轻轨从居民楼中穿过的奇妙场景，是孩子和大人都觉得新奇的城市奇观。观景平台视野开阔，适合拍一张有趣的全家福。",
+      "recommended_duration_minutes": 60
+    },
+    {
+      "id": "poi_nanbin_road",
+      "name": "南滨路江岸休闲带",
+      "district": "南岸区",
+      "type": "江岸夜景区",
+      "reason": "宽阔的江边步道没有陡峭台阶，非常适合家庭散步。傍晚时分，对岸渝中半岛的灯光渐次亮起，江风拂面，是重庆最温柔的夜。",
+      "recommended_duration_minutes": 120
+    }
+  ],
+  "food": [
+    {
+      "id": "food_jiefangbei_snacks",
+      "name": "解放碑小吃聚集区",
+      "district": "渝中区",
+      "category": "小吃街",
+      "reason": "解放碑周边遍布酸辣粉、糍粑、小面等重庆特色小吃，价格亲民，适合一家人边走边尝，轻松解决午餐。"
+    },
+    {
+      "id": "food_nanbin_dining",
+      "name": "南滨路江景餐厅带",
+      "district": "南岸区",
+      "category": "江景餐饮区",
+      "reason": "沿江分布着众多适合家庭的餐厅，从火锅到川菜应有尽有。一边享用晚餐，一边欣赏渝中半岛的璀璨夜景，为家庭旅行增添一份仪式感。"
+    }
+  ]
+}

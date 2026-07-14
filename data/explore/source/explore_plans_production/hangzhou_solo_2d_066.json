@@ -1,0 +1,163 @@
+{
+  "id": "exp_hangzhou_solo_2d_citywalk_tea_v1",
+  "slug": "hangzhou-solo-2d-citywalk-tea",
+  "title": "独自的江南：杭州两日茶山与小巷漫游",
+  "summary": "这是一场为独自旅行者设计的杭州两日漫游。你将在清晨的茶山间感受雾气与宁静，在西湖边随着光线变化慢慢行走，在河坊街的烟火气中随意驻足。没有紧张的行程，只有属于自己的节奏和与这座城市的安静对话。",
+  "city": {
+    "code": "hangzhou",
+    "name": "Hangzhou",
+    "region_name": "Zhejiang"
+  },
+  "trip_type": "solo",
+  "days": 2,
+  "budget": {
+    "level": "medium",
+    "note": "中等预算，兼顾文化体验与舒适感，在茶山和湖畔享用简单而精致的餐食。"
+  },
+  "pace": "balanced",
+  "tags": [
+    "citywalk",
+    "tea-culture",
+    "lake-view",
+    "old-street",
+    "solo-travel",
+    "photo-friendly",
+    "slow-travel"
+  ],
+  "image_prompt": "National Geographic style travel photography: a solo traveler standing on a misty tea hill in Hangzhou, with terraced green tea fields fading into soft morning fog, a bamboo grove in the background, warm golden light from the rising sun, shot with a 35mm lens, shallow depth of field, editorial mood, serene and contemplative atmosphere.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "茶山晨雾与湖滨黄昏",
+      "summary": "从龙井茶山的宁静清晨开始，午后漫步西湖畔，傍晚在湖滨感受灯火与水影的交融。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "清晨前往龙井村边缘，在游客到来之前独享茶山的静谧。沿着小径漫步，看晨雾从茶垄间升起，偶尔停下来与茶农闲聊，或在路边的茶摊喝一杯当季新茶。",
+          "poi_refs": [
+            "poi_longjing_area"
+          ],
+          "food_refs": [
+            "food_longjing_tea"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "下山后沿西湖湖岸线缓步行走，从断桥残雪到白堤，再到苏堤春晓。找一个长椅坐下，看湖光山色与来往游人，享受属于自己的发呆时光。",
+          "poi_refs": [
+            "poi_west_lake"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "夜幕降临时，来到湖滨步行区，看城市灯火在湖面上碎成点点星光。找一家临湖的小馆子吃一碗片儿川，或者只是沿着湖岸慢慢走，让晚风带走一天的疲惫。",
+          "poi_refs": [
+            "poi_lakeside_evening"
+          ],
+          "food_refs": [
+            "food_lakeside_dining"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "竹林幽径与老街烟火",
+      "summary": "上午在云栖竹径的绿意中穿行，下午探访河坊街的市井生活，在传统小吃和手工艺中结束旅程。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "早起前往云栖竹径，这里比西湖清静得多。沿着竹间石阶上行，听风吹过竹梢的沙沙声。偶尔停下拍照，捕捉光斑透过竹叶洒落的瞬间。",
+          "poi_refs": [
+            "poi_yunqi_path"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "转场到河坊街，在青石板路上闲逛。尝一尝定胜糕、葱包烩，看看老字号的绸伞和剪刀铺。这里的热闹是接地气的，适合一个人慢慢淘些有意思的小物件。",
+          "poi_refs": [
+            "poi_hefang_street"
+          ],
+          "food_refs": [
+            "food_hefang_snacks"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "最后在河坊街找一家茶馆，点一壶龙井，看街上人来人往，回味两日独行时光。如果还有精力，可以再走回西湖边看夜景，为这趟旅程画上安静的句号。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_hefang_snacks"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_longjing_area",
+      "name": "龙井茶村边缘",
+      "district": "西湖区",
+      "type": "茶山景观",
+      "reason": "清晨的龙井村边缘几乎没有游客，只有茶农在垄间劳作。独自一人走在茶山小径上，看雾气从山脚升起，感受杭州最宁静的一面。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_west_lake",
+      "name": "西湖湖岸漫步",
+      "district": "西湖区",
+      "type": "湖滨风景区",
+      "reason": "西湖的美在于它的变化——同一片湖水，在不同时辰、不同路段都有不同的表情。独自漫步，可以随时停下，看船影、看山色、看光线在水面游走。",
+      "recommended_duration_minutes": 150
+    },
+    {
+      "id": "poi_lakeside_evening",
+      "name": "湖滨夜游带",
+      "district": "上城区",
+      "type": "夜间滨水区",
+      "reason": "当灯光亮起，湖滨的夜晚有一种温柔的热闹。适合独自一人沿湖散步，看城市倒影在水波中摇曳，或找一处长椅坐下，听湖水拍岸的声音。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_yunqi_path",
+      "name": "云栖竹径",
+      "district": "西湖区",
+      "type": "自然步道",
+      "reason": "相比西湖的热闹，云栖竹径更适合想要独处的人。竹林高耸，石径幽深，阳光透过竹叶洒下斑驳光影，每一步都像走在画中。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_hefang_street",
+      "name": "河坊街",
+      "district": "上城区",
+      "type": "历史街区",
+      "reason": "河坊街是杭州最接地气的老街，青石板路两旁是传统小吃和手工艺店。独自一人可以随意逛吃，看看老手艺人的现场制作，感受市井生活的鲜活。",
+      "recommended_duration_minutes": 120
+    }
+  ],
+  "food": [
+    {
+      "id": "food_longjing_tea",
+      "name": "龙井村茶歇",
+      "district": "西湖区",
+      "category": "茶室",
+      "reason": "在龙井茶山的农家茶摊坐下，喝一杯刚泡好的明前龙井，配几块茶点。茶香和山风相伴，是独行途中最好的充电方式。"
+    },
+    {
+      "id": "food_lakeside_dining",
+      "name": "湖滨茶餐区",
+      "district": "西湖区",
+      "category": "湖景餐厅",
+      "reason": "湖滨一带聚集了不少临湖的餐厅和茶室，适合独行者在傍晚时分点一份清淡的江南菜，边吃边看湖景渐暗。"
+    },
+    {
+      "id": "food_hefang_snacks",
+      "name": "河坊街小吃段",
+      "district": "上城区",
+      "category": "小吃街",
+      "reason": "河坊街的小吃琳琅满目，定胜糕、葱包烩、龙须糖……每样都适合一个人边走边尝，轻松填饱肚子又不耽误逛店。"
+    }
+  ]
+}

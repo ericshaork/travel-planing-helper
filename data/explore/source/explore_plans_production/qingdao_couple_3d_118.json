@@ -1,0 +1,191 @@
+{
+  "id": "exp_qingdao_couple_3d_photo_citywalk_food_v1",
+  "slug": "qingdao-couple-3d-photo-citywalk-food",
+  "title": "红瓦碧海间的慢行恋曲：青岛3日浪漫光影之旅",
+  "summary": "这是一场为情侣设计的青岛慢行之旅，从木栈道到老城斜坡，从日落海面到啤酒香气的夜晚。你们将一起沿着海岸线漫步，在红瓦绿树间按下快门，在旧城街角分享一盘海鲜。节奏舒缓，每一步都像在收集属于两个人的城市光影。",
+  "city": {
+    "code": "qingdao",
+    "name": "Qingdao",
+    "region_name": "Shandong"
+  },
+  "trip_type": "couple",
+  "days": 3,
+  "budget": {
+    "level": "medium",
+    "note": "中等预算，兼顾舒适海景餐厅和悠闲节奏，适合情侣放松体验。"
+  },
+  "pace": "slow",
+  "tags": [
+    "photo",
+    "citywalk",
+    "food",
+    "coastal-city",
+    "red-roof-old-town",
+    "seafood",
+    "seafront-walk",
+    "relaxed-pacing"
+  ],
+  "image_prompt": "Editorial travel magazine style photo of a couple walking hand in hand along a coastal promenade in Qingdao at golden hour. The sea is calm with warm light reflecting on the water. In the background, red-roofed European-style villas rise among green trees. The couple is captured from behind, with soft focus and a sense of intimacy and adventure. Composition: wide angle, low sun, warm tones, cinematic depth of field.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "栈桥初遇，老城海风",
+      "summary": "从栈桥出发，沿着海岸线慢慢走进青岛的老城记忆。午后登上小鱼山，俯瞰整片红瓦与海湾，傍晚在八大关的林荫道上散步，感受光影交错。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "从栈桥开始你们的青岛第一眼。站在伸入海中的长堤上，看海鸥盘旋，远处的小青岛若隐若现。这里是老城与大海的交汇点，适合慢慢走、慢慢拍。",
+          "poi_refs": [
+            "poi_zhanqiao"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "登上小鱼山观景台，俯瞰青岛标志性的红瓦绿树与碧海蓝天。你们会在这里找到绝佳的双人合影角度。下山后漫步到八大关区域，在梧桐树影和欧式别墅间穿行，每一步都像走在明信片里。",
+          "poi_refs": [
+            "poi_xiaoyushan",
+            "poi_badaguan"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "在八大关附近的海滨木栈道上散步，看日落将海面染成金色。之后前往栈桥附近的沿海餐厅，享受一顿海风中的海鲜晚餐，为第一天画上浪漫句号。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_waterfront"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "信号山与旧城烟火",
+      "summary": "登上信号山，换个角度看青岛。下午钻进劈柴院的老街巷，尝遍本地小吃，感受老城的市井气息。傍晚再到五四广场，看现代海岸线的灯光亮起。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "前往信号山公园，沿着缓坡登上观景台。这里的视角比小鱼山更开阔，可以看到老城区全貌和远处海平线。找个长椅坐下，一起看云影移动。",
+          "poi_refs": [
+            "poi_signal_hill"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "下山后步行至劈柴院老街，这里藏着青岛最地道的街头味道。你们可以分吃一份烤海鲜，再买两杯酸梅汤，在老巷子里边逛边拍。",
+          "poi_refs": [
+            "poi_pichaiyuan"
+          ],
+          "food_refs": [
+            "food_pichaiyuan"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "傍晚来到五四广场，沿着宽阔的海滨步道散步。入夜后，广场上的灯光与海面倒影交织，城市的天际线在暮色中温柔浮现。找一处海边的长椅坐下，看夜航船的灯光缓缓移动。",
+          "poi_refs": [
+            "poi_may_fourth"
+          ],
+          "food_refs": []
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "慢行八大关，海角余晖",
+      "summary": "最后一天，把时间留给八大关的每一条路、每一栋房子。沿着海岸线走到尽头，在宁静的海角告别青岛。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "再次来到八大关，但这次走得更深。从韶关路到居庸关路，每一段都有不同的树影和建筑风格。你们可以租一辆双人自行车，或者就手牵手慢慢走，捕捉那些安静的角落。",
+          "poi_refs": [
+            "poi_badaguan"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "在八大关的海滨找一家小咖啡馆歇脚，看海发呆。然后沿着木栈道一直走到第二海水浴场，脱掉鞋子踩踩沙滩，让海水漫过脚踝。",
+          "poi_refs": [],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "最后一顿晚餐，选在八大关附近的海景餐厅，点上几道本地海鲜，配一杯青岛啤酒。窗外是渐渐暗下的海平面，你们可以碰杯，为这场慢行之旅画上圆满句号。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_waterfront"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_zhanqiao",
+      "name": "栈桥",
+      "district": "市南区",
+      "type": "海滨地标",
+      "reason": "青岛最经典的海上长廊，是你们与这座城市初次见面的最佳起点。站在栈桥尽头，海风拂面，远处的小青岛像一颗海上的绿宝石，特别适合拍出两人的背影合影。",
+      "recommended_duration_minutes": 75
+    },
+    {
+      "id": "poi_xiaoyushan",
+      "name": "小鱼山公园",
+      "district": "市南区",
+      "type": "城市观景台",
+      "reason": "一个能将青岛红瓦绿树、碧海蓝天尽收眼底的制高点。和爱人一起爬上不高的山坡，在观景台上俯瞰老城全景，会发现这座城市最浪漫的一面。",
+      "recommended_duration_minutes": 75
+    },
+    {
+      "id": "poi_badaguan",
+      "name": "八大关",
+      "district": "市南区",
+      "type": "历史风貌区",
+      "reason": "青岛最美的徒步街区，四季各有风情。你们可以沿着梧桐树影下的道路漫步，欣赏风格各异的欧式别墅，每一个转角都可能遇见惊喜。这里也是情侣拍照的绝佳地点。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_signal_hill",
+      "name": "信号山公园",
+      "district": "市北区",
+      "type": "城市公园观景台",
+      "reason": "比小鱼山更开阔的视野，能看到老城区向海边铺展的天际线。山坡上的旋转观景台和绿荫小道，让登山过程本身也充满乐趣。适合一起坐在长椅上，静静看云。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_pichaiyuan",
+      "name": "劈柴院老街",
+      "district": "市南区",
+      "type": "美食老街",
+      "reason": "青岛最具烟火气的老街之一，窄巷里藏着各种本地小吃和海鲜烧烤。你们可以边走边尝，分享一份烤鱿鱼或海胆蒸蛋，感受老城最鲜活的市井气息。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_may_fourth",
+      "name": "五四广场",
+      "district": "市南区",
+      "type": "现代海滨广场",
+      "reason": "青岛现代海岸线的地标，开阔的广场和滨海步道很适合傍晚散步。入夜后，灯光倒映在海面上，城市天际线在暮色中温柔展开，是情侣散步的理想终点。",
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food": [
+    {
+      "id": "food_pichaiyuan",
+      "name": "劈柴院小吃区",
+      "district": "市南区",
+      "category": "小吃街",
+      "reason": "老城区最热闹的市井美食聚落，适合情侣边走边分享各式海鲜小食和本地风味。热腾腾的蒸汽和熙攘的人群，让一顿饭变得更有生活温度。"
+    },
+    {
+      "id": "food_waterfront",
+      "name": "海滨海鲜餐厅区",
+      "district": "市南区",
+      "category": "海景餐厅",
+      "reason": "沿着海岸线分布的海鲜餐厅，主打新鲜海产和浪漫海景。适合情侣在傍晚入座，边享用海鲜大餐边看日落，是青岛最值得体验的用餐场景之一。"
+    }
+  ]
+}

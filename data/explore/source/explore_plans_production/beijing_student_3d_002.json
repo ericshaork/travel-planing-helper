@@ -1,0 +1,198 @@
+{
+  "id": "exp_beijing_student_3d_food_citywalk_v1",
+  "slug": "beijing-student-3d-food-citywalk",
+  "title": "皇城中轴与胡同烟火：三天高性价比学生暴走",
+  "summary": "用最少的预算，走最北京的路线。三天里，你将从紫禁城的红墙外一路穿行到钟鼓楼下的胡同深处，在什刹海的水边尝一口老北京小吃，在798的旧厂房里偶遇当代艺术。这不是走马观花的打卡，而是一场属于年轻人的、高密度的城市漫游——地铁穿梭、街头觅食、在历史与潮流的缝隙里感受北京的呼吸。",
+  "city": {
+    "code": "beijing",
+    "name": "Beijing",
+    "region_name": "Beijing"
+  },
+  "trip_type": "student",
+  "days": 3,
+  "budget": {
+    "level": "low",
+    "note": "全程以地铁和步行为主，饮食以街头小吃和实惠小馆为主，景点门票控制在极低预算内（故宫外围、景山、天坛等均为低成本或免费区域）。"
+  },
+  "pace": "dense",
+  "tags": [
+    "food",
+    "citywalk",
+    "local_culture",
+    "student",
+    "budget-friendly",
+    "hutong-life"
+  ],
+  "image_prompt": "National Geographic travel magazine style photo of a young traveler standing on Jingshan Hill looking south over the Forbidden City at golden hour, with a backpack and casual clothes, wide-angle shot capturing the grand symmetrical roofs and distant modern skyline, warm sunlight, atmospheric haze, sense of discovery and scale.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "中轴线上的帝国背影与胡同里的烟火气",
+      "summary": "从紫禁城的恢弘外围开始，登上景山俯瞰中轴线，再一头扎进什刹海的胡同迷宫，在湖边吃一碗炸酱面，感受老北京的生活底色。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "从东华门沿故宫外围步行，感受红墙黄瓦的压迫感与历史重量，不进入故宫内部（省门票），在角楼前拍照。随后穿过北池子大街，步行至景山公园，登上万春亭俯瞰故宫全景与北京中轴线，视野开阔，适合放空与思考。",
+          "poi_refs": [
+            "poi_forbidden_city_edge",
+            "poi_jingshan"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "从景山公园西门出来，步行进入什刹海区域，沿前海、后海自由穿行。在银锭桥附近找一家胡同里的面馆解决午餐，然后沿着湖边漫步，穿过烟袋斜街，钻进两侧的窄巷子，看遛鸟的老人、下棋的大爷，感受最日常的北京节奏。",
+          "poi_refs": [
+            "poi_shichahai_hutong"
+          ],
+          "food_refs": [
+            "food_shichahai_hutong_food"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "入夜后什刹海酒吧街开始亮灯，但不必进酒吧消费，在湖边找个石阶坐下，看灯火倒映在水面，听民谣歌手在远处弹唱。随后沿地安门外大街步行至南锣鼓巷，在巷口买一串冰糖葫芦，感受学生党的夜晚漫游。",
+          "poi_refs": [
+            "poi_nanluoguxiang"
+          ],
+          "food_refs": [
+            "food_nanluoguxiang_snack"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 1,
+      "title": "天坛的回音与798的工业文艺",
+      "summary": "上午在天坛的松柏林里感受皇家祭天的肃穆，下午跳转到798，在旧工厂改造的画廊和咖啡店里触摸北京的当代脉搏。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "乘地铁至天坛东门，进入天坛公园，沿着丹陛桥走向祈年殿，在回音壁前试试声学效果，在古柏林中散步，看当地人晨练、踢毽子、唱京剧，感受这个城市公园的日常活力。",
+          "poi_refs": [
+            "poi_temple_of_heaven"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "从天坛乘地铁前往798艺术区，在旧厂房改造的画廊间穿梭，看免费的当代艺术展，在涂鸦墙前拍照，在园区里的创意市集淘点小物。798的工业遗存与艺术氛围形成强烈反差，适合喜欢拍照和文艺气息的学生。",
+          "poi_refs": [
+            "poi_798_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "在798园区内或附近找一家性价比高的面馆或饺子馆解决晚餐，然后步行至751火车头广场，在旧铁轨和工业装置旁散步，灯光下的工业废墟感很适合出片。之后乘地铁返回市区，结束一天的行程。",
+          "poi_refs": [],
+          "food_refs": []
+        }
+      ]
+    },
+    {
+      "day": 1,
+      "title": "南锣鼓巷的晨光与前门的旧京味",
+      "summary": "最后一天留给南锣鼓巷的清晨静谧与前门大街的百年老字号，在传统与现代的交织中收尾。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "趁游客大军到来之前，清晨的南锣鼓巷格外安静。沿主巷慢慢走，拐进两旁的胡同如帽儿胡同、雨儿胡同，看灰墙灰瓦间的晨光与爬藤植物，在胡同口买一个煎饼果子当早餐，感受胡同苏醒的瞬间。",
+          "poi_refs": [
+            "poi_nanluoguxiang"
+          ],
+          "food_refs": [
+            "food_nanluoguxiang_snack"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "乘地铁至前门，逛大栅栏商业街，探访百年老字号如瑞蚨祥、内联升，在门框胡同里吃一碗卤煮或炒肝。前门区域保留了老北京商街的格局，适合最后一天采购伴手礼，感受皇城脚下的市井商业气息。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_qianmen_traditional"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "在前门大街的星巴克或胡同小店里歇脚，整理照片，写下旅行笔记。入夜后前门大街灯光亮起，正阳门城楼在灯光下格外庄严，在广场上最后看一眼北京的中轴线，结束三天的高密度漫游。",
+          "poi_refs": [],
+          "food_refs": []
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_forbidden_city_edge",
+      "name": "故宫外围漫步",
+      "district": "东城区",
+      "type": "imperial landmark",
+      "reason": "不花门票也能感受紫禁城的威严——沿着护城河走一圈，看角楼的倒影、红墙的斑驳，是学生党最划算的皇家体验开场。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_jingshan",
+      "name": "景山万春亭",
+      "district": "西城区",
+      "type": "city viewpoint",
+      "reason": "花两块钱登上北京中轴线的制高点，俯瞰故宫全景与城市天际线，是学生摄影党出片率最高的地方，也是理解北京城市格局的绝佳视角。",
+      "recommended_duration_minutes": 60
+    },
+    {
+      "id": "poi_shichahai_hutong",
+      "name": "什刹海胡同区",
+      "district": "西城区",
+      "type": "hutong district",
+      "reason": "北京胡同的灵魂不在商业街，而在什刹海周边的蜿蜒小巷里。沿着湖边散步，在银锭桥上看来往人力车，钻进无名胡同听鸽哨声，这是属于漫游者的老北京。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_temple_of_heaven",
+      "name": "天坛公园",
+      "district": "东城区",
+      "type": "cultural landmark",
+      "reason": "天坛不只是祈年殿的打卡地，更是北京人日常生活的舞台。在古柏林中看大爷踢毽子、大妈唱戏，花最少的钱感受最生动的城市文化切片。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_nanluoguxiang",
+      "name": "南锣鼓巷",
+      "district": "东城区",
+      "type": "historic lane district",
+      "reason": "虽然白天人潮汹涌，但清晨和夜晚的南锣鼓巷别有风味。拐进两侧胡同，你能找到北京最后的胡同生活痕迹，是学生党体验京味市井的性价比之选。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_798_edge",
+      "name": "798艺术区",
+      "district": "朝阳区",
+      "type": "creative district",
+      "reason": "旧工厂里的当代艺术乌托邦，免费展览、工业遗存、街头涂鸦，是年轻人感受北京另一面的最佳去处——文艺、自由、充满灵感。",
+      "recommended_duration_minutes": 120
+    }
+  ],
+  "food": [
+    {
+      "id": "food_shichahai_hutong_food",
+      "name": "什刹海胡同小吃区",
+      "district": "西城区",
+      "category": "hutong food street",
+      "reason": "在银锭桥附近的胡同里，藏着最地道的炸酱面、豆汁儿和爆肚。找一家门口排着本地人小队的馆子坐下，吃的不仅是味道，更是胡同里的日常烟火。"
+    },
+    {
+      "id": "food_nanluoguxiang_snack",
+      "name": "南锣鼓巷小吃街",
+      "district": "东城区",
+      "category": "snack street",
+      "reason": "从巷口的糖葫芦到巷尾的奶酪店，南锣鼓巷的小吃虽然游客化，但胜在种类多、价格亲民，适合学生党边逛边吃，用最少的花费填饱肚子。"
+    },
+    {
+      "id": "food_qianmen_traditional",
+      "name": "前门传统美食区",
+      "district": "东城区",
+      "category": "heritage food zone",
+      "reason": "在大栅栏和门框胡同里，卤煮、炒肝、豌豆黄等老北京味道一应俱全。走进那些挂着金字招牌的百年老店，花十几块钱就能尝到传承几代的手艺。"
+    }
+  ]
+}

@@ -1,0 +1,195 @@
+{
+  "id": "exp_xiamen_family_3d_coastal_slow_v1",
+  "slug": "xiamen-family-3d-coastal-slow",
+  "title": "海风骑行与沙坡尾傍晚串起的轻松亲子时光",
+  "summary": "为家庭设计的厦门慢游，以海风骑行串联海岸线，在沙坡尾的傍晚感受渔港烟火气，穿插老街小吃和校园边的静谧，让大人和孩子都能找到自己的节奏。",
+  "city": {
+    "code": "xiamen",
+    "name": "Xiamen",
+    "region_name": "Fujian"
+  },
+  "trip_type": "family",
+  "days": 3,
+  "budget": {
+    "level": "medium",
+    "note": "适中预算，可轻松享受海岸骑行、老街小吃和舒适的家庭用餐。"
+  },
+  "pace": "slow",
+  "tags": [
+    "coastal-city",
+    "slow-travel",
+    "family-friendly",
+    "sea-breeze",
+    "snack-friendly",
+    "walkable"
+  ],
+  "image_prompt": "National Geographic travel magazine style photo of a family cycling along Huandao Road in Xiamen, golden afternoon light, sea breeze, palm trees, child in front, relaxed smiles, wide-angle lens capturing the coastline and distant Gulangyu, warm tones, cinematic depth.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "老街漫步与海风初遇",
+      "summary": "从中山路的老街烟火气开始，午后沿着环岛路骑行，傍晚在白鹭洲看城市灯光与水影。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "漫步中山路，尝一口地道的沙茶面和花生汤，让孩子在骑楼下看老城故事。",
+          "poi_refs": [
+            "poi_zhongshan_road"
+          ],
+          "food_refs": [
+            "food_zhongshan_snack"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "租一辆家庭自行车，沿着环岛路骑行，海风拂面，随时停下拍一张碧海蓝天的合影。",
+          "poi_refs": [
+            "poi_huandao_road"
+          ],
+          "food_refs": [
+            "food_seafront_dining"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "在白鹭洲公园散步，看城市灯火倒映水中，享受一家人慢悠悠的晚间时光。",
+          "poi_refs": [
+            "poi_bailuzhou_evening"
+          ],
+          "food_refs": []
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "南普陀寺的宁静与沙坡尾的黄昏",
+      "summary": "上午在南普陀寺和厦大周边感受人文气息，下午在沙坡尾的渔港巷弄里寻宝，黄昏坐在岸边看渔船归港。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "走进南普陀寺，感受古刹的宁静，让孩子在放生池边看乌龟和锦鲤，再去厦大校园的芙蓉湖畔坐一坐。",
+          "poi_refs": [
+            "poi_nanputuo_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "转场沙坡尾，在文创小店和咖啡馆之间闲逛，孩子会被墙上的涂鸦和街角的手作吸引。",
+          "poi_refs": [
+            "poi_shapowei"
+          ],
+          "food_refs": [
+            "food_shapowei_harbor"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "在沙坡尾的海边找个位置坐下，看夕阳把渔船镀成金色，一家人分享一份海蛎煎，为这一天画上温柔的句号。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_shapowei_harbor"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "远眺鼓浪屿与海岸线的告别",
+      "summary": "在鼓浪屿观景点留下全家福，最后沿着海岸线散步，用一顿海景午餐告别这座岛城。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "前往鼓浪屿观景点，隔海眺望对岸的万国建筑，不必登岛也能感受厦门的海岛气质，拍一张全家福。",
+          "poi_refs": [
+            "poi_gulangyu_view"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "最后再走一次环岛路，找一处海边的餐厅，吹着海风吃一顿慢午餐，让孩子在沙滩上再玩一会儿。",
+          "poi_refs": [
+            "poi_huandao_road"
+          ],
+          "food_refs": [
+            "food_seafront_dining"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_zhongshan_road",
+      "name": "中山路",
+      "district": "思明区",
+      "type": "历史文化街区",
+      "reason": "厦门最经典的老街，骑楼建筑下藏着地道小吃和市井气息，适合一家人慢悠悠地边逛边吃，感受这座城市的烟火底色。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_huandao_road",
+      "name": "环岛路海滨步道",
+      "district": "思明区",
+      "type": "海岸景观道",
+      "reason": "厦门最具标志性的海岸线，开阔的海景和自行车道让一家人可以轻松骑行或散步，随时停下来享受海风和拍照，是亲子时光的完美载体。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_nanputuo_edge",
+      "name": "南普陀寺与厦大校园",
+      "district": "思明区",
+      "type": "文化校园区",
+      "reason": "古寺的宁静与校园的青春气息交织，放生池和芙蓉湖是孩子们喜欢的小天地，大人也能在香火和树影中找到片刻安宁。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_shapowei",
+      "name": "沙坡尾",
+      "district": "思明区",
+      "type": "渔港街区",
+      "reason": "老渔港改造的创意街区，既有海港的原始风貌，又有年轻活力的涂鸦和手作店，傍晚时分坐在岸边看渔船归港，是全家人都能沉浸的温柔时刻。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_bailuzhou_evening",
+      "name": "白鹭洲夜间休闲区",
+      "district": "思明区",
+      "type": "城市滨水夜景",
+      "reason": "避开喧闹的游客区，这里更适合家庭晚间散步，湖水倒映城市灯光，微风拂面，节奏舒缓，是结束一天的好去处。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_gulangyu_view",
+      "name": "鼓浪屿观景台",
+      "district": "思明区",
+      "type": "海岸观景点",
+      "reason": "不用登岛也能领略鼓浪屿的风情，隔海相望的视角更适合家庭，省去轮渡的周折，却能拥有同样动人的海岛记忆。",
+      "recommended_duration_minutes": 75
+    }
+  ],
+  "food": [
+    {
+      "id": "food_zhongshan_snack",
+      "name": "中山路小吃带",
+      "district": "思明区",
+      "category": "小吃街",
+      "reason": "中山路沿线聚集了厦门最地道的古早味，沙茶面、花生汤、海蛎煎一应俱全，口味温和，孩子和长辈都能找到喜欢的食物。"
+    },
+    {
+      "id": "food_shapowei_harbor",
+      "name": "沙坡尾渔港美食区",
+      "district": "思明区",
+      "category": "渔港餐饮区",
+      "reason": "沙坡尾的临海小馆和创意咖啡馆适合家庭歇脚，点一份海蛎煎或海鲜粥，坐在窗边看渔船摇曳，用餐体验轻松又有本地感。"
+    },
+    {
+      "id": "food_seafront_dining",
+      "name": "环岛路海景轻食",
+      "district": "思明区",
+      "category": "海景餐厅",
+      "reason": "环岛路沿途有不少适合家庭的观海餐厅，提供清淡的海鲜和简餐，价格适中，孩子可以在沙滩上玩耍，大人则吹着海风慢慢享用。"
+    }
+  ]
+}

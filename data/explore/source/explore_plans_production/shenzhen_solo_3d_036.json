@@ -1,0 +1,199 @@
+{
+  "id": "exp_shenzhen_solo_3d_waterfront_skyline_v1",
+  "slug": "shenzhen-solo-3d-waterfront-skyline",
+  "title": "独自漫游深圳：海边栈道与城市天际线",
+  "summary": "一个人，三天，用脚步串联深圳的滨海栈道与都会天际线。从清晨的深圳湾到傍晚的市民中心，再到创意园区的咖啡馆与灯火璀璨的海上世界，这是一场属于独行者的城市观察之旅——节奏自由，视角独特，在都市与自然之间找到属于自己的呼吸。",
+  "city": {
+    "code": "shenzhen",
+    "name": "Shenzhen",
+    "region_name": "Guangdong"
+  },
+  "trip_type": "solo",
+  "days": 3,
+  "budget": {
+    "level": "medium",
+    "note": "平衡了滨海步道、创意街区和夜景体验，餐饮以轻食和地方风味为主。"
+  },
+  "pace": "balanced",
+  "tags": [
+    "bay-view",
+    "creative-district",
+    "modern-city",
+    "night-view",
+    "photo-friendly",
+    "citywalk"
+  ],
+  "image_prompt": "A solo traveler standing on the Shenzhen Bay boardwalk at golden hour, with the city skyline in the background, soft sea breeze, calm atmosphere, editorial travel photography style, 35mm lens, warm light, shallow depth of field.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "海湾清晨与创意午后",
+      "summary": "从深圳湾的海风开始，午后钻进华侨城创意园，独自探索咖啡馆与小众画廊。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "在深圳湾滨海栈道漫步，看海、看桥、看天际线，享受独处的宁静时光。",
+          "poi_refs": [
+            "poi_shenzhen_bay"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "前往华侨城创意文化区，在LOFT间穿行，逛独立书店和设计店铺，在咖啡馆歇脚。",
+          "poi_refs": [
+            "poi_oct_loft"
+          ],
+          "food_refs": [
+            "food_oct_loft"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "在创意区找一家轻食餐厅解决晚餐，然后散步感受夜晚的艺术氛围。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_oct_loft"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "城市中轴与山海尽头",
+      "summary": "上午登莲花山俯瞰福田CBD，下午转场大梅沙，在海岸边感受另一种深圳。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "攀上莲花山公园山顶，俯瞰市民中心与城市中轴线，拍摄经典城市全景。",
+          "poi_refs": [
+            "poi_lianhuashan"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "乘地铁前往大梅沙海滨栈道，沿着海岸线漫步，吹海风，看海浪，享受悠闲的独处时光。",
+          "poi_refs": [
+            "poi_dameisha_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "返回市区，在海上世界附近找一家临海餐厅，享用晚餐后欣赏夜景灯光。",
+          "poi_refs": [
+            "poi_sea_world"
+          ],
+          "food_refs": [
+            "food_sea_world"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "市民广场与前程往事",
+      "summary": "上午在市民中心感受深圳的现代脉搏，下午去东门老街体验市井烟火，为旅程画上句号。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "漫步市民中心广场，沿着中轴线拍摄现代建筑群，感受这座城市的规划与气魄。",
+          "poi_refs": [
+            "poi_civic_center"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "转场东门老街，在热闹的街巷中穿行，品尝各种地道小吃，感受深圳的市井活力。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_dongmen"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "在老街附近找一家小馆子吃晚饭，然后随意走走，结束这次独自漫游。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_dongmen"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_shenzhen_bay",
+      "name": "深圳湾滨海栈道",
+      "district": "南山区",
+      "type": "滨海景观区",
+      "reason": "开阔的海滨步道，正对城市天际线，是独自放空、观察城市与自然交汇的理想地点。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_oct_loft",
+      "name": "华侨城创意文化区",
+      "district": "南山区",
+      "type": "创意街区",
+      "reason": "由旧厂房改造的文艺聚落，咖啡馆、画廊、设计店错落其间，适合独自漫无目的地闲逛。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_civic_center",
+      "name": "市民中心中轴线",
+      "district": "福田区",
+      "type": "城市地标区",
+      "reason": "深圳的现代心脏，宽阔的广场和对称的建筑群为摄影提供了绝佳构图，夜晚灯光尤其迷人。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_lianhuashan",
+      "name": "莲花山公园",
+      "district": "福田区",
+      "type": "城市公园",
+      "reason": "登顶可俯瞰福田CBD全景，是独行者感受城市尺度与自然绿意的绝佳地点。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_sea_world",
+      "name": "海上世界广场",
+      "district": "南山区",
+      "type": "夜间休闲区",
+      "reason": "明华轮与周边商业区构成独特的夜景，海滨步道与餐厅酒吧适合独行者在夜晚放松。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_dameisha_edge",
+      "name": "大梅沙海滨栈道",
+      "district": "盐田区",
+      "type": "滨海休闲区",
+      "reason": "远离市区喧嚣的海岸线，栈道沿着礁石延伸，适合独处、听涛、看海。",
+      "recommended_duration_minutes": 150
+    }
+  ],
+  "food": [
+    {
+      "id": "food_oct_loft",
+      "name": "华侨城创意园轻食区",
+      "district": "南山区",
+      "category": "创意餐饮",
+      "reason": "园区内多家独立咖啡馆与轻食餐厅，氛围文艺，适合独行者在逛展间隙享用一份安静的午餐或下午茶。"
+    },
+    {
+      "id": "food_sea_world",
+      "name": "海上世界餐饮区",
+      "district": "南山区",
+      "category": "滨海餐厅",
+      "reason": "临海餐厅与酒吧聚集，夜景璀璨，独行者可以选一家露台座位，边用餐边欣赏灯光水秀。"
+    },
+    {
+      "id": "food_dongmen",
+      "name": "东门老街小吃街",
+      "district": "罗湖区",
+      "category": "小吃街",
+      "reason": "深圳最接地气的市井美食聚集地，从肠粉到糖水，价格亲民，适合独行者边走边尝，感受城市烟火气。"
+    }
+  ]
+}

@@ -46,6 +46,14 @@ const EXPLORE_SELECT_FIELDS = [
 export { buildExploreTripInsertRow, mapExploreTripContentRow } from "./rows.ts";
 export { buildExploreTripUpdateRow } from "./rows.ts";
 
+function createExploreLoadError(details?: unknown) {
+  return new AppError(
+    "UNKNOWN_ERROR",
+    "暂时拿不到这条 Explore 内容，请稍后再试。",
+    details,
+  );
+}
+
 export function createExploreRepository(
   client = createSupabaseServiceRoleClient(),
 ) {
@@ -74,9 +82,6 @@ export function createExploreRepository(
         query = query.overlaps("tags", filters.tags);
       }
 
-      // Future filters are accepted at the API boundary first and can be wired
-      // to dedicated database columns after the schema expands.
-
       if (typeof filters.limit === "number") {
         query = query.limit(filters.limit);
       }
@@ -104,11 +109,7 @@ export function createExploreRepository(
         .maybeSingle();
 
       if (error) {
-        throw new AppError(
-          "UNKNOWN_ERROR",
-          "暂时拿不到这条 Explore 内容，请稍后再试。",
-          error,
-        );
+        throw createExploreLoadError(error);
       }
 
       return data
@@ -124,11 +125,23 @@ export function createExploreRepository(
         .maybeSingle();
 
       if (error) {
-        throw new AppError(
-          "UNKNOWN_ERROR",
-          "暂时拿不到这条 Explore 内容，请稍后再试。",
-          error,
-        );
+        throw createExploreLoadError(error);
+      }
+
+      return data
+        ? mapExploreTripContentRow(data as unknown as ExploreTripContentRow)
+        : null;
+    },
+
+    async getByExternalId(externalId: string) {
+      const { data, error } = await client
+        .from(EXPLORE_TABLE)
+        .select(EXPLORE_SELECT_FIELDS)
+        .eq("external_id", externalId)
+        .maybeSingle();
+
+      if (error) {
+        throw createExploreLoadError(error);
       }
 
       return data

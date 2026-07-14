@@ -1,0 +1,196 @@
+{
+  "id": "exp_wuhan_couple_3d_slow_lake_night_v1",
+  "slug": "wuhan-couple-3d-slow-lake-night",
+  "title": "东湖慢骑与江城夜色：属于两个人的武汉慢时光",
+  "summary": "这是一次专为情侣设计的武汉慢节奏旅行。三天里，你们将避开人潮，在东湖的湖光树影中并肩骑行，在百年校园的林荫道上牵手漫步，在江汉路的烟火气里分享一碗热干面，最后在长江边的夜色中静静依偎。没有匆忙的打卡，只有属于两个人的城市呼吸。",
+  "city": {
+    "code": "wuhan",
+    "name": "Wuhan",
+    "region_name": "Hubei"
+  },
+  "trip_type": "couple",
+  "days": 3,
+  "budget": {
+    "level": "medium",
+    "note": "兼顾舒适与氛围，在餐饮和交通上适度投入，为两人创造轻松浪漫的体验。"
+  },
+  "pace": "slow",
+  "tags": [
+    "lake-view",
+    "night-view",
+    "citywalk",
+    "local-food",
+    "romantic",
+    "slow-travel"
+  ],
+  "image_prompt": "National Geographic travel magazine style photo of a couple riding bicycles side by side on a tree-lined path by East Lake in Wuhan, soft morning light filtering through leaves, distant view of lake and city skyline, warm color tones, shallow depth of field, romantic and serene atmosphere.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "湖光序曲：东湖边的慢骑与校园漫步",
+      "summary": "从东湖的晨光开始，两人租一辆双人自行车，沿湖慢骑，感受湖风与树影。午后转场武汉大学老校区，在樱花大道和古老建筑间散步，寻找校园里的静谧角落。傍晚在东湖边的轻食区歇脚，分享一份简单的晚餐。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "在东湖绿道上租一辆双人自行车，沿湖慢骑，享受湖风拂面的惬意。途中在观景台停下，拍几张只有彼此的合影。",
+          "poi_refs": [
+            "poi_east_lake_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "骑车前往武汉大学老校区，把车还掉后步行探索校园。在樱花大道、老图书馆和行政楼前驻足，感受百年学府的沉稳与浪漫。找一棵大树下的长椅坐下，看学生来来往往。",
+          "poi_refs": [
+            "poi_hubei_university_area"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "在东湖周边的轻食餐厅找一家有户外座位的，点上两杯饮品和一份小食，聊聊天，看湖面渐渐暗下去。之后散步回住处，结束第一天的慢节奏。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_east_lake_light"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "历史与烟火：昙华林与江汉路的双面武汉",
+      "summary": "上午漫步昙华林，在老街的咖啡馆和文艺小店间穿行，感受武汉的旧时光。午后转场江汉路，在百年商业街上边走边吃，从热干面到豆皮，用味蕾认识这座城市。入夜后，沿着江滩散步，看长江大桥的灯光倒映在水面。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "前往昙华林，这是一条充满文艺气息的老街。两人手牵手在石板路上走，逛逛独立书店和手作店，在街角的咖啡馆点一杯拿铁，享受慵懒的上午。",
+          "poi_refs": [
+            "poi_tanhualin"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "从昙华林打车或坐地铁到江汉路。先直奔吉庆街或附近的户部巷，来一碗地道的热干面，再尝一份三鲜豆皮。吃饱后沿着江汉路步行街闲逛，看看老建筑和现代店铺的交错。",
+          "poi_refs": [
+            "poi_jianghan_road"
+          ],
+          "food_refs": [
+            "food_hubu_lane",
+            "food_jianghan_casual"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "傍晚走到汉口江滩，找一处人少的长椅坐下，看长江大桥的灯光亮起，江面上游船缓缓驶过。你们可以聊聊天，或者只是静静地看着夜色中的江水。",
+          "poi_refs": [
+            "poi_hankou_riverfront"
+          ],
+          "food_refs": []
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "登高望远：黄鹤楼下的告别与回味",
+      "summary": "最后一天，以黄鹤楼为起点，登上楼顶俯瞰武汉三镇。之后在蛇山脚下散步，寻找一条安静的小路。中午在户部巷补上没吃够的小吃，然后带着满满的回忆结束这次旅行。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "前往黄鹤楼景区，不急于登楼，先在公园里慢慢走，看看历代诗人的碑刻。然后一起登上楼顶，俯瞰长江和武汉的城景，拍下最后一天的合影。",
+          "poi_refs": [
+            "poi_yellow_crane_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "从黄鹤楼下来，步行到户部巷，把之前没尝过的武汉小吃再补一轮：面窝、糊汤粉、糯米包油条……两个人分着吃，每种尝一点。之后在巷子里逛逛，买点小纪念品。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_hubu_lane"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "如果时间充裕，可以在户部巷附近找一家小酒馆或茶室，坐下来整理照片，回味这三天。然后前往火车站或机场，结束这次武汉之旅。",
+          "poi_refs": [],
+          "food_refs": []
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_east_lake_edge",
+      "name": "东湖绿道",
+      "district": "武昌",
+      "type": "湖滨风景区",
+      "reason": "东湖是武汉的城市绿肺，两人并肩骑行在湖光树影之间，是开启浪漫旅行最温柔的方式。这里的开阔与宁静，让你们的对话和笑声都变得格外清晰。",
+      "recommended_duration_minutes": 150
+    },
+    {
+      "id": "poi_hubei_university_area",
+      "name": "武汉大学老校区",
+      "district": "武昌",
+      "type": "历史校园区",
+      "reason": "武大的老建筑群和参天大树为情侣提供了天然的漫步场景。樱花季虽美，但平日里的校园更显沉静，你们可以在老图书馆前停留，感受时间在这里放慢了脚步。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_yellow_crane_edge",
+      "name": "黄鹤楼公园",
+      "district": "武昌",
+      "type": "文化地标",
+      "reason": "黄鹤楼是武汉的精神象征，登楼远眺的瞬间，长江与城市尽收眼底。对于情侣而言，这不仅是合影的背景，更是共同眺望远方、许下心愿的仪式感时刻。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_hankou_riverfront",
+      "name": "汉口江滩",
+      "district": "江岸",
+      "type": "滨江区域",
+      "reason": "江滩是武汉最浪漫的夜景观赏地。两人沿着江岸慢走，看对岸的灯光倒映在水面，江风拂过，城市的喧嚣被隔绝在外，只剩下彼此的心跳。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_tanhualin",
+      "name": "昙华林",
+      "district": "武昌",
+      "type": "历史街区",
+      "reason": "昙华林的老街巷里藏着许多文艺小店和咖啡馆，适合情侣牵手闲逛。这里的节奏很慢，你们可以在某个转角发现一家有趣的店，或者在一面涂鸦墙前拍下搞怪的合影。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_jianghan_road",
+      "name": "江汉路步行街",
+      "district": "江汉",
+      "type": "商业历史街",
+      "reason": "江汉路是武汉最繁华的百年商业街，老建筑与时尚店铺交织。情侣可以在这里边逛边吃，感受城市的活力，也能在欧式建筑前拍出复古风格的合照。",
+      "recommended_duration_minutes": 120
+    }
+  ],
+  "food": [
+    {
+      "id": "food_hubu_lane",
+      "name": "户部巷小吃街",
+      "district": "武昌",
+      "category": "小吃街",
+      "reason": "户部巷是武汉小吃最集中的地方，热干面、豆皮、面窝、糊汤粉……两人分食一份，每样尝一点，既满足味蕾又不会太撑。这里烟火气十足，是感受本地生活的绝佳地点。"
+    },
+    {
+      "id": "food_jianghan_casual",
+      "name": "江汉路美食区",
+      "district": "江汉",
+      "category": "美食街区",
+      "reason": "江汉路周边遍布各种小吃摊和餐厅，从街头小吃到正餐应有尽有。情侣可以在这里随心选择，逛累了就找一家小店坐下，补充能量后继续漫步。"
+    },
+    {
+      "id": "food_east_lake_light",
+      "name": "东湖轻食区",
+      "district": "武昌",
+      "category": "轻食餐饮",
+      "reason": "东湖周边的轻食餐厅和咖啡馆环境清幽，适合情侣在骑行后歇脚。点一杯饮品和一份甜点，看着湖景聊天，让时间在慵懒中流淌。"
+    }
+  ]
+}

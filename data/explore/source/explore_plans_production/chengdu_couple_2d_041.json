@@ -1,0 +1,151 @@
+{
+  "id": "exp_chengdu_couple_2d_medium_food_citywalk_v1",
+  "slug": "chengdu-couple-2d-food-citywalk",
+  "title": "川味夜色与巷子烟火：给两个人的成都慢时光",
+  "summary": "这是一份为情侣设计的成都周末计划，节奏舒缓，白天在宽窄巷子与人民公园感受老成都的从容，夜晚在锦里与望平坊的灯火中牵手漫步。两天的行程围绕美食、街巷与河岸展开，既有地道川味，也有属于两个人的安静时刻。",
+  "city": {
+    "code": "chengdu",
+    "name": "Chengdu",
+    "region_name": "Sichuan"
+  },
+  "trip_type": "couple",
+  "days": 2,
+  "budget": {
+    "level": "medium",
+    "note": "中等预算，兼顾特色餐饮与舒适体验，不追求奢华但注重氛围。"
+  },
+  "pace": "balanced",
+  "tags": [
+    "food",
+    "citywalk",
+    "couple",
+    "romantic",
+    "local-culture",
+    "tea-house-vibe"
+  ],
+  "image_prompt": "A warm evening scene of a couple walking hand in hand through Jinli historic street, red lanterns glowing, traditional Sichuan architecture, soft focus, cinematic lighting, shallow depth of field, editorial travel photography style, Canon EOS R5.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "巷子里的第一面",
+      "summary": "从宽窄巷子的晨光开始，在人民公园的茶馆里慢下来，傍晚在锦里看灯笼亮起。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "清晨抵达宽窄巷子，在游人还不多的时候并肩穿行青砖灰瓦的老街，感受巷子里的烟火气。找一家小店尝尝甜水面和蛋烘糕，开启成都的第一口味道。",
+          "poi_refs": [
+            "poi_kuanzhai_alley"
+          ],
+          "food_refs": [
+            "food_kuanzhai_lane_food_pockets"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "步行至人民公园，在鹤鸣茶社寻一处竹椅坐下，点两杯盖碗茶，看当地人打牌聊天。阳光透过梧桐叶洒下来，这是属于两个人的慢成都。",
+          "poi_refs": [
+            "poi_people_park"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "夜幕降临时前往锦里，红灯笼依次亮起，石板路映着暖光。沿街品尝三大炮、钵钵鸡等小吃，在戏台前停下听一段川剧变脸，牵着手慢慢逛回出口。",
+          "poi_refs": [
+            "poi_jinli"
+          ],
+          "food_refs": [
+            "food_jinli_snack_corridor"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "河岸边的二人世界",
+      "summary": "上午在武侯祠感受三国底蕴，午后沿着望平坊河岸散步喝咖啡，晚上以一顿地道的川菜火锅收尾。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "前往武侯祠，在红墙竹影间漫步，听彼此讲三国故事。祠内的古柏与碑刻让时光慢下来，是适合两人细细品味的文化角落。",
+          "poi_refs": [
+            "poi_wuhou_shrine"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "转场到望平坊河岸，沿府河散步，看对岸的老房子倒映在水面。找一家河边的咖啡馆坐下，分享一杯拿铁和一份提拉米苏，享受午后的慵懒。",
+          "poi_refs": [
+            "poi_wangpingfang"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "回到望平坊附近，选一家有露台的火锅店，点上九宫格和冰粉。锅底沸腾时，河风吹来，两人边吃边聊，为这次短途旅行画上热辣而温柔的句号。",
+          "poi_refs": [],
+          "food_refs": []
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_kuanzhai_alley",
+      "name": "宽窄巷子",
+      "district": "青羊区",
+      "type": "historic district",
+      "reason": "清晨的宽窄巷子人少宁静，两人可以并肩走在青砖路上，感受老成都的街巷肌理。巷子里的川西院落、雕花门窗和偶尔传出的麻将声，让每一步都像走进了一幅市井画卷。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_people_park",
+      "name": "人民公园",
+      "district": "青羊区",
+      "type": "city park",
+      "reason": "这里是成都慢生活的灵魂所在。两人在鹤鸣茶社的竹椅上对坐，盖碗茶冒着热气，看当地人下棋、遛鸟、跳舞，时间仿佛被拉长。适合情侣在旅途中找一个安静的午后。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_jinli",
+      "name": "锦里",
+      "district": "武侯区",
+      "type": "historic commercial street",
+      "reason": "夜晚的锦里是成都最浪漫的古街之一。红灯笼、木楼、石板路，光影交错间适合牵手漫步。沿街的小吃摊和戏台让两人可以边吃边看，体验热闹又亲密的夜晚。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_wuhou_shrine",
+      "name": "武侯祠",
+      "district": "武侯区",
+      "type": "cultural site",
+      "reason": "红墙竹影是武侯祠的标志，也是情侣拍照的好地方。祠内古木参天，气氛庄重而静谧，适合两人在三国故事中寻找共同话题，感受历史的厚度。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_wangpingfang",
+      "name": "望平坊河岸",
+      "district": "成华区",
+      "type": "riverwalk district",
+      "reason": "府河边的望平坊是成都新兴的河岸休闲区，咖啡馆、小酒馆沿河排开，气氛轻松时髦。两人可以在午后阳光下沿河散步，或在河边长椅上依偎着看水光粼粼，是城市里的安静角落。",
+      "recommended_duration_minutes": 120
+    }
+  ],
+  "food": [
+    {
+      "id": "food_kuanzhai_lane_food_pockets",
+      "name": "宽窄巷子小吃区",
+      "district": "青羊区",
+      "category": "snack street",
+      "reason": "宽窄巷子里的甜水面、蛋烘糕和三大炮是成都小吃的入门选择。两人可以分食一份，边逛边尝，轻松开启第一天的味觉之旅。"
+    },
+    {
+      "id": "food_jinli_snack_corridor",
+      "name": "锦里小吃街",
+      "district": "武侯区",
+      "category": "snack street",
+      "reason": "锦里的夜晚因小吃而生动。钵钵鸡、糖油果子、牛肉焦饼……每样都适合两人分享，边走边吃，让晚餐变成一场流动的味觉探险。"
+    }
+  ]
+}

@@ -1,6 +1,12 @@
 import { NextResponse } from "next/server";
 
+import {
+  getNormalizedExploreArchiveByExternalId,
+  getNormalizedExploreArchiveBySlug,
+  mapNormalizedArchiveToExploreContent,
+} from "../../../../lib/explore/normalized-source";
 import { createExploreRepository } from "../../../../lib/explore/repository";
+import { getMockExploreDetail } from "../../../../lib/explore/mock-archives";
 import type { ExploreDetailResponse } from "../../../../lib/explore/types";
 import { AppError, toApiErrorResponse } from "../../../../lib/utils/errors";
 
@@ -22,7 +28,6 @@ export function createExploreDetailHandler(
     context: { params: Promise<{ id: string }> },
   ) {
     try {
-      const resolvedRepository = repository ?? createExploreRepository();
       const { id } = await context.params;
       const normalizedId = normalizeExploreId(id);
 
@@ -38,10 +43,35 @@ export function createExploreDetailHandler(
         );
       }
 
+      const normalizedItem =
+        getNormalizedExploreArchiveBySlug(normalizedId) ??
+        getNormalizedExploreArchiveByExternalId(normalizedId);
+
+      if (normalizedItem) {
+        return NextResponse.json({
+          ok: true,
+          item: mapNormalizedArchiveToExploreContent(normalizedItem),
+        } satisfies ExploreDetailResponse);
+      }
+
+      const resolvedRepository = repository ?? createExploreRepository();
       const item = isUuid(normalizedId)
         ? (await resolvedRepository.getById(normalizedId)) ??
-          (await resolvedRepository.getBySlug(normalizedId))
-        : await resolvedRepository.getBySlug(normalizedId);
+          (await resolvedRepository.getBySlug(normalizedId)) ??
+          (await resolvedRepository.getByExternalId(normalizedId))
+        : (await resolvedRepository.getBySlug(normalizedId)) ??
+          (await resolvedRepository.getByExternalId(normalizedId));
+
+      if (!item) {
+        const mockItem = getMockExploreDetail(normalizedId);
+
+        if (mockItem) {
+          return NextResponse.json({
+            ok: true,
+            item: mockItem,
+          } satisfies ExploreDetailResponse);
+        }
+      }
 
       if (!item) {
         return NextResponse.json(
@@ -60,6 +90,16 @@ export function createExploreDetailHandler(
         item,
       } satisfies ExploreDetailResponse);
     } catch (error) {
+      const { id } = await context.params;
+      const mockItem = getMockExploreDetail(normalizeExploreId(id));
+
+      if (mockItem) {
+        return NextResponse.json({
+          ok: true,
+          item: mockItem,
+        } satisfies ExploreDetailResponse);
+      }
+
       if (error instanceof AppError) {
         return NextResponse.json(toApiErrorResponse(error), {
           status: 500,
