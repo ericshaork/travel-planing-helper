@@ -13,7 +13,7 @@ export function ArchiveIntro({ item }: ArchiveIntroProps) {
 
   return (
     <div className="max-w-3xl">
-      <p className="workspace-kicker">WHY IT FITS</p>
+      <p className="workspace-kicker">为什么适合你</p>
       <h2 className="mt-2 text-lg font-semibold text-[var(--ink)]">为什么适合你</h2>
       <p className="mt-3 text-sm leading-7 text-[var(--ink-muted)]">{story}</p>
     </div>

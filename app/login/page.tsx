@@ -31,27 +31,24 @@ export default async function LoginPage({
         <section className="grid gap-5 lg:grid-cols-[minmax(0,0.9fr)_minmax(30rem,1.1fr)] lg:gap-12">
           <div className="min-w-0 max-w-xl pt-0.5 lg:pt-8">
             <p className="inline-flex -rotate-1 rounded-full border border-[var(--sage-deep)] bg-[var(--sage-soft)] px-3 py-1 text-[11px] font-semibold tracking-[0.16em] text-[var(--sage-deep)] sm:text-xs">
-              phase 3 先补登录
+              先补登录
             </p>
 
             <h1 className="mt-4 text-3xl font-semibold leading-[1.08] tracking-[-0.05em] sm:mt-6 sm:text-6xl">
               先把账号接上，
-              <span className="mt-1 block text-[var(--clay)]">后面才谈保存。</span>
+              <span className="mt-1 block text-[var(--clay)]">后面才好保存计划。</span>
             </h1>
 
             <p className="mt-3 max-w-lg text-sm leading-6 text-[var(--ink-muted)] sm:mt-6 sm:text-lg sm:leading-8">
-              这轮只做最轻的邮箱 magic link。先让登录状态能出现、能退出、刷新后还能认出来，不把保存行程和“我的行程”提前揉进来。
+              这轮只做最轻的邮箱 magic link。先让登录状态能出现、能退出、刷新后还能认出来，
+              不把功能做得太重。
             </p>
 
             <div className="workspace-panel mt-8 hidden px-5 py-5 lg:block">
               <div className="relative z-[1] space-y-3 text-sm leading-7 text-[var(--ink-muted)]">
                 <p className="workspace-kicker">THIS ROUND STOPS AT</p>
                 <p>登录、退出、导航状态展示。</p>
-                <p>保存计划仍在 phase 4，“我的行程”仍在 phase 5。</p>
-                <p>
-                  不登录也照样可以继续走{" "}
-                  <code>/create -&gt; /plan -&gt; /result</code>。
-                </p>
+                <p>不登录也照样可以继续走 <code>/create -&gt; /plan -&gt; /workspace</code>。</p>
               </div>
             </div>
           </div>

@@ -4,6 +4,7 @@ import { TRIP_INPUT_LIMITS } from "./defaults";
 import type {
   BudgetSummary,
   DailyItinerary,
+  DailyTimeSlot,
   GenerateTripRequest,
   GenerateTripResponse,
   HotelAreaAdvice,
@@ -88,6 +89,7 @@ const tripSourceTypeSchema = z.enum([
   "manual",
   "ai_generate",
   "ai_generated",
+  "blank_manual",
   "explore_archive",
   "explore_inspiration",
   "user_created",
@@ -301,6 +303,18 @@ export const itineraryItemSchema: z.ZodType<ItineraryItem> = z
     weatherImpact: optionalText(TRIP_INPUT_LIMITS.longText),
     backupPlan: optionalText(TRIP_INPUT_LIMITS.longText),
     matchedInterests: stringList.optional(),
+    editorId: optionalText(TRIP_INPUT_LIMITS.shortText),
+    editorSlotId: optionalText(TRIP_INPUT_LIMITS.shortText),
+  })
+  .strict();
+
+export const dailyTimeSlotSchema: z.ZodType<DailyTimeSlot> = z
+  .object({
+    id: requiredShortText,
+    baseSlot: z.enum(["morning", "afternoon", "evening"]),
+    label: requiredShortText,
+    startTime: optionalText(TRIP_INPUT_LIMITS.shortText),
+    endTime: optionalText(TRIP_INPUT_LIMITS.shortText),
   })
   .strict();
 
@@ -315,6 +329,7 @@ export const dailyItinerarySchema: z.ZodType<DailyItinerary> = z
     afternoon: z.array(itineraryItemSchema),
     evening: z.array(itineraryItemSchema),
     dailyTips: stringList,
+    timeSlots: z.array(dailyTimeSlotSchema).optional(),
   })
   .strict();
 

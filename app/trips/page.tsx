@@ -20,14 +20,12 @@ function LoginPrompt() {
   return (
     <section className="workspace-panel px-5 py-5 sm:px-6 sm:py-6">
       <div className="relative z-[1] max-w-2xl">
-        <p className="workspace-kicker">LOGIN REQUIRED</p>
+        <p className="workspace-kicker">需要登录</p>
         <h1 className="mt-2 text-2xl font-semibold tracking-[-0.03em] text-[var(--ink)] sm:text-4xl">
-          请先登录后，再来看“我的行程”。
+          登录后查看“我的行程”
         </h1>
         <p className="mt-3 text-sm leading-6 text-[var(--ink-muted)] sm:text-[15px] sm:leading-7">
-          生成流程还是照常能用。这里只负责把你已经保存过的版本集中列出来，不会拦住
-          <code> /create -&gt; /plan -&gt; /result </code>
-          这条主链路。
+          这里会集中放你保存过的旅行计划。未登录也可以继续从创建页生成或打开 Workspace。
         </p>
         <Link
           href={buildSaveTripLoginHref("/trips")}
@@ -44,12 +42,12 @@ function TripsLoadingState() {
   return (
     <section className="workspace-panel px-5 py-5 sm:px-6 sm:py-6">
       <div className="relative z-[1]">
-        <p className="workspace-kicker">LOADING TRIPS</p>
+        <p className="workspace-kicker">正在加载</p>
         <h2 className="mt-2 text-2xl font-semibold text-[var(--ink)]">
-          正在把你保存过的行程翻出来。
+          正在翻出你保存过的行程
         </h2>
         <p className="mt-3 text-sm leading-6 text-[var(--ink-muted)]">
-          这里先拉轻量列表，不会把完整行程 JSON 一口气全搬下来。
+          先拉轻量列表，打开某一条时再恢复完整计划。
         </p>
       </div>
     </section>
@@ -60,9 +58,9 @@ function TripsErrorState({ message }: { message: string }) {
   return (
     <section className="workspace-panel px-5 py-5 sm:px-6 sm:py-6">
       <div className="relative z-[1] max-w-2xl">
-        <p className="workspace-kicker">LIST UNAVAILABLE</p>
+        <p className="workspace-kicker">列表暂不可用</p>
         <h2 className="mt-2 text-2xl font-semibold text-[var(--ink)]">
-          暂时没拉到你的行程列表。
+          暂时没拉到你的行程列表
         </h2>
         <p className="mt-3 text-sm leading-6 text-[var(--ink-muted)]">
           {message}
@@ -80,6 +78,9 @@ export default function TripsPage() {
   const [errorMessage, setErrorMessage] = useState("");
   const [openingTripId, setOpeningTripId] = useState<string | null>(null);
   const [deletingTripId, setDeletingTripId] = useState<string | null>(null);
+  const [confirmingDeleteTripId, setConfirmingDeleteTripId] = useState<
+    string | null
+  >(null);
   const [openErrorByTripId, setOpenErrorByTripId] = useState<
     Record<string, string | undefined>
   >({});
@@ -154,11 +155,8 @@ export default function TripsPage() {
   }
 
   async function handleDeleteTrip(trip: SavedTripListItem) {
-    const shouldDelete = window.confirm(
-      `确定删除“${trip.title}”吗？删除后这条已保存计划会从我的行程里移除。`,
-    );
-
-    if (!shouldDelete) {
+    if (confirmingDeleteTripId !== trip.id) {
+      setConfirmingDeleteTripId(trip.id);
       return;
     }
 
@@ -171,6 +169,7 @@ export default function TripsPage() {
     try {
       await deleteSavedTrip(trip.id);
       setTrips((current) => current.filter((item) => item.id !== trip.id));
+      setConfirmingDeleteTripId(null);
     } catch (error) {
       setDeleteErrorByTripId((current) => ({
         ...current,
@@ -203,20 +202,19 @@ export default function TripsPage() {
             href="/create"
             className="border-b border-[var(--line-strong)] pb-1 text-[var(--ink-muted)] hover:border-[var(--clay-deep)] hover:text-[var(--clay-deep)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--clay)]"
           >
-            去创建新计划
+            创建新计划
           </Link>
         </nav>
 
         <section className="mb-6 max-w-3xl sm:mb-8">
           <p className="inline-flex -rotate-1 rounded-full border border-[var(--sage-deep)] bg-[var(--sage-soft)] px-3 py-1 text-[11px] font-semibold tracking-[0.16em] text-[var(--sage-deep)] sm:text-xs">
-            phase 7 更新与删除收口
+            Workspace 入口收口
           </p>
           <h1 className="mt-4 text-3xl font-semibold leading-[1.08] tracking-[-0.05em] sm:mt-6 sm:text-6xl">
-            把已保存计划管起来，但先不把工作台重做一遍。
+            把已保存计划重新打开，继续在 Workspace 里往下做
           </h1>
           <p className="mt-3 max-w-2xl text-sm leading-6 text-[var(--ink-muted)] sm:mt-6 sm:text-lg sm:leading-8">
-            这轮会继续沿用现有工作台：历史计划可以打开回 `/result`，也可以在这里直接删除。
-            保存和更新逻辑则交给顶部保存按钮按 `savedTripId` 自动判断。
+            历史计划会先恢复到本地工作态，然后统一进入 /workspace 阅读模式。
           </p>
         </section>
 
@@ -233,10 +231,16 @@ export default function TripsPage() {
             trips={trips}
             openingTripId={openingTripId}
             deletingTripId={deletingTripId}
+            confirmingDeleteTripId={confirmingDeleteTripId}
             openErrorByTripId={openErrorByTripId}
             deleteErrorByTripId={deleteErrorByTripId}
             onOpenTrip={handleOpenTrip}
             onDeleteTrip={handleDeleteTrip}
+            onCancelDeleteTrip={(trip) => {
+              setConfirmingDeleteTripId((current) =>
+                current === trip.id ? null : current,
+              );
+            }}
           />
         ) : null}
       </main>

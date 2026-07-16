@@ -59,8 +59,8 @@ export default function FavoritesPage() {
         minimal
         overlay={false}
         navItems={[
-          { href: "/explore", label: "Explore" },
-          { href: "/trips", label: "我的旅行" },
+          { href: "/explore", label: "探索灵感" },
+          { href: "/trips", label: "我的行程" },
           { href: "/create", label: "创建旅行", emphasized: true },
           { href: "/favorites", label: "收藏" },
         ]}
@@ -69,12 +69,12 @@ export default function FavoritesPage() {
       <main className="mx-auto flex w-full max-w-[86rem] flex-1 flex-col px-4 pb-8 pt-2 sm:px-8 sm:pb-16">
         <section className="workspace-panel mb-5 px-5 py-5 sm:px-6 sm:py-6">
           <div className="relative z-[1] max-w-2xl">
-            <p className="workspace-kicker">FAVORITES</p>
+            <p className="workspace-kicker">收藏</p>
             <h1 className="mt-2 text-3xl font-semibold tracking-[-0.04em] text-[var(--ink)]">
               你收藏下来的旅行档案
             </h1>
             <p className="mt-3 text-sm leading-6 text-[var(--ink-muted)]">
-              先把喜欢的灵感留在这里，之后再带去 Create 或继续打开查看。
+              先把喜欢的灵感留在这里，之后再导入工作台或继续打开查看。
             </p>
           </div>
         </section>
@@ -82,18 +82,18 @@ export default function FavoritesPage() {
         {items.length === 0 ? (
           <section className="workspace-panel px-5 py-5 sm:px-6 sm:py-6">
             <div className="relative z-[1] max-w-2xl">
-              <p className="workspace-kicker">EMPTY</p>
+              <p className="workspace-kicker">还没有收藏</p>
               <h2 className="mt-2 text-2xl font-semibold text-[var(--ink)]">
                 这里还没有收藏的档案
               </h2>
               <p className="mt-3 text-sm leading-6 text-[var(--ink-muted)]">
-                去 Explore 逛逛，看到喜欢的城市档案后点一下收藏。
+                去探索灵感逛逛，看到喜欢的城市档案后点一下收藏。
               </p>
               <Link
                 href="/explore"
                 className="mt-5 inline-flex min-h-11 items-center justify-center rounded-full border border-[var(--ink)] bg-[rgba(255,253,247,0.92)] px-5 py-2.5 text-sm font-semibold text-[var(--ink)]"
               >
-                回到 Explore
+                回到探索灵感
               </Link>
             </div>
           </section>

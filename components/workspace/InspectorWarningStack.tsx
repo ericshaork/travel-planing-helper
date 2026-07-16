@@ -25,20 +25,20 @@ export function InspectorWarningStack({
       </div>
       <div className="relative z-[1] space-y-4">
         <div>
-          <p className="workspace-kicker">TRAVEL WARNINGS</p>
-          <h3 className="mt-1 text-base font-semibold">Pace and weather notes</h3>
+          <p className="workspace-kicker">旅行备注</p>
+          <h3 className="mt-1 text-base font-semibold">节奏与天气备注</h3>
         </div>
 
         <div>
           <p className="mb-2 text-xs font-semibold tracking-[0.12em] text-[var(--ink-muted)]">
-            Pace notes
+            节奏提醒
           </p>
           <PaceWarningList warnings={insight?.routeSummary?.warnings ?? []} />
         </div>
 
         <div>
           <p className="mb-2 text-xs font-semibold tracking-[0.12em] text-[var(--ink-muted)]">
-            Weather impact
+            天气影响
           </p>
           <WeatherImpactList impacts={insight?.weatherImpacts ?? []} />
         </div>

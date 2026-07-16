@@ -36,6 +36,7 @@ interface AmapBaseMapProps {
   onMarkerClick?: (pointId: string) => void;
   emptyTitle?: string;
   emptyDescription?: string;
+  surfaceClassName?: string;
 }
 
 type MapViewState =
@@ -56,6 +57,7 @@ export function AmapBaseMap({
   onMarkerClick,
   emptyTitle = "这一天暂时没有已确认点位",
   emptyDescription = "先看右侧点位列表和路线提醒，等地点核对清楚后再显示到地图上。",
+  surfaceClassName,
 }: AmapBaseMapProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<AMapMapInstance | null>(null);
@@ -151,13 +153,7 @@ export function AmapBaseMap({
       clearAmapMarkerInstances(markersRef.current);
       markersRef.current = [];
     };
-  }, [
-    activePointId,
-    markerLabel,
-    markerPoints,
-    onMarkerClick,
-    viewState.status,
-  ]);
+  }, [activePointId, markerLabel, markerPoints, onMarkerClick, viewState.status]);
 
   useEffect(() => {
     if (!mapRef.current || viewState.status !== "ready") {
@@ -173,16 +169,17 @@ export function AmapBaseMap({
     );
   }, [center, fitToMarkers, markerPoints, viewState.status, zoom]);
 
+  const surfaceClass = `${surfaceClassName ?? "workspace-panel"} relative overflow-hidden ${className ?? ""}`.trim();
+  const surfaceStyle = { height: "100%", minHeight: 0 };
+
   if (viewState.status === "loading") {
     return (
-      <div
-        className={`workspace-panel relative min-h-[280px] overflow-hidden ${className ?? ""}`.trim()}
-      >
+      <div className={surfaceClass} style={surfaceStyle}>
         <div
           ref={containerRef}
           aria-label={ariaLabel}
           role="img"
-          className="h-full min-h-[280px] w-full opacity-0"
+          className="h-full min-h-0 w-full opacity-0"
         />
         <div className="absolute inset-0">
           <MapLoading />
@@ -196,28 +193,26 @@ export function AmapBaseMap({
   }
 
   return (
-    <div
-      className={`workspace-panel relative min-h-[280px] overflow-hidden ${className ?? ""}`.trim()}
-    >
+    <div className={surfaceClass} style={surfaceStyle}>
       <div
         ref={containerRef}
         aria-label={ariaLabel}
         role="img"
-        className="h-full min-h-[280px] w-full"
+        className="h-full min-h-0 w-full"
       />
       {markerPoints.length === 0 ? (
-        <div className="pointer-events-none absolute inset-0 flex items-center justify-center px-6 text-center">
-          <div className="max-w-xs rounded-[22px] border border-[var(--line)] bg-[rgb(255_255_255_/_0.82)] px-4 py-3 shadow-[3px_3px_0_var(--sand-soft)] backdrop-blur-sm">
+        <div className="pointer-events-none absolute inset-x-4 bottom-4 z-[1] sm:inset-x-auto sm:right-4 sm:max-w-sm">
+          <div className="map-workspace-overlay px-3.5 py-2.5">
             <p className="text-sm font-semibold text-[var(--ink)]">{emptyTitle}</p>
-            <p className="mt-1.5 text-sm leading-6 text-[var(--ink-muted)]">
+            <p className="mt-1 text-sm leading-6 text-[var(--ink-muted)]">
               {emptyDescription}
             </p>
           </div>
         </div>
       ) : null}
-      {unresolvedCount > 0 ? (
+      {unresolvedCount > 0 && markerPoints.length > 0 ? (
         <div className="pointer-events-none absolute inset-x-4 bottom-4 z-[1]">
-          <p className="rounded-[18px] border border-dashed border-[var(--clay)] bg-[rgb(255_246_238_/_0.94)] px-3 py-2.5 text-sm leading-6 text-[var(--clay-deep)] shadow-[2px_2px_0_var(--sand-soft)]">
+          <p className="map-workspace-overlay px-3 py-2.5 text-sm leading-6 text-[var(--ink-muted)]">
             还有 {unresolvedCount} 个地点待确认，暂时没有显示在地图上。
           </p>
         </div>

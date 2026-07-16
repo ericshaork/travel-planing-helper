@@ -13,8 +13,8 @@ export default function ExplorePage() {
         minimal
         overlay={false}
         navItems={[
-          { href: "/explore", label: "Explore" },
-          { href: "/trips", label: "我的旅行" },
+          { href: "/explore", label: "探索灵感" },
+          { href: "/trips", label: "我的行程" },
           { href: "/create", label: "创建旅行", emphasized: true },
           { href: "/favorites", label: "收藏" },
         ]}

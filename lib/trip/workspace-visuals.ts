@@ -45,7 +45,7 @@ export function getWorkspaceSaveVisualMeta(params: {
     authStatus === "loading"
   ) {
     return {
-      label: "Saving...",
+      label: "保存中",
       tone: "pending",
       imageSrc: "/images/ui/state/save-pending-accent.png",
     } satisfies WorkspaceSaveVisualMeta;
@@ -53,7 +53,7 @@ export function getWorkspaceSaveVisualMeta(params: {
 
   if (actionState === "saved" || actionState === "updated") {
     return {
-      label: "Saved",
+      label: "已保存",
       tone: "success",
       imageSrc: "/images/ui/state/save-success-accent.png",
     } satisfies WorkspaceSaveVisualMeta;
@@ -61,7 +61,7 @@ export function getWorkspaceSaveVisualMeta(params: {
 
   if (actionState === "error") {
     return {
-      label: "Need attention",
+      label: "需要处理",
       tone: "error",
       imageSrc: "/images/ui/state/save-error-accent.png",
     } satisfies WorkspaceSaveVisualMeta;
@@ -69,7 +69,7 @@ export function getWorkspaceSaveVisualMeta(params: {
 
   if (hasSavedTrip) {
     return {
-      label: "Saved draft",
+      label: "已保存草稿",
       tone: "success",
       imageSrc: "/images/ui/state/save-success-accent.png",
     } satisfies WorkspaceSaveVisualMeta;
@@ -77,14 +77,14 @@ export function getWorkspaceSaveVisualMeta(params: {
 
   if (authStatus === "anonymous") {
     return {
-      label: "Login to save",
+      label: "登录后保存",
       tone: "pending",
       imageSrc: "/images/ui/state/save-pending-accent.png",
     } satisfies WorkspaceSaveVisualMeta;
   }
 
   return {
-    label: "Ready to save",
+    label: "可保存",
     tone: "pending",
     imageSrc: "/images/ui/state/save-pending-accent.png",
   } satisfies WorkspaceSaveVisualMeta;

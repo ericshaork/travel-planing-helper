@@ -1,89 +1,123 @@
-import Image from "next/image";
-
 import { DayCabinet } from "../trip/DayCabinet";
 import type { DayRouteInsight } from "../../lib/trip/route-insight";
-import type { DayCabinetView } from "../../lib/trip/itinerary-view";
-import type { BlockActionType } from "../../lib/trip/modification-intents";
+import type { DayCabinetView, ItineraryBlockView } from "../../lib/trip/itinerary-view";
+import type { PendingChangeAction } from "../../lib/trip/modification-intents";
+import type { DailyTimeSlot } from "../../lib/trip/types";
 
 interface WorkspaceDayPanelProps {
   cabinet?: DayCabinetView;
+  allCabinets: DayCabinetView[];
   insight?: DayRouteInsight;
   showActions?: boolean;
+  compactBlankReadMode?: boolean;
   activeBlockId?: string | null;
-  onBlockSelect?: (
-    block: DayCabinetView["slots"][number]["items"][number],
+  onRequestEdit?: () => void;
+  onAddPlace?: (slotId: string) => void;
+  onAddNote?: (note: string) => void;
+  onAddDay?: () => void;
+  onOpenAiAssist?: () => void;
+  onBlockSelect?: (block: ItineraryBlockView) => void;
+  onBlockUpdate?: (
+    block: ItineraryBlockView,
+    updates: { placeName: string; reason: string },
   ) => void;
+  onBlockDelete?: (block: ItineraryBlockView) => void;
+  onBlockMove?: (
+    block: ItineraryBlockView,
+    targetDayNumber: number,
+    targetSlotId: string,
+  ) => void;
+  onTimeSlotAdd?: (dayNumber: number, afterSlotId: string) => void;
+  onTimeSlotUpdate?: (
+    dayNumber: number,
+    slotId: string,
+    updates: Pick<DailyTimeSlot, "label" | "startTime" | "endTime">,
+  ) => void;
+  onTimeSlotDelete?: (dayNumber: number, slotId: string) => void;
   onBlockAction?: (
-    actionType: BlockActionType,
-    block: DayCabinetView["slots"][number]["items"][number],
+    actionType: PendingChangeAction,
+    block: ItineraryBlockView,
   ) => void;
 }
 
 export function WorkspaceDayPanel({
   cabinet,
+  allCabinets,
   insight,
   showActions = false,
+  compactBlankReadMode = false,
   activeBlockId,
+  onRequestEdit,
+  onAddPlace,
+  onAddNote,
+  onAddDay,
+  onOpenAiAssist,
   onBlockSelect,
+  onBlockUpdate,
+  onBlockDelete,
+  onBlockMove,
+  onTimeSlotAdd,
+  onTimeSlotUpdate,
+  onTimeSlotDelete,
   onBlockAction,
 }: WorkspaceDayPanelProps) {
   if (!cabinet) {
     return null;
   }
 
+  const isEmptyDay = cabinet.itemCount === 0;
+
   return (
     <section
       id={`workspace-day-panel-${cabinet.dayNumber}`}
-      className="space-y-4"
+      className={compactBlankReadMode ? "space-y-3" : "space-y-4"}
     >
-      <div className="workspace-panel relative overflow-hidden px-5 py-5 sm:px-6 sm:py-6">
-        <div className="pointer-events-none absolute left-4 top-3 h-12 w-20 opacity-70">
-          <Image
-            src="/images/archive/decoration/archive-label-note.png"
-            alt=""
-            fill
-            aria-hidden
-            sizes="80px"
-            className="object-contain"
-          />
-        </div>
-        <div className="pointer-events-none absolute right-4 top-0 h-16 w-12 opacity-85">
-          <Image
-            src="/images/archive/bookmark/archive-bookmark-active.png"
-            alt=""
-            fill
-            aria-hidden
-            sizes="48px"
-            className="object-contain object-top"
-          />
-        </div>
-        <div className="relative z-[1] flex flex-wrap items-end justify-between gap-3">
+      <div className={`px-1 ${compactBlankReadMode ? "pt-0.5" : "pt-1"}`}>
+        <div className="flex flex-wrap items-end justify-between gap-3">
           <div className="max-w-2xl">
-          <p className="workspace-kicker">DAY TIMELINE</p>
-          <h2 className="mt-1.5 text-2xl font-semibold tracking-[-0.03em] sm:text-3xl">
-              {`Day ${cabinet.dayNumber}`}
+            <p className="workspace-kicker">当天档案</p>
+            <h2 className="mt-1.5 text-2xl font-semibold tracking-[-0.03em] sm:text-3xl">
+              {`第 ${cabinet.dayNumber} 天`}
             </h2>
+            {!isEmptyDay && cabinet.theme ? (
+              <p className="mt-2 text-base leading-7 text-[var(--ink)]">
+                {cabinet.theme}
+              </p>
+            ) : null}
             <p className="mt-2 text-sm leading-6 text-[var(--ink-muted)]">
-              {cabinet.theme}
-            </p>
-            <p className="mt-2 text-sm leading-6 text-[var(--ink-muted)]">
-              {cabinet.routeReason ||
-                "按这一天的时间线阅读行程，地图会在右侧同步显示同一天的路线。"}
+              {isEmptyDay
+                ? "这一天还没有地点，先放进第一个想去的地方。"
+                : cabinet.routeReason || "把今天想去的地方顺着路线记在这一页。"}
             </p>
           </div>
 
-          <div className="workspace-chip workspace-chip-accent">
-            {insight?.mapPoints.length ?? cabinet.itemCount} 个行程节点
-          </div>
+          {!isEmptyDay ? (
+            <div className="journal-chip">
+              {insight?.mapPoints.length ?? cabinet.itemCount} 个地点
+            </div>
+          ) : null}
         </div>
       </div>
 
       <DayCabinet
         cabinet={cabinet}
+        allCabinets={allCabinets}
         mapPoints={insight?.mapPoints}
         showActions={showActions}
+        compactBlankReadMode={compactBlankReadMode}
         activeBlockId={activeBlockId}
+        onRequestEdit={onRequestEdit}
+        onAddPlace={onAddPlace}
+        onAddNote={onAddNote}
+        onAddDay={onAddDay}
+        onOpenAiAssist={onOpenAiAssist}
         onBlockSelect={onBlockSelect}
+        onBlockUpdate={onBlockUpdate}
+        onBlockDelete={onBlockDelete}
+        onBlockMove={onBlockMove}
+        onTimeSlotAdd={onTimeSlotAdd}
+        onTimeSlotUpdate={onTimeSlotUpdate}
+        onTimeSlotDelete={onTimeSlotDelete}
         onBlockAction={onBlockAction}
       />
     </section>

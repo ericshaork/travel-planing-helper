@@ -1,18 +1,30 @@
 import type {
   DailyItinerary,
+  DailyTimeSlot,
   ItineraryItem,
   ItineraryItemType,
+  TimeSlotKey,
   TripPlan,
 } from "./types";
 
-export type TimeSlotKey = "morning" | "afternoon" | "evening";
+export type { TimeSlotKey } from "./types";
+
+export interface TimeSlotDefinition {
+  id: string;
+  key: TimeSlotKey;
+  label: string;
+  startTime?: string;
+  endTime?: string;
+}
 
 export interface ItineraryBlockRef {
   day: number;
   slot: TimeSlotKey;
+  slotId?: string;
   itemIndex: number;
   placeName: string;
   type: ItineraryItemType;
+  editorId?: string;
 }
 
 export interface ItineraryBlockView {
@@ -20,9 +32,7 @@ export interface ItineraryBlockView {
   item: ItineraryItem;
 }
 
-export interface TimeSlotView {
-  key: TimeSlotKey;
-  label: "上午" | "下午" | "晚上";
+export interface TimeSlotView extends TimeSlotDefinition {
   items: ItineraryBlockView[];
   isEmpty: boolean;
 }
@@ -46,15 +56,72 @@ export interface DayCabinetView {
   itinerary: DailyItinerary;
 }
 
-const SLOT_LABELS: Record<TimeSlotKey, TimeSlotView["label"]> = {
+export const DEFAULT_TIME_SLOT_DEFINITIONS: TimeSlotDefinition[] = [
+  {
+    id: "morning",
+    key: "morning",
+    label: "上午",
+    startTime: "08:00",
+    endTime: "12:00",
+  },
+  {
+    id: "afternoon",
+    key: "afternoon",
+    label: "下午",
+    startTime: "12:00",
+    endTime: "18:00",
+  },
+  {
+    id: "evening",
+    key: "evening",
+    label: "晚上",
+    startTime: "18:00",
+    endTime: "22:00",
+  },
+];
+
+const SLOT_LABELS: Record<TimeSlotKey, string> = {
   morning: "上午",
   afternoon: "下午",
   evening: "晚上",
 };
 
-const SLOT_KEYS: TimeSlotKey[] = ["morning", "afternoon", "evening"];
+function normalizeCustomTimeSlots(
+  timeSlots?: DailyTimeSlot[],
+): TimeSlotDefinition[] {
+  if (!timeSlots || timeSlots.length === 0) {
+    return getDefaultTimeSlotDefinitions();
+  }
 
-export function getTimeSlotLabel(key: TimeSlotKey): TimeSlotView["label"] {
+  return timeSlots.map((slot) => ({
+    id: slot.id,
+    key: slot.baseSlot,
+    label: slot.label,
+    startTime: slot.startTime,
+    endTime: slot.endTime,
+  }));
+}
+
+function getResolvedSlotId(
+  item: ItineraryItem,
+  baseSlot: TimeSlotKey,
+  slotDefinitions: TimeSlotDefinition[],
+): string {
+  if (
+    item.editorSlotId &&
+    slotDefinitions.some((slot) => slot.id === item.editorSlotId)
+  ) {
+    return item.editorSlotId;
+  }
+
+  return (
+    slotDefinitions.find((slot) => slot.key === baseSlot)?.id ??
+    DEFAULT_TIME_SLOT_DEFINITIONS.find((slot) => slot.key === baseSlot)?.id ??
+    baseSlot
+  );
+}
+
+export function getTimeSlotLabel(key: TimeSlotKey): string {
   return SLOT_LABELS[key];
 }
 
@@ -68,31 +135,51 @@ export function getTimeSlotPreview(slot: TimeSlotView): TimeSlotPreview {
   };
 }
 
+export function getDefaultTimeSlotDefinitions() {
+  return DEFAULT_TIME_SLOT_DEFINITIONS.map((slot) => ({ ...slot }));
+}
+
+export function getTimeSlotDefinitions(
+  itinerary: DailyItinerary,
+): TimeSlotDefinition[] {
+  return normalizeCustomTimeSlots(itinerary.timeSlots);
+}
+
 export function getTimeSlotItems(
   itinerary: DailyItinerary,
-  slot: TimeSlotKey,
+  slotDefinition: TimeSlotDefinition,
+  slotDefinitions = getTimeSlotDefinitions(itinerary),
 ): ItineraryBlockView[] {
-  return itinerary[slot].map((item, itemIndex) => ({
-    ref: {
-      day: itinerary.day,
-      slot,
+  return itinerary[slotDefinition.key]
+    .map((item, itemIndex) => ({
+      item,
       itemIndex,
-      placeName: item.placeName,
-      type: item.type,
-    },
-    item,
-  }));
+      slotId: getResolvedSlotId(item, slotDefinition.key, slotDefinitions),
+    }))
+    .filter((entry) => entry.slotId === slotDefinition.id)
+    .map(({ item, itemIndex }) => ({
+      ref: {
+        day: itinerary.day,
+        slot: slotDefinition.key,
+        slotId: slotDefinition.id,
+        itemIndex,
+        placeName: item.placeName,
+        type: item.type,
+        editorId: item.editorId,
+      },
+      item,
+    }));
 }
 
 export function mapDailyItineraryToCabinet(
   itinerary: DailyItinerary,
 ): DayCabinetView {
-  const slots = SLOT_KEYS.map((key) => {
-    const items = getTimeSlotItems(itinerary, key);
+  const slotDefinitions = getTimeSlotDefinitions(itinerary);
+  const slots = slotDefinitions.map((definition) => {
+    const items = getTimeSlotItems(itinerary, definition, slotDefinitions);
 
     return {
-      key,
-      label: getTimeSlotLabel(key),
+      ...definition,
       items,
       isEmpty: items.length === 0,
     };
@@ -103,7 +190,7 @@ export function mapDailyItineraryToCabinet(
     date: itinerary.date,
     theme: itinerary.theme,
     routeOrder: [...itinerary.routeOrder],
-    routeSummary: itinerary.routeOrder.join(" → "),
+    routeSummary: itinerary.routeOrder.join(" -> "),
     routeReason: itinerary.routeReason,
     dailyTips: [...itinerary.dailyTips],
     itemCount: slots.reduce((count, slot) => count + slot.items.length, 0),

@@ -1,112 +1,140 @@
 import type { DayRouteInsight } from "../../lib/trip/route-insight";
-import {
-  buildWorkspaceInsightStats,
-  formatRouteDistance,
-  formatRouteDuration,
-} from "../../lib/trip/workspace-inspector";
+import type { WorkspaceSessionSourceType } from "../../lib/trip/storage";
 
-import { InspectorMapPreview } from "./InspectorMapPreview";
-import { InspectorPointDetailCard } from "./InspectorPointDetailCard";
 import { InspectorPointList } from "./InspectorPointList";
 import { InspectorRouteLegs } from "./InspectorRouteLegs";
 import { InspectorRouteStats } from "./InspectorRouteStats";
 import { InspectorWarningStack } from "./InspectorWarningStack";
 
 interface WorkspaceInspectorProps {
+  workspaceSourceType?: WorkspaceSessionSourceType;
+  isBlankWorkspace?: boolean;
+  hasStops?: boolean;
+  compactBlankReadMode?: boolean;
   insight?: DayRouteInsight;
-  loading?: boolean;
   errorMessage?: string;
   activePointId?: string | null;
-  unmatchedPlaceName?: string | null;
   onPointSelect?: (pointId: string) => void;
+  floating?: boolean;
 }
 
-function formatDayDate(date?: string) {
-  if (!date) {
-    return "日期待确认";
-  }
-
-  return date;
-}
-
-export function WorkspaceInspector({
+function InspectorContent({
+  workspaceSourceType,
+  isBlankWorkspace,
   insight,
-  loading = false,
   errorMessage,
-  activePointId = null,
-  unmatchedPlaceName = null,
+  activePointId,
   onPointSelect,
-}: WorkspaceInspectorProps) {
-  const stats = buildWorkspaceInsightStats(insight);
-
+}: {
+  workspaceSourceType?: WorkspaceSessionSourceType;
+  isBlankWorkspace: boolean;
+  insight?: DayRouteInsight;
+  errorMessage?: string;
+  activePointId?: string | null;
+  onPointSelect?: (pointId: string) => void;
+}) {
   return (
-    <aside className="space-y-4 xl:space-y-5">
-      <section className="workspace-panel-soft px-4 py-4">
-        <div className="flex flex-wrap items-start justify-between gap-3">
-          <div>
-            <p className="workspace-kicker">ROUTE NOTE</p>
-            <h3 className="mt-1 text-base font-semibold text-[var(--ink)]">
-              {insight
-                ? `${insight.dayTitle} route archive`
-                : "Route archive stays ready here"}
-            </h3>
-            <p className="mt-1.5 text-sm leading-6 text-[var(--ink-muted)]">
-              {insight
-                ? `Follow stop order, map placement, and pace checks for ${formatDayDate(insight.date)}.`
-                : "Once route insight is available, map, sequence, and travel warnings will stay together on the right."}
-            </p>
-          </div>
-          <div className="flex flex-wrap gap-2">
-            <span className="workspace-chip">resolved {stats.resolvedPoints}</span>
-            <span className="workspace-chip">
-              pending {stats.unresolvedPoints}
-            </span>
-            {insight?.routeSummary ? (
-              <>
-                <span className="workspace-chip">
-                  {formatRouteDistance(stats.totalDistanceMeters)}
-                </span>
-                <span className="workspace-chip">
-                  {formatRouteDuration(stats.totalDurationMinutes)}
-                </span>
-              </>
-            ) : null}
-          </div>
-        </div>
-
-        {errorMessage ? (
-          <p className="mt-4 rounded-[18px] border border-dashed border-[var(--clay)] bg-[var(--clay-soft)] px-3 py-2.5 text-sm leading-6 text-[var(--clay-deep)]">
-            {errorMessage}
-          </p>
-        ) : null}
-
-        {!loading && !insight ? (
-          <p className="mt-4 text-sm leading-6 text-[var(--ink-muted)]">
-            Route insight is optional. The itinerary stays readable even when map enrichment is not available.
-          </p>
-        ) : null}
-      </section>
-
-      <InspectorMapPreview
-        insight={insight}
-        loading={loading}
-        errorMessage={errorMessage}
-        activePointId={activePointId}
-        onMarkerClick={onPointSelect}
-      />
-      <InspectorPointDetailCard
-        insight={insight}
-        activePointId={activePointId}
-        unmatchedPlaceName={unmatchedPlaceName}
-      />
+    <div className="grid gap-4">
+      {errorMessage && !isBlankWorkspace ? (
+        <p className="map-workspace-overlay px-3 py-2.5 text-sm leading-6 text-[var(--ink-muted)]">
+          {errorMessage}
+        </p>
+      ) : null}
       <InspectorRouteStats insight={insight} />
+      <InspectorWarningStack insight={insight} />
       <InspectorPointList
+        workspaceSourceType={workspaceSourceType}
+        isBlankWorkspace={isBlankWorkspace}
         insight={insight}
         activePointId={activePointId}
         onPointSelect={onPointSelect}
       />
       <InspectorRouteLegs insight={insight} />
-      <InspectorWarningStack insight={insight} />
-    </aside>
+    </div>
+  );
+}
+
+export function WorkspaceInspector({
+  workspaceSourceType,
+  isBlankWorkspace = false,
+  hasStops = false,
+  compactBlankReadMode = false,
+  insight,
+  errorMessage,
+  activePointId = null,
+  onPointSelect,
+  floating = false,
+}: WorkspaceInspectorProps) {
+  const isCompletelyEmpty = isBlankWorkspace && !hasStops;
+  const hasInsightContent = Boolean(
+    insight?.routeSummary ||
+      (insight?.mapPoints.length ?? 0) > 0 ||
+      (errorMessage && !isBlankWorkspace),
+  );
+
+  if (compactBlankReadMode && isCompletelyEmpty) {
+    return null;
+  }
+
+  if (isCompletelyEmpty) {
+    return (
+      <div className="px-2 py-1">
+        <p className="text-xs leading-5 text-[var(--ink-faint)]">
+          等补上第一个地点后，再展开路线细节。
+        </p>
+      </div>
+    );
+  }
+
+  if (floating) {
+    if (!hasInsightContent) {
+      return (
+        <p className="px-1 py-1 text-sm leading-6 text-[var(--ink-muted)]">
+          暂时还没有完整路线摘要，但地图工作区已经可以先用起来。
+        </p>
+      );
+    }
+
+    return (
+      <InspectorContent
+        workspaceSourceType={workspaceSourceType}
+        isBlankWorkspace={isBlankWorkspace}
+        insight={insight}
+        errorMessage={errorMessage}
+        activePointId={activePointId}
+        onPointSelect={onPointSelect}
+      />
+    );
+  }
+
+  return (
+    <details className="map-workspace-drawer overflow-hidden">
+      <summary className="cursor-pointer list-none px-2 py-2.5">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <p className="workspace-kicker">路线细节</p>
+            <p className="mt-1 text-sm leading-6 text-[var(--ink-muted)]">
+              {insight
+                ? "路线摘要、节奏备注和地点顺序默认收在这里。"
+                : "暂时还没有完整路线摘要，但地图工作区已经可以先用起来。"}
+            </p>
+          </div>
+          <span className="map-workspace-chip">
+            {hasInsightContent ? "展开详情" : "待补充"}
+          </span>
+        </div>
+      </summary>
+
+      <div className="max-h-[32vh] overflow-y-auto px-2 pb-2 pt-3">
+        <InspectorContent
+          workspaceSourceType={workspaceSourceType}
+          isBlankWorkspace={isBlankWorkspace}
+          insight={insight}
+          errorMessage={errorMessage}
+          activePointId={activePointId}
+          onPointSelect={onPointSelect}
+        />
+      </div>
+    </details>
   );
 }

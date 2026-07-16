@@ -49,7 +49,7 @@ export function ArchiveHighlights({ item }: ArchiveHighlightsProps) {
   return (
     <section className="space-y-4 border-t border-[rgba(158,136,110,0.12)] pt-7">
       <div className="max-w-3xl">
-        <p className="workspace-kicker">HIGHLIGHTS</p>
+        <p className="workspace-kicker">行程亮点</p>
         <h2 className="mt-2 text-lg font-semibold text-[var(--ink)]">行程亮点</h2>
       </div>
 

@@ -41,13 +41,13 @@ export function SaveCurrentTripButton({
     if (!tripRequest) {
       setActionState("error");
       setErrorMessage(
-        "The original trip request is missing, so this version cannot be saved yet.",
+        "原始旅行需求暂时缺失，这一版还不能保存。",
       );
       return;
     }
 
     if (authState.status !== "authenticated") {
-      router.push(buildSaveTripLoginHref("/result"));
+      router.push(buildSaveTripLoginHref("/workspace"));
       return;
     }
 
@@ -70,8 +70,8 @@ export function SaveCurrentTripButton({
         error instanceof Error && error.message.trim()
           ? error.message
           : isUpdate
-            ? "We could not update this saved trip yet. Please try again in a moment."
-            : "We could not save this trip yet. Please try again in a moment.",
+            ? "暂时更新不了这条已保存计划，请稍后再试。"
+            : "当前方案暂时没保存成功，请稍后再试。",
       );
     }
   }
@@ -110,50 +110,37 @@ export function SaveCurrentTripButton({
 
   return (
     <div
-      className={`relative overflow-hidden rounded-[24px] border px-3.5 py-3 shadow-[4px_4px_0_var(--sand-soft)] ${toneClassName}`}
+      className={`relative flex items-center gap-2 overflow-hidden rounded-full border px-2 py-1.5 ${toneClassName}`}
     >
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-12 opacity-30">
-        <Image
-          src="/images/ui/button/button-accent-soft.png"
-          alt=""
-          fill
-          aria-hidden
-          sizes="240px"
-          className="object-cover object-top"
-        />
-      </div>
-
-      <div className="relative z-[1] flex items-start gap-3">
-        <div className="relative mt-0.5 h-10 w-10 shrink-0 overflow-hidden rounded-2xl border border-[var(--line)] bg-[rgba(255,255,255,0.72)]">
+      <div className="relative h-8 w-8 shrink-0 overflow-hidden rounded-full border border-[var(--line)] bg-[rgba(255,255,255,0.72)]">
           <Image
             src={visualMeta.imageSrc}
             alt=""
             fill
             aria-hidden
-            sizes="40px"
+            sizes="32px"
             className="object-cover"
           />
-        </div>
+      </div>
 
-        <div className="min-w-0">
-          <p className="workspace-kicker">SAVE STATUS</p>
-          <p className="mt-1 text-sm font-semibold text-[var(--ink)]">
-            {visualMeta.label}
-          </p>
-          <p
-            aria-live="polite"
-            className="mt-1 max-w-72 text-xs leading-5 text-[var(--ink-muted)]"
-          >
-            {copy.message}
-          </p>
-        </div>
+      <div className="min-w-0">
+        <p className="text-sm font-semibold text-[var(--ink)]">
+          {visualMeta.label}
+        </p>
+        <p
+          aria-live="polite"
+          className="max-w-44 truncate text-[11px] text-[var(--ink-muted)]"
+          title={copy.message}
+        >
+          {copy.message}
+        </p>
       </div>
 
       <button
         type="button"
         onClick={handleSaveClick}
         disabled={isBusy}
-        className={`relative z-[1] mt-3 inline-flex min-h-11 items-center justify-center rounded-full border px-4 py-2.5 text-sm font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-70 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)] ${buttonClassName}`}
+        className={`ml-1 inline-flex min-h-8 shrink-0 items-center justify-center rounded-full border px-3 py-1 text-sm font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-70 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)] ${buttonClassName}`}
       >
         {copy.label}
       </button>

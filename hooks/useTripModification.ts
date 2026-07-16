@@ -7,7 +7,7 @@ import {
   buildPendingChangesRequest,
   buildQuickModificationRequest,
   mergeModificationRequest,
-  type BlockActionType,
+  type PendingChangeAction,
   type PendingChangeItem,
   type QuickModificationType,
 } from "@/lib/trip/modification-intents";
@@ -18,7 +18,7 @@ interface UseTripModificationResult {
   externalDraftVersion: number;
   setModificationDraft: (value: string) => void;
   queueBlockAction: (
-    actionType: BlockActionType,
+    actionType: PendingChangeAction,
     block: ItineraryBlockView,
   ) => void;
   applyQuickModification: (type: QuickModificationType) => void;
@@ -34,7 +34,7 @@ export function useTripModification(): UseTripModificationResult {
   const [externalDraftVersion, setExternalDraftVersion] = useState(0);
 
   function queueBlockAction(
-    actionType: BlockActionType,
+    actionType: PendingChangeAction,
     block: ItineraryBlockView,
   ) {
     const nextPendingChange = buildPendingChangeItem(actionType, block);

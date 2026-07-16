@@ -23,7 +23,7 @@ export function InspirationCard({
   selectedCount,
   onClick,
   imageCandidates = [],
-  actionLabel = "Open this trail",
+  actionLabel = "打开这条灵感",
   priorityImage = false,
   children,
 }: InspirationCardProps) {
@@ -56,14 +56,14 @@ export function InspirationCard({
               </h3>
             </div>
             <span className="rounded-full border border-[var(--line)] bg-[rgb(255_255_255_/_0.82)] px-2.5 py-1 text-[11px] font-semibold tracking-[0.08em] text-[var(--ink-muted)]">
-              {selectedCount > 0 ? `${selectedCount} saved` : "Explore"}
+              {selectedCount > 0 ? `已选 ${selectedCount}` : "探索"}
             </span>
           </div>
           <p className="mt-2 text-sm font-medium text-[var(--ink)]">
             {actionLabel}
           </p>
           <p className="mt-1 text-xs leading-5 text-[var(--ink-muted)]">
-            {active ? description : "Open this card to browse a travel direction."}
+            {active ? description : "打开这张卡，看看这个旅行方向。"}
           </p>
         </button>
 

@@ -11,7 +11,7 @@ export function MapFallback({
 }: MapFallbackProps) {
   return (
     <div
-      className={`workspace-panel min-h-[280px] overflow-hidden ${className ?? ""}`.trim()}
+      className={`map-workspace-canvas min-h-[280px] overflow-hidden ${className ?? ""}`.trim()}
     >
       <div className="relative flex h-full min-h-[280px] flex-col justify-between px-5 py-5">
         <div
@@ -26,7 +26,7 @@ export function MapFallback({
         </div>
 
         <div className="relative z-[1]">
-          <p className="workspace-kicker">MAP STATUS</p>
+          <p className="workspace-kicker">地图状态</p>
           <h3 className="mt-2 text-lg font-semibold text-[var(--ink)]">{title}</h3>
           <p className="mt-2 max-w-md text-sm leading-6 text-[var(--ink-muted)]">
             {description}

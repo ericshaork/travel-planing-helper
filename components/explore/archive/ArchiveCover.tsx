@@ -8,7 +8,10 @@ import {
   formatDaysText,
   formatTripTypeLabel,
 } from "@/lib/explore/archive-display";
-import { startExploreCreateFlow } from "@/lib/explore/flow";
+import {
+  startExploreCreateFlow,
+  startExploreWorkspaceFlow,
+} from "@/lib/explore/flow";
 import { getArchiveHeroCoverSlot } from "@/lib/explore/image-resolver";
 
 import { FavoriteButton } from "../FavoriteButton";
@@ -39,7 +42,7 @@ export function ArchiveCover({ item }: ArchiveCoverProps) {
     <section className="relative overflow-hidden py-6">
       <div className="grid gap-7 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-start">
         <div className="max-w-[38rem] space-y-4">
-          <p className="workspace-kicker">TRAVEL ARCHIVE</p>
+          <p className="workspace-kicker">旅行档案</p>
           <div className="space-y-3">
             <h1 className="text-[2rem] font-semibold tracking-[-0.05em] text-[var(--ink)] sm:text-[2.65rem]">
               {cleanDisplayText(item.title, "旅行档案")}
@@ -68,7 +71,15 @@ export function ArchiveCover({ item }: ArchiveCoverProps) {
 
           <div className="flex flex-wrap items-start gap-3 pt-1">
             <GenerateTripButton
-              label="用此行程创建"
+              label="导入到工作台"
+              payload={{
+                entry: "archive_cover_import_workspace",
+                draft: item.createDraftSeed,
+              }}
+              onGenerate={() => startExploreWorkspaceFlow(item.createDraftSeed, router)}
+            />
+            <GenerateTripButton
+              label="继续补需求"
               payload={{
                 entry: "archive_cover_create",
                 draft: item.createDraftSeed,

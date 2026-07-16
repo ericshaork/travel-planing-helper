@@ -26,6 +26,7 @@ import {
   type TripRequestNormalizationIssue,
 } from "@/lib/trip/normalize";
 import {
+  clearWorkspaceSessionMetadata,
   loadTripPlanDraft,
   markCurrentTripAsUnsaved,
   loadParsedTripSession,
@@ -34,6 +35,7 @@ import {
   saveTripPlan,
   saveTripRequest,
   saveTripRequestDraft,
+  setWorkspaceSessionMetadata,
 } from "@/lib/trip/storage";
 import { generateTripResponseSchema } from "@/lib/trip/schema";
 import type {
@@ -270,6 +272,10 @@ export default function PlanPage() {
 
       const result: GenerateTripResponse = parsed.data;
       saveTripPlan(result.tripPlan);
+      setWorkspaceSessionMetadata({
+        sourceType: "ai_generated",
+        workspaceModeDefault: "read",
+      });
       router.push("/workspace");
     } catch (error) {
       setGenerationError(
@@ -311,6 +317,7 @@ export default function PlanPage() {
     }
 
     markCurrentTripAsUnsaved();
+    clearWorkspaceSessionMetadata();
     saveTripRequest(result.tripRequest);
     setTripRequest(result.tripRequest);
     setPageState("prepared");

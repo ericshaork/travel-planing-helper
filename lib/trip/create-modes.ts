@@ -21,12 +21,12 @@ export const CREATE_MODE_OPTIONS: CreateModeOption[] = [
   },
   {
     id: "self-directed",
-    eyebrow: "MAP",
-    title: "我想自己慢慢挑",
+    eyebrow: "BLANK",
+    title: "我想从空白计划开始",
     description:
-      "从地图和灵感地点开始挑选，之后再把地点加进行程里。",
-    available: false,
-    statusLabel: "v1.5",
+      "直接进入空白 Workspace，先手动补 Day、地点和路线，后面再慢慢整理。",
+    available: true,
+    statusLabel: "可用",
   },
 ];
 

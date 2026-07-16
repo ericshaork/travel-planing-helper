@@ -19,6 +19,7 @@ export function GenerateTripButton({
 }: GenerateTripButtonProps) {
   const [open, setOpen] = useState(false);
   const [isRunning, setIsRunning] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   async function handleClick() {
     if (!onGenerate) {
@@ -27,9 +28,16 @@ export function GenerateTripButton({
     }
 
     setIsRunning(true);
+    setErrorMessage("");
 
     try {
       await onGenerate();
+    } catch (error) {
+      setErrorMessage(
+        error instanceof Error && error.message.trim()
+          ? error.message
+          : "这次没有准备成功，请稍后再试。",
+      );
     } finally {
       setIsRunning(false);
     }
@@ -43,11 +51,17 @@ export function GenerateTripButton({
         onClick={() => void handleClick()}
         className="inline-flex min-h-11 items-center justify-center rounded-full border border-[var(--ink)] px-4 py-2 text-sm font-semibold text-[var(--ink)] disabled:cursor-not-allowed disabled:border-[var(--line)] disabled:text-[var(--ink-muted)]"
       >
-        {isRunning ? "正在准备…" : label}
+        {isRunning ? "正在准备..." : label}
       </button>
 
       {helperText ? (
         <p className="text-sm leading-6 text-[var(--ink-muted)]">{helperText}</p>
+      ) : null}
+
+      {errorMessage ? (
+        <p className="rounded-[14px] border border-[var(--dusty-rose)] bg-[rgb(196_104_89_/_0.08)] px-3 py-2 text-sm leading-6 text-[var(--dusty-rose)]">
+          {errorMessage}
+        </p>
       ) : null}
 
       {payload ? (

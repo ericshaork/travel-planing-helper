@@ -54,9 +54,7 @@ export function NaturalLanguageInput() {
     setErrorMessage(undefined);
 
     if (!text.trim()) {
-      setErrorMessage(
-        "先写一句吧。出发地、目的地、天数，知道多少写多少。",
-      );
+      setErrorMessage("先写一句吧。出发地、目的地、天数，知道多少写多少。");
       return;
     }
 

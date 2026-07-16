@@ -52,11 +52,11 @@ function buildGuide(activity: ExploreTripDailyActivity) {
   const guide: string[] = [activity.description];
 
   if (activity.poiRefs.length > 0) {
-    guide.push(`POI refs: ${activity.poiRefs.join(", ")}`);
+    guide.push(`地点线索：${activity.poiRefs.join("、")}`);
   }
 
   if (activity.foodRefs.length > 0) {
-    guide.push(`Food refs: ${activity.foodRefs.join(", ")}`);
+    guide.push(`美食线索：${activity.foodRefs.join("、")}`);
   }
 
   return guide;
@@ -68,7 +68,7 @@ function toItineraryItem(
 ): ItineraryItem {
   return {
     timeLabel: activity.timeBlock,
-    placeName: activity.poiRefs[0] ?? activity.foodRefs[0] ?? `${day.title} stop`,
+    placeName: activity.poiRefs[0] ?? activity.foodRefs[0] ?? `${day.title} 停留点`,
     type: inferItemType(activity),
     reason: activity.description,
     guide: buildGuide(activity),
@@ -112,7 +112,7 @@ function buildTripRequestDraft(content: ExploreTripContent): TripRequestDraft {
     mustVisitPlaces: content.pois.slice(0, 5).map((poi) => poi.name),
     specialRequirements:
       content.archiveIntro ??
-      `Started from the archive "${content.title}" and ready for personal edits.`,
+      `从 Explore 档案「${content.title}」开始，后续可以继续按你的节奏微调。`,
   };
 }
 
@@ -127,35 +127,35 @@ function buildTripPlanSeed(content: ExploreTripContent): TripPlan {
       .join(" · "),
     weatherSummary: {
       available: false,
-      overview: "Weather will be refreshed after this archive becomes a personal trip.",
+      overview: "导入为个人计划后，可以再刷新天气信息。",
       dailyForecast: [],
       alerts: [],
-      reminders: ["Refresh weather after creating your personal version."],
-      dataNote: "Explore archives do not carry live weather.",
+      reminders: ["导入工作台后，再按目的地和日期补实时天气。"],
+      dataNote: "Explore 档案不携带实时天气。",
     },
     budgetSummary: {
-      totalEstimate: content.budgetLevel ?? "TBD",
-      transport: "TBD",
-      hotel: "TBD",
-      food: "TBD",
-      tickets: "TBD",
-      localTransport: "TBD",
-      flexibleSpending: "TBD",
+      totalEstimate: content.budgetLevel ?? "待补充",
+      transport: "待补充",
+      hotel: "待补充",
+      food: "待补充",
+      tickets: "待补充",
+      localTransport: "待补充",
+      flexibleSpending: "待补充",
       note:
         content.budgetNote ??
-        "Budget details will be recalculated after you create your version.",
+        "导入工作台后，可以按你的预算重新估算。",
     },
     hotelAreaAdvice: [],
     transportAdvice: {
-      summary: "Transport advice will be regenerated for the personal version.",
+      summary: "导入为个人计划后，可以再补具体交通建议。",
       options: [],
       suggestedPlatforms: [],
-      note: "Explore archive content keeps the inspiration layer only.",
+      note: "Explore 档案只保留灵感层信息。",
     },
     dailyItinerary: content.dailyItinerary.map(buildDailyPlan),
     generalTips: [...content.highlights],
     warnings: [
-      "This trip seed comes from a public Explore archive and should be adjusted before use.",
+      "这份草稿来自 Explore 公共档案，正式出行前请按自己的日期、预算和节奏调整。",
     ],
   };
 }
@@ -174,41 +174,40 @@ function buildPlaceholderTripPlanSeed(
     travelStyleSummary,
     weatherSummary: {
       available: false,
-      overview: "Live weather will be added after the final route is generated.",
+      overview: "生成完整路线后再补实时天气。",
       dailyForecast: [],
       alerts: [],
-      reminders: ["Use this as an idea draft before generating the full trip."],
-      dataNote: "Explore inspiration drafts do not include live weather.",
+      reminders: ["先把它当作灵感草稿，再生成完整行程。"],
+      dataNote: "Explore 灵感草稿不包含实时天气。",
     },
     budgetSummary: {
-      totalEstimate: "TBD",
-      transport: "TBD",
-      hotel: "TBD",
-      food: "TBD",
-      tickets: "TBD",
-      localTransport: "TBD",
-      flexibleSpending: "TBD",
-      note: "Budget will be estimated after the AI route is generated.",
+      totalEstimate: "待补充",
+      transport: "待补充",
+      hotel: "待补充",
+      food: "待补充",
+      tickets: "待补充",
+      localTransport: "待补充",
+      flexibleSpending: "待补充",
+      note: "生成完整路线后再估算预算。",
     },
     hotelAreaAdvice: [],
     transportAdvice: {
-      summary: "Transport advice will be generated after the route is confirmed.",
+      summary: "路线确认后再生成交通建议。",
       options: [
         {
           mode: "other",
-          pros: ["Keeps the inspiration draft lightweight."],
-          cons: ["No route-specific transport recommendation yet."],
-          recommendation:
-            "Generate the full trip first, then transport guidance can be refreshed.",
+          pros: ["先保持灵感草稿轻量。"],
+          cons: ["暂时还没有具体路线交通建议。"],
+          recommendation: "先生成完整行程，再刷新交通建议。",
         },
       ],
       suggestedPlatforms: [],
-      note: "This placeholder seed exists only to keep the Create flow connected.",
+      note: "这份占位草稿用于连接 Explore 和创建流程。",
     },
     dailyItinerary: [
       {
         day: 1,
-        theme: "Inspiration draft",
+        theme: "灵感草稿",
         routeOrder: [destination],
         routeReason: summary,
         morning: [
@@ -216,17 +215,17 @@ function buildPlaceholderTripPlanSeed(
             placeName: destination,
             type: "other",
             reason: summary,
-            guide: ["Review the inspiration selections and refine them in Create."],
+            guide: ["先查看这些灵感，再按你的旅行方式继续调整。"],
           },
         ],
         afternoon: [],
         evening: [],
-        dailyTips: ["Turn this inspiration into a full route in the next step."],
+        dailyTips: ["下一步可以把这份灵感扩展成完整路线。"],
       },
     ],
-    generalTips: ["This is an Explore inspiration draft, not a finished route."],
+    generalTips: ["这是一份 Explore 灵感草稿，还不是最终路线。"],
     warnings: [
-      "Destination, dates, and budget may still need confirmation before AI generation.",
+      "目的地、日期和预算可能还需要在生成完整行程前确认。",
     ],
   };
 }
@@ -237,17 +236,17 @@ function unique(values: string[]) {
 
 function buildInspirationSummary(selection: InspirationSelection) {
   const summaryParts = [
-    selection.location?.length ? `Location: ${selection.location.join(", ")}` : "",
-    selection.food?.length ? `Food: ${selection.food.join(", ")}` : "",
-    selection.season?.length ? `Season: ${selection.season.join(", ")}` : "",
+    selection.location?.length ? `地点：${selection.location.join("、")}` : "",
+    selection.food?.length ? `美食：${selection.food.join("、")}` : "",
+    selection.season?.length ? `季节：${selection.season.join("、")}` : "",
     selection.companion?.length
-      ? `Companion: ${selection.companion.join(", ")}`
+      ? `同行方式：${selection.companion.join("、")}`
       : "",
   ].filter(Boolean);
 
   return summaryParts.length > 0
     ? summaryParts.join(" | ")
-    : "Explore inspiration draft";
+    : "Explore 灵感草稿";
 }
 
 export function buildTripPlanDraftFromExplore(
@@ -286,10 +285,10 @@ export function buildTripPlanDraftFromInspiration(
   ]);
   const summary = buildInspirationSummary(selection);
   const title = destinationCity
-    ? `${destinationCity} inspiration draft`
-    : "Explore inspiration draft";
+    ? `${destinationCity} 灵感草稿`
+    : "Explore 灵感草稿";
   const seedDestination =
-    destinationCity ?? locationValues[0] ?? "To be decided";
+    destinationCity ?? locationValues[0] ?? "待定目的地";
 
   return {
     tripTitle: title,

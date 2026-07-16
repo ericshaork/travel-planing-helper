@@ -45,8 +45,9 @@ function renderModeIcon(modeId: CreateModeId, active: boolean) {
   if (modeId === "self-directed") {
     return (
       <ModeIcon active={active}>
-        <path d="M12 20s6-3.8 6-9a6 6 0 1 0-12 0c0 5.2 6 9 6 9Z" />
-        <circle cx="12" cy="11" r="2.2" />
+        <path d="M12 4v16" />
+        <path d="M4 12h16" />
+        <path d="M7.5 7.5h9v9h-9z" />
       </ModeIcon>
     );
   }
@@ -70,7 +71,7 @@ export function CreateModeSelector({
           先选一种开始方式
         </h2>
         <p className="mt-2 text-sm leading-6 text-[var(--ink-muted)]">
-          这一页只决定你怎么起步。先有一版路线，后面再慢慢改；地图慢慢挑则继续作为后续版本入口保留。
+          这一页只决定你怎么起步。先让入口清楚，再慢慢把 Workspace 做完整。
         </p>
       </div>
 

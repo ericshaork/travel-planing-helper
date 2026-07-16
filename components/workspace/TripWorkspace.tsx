@@ -17,6 +17,7 @@ import {
   MOBILE_OVERVIEW_FALLBACK,
   safeDisplayText,
 } from "@/lib/trip/result-overview";
+import type { WorkspaceSessionSourceType } from "@/lib/trip/storage";
 import type { TripPlan, TripRequest } from "@/lib/trip/types";
 
 import { MapPanel } from "./MapPanel";
@@ -131,6 +132,9 @@ export function TripWorkspace({
   const {
     currentTripPlan,
     workspaceMode,
+    workspaceSourceType,
+    isBlankWorkspace,
+    hasStops,
     tripEnrichment,
     enrichmentState,
     enrichmentError,
@@ -152,7 +156,22 @@ export function TripWorkspace({
     resolvedActiveMapPointId,
     resolvedActiveItineraryBlockId,
     unmatchedBlockPlaceName,
+    activeResolvedPoints,
+    mapSearchKeyword,
+    mapSearchResults,
+    mapSearchWarnings,
+    mapSearchLoading,
+    mapSearchError,
+    selectedSearchCandidate,
+    pendingSearchCandidate,
+    mapTargetSlotId,
+    distanceTargetPointId,
+    distanceSummary,
+    distanceLoading,
+    distanceError,
+    mapActionMessage,
     setModificationDraft,
+    setMapSearchKeyword,
     handleRegenerated,
     handleBlockAction,
     handleQuickModification,
@@ -160,9 +179,26 @@ export function TripWorkspace({
     handleClearPendingChanges,
     handleWritePendingChangesToDraft,
     handleWorkspaceModeChange,
+    handleWorkspaceAddDay,
+    handleWorkspaceAddPlace,
+    handleWorkspaceAddNote,
+    handleWorkspaceBlockUpdate,
+    handleWorkspaceBlockDelete,
+    handleWorkspaceBlockMove,
+    handleWorkspaceTimeSlotAdd,
+    handleWorkspaceTimeSlotUpdate,
+    handleWorkspaceTimeSlotDelete,
     handleDesktopMapPointSelect,
     handleWorkspaceBlockSelect,
+    handleMapSearchSubmit,
+    handleMapSearchResultSelect,
+    handleMapSearchClear,
+    handleMapTargetSlotChange,
+    handleMapAddSelectedPlace,
+    handleMapDistanceEstimate,
+    setDistanceTargetPointId,
     handleWorkspaceFocusEdit,
+    handleWorkspaceOpenAiAssist,
     handleWorkspaceFocusExport,
     handleMobileNavSelect,
     handleInsightDaySelect,
@@ -171,6 +207,13 @@ export function TripWorkspace({
     tripPlan,
     tripRequest,
   });
+
+  const compactBlankReadMode =
+    workspaceMode === "read" &&
+    isBlankWorkspace &&
+    !hasStops &&
+    cabinets.length <= 1 &&
+    (activeWorkspaceCabinet?.itemCount ?? 0) === 0;
 
   function renderAttractionsContent(columnClassName = "grid gap-4 lg:grid-cols-2") {
     if (attractions.length === 0) {
@@ -340,7 +383,7 @@ export function TripWorkspace({
 
         {activeMobileCabinet ? (
           <MobilePageShell
-            title={`Day ${activeMobileCabinet.dayNumber}`}
+            title={`第 ${activeMobileCabinet.dayNumber} 天`}
             description="这一页只看当天路线。需要改单个积木时，直接在这里操作。"
           >
             {pendingChangesCount > 0 ? (
@@ -455,6 +498,8 @@ export function TripWorkspace({
               pendingChanges={pendingChanges}
               modificationDraft={modificationDraft}
               externalDraftVersion={externalDraftVersion}
+              isBlankWorkspace={isBlankWorkspace}
+              hasStops={hasStops}
               onRemovePendingChange={handleRemovePendingChange}
               onClearPendingChanges={handleClearPendingChanges}
               onWritePendingChangesToDraft={handleWritePendingChangesToDraft}
@@ -475,9 +520,10 @@ export function TripWorkspace({
       activeCabinet={activeWorkspaceCabinet}
       enrichmentState={enrichmentState}
       workspaceMode={workspaceMode}
+      compactBlankReadMode={compactBlankReadMode}
       onWorkspaceModeChange={handleWorkspaceModeChange}
       onFocusExport={handleWorkspaceFocusExport}
-      onFocusRegenerate={handleWorkspaceFocusEdit}
+      onFocusRegenerate={handleWorkspaceOpenAiAssist}
       saveAction={
         <SaveStatus
           tripPlan={currentTripPlan}
@@ -496,9 +542,21 @@ export function TripWorkspace({
         activeDayNumber={activeWorkspaceCabinet?.dayNumber ?? 1}
         insight={desktopSelectedInsight}
         showActions={workspaceMode === "edit"}
+        compactBlankReadMode={compactBlankReadMode}
         activeBlockId={resolvedActiveItineraryBlockId}
+        onRequestEdit={handleWorkspaceFocusEdit}
+        onAddDay={handleWorkspaceAddDay}
+        onAddPlace={handleWorkspaceAddPlace}
+        onAddNote={handleWorkspaceAddNote}
+        onOpenAiAssist={handleWorkspaceOpenAiAssist}
         onSelectDay={handleWorkspaceDaySelect}
         onBlockSelect={handleWorkspaceBlockSelect}
+        onBlockUpdate={handleWorkspaceBlockUpdate}
+        onBlockDelete={handleWorkspaceBlockDelete}
+        onBlockMove={handleWorkspaceBlockMove}
+        onTimeSlotAdd={handleWorkspaceTimeSlotAdd}
+        onTimeSlotUpdate={handleWorkspaceTimeSlotUpdate}
+        onTimeSlotDelete={handleWorkspaceTimeSlotDelete}
         onBlockAction={handleBlockAction}
       />
       {workspaceMode === "edit" ? (
@@ -508,6 +566,8 @@ export function TripWorkspace({
           pendingChanges={pendingChanges}
           modificationDraft={modificationDraft}
           externalDraftVersion={externalDraftVersion}
+          isBlankWorkspace={isBlankWorkspace}
+          hasStops={hasStops}
           onRemovePendingChange={handleRemovePendingChange}
           onClearPendingChanges={handleClearPendingChanges}
           onWritePendingChangesToDraft={handleWritePendingChangesToDraft}
@@ -521,11 +581,40 @@ export function TripWorkspace({
 
   const desktopInspector = (
     <MapPanel
+      workspaceSourceType={workspaceSourceType as WorkspaceSessionSourceType | undefined}
+      isBlankWorkspace={isBlankWorkspace}
+      hasStops={hasStops}
+      compactBlankReadMode={compactBlankReadMode}
+      activeCabinet={activeWorkspaceCabinet}
       insight={desktopSelectedInsight}
       loading={enrichmentState === "loading"}
       errorMessage={enrichmentState === "error" ? enrichmentError : undefined}
       activePointId={resolvedActiveMapPointId}
       unmatchedPlaceName={unmatchedBlockPlaceName}
+      workspaceMode={workspaceMode}
+      searchCity={currentTripPlan.destination}
+      searchKeyword={mapSearchKeyword}
+      searchResults={mapSearchResults}
+      searchWarnings={mapSearchWarnings}
+      searchLoading={mapSearchLoading}
+      searchError={mapSearchError}
+      selectedSearchCandidate={selectedSearchCandidate}
+      pendingSearchCandidate={pendingSearchCandidate}
+      targetSlotId={mapTargetSlotId}
+      distanceTargetPointId={distanceTargetPointId}
+      distanceSummary={distanceSummary}
+      distanceLoading={distanceLoading}
+      distanceError={distanceError}
+      mapActionMessage={mapActionMessage}
+      resolvedPoints={activeResolvedPoints}
+      onSearchKeywordChange={setMapSearchKeyword}
+      onSearchSubmit={handleMapSearchSubmit}
+      onSearchResultSelect={handleMapSearchResultSelect}
+      onSearchClear={handleMapSearchClear}
+      onTargetSlotChange={handleMapTargetSlotChange}
+      onAddSelectedPlace={handleMapAddSelectedPlace}
+      onDistanceTargetChange={setDistanceTargetPointId}
+      onEstimateDistance={handleMapDistanceEstimate}
       onPointSelect={handleDesktopMapPointSelect}
     />
   );
@@ -536,6 +625,7 @@ export function TripWorkspace({
       topBar={desktopTopBar}
       main={desktopMain}
       inspector={desktopInspector}
+      compactBlankReadMode={compactBlankReadMode}
     />
   );
 }

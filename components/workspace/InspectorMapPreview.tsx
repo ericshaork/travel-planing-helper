@@ -1,115 +1,130 @@
-import Image from "next/image";
-
-import type { DayRouteInsight } from "../../lib/trip/route-insight";
-import { buildWorkspaceInsightStats } from "../../lib/trip/workspace-inspector";
+import type { PoiCandidate } from "@/lib/poi/types";
+import type { DayRouteInsight } from "@/lib/trip/route-insight";
+import type { WorkspaceSessionSourceType } from "@/lib/trip/storage";
 
 import { AmapBaseMap } from "../map/AmapBaseMap";
-import { buildAmapMarkerLayer } from "../map/map-utils";
+import { buildAmapMarkerLayer, type AmapMarkerPoint } from "../map/map-utils";
 
 interface InspectorMapPreviewProps {
+  workspaceSourceType?: WorkspaceSessionSourceType;
+  isBlankWorkspace?: boolean;
   insight?: DayRouteInsight;
   loading?: boolean;
   errorMessage?: string;
   activePointId?: string | null;
+  selectedSearchCandidate?: PoiCandidate | null;
+  pendingSearchCandidate?: PoiCandidate | null;
   onMarkerClick?: (pointId: string) => void;
 }
 
+function buildEmptyCopy({
+  workspaceSourceType,
+  isBlankWorkspace,
+  pointsLength,
+  markerPointsLength,
+}: {
+  workspaceSourceType?: WorkspaceSessionSourceType;
+  isBlankWorkspace: boolean;
+  pointsLength: number;
+  markerPointsLength: number;
+}) {
+  const hasOnlyUnresolvedPoints = pointsLength > 0 && markerPointsLength === 0;
+
+  if (isBlankWorkspace || workspaceSourceType === "blank_manual") {
+    return {
+      title: "还没有地点",
+      description: "添加第一个地点后，地图会在这里开始标记行程。",
+    };
+  }
+
+  if (hasOnlyUnresolvedPoints) {
+    return {
+      title: "这一天的地点还在等确认",
+      description: "地点名或地址更明确之后，地图会继续把它们补上。",
+    };
+  }
+
+  return {
+    title: "这一天暂时还没有可显示的地点",
+    description: "等左侧行程补出地点后，这里会自动同步 marker 和顺序。",
+  };
+}
+
+function buildDraftMarkerCandidate(
+  candidate: PoiCandidate | null | undefined,
+  markerPointsLength: number,
+): AmapMarkerPoint[] {
+  if (!candidate?.coordinates) {
+    return [];
+  }
+
+  return [
+    {
+      id: `draft-${candidate.id}`,
+      name: candidate.name,
+      coordinates: candidate.coordinates,
+      order: markerPointsLength + 1,
+      status: "confirmed",
+    },
+  ];
+}
+
 export function InspectorMapPreview({
+  workspaceSourceType,
+  isBlankWorkspace = false,
   insight,
   loading = false,
   errorMessage,
   activePointId = null,
+  selectedSearchCandidate = null,
+  pendingSearchCandidate = null,
   onMarkerClick,
 }: InspectorMapPreviewProps) {
   const points = insight?.mapPoints ?? [];
-  const stats = buildWorkspaceInsightStats(insight);
   const { markerPoints, unresolvedCount } = buildAmapMarkerLayer(points);
-  const hasOnlyUnresolvedPoints = points.length > 0 && markerPoints.length === 0;
-  const emptyTitle = hasOnlyUnresolvedPoints
-    ? "这一天的地点还在等确认"
-    : "这一天暂时没有可展示的地图点位";
-  const emptyDescription = hasOnlyUnresolvedPoints
-    ? "先沿着右侧路线列表阅读，等地点名称或地址更明确后，地图会继续补上。"
-    : "可以先阅读左侧 Day 行程和右侧路线说明，地图稍后再补足也不影响阅读。";
+  const draftMarkers = buildDraftMarkerCandidate(
+    selectedSearchCandidate ?? pendingSearchCandidate,
+    markerPoints.length,
+  );
+  const allMarkerPoints = [...markerPoints, ...draftMarkers];
+  const emptyCopy = buildEmptyCopy({
+    workspaceSourceType,
+    isBlankWorkspace,
+    pointsLength: points.length,
+    markerPointsLength: markerPoints.length,
+  });
 
   if (loading) {
     return (
-      <section className="workspace-panel relative overflow-hidden px-4 py-4">
-        <div className="pointer-events-none absolute right-4 top-0 h-16 w-12 opacity-75">
-          <Image
-            src="/images/archive/bookmark/archive-bookmark-default.png"
-            alt=""
-            fill
-            aria-hidden
-            sizes="48px"
-            className="object-contain object-top"
-          />
-        </div>
-        <div className="relative z-[1] space-y-3">
-          <div>
-            <p className="workspace-kicker">DAY MAP</p>
-            <h3 className="mt-1 text-base font-semibold">地图预览</h3>
-          </div>
-          <div className="h-56 animate-pulse rounded-[24px] border border-[var(--line)] bg-[var(--paper)]" />
-          <p className="text-sm leading-6 text-[var(--ink-muted)]">
-            正在整理当前 Day 的点位和路线……
-          </p>
-        </div>
+      <section className="absolute inset-0 overflow-hidden">
+        <div className="h-full w-full animate-pulse bg-[linear-gradient(180deg,rgba(243,238,223,0.42)_0%,rgba(236,245,231,0.28)_100%)]" />
       </section>
     );
   }
 
   return (
-    <section className="workspace-panel relative overflow-hidden px-4 py-4">
-      <div className="pointer-events-none absolute left-4 top-3 h-12 w-20 opacity-70">
-        <Image
-          src="/images/archive/decoration/archive-label-note.png"
-          alt=""
-          fill
-          aria-hidden
-          sizes="80px"
-          className="object-contain"
-        />
-      </div>
-      <div className="relative z-[1]">
-        <div className="flex items-end justify-between gap-3">
-          <div>
-            <p className="workspace-kicker">DAY MAP</p>
-            <h3 className="mt-1 text-base font-semibold">路线地图</h3>
-            <p className="mt-1 text-sm leading-6 text-[var(--ink-muted)]">
-              现在只显示当前 Day 已确认的点位，路线编号、地点标记和高亮焦点都会在这里同步显示。
-            </p>
-          </div>
-          <div className="flex flex-wrap gap-2">
-            <span className="workspace-chip">{points.length} 个地点</span>
-            <span className="workspace-chip">已定位 {markerPoints.length}</span>
-            <span className="workspace-chip">待确认 {stats.unresolvedPoints}</span>
-          </div>
-        </div>
+    <section className="absolute inset-0 overflow-hidden">
+      <AmapBaseMap
+        className="h-full min-h-0 w-full"
+        ariaLabel={insight ? `第 ${insight.dayNumber} 天地图` : "工作台地图"}
+        markerPoints={allMarkerPoints}
+        unresolvedCount={unresolvedCount}
+        activePointId={activePointId}
+        onMarkerClick={onMarkerClick}
+        fitToMarkers
+        markerLabel
+        emptyTitle={emptyCopy.title}
+        emptyDescription={emptyCopy.description}
+        surfaceClassName="map-workspace-surface"
+      />
 
-        <AmapBaseMap
-          className="mt-4"
-          ariaLabel={insight ? `Day ${insight.dayNumber} route map` : "Route map"}
-          markerPoints={markerPoints}
-          unresolvedCount={unresolvedCount}
-          activePointId={activePointId}
-          onMarkerClick={onMarkerClick}
-          fitToMarkers
-          markerLabel
-          emptyTitle={emptyTitle}
-          emptyDescription={emptyDescription}
-        />
-
-        <div className="mt-3 flex flex-wrap gap-2">
-          <span className="workspace-chip">路线编号已显示</span>
-          <span className="workspace-chip">当前焦点可高亮</span>
-          {errorMessage ? (
-            <span className="workspace-chip workspace-chip-warm">
-              {errorMessage}
-            </span>
-          ) : null}
+      {errorMessage && !isBlankWorkspace ? (
+        <div className="pointer-events-none absolute left-4 bottom-4 z-[2]">
+          <span className="map-workspace-chip">
+            地图补充信息暂时不完整，但当前点位仍可查看。
+          </span>
         </div>
-      </div>
+      ) : null}
     </section>
   );
 }

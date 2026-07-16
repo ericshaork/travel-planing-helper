@@ -22,23 +22,19 @@ interface DirectCreateSectionProps {
 }
 
 function DirectCreateSection({ onGenerate }: DirectCreateSectionProps) {
-  const examples = [
-    "深圳出发，厦门 3 天",
-    "预算 3000，成都慢游",
-    "杭州两天，轻松一点",
-  ];
+  const examples = ["深圳出发，厦门 3 天", "预算 3000，成都慢游", "杭州两天，轻松一点"];
 
   return (
     <section className="flex h-full flex-col justify-between rounded-[22px] border border-[rgba(214,205,187,0.5)] bg-[linear-gradient(180deg,rgba(255,253,247,0.88)_0%,rgba(248,241,228,0.8)_100%)] px-4 py-3 shadow-[0_8px_18px_rgba(88,76,57,0.05)]">
       <div>
-        <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[var(--ink-faint)]">
-          AI Create
+        <p className="text-[10px] font-semibold tracking-[0.22em] text-[var(--ink-faint)]">
+          AI 创建
         </p>
         <h2 className="mt-1 text-[1.02rem] font-semibold tracking-[-0.04em] text-[var(--ink)]">
           一句话生成你的私人旅行方案
         </h2>
         <p className="mt-1 text-[11px] leading-5 text-[var(--ink-muted)] sm:text-xs">
-          选好的灵感会自动带入，也可以直接输入一句话开始。
+          选好的灵感会带入草稿，也可以直接输入一句话开始。
         </p>
       </div>
 
@@ -147,13 +143,15 @@ export function ExploreHome() {
             <div className="space-y-2">
               <div className="flex flex-wrap items-end justify-between gap-2">
                 <div>
-                  <p className="workspace-kicker text-[var(--sage-deep)]">灵感筛选</p>
+                  <p className="workspace-kicker text-[var(--sage-deep)]">
+                    灵感筛选
+                  </p>
                   <h2 className="mt-1 text-[1.12rem] font-semibold tracking-[-0.04em] text-[var(--ink)]">
                     地点、美食、季节和同行方式都先摊开看看
                   </h2>
                 </div>
                 <p className="text-[11px] leading-5 text-[var(--ink-muted)] sm:text-xs">
-                  多选会保留，下面可以搜档案，也可以直接生成计划。
+                  多选会保留偏好。下面可以搜档案，也可以直接生成计划。
                 </p>
               </div>
 

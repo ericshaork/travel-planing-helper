@@ -22,6 +22,7 @@ export type TripSourceType =
   | "manual"
   | "ai_generate"
   | "ai_generated"
+  | "blank_manual"
   | "explore_archive"
   | "explore_inspiration"
   | "user_created";
@@ -110,6 +111,16 @@ export type ItineraryItemType =
   | "shopping"
   | "other";
 
+export type TimeSlotKey = "morning" | "afternoon" | "evening";
+
+export interface DailyTimeSlot {
+  id: string;
+  baseSlot: TimeSlotKey;
+  label: string;
+  startTime?: string;
+  endTime?: string;
+}
+
 export interface ItineraryItem {
   timeLabel?: string;
   placeName: string;
@@ -121,6 +132,8 @@ export interface ItineraryItem {
   weatherImpact?: string;
   backupPlan?: string;
   matchedInterests?: string[];
+  editorId?: string;
+  editorSlotId?: string;
 }
 
 export interface DailyItinerary {
@@ -133,6 +146,7 @@ export interface DailyItinerary {
   afternoon: ItineraryItem[];
   evening: ItineraryItem[];
   dailyTips: string[];
+  timeSlots?: DailyTimeSlot[];
 }
 
 export interface TripPlan {

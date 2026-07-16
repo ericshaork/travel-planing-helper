@@ -8,27 +8,27 @@ const ACTIONS: Array<{
   type: QuickModificationType;
   label: string;
 }> = [
-  { type: "relax", label: "Make it lighter" },
-  { type: "lessWalking", label: "Less walking" },
-  { type: "lowerBudget", label: "Lower the budget" },
-  { type: "addFoodNightMarket", label: "Add food / night market" },
-  { type: "noEarlyStart", label: "No early start" },
+  { type: "relax", label: "轻松一点" },
+  { type: "lessWalking", label: "少走路" },
+  { type: "lowerBudget", label: "预算再省一点" },
+  { type: "addFoodNightMarket", label: "加点夜市美食" },
+  { type: "noEarlyStart", label: "不要太早出门" },
 ];
 
 export function ModificationQuickActions({
   onSelect,
 }: ModificationQuickActionsProps) {
   return (
-    <section className="cabinet-door p-4 pt-7 sm:p-5 sm:pt-8">
+    <section className="cabinet-door p-4 pt-6 sm:p-5 sm:pt-7">
       <div className="max-w-3xl">
         <p className="text-xs font-semibold tracking-[0.14em] text-[var(--sage-deep)]">
-          QUICK EDIT DIRECTION
+          快速方向
         </p>
-        <h2 className="mt-2 text-base font-semibold sm:text-lg">
-          Start from one clear travel adjustment
-        </h2>
+        <h3 className="mt-2 text-base font-semibold sm:text-lg">
+          先选一个明确的调整方向
+        </h3>
         <p className="mt-2 text-sm leading-6 text-[var(--ink-muted)]">
-          These buttons only prepare the edit direction. The actual AI rewrite still happens in the regenerate box below.
+          这些按钮会先帮你起草 AI 调整方向，不会立刻改动当前行程。
         </p>
       </div>
 

@@ -142,66 +142,66 @@ function IconSettings() {
 
 const navGroups: Array<{ label: string; entries: WorkspaceSidebarEntry[] }> = [
   {
-    label: "Start",
+    label: "开始",
     entries: [
       {
         id: "new-trip",
-        title: "New trip",
-        subtitle: "Create",
+        title: "新建计划",
+        subtitle: "创建",
         icon: <IconNewTrip />,
         available: true,
       },
       {
         id: "trips",
-        title: "My trips",
-        subtitle: "History",
+        title: "我的行程",
+        subtitle: "历史",
         icon: <IconTrips />,
         available: true,
       },
       {
         id: "explore",
-        title: "Explore",
-        subtitle: "Archive hall",
+        title: "探索灵感",
+        subtitle: "档案馆",
         icon: <IconExplore />,
         available: false,
       },
       {
         id: "saved",
-        title: "Saved spots",
-        subtitle: "Bookmarks",
+        title: "收藏地点",
+        subtitle: "书签",
         icon: <IconSaved />,
         available: false,
       },
     ],
   },
   {
-    label: "Workspace",
+    label: "工作台",
     entries: [
       {
         id: "route",
-        title: "Route insight",
-        subtitle: "Map sync",
+        title: "路线理解",
+        subtitle: "地图联动",
         icon: <IconRoute />,
         available: true,
       },
       {
         id: "edit",
-        title: "Edit plan",
-        subtitle: "Adjust trip",
+        title: "编辑计划",
+        subtitle: "调整行程",
         icon: <IconEdit />,
         available: true,
       },
       {
         id: "export",
-        title: "Export",
-        subtitle: "Take away",
+        title: "导出",
+        subtitle: "带走",
         icon: <IconExport />,
         available: true,
       },
       {
         id: "settings",
-        title: "Settings",
-        subtitle: "Soon",
+        title: "设置",
+        subtitle: "稍后",
         icon: <IconSettings />,
         available: false,
       },
@@ -286,7 +286,7 @@ function SidebarItemButton({
           </span>
           {!entry.available ? (
             <span className="workspace-chip shrink-0 px-1.5 py-0.5 text-[10px]">
-              Soon
+              稍后
             </span>
           ) : null}
         </span>
@@ -385,17 +385,17 @@ export function WorkspaceSidebar({
               </div>
               <div className={`min-w-0 ${expandedContentClassName}`}>
                 <p className="truncate text-sm font-semibold text-[var(--ink)]">
-                  Travel workspace
+                  旅行工作台
                 </p>
                 <p className="truncate text-[11px] tracking-[0.12em] text-[var(--ink-muted)]">
-                  Edit your trip
+                  编辑你的行程
                 </p>
               </div>
             </div>
           </div>
 
           <nav
-            aria-label="Workspace navigation"
+            aria-label="Workspace 导航"
             className="relative z-[1] mt-4 flex-1 space-y-4 overflow-y-auto overflow-x-hidden pr-1 no-scrollbar"
           >
             {navGroups.map((group) => (
@@ -447,10 +447,10 @@ export function WorkspaceSidebar({
               </div>
               <div className={`min-w-0 ${expandedContentClassName}`}>
                 <p className="truncate text-sm font-semibold text-[var(--ink)]">
-                  Workspace ready
+                  工作台已就绪
                 </p>
                 <p className="truncate text-[11px] tracking-[0.1em] text-[var(--ink-muted)]">
-                  Travel journal mode
+                  旅行手帐模式
                 </p>
               </div>
             </div>

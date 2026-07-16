@@ -5,7 +5,11 @@ import { useEffect, useState } from "react";
 
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
-import { loadTripPlan, loadTripRequest } from "@/lib/trip/storage";
+import {
+  createBlankWorkspaceDraft,
+  loadTripPlan,
+  loadTripRequest,
+} from "@/lib/trip/storage";
 import type { TripPlan, TripRequest } from "@/lib/trip/types";
 
 import { TripWorkspace } from "./TripWorkspace";
@@ -17,8 +21,26 @@ interface WorkspaceRoutePageProps {
   mode: WorkspaceRouteMode;
 }
 
-function MissingWorkspaceState({ mode }: { mode: WorkspaceRouteMode }) {
-  const isWorkspaceMode = mode === "workspace";
+function MissingWorkspaceState() {
+  const [isCreatingBlankTrip, setIsCreatingBlankTrip] = useState(false);
+  const [blankTripError, setBlankTripError] = useState<string>();
+
+  function handleCreateBlankTrip() {
+    setIsCreatingBlankTrip(true);
+    setBlankTripError(undefined);
+
+    try {
+      createBlankWorkspaceDraft();
+      window.location.assign("/workspace");
+    } catch (error) {
+      setBlankTripError(
+        error instanceof Error && error.message.trim()
+          ? error.message
+          : "空白计划暂时没创建成功，请稍后再试。",
+      );
+      setIsCreatingBlankTrip(false);
+    }
+  }
 
   return (
     <div className="paper-texture min-h-screen overflow-x-clip text-[var(--ink)]">
@@ -26,32 +48,40 @@ function MissingWorkspaceState({ mode }: { mode: WorkspaceRouteMode }) {
       <main className="mx-auto max-w-xl px-5 py-10 sm:py-16">
         <section className="border border-[var(--line-strong)] bg-[var(--paper-bright)] p-7 shadow-[8px_9px_0_var(--sand)]">
           <p className="text-xs font-semibold tracking-[0.14em] text-[var(--clay-deep)]">
-            {isWorkspaceMode ? "WORKSPACE EMPTY" : "RESULT MISSING"}
+            工作台还没有计划
           </p>
-          <h1 className="mt-3 text-3xl font-semibold">
-            {isWorkspaceMode
-              ? "This workspace is still empty"
-              : "There is no generated trip here yet"}
-          </h1>
+          <h1 className="mt-3 text-3xl font-semibold">先选一个开始方式</h1>
           <p className="mt-4 text-sm leading-7 text-[var(--ink-muted)]">
-            {isWorkspaceMode
-              ? "Start from Explore for inspiration, or create your first trip directly. Once AI generation finishes, this workspace becomes your main editing space."
-              : "Go back to Plan to finish the request, or start over if you want a completely different trip."}
+            Workspace 可以从 AI 生成、历史计划恢复，也可以直接从空白手帐开始。
           </p>
           <div className="mt-7 flex flex-wrap gap-3">
-            <Link
-              href={isWorkspaceMode ? "/create" : "/plan"}
-              className="border border-[var(--ink)] bg-[var(--ink)] px-5 py-2.5 text-sm font-semibold text-[var(--paper-bright)] shadow-[4px_4px_0_var(--clay)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)]"
+            <button
+              type="button"
+              onClick={handleCreateBlankTrip}
+              disabled={isCreatingBlankTrip}
+              className="border border-[var(--ink)] bg-[var(--ink)] px-5 py-2.5 text-sm font-semibold text-[var(--paper-bright)] shadow-[4px_4px_0_var(--clay)] disabled:cursor-not-allowed disabled:opacity-70 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)]"
             >
-              {isWorkspaceMode ? "Create your first trip" : "Back to plan"}
-            </Link>
+              {isCreatingBlankTrip ? "正在创建空白计划..." : "从空白计划开始"}
+            </button>
             <Link
-              href={isWorkspaceMode ? "/explore" : "/create"}
+              href="/create"
               className="border border-[var(--line-strong)] bg-[var(--paper)] px-5 py-2.5 text-sm font-semibold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)]"
             >
-              {isWorkspaceMode ? "Browse Explore" : "Start over"}
+              AI 创建计划
+            </Link>
+            <Link
+              href="/explore"
+              className="border border-[var(--line-strong)] bg-[var(--paper)] px-5 py-2.5 text-sm font-semibold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)]"
+            >
+              去探索灵感
             </Link>
           </div>
+
+          {blankTripError ? (
+            <p className="mt-4 rounded-[18px] border border-[var(--dusty-rose)] bg-[rgb(196_104_89_/_0.08)] px-3 py-2.5 text-sm leading-6 text-[var(--dusty-rose)]">
+              {blankTripError}
+            </p>
+          ) : null}
         </section>
       </main>
       <Footer />
@@ -81,7 +111,7 @@ export function WorkspaceRoutePage({ mode }: WorkspaceRoutePageProps) {
     }, 0);
 
     return () => window.clearTimeout(restoreTimer);
-  }, []);
+  }, [mode]);
 
   if (pageState === "loading") {
     return (
@@ -89,7 +119,7 @@ export function WorkspaceRoutePage({ mode }: WorkspaceRoutePageProps) {
         <Header minimal overlay={false} />
         <main className="mx-auto max-w-3xl px-5 py-20 text-center">
           <p className="text-sm font-semibold text-[var(--ink-muted)]">
-            Opening your trip workspace...
+            正在打开你的 Workspace...
           </p>
         </main>
       </div>
@@ -97,18 +127,15 @@ export function WorkspaceRoutePage({ mode }: WorkspaceRoutePageProps) {
   }
 
   if (pageState === "missing" || !tripPlan) {
-    return <MissingWorkspaceState mode={mode} />;
+    return <MissingWorkspaceState />;
   }
 
   return (
-    <div className="paper-texture flex min-h-screen flex-col overflow-x-clip text-[var(--ink)]">
+    <div className="paper-texture flex h-[100dvh] min-h-[100dvh] flex-col overflow-hidden text-[var(--ink)]">
       <Header minimal overlay={false} />
-      <main className="mx-auto flex w-full max-w-[86rem] flex-1 flex-col px-4 pb-4 pt-2 sm:px-8 sm:pb-20 sm:pt-4">
+      <main className="flex min-h-0 w-full flex-1 flex-col overflow-hidden px-3 pb-3 pt-0.5 sm:px-4 sm:pb-4 sm:pt-1 lg:px-4">
         <TripWorkspace tripPlan={tripPlan} tripRequest={tripRequest} />
       </main>
-      <div className="hidden lg:block">
-        <Footer />
-      </div>
     </div>
   );
 }

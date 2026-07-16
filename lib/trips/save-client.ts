@@ -8,7 +8,7 @@ interface SaveTripErrorResponse {
   };
 }
 
-export function buildSaveTripLoginHref(returnTo = "/result") {
+export function buildSaveTripLoginHref(returnTo = "/workspace") {
   const params = new URLSearchParams({
     returnTo,
   });

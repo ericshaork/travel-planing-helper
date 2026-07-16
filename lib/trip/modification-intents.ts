@@ -1,8 +1,13 @@
 import { getTimeSlotLabel, type ItineraryBlockRef } from "./itinerary-view";
 import type { ItineraryItemType } from "./types";
 
-export type BlockActionType = "remove" | "replace" | "lock" | "addSimilar";
-export type PendingChangeAction = BlockActionType;
+export type BlockActionType =
+  | "remove"
+  | "replace"
+  | "lock"
+  | "addSimilar"
+  | "adjust";
+export type PendingChangeAction = Exclude<BlockActionType, "remove">;
 
 export type QuickModificationType =
   | "relax"
@@ -47,10 +52,10 @@ const ITEM_TYPE_LABELS: Partial<Record<ItineraryItemType, string>> = {
 };
 
 const ACTION_LABELS: Record<PendingChangeAction, string> = {
-  remove: "不要这个",
-  replace: "换一个",
-  lock: "一定保留",
-  addSimilar: "加类似",
+  replace: "让 AI 换一个",
+  lock: "保留当前安排",
+  addSimilar: "让 AI 加类似",
+  adjust: "让 AI 调整",
 };
 
 function getItemLabel(type?: ItineraryItemType): string {
@@ -63,61 +68,34 @@ function getBlockContext(block: BlockLike): string {
   return `第 ${block.ref.day} 天${slotLabel}的「${block.ref.placeName}」`;
 }
 
-function getPendingBlockContext(block: BlockLike): string {
-  const slotLabel = getTimeSlotLabel(block.ref.slot);
-
-  return `Day ${block.ref.day} ${slotLabel}的「${block.ref.placeName}」`;
-}
-
 function buildPendingChangeId(
   action: PendingChangeAction,
   block: BlockLike,
 ): string {
-  const actionKey = action === "addSimilar" ? "addSimilar" : "disposition";
-
-  return `block:${block.ref.day}:${block.ref.slot}:${block.ref.itemIndex}:${actionKey}`;
+  return `block:${block.ref.day}:${block.ref.slot}:${block.ref.itemIndex}:${action}`;
 }
 
 function buildPendingChangeRequestLine(
   action: PendingChangeAction,
   block: BlockLike,
 ): string {
-  const context = getPendingBlockContext(block);
+  const context = getBlockContext(block);
   const itemLabel = getItemLabel(block.item?.type ?? block.ref.type);
 
   switch (action) {
-    case "remove":
-      return `请不要再安排 ${context} 这个${itemLabel}，并换成一个更符合偏好、路线更顺的安排。`;
     case "replace":
-      return `请把 ${context}换成一个更符合偏好的同类安排。`;
+      return `请把 ${context} 换成一个更符合偏好、但节奏相近的${itemLabel}。`;
     case "lock":
-      return `请一定保留 ${context}。`;
+      return `请保留 ${context}，重生成时不要移除它。`;
     case "addSimilar":
-      return `请增加一个和 ${context} 类似的地点或活动。`;
+      return `请补一个和 ${context} 气质接近、路线也顺路的${itemLabel}。`;
+    case "adjust":
+      return `请围绕 ${context} 重新微调这一天的安排，让路线更顺、节奏更自然。`;
   }
 }
 
 export function getBlockActionLabel(action: PendingChangeAction): string {
   return ACTION_LABELS[action];
-}
-
-export function buildBlockModificationRequest(
-  actionType: BlockActionType,
-  block: BlockLike,
-): string {
-  const context = getBlockContext(block);
-  const itemLabel = getItemLabel(block.item?.type ?? block.ref.type);
-
-  switch (actionType) {
-    case "remove":
-      return `请不要再安排${context}这个${itemLabel}，并换成一个更符合我偏好、路线更顺的安排。`;
-    case "replace":
-      return `请把${context}换成一个同样适合这段行程、但更符合我偏好的${itemLabel}。`;
-    case "lock":
-      return `请一定保留${context}，重新生成时不要删掉它。`;
-    case "addSimilar":
-      return `请增加一个和${context}类似的${itemLabel}，同时保持整体路线不要太绕。`;
-  }
 }
 
 export function buildPendingChangeItem(
@@ -136,7 +114,7 @@ export function buildPendingChangeItem(
     placeName: block.ref.placeName,
     type,
     label: getBlockActionLabel(action),
-    summary: `Day ${block.ref.day} · ${slotLabel} · ${block.ref.placeName}`,
+    summary: `第 ${block.ref.day} 天 · ${slotLabel} · ${block.ref.placeName}`,
     requestText: buildPendingChangeRequestLine(action, block),
   };
 }
@@ -173,9 +151,9 @@ export function buildPendingChangesRequest(
   const lines = items.map((item, index) => `${index + 1}. ${item.requestText}`);
 
   return [
-    "请基于当前方案重新生成，并按以下修改处理：",
+    "请基于当前方案重新生成，并处理下面这些 AI 调整要求：",
     ...lines,
-    "同时保持每天路线顺路，不要让安排太赶。",
+    "同时保持每天路线顺路，不要把节奏排得太满。",
   ].join("\n");
 }
 
@@ -194,7 +172,7 @@ export function mergeModificationRequest(
     return trimmedCompiled;
   }
 
-  return `${trimmedDraft}\n\n另外，请按下面这些要求统一重排：\n${trimmedCompiled}`;
+  return `${trimmedDraft}\n\n另外，请一起处理这些 AI 调整要求：\n${trimmedCompiled}`;
 }
 
 export function buildQuickModificationRequest(
@@ -202,13 +180,13 @@ export function buildQuickModificationRequest(
 ): string {
   switch (type) {
     case "relax":
-      return "请把这版行程整体放轻松一点，每天少安排一点，留出更多休息和自由活动时间，但保留这次旅行最值得去的体验。";
+      return "请把这版行程整体放轻松一点，每天少安排一些，留出更多休息和自由活动时间，但保留最值得去的体验。";
     case "lessWalking":
-      return "请把这版行程改得少走路一点，尽量安排顺路、少折返、少跨区域移动的版本。";
+      return "请把这版行程改得少走路一点，尽量安排顺路、少折返、少跨区域移动。";
     case "lowerBudget":
       return "请把这版行程的预算再压低一点，优先保留性价比高的安排，减少花费偏高但必要性不强的项目。";
     case "addFoodNightMarket":
-      return "请在不把行程塞太满的前提下，加一点本地美食、夜市或者适合晚上去的小吃安排。";
+      return "请在不把行程塞太满的前提下，多加一些本地美食、夜市或适合晚上去的小吃安排。";
     case "noEarlyStart":
       return "请把这版行程改成不用太早出门的节奏，上午安排轻松一点，尽量不要早起赶行程。";
   }

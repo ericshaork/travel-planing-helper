@@ -1,16 +1,20 @@
-import Image from "next/image";
-
 import type { DayCabinetView } from "@/lib/trip/itinerary-view";
 
 interface WorkspaceDayTabsProps {
   cabinets: DayCabinetView[];
   activeDayNumber: number;
+  compactBlankReadMode?: boolean;
+  showEditActions?: boolean;
+  onAddDay?: () => void;
   onSelect: (dayNumber: number) => void;
 }
 
 export function WorkspaceDayTabs({
   cabinets,
   activeDayNumber,
+  compactBlankReadMode = false,
+  showEditActions = false,
+  onAddDay,
   onSelect,
 }: WorkspaceDayTabsProps) {
   if (cabinets.length === 0) {
@@ -18,60 +22,52 @@ export function WorkspaceDayTabs({
   }
 
   return (
-    <section className="workspace-panel sticky top-4 z-10 relative overflow-hidden px-4 py-4 sm:px-5 sm:py-5">
-      <div className="pointer-events-none absolute left-4 top-3 h-12 w-20 opacity-65">
-        <Image
-          src="/images/archive/decoration/archive-label-note.png"
-          alt=""
-          fill
-          aria-hidden
-          sizes="80px"
-          className="object-contain"
-        />
-      </div>
-      <div className="pointer-events-none absolute right-4 top-0 h-16 w-12 opacity-85">
-        <Image
-          src="/images/archive/bookmark/archive-bookmark-default.png"
-          alt=""
-          fill
-          aria-hidden
-          sizes="48px"
-          className="object-contain object-top"
-        />
-      </div>
-
-      <div className="relative z-[1]">
-        <div className="flex items-center justify-between gap-3">
-          <div>
-            <p className="workspace-kicker">DAY TABS</p>
-            <h2 className="mt-1.5 text-lg font-semibold sm:text-xl">
-              切换 Day，左侧行程和右侧地图会一起翻页
-            </h2>
-          </div>
-          <span className="workspace-chip">{cabinets.length} 天</span>
+    <section
+      className={`sticky z-10 -mx-2 bg-[linear-gradient(180deg,rgba(255,253,247,0.96)_0%,rgba(255,253,247,0.72)_72%,rgba(255,253,247,0)_100%)] px-2 ${
+        compactBlankReadMode ? "top-2 mb-0.5 pb-1.5 pt-0.5" : "top-4 mb-1 pb-2 pt-1"
+      }`}
+    >
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <p className="workspace-kicker">日期页签</p>
+        <div className="flex flex-wrap items-center gap-2">
+          {cabinets.length > 1 ? (
+            <span className="journal-chip">{cabinets.length} 天</span>
+          ) : null}
+          {showEditActions && onAddDay ? (
+            <button
+              type="button"
+              onClick={onAddDay}
+              className="journal-chip border-[var(--ink)] text-[var(--ink)] transition-colors hover:border-[var(--clay-deep)] hover:text-[var(--clay-deep)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)]"
+            >
+              添加一天
+            </button>
+          ) : null}
         </div>
+      </div>
 
-        <div className="mt-4 flex flex-wrap gap-2">
-          {cabinets.map((cabinet) => {
-            const active = cabinet.dayNumber === activeDayNumber;
+      <div
+        className={
+          compactBlankReadMode
+            ? "mt-2 flex flex-wrap gap-1.5"
+            : "mt-3 flex flex-wrap gap-2"
+        }
+      >
+        {cabinets.map((cabinet) => {
+          const active = cabinet.dayNumber === activeDayNumber;
 
-            return (
-              <button
-                key={cabinet.dayNumber}
-                type="button"
-                onClick={() => onSelect(cabinet.dayNumber)}
-                aria-pressed={active}
-                className={`inline-flex min-h-11 items-center justify-center rounded-full border px-4 py-2 text-sm font-semibold transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)] ${
-                  active
-                    ? "border-[var(--ink)] bg-[linear-gradient(180deg,rgba(252,245,231,0.98)_0%,rgba(255,253,247,0.98)_100%)] text-[var(--ink)] shadow-[4px_4px_0_var(--sand)]"
-                    : "border-[var(--line-strong)] bg-[rgba(255,253,247,0.88)] text-[var(--ink-muted)] hover:border-[var(--ink)] hover:text-[var(--ink)]"
-                }`}
-              >
-                {`Day ${cabinet.dayNumber}`}
-              </button>
-            );
-          })}
-        </div>
+          return (
+            <button
+              key={cabinet.dayNumber}
+              type="button"
+              onClick={() => onSelect(cabinet.dayNumber)}
+              aria-pressed={active}
+              data-active={active ? "true" : "false"}
+              className="journal-tab focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)]"
+            >
+              {`第 ${cabinet.dayNumber} 天`}
+            </button>
+          );
+        })}
       </div>
     </section>
   );

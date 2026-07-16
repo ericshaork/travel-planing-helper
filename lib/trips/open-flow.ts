@@ -21,7 +21,7 @@ export async function openSavedTripIntoWorkspace(
   const trip = (await openTrip(tripId)) as SavedTripDetail;
 
   restoreTrip({ trip }, options?.storage);
-  navigate?.("/result");
+  navigate?.("/workspace");
 
   return trip;
 }

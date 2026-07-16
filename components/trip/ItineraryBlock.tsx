@@ -1,18 +1,23 @@
-import Image from "next/image";
-import { useState, type KeyboardEvent, type SyntheticEvent } from "react";
+import { useState, type DragEvent, type KeyboardEvent, type SyntheticEvent } from "react";
 
 import type { ItineraryBlockView } from "../../lib/trip/itinerary-view";
 import type { ItineraryBlockMapStatus } from "../../lib/trip/map-point-match";
-import type { BlockActionType } from "../../lib/trip/modification-intents";
+import type { PendingChangeAction } from "../../lib/trip/modification-intents";
 import type { ItineraryItemType } from "../../lib/trip/types";
 
 import { BlockActions } from "./BlockActions";
 
 interface ItineraryBlockProps {
   block: ItineraryBlockView;
-  onAction?: (actionType: BlockActionType, block: ItineraryBlockView) => void;
+  onAction?: (actionType: PendingChangeAction, block: ItineraryBlockView) => void;
+  onUpdate?: (updates: { placeName: string; reason: string }) => void;
+  onDelete?: () => void;
   isSelected?: boolean;
+  isExpanded?: boolean;
+  onToggleExpand?: () => void;
   onSelect?: () => void;
+  onDragStart?: (block: ItineraryBlockView) => void;
+  onDragEnd?: () => void;
   mapStatus?: ItineraryBlockMapStatus | null;
   showActions?: boolean;
 }
@@ -27,45 +32,12 @@ const ITEM_TYPE_LABELS: Record<ItineraryItemType, string> = {
   other: "安排",
 };
 
-const ITEM_TYPE_STYLES: Record<ItineraryItemType, string> = {
-  attraction:
-    "border-[var(--sage-deep)] bg-[var(--sage-soft)] text-[var(--sage-deep)]",
-  food: "border-[var(--clay)] bg-[var(--clay-soft)] text-[var(--clay-deep)]",
-  transport: "border-[var(--line-strong)] bg-[var(--paper)] text-[var(--ink)]",
-  hotel: "border-[var(--sand-deep)] bg-[var(--sand-soft)] text-[var(--ink)]",
-  free_time:
-    "border-[var(--line)] bg-[var(--paper)] text-[var(--ink-muted)]",
-  shopping:
-    "border-[var(--line-strong)] bg-[var(--paper-bright)] text-[var(--ink)]",
-  other: "border-[var(--line)] bg-[var(--paper)] text-[var(--ink-muted)]",
-};
-
-const MAP_STATUS_STYLES: Record<
-  Exclude<ItineraryBlockMapStatus, "unmatched">,
-  string
-> = {
-  confirmed:
-    "border-[var(--sage-deep)] bg-[var(--sage-soft)] text-[var(--sage-deep)]",
-  unresolved:
-    "border-[var(--clay)] bg-[var(--clay-soft)] text-[var(--clay-deep)]",
-};
-
 const MAP_STATUS_LABELS: Record<
   Exclude<ItineraryBlockMapStatus, "unmatched">,
   string
 > = {
   confirmed: "地图已定位",
-  unresolved: "待确认位置",
-};
-
-const ITEM_TYPE_IMAGE: Record<ItineraryItemType, string> = {
-  attraction: "/images/explore/cities/xiamen-city-card.png",
-  food: "/images/explore/food/hotpot-card.png",
-  transport: "/images/landing/decoration/routes/02-airplane-route.png",
-  hotel: "/images/archive/template/archive-template-main.png",
-  free_time: "/images/explore/cities/hangzhou-city-card.png",
-  shopping: "/images/explore/cities/shanghai-city-card.png",
-  other: "/images/archive/template/archive-template-mobile.png",
+  unresolved: "位置待确认",
 };
 
 export function stopBlockSelectionPropagation(
@@ -77,14 +49,26 @@ export function stopBlockSelectionPropagation(
 export function ItineraryBlock({
   block,
   onAction,
+  onUpdate,
+  onDelete,
   isSelected = false,
+  isExpanded = false,
+  onToggleExpand,
   onSelect,
+  onDragStart,
+  onDragEnd,
   mapStatus = null,
   showActions = true,
 }: ItineraryBlockProps) {
   const { item } = block;
-  const [detailsOpen, setDetailsOpen] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
+  const [draftPlaceName, setDraftPlaceName] = useState(item.placeName);
+  const [draftReason, setDraftReason] = useState(item.reason);
+  const [confirmDelete, setConfirmDelete] = useState(false);
   const isSelectable = Boolean(onSelect);
+  const canInlineEdit = Boolean(showActions && onUpdate);
+  const shortReason =
+    item.reason.length > 44 ? `${item.reason.slice(0, 44).trimEnd()}…` : item.reason;
   const visibleMapStatus =
     mapStatus === "confirmed" || mapStatus === "unresolved" ? mapStatus : null;
 
@@ -92,8 +76,8 @@ export function ItineraryBlock({
     stopBlockSelectionPropagation(event);
   }
 
-  function handleKeyDown(event: KeyboardEvent<HTMLElement>) {
-    if (!onSelect) {
+  function handleSelectKeyDown(event: KeyboardEvent<HTMLElement>) {
+    if (!onSelect || isEditing) {
       return;
     }
 
@@ -103,137 +87,221 @@ export function ItineraryBlock({
     }
   }
 
+  function startEditing(event?: SyntheticEvent) {
+    if (!canInlineEdit) {
+      return;
+    }
+
+    if (event) {
+      handleInnerInteraction(event);
+    }
+
+    setDraftPlaceName(item.placeName);
+    setDraftReason(item.reason);
+    setConfirmDelete(false);
+    setIsEditing(true);
+  }
+
+  function cancelEditing(event?: SyntheticEvent) {
+    if (event) {
+      handleInnerInteraction(event);
+    }
+
+    setDraftPlaceName(item.placeName);
+    setDraftReason(item.reason);
+    setIsEditing(false);
+  }
+
+  function saveEditing(event?: SyntheticEvent) {
+    if (event) {
+      handleInnerInteraction(event);
+    }
+
+    const nextPlaceName = draftPlaceName.trim() || item.placeName || "新的地点";
+    const nextReason = draftReason.trim() || "补一句为什么想去这里。";
+
+    onUpdate?.({
+      placeName: nextPlaceName,
+      reason: nextReason,
+    });
+    setIsEditing(false);
+  }
+
+  function handleEditorKeyDown(
+    event: KeyboardEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) {
+    if (event.key === "Escape") {
+      event.preventDefault();
+      cancelEditing(event);
+      return;
+    }
+
+    if (
+      event.key === "Enter" &&
+      !(event.currentTarget instanceof HTMLTextAreaElement && event.shiftKey)
+    ) {
+      event.preventDefault();
+      saveEditing(event);
+    }
+  }
+
+  function handleDragStart(event: DragEvent<HTMLElement>) {
+    if (!showActions) {
+      return;
+    }
+
+    event.dataTransfer.effectAllowed = "move";
+    event.dataTransfer.setData("text/plain", block.ref.placeName);
+    onDragStart?.(block);
+  }
+
+  function handleDragEnd() {
+    onDragEnd?.();
+  }
+
   return (
     <article
-      className={`cabinet-block relative min-w-0 overflow-hidden p-3 transition-colors duration-150 ease-out sm:p-3.5 ${
+      className={`relative min-w-0 rounded-[18px] border border-[rgb(142_139_127_/_16%)] bg-[rgb(255_253_247_/_0.82)] px-3.5 py-3 transition-colors duration-150 ease-out ${
         isSelected
-          ? "border-[var(--clay-deep)] bg-[linear-gradient(180deg,rgba(249,241,226,0.98)_0%,rgba(255,253,247,0.98)_100%)] shadow-[3px_3px_0_var(--sand)]"
-          : "bg-[linear-gradient(180deg,rgba(255,253,247,0.98)_0%,rgba(249,245,236,0.92)_100%)]"
-      } ${isSelectable ? "cursor-pointer" : ""}`}
-      role={isSelectable ? "button" : undefined}
-      tabIndex={isSelectable ? 0 : undefined}
+          ? "border-[var(--clay-deep)] bg-[linear-gradient(180deg,rgba(249,241,226,0.92)_0%,rgba(255,253,247,0.98)_100%)] shadow-[2px_3px_0_var(--sand)]"
+          : "hover:border-[var(--line-strong)]"
+      } ${isSelectable && !isEditing ? "cursor-pointer" : ""}`}
+      role={isSelectable && !isEditing ? "button" : undefined}
+      tabIndex={isSelectable && !isEditing ? 0 : undefined}
       aria-pressed={isSelectable ? isSelected : undefined}
-      data-selected={isSelected ? "true" : "false"}
-      onClick={onSelect}
-      onKeyDown={handleKeyDown}
+      draggable={showActions}
+      onClick={isEditing ? undefined : onSelect}
+      onDoubleClick={canInlineEdit ? startEditing : undefined}
+      onKeyDown={handleSelectKeyDown}
+      onDragStart={handleDragStart}
+      onDragEnd={handleDragEnd}
     >
-      <div className="pointer-events-none absolute right-0 top-0 h-10 w-16 opacity-20">
-        <Image
-          src="/images/ui/button/button-accent-soft.png"
-          alt=""
-          fill
-          aria-hidden
-          sizes="64px"
-          className="object-cover object-top"
-        />
-      </div>
-
-      <div className="relative z-[1] grid gap-3 sm:grid-cols-[7rem_minmax(0,1fr)] sm:gap-4">
-        <div className="relative aspect-[4/3] overflow-hidden rounded-[20px] border border-[var(--line)] bg-[var(--paper)]">
-          <Image
-            src={ITEM_TYPE_IMAGE[item.type]}
-            alt=""
-            fill
-            aria-hidden
-            sizes="160px"
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(20,22,20,0.04)_0%,rgba(20,22,20,0.12)_55%,rgba(20,22,20,0.34)_100%)]" />
-          <div className="absolute inset-x-3 bottom-3 flex flex-wrap gap-1.5">
-            <span
-              className={`shrink-0 rounded-full border px-2 py-1 text-[11px] font-semibold ${ITEM_TYPE_STYLES[item.type]}`}
-            >
+      <div className="flex flex-wrap items-start justify-between gap-3">
+        <div className="min-w-0 flex-1">
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="rounded-full border border-[var(--line)] bg-[var(--paper)] px-2 py-0.5 text-[11px] font-semibold text-[var(--ink-muted)]">
               {ITEM_TYPE_LABELS[item.type]}
             </span>
-            {visibleMapStatus ? (
-              <span
-                className={`shrink-0 rounded-full border px-2 py-1 text-[11px] font-semibold ${MAP_STATUS_STYLES[visibleMapStatus]}`}
-              >
-                {MAP_STATUS_LABELS[visibleMapStatus]}
-              </span>
-            ) : null}
-          </div>
-        </div>
-
-        <div className="min-w-0">
-          <div className="flex flex-wrap items-start gap-2">
             {item.timeLabel ? (
-              <span className="shrink-0 rounded-full border border-[var(--line)] bg-[var(--paper)] px-2 py-1 font-mono text-[11px] font-semibold text-[var(--ink-muted)]">
+              <span className="rounded-full border border-[var(--line)] bg-[var(--paper)] px-2 py-0.5 font-mono text-[11px] text-[var(--ink-muted)]">
                 {item.timeLabel}
               </span>
             ) : null}
-            {item.suggestedDuration ? (
-              <span className="shrink-0 rounded-full border border-[var(--line)] bg-[var(--paper-bright)] px-2 py-1 text-[11px] font-semibold text-[var(--ink)]">
-                停留 {item.suggestedDuration}
+            {visibleMapStatus ? (
+              <span className="rounded-full border border-[var(--line)] bg-[var(--paper-bright)] px-2 py-0.5 text-[11px] font-semibold text-[var(--ink)]">
+                {MAP_STATUS_LABELS[visibleMapStatus]}
+              </span>
+            ) : null}
+            {showActions ? (
+              <span className="rounded-full border border-dashed border-[var(--line)] bg-[var(--paper)] px-2 py-0.5 text-[11px] font-semibold text-[var(--ink-muted)]">
+                可拖动
               </span>
             ) : null}
           </div>
 
-          <div className="mt-2">
-            <p className="text-[10px] font-semibold tracking-[0.14em] text-[var(--clay-deep)]">
-              PLACE NOTE
-            </p>
-            <h4 className="mt-1 min-w-0 break-words text-[15px] font-semibold sm:text-lg">
-              {item.placeName}
-            </h4>
-          </div>
-
-          <p
-            className="mt-2 break-words text-sm leading-6 text-[var(--ink-muted)]"
-            style={
-              detailsOpen
-                ? undefined
-                : {
-                    display: "-webkit-box",
-                    WebkitLineClamp: 3,
-                    WebkitBoxOrient: "vertical",
-                    overflow: "hidden",
-                  }
-            }
-          >
-            {item.reason}
-          </p>
-
-          {item.matchedInterests && item.matchedInterests.length > 0 ? (
-            <div className="mt-3 flex flex-wrap gap-2">
-              {item.matchedInterests.slice(0, 3).map((interest) => (
-                <span
-                  key={interest}
-                  className="max-w-full break-words rounded-full border border-[var(--line)] bg-[var(--paper)] px-2.5 py-1 text-[11px] font-semibold text-[var(--ink-muted)]"
-                >
-                  {interest}
+          {isEditing ? (
+            <div
+              className="mt-3 space-y-3"
+              onClickCapture={handleInnerInteraction}
+              onDoubleClickCapture={handleInnerInteraction}
+            >
+              <label className="block">
+                <span className="text-[10px] font-semibold tracking-[0.14em] text-[var(--clay-deep)]">
+                  地点名称
                 </span>
-              ))}
-            </div>
-          ) : null}
+                <input
+                  value={draftPlaceName}
+                  onChange={(event) => setDraftPlaceName(event.target.value)}
+                  onKeyDown={handleEditorKeyDown}
+                  className="mt-1.5 w-full rounded-[14px] border border-[var(--line-strong)] bg-[var(--paper-bright)] px-3 py-2 text-sm text-[var(--ink)] outline-none transition-colors focus:border-[var(--clay-deep)]"
+                  placeholder="新的地点"
+                />
+              </label>
 
-          <div className="mt-3 flex flex-wrap items-center gap-2 text-xs">
+              <label className="block">
+                <span className="text-[10px] font-semibold tracking-[0.14em] text-[var(--clay-deep)]">
+                  这一站备注
+                </span>
+                <textarea
+                  value={draftReason}
+                  onChange={(event) => setDraftReason(event.target.value)}
+                  onKeyDown={handleEditorKeyDown}
+                  rows={4}
+                  className="mt-1.5 w-full rounded-[14px] border border-[var(--line-strong)] bg-[var(--paper-bright)] px-3 py-2 text-sm leading-6 text-[var(--ink)] outline-none transition-colors focus:border-[var(--clay-deep)]"
+                  placeholder="写一句为什么想去这里，或者留个小提醒。"
+                />
+              </label>
+
+              <div className="flex flex-wrap gap-2">
+                <button
+                  type="button"
+                  onClick={saveEditing}
+                  className="rounded-full border border-[var(--ink)] bg-[var(--ink)] px-3.5 py-2 text-sm font-semibold text-[var(--paper-bright)]"
+                >
+                  保存
+                </button>
+                <button
+                  type="button"
+                  onClick={cancelEditing}
+                  className="rounded-full border border-[var(--line-strong)] bg-[var(--paper)] px-3.5 py-2 text-sm font-semibold text-[var(--ink)]"
+                >
+                  取消
+                </button>
+              </div>
+            </div>
+          ) : (
+            <>
+              <div className="mt-2">
+                <h4 className="min-w-0 break-words text-[15px] font-semibold sm:text-base">
+                  {item.placeName}
+                </h4>
+                <p className="mt-1 break-words text-sm leading-6 text-[var(--ink-muted)]">
+                  {isExpanded ? item.reason : shortReason}
+                </p>
+              </div>
+
+              {isExpanded && item.matchedInterests && item.matchedInterests.length > 0 ? (
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {item.matchedInterests.slice(0, 3).map((interest) => (
+                    <span
+                      key={interest}
+                      className="max-w-full break-words rounded-full border border-[var(--line)] bg-[var(--paper)] px-2.5 py-1 text-[11px] font-semibold text-[var(--ink-muted)]"
+                    >
+                      {interest}
+                    </span>
+                  ))}
+                </div>
+              ) : null}
+            </>
+          )}
+        </div>
+
+        {!isEditing ? (
+          <div className="flex shrink-0 items-center gap-2">
+            {showActions ? (
+              <button
+                type="button"
+                onClick={startEditing}
+                onClickCapture={handleInnerInteraction}
+                className="rounded-full border border-dashed border-[var(--line-strong)] bg-[var(--paper)] px-3 py-1.5 text-xs font-semibold text-[var(--ink)]"
+              >
+                编辑
+              </button>
+            ) : null}
             <button
               type="button"
               onClickCapture={handleInnerInteraction}
-              onClick={() => setDetailsOpen((open) => !open)}
-              className="min-h-9 rounded-full border border-[var(--line-strong)] bg-[var(--paper)] px-3 py-1.5 text-xs font-semibold text-[var(--clay-deep)] transition-colors duration-150 ease-out hover:border-[var(--clay-deep)] hover:bg-[var(--sand-soft)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)]"
+              onClick={onToggleExpand}
+              className="rounded-full border border-[var(--line-strong)] bg-[var(--paper)] px-3 py-1.5 text-xs font-semibold text-[var(--clay-deep)]"
             >
-              {detailsOpen ? "收起细节" : "继续阅读"}
+              {isExpanded ? "收起" : "更多"}
             </button>
-            {isSelected ? (
-              <span className="rounded-full border border-[var(--sage-deep)] bg-[var(--sage-soft)] px-2.5 py-1 text-[11px] font-semibold text-[var(--sage-deep)]">
-                当前地图焦点
-              </span>
-            ) : null}
           </div>
-        </div>
+        ) : null}
       </div>
 
-      {showActions && onAction ? (
-        <BlockActions
-          onAction={(actionType) => onAction(actionType, block)}
-          onInteraction={handleInnerInteraction}
-        />
-      ) : null}
-
-      {detailsOpen ? (
-        <div className="relative z-[1] mt-4 border-t border-dashed border-[var(--line)] pt-4">
+      {!isEditing && isExpanded ? (
+        <div className="mt-3 border-t border-dashed border-[var(--line)] pt-3">
           {item.transportFromPrevious ||
           item.weatherImpact ||
           item.backupPlan ||
@@ -277,6 +345,47 @@ export function ItineraryBlock({
                 </li>
               ))}
             </ul>
+          ) : null}
+
+          {showActions ? (
+            <div className="mt-3 flex flex-wrap gap-2">
+              {!confirmDelete ? (
+                <button
+                  type="button"
+                  onClick={() => setConfirmDelete(true)}
+                  onClickCapture={handleInnerInteraction}
+                  className="rounded-full border border-dashed border-[var(--clay)] bg-[var(--paper)] px-3 py-1.5 text-xs font-semibold text-[var(--clay-deep)]"
+                >
+                  删除
+                </button>
+              ) : (
+                <>
+                  <button
+                    type="button"
+                    onClick={onDelete}
+                    onClickCapture={handleInnerInteraction}
+                    className="rounded-full border border-[var(--clay)] bg-[var(--clay-soft)] px-3 py-1.5 text-xs font-semibold text-[var(--clay-deep)]"
+                  >
+                    确认删除
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setConfirmDelete(false)}
+                    onClickCapture={handleInnerInteraction}
+                    className="rounded-full border border-[var(--line-strong)] bg-[var(--paper)] px-3 py-1.5 text-xs font-semibold text-[var(--ink)]"
+                  >
+                    先不删
+                  </button>
+                </>
+              )}
+            </div>
+          ) : null}
+
+          {showActions && onAction ? (
+            <BlockActions
+              onAction={(actionType) => onAction(actionType, block)}
+              onInteraction={handleInnerInteraction}
+            />
           ) : null}
         </div>
       ) : null}

@@ -2,6 +2,7 @@ import {
   markCurrentTripAsSaved,
   saveTripPlan,
   saveTripRequest,
+  setWorkspaceSessionMetadata,
   TRIP_DRAFT_STORAGE_KEY,
   TRIP_ENRICHMENT_STORAGE_KEY,
   TRIP_WEATHER_SUMMARY_STORAGE_KEY,
@@ -36,6 +37,14 @@ export function restoreSavedTripToStorage(
       savedTripId: input.trip.id,
       savedTripTitle: input.trip.title,
       restoredAt,
+    },
+    targetStorage,
+  );
+  setWorkspaceSessionMetadata(
+    {
+      sourceType: "saved_trip",
+      workspaceModeDefault: "read",
+      updatedAt: restoredAt,
     },
     targetStorage,
   );
