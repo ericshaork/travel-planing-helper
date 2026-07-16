@@ -214,4 +214,126 @@ describe("PATCH /api/trips/[tripId]", () => {
       code: "TRIP_NOT_FOUND",
     });
   });
+
+  it("supports metadata patch for title, status, source_type, and last_opened_at", async () => {
+    const getUser = vi.fn().mockResolvedValue({
+      data: {
+        user: {
+          id: "user-1",
+        },
+      },
+      error: null,
+    });
+    const maybeSingle = vi.fn().mockResolvedValue({
+      data: {
+        id: "trip-1",
+        title: "新的标题",
+        destination_city: "厦门",
+        start_date: "2026-07-10",
+        end_date: "2026-07-12",
+        days: 3,
+        budget: 2500,
+        trip_request_json: {},
+        trip_plan_json: {},
+        enrichment_json: null,
+        weather_summary_json: null,
+        cover_image_url: null,
+        source_type: "blank_manual",
+        status: "archived",
+        trip_preferences_json: {},
+        local_draft_id: "draft-1",
+        last_opened_at: "2026-07-16T08:00:00.000Z",
+        created_at: "2026-07-01T08:00:00.000Z",
+        updated_at: "2026-07-08T09:00:00.000Z",
+      },
+      error: null,
+    });
+    const select = vi.fn().mockReturnValue({ maybeSingle });
+    const eqUser = vi.fn().mockReturnValue({ select });
+    const eqTrip = vi.fn().mockReturnValue({ eq: eqUser });
+    const update = vi.fn().mockReturnValue({ eq: eqTrip });
+    const PATCH = createTripDetailPatchHandler(
+      () =>
+        ({
+          auth: {
+            getUser,
+          },
+          from: vi.fn().mockReturnValue({ update }),
+        }) as never,
+    );
+
+    const response = await PATCH(
+      patchJson(
+        {
+          title: "新的标题",
+          status: "archived",
+          source_type: "blank_manual",
+          trip_preferences_json: {},
+          local_draft_id: "draft-1",
+          last_opened_at: "2026-07-16T08:00:00.000Z",
+        },
+        "token-123",
+      ),
+      {
+        params: Promise.resolve({ tripId: "trip-1" }),
+      },
+    );
+    const payload = (await response.json()) as {
+      ok: true;
+      trip: {
+        title: string;
+        status: string;
+        source_type: string;
+      };
+    };
+
+    expect(response.status).toBe(200);
+    expect(update).toHaveBeenCalledWith(
+      expect.objectContaining({
+        title: "新的标题",
+        status: "archived",
+        source_type: "blank_manual",
+        local_draft_id: "draft-1",
+      }),
+    );
+    expect(eqTrip).toHaveBeenCalledWith("id", "trip-1");
+    expect(eqUser).toHaveBeenCalledWith("user_id", "user-1");
+    expect(payload.trip.title).toBe("新的标题");
+    expect(payload.trip.status).toBe("archived");
+    expect(payload.trip.source_type).toBe("blank_manual");
+  });
+
+  it("rejects invalid metadata status/source_type", async () => {
+    const PATCH = createTripDetailPatchHandler(
+      () =>
+        ({
+          auth: {
+            getUser: vi.fn().mockResolvedValue({
+              data: { user: { id: "user-1" } },
+              error: null,
+            }),
+          },
+          from: vi.fn(),
+        }) as never,
+    );
+
+    const response = await PATCH(
+      patchJson(
+        {
+          status: "bad-status",
+          source_type: "bad-source",
+        },
+        "token-123",
+      ),
+      {
+        params: Promise.resolve({ tripId: "trip-1" }),
+      },
+    );
+
+    expect(response.status).toBe(400);
+    await expect(response.json()).resolves.toMatchObject({
+      ok: false,
+      code: "UPDATE_TRIP_FAILED",
+    });
+  });
 });

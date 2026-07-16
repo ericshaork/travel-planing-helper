@@ -40,7 +40,7 @@ describe("GET /api/trips", () => {
     });
   });
 
-  it("lists only the current user's trips ordered by updated_at desc", async () => {
+  it("lists only the current user's trips with metadata fields", async () => {
     const getUser = vi.fn().mockResolvedValue({
       data: {
         user: {
@@ -49,7 +49,7 @@ describe("GET /api/trips", () => {
       },
       error: null,
     });
-    const order = vi.fn().mockResolvedValue({
+    const orderCreatedAt = vi.fn().mockResolvedValue({
       data: [
         {
           id: "trip-2",
@@ -60,13 +60,20 @@ describe("GET /api/trips", () => {
           days: 3,
           budget: 2500,
           cover_image_url: null,
+          source_type: "ai_generated",
+          status: "saved",
+          trip_preferences_json: {},
+          local_draft_id: null,
+          last_opened_at: null,
           created_at: "2026-07-01T08:00:00.000Z",
           updated_at: "2026-07-02T08:00:00.000Z",
         },
       ],
       error: null,
     });
-    const eq = vi.fn().mockReturnValue({ order });
+    const orderUpdatedAt = vi.fn().mockReturnValue({ order: orderCreatedAt });
+    const orderLastOpenedAt = vi.fn().mockReturnValue({ order: orderUpdatedAt });
+    const eq = vi.fn().mockReturnValue({ order: orderLastOpenedAt });
     const select = vi.fn().mockReturnValue({ eq });
     const from = vi.fn().mockReturnValue({ select });
     const GET = createTripsGetHandler(
@@ -87,10 +94,17 @@ describe("GET /api/trips", () => {
     expect(response.status).toBe(200);
     expect(getUser).toHaveBeenCalledWith("token-123");
     expect(select).toHaveBeenCalledWith(
-      "id,title,destination_city,start_date,end_date,days,budget,cover_image_url,created_at,updated_at",
+      "id,title,destination_city,start_date,end_date,days,budget,cover_image_url,source_type,status,trip_preferences_json,local_draft_id,last_opened_at,created_at,updated_at",
     );
     expect(eq).toHaveBeenCalledWith("user_id", "user-1");
-    expect(order).toHaveBeenCalledWith("updated_at", {
+    expect(orderLastOpenedAt).toHaveBeenCalledWith("last_opened_at", {
+      ascending: false,
+      nullsFirst: false,
+    });
+    expect(orderUpdatedAt).toHaveBeenCalledWith("updated_at", {
+      ascending: false,
+    });
+    expect(orderCreatedAt).toHaveBeenCalledWith("created_at", {
       ascending: false,
     });
     expect(payload.ok).toBe(true);
@@ -100,9 +114,13 @@ describe("GET /api/trips", () => {
   it("does not request heavy JSON fields in the list query", async () => {
     const select = vi.fn().mockReturnValue({
       eq: vi.fn().mockReturnValue({
-        order: vi.fn().mockResolvedValue({
-          data: [],
-          error: null,
+        order: vi.fn().mockReturnValue({
+          order: vi.fn().mockReturnValue({
+            order: vi.fn().mockResolvedValue({
+              data: [],
+              error: null,
+            }),
+          }),
         }),
       }),
     });
@@ -141,9 +159,13 @@ describe("GET /api/trips", () => {
           from: vi.fn().mockReturnValue({
             select: vi.fn().mockReturnValue({
               eq: vi.fn().mockReturnValue({
-                order: vi.fn().mockResolvedValue({
-                  data: null,
-                  error: new Error("db failed"),
+                order: vi.fn().mockReturnValue({
+                  order: vi.fn().mockReturnValue({
+                    order: vi.fn().mockResolvedValue({
+                      data: null,
+                      error: new Error("db failed"),
+                    }),
+                  }),
                 }),
               }),
             }),
@@ -163,5 +185,44 @@ describe("GET /api/trips", () => {
       code: "LIST_TRIPS_FAILED",
       message: "暂时没拉到你的行程列表，请稍后再试。",
     });
+  });
+
+  it("supports status and source_type filters plus title search", async () => {
+    const orderCreatedAt = vi.fn().mockResolvedValue({
+      data: [],
+      error: null,
+    });
+    const orderUpdatedAt = vi.fn().mockReturnValue({ order: orderCreatedAt });
+    const orderLastOpenedAt = vi.fn().mockReturnValue({ order: orderUpdatedAt });
+    const ilike = vi.fn().mockReturnValue({ order: orderLastOpenedAt });
+    const eqSourceType = vi.fn().mockReturnValue({ ilike });
+    const eqStatus = vi.fn().mockReturnValue({ eq: eqSourceType });
+    const eqUser = vi.fn().mockReturnValue({ eq: eqStatus });
+    const select = vi.fn().mockReturnValue({ eq: eqUser });
+    const GET = createTripsGetHandler(
+      () =>
+        ({
+          auth: {
+            getUser: vi.fn().mockResolvedValue({
+              data: { user: { id: "user-1" } },
+              error: null,
+            }),
+          },
+          from: vi.fn().mockReturnValue({ select }),
+        }) as never,
+    );
+
+    const response = await GET(
+      getRequest(
+        "token-123",
+        "?search=%E5%8E%A6%E9%97%A8&status=archived&source_type=blank_manual",
+      ),
+    );
+
+    expect(response.status).toBe(200);
+    expect(eqUser).toHaveBeenCalledWith("user_id", "user-1");
+    expect(eqStatus).toHaveBeenCalledWith("status", "archived");
+    expect(eqSourceType).toHaveBeenCalledWith("source_type", "blank_manual");
+    expect(ilike).toHaveBeenCalledWith("title", "%厦门%");
   });
 });

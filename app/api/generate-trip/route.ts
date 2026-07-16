@@ -1,11 +1,61 @@
 import { NextResponse } from "next/server";
 import { ZodError } from "zod";
 
+import {
+  loadOrCreateUserSettingsRow,
+  mapUserSettingsRowToSettings,
+} from "../../../lib/settings/server";
+import { createSupabaseAccessTokenClient } from "../../../lib/supabase/server";
 import { planTrip } from "../../../lib/trip/planner";
 import { generateTripRequestSchema } from "../../../lib/trip/schema";
+import type { UserSettings } from "../../../lib/settings/types";
 import { AppError, toApiErrorResponse } from "../../../lib/utils/errors";
 
 type TripPlanner = typeof planTrip;
+
+function getBearerToken(request: Request) {
+  const authorizationHeader = request.headers.get("authorization");
+
+  if (!authorizationHeader) {
+    return null;
+  }
+
+  const [scheme, token] = authorizationHeader.split(" ");
+
+  if (scheme?.toLowerCase() !== "bearer" || !token?.trim()) {
+    return null;
+  }
+
+  return token.trim();
+}
+
+export async function resolveOptionalUserSettings(
+  request: Request,
+  createClient = createSupabaseAccessTokenClient,
+): Promise<UserSettings | null> {
+  const accessToken = getBearerToken(request);
+
+  if (!accessToken) {
+    return null;
+  }
+
+  try {
+    const client = createClient(accessToken);
+    const {
+      data: { user },
+      error,
+    } = await client.auth.getUser(accessToken);
+
+    if (error || !user) {
+      return null;
+    }
+
+    const row = await loadOrCreateUserSettingsRow(client as never, user.id);
+    return mapUserSettingsRowToSettings(row as never);
+  } catch {
+    return null;
+  }
+}
 
 function errorStatus(error: AppError): number {
   if (error.code === "INVALID_INPUT") {
@@ -23,7 +73,12 @@ function errorStatus(error: AppError): number {
   return 500;
 }
 
-export function createGenerateTripHandler(planner: TripPlanner = planTrip) {
+export function createGenerateTripHandler(
+  planner: TripPlanner = planTrip,
+  resolveUserSettings: (
+    request: Request,
+  ) => Promise<UserSettings | null> = resolveOptionalUserSettings,
+) {
   return async function POST(request: Request) {
     let input: unknown;
 
@@ -48,7 +103,17 @@ export function createGenerateTripHandler(planner: TripPlanner = planTrip) {
     }
 
     try {
-      const result = await planner(input);
+      let userSettings: UserSettings | null = null;
+
+      try {
+        userSettings = await resolveUserSettings(request);
+      } catch {
+        userSettings = null;
+      }
+
+      const result = await planner(input, {
+        userSettings,
+      });
       return NextResponse.json(result);
     } catch (error) {
       if (error instanceof AppError) {

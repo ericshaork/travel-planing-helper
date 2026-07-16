@@ -8,12 +8,13 @@ vi.mock("next/navigation", () => ({
 import { AuthStatus } from "../../components/auth/AuthStatus";
 
 describe("AuthStatus SSR", () => {
-  it("未登录时显示登录", () => {
+  it("未登录时显示注册 / 登录", () => {
     const markup = renderToStaticMarkup(
       <AuthStatus initialState={{ status: "anonymous", user: null, error: null }} />,
     );
 
-    expect(markup).toContain("登录");
+    expect(markup).toContain("注册 / 登录");
+    expect(markup).toContain("/login?returnTo=%2Fcreate");
   });
 
   it("已登录时显示邮箱", () => {

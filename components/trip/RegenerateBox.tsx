@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 
+import { postGenerateTrip } from "@/lib/ai/generate-client";
 import { TRIP_INPUT_LIMITS } from "@/lib/trip/defaults";
 import { generateTripResponseSchema } from "@/lib/trip/schema";
 import type {
@@ -75,16 +76,10 @@ export function RegenerateBox({
     setAppliedChanges([]);
 
     try {
-      const response = await fetch("/api/generate-trip", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          tripRequest,
-          previousPlan: tripPlan,
-          modificationRequest: trimmedRequest,
-        }),
+      const response = await postGenerateTrip({
+        tripRequest,
+        previousPlan: tripPlan,
+        modificationRequest: trimmedRequest,
       });
       const payload = (await response.json()) as unknown;
 

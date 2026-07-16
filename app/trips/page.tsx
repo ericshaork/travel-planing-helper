@@ -2,17 +2,22 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
-import { useAuthStatus } from "@/components/auth/useAuthStatus";
-import { Footer } from "@/components/layout/Footer";
-import { Header } from "@/components/layout/Header";
-import { SavedTripsList } from "@/components/trips/SavedTripsList";
-import { deleteSavedTrip } from "@/lib/trips/delete-flow";
-import { listSavedTrips } from "@/lib/trips/list-client";
-import { openSavedTripIntoWorkspace } from "@/lib/trips/open-flow";
-import { buildSaveTripLoginHref } from "@/lib/trips/save-client";
-import type { SavedTripListItem } from "@/lib/trips/types";
+import { useAuthStatus } from "../../components/auth/useAuthStatus";
+import { Footer } from "../../components/layout/Footer";
+import { Header } from "../../components/layout/Header";
+import { SavedTripsList } from "../../components/trips/SavedTripsList";
+import { deleteSavedTrip } from "../../lib/trips/delete-flow";
+import { listSavedTrips } from "../../lib/trips/list-client";
+import {
+  markSavedTripOpened,
+  patchSavedTripMetadata,
+} from "../../lib/trips/metadata-client";
+import type { TripSourceType, TripStatus } from "../../lib/trips/metadata";
+import { openSavedTripIntoWorkspace } from "../../lib/trips/open-flow";
+import { buildSaveTripLoginHref } from "../../lib/trips/save-client";
+import type { SavedTripListItem } from "../../lib/trips/types";
 
 type TripsPageState = "idle" | "loading" | "ready" | "error";
 
@@ -25,7 +30,7 @@ function LoginPrompt() {
           登录后查看“我的行程”
         </h1>
         <p className="mt-3 text-sm leading-6 text-[var(--ink-muted)] sm:text-[15px] sm:leading-7">
-          这里会集中放你保存过的旅行计划。未登录也可以继续从创建页生成或打开 Workspace。
+          这里会集中放你保存过的旅行计划。未登录也可以继续从创建页生成，或先去 Workspace 手动整理。
         </p>
         <Link
           href={buildSaveTripLoginHref("/trips")}
@@ -54,7 +59,13 @@ function TripsLoadingState() {
   );
 }
 
-function TripsErrorState({ message }: { message: string }) {
+function TripsErrorState({
+  message,
+  onRetry,
+}: {
+  message: string;
+  onRetry: () => void;
+}) {
   return (
     <section className="workspace-panel px-5 py-5 sm:px-6 sm:py-6">
       <div className="relative z-[1] max-w-2xl">
@@ -62,9 +73,14 @@ function TripsErrorState({ message }: { message: string }) {
         <h2 className="mt-2 text-2xl font-semibold text-[var(--ink)]">
           暂时没拉到你的行程列表
         </h2>
-        <p className="mt-3 text-sm leading-6 text-[var(--ink-muted)]">
-          {message}
-        </p>
+        <p className="mt-3 text-sm leading-6 text-[var(--ink-muted)]">{message}</p>
+        <button
+          type="button"
+          onClick={onRetry}
+          className="mt-5 inline-flex min-h-11 items-center justify-center rounded-full border border-[var(--line)] px-5 py-2.5 text-sm font-semibold text-[var(--ink-muted)]"
+        >
+          重试
+        </button>
       </div>
     </section>
   );
@@ -76,8 +92,15 @@ export default function TripsPage() {
   const [pageState, setPageState] = useState<TripsPageState>("idle");
   const [trips, setTrips] = useState<SavedTripListItem[]>([]);
   const [errorMessage, setErrorMessage] = useState("");
+  const [searchInput, setSearchInput] = useState("");
+  const [appliedSearch, setAppliedSearch] = useState("");
+  const [statusFilter, setStatusFilter] = useState<TripStatus | "all">("all");
+  const [sourceTypeFilter, setSourceTypeFilter] = useState<
+    TripSourceType | "all"
+  >("all");
   const [openingTripId, setOpeningTripId] = useState<string | null>(null);
   const [deletingTripId, setDeletingTripId] = useState<string | null>(null);
+  const [renamingTripId, setRenamingTripId] = useState<string | null>(null);
   const [confirmingDeleteTripId, setConfirmingDeleteTripId] = useState<
     string | null
   >(null);
@@ -87,48 +110,41 @@ export default function TripsPage() {
   const [deleteErrorByTripId, setDeleteErrorByTripId] = useState<
     Record<string, string | undefined>
   >({});
+  const [renameErrorByTripId, setRenameErrorByTripId] = useState<
+    Record<string, string | undefined>
+  >({});
+
+  const loadTrips = useCallback(async () => {
+    setPageState("loading");
+    setErrorMessage("");
+
+    try {
+      const nextTrips = await listSavedTrips({
+        search: appliedSearch,
+        status: statusFilter,
+        sourceType: sourceTypeFilter,
+      });
+
+      setTrips(nextTrips);
+      setPageState("ready");
+    } catch (error) {
+      setTrips([]);
+      setPageState("error");
+      setErrorMessage(
+        error instanceof Error && error.message.trim()
+          ? error.message
+          : "请稍后再试。",
+      );
+    }
+  }, [appliedSearch, sourceTypeFilter, statusFilter]);
 
   useEffect(() => {
     if (authState.status !== "authenticated") {
       return;
     }
 
-    let active = true;
-
-    async function loadTrips() {
-      setPageState("loading");
-      setErrorMessage("");
-
-      try {
-        const nextTrips = await listSavedTrips();
-
-        if (!active) {
-          return;
-        }
-
-        setTrips(nextTrips);
-        setPageState("ready");
-      } catch (error) {
-        if (!active) {
-          return;
-        }
-
-        setTrips([]);
-        setPageState("error");
-        setErrorMessage(
-          error instanceof Error && error.message.trim()
-            ? error.message
-            : "请稍后再试。",
-        );
-      }
-    }
-
     void loadTrips();
-
-    return () => {
-      active = false;
-    };
-  }, [authState.status]);
+  }, [authState.status, loadTrips]);
 
   async function handleOpenTrip(trip: SavedTripListItem) {
     setOpeningTripId(trip.id);
@@ -139,8 +155,16 @@ export default function TripsPage() {
 
     try {
       await openSavedTripIntoWorkspace(trip.id, {
+        markTripOpened: markSavedTripOpened,
         navigate: (href) => router.push(href),
       });
+
+      const openedAt = new Date().toISOString();
+      setTrips((current) =>
+        current.map((item) =>
+          item.id === trip.id ? { ...item, last_opened_at: openedAt } : item,
+        ),
+      );
     } catch (error) {
       setOpenErrorByTripId((current) => ({
         ...current,
@@ -183,6 +207,41 @@ export default function TripsPage() {
     }
   }
 
+  async function handleRenameTrip(trip: SavedTripListItem, nextTitle: string) {
+    setRenamingTripId(trip.id);
+    setRenameErrorByTripId((current) => ({
+      ...current,
+      [trip.id]: undefined,
+    }));
+
+    try {
+      const updatedTrip = await patchSavedTripMetadata(trip.id, {
+        title: nextTitle,
+      });
+      setTrips((current) =>
+        current.map((item) => (item.id === trip.id ? updatedTrip : item)),
+      );
+    } catch (error) {
+      setRenameErrorByTripId((current) => ({
+        ...current,
+        [trip.id]:
+          error instanceof Error && error.message.trim()
+            ? error.message
+            : "暂时还改不了这个标题，请稍后再试。",
+      }));
+      throw error;
+    } finally {
+      setRenamingTripId((current) => (current === trip.id ? null : current));
+    }
+  }
+
+  function resetFilters() {
+    setSearchInput("");
+    setAppliedSearch("");
+    setStatusFilter("all");
+    setSourceTypeFilter("all");
+  }
+
   return (
     <div className="paper-texture flex min-h-screen flex-col overflow-x-clip text-[var(--ink)]">
       <Header />
@@ -214,7 +273,8 @@ export default function TripsPage() {
             把已保存计划重新打开，继续在 Workspace 里往下做
           </h1>
           <p className="mt-3 max-w-2xl text-sm leading-6 text-[var(--ink-muted)] sm:mt-6 sm:text-lg sm:leading-8">
-            历史计划会先恢复到本地工作态，然后统一进入 /workspace 阅读模式。
+            这里可以搜标题、筛状态、改名字，也能看到最近一次打开时间。真正打开时，还是沿用原来的恢复流程进入
+            /workspace。
           </p>
         </section>
 
@@ -224,18 +284,29 @@ export default function TripsPage() {
           <TripsLoadingState />
         ) : null}
         {authState.status === "authenticated" && pageState === "error" ? (
-          <TripsErrorState message={errorMessage} />
+          <TripsErrorState message={errorMessage} onRetry={() => void loadTrips()} />
         ) : null}
         {authState.status === "authenticated" && pageState === "ready" ? (
           <SavedTripsList
             trips={trips}
+            searchValue={searchInput}
+            statusFilter={statusFilter}
+            sourceTypeFilter={sourceTypeFilter}
             openingTripId={openingTripId}
             deletingTripId={deletingTripId}
+            renamingTripId={renamingTripId}
             confirmingDeleteTripId={confirmingDeleteTripId}
             openErrorByTripId={openErrorByTripId}
             deleteErrorByTripId={deleteErrorByTripId}
+            renameErrorByTripId={renameErrorByTripId}
+            onSearchValueChange={setSearchInput}
+            onSearchSubmit={() => setAppliedSearch(searchInput.trim())}
+            onResetFilters={resetFilters}
+            onStatusFilterChange={setStatusFilter}
+            onSourceTypeFilterChange={setSourceTypeFilter}
             onOpenTrip={handleOpenTrip}
             onDeleteTrip={handleDeleteTrip}
+            onRenameTrip={handleRenameTrip}
             onCancelDeleteTrip={(trip) => {
               setConfirmingDeleteTripId((current) =>
                 current === trip.id ? null : current,

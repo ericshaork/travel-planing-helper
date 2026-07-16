@@ -1,8 +1,15 @@
 import "server-only";
 
+import {
+  buildUserDefaultsFromSettings,
+  extractTripSpecificPreferences,
+  mergeTripPreferences,
+  summarizeEffectivePreferences,
+} from "../ai/preferences";
 import { generateTripWithProvider } from "../ai/generateTrip";
 import { getLLMProvider } from "../ai/client";
 import type { LLMProvider } from "../ai/provider";
+import type { UserSettings } from "../settings/types";
 import { getWeatherForecast, getWeatherProvider } from "../weather/client";
 import type { WeatherProvider } from "../weather/provider";
 import type { WeatherForecast } from "../weather/types";
@@ -21,6 +28,7 @@ import type {
 export interface TripPlannerDependencies {
   llmProvider?: LLMProvider;
   weatherProvider?: WeatherProvider;
+  userSettings?: UserSettings | null;
 }
 
 const WEATHER_KEYWORDS = [
@@ -441,11 +449,27 @@ export async function planTrip(
     },
     weatherProvider,
   );
+  const tripSpecificPreferences = extractTripSpecificPreferences(
+    request.tripRequest,
+  );
+  const userDefaults = buildUserDefaultsFromSettings(
+    dependencies.userSettings,
+  );
+  const effectivePreferences = mergeTripPreferences(
+    userDefaults,
+    tripSpecificPreferences,
+  );
+  const preferenceSummary = summarizeEffectivePreferences({
+    userDefaults,
+    tripSpecificPreferences,
+    effectivePreferences,
+  });
   const generated = await generateTripWithProvider(
     {
       ...request,
       weatherForecast: forecast,
       weatherWarning: weatherWarning(forecast),
+      preferenceSummary,
     },
     llmProvider,
   );

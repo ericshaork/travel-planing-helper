@@ -13,6 +13,7 @@ import {
   PLAN_STEPS,
   StepQuestionForm,
 } from "@/components/trip/StepQuestionForm";
+import { postGenerateTrip } from "@/lib/ai/generate-client";
 import {
   getMissingTripRequestFieldDetails,
   getPlanFieldMeta,
@@ -27,6 +28,7 @@ import {
 } from "@/lib/trip/normalize";
 import {
   clearWorkspaceSessionMetadata,
+  ensureWorkspaceSessionMetadata,
   loadTripPlanDraft,
   markCurrentTripAsUnsaved,
   loadParsedTripSession,
@@ -35,7 +37,6 @@ import {
   saveTripPlan,
   saveTripRequest,
   saveTripRequestDraft,
-  setWorkspaceSessionMetadata,
 } from "@/lib/trip/storage";
 import { generateTripResponseSchema } from "@/lib/trip/schema";
 import type {
@@ -245,12 +246,8 @@ export default function PlanPage() {
     setIsGenerating(true);
 
     try {
-      const response = await fetch("/api/generate-trip", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ tripRequest: request }),
+      const response = await postGenerateTrip({
+        tripRequest: request,
       });
       const payload = (await response.json()) as unknown;
 
@@ -272,7 +269,7 @@ export default function PlanPage() {
 
       const result: GenerateTripResponse = parsed.data;
       saveTripPlan(result.tripPlan);
-      setWorkspaceSessionMetadata({
+      ensureWorkspaceSessionMetadata({
         sourceType: "ai_generated",
         workspaceModeDefault: "read",
       });

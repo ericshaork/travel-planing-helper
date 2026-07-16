@@ -148,6 +148,9 @@ export function buildGenerateTripPrompt(input: GenerateTripInput): string {
     "请根据以下旅行需求生成完整行程。",
     "旅行需求：",
     JSON.stringify(input.tripRequest),
+    ...(input.preferenceSummary
+      ? ["偏好参考说明：", input.preferenceSummary]
+      : []),
     "天气数据：",
     JSON.stringify(input.weatherForecast ?? null),
     "天气说明：",
@@ -169,6 +172,9 @@ export function buildRegenerateTripPrompt(
     "保留没有被修改的原始约束。",
     "旅行需求：",
     JSON.stringify(input.tripRequest),
+    ...(input.preferenceSummary
+      ? ["偏好参考说明：", input.preferenceSummary]
+      : []),
     "旧方案：",
     JSON.stringify(input.previousPlan),
     "修改要求：",

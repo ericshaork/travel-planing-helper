@@ -111,7 +111,7 @@ const payload: SaveTripRequestPayload = {
 };
 
 describe("persistCurrentTrip", () => {
-  it("creates a new saved trip when there is no savedTripId metadata", async () => {
+  it("creates a new saved trip with ai_generated metadata when there is no savedTripId", async () => {
     const storage = new MemoryStorage();
     const createTrip = vi.fn().mockResolvedValue({
       tripId: "trip-1",
@@ -120,13 +120,115 @@ describe("persistCurrentTrip", () => {
     const result = await persistCurrentTrip(payload, {
       storage,
       createTrip,
+      getWorkspaceSession: () => ({
+        sourceType: "ai_generated",
+        workspaceModeDefault: "read",
+        localDraftId: "local-draft-ai",
+        updatedAt: "2026-07-16T09:00:00.000Z",
+      }),
     });
 
-    expect(createTrip).toHaveBeenCalledWith(payload);
+    expect(createTrip).toHaveBeenCalledWith({
+      ...payload,
+      saveMetadata: {
+        sourceType: "ai_generated",
+        status: "saved",
+        localDraftId: "local-draft-ai",
+      },
+    });
     expect(result.mode).toBe("created");
     expect(getSavedTripMetadata(storage)).toMatchObject({
       savedTripId: "trip-1",
       savedTripTitle: "厦门 3 天慢慢玩",
+    });
+  });
+
+  it("uses blank_manual for blank workspace saves", async () => {
+    const createTrip = vi.fn().mockResolvedValue({
+      tripId: "trip-blank",
+    });
+
+    await persistCurrentTrip(payload, {
+      createTrip,
+      getWorkspaceSession: () => ({
+        sourceType: "blank_manual",
+        workspaceModeDefault: "edit",
+        localDraftId: "local-draft-blank",
+        updatedAt: "2026-07-16T09:00:00.000Z",
+      }),
+    });
+
+    expect(createTrip).toHaveBeenCalledWith(
+      expect.objectContaining({
+        saveMetadata: {
+          sourceType: "blank_manual",
+          status: "saved",
+          localDraftId: "local-draft-blank",
+        },
+      }),
+    );
+  });
+
+  it("uses explore_import for explore workspace saves", async () => {
+    const createTrip = vi.fn().mockResolvedValue({
+      tripId: "trip-explore",
+    });
+
+    await persistCurrentTrip(payload, {
+      createTrip,
+      getWorkspaceSession: () => ({
+        sourceType: "explore_import",
+        workspaceModeDefault: "read",
+        localDraftId: "local-draft-explore",
+        updatedAt: "2026-07-16T09:00:00.000Z",
+      }),
+    });
+
+    expect(createTrip).toHaveBeenCalledWith(
+      expect.objectContaining({
+        saveMetadata: {
+          sourceType: "explore_import",
+          status: "saved",
+          localDraftId: "local-draft-explore",
+        },
+      }),
+    );
+  });
+
+  it("does not write saved_trip directly into database source_type", async () => {
+    const storage = new MemoryStorage();
+    storage.setItem(
+      "travel-planning:restored-saved-trip",
+      JSON.stringify({
+        savedTripId: "trip-1",
+        savedTripTitle: "旧标题",
+        restoredAt: "2026-07-07T08:00:00.000Z",
+      }),
+    );
+    const updateTrip = vi.fn().mockResolvedValue({
+      ok: true,
+      tripId: "trip-1",
+      updatedAt: "2026-07-08T09:00:00.000Z",
+    });
+
+    await persistCurrentTrip(payload, {
+      storage,
+      updateTrip,
+      getWorkspaceSession: () => ({
+        sourceType: "saved_trip",
+        workspaceModeDefault: "read",
+        localDraftId: "local-draft-restored",
+        updatedAt: "2026-07-16T09:00:00.000Z",
+      }),
+    });
+
+    expect(updateTrip).toHaveBeenCalledWith("trip-1", {
+      ...payload,
+      saveMetadata: {
+        sourceType: undefined,
+        status: "saved",
+        localDraftId: "local-draft-restored",
+      },
     });
   });
 
@@ -145,13 +247,29 @@ describe("persistCurrentTrip", () => {
       tripId: "trip-1",
       updatedAt: "2026-07-08T09:00:00.000Z",
     });
+    const createTrip = vi.fn();
 
     const result = await persistCurrentTrip(payload, {
       storage,
       updateTrip,
+      createTrip,
+      getWorkspaceSession: () => ({
+        sourceType: "ai_generated",
+        workspaceModeDefault: "read",
+        localDraftId: "local-draft-ai",
+        updatedAt: "2026-07-16T09:00:00.000Z",
+      }),
     });
 
-    expect(updateTrip).toHaveBeenCalledWith("trip-1", payload);
+    expect(createTrip).not.toHaveBeenCalled();
+    expect(updateTrip).toHaveBeenCalledWith("trip-1", {
+      ...payload,
+      saveMetadata: {
+        sourceType: "ai_generated",
+        status: "saved",
+        localDraftId: "local-draft-ai",
+      },
+    });
     expect(result.mode).toBe("updated");
     expect(getSavedTripMetadata(storage)).toMatchObject({
       savedTripId: "trip-1",
@@ -159,5 +277,70 @@ describe("persistCurrentTrip", () => {
       restoredAt: "2026-07-07T08:00:00.000Z",
       savedAt: "2026-07-08T09:00:00.000Z",
     });
+  });
+
+  it("generates and persists a stable localDraftId when the session is missing it", async () => {
+    const storage = new MemoryStorage();
+    const createTrip = vi.fn().mockResolvedValue({
+      tripId: "trip-1",
+    });
+    const ensuredSession = {
+      sourceType: "ai_generated" as const,
+      workspaceModeDefault: "read" as const,
+      localDraftId: "generated-local-draft",
+      updatedAt: "2026-07-16T09:00:00.000Z",
+    };
+    const ensureWorkspaceSession = vi.fn().mockReturnValue(ensuredSession);
+
+    await persistCurrentTrip(payload, {
+      storage,
+      createTrip,
+      getWorkspaceSession: () => ({
+        sourceType: "ai_generated",
+        workspaceModeDefault: "read",
+        updatedAt: "2026-07-16T08:30:00.000Z",
+      }),
+      ensureWorkspaceSession,
+    });
+
+    expect(ensureWorkspaceSession).toHaveBeenCalled();
+    expect(createTrip).toHaveBeenCalledWith(
+      expect.objectContaining({
+        saveMetadata: {
+          sourceType: "ai_generated",
+          status: "saved",
+          localDraftId: "generated-local-draft",
+        },
+      }),
+    );
+  });
+
+  it("does not regenerate localDraftId when one already exists", async () => {
+    const createTrip = vi.fn().mockResolvedValue({
+      tripId: "trip-1",
+    });
+    const ensureWorkspaceSession = vi.fn();
+
+    await persistCurrentTrip(payload, {
+      createTrip,
+      getWorkspaceSession: () => ({
+        sourceType: "ai_generated",
+        workspaceModeDefault: "read",
+        localDraftId: "existing-local-draft",
+        updatedAt: "2026-07-16T09:00:00.000Z",
+      }),
+      ensureWorkspaceSession,
+    });
+
+    expect(ensureWorkspaceSession).not.toHaveBeenCalled();
+    expect(createTrip).toHaveBeenCalledWith(
+      expect.objectContaining({
+        saveMetadata: {
+          sourceType: "ai_generated",
+          status: "saved",
+          localDraftId: "existing-local-draft",
+        },
+      }),
+    );
   });
 });

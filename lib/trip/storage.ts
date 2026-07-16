@@ -47,6 +47,7 @@ export interface SavedTripMetadata {
 export type WorkspaceModeDefault = "read" | "edit";
 export type WorkspaceSessionSourceType =
   | "ai_generated"
+  | "explore_import"
   | "saved_trip"
   | "blank_manual";
 
@@ -75,7 +76,12 @@ const parsedTripSessionSchema: z.ZodType<ParsedTripSession> = z
 
 const workspaceSessionMetadataSchema: z.ZodType<WorkspaceSessionMetadata> = z
   .object({
-    sourceType: z.enum(["ai_generated", "saved_trip", "blank_manual"]),
+    sourceType: z.enum([
+      "ai_generated",
+      "explore_import",
+      "saved_trip",
+      "blank_manual",
+    ]),
     workspaceModeDefault: z.enum(["read", "edit"]),
     localDraftId: z.string().trim().min(1).optional(),
     blankDraftId: z.string().trim().min(1).optional(),
@@ -106,6 +112,10 @@ function createClientDraftId(prefix: "local-draft" | "blank-draft") {
   }
 
   return `${prefix}-${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
+}
+
+export function createWorkspaceLocalDraftId() {
+  return createClientDraftId("local-draft");
 }
 
 function parseSavedTripMetadata(
@@ -224,6 +234,33 @@ export function setWorkspaceSessionMetadata(
   );
 
   return parsed;
+}
+
+export function ensureWorkspaceSessionMetadata(
+  defaults: Pick<
+    WorkspaceSessionMetadata,
+    "sourceType" | "workspaceModeDefault"
+  >,
+  storage?: StorageLike,
+) {
+  const currentMetadata = getWorkspaceSessionMetadata(storage);
+
+  if (currentMetadata?.localDraftId) {
+    return currentMetadata;
+  }
+
+  return setWorkspaceSessionMetadata(
+    {
+      sourceType: currentMetadata?.sourceType ?? defaults.sourceType,
+      workspaceModeDefault:
+        currentMetadata?.workspaceModeDefault ?? defaults.workspaceModeDefault,
+      localDraftId:
+        currentMetadata?.localDraftId ?? createWorkspaceLocalDraftId(),
+      blankDraftId: currentMetadata?.blankDraftId,
+      createdAt: currentMetadata?.createdAt,
+    },
+    storage,
+  );
 }
 
 export function clearWorkspaceSessionMetadata(storage?: StorageLike) {

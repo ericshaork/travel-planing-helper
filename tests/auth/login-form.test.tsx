@@ -21,10 +21,11 @@ describe("LoginForm SSR", () => {
 
     expect(markup).toContain("发送登录链接");
     expect(markup).toContain("type=\"email\"");
-    expect(markup).toContain("登录后会回到 /result");
+    expect(markup).toContain("第一次使用会自动创建账号");
+    expect(markup).toContain("登录后会回到/result");
   });
 
-  it("已登录时会显示回到工作台和退出", () => {
+  it("已登录时会显示回到刚才页面和退出登录", () => {
     const markup = renderToStaticMarkup(
       <LoginForm
         returnTo="/"
@@ -38,7 +39,7 @@ describe("LoginForm SSR", () => {
 
     expect(markup).toContain("你已经登录了");
     expect(markup).toContain("user@example.com");
-    expect(markup).toContain("回到工作台");
-    expect(markup).toContain("退出");
+    expect(markup).toContain("回到刚才页面");
+    expect(markup).toContain("退出登录");
   });
 });

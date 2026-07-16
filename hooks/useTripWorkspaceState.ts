@@ -20,7 +20,7 @@ import {
   resolveInsightDayNumber,
 } from "@/lib/trip/route-insight";
 import {
-  getWorkspaceSessionMetadata,
+  ensureWorkspaceSessionMetadata,
   type WorkspaceSessionSourceType,
 } from "@/lib/trip/storage";
 import type {
@@ -327,7 +327,16 @@ export function useTripWorkspaceState({
   tripPlan,
   tripRequest,
 }: UseTripWorkspaceStateOptions) {
-  const workspaceSession = useMemo(() => getWorkspaceSessionMetadata(), []);
+  const workspaceSession = useMemo(
+    () =>
+      ensureWorkspaceSessionMetadata(
+        {
+          sourceType: "ai_generated",
+          workspaceModeDefault: "read",
+        },
+      ),
+    [],
+  );
   const workspaceSourceType: WorkspaceSessionSourceType | undefined =
     workspaceSession?.sourceType;
   const normalizedTripPlan = useMemo(

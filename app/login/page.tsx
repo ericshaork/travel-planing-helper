@@ -24,31 +24,30 @@ export default async function LoginPage({
             href={returnTo?.startsWith("/") ? returnTo : "/"}
             className="border-b border-[var(--line-strong)] pb-1 text-[var(--ink-muted)] hover:border-[var(--clay-deep)] hover:text-[var(--clay-deep)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--clay)]"
           >
-            回到工作台
+            回到刚才页面
           </Link>
         </nav>
 
         <section className="grid gap-5 lg:grid-cols-[minmax(0,0.9fr)_minmax(30rem,1.1fr)] lg:gap-12">
           <div className="min-w-0 max-w-xl pt-0.5 lg:pt-8">
             <p className="inline-flex -rotate-1 rounded-full border border-[var(--sage-deep)] bg-[var(--sage-soft)] px-3 py-1 text-[11px] font-semibold tracking-[0.16em] text-[var(--sage-deep)] sm:text-xs">
-              先补登录
+              注册 / 登录
             </p>
 
             <h1 className="mt-4 text-3xl font-semibold leading-[1.08] tracking-[-0.05em] sm:mt-6 sm:text-6xl">
-              先把账号接上，
-              <span className="mt-1 block text-[var(--clay)]">后面才好保存计划。</span>
+              输入邮箱，
+              <span className="mt-1 block text-[var(--clay)]">先把登录这一步走顺。</span>
             </h1>
 
             <p className="mt-3 max-w-lg text-sm leading-6 text-[var(--ink-muted)] sm:mt-6 sm:text-lg sm:leading-8">
-              这轮只做最轻的邮箱 magic link。先让登录状态能出现、能退出、刷新后还能认出来，
-              不把功能做得太重。
+              先用一个邮箱入口把注册、登录和返回刚才页面这件事理顺。第一次使用会自动创建账号，已有账号也从这里继续。
             </p>
 
             <div className="workspace-panel mt-8 hidden px-5 py-5 lg:block">
               <div className="relative z-[1] space-y-3 text-sm leading-7 text-[var(--ink-muted)]">
-                <p className="workspace-kicker">THIS ROUND STOPS AT</p>
-                <p>登录、退出、导航状态展示。</p>
-                <p>不登录也照样可以继续走 <code>/create -&gt; /plan -&gt; /workspace</code>。</p>
+                <p className="workspace-kicker">你可以先这样用</p>
+                <p>想先看看路线、生成一版计划、进 Workspace 调整，都不用先登录。</p>
+                <p>需要保存到“我的行程”时，再补这一步就行。</p>
               </div>
             </div>
           </div>

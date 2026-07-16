@@ -18,6 +18,11 @@ describe("listSavedTrips", () => {
             days: 3,
             budget: 2500,
             cover_image_url: null,
+            source_type: "ai_generated",
+            status: "saved",
+            trip_preferences_json: {},
+            local_draft_id: null,
+            last_opened_at: null,
             created_at: "2026-07-01T08:00:00.000Z",
             updated_at: "2026-07-02T08:00:00.000Z",
           },
@@ -40,6 +45,29 @@ describe("listSavedTrips", () => {
       }),
     );
     expect(trips).toHaveLength(1);
+  });
+
+  it("includes search, status, and source_type query params", async () => {
+    const fetchImpl = vi.fn().mockResolvedValue({
+      ok: true,
+      json: vi.fn().mockResolvedValue({
+        ok: true,
+        trips: [],
+      }),
+    });
+
+    await listSavedTrips({
+      fetchImpl,
+      getAccessToken: async () => "token-123",
+      search: "厦门",
+      status: "archived",
+      sourceType: "explore_import",
+    });
+
+    expect(fetchImpl).toHaveBeenCalledWith(
+      "/api/trips?search=%E5%8E%A6%E9%97%A8&status=archived&source_type=explore_import",
+      expect.any(Object),
+    );
   });
 
   it("requires login before listing trips", async () => {

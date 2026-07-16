@@ -16,6 +16,8 @@ export function buildSaveTripLoginHref(returnTo = "/workspace") {
   return `/login?${params.toString()}`;
 }
 
+export const buildLoginHref = buildSaveTripLoginHref;
+
 export async function saveTripToCloud(
   payload: SaveTripRequestPayload,
   options?: {

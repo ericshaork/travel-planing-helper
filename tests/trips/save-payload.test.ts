@@ -1,12 +1,14 @@
-import { describe, expect, it } from "vitest";
-import { vi } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 
 vi.mock("server-only", () => ({}));
 
 import { MockLLMProvider } from "../../lib/ai/mock";
 import { planTrip } from "../../lib/trip/planner";
 import type { TripRequest } from "../../lib/trip/types";
-import { buildSavedTripInsert } from "../../lib/trips/save-payload";
+import {
+  buildSavedTripInsert,
+  mapWorkspaceSourceTypeToTripSourceType,
+} from "../../lib/trips/save-payload";
 import type { SaveTripRequestPayload } from "../../lib/trips/types";
 import { MockWeatherProvider } from "../../lib/weather/mock";
 
@@ -57,6 +59,9 @@ describe("buildSavedTripInsert", () => {
       trip_plan_json: payload.tripPlan,
       enrichment_json: null,
       weather_summary_json: payload.tripPlan.weatherSummary,
+      source_type: "ai_generated",
+      status: "saved",
+      local_draft_id: null,
     });
     expect(insert.title).toBe(payload.tripPlan.tripTitle);
   });
@@ -97,5 +102,39 @@ describe("buildSavedTripInsert", () => {
       warnings: [],
       alerts: [],
     });
+  });
+
+  it("writes source_type, status, and local_draft_id from save metadata", async () => {
+    const payload = await createPayload();
+    const insert = buildSavedTripInsert("user-1", {
+      ...payload,
+      saveMetadata: {
+        sourceType: "blank_manual",
+        status: "saved",
+        localDraftId: "local-draft-1",
+      },
+    });
+
+    expect(insert.source_type).toBe("blank_manual");
+    expect(insert.status).toBe("saved");
+    expect(insert.local_draft_id).toBe("local-draft-1");
+  });
+});
+
+describe("mapWorkspaceSourceTypeToTripSourceType", () => {
+  it("maps AI, blank, and explore workspace sources to database source_type", () => {
+    expect(mapWorkspaceSourceTypeToTripSourceType("ai_generated")).toBe(
+      "ai_generated",
+    );
+    expect(mapWorkspaceSourceTypeToTripSourceType("blank_manual")).toBe(
+      "blank_manual",
+    );
+    expect(mapWorkspaceSourceTypeToTripSourceType("explore_import")).toBe(
+      "explore_import",
+    );
+  });
+
+  it("does not map saved_trip directly into trip_plans.source_type", () => {
+    expect(mapWorkspaceSourceTypeToTripSourceType("saved_trip")).toBeUndefined();
   });
 });

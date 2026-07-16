@@ -1,4 +1,5 @@
 import type { TripResultEnrichment } from "../trip/enrichment-types";
+import type { WorkspaceSessionSourceType } from "../trip/storage";
 import type { TripPlan, TripRequest } from "../trip/types";
 import type { SaveTripRequestPayload, SavedTripInsert } from "./types";
 
@@ -29,6 +30,21 @@ function resolveWeatherSummary(
   return tripEnrichment?.weatherSummary ?? tripPlan.weatherSummary;
 }
 
+export function mapWorkspaceSourceTypeToTripSourceType(
+  sourceType: WorkspaceSessionSourceType | undefined,
+) {
+  switch (sourceType) {
+    case "ai_generated":
+      return "ai_generated" as const;
+    case "blank_manual":
+      return "blank_manual" as const;
+    case "explore_import":
+      return "explore_import" as const;
+    default:
+      return undefined;
+  }
+}
+
 export function buildSavedTripMutation(payload: SaveTripRequestPayload) {
   const { tripRequest, tripPlan, tripEnrichment } = payload;
 
@@ -44,6 +60,15 @@ export function buildSavedTripMutation(payload: SaveTripRequestPayload) {
     trip_plan_json: tripPlan,
     enrichment_json: tripEnrichment?.enrichment ?? null,
     weather_summary_json: resolveWeatherSummary(tripPlan, tripEnrichment),
+    ...(payload.saveMetadata?.sourceType
+      ? { source_type: payload.saveMetadata.sourceType }
+      : {}),
+    ...(payload.saveMetadata?.status
+      ? { status: payload.saveMetadata.status }
+      : {}),
+    ...(payload.saveMetadata?.localDraftId !== undefined
+      ? { local_draft_id: payload.saveMetadata.localDraftId }
+      : {}),
   };
 }
 
@@ -54,5 +79,10 @@ export function buildSavedTripInsert(
   return {
     user_id: userId,
     ...buildSavedTripMutation(payload),
+    source_type: payload.saveMetadata?.sourceType ?? "ai_generated",
+    status: payload.saveMetadata?.status ?? "saved",
+    trip_preferences_json: {},
+    local_draft_id: payload.saveMetadata?.localDraftId ?? null,
+    last_opened_at: null,
   };
 }

@@ -28,6 +28,11 @@ const savedTrip: SavedTripDetail = {
   days: 3,
   budget: 2500,
   cover_image_url: null,
+  source_type: "ai_generated",
+  status: "saved",
+  trip_preferences_json: {},
+  local_draft_id: null,
+  last_opened_at: null,
   created_at: "2026-07-01T08:00:00.000Z",
   updated_at: "2026-07-02T08:00:00.000Z",
   trip_request_json: {
@@ -119,22 +124,42 @@ const savedTrip: SavedTripDetail = {
 };
 
 describe("openSavedTripIntoWorkspace", () => {
-  it("opens, restores, and navigates back to /result", async () => {
+  it("tries to patch last_opened_at, then restores and navigates to /workspace", async () => {
     const storage = new MemoryStorage();
+    const markTripOpened = vi.fn().mockResolvedValue(undefined);
     const openTrip = vi.fn().mockResolvedValue(savedTrip);
     const restoreTrip = vi.fn();
     const navigate = vi.fn();
 
     const trip = await openSavedTripIntoWorkspace("trip-1", {
       storage,
+      markTripOpened,
+      openTrip,
+      restoreTrip,
+      navigate,
+    });
+
+    expect(markTripOpened).toHaveBeenCalledWith("trip-1");
+    expect(openTrip).toHaveBeenCalledWith("trip-1");
+    expect(restoreTrip).toHaveBeenCalledWith({ trip: savedTrip }, storage);
+    expect(navigate).toHaveBeenCalledWith("/workspace");
+    expect(trip.id).toBe("trip-1");
+  });
+
+  it("keeps opening the trip even if last_opened_at patch fails", async () => {
+    const openTrip = vi.fn().mockResolvedValue(savedTrip);
+    const restoreTrip = vi.fn();
+    const navigate = vi.fn();
+
+    await openSavedTripIntoWorkspace("trip-1", {
+      markTripOpened: vi.fn().mockRejectedValue(new Error("patch failed")),
       openTrip,
       restoreTrip,
       navigate,
     });
 
     expect(openTrip).toHaveBeenCalledWith("trip-1");
-    expect(restoreTrip).toHaveBeenCalledWith({ trip: savedTrip }, storage);
-    expect(navigate).toHaveBeenCalledWith("/result");
-    expect(trip.id).toBe("trip-1");
+    expect(restoreTrip).toHaveBeenCalled();
+    expect(navigate).toHaveBeenCalledWith("/workspace");
   });
 });

@@ -5,7 +5,7 @@ import { useMemo, useState } from "react";
 
 import {
   AUTH_LOADING_STATE,
-  signInWithMagicLink,
+  requestLoginLink,
   type AuthStatusState,
 } from "../../lib/supabase/auth-client";
 import { createSupabaseBrowserClient } from "../../lib/supabase/browser";
@@ -36,6 +36,7 @@ export function LoginForm({
   const [successMessage, setSuccessMessage] = useState<string>();
   const [errorMessage, setErrorMessage] = useState<string>();
   const resolvedReturnTo = useMemo(() => normalizeReturnToPath(returnTo), [returnTo]);
+  const returnLabel = resolvedReturnTo === "/" ? "首页" : resolvedReturnTo;
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -45,13 +46,15 @@ export function LoginForm({
 
     try {
       const redirectUrl = new URL(resolvedReturnTo, window.location.origin).toString();
-      const result = await signInWithMagicLink(
+      const result = await requestLoginLink(
         email,
         redirectUrl,
         createSupabaseBrowserClient(),
       );
 
-      setSuccessMessage(`登录链接已发送到 ${result.email}，去邮箱里点开就能回来。`);
+      setSuccessMessage(
+        `登录链接已发送到 ${result.email}。请打开邮箱里的链接继续；如果还没收到，可以稍后再试。`,
+      );
     } catch (error) {
       setErrorMessage(
         error instanceof Error
@@ -67,17 +70,17 @@ export function LoginForm({
     return (
       <section className="workspace-panel px-6 py-6">
         <div className="relative z-[1]">
-          <p className="workspace-kicker">ALREADY IN</p>
+          <p className="workspace-kicker">已登录</p>
           <h2 className="mt-2 text-2xl font-semibold">你已经登录了。</h2>
           <p className="mt-3 text-sm leading-6 text-[var(--ink-muted)]">
-            当前账号是 {state.user.email ?? "已登录用户"}。如果只是想继续规划，直接回工作台就行。
+            当前账号是 {state.user.email ?? "已登录用户"}。继续回到刚才的页面就行。
           </p>
           <div className="mt-5 flex flex-wrap gap-3">
             <Link
               href={resolvedReturnTo}
               className="inline-flex min-h-11 items-center justify-center rounded-full border border-[var(--ink)] bg-[var(--ink)] px-5 py-2.5 text-sm font-semibold text-[var(--paper-bright)] shadow-[4px_4px_0_var(--clay)]"
             >
-              回到工作台
+              回到刚才页面
             </Link>
             <SignOutButton className="inline-flex min-h-11 items-center justify-center rounded-full border border-[var(--line-strong)] bg-[var(--paper)] px-5 py-2.5 text-sm font-semibold text-[var(--ink)]" />
           </div>
@@ -89,10 +92,10 @@ export function LoginForm({
   return (
     <section className="workspace-panel px-6 py-6">
       <div className="relative z-[1]">
-        <p className="workspace-kicker">MAGIC LINK</p>
-        <h2 className="mt-2 text-2xl font-semibold">先用邮箱登录。</h2>
+        <p className="workspace-kicker">注册 / 登录</p>
+        <h2 className="mt-2 text-2xl font-semibold">用邮箱继续。</h2>
         <p className="mt-3 text-sm leading-6 text-[var(--ink-muted)]">
-          这一步只加基础登录，不会拦住你创建计划。输入常用邮箱，我把登录链接发过去，点开就能回来。
+          输入邮箱，我们会发送一封登录链接。第一次使用会自动创建账号，登录后会回到你刚刚的页面。
         </p>
 
         <form className="mt-5 space-y-4" onSubmit={(event) => void handleSubmit(event)}>
@@ -133,7 +136,7 @@ export function LoginForm({
         ) : null}
 
         <p className="mt-4 text-xs leading-5 text-[var(--ink-muted)]">
-          登录后会回到 {resolvedReturnTo === "/" ? "首页" : resolvedReturnTo}。保存计划会放在 phase 4，再往后才是“我的行程”。
+          登录后会回到{returnLabel}。如果你刚刚正在编辑 Workspace，本地草稿会继续保留。
         </p>
       </div>
     </section>

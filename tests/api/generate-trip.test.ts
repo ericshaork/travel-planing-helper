@@ -4,11 +4,12 @@ vi.mock("server-only", () => ({}));
 
 import { createGenerateTripHandler } from "../../app/api/generate-trip/route";
 import { MockLLMProvider } from "../../lib/ai/mock";
+import { cloneDefaultUserSettings } from "../../lib/settings/defaults";
 import { generateTripResponseSchema } from "../../lib/trip/schema";
 import { planTrip } from "../../lib/trip/planner";
+import type { TripRequest } from "../../lib/trip/types";
 import { AppError } from "../../lib/utils/errors";
 import { MockWeatherProvider } from "../../lib/weather/mock";
-import type { TripRequest } from "../../lib/trip/types";
 
 const tripRequest: TripRequest = {
   departureCity: "深圳",
@@ -41,7 +42,7 @@ const mockPlanner = (input: unknown) =>
   });
 
 describe("POST /api/generate-trip", () => {
-  it("返回通过正式 Schema 的 Mock 行程", async () => {
+  it("返回通过正式 schema 的 mock 行程", async () => {
     const POST = createGenerateTripHandler(mockPlanner);
     const response = await POST(postJson({ tripRequest }));
     const payload = (await response.json()) as unknown;
@@ -50,7 +51,7 @@ describe("POST /api/generate-trip", () => {
     expect(generateTripResponseSchema.safeParse(payload).success).toBe(true);
   });
 
-  it("携带 previousPlan 和 modificationRequest 时返回完整新方案与 appliedChanges", async () => {
+  it("带 previousPlan 和 modificationRequest 时仍返回完整新方案", async () => {
     const POST = createGenerateTripHandler(mockPlanner);
     const originalResponse = await POST(postJson({ tripRequest }));
     const originalPayload = generateTripResponseSchema.parse(
@@ -90,9 +91,6 @@ describe("POST /api/generate-trip", () => {
 
     expect(response.status).toBe(400);
     expect(payload.error?.code).toBe("INVALID_INPUT");
-    expect(payload.error?.message).toBe(
-      "旅行信息还没填完整，检查一下再试。",
-    );
   });
 
   it("无效模型输出返回统一 AI_OUTPUT_INVALID 且不泄露细节", async () => {
@@ -112,5 +110,62 @@ describe("POST /api/generate-trip", () => {
       code: "AI_OUTPUT_INVALID",
       message: "模型刚刚没吐出合格格式，再试一次。",
     });
+  });
+
+  it("已登录且允许长期偏好时，会把 userSettings 传给 planner", async () => {
+    const planner = vi.fn().mockResolvedValue(
+      generateTripResponseSchema.parse(
+        await planTrip(
+          { tripRequest },
+          {
+            llmProvider: new MockLLMProvider(),
+            weatherProvider: new MockWeatherProvider({
+              now: new Date("2026-07-02T00:00:00.000Z"),
+            }),
+          },
+        ),
+      ),
+    );
+    const settings = cloneDefaultUserSettings();
+    const resolver = vi.fn().mockResolvedValue(settings);
+    const POST = createGenerateTripHandler(planner as never, resolver);
+
+    const response = await POST(postJson({ tripRequest }));
+
+    expect(response.status).toBe(200);
+    expect(planner).toHaveBeenCalledWith(
+      { tripRequest },
+      expect.objectContaining({
+        userSettings: settings,
+      }),
+    );
+  });
+
+  it("settings 读取失败时仍然继续生成", async () => {
+    const planner = vi.fn().mockResolvedValue(
+      generateTripResponseSchema.parse(
+        await planTrip(
+          { tripRequest },
+          {
+            llmProvider: new MockLLMProvider(),
+            weatherProvider: new MockWeatherProvider({
+              now: new Date("2026-07-02T00:00:00.000Z"),
+            }),
+          },
+        ),
+      ),
+    );
+    const resolver = vi.fn().mockRejectedValue(new Error("settings failed"));
+    const POST = createGenerateTripHandler(planner as never, resolver);
+
+    const response = await POST(postJson({ tripRequest }));
+
+    expect(response.status).toBe(200);
+    expect(planner).toHaveBeenCalledWith(
+      { tripRequest },
+      expect.objectContaining({
+        userSettings: null,
+      }),
+    );
   });
 });

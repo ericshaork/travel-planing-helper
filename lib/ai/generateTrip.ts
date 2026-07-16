@@ -28,6 +28,7 @@ import type { LLMProvider } from "./provider";
 export interface GenerateTripWithContextInput extends GenerateTripRequest {
   weatherForecast?: WeatherForecast;
   weatherWarning?: string;
+  preferenceSummary?: string;
 }
 
 type GeneratePhase = "generate-trip" | "regenerate-trip";

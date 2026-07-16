@@ -1,12 +1,13 @@
 import { createSupabaseBrowserClient } from "../supabase/browser";
 import { getBrowserAccessToken } from "../supabase/auth-client";
+import { buildTripsListQuery, type TripsListFilters } from "./metadata";
 import type { ListTripsResponse, SavedTripListItem } from "./types";
 
 export async function listSavedTrips(
   options?: {
     fetchImpl?: typeof fetch;
     getAccessToken?: () => Promise<string | null>;
-  },
+  } & TripsListFilters,
 ) {
   const fetchImpl = options?.fetchImpl ?? fetch;
   const getAccessToken =
@@ -18,7 +19,7 @@ export async function listSavedTrips(
     throw new Error("请先登录，再来看你保存过的行程。");
   }
 
-  const response = await fetchImpl("/api/trips", {
+  const response = await fetchImpl(`/api/trips${buildTripsListQuery(options)}`, {
     method: "GET",
     headers: {
       Authorization: `Bearer ${accessToken}`,

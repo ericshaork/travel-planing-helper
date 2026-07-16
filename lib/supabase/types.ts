@@ -40,6 +40,11 @@ export interface TripPlanRow {
   enrichment_json: Record<string, unknown> | null;
   weather_summary_json: Record<string, unknown> | null;
   cover_image_url: string | null;
+  source_type: "ai_generated" | "blank_manual" | "explore_import";
+  status: "draft" | "saved" | "archived";
+  trip_preferences_json: Record<string, unknown>;
+  local_draft_id: string | null;
+  last_opened_at: string | null;
   created_at: string;
   updated_at: string;
 }
@@ -57,6 +62,11 @@ export interface TripPlanInsert {
   enrichment_json?: Record<string, unknown> | null;
   weather_summary_json?: Record<string, unknown> | null;
   cover_image_url?: string | null;
+  source_type?: "ai_generated" | "blank_manual" | "explore_import";
+  status?: "draft" | "saved" | "archived";
+  trip_preferences_json?: Record<string, unknown>;
+  local_draft_id?: string | null;
+  last_opened_at?: string | null;
 }
 
 export interface TripPlanUpdate {
@@ -71,6 +81,34 @@ export interface TripPlanUpdate {
   enrichment_json?: Record<string, unknown> | null;
   weather_summary_json?: Record<string, unknown> | null;
   cover_image_url?: string | null;
+  source_type?: "ai_generated" | "blank_manual" | "explore_import";
+  status?: "draft" | "saved" | "archived";
+  trip_preferences_json?: Record<string, unknown>;
+  local_draft_id?: string | null;
+  last_opened_at?: string | null;
+}
+
+export interface UserSettingsRow {
+  id: string;
+  user_id: string;
+  travel_preferences_json: Record<string, unknown>;
+  workspace_preferences_json: Record<string, unknown>;
+  ai_preferences_json: Record<string, unknown>;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface UserSettingsInsert {
+  user_id: string;
+  travel_preferences_json?: Record<string, unknown>;
+  workspace_preferences_json?: Record<string, unknown>;
+  ai_preferences_json?: Record<string, unknown>;
+}
+
+export interface UserSettingsUpdate {
+  travel_preferences_json?: Record<string, unknown>;
+  workspace_preferences_json?: Record<string, unknown>;
+  ai_preferences_json?: Record<string, unknown>;
 }
 
 export interface ExploreTripContentRow {

@@ -6,6 +6,11 @@ export interface SaveTripRequestPayload {
   tripRequest: TripRequest;
   tripPlan: TripPlan;
   tripEnrichment?: TripResultEnrichment | null;
+  saveMetadata?: {
+    sourceType?: "ai_generated" | "blank_manual" | "explore_import";
+    status?: "saved";
+    localDraftId?: string | null;
+  };
 }
 
 export interface SavedTripInsert {
@@ -20,6 +25,11 @@ export interface SavedTripInsert {
   trip_plan_json: TripPlan;
   enrichment_json: TripResultEnrichment["enrichment"] | null;
   weather_summary_json: WeatherSummary | TripWeatherSummary;
+  source_type?: "ai_generated" | "blank_manual" | "explore_import";
+  status?: "draft" | "saved" | "archived";
+  trip_preferences_json?: Record<string, unknown>;
+  local_draft_id?: string | null;
+  last_opened_at?: string | null;
 }
 
 export interface SaveTripResponse {
@@ -30,6 +40,11 @@ export interface UpdateTripResponse {
   ok: true;
   tripId: string;
   updatedAt: string;
+}
+
+export interface UpdateTripMetadataResponse {
+  ok: true;
+  trip: SavedTripDetail;
 }
 
 export interface DeleteTripResponse {
@@ -45,6 +60,11 @@ export interface SavedTripListItem {
   days: number | null;
   budget: number | null;
   cover_image_url: string | null;
+  source_type: "ai_generated" | "blank_manual" | "explore_import";
+  status: "draft" | "saved" | "archived";
+  trip_preferences_json: Record<string, unknown>;
+  local_draft_id: string | null;
+  last_opened_at: string | null;
   created_at: string;
   updated_at: string;
 }

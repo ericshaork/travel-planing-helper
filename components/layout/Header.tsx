@@ -119,12 +119,6 @@ export function Header({
       </div>
 
       <div className="flex max-w-full items-center gap-3">
-        <Link
-          href="/trips"
-          className="inline-flex min-h-10 items-center rounded-full border border-[var(--line-strong)] bg-[var(--paper)] px-3 py-2 text-sm font-semibold text-[var(--ink)] transition-colors hover:bg-[var(--paper-bright)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)]"
-        >
-          我的行程
-        </Link>
         <p className="text-right text-xs leading-5 text-[var(--ink-muted)] sm:block">
           不卖课，只帮你先想清楚
         </p>

@@ -17,14 +17,17 @@ export function SignOutButton({
 }: SignOutButtonProps) {
   const router = useRouter();
   const [isSigningOut, setIsSigningOut] = useState(false);
+  const [successMessage, setSuccessMessage] = useState<string>();
   const [errorMessage, setErrorMessage] = useState<string>();
 
   async function handleSignOut() {
     setIsSigningOut(true);
+    setSuccessMessage(undefined);
     setErrorMessage(undefined);
 
     try {
       await signOutBrowserSession(createSupabaseBrowserClient());
+      setSuccessMessage("已退出登录。");
       onSignedOut?.();
       router.refresh();
     } catch (error) {
@@ -46,8 +49,13 @@ export function SignOutButton({
         className={className}
         disabled={isSigningOut}
       >
-        {isSigningOut ? "退出中…" : "退出"}
+        {isSigningOut ? "退出中…" : "退出登录"}
       </button>
+      {successMessage ? (
+        <p className="mt-1 text-xs leading-5 text-[var(--sage-deep)]">
+          {successMessage}
+        </p>
+      ) : null}
       {errorMessage ? (
         <p className="mt-1 text-xs leading-5 text-[var(--clay-deep)]">
           {errorMessage}

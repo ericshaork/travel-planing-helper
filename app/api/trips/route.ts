@@ -20,10 +20,27 @@ const saveTripBodySchema = z.object({
     })
     .optional()
     .nullable(),
+  saveMetadata: z
+    .object({
+      sourceType: z
+        .enum(["ai_generated", "blank_manual", "explore_import"])
+        .optional(),
+      status: z.enum(["saved"]).optional(),
+      localDraftId: z.string().trim().min(1).max(120).nullable().optional(),
+    })
+    .optional(),
 });
 
 const listTripsSelectFields =
-  "id,title,destination_city,start_date,end_date,days,budget,cover_image_url,created_at,updated_at";
+  "id,title,destination_city,start_date,end_date,days,budget,cover_image_url,source_type,status,trip_preferences_json,local_draft_id,last_opened_at,created_at,updated_at";
+
+const listTripsQuerySchema = z.object({
+  search: z.string().trim().min(1).max(120).optional(),
+  status: z.enum(["draft", "saved", "archived"]).optional(),
+  source_type: z
+    .enum(["ai_generated", "blank_manual", "explore_import"])
+    .optional(),
+});
 
 function getErrorStatus(error: unknown) {
   if (error instanceof AppError) {
@@ -115,6 +132,7 @@ export function createTripsPostHandler(
           "weatherSummary" in body.tripEnrichment
             ? (body.tripEnrichment as never)
             : null,
+        saveMetadata: body.saveMetadata,
       });
       const { data, error } = await client
         .from("trip_plans")
@@ -164,11 +182,36 @@ export function createTripsGetHandler(
         accessToken,
         createClient,
       );
-      const { data, error } = await client
+      const query = listTripsQuerySchema.parse(
+        Object.fromEntries(new URL(request.url).searchParams.entries()),
+      );
+
+      let builder = client
         .from("trip_plans")
         .select(listTripsSelectFields)
-        .eq("user_id", user.id)
+        .eq("user_id", user.id);
+
+      if (query.status) {
+        builder = builder.eq("status", query.status);
+      }
+
+      if (query.source_type) {
+        builder = builder.eq("source_type", query.source_type);
+      }
+
+      if (query.search) {
+        builder = builder.ilike("title", `%${query.search}%`);
+      }
+
+      const { data, error } = await builder
+        .order("last_opened_at", {
+          ascending: false,
+          nullsFirst: false,
+        })
         .order("updated_at", {
+          ascending: false,
+        })
+        .order("created_at", {
           ascending: false,
         });
 
@@ -187,6 +230,16 @@ export function createTripsGetHandler(
         trips: data ?? [],
       } satisfies ListTripsResponse);
     } catch (error) {
+      if (error instanceof z.ZodError) {
+        return NextResponse.json(
+          listTripsErrorResponse(
+            "LIST_TRIPS_FAILED",
+            "行程筛选条件暂时不完整，请调整后再试。",
+          ),
+          { status: 400 },
+        );
+      }
+
       if (error instanceof AppError && error.code === "UNAUTHORIZED") {
         return NextResponse.json(
           listTripsErrorResponse("UNAUTHORIZED", "请先登录，再来看你保存过的行程。"),

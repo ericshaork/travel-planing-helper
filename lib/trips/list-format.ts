@@ -43,3 +43,11 @@ export function formatSavedTripUpdatedAt(updatedAt: string) {
 
   return normalized.replace("T", " ").slice(0, 16);
 }
+
+export function formatSavedTripLastOpenedAt(lastOpenedAt: string | null) {
+  if (!lastOpenedAt || !lastOpenedAt.trim()) {
+    return "尚未打开";
+  }
+
+  return lastOpenedAt.trim().replace("T", " ").slice(0, 16);
+}

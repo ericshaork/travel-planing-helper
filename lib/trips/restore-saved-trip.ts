@@ -44,6 +44,7 @@ export function restoreSavedTripToStorage(
     {
       sourceType: "saved_trip",
       workspaceModeDefault: "read",
+      localDraftId: input.trip.local_draft_id ?? undefined,
       updatedAt: restoredAt,
     },
     targetStorage,

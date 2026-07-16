@@ -22,10 +22,32 @@ const updateTripBodySchema = z.object({
     })
     .optional()
     .nullable(),
+  saveMetadata: z
+    .object({
+      sourceType: z
+        .enum(["ai_generated", "blank_manual", "explore_import"])
+        .optional(),
+      status: z.enum(["saved"]).optional(),
+      localDraftId: z.string().trim().min(1).max(120).nullable().optional(),
+    })
+    .optional(),
 });
 
+const metadataPatchBodySchema = z
+  .object({
+    title: z.string().trim().min(1).max(120).optional(),
+    status: z.enum(["draft", "saved", "archived"]).optional(),
+    source_type: z.enum(["ai_generated", "blank_manual", "explore_import"]).optional(),
+    trip_preferences_json: z.record(z.string(), z.unknown()).optional(),
+    local_draft_id: z.string().trim().min(1).max(120).nullable().optional(),
+    last_opened_at: z.string().datetime().nullable().optional(),
+  })
+  .refine((value) => Object.values(value).some((field) => field !== undefined), {
+    message: "至少提交一个可更新字段。",
+  });
+
 const tripDetailSelectFields =
-  "id,title,destination_city,start_date,end_date,days,budget,trip_request_json,trip_plan_json,enrichment_json,weather_summary_json,cover_image_url,created_at,updated_at";
+  "id,title,destination_city,start_date,end_date,days,budget,trip_request_json,trip_plan_json,enrichment_json,weather_summary_json,cover_image_url,source_type,status,trip_preferences_json,local_draft_id,last_opened_at,created_at,updated_at";
 
 function getBearerToken(request: Request) {
   const authorizationHeader = request.headers.get("authorization");
@@ -113,7 +135,14 @@ function toSavedTripPayload(
       "weatherSummary" in body.tripEnrichment
         ? (body.tripEnrichment as SaveTripRequestPayload["tripEnrichment"])
         : null,
+    saveMetadata: body.saveMetadata,
   };
+}
+
+function isFullTripUpdateBody(
+  body: unknown,
+): body is z.infer<typeof updateTripBodySchema> {
+  return updateTripBodySchema.safeParse(body).success;
 }
 
 export function createTripDetailGetHandler(
@@ -220,7 +249,7 @@ export function createTripDetailPatchHandler(
         );
       }
 
-      const body = updateTripBodySchema.parse(await request.json());
+      const body = await request.json();
       const { tripId } = await context.params;
       const normalizedTripId = normalizeTripId(tripId);
 
@@ -234,17 +263,58 @@ export function createTripDetailPatchHandler(
         );
       }
 
+      if (isFullTripUpdateBody(body)) {
+        const { client, user } = await resolveAuthenticatedUser(
+          accessToken,
+          createClient,
+        );
+        const updatePayload = buildSavedTripMutation(toSavedTripPayload(body));
+        const { data, error } = await client
+          .from("trip_plans")
+          .update(updatePayload)
+          .eq("id", normalizedTripId)
+          .eq("user_id", user.id)
+          .select("id,updated_at")
+          .maybeSingle();
+
+        if (error) {
+          return NextResponse.json(
+            buildUpdateErrorResponse(
+              "UPDATE_TRIP_FAILED",
+              "暂时更新不了这条已保存计划，请稍后再试。",
+            ),
+            { status: 500 },
+          );
+        }
+
+        if (!data?.id || !data.updated_at) {
+          return NextResponse.json(
+            buildUpdateErrorResponse(
+              "TRIP_NOT_FOUND",
+              "这条已保存计划不存在，或你暂时没有权限更新它。",
+            ),
+            { status: 404 },
+          );
+        }
+
+        return NextResponse.json({
+          ok: true,
+          tripId: data.id,
+          updatedAt: data.updated_at,
+        } satisfies UpdateTripResponse);
+      }
+
+      const metadataPatch = metadataPatchBodySchema.parse(body);
       const { client, user } = await resolveAuthenticatedUser(
         accessToken,
         createClient,
       );
-      const updatePayload = buildSavedTripMutation(toSavedTripPayload(body));
       const { data, error } = await client
         .from("trip_plans")
-        .update(updatePayload)
+        .update(metadataPatch)
         .eq("id", normalizedTripId)
         .eq("user_id", user.id)
-        .select("id,updated_at")
+        .select(tripDetailSelectFields)
         .maybeSingle();
 
       if (error) {
@@ -257,7 +327,7 @@ export function createTripDetailPatchHandler(
         );
       }
 
-      if (!data?.id || !data.updated_at) {
+      if (!data) {
         return NextResponse.json(
           buildUpdateErrorResponse(
             "TRIP_NOT_FOUND",
@@ -269,9 +339,8 @@ export function createTripDetailPatchHandler(
 
       return NextResponse.json({
         ok: true,
-        tripId: data.id,
-        updatedAt: data.updated_at,
-      } satisfies UpdateTripResponse);
+        trip: data,
+      });
     } catch (error) {
       if (error instanceof z.ZodError) {
         return NextResponse.json(

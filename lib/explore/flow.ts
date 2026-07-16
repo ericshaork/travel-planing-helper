@@ -2,10 +2,10 @@ import type { AppRouterInstance } from "next/dist/shared/lib/app-router-context.
 
 import {
   clearTripRequest,
+  ensureWorkspaceSessionMetadata,
   markCurrentTripAsUnsaved,
   saveTripPlan,
   saveTripPlanDraft,
-  setWorkspaceSessionMetadata,
 } from "../trip/storage";
 import { tripPlanSchema } from "../trip/schema";
 import type { DailyItinerary, TripPlan, TripPlanDraft } from "../trip/types";
@@ -145,8 +145,8 @@ export function startExploreWorkspaceFlow(
   });
   saveTripPlan(workspacePlan);
   clearTripRequest();
-  setWorkspaceSessionMetadata({
-    sourceType: "ai_generated",
+  ensureWorkspaceSessionMetadata({
+    sourceType: "explore_import",
     workspaceModeDefault: "read",
   });
   router.push("/workspace");

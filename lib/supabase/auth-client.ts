@@ -107,7 +107,7 @@ export async function getBrowserAccessToken(
   return data.session?.access_token ?? null;
 }
 
-export async function signInWithMagicLink(
+export async function requestLoginLink(
   email: string,
   emailRedirectTo: string,
   client: Pick<SupabaseClient, "auth"> = createSupabaseBrowserClient(),
@@ -134,6 +134,8 @@ export async function signInWithMagicLink(
     email: normalizedEmail,
   };
 }
+
+export const signInWithMagicLink = requestLoginLink;
 
 export async function signOutBrowserSession(
   client: Pick<SupabaseClient, "auth"> = createSupabaseBrowserClient(),

@@ -7,6 +7,7 @@ import {
   AUTH_LOADING_STATE,
   type AuthStatusState,
 } from "../../lib/supabase/auth-client";
+import { buildLoginHref } from "../../lib/trips/save-client";
 
 import { useAuthStatus } from "./useAuthStatus";
 
@@ -34,10 +35,10 @@ export function AuthStatus({
 
   return (
     <Link
-      href={`/login?returnTo=${encodeURIComponent(returnTo)}`}
+      href={buildLoginHref(returnTo)}
       className="inline-flex min-h-10 items-center rounded-full border border-[var(--line-strong)] bg-[var(--paper)] px-3 py-2 text-xs font-semibold text-[var(--ink)] transition-colors hover:bg-[var(--paper-bright)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)] sm:text-sm"
     >
-      {state.status === "loading" ? "检查登录中…" : "登录"}
+      {state.status === "loading" ? "检查登录中…" : "注册 / 登录"}
     </Link>
   );
 }

@@ -18,6 +18,7 @@ export interface GenerateTripInput {
   tripRequest: TripRequest;
   weatherForecast?: WeatherForecast;
   weatherWarning?: string;
+  preferenceSummary?: string;
 }
 
 export interface RegenerateTripInput extends GenerateTripInput {
