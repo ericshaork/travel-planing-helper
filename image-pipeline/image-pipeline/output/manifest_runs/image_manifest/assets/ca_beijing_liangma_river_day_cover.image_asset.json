@@ -1,0 +1,8 @@
+{
+  "asset_id": "ca_beijing_liangma_river",
+  "asset_instance_id": "ca_beijing_liangma_river_day_cover",
+  "image_slot": "day_cover",
+  "source": "hybrid",
+  "file_path": "mock://image-assets/ca_beijing_liangma_river_day_cover.hybrid.jpg",
+  "status": "completed"
+}

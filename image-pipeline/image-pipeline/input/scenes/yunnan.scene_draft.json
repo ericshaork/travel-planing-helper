@@ -1,0 +1,126 @@
+{
+  "city": "Yunnan",
+  "draft_version": "v1",
+  "scenes": [
+    {
+      "scene_id": "YN_SCENE_001",
+      "city": "Yunnan",
+      "scene_name": "Cloud Valley Arrival",
+      "scene_type": "nature",
+      "mood": "misty and expansive",
+      "story_hint": "Yunnan feels like a journey when the first sight is a village appearing through moving valley clouds.",
+      "visual_elements": [
+        "mountain village",
+        "layered clouds",
+        "valley path",
+        "flowered slope",
+        "distant roofs",
+        "pale blue ridges",
+        "lone traveler"
+      ],
+      "avoid": [
+        "lakeside pavilion",
+        "urban street lane",
+        "crowded market",
+        "flat horizon water"
+      ],
+      "why_it_fits_cover": "The depth, cloud movement, and travel path naturally create a strong cover composition."
+    },
+    {
+      "scene_id": "YN_SCENE_002",
+      "city": "Yunnan",
+      "scene_name": "Tea Terrace Morning Walk",
+      "scene_type": "nature",
+      "mood": "clear and refreshing",
+      "story_hint": "The scene turns Yunnan into a tactile landscape experience rather than a generic mountain postcard.",
+      "visual_elements": [
+        "tea terraces",
+        "stone footpath",
+        "tea shrubs",
+        "soft white mist",
+        "green hillside curve",
+        "small shoulder bag on traveler",
+        "distant mountain ridge"
+      ],
+      "avoid": [
+        "pavilion",
+        "boat",
+        "lotus",
+        "dense town square"
+      ],
+      "why_it_fits_cover": "The terraces create graphic rhythm and immediate differentiation from the other cities."
+    },
+    {
+      "scene_id": "YN_SCENE_003",
+      "city": "Yunnan",
+      "scene_name": "Courtyard Flowers and White Walls",
+      "scene_type": "lifestyle",
+      "mood": "warm daily life",
+      "story_hint": "Yunnan can feel intimate through a sunlit courtyard with flowers and handmade texture, not only through grand scenery.",
+      "visual_elements": [
+        "white wall courtyard",
+        "potted flowers",
+        "wooden stool",
+        "woven textile",
+        "sunlit doorway",
+        "low roof line",
+        "mountain glimpse beyond wall"
+      ],
+      "avoid": [
+        "open lake",
+        "giant temple gate",
+        "snow mountain dominance",
+        "tea pavilion by water"
+      ],
+      "why_it_fits_cover": "It keeps Yunnan soft and human-scaled while still preserving regional identity."
+    },
+    {
+      "scene_id": "YN_SCENE_004",
+      "city": "Yunnan",
+      "scene_name": "Ridge Meadow Rest",
+      "scene_type": "slow_moment",
+      "mood": "quiet sunset",
+      "story_hint": "The cover evokes the feeling of stopping above the valley as the light softens and the trip turns inward.",
+      "visual_elements": [
+        "meadow flowers",
+        "ridge path",
+        "low sitting stone",
+        "receding hills",
+        "drifting mist",
+        "soft sunset clouds",
+        "tiny village lights below"
+      ],
+      "avoid": [
+        "crowded festival scene",
+        "urban alley",
+        "market table",
+        "lotus and pavilion set"
+      ],
+      "why_it_fits_cover": "It gives a clean horizon and emotional stillness that suits Explore's aspirational mood."
+    },
+    {
+      "scene_id": "YN_SCENE_005",
+      "city": "Yunnan",
+      "scene_name": "Old Town Morning Textiles",
+      "scene_type": "cultural_moment",
+      "mood": "gentle market morning",
+      "story_hint": "Yunnan's craft atmosphere can carry a cover when framed through cloth, wood, and soft early light.",
+      "visual_elements": [
+        "hanging textiles",
+        "timber eaves",
+        "narrow old-town lane",
+        "woven basket",
+        "soft mountain light",
+        "open stall table",
+        "flower pot at doorway"
+      ],
+      "avoid": [
+        "giant tourist arch",
+        "packed crowd",
+        "open lake water",
+        "hot-pot dining scene"
+      ],
+      "why_it_fits_cover": "It adds a culture-forward option that still remains calm, readable, and watercolor-friendly."
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "city": "Yunnan",
+  "scenes": [
+    {
+      "name": "Cloud Valley Arrival",
+      "mood": "clear mountain morning",
+      "visual_elements": [
+        "mountain village",
+        "layered clouds",
+        "flower slope",
+        "valley path"
+      ]
+    },
+    {
+      "name": "Terrace Village Noon",
+      "mood": "open midday calm",
+      "visual_elements": [
+        "terraced hillside",
+        "wooden houses",
+        "bright cloud light",
+        "wildflowers"
+      ]
+    },
+    {
+      "name": "Evening Ridge Rest",
+      "mood": "quiet sunset",
+      "visual_elements": [
+        "ridge lookout",
+        "soft mist",
+        "village lights",
+        "flower meadow"
+      ]
+    }
+  ]
+}

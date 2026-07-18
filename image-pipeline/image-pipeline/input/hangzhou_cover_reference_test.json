@@ -1,0 +1,53 @@
+{
+  "document_type": "travel_plan",
+  "document_version": "2.0.0",
+  "trip_id": "hangzhou_cover_reference_test",
+  "title": "Hangzhou West Lake Reference Cover",
+  "locale": "en-US",
+  "destination": {
+    "city": "Hangzhou",
+    "region": "Zhejiang",
+    "country": "China"
+  },
+  "audience": [
+    "solo traveler",
+    "quiet aesthetic seekers"
+  ],
+  "travel_concept": [
+    "west lake stillness",
+    "poetic wandering",
+    "private journal mood"
+  ],
+  "semantic_version": "phase3-cover-reference-v1",
+  "entities": [
+    {
+      "asset_role": "cover",
+      "entity_type": "trip",
+      "entity_id": "trip_hangzhou_cover_reference_test",
+      "entity_ref": "trip://hangzhou_cover_reference_test",
+      "title": "Hangzhou West Lake Reference Cover",
+      "summary": "A quiet West Lake editorial cover with broad water and sky, one restrained focal scene, and a private watercolor travel journal atmosphere.",
+      "tags": [
+        "hangzhou",
+        "west lake",
+        "reference cover",
+        "watercolor"
+      ],
+      "location": {
+        "name": "West Lake",
+        "city": "Hangzhou",
+        "region": "Zhejiang",
+        "country": "China"
+      },
+      "style_reference": {
+        "images": [
+          {
+            "path": "assets/style_reference/lake-card.png",
+            "purpose": "cover_visual_style_reference"
+          }
+        ]
+      },
+      "variants_requested": 1
+    }
+  ]
+}

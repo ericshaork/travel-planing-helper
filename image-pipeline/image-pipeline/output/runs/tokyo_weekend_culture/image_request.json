@@ -1,0 +1,317 @@
+{
+  "schema_version": "1.0.0",
+  "request_id": "imgreq_tokyo_weekend_culture",
+  "request_label": "Tokyo Weekend of Streets, Food, and Slow Evenings",
+  "source_document": {
+    "document_type": "travel_plan",
+    "document_id": "tokyo_weekend_culture",
+    "document_version": "2.0.0",
+    "source_ref": "C:\\Users\\10200\\Desktop\\image-pipeline\\image-pipeline\\input\\abstract_plan.example.json",
+    "locale": "en-US"
+  },
+  "global_context": {
+    "destination": {
+      "city": "Tokyo",
+      "region": "Kanto",
+      "country": "Japan"
+    },
+    "audience": [
+      "couple",
+      "culture_seekers"
+    ],
+    "themes": [
+      "street culture",
+      "slow travel",
+      "food discovery"
+    ],
+    "style_direction": [],
+    "content_warnings": []
+  },
+  "asset_requests": [
+    {
+      "asset_request_id": "assetreq_trip_tokyo_weekend_culture",
+      "asset_role": "cover",
+      "subject": {
+        "entity_type": "trip",
+        "entity_id": "trip_tokyo_weekend_culture",
+        "entity_ref": "trip://tokyo_weekend_culture",
+        "title": "Tokyo Weekend of Streets, Food, and Slow Evenings",
+        "summary": "A warm editorial overview of Tokyo neighborhoods, food, and reflective city moments.",
+        "tags": [
+          "tokyo",
+          "editorial",
+          "weekend"
+        ],
+        "location": {
+          "name": "Tokyo",
+          "city": "Tokyo",
+          "region": "Kanto",
+          "country": "Japan"
+        }
+      },
+      "usage": [
+        "card",
+        "detail_header",
+        "social_share"
+      ],
+      "visual_intent": {
+        "style_family": "editorial_travel",
+        "style_keywords": [
+          "watercolor",
+          "hand drawn",
+          "collage",
+          "vintage travel poster",
+          "oriental travel aesthetic"
+        ],
+        "mood_keywords": [
+          "inviting",
+          "narrative",
+          "collectible"
+        ],
+        "authenticity_level": "illustrative",
+        "must_include": [],
+        "avoid": [],
+        "cultural_notes": []
+      },
+      "composition_hints": [],
+      "output_spec": {
+        "aspect_ratio": "4:5",
+        "orientation": "portrait",
+        "min_width": 1080,
+        "min_height": 1350,
+        "transparent_background": false
+      },
+      "priority": 1,
+      "variants_requested": 1,
+      "metadata": {
+        "source_object_type": "trip"
+      }
+    },
+    {
+      "asset_request_id": "assetreq_sensoji_temple",
+      "asset_role": "place",
+      "subject": {
+        "entity_type": "poi_entity",
+        "entity_id": "sensoji_temple",
+        "entity_ref": "poi://sensoji_temple",
+        "title": "Senso-ji Temple",
+        "summary": "Historic temple grounds with lantern-lined approaches and dense cultural detail.",
+        "tags": [
+          "temple",
+          "heritage"
+        ],
+        "location": {
+          "name": "Senso-ji Temple",
+          "city": "Tokyo",
+          "country": "Japan"
+        }
+      },
+      "usage": [
+        "gallery",
+        "section_inline"
+      ],
+      "visual_intent": {
+        "style_family": "place_identity",
+        "style_keywords": [
+          "realistic photography",
+          "location identity",
+          "cultural detail"
+        ],
+        "mood_keywords": [
+          "authentic",
+          "place-first"
+        ],
+        "authenticity_level": "photoreal",
+        "must_include": [],
+        "avoid": [],
+        "cultural_notes": [
+          "highlight temple approach atmosphere",
+          "avoid generic skyline framing"
+        ]
+      },
+      "composition_hints": [],
+      "output_spec": {
+        "aspect_ratio": "3:2",
+        "orientation": "landscape",
+        "min_width": 1440,
+        "min_height": 960,
+        "transparent_background": false
+      },
+      "priority": 2,
+      "variants_requested": 1,
+      "metadata": {
+        "source_object_type": "poi_entity"
+      }
+    },
+    {
+      "asset_request_id": "assetreq_monjayaki_dinner",
+      "asset_role": "food",
+      "subject": {
+        "entity_type": "food_entity",
+        "entity_id": "monjayaki_dinner",
+        "entity_ref": "food://monjayaki_dinner",
+        "title": "Monjayaki Dinner",
+        "summary": "Local griddle dining with warmth, texture, and casual group atmosphere.",
+        "tags": [
+          "local food",
+          "dinner"
+        ],
+        "location": {
+          "name": "Tsukishima",
+          "city": "Tokyo",
+          "country": "Japan"
+        }
+      },
+      "usage": [
+        "section_inline",
+        "gallery"
+      ],
+      "visual_intent": {
+        "style_family": "food_story",
+        "style_keywords": [
+          "professional food photography",
+          "regional culture",
+          "atmosphere"
+        ],
+        "mood_keywords": [
+          "appetizing",
+          "warm",
+          "local"
+        ],
+        "authenticity_level": "photoreal",
+        "must_include": [],
+        "avoid": [],
+        "cultural_notes": []
+      },
+      "composition_hints": [],
+      "output_spec": {
+        "aspect_ratio": "4:5",
+        "orientation": "portrait",
+        "min_width": 1080,
+        "min_height": 1350,
+        "transparent_background": false
+      },
+      "priority": 3,
+      "variants_requested": 1,
+      "metadata": {
+        "source_object_type": "food_entity"
+      }
+    },
+    {
+      "asset_request_id": "assetreq_day1_evening_walk",
+      "asset_role": "scene",
+      "subject": {
+        "entity_type": "scene_unit",
+        "entity_id": "day1_evening_walk",
+        "entity_ref": "scene://day1_evening_walk",
+        "title": "Evening Walk Through Lantern Streets",
+        "summary": "A transitional evening atmosphere with glowing signs, pedestrians, and unhurried motion.",
+        "tags": [],
+        "time_context": {
+          "day_index": 1,
+          "part_of_day": "evening"
+        },
+        "location": {
+          "name": "Asakusa Side Streets",
+          "city": "Tokyo",
+          "country": "Japan"
+        }
+      },
+      "usage": [
+        "day_block",
+        "section_inline"
+      ],
+      "visual_intent": {
+        "style_family": "scene_diary",
+        "style_keywords": [
+          "travel diary",
+          "emotional atmosphere",
+          "daily moment"
+        ],
+        "mood_keywords": [
+          "immersive",
+          "temporal",
+          "reflective"
+        ],
+        "authenticity_level": "stylized_real",
+        "must_include": [],
+        "avoid": [],
+        "cultural_notes": []
+      },
+      "composition_hints": [],
+      "output_spec": {
+        "aspect_ratio": "16:9",
+        "orientation": "landscape",
+        "min_width": 1600,
+        "min_height": 900,
+        "transparent_background": false
+      },
+      "priority": 3,
+      "variants_requested": 1,
+      "metadata": {
+        "source_object_type": "scene_unit"
+      }
+    },
+    {
+      "asset_request_id": "assetreq_river_walk_reflection",
+      "asset_role": "experience",
+      "subject": {
+        "entity_type": "experience_entity",
+        "entity_id": "river_walk_reflection",
+        "entity_ref": "experience://river_walk_reflection",
+        "title": "Sumida River Reflection Walk",
+        "summary": "A quiet riverside moment centered on participation, movement, and memory.",
+        "tags": [],
+        "time_context": {
+          "day_index": 1,
+          "part_of_day": "sunset"
+        },
+        "location": {
+          "name": "Sumida River",
+          "city": "Tokyo",
+          "country": "Japan"
+        }
+      },
+      "usage": [
+        "section_inline",
+        "gallery"
+      ],
+      "visual_intent": {
+        "style_family": "experience_memory",
+        "style_keywords": [
+          "immersive",
+          "human activity",
+          "memory"
+        ],
+        "mood_keywords": [
+          "participatory",
+          "sensory",
+          "intimate"
+        ],
+        "authenticity_level": "stylized_real",
+        "must_include": [],
+        "avoid": [],
+        "cultural_notes": []
+      },
+      "composition_hints": [],
+      "output_spec": {
+        "aspect_ratio": "3:2",
+        "orientation": "landscape",
+        "min_width": 1440,
+        "min_height": 960,
+        "transparent_background": false
+      },
+      "priority": 4,
+      "variants_requested": 1,
+      "metadata": {
+        "source_object_type": "experience_entity"
+      }
+    }
+  ],
+  "requested_at": "1970-01-01T00:00:00.000Z",
+  "metadata": {
+    "trip_id": "tokyo_weekend_culture",
+    "builder_version": "phase1-request-builder-skeleton",
+    "source_semantics_version": "phase1-abstract-plan-v1"
+  }
+}

@@ -1,0 +1,279 @@
+{
+  "city_id": "chengdu",
+  "city_name": {
+    "zh": "成都",
+    "en": "Chengdu"
+  },
+  "province": {
+    "zh": "四川",
+    "en": "Sichuan"
+  },
+  "country": {
+    "zh": "中国",
+    "en": "China"
+  },
+  "identity": {
+    "identity_keywords": [
+      {
+        "zh": "四川盆地城市",
+        "en": "sichuan basin city"
+      },
+      {
+        "zh": "慢节奏都市",
+        "en": "slow urban rhythm"
+      },
+      {
+        "zh": "河流与街巷并存的生活感",
+        "en": "river-and-lane lifestyle"
+      },
+      {
+        "zh": "烟火食物与温柔邻里感",
+        "en": "food heat and neighborhood softness"
+      },
+      {
+        "zh": "川西文化入口城市",
+        "en": "western sichuan cultural threshold"
+      }
+    ],
+    "visual_character": [
+      {
+        "zh": "大片法桐树荫",
+        "en": "broad plane-tree shade"
+      },
+      {
+        "zh": "蓝灰砖院与潮湿光线",
+        "en": "blue-gray courtyard textures"
+      },
+      {
+        "zh": "城市内部的河岸平静感",
+        "en": "river-edge calm within the city"
+      },
+      {
+        "zh": "砖墙与灰泥上的柔湿空气",
+        "en": "soft humid light on brick and plaster"
+      },
+      {
+        "zh": "低调但有人情味的日常场景",
+        "en": "daily-life scenes with low-key human warmth"
+      }
+    ]
+  },
+  "visual_assets": {
+    "landmarks": [
+      {
+        "name_zh": "宽窄巷子空间节奏",
+        "name_en": "Kuanzhai Alley spatial rhythm",
+        "visual_description_zh": "连续街巷尺度、灰墙木檐和步行视线延伸",
+        "visual_description_en": "layered alley proportions, gray walls, timber eaves, and long pedestrian sightlines"
+      },
+      {
+        "name_zh": "锦江水岸",
+        "name_en": "Jinjiang riverside edges",
+        "visual_description_zh": "缓慢河水、树影岸线和低矮城市界面",
+        "visual_description_en": "slow river surfaces, shaded embankments, and low-rise urban edges"
+      },
+      {
+        "name_zh": "望江河岸绿意",
+        "name_en": "Wangjiang river greenery",
+        "visual_description_zh": "大片绿树、安静步道和柔和滨水层次",
+        "visual_description_en": "broad greenery, calm walkways, and soft riverside layering"
+      },
+      {
+        "name_zh": "青城山林道入口",
+        "name_en": "Qingcheng Mountain forest approach",
+        "visual_description_zh": "湿润山林、石阶、树影和低雾环境",
+        "visual_description_en": "humid forest approaches with stone steps, tree shade, and low fog"
+      },
+      {
+        "name_zh": "老城院落群",
+        "name_en": "old-city courtyard compounds",
+        "visual_description_zh": "院门、砖墙、木窗和层层递进的住宅空间",
+        "visual_description_en": "courtyard gates, brick walls, timber windows, and layered residential depth"
+      }
+    ],
+    "architecture": [
+      {
+        "name_zh": "川西院落民居",
+        "name_en": "sichuan courtyard houses",
+        "visual_description_zh": "围合院落、木柱、灰墙和内向空间感",
+        "visual_description_en": "enclosed courtyards, timber posts, gray walls, and inward-facing domestic space"
+      },
+      {
+        "name_zh": "蓝灰砖墙",
+        "name_en": "blue-gray brick walls",
+        "visual_description_zh": "沉静的砖色、微湿质感和低对比度墙面",
+        "visual_description_en": "muted blue-gray masonry with damp texture and low-contrast surfaces"
+      },
+      {
+        "name_zh": "木檐与木窗",
+        "name_en": "timber eaves and shutters",
+        "visual_description_zh": "深色木构、水平屋檐线和旧式开窗细节",
+        "visual_description_en": "dark timber framing, horizontal eave lines, and traditional window details"
+      },
+      {
+        "name_zh": "树荫石巷",
+        "name_en": "shaded stone lanes",
+        "visual_description_zh": "树影覆盖的窄巷、石板地面和低饱和街景",
+        "visual_description_en": "narrow shaded lanes with stone paving and low-saturation street rhythm"
+      },
+      {
+        "name_zh": "临水低层城市立面",
+        "name_en": "waterside low-rise urban facades",
+        "visual_description_zh": "靠近河道的低层屋面、退让步道和安静水边界面",
+        "visual_description_en": "low-rise facades near water with setback walkways and quiet riverside edges"
+      }
+    ],
+    "food": [
+      {
+        "name_zh": "火锅食材与铜锅蒸汽",
+        "name_en": "hot pot ingredients and copper pot steam",
+        "visual_description_zh": "铜锅、辣椒油红色、薄雾蒸汽和围桌热感",
+        "visual_description_en": "copper pot, chili-red tones, rising steam haze, and warm communal table energy"
+      },
+      {
+        "name_zh": "巷口面摊",
+        "name_en": "noodle alley counters",
+        "visual_description_zh": "狭窄操作台、面碗、蒸汽和清晨路边烟火",
+        "visual_description_en": "narrow noodle counters, stacked bowls, steam, and early street-side warmth"
+      },
+      {
+        "name_zh": "麻婆豆腐色调",
+        "name_en": "mapo tofu color palette",
+        "visual_description_zh": "红油、豆腐白、青葱点缀和热气表面",
+        "visual_description_en": "red chili oil, soft tofu white, green garnish, and heat-swept surfaces"
+      },
+      {
+        "name_zh": "辣油陶罐",
+        "name_en": "red chili oil jars",
+        "visual_description_zh": "陶罐、深红油面和厚重厨房感",
+        "visual_description_en": "ceramic jars, deep red oil surfaces, and grounded kitchen texture"
+      },
+      {
+        "name_zh": "市场蒸笼与蔬菜摊",
+        "name_en": "market produce and bamboo steamers",
+        "visual_description_zh": "竹蒸笼、青菜、清晨光线和市井摊位节奏",
+        "visual_description_en": "bamboo steamers, greens, early light, and neighborhood market rhythm"
+      }
+    ],
+    "craft_and_culture": [
+      {
+        "name_zh": "川剧脸谱意象",
+        "name_en": "Sichuan opera face-painting motifs",
+        "visual_description_zh": "强烈色块、戏曲纹样和局部戏剧张力",
+        "visual_description_en": "bold color blocks, opera motifs, and concentrated dramatic detail"
+      },
+      {
+        "name_zh": "蜀绣织物",
+        "name_en": "embroidered textiles",
+        "visual_description_zh": "细密针脚、丝线光泽和柔软布面层次",
+        "visual_description_en": "fine needlework, thread sheen, and soft layered textile surfaces"
+      },
+      {
+        "name_zh": "麻将桌文化",
+        "name_en": "mahjong table culture",
+        "visual_description_zh": "绿色桌面、小方牌和邻里聚会感",
+        "visual_description_en": "green tabletops, small tile geometry, and neighborhood gathering atmosphere"
+      },
+      {
+        "name_zh": "竹编器物",
+        "name_en": "bamboo craft objects",
+        "visual_description_zh": "浅色竹条、编织纹理和轻巧手工感",
+        "visual_description_en": "pale bamboo strips, woven patterns, and light handcraft texture"
+      },
+      {
+        "name_zh": "纸墨日常文气",
+        "name_en": "ink-and-paper everyday literary atmosphere",
+        "visual_description_zh": "纸页、笔记、旧书和柔和书写氛围",
+        "visual_description_en": "paper textures, notebooks, old books, and a soft literary writing mood"
+      }
+    ],
+    "nature": [
+      {
+        "name_zh": "青城山杉林步道",
+        "name_en": "Qingcheng Mountain cedar trails",
+        "visual_description_zh": "杉林纵向节奏、湿石台阶和山林雾气",
+        "visual_description_en": "cedar-trail vertical rhythm, damp stone steps, and soft mountain fog"
+      },
+      {
+        "name_zh": "盆地湿润绿意",
+        "name_en": "humid basin greenery",
+        "visual_description_zh": "浓密绿色、湿空气和低山缓坡环境",
+        "visual_description_en": "dense greenery, humid air, and low rolling foothill environments"
+      },
+      {
+        "name_zh": "河岸竹影",
+        "name_en": "riverbank bamboo shadows",
+        "visual_description_zh": "水边竹影、细长叶片和斑驳倒影",
+        "visual_description_en": "river-edge bamboo shadows, slender leaves, and broken reflections"
+      },
+      {
+        "name_zh": "雨后青苔石阶",
+        "name_en": "mossy steps after rain",
+        "visual_description_zh": "石阶青苔、潮湿地面和雨后凉意",
+        "visual_description_en": "mossy stone steps, damp surfaces, and cool post-rain atmosphere"
+      },
+      {
+        "name_zh": "低山林雾",
+        "name_en": "soft fog in low hill forests",
+        "visual_description_zh": "缓坡山林、低雾和不夸张的自然深度",
+        "visual_description_en": "soft fog moving through low hill forests with gentle, non-alpine depth"
+      }
+    ]
+  },
+  "generation_constraints": {
+    "must_include_when_relevant": [
+      {
+        "zh": "食物场景应有明显川味热度或食材识别，而不是泛化餐桌",
+        "en": "food scenes should show recognizable Sichuan heat or ingredient identity instead of generic dining"
+      },
+      {
+        "zh": "建筑场景应保留院落、砖墙和树荫街巷的成都结构",
+        "en": "architecture scenes should preserve courtyard, brick, and shaded lane characteristics"
+      },
+      {
+        "zh": "自然场景应是湿润低山林地，而不是茶山或高海拔雪山景观",
+        "en": "nature scenes should feel like wet low-mountain forest rather than tea terraces or alpine views"
+      }
+    ],
+    "avoid_generic_patterns": [
+      {
+        "zh": "不要把成都退化成只有茶馆的城市意象",
+        "en": "do not reduce Chengdu to teahouse-only imagery"
+      },
+      {
+        "zh": "除非明确需要，不要默认使用熊猫作为城市捷径",
+        "en": "avoid using pandas as default shorthand unless explicitly requested"
+      },
+      {
+        "zh": "避免让每一张成都封面都变成围桌喝茶的相似画面",
+        "en": "avoid turning every Chengdu cover into a seated tea-table scene"
+      }
+    ]
+  },
+  "editorial_notes": {
+    "cover_bias": [
+      {
+        "zh": "成都封面适合在城市温度和一个清晰主体之间取得平衡",
+        "en": "Chengdu covers benefit from balancing lived urban warmth with one visually legible subject"
+      },
+      {
+        "zh": "河岸、院落、食物手艺和树荫街巷比重复茶馆更能扩展城市封面语言",
+        "en": "river edges, courtyards, food craft, and shaded streets are better diversifiers than repeated tea scenes"
+      }
+    ],
+    "scene_balance_notes": [
+      {
+        "zh": "茶相关封面控制在一到两种以内",
+        "en": "limit tea-related chapter covers to one or two variants at most"
+      },
+      {
+        "zh": "优先把城市水系、建筑、食物和山林逃逸路线拉开",
+        "en": "push city water, architecture, food, and forest escape to keep the city visually broad"
+      }
+    ]
+  },
+  "metadata": {
+    "version": "v2",
+    "source_type": "manual_curated_bilingual"
+  }
+}

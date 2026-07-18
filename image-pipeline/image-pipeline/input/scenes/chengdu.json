@@ -1,0 +1,35 @@
+{
+  "city": "Chengdu",
+  "scenes": [
+    {
+      "name": "Morning Alley Tea Setup",
+      "mood": "fresh morning",
+      "visual_elements": [
+        "stone alley",
+        "bamboo chair",
+        "tea tray",
+        "tree shade"
+      ]
+    },
+    {
+      "name": "Courtyard Teahouse Pause",
+      "mood": "slow afternoon",
+      "visual_elements": [
+        "courtyard table",
+        "tea steam",
+        "old wooden facade",
+        "dappled sunlight"
+      ]
+    },
+    {
+      "name": "Neighborhood Tea Gathering",
+      "mood": "warm social hour",
+      "visual_elements": [
+        "locals chatting",
+        "low teaware",
+        "leafy lane",
+        "soft golden light"
+      ]
+    }
+  ]
+}

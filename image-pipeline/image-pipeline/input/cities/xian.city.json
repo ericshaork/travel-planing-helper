@@ -1,0 +1,279 @@
+{
+  "city_id": "xian",
+  "city_name": {
+    "zh": "西安",
+    "en": "Xi'an"
+  },
+  "province": {
+    "zh": "陕西",
+    "en": "Shaanxi"
+  },
+  "country": {
+    "zh": "中国",
+    "en": "China"
+  },
+  "identity": {
+    "identity_keywords": [
+      {
+        "zh": "古都",
+        "en": "ancient capital"
+      },
+      {
+        "zh": "大唐文化城市",
+        "en": "tang heritage city"
+      },
+      {
+        "zh": "城防历史肌理",
+        "en": "fortified urban history"
+      },
+      {
+        "zh": "丝绸之路门户",
+        "en": "silk road gateway"
+      },
+      {
+        "zh": "西北厚重土色气质",
+        "en": "northwestern earth-tone grandeur"
+      }
+    ],
+    "visual_character": [
+      {
+        "zh": "宽阔城墙轮廓",
+        "en": "broad city-wall silhouettes"
+      },
+      {
+        "zh": "灰砖与黄土暖调",
+        "en": "warm loess and gray brick tones"
+      },
+      {
+        "zh": "轴线感强的历史空间",
+        "en": "ceremonial axial perspectives"
+      },
+      {
+        "zh": "拱门街道中的密集市井纹理",
+        "en": "dense market texture under arched streets"
+      },
+      {
+        "zh": "沉稳厚重的历史体量感",
+        "en": "historical depth with grounded material weight"
+      }
+    ]
+  },
+  "visual_assets": {
+    "landmarks": [
+      {
+        "name_zh": "西安城墙",
+        "name_en": "Xi'an City Wall",
+        "visual_description_zh": "宽厚城墙、城门体量、砖石质感和线性延展",
+        "visual_description_en": "broad fortified walls, gate massing, brick-and-stone texture, and long linear extension"
+      },
+      {
+        "name_zh": "钟楼体量",
+        "name_en": "Bell Tower massing",
+        "visual_description_zh": "重檐木楼、中心广场位置和对称结构感",
+        "visual_description_en": "tiered timber tower massing with central placement and strong structural symmetry"
+      },
+      {
+        "name_zh": "鼓楼轮廓",
+        "name_en": "Drum Tower profile",
+        "visual_description_zh": "高台、檐口和厚重历史建筑比例",
+        "visual_description_en": "raised platform, layered eaves, and weighty historical proportions"
+      },
+      {
+        "name_zh": "兵马俑人物群",
+        "name_en": "Terracotta Army figures",
+        "visual_description_zh": "陶俑队列、土色材质和沉默雕塑感",
+        "visual_description_en": "terracotta figure formations, earthen surfaces, and still sculptural gravity"
+      },
+      {
+        "name_zh": "大唐式礼制大道",
+        "name_en": "Tang-style ceremonial avenues",
+        "visual_description_zh": "宽直道路、仪式性空间和古都轴线尺度",
+        "visual_description_en": "broad straight avenues, ceremonial spatial rhythm, and imperial axial scale"
+      }
+    ],
+    "architecture": [
+      {
+        "name_zh": "灰砖城防墙体",
+        "name_en": "fortified gray brick walls",
+        "visual_description_zh": "厚重砖面、开阔墙体和古城防御感",
+        "visual_description_en": "massive gray brick surfaces with defensive scale and grounded urban presence"
+      },
+      {
+        "name_zh": "拱门城门通道",
+        "name_en": "arched gate passages",
+        "visual_description_zh": "深拱洞口、城门阴影和历史穿行感",
+        "visual_description_en": "deep arched passageways with gate shadow and historical transition"
+      },
+      {
+        "name_zh": "木构楼阁檐口",
+        "name_en": "timber tower eaves",
+        "visual_description_zh": "深色木构、上扬檐线和礼制建筑细节",
+        "visual_description_en": "dark timber structure, lifted eave lines, and ceremonial architectural detailing"
+      },
+      {
+        "name_zh": "老城区院落屋顶",
+        "name_en": "courtyard roofs in the old quarter",
+        "visual_description_zh": "连续屋脊、低矮院落和历史生活肌理",
+        "visual_description_en": "continuous roof ridges, low courtyard compounds, and old-quarter domestic texture"
+      },
+      {
+        "name_zh": "回民街巷立面",
+        "name_en": "muslim quarter alley facades",
+        "visual_description_zh": "密集店招、木门面和有层次的老街界面",
+        "visual_description_en": "dense old-street facades, timber shopfronts, and layered muslim-quarter street edges"
+      }
+    ],
+    "food": [
+      {
+        "name_zh": "biangbiang 面",
+        "name_en": "biangbiang noodle ribbons",
+        "visual_description_zh": "宽厚手工面带、红油点缀和有力量的食物线条",
+        "visual_description_en": "broad hand-pulled noodle ribbons with chili accents and strong graphic movement"
+      },
+      {
+        "name_zh": "肉夹馍",
+        "name_en": "roujiamo layers",
+        "visual_description_zh": "烤馍外壳、夹肉纹理和手持食物感",
+        "visual_description_en": "toasted bread crust, layered meat filling, and tactile hand-held form"
+      },
+      {
+        "name_zh": "羊肉泡馍",
+        "name_en": "yangrou paomo bread bowls",
+        "visual_description_zh": "白碗、掰馍颗粒和温热汤面质感",
+        "visual_description_en": "white bowls, torn bread texture, and warm broth surfaces"
+      },
+      {
+        "name_zh": "柿子饼",
+        "name_en": "persimmon cakes",
+        "visual_description_zh": "金黄表面、平整小饼和温暖甜点色调",
+        "visual_description_en": "golden cake surfaces, round pastry forms, and warm dessert tones"
+      },
+      {
+        "name_zh": "街头香料与烤串",
+        "name_en": "street skewers and spice displays",
+        "visual_description_zh": "木签、孜然粉色调和夜市烟火质感",
+        "visual_description_en": "wood skewers, cumin-spice palettes, and grounded street-food heat"
+      }
+    ],
+    "craft_and_culture": [
+      {
+        "name_zh": "大唐服饰与纹样",
+        "name_en": "Tang costume and ornament references",
+        "visual_description_zh": "宽袖、华丽纹样、发饰和盛唐礼制视觉",
+        "visual_description_en": "wide sleeves, rich ornament motifs, hair accessories, and Tang ceremonial styling"
+      },
+      {
+        "name_zh": "皮影戏",
+        "name_en": "shadow puppetry",
+        "visual_description_zh": "镂空人物、透光材质和侧向戏剧轮廓",
+        "visual_description_en": "cutout puppet figures, translucent materials, and side-lit theatrical silhouettes"
+      },
+      {
+        "name_zh": "碑拓与书法气息",
+        "name_en": "calligraphy stone-rubbing atmosphere",
+        "visual_description_zh": "纸张、墨迹、碑石和历史文脉手感",
+        "visual_description_en": "paper textures, black ink traces, stone-rubbing surfaces, and scholarly historical tactility"
+      },
+      {
+        "name_zh": "鼓乐礼仪器物",
+        "name_en": "traditional drum and ritual performance objects",
+        "visual_description_zh": "鼓面、木架和古都礼仪表演的仪式感",
+        "visual_description_en": "drum skins, timber frames, and ritual-performance ceremonial weight"
+      },
+      {
+        "name_zh": "回民街饼食手艺",
+        "name_en": "muslim quarter bread-making craft",
+        "visual_description_zh": "面案、炉火和手工饼食制作动作",
+        "visual_description_en": "dough boards, oven heat, and visible handcraft bread-making gestures"
+      }
+    ],
+    "nature": [
+      {
+        "name_zh": "寺院银杏古树",
+        "name_en": "ancient ginkgo trees in temple courtyards",
+        "visual_description_zh": "高大银杏、金黄叶色和古院静谧感",
+        "visual_description_en": "tall ancient ginkgo trees, golden foliage, and quiet temple-courtyard stillness"
+      },
+      {
+        "name_zh": "秋日城墙干燥光线",
+        "name_en": "autumn dry light over city walls",
+        "visual_description_zh": "干净秋光、低饱和空气和砖墙暖调",
+        "visual_description_en": "dry autumn light, low-humidity clarity, and warm-toned wall surfaces"
+      },
+      {
+        "name_zh": "黄土边缘地貌",
+        "name_en": "loess-toned outskirts",
+        "visual_description_zh": "黄土色地面、稀疏植被和西北边缘感",
+        "visual_description_en": "loess-toned ground, sparse vegetation, and a northwestern peripheral landscape feel"
+      },
+      {
+        "name_zh": "秦岭远山",
+        "name_en": "Qinling foothill distance",
+        "visual_description_zh": "远处山线、浅蓝灰色调和古都之外的自然背景",
+        "visual_description_en": "distant Qinling foothills with pale blue-gray layering beyond the city"
+      },
+      {
+        "name_zh": "冬季尘雾天空",
+        "name_en": "dust-softened winter sky",
+        "visual_description_zh": "略带尘感的冬季天空、柔化光线和历史城市氛围",
+        "visual_description_en": "dust-softened winter sky with muted light and a grounded historical atmosphere"
+      }
+    ]
+  },
+  "generation_constraints": {
+    "must_include_when_relevant": [
+      {
+        "zh": "古都场景应体现城防尺度、轴线感或唐代物质线索",
+        "en": "ancient-capital scenes should show fortified scale, axial depth, or Tang-era material cues"
+      },
+      {
+        "zh": "食物场景应明显体现陕西地方食物身份，而不是泛化中国街头小吃",
+        "en": "food scenes should feel Shaanxi-specific rather than generic Chinese street food"
+      },
+      {
+        "zh": "历史场景应以砖石、土色和厚重材料感为主，而不是光鲜的幻想宫殿画法",
+        "en": "historical scenes should use grounded brick, stone, or earthen tones instead of glossy fantasy grandeur"
+      }
+    ],
+    "avoid_generic_patterns": [
+      {
+        "zh": "不要把西安压缩成单一钟楼明信片",
+        "en": "do not reduce Xi'an to one bell tower postcard"
+      },
+      {
+        "zh": "避免把所有场景都画成泛化古风宫殿幻想图",
+        "en": "avoid turning all scenes into generic ancient-Chinese palace fantasy"
+      },
+      {
+        "zh": "除非场景确实相关，避免过度滥用兵马俑形象",
+        "en": "avoid overusing Terracotta Army figures outside explicitly relevant historical compositions"
+      }
+    ]
+  },
+  "editorial_notes": {
+    "cover_bias": [
+      {
+        "zh": "西安封面适合在历史重量感和一个清晰主体之间找到平衡",
+        "en": "Xi'an works well when historical weight is paired with one readable subject and strong geometry"
+      },
+      {
+        "zh": "食物手艺和回民街生活纹理可以中和过于宏大的古都封面方向",
+        "en": "food craft and muslim-quarter street texture can counterbalance overly monumental cover directions"
+      }
+    ],
+    "scene_balance_notes": [
+      {
+        "zh": "在城墙与古都礼制之外，也要保留老城生活和食物工艺方向",
+        "en": "balance fortified history with lived old-city atmosphere"
+      },
+      {
+        "zh": "礼制与历史大场景控制在一到两种，其余应分散到街巷、食物、手艺和院落",
+        "en": "use only one or two highly ceremonial scenes, then diversify with street, food, craft, and courtyard directions"
+      }
+    ]
+  },
+  "metadata": {
+    "version": "v2",
+    "source_type": "manual_curated_bilingual"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "asset_id": "ca_beijing_gulou",
+  "image_slot": "poi_gallery",
+  "source": "hybrid",
+  "file_path": "mock://image-assets/ca_beijing_gulou.hybrid.jpg",
+  "status": "completed"
+}

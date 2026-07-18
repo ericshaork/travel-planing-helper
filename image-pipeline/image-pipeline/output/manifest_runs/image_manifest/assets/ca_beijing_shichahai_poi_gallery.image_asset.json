@@ -1,0 +1,8 @@
+{
+  "asset_id": "ca_beijing_shichahai",
+  "asset_instance_id": "ca_beijing_shichahai_poi_gallery",
+  "image_slot": "poi_gallery",
+  "source": "hybrid",
+  "file_path": "mock://image-assets/ca_beijing_shichahai_poi_gallery.hybrid.jpg",
+  "status": "completed"
+}

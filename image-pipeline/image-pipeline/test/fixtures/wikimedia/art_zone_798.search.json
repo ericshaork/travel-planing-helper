@@ -1,0 +1,40 @@
+{
+  "batchcomplete": "",
+  "query": {
+    "pages": {
+      "202": {
+        "pageid": 202,
+        "ns": 6,
+        "title": "File:798 Art Zone Beijing.jpg",
+        "imageinfo": [
+          {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/2/20/798_Art_Zone_Beijing.jpg",
+            "thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/798_Art_Zone_Beijing.jpg/1920px-798_Art_Zone_Beijing.jpg",
+            "width": 2800,
+            "height": 1867,
+            "thumbwidth": 1600,
+            "thumbheight": 1067,
+            "mime": "image/jpeg",
+            "extmetadata": {
+              "ImageDescription": {
+                "value": "Street view inside 798 Art Zone in Beijing."
+              },
+              "Artist": {
+                "value": "Example Photographer"
+              },
+              "LicenseShortName": {
+                "value": "CC BY 4.0"
+              },
+              "LicenseUrl": {
+                "value": "http://creativecommons.org/licenses/by/4.0/"
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Attribution 4.0"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

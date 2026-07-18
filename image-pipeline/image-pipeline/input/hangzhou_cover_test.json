@@ -1,0 +1,43 @@
+{
+  "document_type": "travel_plan",
+  "document_version": "2.0.0",
+  "trip_id": "hangzhou_cover_test",
+  "title": "Hangzhou Lakeside Weekend Journal",
+  "locale": "en-US",
+  "destination": {
+    "city": "Hangzhou",
+    "region": "Zhejiang",
+    "country": "China"
+  },
+  "audience": [
+    "solo traveler",
+    "aesthetic seekers"
+  ],
+  "travel_concept": [
+    "lakeside wandering",
+    "tea culture",
+    "quiet city retreat"
+  ],
+  "semantic_version": "phase3-cover-test-v1",
+  "entities": [
+    {
+      "asset_role": "cover",
+      "entity_type": "trip",
+      "entity_id": "trip_hangzhou_cover_test",
+      "entity_ref": "trip://hangzhou_cover_test",
+      "title": "Hangzhou Lakeside Weekend Journal",
+      "summary": "A soft, dreamy cover centered on West Lake, tea culture, and quiet reflective city moments.",
+      "tags": [
+        "hangzhou",
+        "west lake",
+        "travel journal"
+      ],
+      "location": {
+        "name": "West Lake",
+        "city": "Hangzhou",
+        "region": "Zhejiang",
+        "country": "China"
+      }
+    }
+  ]
+}

@@ -1,0 +1,161 @@
+{
+  "request_id": "imgreq_tokyo_weekend_culture",
+  "provider_id": "mock",
+  "model_id": "mock-image-model-v1",
+  "job_results": [
+    {
+      "provider_job_id": "mockjob_a850cde707",
+      "asset_request_id": "assetreq_trip_tokyo_weekend_culture",
+      "provider_id": "mock",
+      "model_id": "mock-image-model-v1",
+      "status": "completed",
+      "submitted_at": "2026-01-01T00:00:00.000Z",
+      "completed_at": "2026-01-01T00:00:00.250Z",
+      "files": [
+        {
+          "file_id": "mockfile_a850cde707",
+          "file_kind": "generated_image",
+          "storage_ref": "mock://generated/assetreq_trip_tokyo_weekend_culture.png",
+          "mime_type": "image/png",
+          "width": 1080,
+          "height": 1350
+        }
+      ],
+      "parameters": {
+        "asset_role": "cover",
+        "style_profile_id": "wanderly_editorial_travel_v1",
+        "aspect_ratio": "4:5",
+        "orientation": "portrait",
+        "quality_requirements": [
+          "clear_subject",
+          "coherent_composition",
+          "brand_consistent"
+        ]
+      }
+    },
+    {
+      "provider_job_id": "mockjob_3b9118e430",
+      "asset_request_id": "assetreq_sensoji_temple",
+      "provider_id": "mock",
+      "model_id": "mock-image-model-v1",
+      "status": "completed",
+      "submitted_at": "2026-01-01T00:00:01.000Z",
+      "completed_at": "2026-01-01T00:00:01.250Z",
+      "files": [
+        {
+          "file_id": "mockfile_3b9118e430",
+          "file_kind": "generated_image",
+          "storage_ref": "mock://generated/assetreq_sensoji_temple.png",
+          "mime_type": "image/png",
+          "width": 1440,
+          "height": 960
+        }
+      ],
+      "parameters": {
+        "asset_role": "place",
+        "style_profile_id": "realistic_place_photo_v1",
+        "aspect_ratio": "3:2",
+        "orientation": "landscape",
+        "quality_requirements": [
+          "clear_subject",
+          "coherent_composition",
+          "brand_consistent"
+        ]
+      }
+    },
+    {
+      "provider_job_id": "mockjob_2b30443510",
+      "asset_request_id": "assetreq_monjayaki_dinner",
+      "provider_id": "mock",
+      "model_id": "mock-image-model-v1",
+      "status": "completed",
+      "submitted_at": "2026-01-01T00:00:02.000Z",
+      "completed_at": "2026-01-01T00:00:02.250Z",
+      "files": [
+        {
+          "file_id": "mockfile_2b30443510",
+          "file_kind": "generated_image",
+          "storage_ref": "mock://generated/assetreq_monjayaki_dinner.png",
+          "mime_type": "image/png",
+          "width": 1080,
+          "height": 1350
+        }
+      ],
+      "parameters": {
+        "asset_role": "food",
+        "style_profile_id": "food_story_photo_v1",
+        "aspect_ratio": "4:5",
+        "orientation": "portrait",
+        "quality_requirements": [
+          "clear_subject",
+          "coherent_composition",
+          "brand_consistent"
+        ]
+      }
+    },
+    {
+      "provider_job_id": "mockjob_65be8d9088",
+      "asset_request_id": "assetreq_day1_evening_walk",
+      "provider_id": "mock",
+      "model_id": "mock-image-model-v1",
+      "status": "completed",
+      "submitted_at": "2026-01-01T00:00:03.000Z",
+      "completed_at": "2026-01-01T00:00:03.250Z",
+      "files": [
+        {
+          "file_id": "mockfile_65be8d9088",
+          "file_kind": "generated_image",
+          "storage_ref": "mock://generated/assetreq_day1_evening_walk.png",
+          "mime_type": "image/png",
+          "width": 1600,
+          "height": 900
+        }
+      ],
+      "parameters": {
+        "asset_role": "scene",
+        "style_profile_id": "wanderly_scene_diary_v1",
+        "aspect_ratio": "16:9",
+        "orientation": "landscape",
+        "quality_requirements": [
+          "clear_subject",
+          "coherent_composition",
+          "brand_consistent"
+        ]
+      }
+    },
+    {
+      "provider_job_id": "mockjob_c645ff149c",
+      "asset_request_id": "assetreq_river_walk_reflection",
+      "provider_id": "mock",
+      "model_id": "mock-image-model-v1",
+      "status": "completed",
+      "submitted_at": "2026-01-01T00:00:04.000Z",
+      "completed_at": "2026-01-01T00:00:04.250Z",
+      "files": [
+        {
+          "file_id": "mockfile_c645ff149c",
+          "file_kind": "generated_image",
+          "storage_ref": "mock://generated/assetreq_river_walk_reflection.png",
+          "mime_type": "image/png",
+          "width": 1440,
+          "height": 960
+        }
+      ],
+      "parameters": {
+        "asset_role": "experience",
+        "style_profile_id": "wanderly_experience_memory_v1",
+        "aspect_ratio": "3:2",
+        "orientation": "landscape",
+        "quality_requirements": [
+          "clear_subject",
+          "coherent_composition",
+          "brand_consistent"
+        ]
+      }
+    }
+  ],
+  "metadata": {
+    "provider_kind": "mock",
+    "result_version": "phase1-provider-stub-v1"
+  }
+}

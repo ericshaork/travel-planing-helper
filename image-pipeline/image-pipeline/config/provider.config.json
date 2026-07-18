@@ -1,0 +1,48 @@
+{
+  "default_provider": "mock",
+  "providers": {
+    "mock": {
+      "enabled": true,
+      "provider_id": "mock",
+      "label": "Mock Provider",
+      "model_id": "mock-image-model-v1",
+      "mode": "stub"
+    },
+    "seedream": {
+      "enabled": true,
+      "provider_id": "seedream",
+      "label": "Seedream / Ark",
+      "model_id": "",
+      "mode": "api_reserved",
+      "base_url_env": "ARK_BASE_URL",
+      "api_key_env": "ARK_API_KEY",
+      "endpoint_env": "ARK_IMAGE_ENDPOINT",
+      "model_id_env": "ARK_MODEL_ID"
+    },
+    "ark_seedream": {
+      "enabled": false,
+      "provider_id": "ark_seedream",
+      "label": "Ark Seedream",
+      "model_id": "",
+      "mode": "api_reserved",
+      "base_url_env": "ARK_BASE_URL",
+      "api_key_env": "ARK_API_KEY",
+      "endpoint_env": "ARK_IMAGE_ENDPOINT",
+      "model_id_env": "ARK_MODEL_ID"
+    },
+    "openai": {
+      "enabled": false,
+      "provider_id": "openai",
+      "label": "OpenAI Image",
+      "model_id": "",
+      "mode": "reserved"
+    },
+    "flux": {
+      "enabled": false,
+      "provider_id": "flux",
+      "label": "Flux",
+      "model_id": "",
+      "mode": "reserved"
+    }
+  }
+}

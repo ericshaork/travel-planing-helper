@@ -1,0 +1,66 @@
+{
+  "request_id": "imgreq_hangzhou_cover_reference_test",
+  "provider_id": "seedream",
+  "model_id": "doubao-seedream-5-0-pro-260628",
+  "job_results": [
+    {
+      "provider_job_id": "seedream_assetreq_trip_hangzhou_cover_reference_test",
+      "asset_request_id": "assetreq_trip_hangzhou_cover_reference_test",
+      "provider_id": "seedream",
+      "model_id": "doubao-seedream-5-0-pro-260628",
+      "status": "completed",
+      "submitted_at": "2026-07-17T01:16:44.312Z",
+      "completed_at": "2026-07-17T01:17:16.667Z",
+      "files": [
+        {
+          "file_id": "assetreq_trip_hangzhou_cover_reference_test_generated_1",
+          "file_kind": "generated_image",
+          "storage_ref": "C:\\Users\\10200\\Desktop\\image-pipeline\\image-pipeline\\output\\runs\\hangzhou_cover_reference_test\\generated\\cover_001.png",
+          "mime_type": "image/png",
+          "width": 1080,
+          "height": 1350,
+          "size_bytes": 286115
+        }
+      ],
+      "variants": [
+        {
+          "variant_index": 1,
+          "provider_request_id": "seedream_assetreq_trip_hangzhou_cover_reference_test_1",
+          "submitted_at": "2026-07-17T01:16:44.313Z",
+          "completed_at": "2026-07-17T01:17:16.667Z",
+          "status": "completed",
+          "file": {
+            "file_id": "assetreq_trip_hangzhou_cover_reference_test_generated_1",
+            "file_kind": "generated_image",
+            "storage_ref": "C:\\Users\\10200\\Desktop\\image-pipeline\\image-pipeline\\output\\runs\\hangzhou_cover_reference_test\\generated\\cover_001.png",
+            "mime_type": "image/png",
+            "width": 1080,
+            "height": 1350,
+            "size_bytes": 286115
+          }
+        }
+      ],
+      "parameters": {
+        "asset_role": "cover",
+        "style_profile_id": "wanderly_personal_travel_journal_cover_v2",
+        "aspect_ratio": "4:5",
+        "orientation": "portrait",
+        "prompt": "A personalized travel journal cover illustration for Hangzhou West Lake Reference Cover. Destination context: Hangzhou, China. Scene idea: A quiet West Lake editorial cover with broad water and sky, one restrained focal scene, and a private watercolor travel journal atmosphere. Style profile: wanderly_personal_travel_journal_cover_v2. Use a light-toned, low-saturation watercolor palette with muted gray-blue, rice white, and pale soft green. Emphasize an oriental watercolor travel journal mood with textured watercolor paper, soft ink wash, visible paper grain, and gently blurred edges. Keep the composition simple and sparse with one single visual focus, large negative space, and broad open areas of lake, sky, or paper-like blank space. Prefer a quiet poetic atmosphere, private and intimate rather than commercial, with soft calm light and restrained detail. Only a few delicate accents are allowed, such as a small pavilion, a tiny boat, lotus, or willow branches. Use the provided reference image only as a visual style guide for tone, watercolor texture, spacing, and quiet editorial mood. Avoid multiple landmarks, avoid dense storytelling, avoid crowded elements, avoid high saturation, avoid strong contrast, avoid sharp digital illustration feeling, avoid game concept art feeling, avoid tourism poster feeling. No text, no letters, no typography, no watermark, no logo.",
+        "response_format": "b64_json",
+        "style_reference_paths": [
+          "assets/style_reference/lake-card.png"
+        ],
+        "requested_variants": 1,
+        "revised_prompts": []
+      }
+    }
+  ],
+  "metadata": {
+    "provider_kind": "seedream",
+    "provider_label": "Seedream / Ark",
+    "mode": "real_test",
+    "base_url": "https://ark.cn-beijing.volces.com",
+    "endpoint": "/api/v3/images/generations",
+    "output_dir": "C:\\Users\\10200\\Desktop\\image-pipeline\\image-pipeline\\output\\runs\\hangzhou_cover_reference_test\\generated"
+  }
+}

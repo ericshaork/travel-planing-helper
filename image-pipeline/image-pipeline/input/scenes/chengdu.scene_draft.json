@@ -1,0 +1,126 @@
+{
+  "city": "Chengdu",
+  "draft_version": "v1",
+  "scenes": [
+    {
+      "scene_id": "CD_SCENE_001",
+      "city": "Chengdu",
+      "scene_name": "Alley Tea Opening",
+      "scene_type": "lifestyle",
+      "mood": "fresh morning",
+      "story_hint": "Chengdu starts with a tea table being set out into a shaded lane, making the city feel lived-in and slow.",
+      "visual_elements": [
+        "stone alley",
+        "bamboo chair",
+        "low tea tray",
+        "folded cloth",
+        "mottled tree shade",
+        "white steam from cup",
+        "wooden storefront"
+      ],
+      "avoid": [
+        "giant panda motif",
+        "flashy red lantern street",
+        "lake composition",
+        "monumental skyline"
+      ],
+      "why_it_fits_cover": "It gives Chengdu a clear everyday identity and a simple foreground subject that reads well on a card."
+    },
+    {
+      "scene_id": "CD_SCENE_002",
+      "city": "Chengdu",
+      "scene_name": "Courtyard Teahouse Pause",
+      "scene_type": "slow_moment",
+      "mood": "slow afternoon",
+      "story_hint": "The cover centers on stillness and tea ritual rather than sightseeing, which matches Wanderly's journal tone.",
+      "visual_elements": [
+        "courtyard table",
+        "ceramic teapot",
+        "rattan chair",
+        "leafy canopy",
+        "old plaster wall",
+        "warm side light",
+        "shadow on flagstone"
+      ],
+      "avoid": [
+        "open mountain panorama",
+        "busy food stall",
+        "pavilion by water",
+        "dense crowd"
+      ],
+      "why_it_fits_cover": "The composition is intimate, iconic for Chengdu, and visually calm enough for a cover."
+    },
+    {
+      "scene_id": "CD_SCENE_003",
+      "city": "Chengdu",
+      "scene_name": "Neighborhood Tea Conversation",
+      "scene_type": "cultural_moment",
+      "mood": "warm daily life",
+      "story_hint": "A local social tea scene communicates Chengdu's personality better than a static architectural view.",
+      "visual_elements": [
+        "two or three locals talking",
+        "low wooden tea table",
+        "hanging bamboo screen",
+        "narrow lane depth",
+        "soft golden light",
+        "tea cups",
+        "leafy edge framing"
+      ],
+      "avoid": [
+        "performance stage",
+        "flashy neon",
+        "panda costume",
+        "lake boat"
+      ],
+      "why_it_fits_cover": "It has human warmth and city identity while still staying visually coherent as a cover."
+    },
+    {
+      "scene_id": "CD_SCENE_004",
+      "city": "Chengdu",
+      "scene_name": "Morning Market Greens",
+      "scene_type": "street",
+      "mood": "lively but gentle",
+      "story_hint": "Chengdu can feel vibrant without becoming loud when seen through produce, shade, and slow market movement.",
+      "visual_elements": [
+        "woven baskets of greens",
+        "narrow market lane",
+        "awning shade",
+        "damp stone pavement",
+        "hand-written price board",
+        "morning produce light",
+        "wooden crate"
+      ],
+      "avoid": [
+        "crowded tourist signage",
+        "hot pot table as main subject",
+        "skyline",
+        "ceremonial temple gate"
+      ],
+      "why_it_fits_cover": "It adds urban diversity and daily-life energy without losing Wanderly's softness."
+    },
+    {
+      "scene_id": "CD_SCENE_005",
+      "city": "Chengdu",
+      "scene_name": "Riverside Veranda Tea Break",
+      "scene_type": "slow_moment",
+      "mood": "warm late afternoon",
+      "story_hint": "A shaded riverside veranda lets Chengdu feel relaxed and open, but still distinct from Hangzhou's lakeside scenes.",
+      "visual_elements": [
+        "wooden veranda",
+        "tea set",
+        "broad-leaf tree",
+        "narrow river edge",
+        "old tiled roof",
+        "quiet sunlight",
+        "empty second chair"
+      ],
+      "avoid": [
+        "lotus pond",
+        "pavilion silhouette",
+        "mountain terraces",
+        "nightlife atmosphere"
+      ],
+      "why_it_fits_cover": "It gives cover-friendly breathing space while still anchoring the city in tea culture and lived texture."
+    }
+  ]
+}

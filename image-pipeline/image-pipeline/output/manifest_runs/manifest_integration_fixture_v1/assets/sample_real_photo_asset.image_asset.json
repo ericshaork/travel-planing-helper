@@ -1,0 +1,29 @@
+{
+  "asset_id": "sample_real_photo_asset",
+  "image_slot": "explore_cover",
+  "source": "wikimedia",
+  "file_path": "mock://integration/sample_real_photo_asset.jpg",
+  "status": "completed",
+  "selection": {
+    "rank_score": 75,
+    "candidate_count": 1,
+    "rejected_count": 0
+  },
+  "metadata": {
+    "title": "Sample architecture travel view",
+    "description": "architecture landscape travel photograph with clear location identity",
+    "author": "Integration Fixture Author",
+    "license": "CC0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Sample_Real_Photo.jpg",
+    "image_url": "https://example.com/sample-real-photo.jpg",
+    "width": 3200,
+    "height": 2100,
+    "mime_type": "image/jpeg",
+    "score_reasons": [
+      "location_match",
+      "high_resolution_3000",
+      "license_cc0",
+      "wanderly_fit"
+    ]
+  }
+}

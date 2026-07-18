@@ -1,0 +1,45 @@
+{
+  "document_type": "travel_plan",
+  "document_version": "2.0.0",
+  "trip_id": "hangzhou_cover_style_test",
+  "title": "Hangzhou Personal Travel Journal Cover",
+  "locale": "en-US",
+  "destination": {
+    "city": "Hangzhou",
+    "region": "Zhejiang",
+    "country": "China"
+  },
+  "audience": [
+    "solo traveler",
+    "quiet aesthetic seekers"
+  ],
+  "travel_concept": [
+    "west lake stillness",
+    "poetic wandering",
+    "private journal mood"
+  ],
+  "semantic_version": "phase3-cover-style-v1",
+  "entities": [
+    {
+      "asset_role": "cover",
+      "entity_type": "trip",
+      "entity_id": "trip_hangzhou_cover_style_test",
+      "entity_ref": "trip://hangzhou_cover_style_test",
+      "title": "Hangzhou Personal Travel Journal Cover",
+      "summary": "A quiet Hangzhou lakeside mood with broad water and sky, one simple focal scene, and a poetic private travel journal feeling.",
+      "tags": [
+        "hangzhou",
+        "west lake",
+        "personal travel journal",
+        "watercolor"
+      ],
+      "location": {
+        "name": "West Lake",
+        "city": "Hangzhou",
+        "region": "Zhejiang",
+        "country": "China"
+      },
+      "variants_requested": 3
+    }
+  ]
+}

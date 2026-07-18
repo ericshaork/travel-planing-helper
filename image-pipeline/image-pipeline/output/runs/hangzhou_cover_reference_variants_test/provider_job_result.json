@@ -1,0 +1,176 @@
+{
+  "request_id": "imgreq_hangzhou_cover_reference_variants_test",
+  "provider_id": "seedream",
+  "model_id": "doubao-seedream-5-0-pro-260628",
+  "job_results": [
+    {
+      "provider_job_id": "seedream_assetreq_trip_hangzhou_cover_reference_variants_test",
+      "asset_request_id": "assetreq_trip_hangzhou_cover_reference_variants_test",
+      "provider_id": "seedream",
+      "model_id": "doubao-seedream-5-0-pro-260628",
+      "status": "completed",
+      "submitted_at": "2026-07-17T03:10:00.166Z",
+      "completed_at": "2026-07-17T03:14:55.920Z",
+      "files": [
+        {
+          "file_id": "assetreq_trip_hangzhou_cover_reference_variants_test_generated_1",
+          "file_kind": "generated_image",
+          "storage_ref": "C:\\Users\\10200\\Desktop\\image-pipeline\\image-pipeline\\output\\runs\\hangzhou_cover_reference_variants_test\\generated\\hangzhou_cover_001.png",
+          "mime_type": "image/png",
+          "width": 1080,
+          "height": 1350,
+          "size_bytes": 395870
+        },
+        {
+          "file_id": "assetreq_trip_hangzhou_cover_reference_variants_test_generated_2",
+          "file_kind": "generated_image",
+          "storage_ref": "C:\\Users\\10200\\Desktop\\image-pipeline\\image-pipeline\\output\\runs\\hangzhou_cover_reference_variants_test\\generated\\hangzhou_cover_002.png",
+          "mime_type": "image/png",
+          "width": 1080,
+          "height": 1350,
+          "size_bytes": 438709
+        },
+        {
+          "file_id": "assetreq_trip_hangzhou_cover_reference_variants_test_generated_3",
+          "file_kind": "generated_image",
+          "storage_ref": "C:\\Users\\10200\\Desktop\\image-pipeline\\image-pipeline\\output\\runs\\hangzhou_cover_reference_variants_test\\generated\\hangzhou_cover_003.png",
+          "mime_type": "image/png",
+          "width": 1080,
+          "height": 1350,
+          "size_bytes": 418251
+        }
+      ],
+      "variants": [
+        {
+          "variant_index": 1,
+          "provider_request_id": "seedream_assetreq_trip_hangzhou_cover_reference_variants_test_1",
+          "submitted_at": "2026-07-17T03:10:00.167Z",
+          "completed_at": "2026-07-17T03:11:51.751Z",
+          "status": "completed",
+          "file": {
+            "file_id": "assetreq_trip_hangzhou_cover_reference_variants_test_generated_1",
+            "file_kind": "generated_image",
+            "storage_ref": "C:\\Users\\10200\\Desktop\\image-pipeline\\image-pipeline\\output\\runs\\hangzhou_cover_reference_variants_test\\generated\\hangzhou_cover_001.png",
+            "mime_type": "image/png",
+            "width": 1080,
+            "height": 1350,
+            "size_bytes": 395870
+          }
+        },
+        {
+          "variant_index": 2,
+          "provider_request_id": "seedream_assetreq_trip_hangzhou_cover_reference_variants_test_2",
+          "submitted_at": "2026-07-17T03:11:51.751Z",
+          "completed_at": "2026-07-17T03:13:21.145Z",
+          "status": "completed",
+          "file": {
+            "file_id": "assetreq_trip_hangzhou_cover_reference_variants_test_generated_2",
+            "file_kind": "generated_image",
+            "storage_ref": "C:\\Users\\10200\\Desktop\\image-pipeline\\image-pipeline\\output\\runs\\hangzhou_cover_reference_variants_test\\generated\\hangzhou_cover_002.png",
+            "mime_type": "image/png",
+            "width": 1080,
+            "height": 1350,
+            "size_bytes": 438709
+          }
+        },
+        {
+          "variant_index": 3,
+          "provider_request_id": "seedream_assetreq_trip_hangzhou_cover_reference_variants_test_3",
+          "submitted_at": "2026-07-17T03:13:21.145Z",
+          "completed_at": "2026-07-17T03:14:55.920Z",
+          "status": "completed",
+          "file": {
+            "file_id": "assetreq_trip_hangzhou_cover_reference_variants_test_generated_3",
+            "file_kind": "generated_image",
+            "storage_ref": "C:\\Users\\10200\\Desktop\\image-pipeline\\image-pipeline\\output\\runs\\hangzhou_cover_reference_variants_test\\generated\\hangzhou_cover_003.png",
+            "mime_type": "image/png",
+            "width": 1080,
+            "height": 1350,
+            "size_bytes": 418251
+          }
+        }
+      ],
+      "parameters": {
+        "asset_role": "cover",
+        "style_profile_id": "wanderly_personal_travel_journal_cover_v2",
+        "aspect_ratio": "4:5",
+        "orientation": "portrait",
+        "prompt": "A personalized travel journal cover illustration for Hangzhou West Lake Reference Cover Variants. Destination context: Hangzhou, China. Scene idea: A quiet West Lake editorial cover with broad water and sky, one restrained focal scene, and a private watercolor travel journal atmosphere. SCENE DIRECTION: Lakeside Teahouse. Scene mood: slow afternoon. Required visual elements: wooden tea table, tea cup, bamboo chair, open tea house, lake view. Forbidden visual elements: pavilion, boat, lotus. Style profile: wanderly_personal_travel_journal_cover_v2. Create an original travel illustration with scene-specific storytelling and a unique composition for this destination. Use a light-toned, low-saturation watercolor palette with muted gray-blue, rice white, and pale soft green. Emphasize an oriental watercolor travel journal mood with textured watercolor paper, soft ink wash, visible paper grain, and gently blurred edges. Use a balanced composition with soft layered depth, one clear primary scene, and enough breathing room for an Explore cover card without copying a template layout. Prefer a quiet poetic atmosphere, private and intimate rather than commercial, with soft calm light, restrained detail, and an original travel story specific to the destination. Let the scene direction control the content, composition, and main subject. Build the image around the chosen scene rather than a generic city postcard. Use the provided reference image for visual language only. Learn its watercolor texture, paper feeling, pastel palette, and quiet mood, but do not copy object placement, landmark arrangement, or exact scene structure. Create a new original scene. Avoid multiple landmarks, avoid dense storytelling, avoid crowded elements, avoid high saturation, avoid strong contrast, avoid sharp digital illustration feeling, avoid game concept art feeling, avoid tourism poster feeling. No text, no letters, no typography, no watermark, no logo.",
+        "response_format": "b64_json",
+        "style_reference_paths": [
+          "assets/style_reference/lake-card.png"
+        ],
+        "scene_selection_mode": "variant_index",
+        "scene_variant_map": [
+          {
+            "variant_index": 1,
+            "scene_id": "hangzhou_scene_1",
+            "name": "Lakeside Teahouse",
+            "mood": "slow afternoon",
+            "visual_elements": [
+              "wooden tea table",
+              "tea cup",
+              "bamboo chair",
+              "open tea house",
+              "lake view"
+            ],
+            "avoid": [
+              "pavilion",
+              "boat",
+              "lotus"
+            ]
+          },
+          {
+            "variant_index": 2,
+            "scene_id": "hangzhou_scene_2",
+            "name": "Jiangnan Old Lane",
+            "mood": "quiet morning walk",
+            "visual_elements": [
+              "stone lane",
+              "white wall houses",
+              "wooden doorway",
+              "tree shade",
+              "soft morning light"
+            ],
+            "avoid": [
+              "pavilion",
+              "boat",
+              "lotus",
+              "wide open lake"
+            ]
+          },
+          {
+            "variant_index": 3,
+            "scene_id": "hangzhou_scene_3",
+            "name": "Longjing Tea Hills",
+            "mood": "clear mountain morning",
+            "visual_elements": [
+              "tea terraces",
+              "green hillside",
+              "mountain path",
+              "tea shrubs",
+              "light mist"
+            ],
+            "avoid": [
+              "pavilion",
+              "boat",
+              "lotus",
+              "flat lakeside composition"
+            ]
+          }
+        ],
+        "requested_variants": 3,
+        "revised_prompts": []
+      }
+    }
+  ],
+  "metadata": {
+    "provider_kind": "seedream",
+    "provider_label": "Seedream / Ark",
+    "mode": "real_test",
+    "base_url": "https://ark.cn-beijing.volces.com",
+    "endpoint": "/api/v3/images/generations",
+    "output_dir": "C:\\Users\\10200\\Desktop\\image-pipeline\\image-pipeline\\output\\runs\\hangzhou_cover_reference_variants_test\\generated",
+    "prompt_spec_count": 1
+  }
+}

@@ -1,0 +1,578 @@
+{
+  "spec_version": "1.0.0",
+  "request_id": "imgreq_tokyo_weekend_culture",
+  "source_document": {
+    "document_type": "travel_plan",
+    "document_id": "tokyo_weekend_culture",
+    "document_version": "2.0.0",
+    "source_ref": "C:\\Users\\10200\\Desktop\\image-pipeline\\image-pipeline\\input\\abstract_plan.example.json",
+    "locale": "en-US"
+  },
+  "global_context": {
+    "destination": {
+      "city": "Tokyo",
+      "region": "Kanto",
+      "country": "Japan"
+    },
+    "audience": [
+      "couple",
+      "culture_seekers"
+    ],
+    "themes": [
+      "street culture",
+      "slow travel",
+      "food discovery"
+    ],
+    "style_direction": [],
+    "content_warnings": []
+  },
+  "prompt_specs": [
+    {
+      "asset_request_id": "assetreq_trip_tokyo_weekend_culture",
+      "asset_role": "cover",
+      "subject": {
+        "subject_type": "cover",
+        "source_entity_type": "trip",
+        "source_entity_ref": "trip://tokyo_weekend_culture",
+        "title": "Tokyo Weekend of Streets, Food, and Slow Evenings",
+        "summary": "A warm editorial overview of Tokyo neighborhoods, food, and reflective city moments.",
+        "tags": [
+          "tokyo",
+          "editorial",
+          "weekend"
+        ],
+        "location_context": {
+          "name": "Tokyo",
+          "city": "Tokyo",
+          "region": "Kanto",
+          "country": "Japan"
+        },
+        "time_context": {},
+        "identity_markers": [
+          "Tokyo Weekend of Streets, Food, and Slow Evenings",
+          "Tokyo"
+        ],
+        "cultural_markers": []
+      },
+      "style_profile": {
+        "style_profile_id": "wanderly_editorial_travel_v1",
+        "asset_role": "cover",
+        "style_family": "editorial_travel",
+        "style_keywords": [
+          "watercolor",
+          "hand drawn",
+          "collage",
+          "vintage travel poster",
+          "oriental travel aesthetic"
+        ],
+        "mood_keywords": [
+          "inviting",
+          "narrative",
+          "collectible"
+        ],
+        "color_tendency": "warm_washed_editorial",
+        "realism_level": "illustrative"
+      },
+      "visual_direction": {
+        "primary_goal": "express_trip_identity_as_editorial_visual_entrypoint",
+        "authenticity_level": "illustrative",
+        "style_family": "editorial_travel",
+        "destination_bias": {
+          "city": "Tokyo",
+          "region": "Kanto",
+          "country": "Japan"
+        },
+        "thematic_signals": [
+          "street culture",
+          "slow travel",
+          "food discovery"
+        ],
+        "audience_signals": [
+          "couple",
+          "culture_seekers"
+        ]
+      },
+      "composition": {
+        "shot_type": "editorial_hero",
+        "framing": "single_strong_subject_with_supporting_context",
+        "focus_priority": [
+          "destination identity",
+          "trip concept",
+          "editorial composition"
+        ],
+        "foreground_background_balance": "layered",
+        "visual_density": "rich",
+        "text_safe_area": "upper_and_center_safe",
+        "provider_notes": []
+      },
+      "mood": {
+        "primary": "inviting",
+        "secondary": [
+          "narrative",
+          "collectible"
+        ],
+        "keywords": [
+          "inviting",
+          "narrative",
+          "collectible"
+        ]
+      },
+      "constraints": {
+        "must_include": [],
+        "avoid": [],
+        "cultural_notes": [],
+        "usage_constraints": [
+          "card",
+          "detail_header",
+          "social_share"
+        ],
+        "quality_requirements": [
+          "clear_subject",
+          "coherent_composition",
+          "brand_consistent"
+        ]
+      },
+      "output_spec": {
+        "aspect_ratio": "4:5",
+        "orientation": "portrait",
+        "min_width": 1080,
+        "min_height": 1350,
+        "transparent_background": false
+      }
+    },
+    {
+      "asset_request_id": "assetreq_sensoji_temple",
+      "asset_role": "place",
+      "subject": {
+        "subject_type": "place",
+        "source_entity_type": "poi_entity",
+        "source_entity_ref": "poi://sensoji_temple",
+        "title": "Senso-ji Temple",
+        "summary": "Historic temple grounds with lantern-lined approaches and dense cultural detail.",
+        "tags": [
+          "temple",
+          "heritage"
+        ],
+        "location_context": {
+          "name": "Senso-ji Temple",
+          "city": "Tokyo",
+          "country": "Japan"
+        },
+        "time_context": {},
+        "identity_markers": [
+          "Senso-ji Temple"
+        ],
+        "cultural_markers": [
+          "highlight temple approach atmosphere",
+          "avoid generic skyline framing"
+        ]
+      },
+      "style_profile": {
+        "style_profile_id": "realistic_place_photo_v1",
+        "asset_role": "place",
+        "style_family": "place_identity",
+        "style_keywords": [
+          "realistic photography",
+          "location identity",
+          "cultural detail"
+        ],
+        "mood_keywords": [
+          "authentic",
+          "place-first"
+        ],
+        "color_tendency": "natural_cultural_detail",
+        "realism_level": "photoreal"
+      },
+      "visual_direction": {
+        "primary_goal": "show_recognizable_location_identity_with_cultural_detail",
+        "authenticity_level": "photoreal",
+        "style_family": "place_identity",
+        "destination_bias": {
+          "city": "Tokyo",
+          "country": "Japan"
+        },
+        "thematic_signals": [
+          "street culture",
+          "slow travel",
+          "food discovery"
+        ],
+        "audience_signals": [
+          "couple",
+          "culture_seekers"
+        ]
+      },
+      "composition": {
+        "shot_type": "establishing_location",
+        "framing": "place_first",
+        "focus_priority": [
+          "location identity",
+          "architectural or spatial detail",
+          "cultural markers"
+        ],
+        "foreground_background_balance": "depth_with_context",
+        "visual_density": "balanced",
+        "text_safe_area": "edge_safe",
+        "provider_notes": []
+      },
+      "mood": {
+        "primary": "authentic",
+        "secondary": [
+          "place-first"
+        ],
+        "keywords": [
+          "authentic",
+          "place-first"
+        ]
+      },
+      "constraints": {
+        "must_include": [],
+        "avoid": [],
+        "cultural_notes": [
+          "highlight temple approach atmosphere",
+          "avoid generic skyline framing"
+        ],
+        "usage_constraints": [
+          "gallery",
+          "section_inline"
+        ],
+        "quality_requirements": [
+          "clear_subject",
+          "coherent_composition",
+          "brand_consistent"
+        ]
+      },
+      "output_spec": {
+        "aspect_ratio": "3:2",
+        "orientation": "landscape",
+        "min_width": 1440,
+        "min_height": 960,
+        "transparent_background": false
+      }
+    },
+    {
+      "asset_request_id": "assetreq_monjayaki_dinner",
+      "asset_role": "food",
+      "subject": {
+        "subject_type": "food",
+        "source_entity_type": "food_entity",
+        "source_entity_ref": "food://monjayaki_dinner",
+        "title": "Monjayaki Dinner",
+        "summary": "Local griddle dining with warmth, texture, and casual group atmosphere.",
+        "tags": [
+          "local food",
+          "dinner"
+        ],
+        "location_context": {
+          "name": "Tsukishima",
+          "city": "Tokyo",
+          "country": "Japan"
+        },
+        "time_context": {},
+        "identity_markers": [
+          "Monjayaki Dinner",
+          "Tsukishima"
+        ],
+        "cultural_markers": []
+      },
+      "style_profile": {
+        "style_profile_id": "food_story_photo_v1",
+        "asset_role": "food",
+        "style_family": "food_story",
+        "style_keywords": [
+          "professional food photography",
+          "regional culture",
+          "atmosphere"
+        ],
+        "mood_keywords": [
+          "appetizing",
+          "warm",
+          "local"
+        ],
+        "color_tendency": "warm_table_light",
+        "realism_level": "photoreal"
+      },
+      "visual_direction": {
+        "primary_goal": "show_food_identity_with_regional_and_table_atmosphere",
+        "authenticity_level": "photoreal",
+        "style_family": "food_story",
+        "destination_bias": {
+          "city": "Tokyo",
+          "country": "Japan"
+        },
+        "thematic_signals": [
+          "street culture",
+          "slow travel",
+          "food discovery"
+        ],
+        "audience_signals": [
+          "couple",
+          "culture_seekers"
+        ]
+      },
+      "composition": {
+        "shot_type": "food_focus",
+        "framing": "dish_first_with_atmosphere",
+        "focus_priority": [
+          "food texture",
+          "regional cues",
+          "dining atmosphere"
+        ],
+        "foreground_background_balance": "foreground_emphasis",
+        "visual_density": "intimate",
+        "text_safe_area": "upper_safe",
+        "provider_notes": []
+      },
+      "mood": {
+        "primary": "appetizing",
+        "secondary": [
+          "warm",
+          "local"
+        ],
+        "keywords": [
+          "appetizing",
+          "warm",
+          "local"
+        ]
+      },
+      "constraints": {
+        "must_include": [],
+        "avoid": [],
+        "cultural_notes": [],
+        "usage_constraints": [
+          "section_inline",
+          "gallery"
+        ],
+        "quality_requirements": [
+          "clear_subject",
+          "coherent_composition",
+          "brand_consistent"
+        ]
+      },
+      "output_spec": {
+        "aspect_ratio": "4:5",
+        "orientation": "portrait",
+        "min_width": 1080,
+        "min_height": 1350,
+        "transparent_background": false
+      }
+    },
+    {
+      "asset_request_id": "assetreq_day1_evening_walk",
+      "asset_role": "scene",
+      "subject": {
+        "subject_type": "scene",
+        "source_entity_type": "scene_unit",
+        "source_entity_ref": "scene://day1_evening_walk",
+        "title": "Evening Walk Through Lantern Streets",
+        "summary": "A transitional evening atmosphere with glowing signs, pedestrians, and unhurried motion.",
+        "tags": [],
+        "location_context": {
+          "name": "Asakusa Side Streets",
+          "city": "Tokyo",
+          "country": "Japan"
+        },
+        "time_context": {
+          "day_index": 1,
+          "part_of_day": "evening"
+        },
+        "identity_markers": [
+          "Evening Walk Through Lantern Streets",
+          "Asakusa Side Streets"
+        ],
+        "cultural_markers": []
+      },
+      "style_profile": {
+        "style_profile_id": "wanderly_scene_diary_v1",
+        "asset_role": "scene",
+        "style_family": "scene_diary",
+        "style_keywords": [
+          "travel diary",
+          "emotional atmosphere",
+          "daily moment"
+        ],
+        "mood_keywords": [
+          "immersive",
+          "temporal",
+          "reflective"
+        ],
+        "color_tendency": "emotional_time_of_day",
+        "realism_level": "stylized_real"
+      },
+      "visual_direction": {
+        "primary_goal": "amplify_itinerary_mood_and_time_of_day_feeling",
+        "authenticity_level": "stylized_real",
+        "style_family": "scene_diary",
+        "destination_bias": {
+          "city": "Tokyo",
+          "country": "Japan"
+        },
+        "thematic_signals": [
+          "street culture",
+          "slow travel",
+          "food discovery"
+        ],
+        "audience_signals": [
+          "couple",
+          "culture_seekers"
+        ]
+      },
+      "composition": {
+        "shot_type": "environmental_moment",
+        "framing": "mood_first",
+        "focus_priority": [
+          "time of day",
+          "travel rhythm",
+          "ambient detail"
+        ],
+        "foreground_background_balance": "cinematic_depth",
+        "visual_density": "open_breathing_space",
+        "text_safe_area": "corner_safe",
+        "provider_notes": []
+      },
+      "mood": {
+        "primary": "immersive",
+        "secondary": [
+          "temporal",
+          "reflective"
+        ],
+        "keywords": [
+          "immersive",
+          "temporal",
+          "reflective"
+        ]
+      },
+      "constraints": {
+        "must_include": [],
+        "avoid": [],
+        "cultural_notes": [],
+        "usage_constraints": [
+          "day_block",
+          "section_inline"
+        ],
+        "quality_requirements": [
+          "clear_subject",
+          "coherent_composition",
+          "brand_consistent"
+        ]
+      },
+      "output_spec": {
+        "aspect_ratio": "16:9",
+        "orientation": "landscape",
+        "min_width": 1600,
+        "min_height": 900,
+        "transparent_background": false
+      }
+    },
+    {
+      "asset_request_id": "assetreq_river_walk_reflection",
+      "asset_role": "experience",
+      "subject": {
+        "subject_type": "experience",
+        "source_entity_type": "experience_entity",
+        "source_entity_ref": "experience://river_walk_reflection",
+        "title": "Sumida River Reflection Walk",
+        "summary": "A quiet riverside moment centered on participation, movement, and memory.",
+        "tags": [],
+        "location_context": {
+          "name": "Sumida River",
+          "city": "Tokyo",
+          "country": "Japan"
+        },
+        "time_context": {
+          "day_index": 1,
+          "part_of_day": "sunset"
+        },
+        "identity_markers": [
+          "Sumida River Reflection Walk",
+          "Sumida River"
+        ],
+        "cultural_markers": []
+      },
+      "style_profile": {
+        "style_profile_id": "wanderly_experience_memory_v1",
+        "asset_role": "experience",
+        "style_family": "experience_memory",
+        "style_keywords": [
+          "immersive",
+          "human activity",
+          "memory"
+        ],
+        "mood_keywords": [
+          "participatory",
+          "sensory",
+          "intimate"
+        ],
+        "color_tendency": "immersive_human_warmth",
+        "realism_level": "stylized_real"
+      },
+      "visual_direction": {
+        "primary_goal": "show_human_participation_and_memory_like_moment",
+        "authenticity_level": "stylized_real",
+        "style_family": "experience_memory",
+        "destination_bias": {
+          "city": "Tokyo",
+          "country": "Japan"
+        },
+        "thematic_signals": [
+          "street culture",
+          "slow travel",
+          "food discovery"
+        ],
+        "audience_signals": [
+          "couple",
+          "culture_seekers"
+        ]
+      },
+      "composition": {
+        "shot_type": "immersive_participation",
+        "framing": "human_activity_centered",
+        "focus_priority": [
+          "human participation",
+          "memory cues",
+          "sensory context"
+        ],
+        "foreground_background_balance": "human_with_environment",
+        "visual_density": "focused",
+        "text_safe_area": "edge_safe",
+        "provider_notes": []
+      },
+      "mood": {
+        "primary": "participatory",
+        "secondary": [
+          "sensory",
+          "intimate"
+        ],
+        "keywords": [
+          "participatory",
+          "sensory",
+          "intimate"
+        ]
+      },
+      "constraints": {
+        "must_include": [],
+        "avoid": [],
+        "cultural_notes": [],
+        "usage_constraints": [
+          "section_inline",
+          "gallery"
+        ],
+        "quality_requirements": [
+          "clear_subject",
+          "coherent_composition",
+          "brand_consistent"
+        ]
+      },
+      "output_spec": {
+        "aspect_ratio": "3:2",
+        "orientation": "landscape",
+        "min_width": 1440,
+        "min_height": 960,
+        "transparent_background": false
+      }
+    }
+  ],
+  "metadata": {
+    "prompt_builder_version": "phase1-prompt-builder-skeleton",
+    "request_schema_version": "1.0.0"
+  }
+}

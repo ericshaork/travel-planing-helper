@@ -1,0 +1,24 @@
+{
+  "asset_id": "ca_beijing_jingshan_park",
+  "image_slot": "poi_gallery",
+  "source": "real_photo",
+  "file_path": "",
+  "status": "failed",
+  "reason": "no_photo_search_result",
+  "fallback_available": true,
+  "selection": {
+    "rank_score": 0,
+    "candidate_count": 0,
+    "rejected_count": 0
+  },
+  "metadata": {
+    "source_runs": [
+      {
+        "source": "wikimedia",
+        "priority": 1,
+        "candidate_count": 0,
+        "error": "AggregateError"
+      }
+    ]
+  }
+}

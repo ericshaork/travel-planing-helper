@@ -1,0 +1,61 @@
+{
+  "trip_id": "beijing_solo_image_manifest_v1",
+  "city": "beijing",
+  "images": [
+    {
+      "asset_id": "ca_beijing_baita_temple",
+      "asset_name": "白塔寺",
+      "image_slot": "poi_gallery",
+      "type": "experience",
+      "source_preference": "hybrid",
+      "generation_mode": "mixed",
+      "decision_reason": "体验重点是探索与停顿氛围，适合结合真实街景与适度生成来表达节奏感。",
+      "prompt": "春日上午稍晚的白塔寺体验画面，保留真实街景或空间关系，人物动作自然，突出一个人慢慢探索、停下来观察与呼吸的节奏，而不是打卡推进，让人能感受到这段路线为什么成立。",
+      "status": "pending"
+    },
+    {
+      "asset_id": "ca_beijing_wudaoying",
+      "asset_name": "五道营胡同",
+      "image_slot": "poi_gallery",
+      "type": "experience",
+      "source_preference": "hybrid",
+      "generation_mode": "mixed",
+      "decision_reason": "体验重点是探索与停顿氛围，适合结合真实街景与适度生成来表达节奏感。",
+      "prompt": "春日上午稍晚的五道营胡同体验画面，保留真实街景或空间关系，人物动作自然，突出一个人慢慢探索、停下来观察与呼吸的节奏，而不是打卡推进，让人能感受到这段路线为什么成立。",
+      "status": "pending"
+    },
+    {
+      "asset_id": "ca_beijing_culture_pause_asset",
+      "asset_name": "文化停留资产",
+      "image_slot": "poi_gallery",
+      "type": "experience",
+      "source_preference": "hybrid",
+      "generation_mode": "mixed",
+      "decision_reason": "体验重点是探索与停顿氛围，适合结合真实街景与适度生成来表达节奏感。",
+      "prompt": "春日下午的文化停留资产体验画面，保留真实街景或空间关系，人物动作自然，突出一个人慢慢探索、停下来观察与呼吸的节奏，而不是打卡推进，让人能感受到这段路线为什么成立。",
+      "status": "pending"
+    },
+    {
+      "asset_id": "ca_beijing_shichahai",
+      "asset_name": "什刹海",
+      "image_slot": "poi_gallery",
+      "type": "experience",
+      "source_preference": "hybrid",
+      "generation_mode": "mixed",
+      "decision_reason": "街区氛围很重要，真实照片保证地点感，AI 可以补足旅行叙事和杂志感氛围。",
+      "prompt": "春日傍晚前的什刹海体验画面，保留真实街景或空间关系，人物动作自然，突出街区纹理、步行节奏和能让人慢慢看见北京日常的真实地点感，让人能感受到这段路线为什么成立。",
+      "status": "pending"
+    },
+    {
+      "asset_id": "ca_beijing_798_art_district",
+      "asset_name": "798艺术区",
+      "image_slot": "poi_gallery",
+      "type": "experience",
+      "source_preference": "hybrid",
+      "generation_mode": "mixed",
+      "decision_reason": "现代城市对照片段需要地点真实性，同时也适合补充更统一的视觉叙事风格。",
+      "prompt": "春日上午稍晚的798艺术区体验画面，保留真实街景或空间关系，人物动作自然，突出北京当代城市气息，与老城纹理形成自然对照，让人能感受到这段路线为什么成立。",
+      "status": "pending"
+    }
+  ]
+}

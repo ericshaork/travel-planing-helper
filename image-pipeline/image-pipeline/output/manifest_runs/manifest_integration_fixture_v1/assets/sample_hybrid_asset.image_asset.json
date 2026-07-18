@@ -1,0 +1,7 @@
+{
+  "asset_id": "sample_hybrid_asset",
+  "image_slot": "section_inline",
+  "source": "hybrid",
+  "file_path": "mock://image-assets/sample_hybrid_asset.hybrid.jpg",
+  "status": "completed"
+}

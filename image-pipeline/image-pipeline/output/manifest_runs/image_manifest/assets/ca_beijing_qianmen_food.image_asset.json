@@ -1,0 +1,16 @@
+{
+  "asset_id": "ca_beijing_qianmen_food",
+  "image_slot": "food_gallery",
+  "source": "wikimedia",
+  "file_path": "",
+  "status": "failed",
+  "reason": "real_photo_executor_error",
+  "selection": {
+    "rank_score": 0,
+    "candidate_count": 0,
+    "rejected_count": 0
+  },
+  "metadata": {
+    "error": "AggregateError"
+  }
+}

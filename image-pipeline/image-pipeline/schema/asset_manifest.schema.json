@@ -1,0 +1,332 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wanderly.dev/schemas/image-pipeline/asset_manifest.schema.json",
+  "title": "Wanderly Asset Manifest",
+  "description": "Records generated visual assets and their generation metadata in a provider-agnostic format.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "manifest_id",
+    "request_id",
+    "assets"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "manifest_id": {
+      "type": "string",
+      "description": "Unique identifier for this manifest."
+    },
+    "request_id": {
+      "type": "string",
+      "description": "Links back to the originating image request."
+    },
+    "source_document": {
+      "$ref": "#/$defs/sourceDocument"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "assets": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/assetRecord"
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "$defs": {
+    "sourceDocument": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "document_type": {
+          "type": "string"
+        },
+        "document_id": {
+          "type": "string"
+        },
+        "document_version": {
+          "type": "string"
+        },
+        "source_ref": {
+          "type": "string"
+        }
+      }
+    },
+    "assetRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "asset_id",
+        "asset_request_id",
+        "asset_role",
+        "status"
+      ],
+      "properties": {
+        "asset_id": {
+          "type": "string",
+          "description": "Unique identifier for a generated asset."
+        },
+        "asset_request_id": {
+          "type": "string",
+          "description": "Reference to the request item that produced this asset."
+        },
+        "asset_role": {
+          "type": "string",
+          "enum": [
+            "cover",
+            "place",
+            "food",
+            "scene",
+            "experience"
+          ]
+        },
+        "status": {
+          "type": "string",
+          "description": "Lifecycle status of the asset.",
+          "enum": [
+            "queued",
+            "generating",
+            "completed",
+            "failed",
+            "replaced",
+            "archived"
+          ]
+        },
+        "subject_snapshot": {
+          "$ref": "#/$defs/subjectSnapshot"
+        },
+        "provider": {
+          "$ref": "#/$defs/providerInfo"
+        },
+        "generation": {
+          "$ref": "#/$defs/generationInfo"
+        },
+        "files": {
+          "type": "array",
+          "description": "Stored asset files and derivatives.",
+          "items": {
+            "$ref": "#/$defs/fileRecord"
+          }
+        },
+        "review": {
+          "$ref": "#/$defs/reviewInfo"
+        },
+        "replacement_of_asset_id": {
+          "type": "string",
+          "description": "Previous asset version when this asset supersedes another."
+        },
+        "metadata": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      }
+    },
+    "subjectSnapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "entity_type": {
+          "type": "string"
+        },
+        "entity_id": {
+          "type": "string"
+        },
+        "entity_ref": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "location_name": {
+          "type": "string"
+        },
+        "day_index": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "part_of_day": {
+          "type": "string"
+        }
+      }
+    },
+    "providerInfo": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "provider_id": {
+          "type": "string",
+          "description": "Provider or integration identifier, such as openai, flux, midjourney, or an internal gateway."
+        },
+        "provider_label": {
+          "type": "string",
+          "description": "Human-readable provider name."
+        },
+        "model_id": {
+          "type": "string",
+          "description": "Provider-specific model identifier if available."
+        },
+        "model_label": {
+          "type": "string",
+          "description": "Human-readable model name."
+        },
+        "workflow_id": {
+          "type": "string",
+          "description": "Optional workflow, preset, or template identifier."
+        },
+        "region": {
+          "type": "string"
+        }
+      }
+    },
+    "generationInfo": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "submitted_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "completed_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "duration_ms": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "prompt_template_id": {
+          "type": "string",
+          "description": "Prompt or prompt-template version used by the pipeline."
+        },
+        "prompt_inputs": {
+          "type": "object",
+          "description": "Normalized, provider-agnostic prompt inputs for reproducibility.",
+          "additionalProperties": true
+        },
+        "provider_request_id": {
+          "type": "string"
+        },
+        "seed": {
+          "type": [
+            "integer",
+            "string"
+          ]
+        },
+        "size": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "width": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "height": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        },
+        "parameters": {
+          "type": "object",
+          "description": "Provider-specific generation parameters preserved without hard-coding a single model family.",
+          "additionalProperties": true
+        },
+        "error": {
+          "$ref": "#/$defs/errorInfo"
+        }
+      }
+    },
+    "fileRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "file_kind",
+        "storage_ref",
+        "mime_type"
+      ],
+      "properties": {
+        "file_kind": {
+          "type": "string",
+          "description": "Purpose of the file, such as original, edited, thumbnail, or web_optimized."
+        },
+        "storage_ref": {
+          "type": "string",
+          "description": "Relative path, object key, or storage reference to the asset file."
+        },
+        "mime_type": {
+          "type": "string"
+        },
+        "width": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "size_bytes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "checksum": {
+          "type": "string",
+          "description": "Optional content hash for deduplication and integrity."
+        }
+      }
+    },
+    "reviewInfo": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "pending",
+            "approved",
+            "rejected",
+            "flagged"
+          ]
+        },
+        "reviewed_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "reviewer": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "errorInfo": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "retryable": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

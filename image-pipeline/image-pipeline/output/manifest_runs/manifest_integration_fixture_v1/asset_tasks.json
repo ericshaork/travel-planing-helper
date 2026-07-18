@@ -1,0 +1,65 @@
+[
+  {
+    "task_id": "task_sample_real_photo_asset",
+    "asset_id": "sample_real_photo_asset",
+    "manifest_id": "manifest_integration_fixture_v1",
+    "image_slot": "explore_cover",
+    "type": "image",
+    "source_preference": "real_first",
+    "mode": "real_photo",
+    "generation_mode": "real_photo",
+    "decision_reason": "Upstream selected real-first mode for a documentary-style asset.",
+    "prompt": "Documentary architecture travel image with clear landmark identity.",
+    "metadata": {
+      "location": "sample city",
+      "mock_download_file_path": "mock://integration/sample_real_photo_asset.jpg",
+      "photo_candidates": [
+        {
+          "title": "Sample architecture travel view",
+          "description": "architecture landscape travel photograph with clear location identity",
+          "width": 3200,
+          "height": 2100,
+          "mime_type": "image/jpeg",
+          "url": "https://example.com/sample-real-photo.jpg",
+          "license": "CC0",
+          "author": "Integration Fixture Author",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Sample_Real_Photo.jpg"
+        }
+      ],
+      "manifest_index": 0
+    },
+    "status": "pending"
+  },
+  {
+    "task_id": "task_sample_hybrid_asset",
+    "asset_id": "sample_hybrid_asset",
+    "manifest_id": "manifest_integration_fixture_v1",
+    "image_slot": "section_inline",
+    "type": "image",
+    "source_preference": "hybrid_first",
+    "mode": "hybrid",
+    "generation_mode": "hybrid",
+    "decision_reason": "Upstream selected hybrid mode for a mixed realism and atmosphere asset.",
+    "prompt": "Balanced editorial and real-world visual asset.",
+    "metadata": {
+      "manifest_index": 1
+    },
+    "status": "pending"
+  },
+  {
+    "task_id": "task_sample_ai_generated_asset",
+    "asset_id": "sample_ai_generated_asset",
+    "manifest_id": "manifest_integration_fixture_v1",
+    "image_slot": "detail_header",
+    "type": "image",
+    "source_preference": "generated_first",
+    "mode": "ai_generated",
+    "generation_mode": "ai_generated",
+    "decision_reason": "Upstream selected AI mode for brand-led visual generation.",
+    "prompt": "Stylized editorial image with controlled brand atmosphere.",
+    "metadata": {
+      "manifest_index": 2
+    },
+    "status": "pending"
+  }
+]

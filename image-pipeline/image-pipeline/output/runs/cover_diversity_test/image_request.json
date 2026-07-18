@@ -1,0 +1,258 @@
+{
+  "schema_version": "1.0.0",
+  "request_id": "imgreq_cover_diversity_test",
+  "request_label": "Wanderly Cover Diversity Test",
+  "source_document": {
+    "document_type": "travel_plan",
+    "document_id": "cover_diversity_test",
+    "document_version": "2.0.0",
+    "source_ref": "C:\\Users\\10200\\Desktop\\image-pipeline\\image-pipeline\\input\\cover_diversity_test.json",
+    "locale": "en-US"
+  },
+  "global_context": {
+    "audience": [
+      "explore readers",
+      "quiet aesthetic seekers"
+    ],
+    "themes": [
+      "personal travel journal",
+      "soft watercolor editorial",
+      "city-specific travel storytelling"
+    ],
+    "style_direction": [],
+    "content_warnings": []
+  },
+  "asset_requests": [
+    {
+      "asset_request_id": "assetreq_trip_hangzhou_cover_diversity",
+      "asset_role": "cover",
+      "subject": {
+        "entity_type": "trip",
+        "entity_id": "trip_hangzhou_cover_diversity",
+        "entity_ref": "trip://hangzhou_cover_diversity",
+        "title": "Hangzhou Jiangnan Waterside Cover",
+        "summary": "An original Jiangnan travel journal illustration for Hangzhou with lake, pavilion, willow, and mist in a quiet poetic scene.",
+        "tags": [
+          "hangzhou",
+          "jiangnan",
+          "waterside",
+          "watercolor"
+        ],
+        "location": {
+          "name": "West Lake",
+          "city": "Hangzhou",
+          "region": "Zhejiang",
+          "country": "China"
+        }
+      },
+      "style_reference": {
+        "images": [
+          {
+            "path": "assets/style_reference/lake-card.png",
+            "purpose": "cover_visual_style_reference"
+          }
+        ]
+      },
+      "usage": [
+        "card",
+        "detail_header",
+        "social_share"
+      ],
+      "visual_intent": {
+        "style_family": "editorial_travel",
+        "style_keywords": [
+          "watercolor",
+          "hand drawn",
+          "collage",
+          "vintage travel poster",
+          "oriental travel aesthetic"
+        ],
+        "mood_keywords": [
+          "inviting",
+          "narrative",
+          "collectible"
+        ],
+        "authenticity_level": "illustrative",
+        "must_include": [
+          "lake atmosphere",
+          "pavilion accent",
+          "willow softness",
+          "misty air"
+        ],
+        "avoid": [
+          "copied reference composition"
+        ],
+        "cultural_notes": []
+      },
+      "composition_hints": [],
+      "output_spec": {
+        "aspect_ratio": "4:5",
+        "orientation": "portrait",
+        "min_width": 1080,
+        "min_height": 1350,
+        "transparent_background": false
+      },
+      "priority": 1,
+      "variants_requested": 3,
+      "metadata": {
+        "source_object_type": "trip"
+      }
+    },
+    {
+      "asset_request_id": "assetreq_trip_chengdu_cover_diversity",
+      "asset_role": "cover",
+      "subject": {
+        "entity_type": "trip",
+        "entity_id": "trip_chengdu_cover_diversity",
+        "entity_ref": "trip://chengdu_cover_diversity",
+        "title": "Chengdu Slow Street Cover",
+        "summary": "An original Chengdu travel journal illustration with an old street, teahouse, leafy trees, and gentle morning light in a slow-living neighborhood scene.",
+        "tags": [
+          "chengdu",
+          "old street",
+          "teahouse",
+          "morning light"
+        ],
+        "location": {
+          "name": "Chengdu Old Street",
+          "city": "Chengdu",
+          "region": "Sichuan",
+          "country": "China"
+        }
+      },
+      "style_reference": {
+        "images": [
+          {
+            "path": "assets/style_reference/lake-card.png",
+            "purpose": "cover_visual_style_reference"
+          }
+        ]
+      },
+      "usage": [
+        "card",
+        "detail_header",
+        "social_share"
+      ],
+      "visual_intent": {
+        "style_family": "editorial_travel",
+        "style_keywords": [
+          "watercolor",
+          "hand drawn",
+          "collage",
+          "vintage travel poster",
+          "oriental travel aesthetic"
+        ],
+        "mood_keywords": [
+          "inviting",
+          "narrative",
+          "collectible"
+        ],
+        "authenticity_level": "illustrative",
+        "must_include": [
+          "old street rhythm",
+          "teahouse presence",
+          "trees",
+          "morning light"
+        ],
+        "avoid": [
+          "lake pavilion composition"
+        ],
+        "cultural_notes": []
+      },
+      "composition_hints": [],
+      "output_spec": {
+        "aspect_ratio": "4:5",
+        "orientation": "portrait",
+        "min_width": 1080,
+        "min_height": 1350,
+        "transparent_background": false
+      },
+      "priority": 1,
+      "variants_requested": 3,
+      "metadata": {
+        "source_object_type": "trip"
+      }
+    },
+    {
+      "asset_request_id": "assetreq_trip_yunnan_cover_diversity",
+      "asset_role": "cover",
+      "subject": {
+        "entity_type": "trip",
+        "entity_id": "trip_yunnan_cover_diversity",
+        "entity_ref": "trip://yunnan_cover_diversity",
+        "title": "Yunnan Valley Journey Cover",
+        "summary": "An original Yunnan travel journal illustration with a mountain village, layered clouds, and flowers in a calm valley journey scene.",
+        "tags": [
+          "yunnan",
+          "mountain village",
+          "clouds",
+          "flowers"
+        ],
+        "location": {
+          "name": "Yunnan Valley",
+          "city": "Yunnan",
+          "region": "Yunnan",
+          "country": "China"
+        }
+      },
+      "style_reference": {
+        "images": [
+          {
+            "path": "assets/style_reference/lake-card.png",
+            "purpose": "cover_visual_style_reference"
+          }
+        ]
+      },
+      "usage": [
+        "card",
+        "detail_header",
+        "social_share"
+      ],
+      "visual_intent": {
+        "style_family": "editorial_travel",
+        "style_keywords": [
+          "watercolor",
+          "hand drawn",
+          "collage",
+          "vintage travel poster",
+          "oriental travel aesthetic"
+        ],
+        "mood_keywords": [
+          "inviting",
+          "narrative",
+          "collectible"
+        ],
+        "authenticity_level": "illustrative",
+        "must_include": [
+          "mountain village",
+          "layered clouds",
+          "flowers",
+          "valley travel mood"
+        ],
+        "avoid": [
+          "lakeside pavilion layout"
+        ],
+        "cultural_notes": []
+      },
+      "composition_hints": [],
+      "output_spec": {
+        "aspect_ratio": "4:5",
+        "orientation": "portrait",
+        "min_width": 1080,
+        "min_height": 1350,
+        "transparent_background": false
+      },
+      "priority": 1,
+      "variants_requested": 3,
+      "metadata": {
+        "source_object_type": "trip"
+      }
+    }
+  ],
+  "requested_at": "1970-01-01T00:00:00.000Z",
+  "metadata": {
+    "trip_id": "cover_diversity_test",
+    "builder_version": "phase1-request-builder-skeleton",
+    "source_semantics_version": "phase3-cover-diversity-v1"
+  }
+}

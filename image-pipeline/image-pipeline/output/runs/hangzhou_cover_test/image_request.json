@@ -1,0 +1,97 @@
+{
+  "schema_version": "1.0.0",
+  "request_id": "imgreq_hangzhou_cover_test",
+  "request_label": "Hangzhou Lakeside Weekend Journal",
+  "source_document": {
+    "document_type": "travel_plan",
+    "document_id": "hangzhou_cover_test",
+    "document_version": "2.0.0",
+    "source_ref": "C:\\Users\\10200\\Desktop\\image-pipeline\\image-pipeline\\input\\hangzhou_cover_test.json",
+    "locale": "en-US"
+  },
+  "global_context": {
+    "destination": {
+      "city": "Hangzhou",
+      "region": "Zhejiang",
+      "country": "China"
+    },
+    "audience": [
+      "solo traveler",
+      "aesthetic seekers"
+    ],
+    "themes": [
+      "lakeside wandering",
+      "tea culture",
+      "quiet city retreat"
+    ],
+    "style_direction": [],
+    "content_warnings": []
+  },
+  "asset_requests": [
+    {
+      "asset_request_id": "assetreq_trip_hangzhou_cover_test",
+      "asset_role": "cover",
+      "subject": {
+        "entity_type": "trip",
+        "entity_id": "trip_hangzhou_cover_test",
+        "entity_ref": "trip://hangzhou_cover_test",
+        "title": "Hangzhou Lakeside Weekend Journal",
+        "summary": "A soft, dreamy cover centered on West Lake, tea culture, and quiet reflective city moments.",
+        "tags": [
+          "hangzhou",
+          "west lake",
+          "travel journal"
+        ],
+        "location": {
+          "name": "West Lake",
+          "city": "Hangzhou",
+          "region": "Zhejiang",
+          "country": "China"
+        }
+      },
+      "usage": [
+        "card",
+        "detail_header",
+        "social_share"
+      ],
+      "visual_intent": {
+        "style_family": "editorial_travel",
+        "style_keywords": [
+          "watercolor",
+          "hand drawn",
+          "collage",
+          "vintage travel poster",
+          "oriental travel aesthetic"
+        ],
+        "mood_keywords": [
+          "inviting",
+          "narrative",
+          "collectible"
+        ],
+        "authenticity_level": "illustrative",
+        "must_include": [],
+        "avoid": [],
+        "cultural_notes": []
+      },
+      "composition_hints": [],
+      "output_spec": {
+        "aspect_ratio": "4:5",
+        "orientation": "portrait",
+        "min_width": 1080,
+        "min_height": 1350,
+        "transparent_background": false
+      },
+      "priority": 1,
+      "variants_requested": 1,
+      "metadata": {
+        "source_object_type": "trip"
+      }
+    }
+  ],
+  "requested_at": "1970-01-01T00:00:00.000Z",
+  "metadata": {
+    "trip_id": "hangzhou_cover_test",
+    "builder_version": "phase1-request-builder-skeleton",
+    "source_semantics_version": "phase3-cover-test-v1"
+  }
+}

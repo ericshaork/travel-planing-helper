@@ -1,0 +1,150 @@
+{
+  "spec_version": "1.0.0",
+  "request_id": "imgreq_hangzhou_cover_style_test",
+  "source_document": {
+    "document_type": "travel_plan",
+    "document_id": "hangzhou_cover_style_test",
+    "document_version": "2.0.0",
+    "source_ref": "C:\\Users\\10200\\Desktop\\image-pipeline\\image-pipeline\\input\\hangzhou_cover_style_test.json",
+    "locale": "en-US"
+  },
+  "global_context": {
+    "destination": {
+      "city": "Hangzhou",
+      "region": "Zhejiang",
+      "country": "China"
+    },
+    "audience": [
+      "solo traveler",
+      "quiet aesthetic seekers"
+    ],
+    "themes": [
+      "west lake stillness",
+      "poetic wandering",
+      "private journal mood"
+    ],
+    "style_direction": [],
+    "content_warnings": []
+  },
+  "prompt_specs": [
+    {
+      "asset_request_id": "assetreq_trip_hangzhou_cover_style_test",
+      "asset_role": "cover",
+      "subject": {
+        "subject_type": "cover",
+        "source_entity_type": "trip",
+        "source_entity_ref": "trip://hangzhou_cover_style_test",
+        "title": "Hangzhou Personal Travel Journal Cover",
+        "summary": "A quiet Hangzhou lakeside mood with broad water and sky, one simple focal scene, and a poetic private travel journal feeling.",
+        "tags": [
+          "hangzhou",
+          "west lake",
+          "personal travel journal",
+          "watercolor"
+        ],
+        "location_context": {
+          "name": "West Lake",
+          "city": "Hangzhou",
+          "region": "Zhejiang",
+          "country": "China"
+        },
+        "time_context": {},
+        "identity_markers": [
+          "Hangzhou Personal Travel Journal Cover",
+          "West Lake"
+        ],
+        "cultural_markers": []
+      },
+      "style_profile": {
+        "style_profile_id": "wanderly_personal_travel_journal_cover_v2",
+        "asset_role": "cover",
+        "style_family": "personal_travel_journal_cover",
+        "style_keywords": [
+          "watercolor",
+          "hand drawn",
+          "collage",
+          "vintage travel poster",
+          "oriental travel aesthetic"
+        ],
+        "mood_keywords": [
+          "inviting",
+          "narrative",
+          "collectible"
+        ],
+        "color_tendency": "muted_gray_blue_rice_paper_green",
+        "realism_level": "illustrative"
+      },
+      "visual_direction": {
+        "primary_goal": "express_trip_identity_as_editorial_visual_entrypoint",
+        "authenticity_level": "illustrative",
+        "style_family": "editorial_travel",
+        "destination_bias": {
+          "city": "Hangzhou",
+          "region": "Zhejiang",
+          "country": "China"
+        },
+        "thematic_signals": [
+          "west lake stillness",
+          "poetic wandering",
+          "private journal mood"
+        ],
+        "audience_signals": [
+          "solo traveler",
+          "quiet aesthetic seekers"
+        ]
+      },
+      "composition": {
+        "shot_type": "quiet_editorial_hero",
+        "framing": "single_visual_focus_with_large_negative_space",
+        "focus_priority": [
+          "single main scenery",
+          "quiet journal mood",
+          "simple airy composition"
+        ],
+        "foreground_background_balance": "open_with_soft_depth",
+        "visual_density": "minimal",
+        "text_safe_area": "broad_open_safe_area",
+        "provider_notes": []
+      },
+      "mood": {
+        "primary": "inviting",
+        "secondary": [
+          "narrative",
+          "collectible"
+        ],
+        "keywords": [
+          "inviting",
+          "narrative",
+          "collectible"
+        ]
+      },
+      "constraints": {
+        "must_include": [],
+        "avoid": [],
+        "cultural_notes": [],
+        "usage_constraints": [
+          "card",
+          "detail_header",
+          "social_share"
+        ],
+        "quality_requirements": [
+          "clear_subject",
+          "coherent_composition",
+          "brand_consistent"
+        ]
+      },
+      "output_spec": {
+        "aspect_ratio": "4:5",
+        "orientation": "portrait",
+        "min_width": 1080,
+        "min_height": 1350,
+        "transparent_background": false,
+        "variant_count": 3
+      }
+    }
+  ],
+  "metadata": {
+    "prompt_builder_version": "phase1-prompt-builder-skeleton",
+    "request_schema_version": "1.0.0"
+  }
+}

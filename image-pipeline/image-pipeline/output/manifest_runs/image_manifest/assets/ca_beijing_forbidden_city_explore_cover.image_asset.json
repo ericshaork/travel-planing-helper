@@ -1,0 +1,45 @@
+{
+  "asset_id": "ca_beijing_forbidden_city",
+  "asset_instance_id": "ca_beijing_forbidden_city_explore_cover",
+  "image_slot": "explore_cover",
+  "source": "wikimedia",
+  "file_path": "C:\\Users\\10200\\Desktop\\image-pipeline\\image-pipeline\\assets\\external\\ca_beijing_forbidden_city.jpg",
+  "status": "completed",
+  "retry_count": 0,
+  "last_error": null,
+  "download_status": "completed",
+  "fallback_available": false,
+  "selection": {
+    "selected_candidate": {
+      "source": "wikimedia",
+      "candidate_id": "",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Hall_of_Supreme_Harmony%2C_Forbidden_City%2C_Beijing%2C_with_tourists_2.jpg/1920px-Hall_of_Supreme_Harmony%2C_Forbidden_City%2C_Beijing%2C_with_tourists_2.jpg"
+    },
+    "rank_score": 40,
+    "candidate_count": 5,
+    "rejected_count": 1
+  },
+  "metadata": {
+    "source_runs": [
+      {
+        "source": "wikimedia",
+        "priority": 1,
+        "candidate_count": 5,
+        "error": null
+      }
+    ],
+    "title": "File:Hall of Supreme Harmony, Forbidden City, Beijing, with tourists 2.jpg",
+    "description": "View of <a href=\"https://en.wikipedia.org/wiki/Hall_of_Supreme_Harmony\" class=\"extiw\" title=\"w:Hall of Supreme Harmony\">Hall of Supreme Harmony</a> at the <a href=\"https://en.wikipedia.org/wiki/Forbidden_City\" class=\"extiw\" title=\"w:Forbidden City\">Forbidden City</a> from <a href=\"https://en.wikipedia.org/wiki/Gate_of_Supreme_Harmony\" class=\"extiw\" title=\"w:Gate of Supreme Harmony\">Gate of Supreme Harmony</a> on a busy Sunday.",
+    "author": "Daniel Case",
+    "license": "CC BY-SA 3.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File%3AHall_of_Supreme_Harmony%2C_Forbidden_City%2C_Beijing%2C_with_tourists_2.jpg",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Hall_of_Supreme_Harmony%2C_Forbidden_City%2C_Beijing%2C_with_tourists_2.jpg/1920px-Hall_of_Supreme_Harmony%2C_Forbidden_City%2C_Beijing%2C_with_tourists_2.jpg",
+    "width": 1600,
+    "height": 1053,
+    "mime_type": "image/jpeg",
+    "score_reasons": [
+      "location_match",
+      "license_cc_by"
+    ]
+  }
+}

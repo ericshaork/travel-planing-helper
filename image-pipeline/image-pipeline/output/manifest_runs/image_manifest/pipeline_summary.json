@@ -1,0 +1,51 @@
+{
+  "manifest_id": "beijing_couple_image_manifest_v1",
+  "source_ref": "C:\\Users\\10200\\Desktop\\image-pipeline\\image-pipeline\\test\\fixtures\\upstream_manifest\\beijing_couple_image_manifest_v1.json",
+  "task_count": 7,
+  "completed_count": 7,
+  "created_at": "2026-07-17T16:17:37.033Z",
+  "assets": [
+    {
+      "asset_id": "ca_beijing_forbidden_city",
+      "asset_instance_id": "ca_beijing_forbidden_city_explore_cover",
+      "file_path": "C:\\Users\\10200\\Desktop\\image-pipeline\\image-pipeline\\output\\manifest_runs\\image_manifest\\assets\\ca_beijing_forbidden_city_explore_cover.image_asset.json",
+      "status": "completed"
+    },
+    {
+      "asset_id": "ca_beijing_jingshan_park",
+      "asset_instance_id": "ca_beijing_jingshan_park_explore_cover",
+      "file_path": "C:\\Users\\10200\\Desktop\\image-pipeline\\image-pipeline\\output\\manifest_runs\\image_manifest\\assets\\ca_beijing_jingshan_park_explore_cover.image_asset.json",
+      "status": "completed"
+    },
+    {
+      "asset_id": "ca_beijing_jingshan_park",
+      "asset_instance_id": "ca_beijing_jingshan_park_poi_gallery",
+      "file_path": "C:\\Users\\10200\\Desktop\\image-pipeline\\image-pipeline\\output\\manifest_runs\\image_manifest\\assets\\ca_beijing_jingshan_park_poi_gallery.image_asset.json",
+      "status": "completed"
+    },
+    {
+      "asset_id": "ca_beijing_beihai_park",
+      "asset_instance_id": "ca_beijing_beihai_park_explore_cover",
+      "file_path": "C:\\Users\\10200\\Desktop\\image-pipeline\\image-pipeline\\output\\manifest_runs\\image_manifest\\assets\\ca_beijing_beihai_park_explore_cover.image_asset.json",
+      "status": "completed"
+    },
+    {
+      "asset_id": "ca_beijing_beihai_park",
+      "asset_instance_id": "ca_beijing_beihai_park_poi_gallery",
+      "file_path": "C:\\Users\\10200\\Desktop\\image-pipeline\\image-pipeline\\output\\manifest_runs\\image_manifest\\assets\\ca_beijing_beihai_park_poi_gallery.image_asset.json",
+      "status": "completed"
+    },
+    {
+      "asset_id": "ca_beijing_shichahai",
+      "asset_instance_id": "ca_beijing_shichahai_poi_gallery",
+      "file_path": "C:\\Users\\10200\\Desktop\\image-pipeline\\image-pipeline\\output\\manifest_runs\\image_manifest\\assets\\ca_beijing_shichahai_poi_gallery.image_asset.json",
+      "status": "completed"
+    },
+    {
+      "asset_id": "ca_beijing_liangma_river",
+      "asset_instance_id": "ca_beijing_liangma_river_day_cover",
+      "file_path": "C:\\Users\\10200\\Desktop\\image-pipeline\\image-pipeline\\output\\manifest_runs\\image_manifest\\assets\\ca_beijing_liangma_river_day_cover.image_asset.json",
+      "status": "completed"
+    }
+  ]
+}

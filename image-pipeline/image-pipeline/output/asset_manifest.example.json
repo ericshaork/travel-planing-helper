@@ -1,0 +1,309 @@
+{
+  "schema_version": "1.0.0",
+  "manifest_id": "manifest_imgreq_tokyo_weekend_culture",
+  "request_id": "imgreq_tokyo_weekend_culture",
+  "source_document": {
+    "document_type": "travel_plan",
+    "document_id": "tokyo_weekend_culture",
+    "document_version": "2.0.0",
+    "source_ref": "C:\\Users\\10200\\Desktop\\image-pipeline\\image-pipeline\\input\\abstract_plan.example.json"
+  },
+  "created_at": "2026-01-01T00:00:10.000Z",
+  "updated_at": "2026-01-01T00:00:10.000Z",
+  "assets": [
+    {
+      "asset_id": "asset_trip_tokyo_weekend_culture",
+      "asset_request_id": "assetreq_trip_tokyo_weekend_culture",
+      "asset_role": "cover",
+      "status": "completed",
+      "subject_snapshot": {
+        "entity_type": "trip",
+        "entity_id": "trip_tokyo_weekend_culture",
+        "entity_ref": "trip://tokyo_weekend_culture",
+        "title": "Tokyo Weekend of Streets, Food, and Slow Evenings",
+        "location_name": "Tokyo"
+      },
+      "provider": {
+        "provider_id": "mock",
+        "provider_label": "mock",
+        "model_id": "mock-image-model-v1",
+        "model_label": "mock-image-model-v1"
+      },
+      "generation": {
+        "submitted_at": "2026-01-01T00:00:00.000Z",
+        "completed_at": "2026-01-01T00:00:00.250Z",
+        "duration_ms": 250,
+        "provider_request_id": "mockjob_a850cde707",
+        "size": {
+          "width": 1080,
+          "height": 1350
+        },
+        "parameters": {
+          "asset_role": "cover",
+          "style_profile_id": "wanderly_editorial_travel_v1",
+          "aspect_ratio": "4:5",
+          "orientation": "portrait",
+          "quality_requirements": [
+            "clear_subject",
+            "coherent_composition",
+            "brand_consistent"
+          ]
+        }
+      },
+      "files": [
+        {
+          "file_kind": "generated_image",
+          "storage_ref": "mock://generated/assetreq_trip_tokyo_weekend_culture.png",
+          "mime_type": "image/png",
+          "width": 1080,
+          "height": 1350
+        }
+      ],
+      "review": {
+        "status": "pending",
+        "notes": "Initialized by manifest writer stub."
+      },
+      "metadata": {
+        "priority": 1,
+        "variants_requested": 1
+      }
+    },
+    {
+      "asset_id": "asset_sensoji_temple",
+      "asset_request_id": "assetreq_sensoji_temple",
+      "asset_role": "place",
+      "status": "completed",
+      "subject_snapshot": {
+        "entity_type": "poi_entity",
+        "entity_id": "sensoji_temple",
+        "entity_ref": "poi://sensoji_temple",
+        "title": "Senso-ji Temple",
+        "location_name": "Senso-ji Temple"
+      },
+      "provider": {
+        "provider_id": "mock",
+        "provider_label": "mock",
+        "model_id": "mock-image-model-v1",
+        "model_label": "mock-image-model-v1"
+      },
+      "generation": {
+        "submitted_at": "2026-01-01T00:00:01.000Z",
+        "completed_at": "2026-01-01T00:00:01.250Z",
+        "duration_ms": 250,
+        "provider_request_id": "mockjob_3b9118e430",
+        "size": {
+          "width": 1440,
+          "height": 960
+        },
+        "parameters": {
+          "asset_role": "place",
+          "style_profile_id": "realistic_place_photo_v1",
+          "aspect_ratio": "3:2",
+          "orientation": "landscape",
+          "quality_requirements": [
+            "clear_subject",
+            "coherent_composition",
+            "brand_consistent"
+          ]
+        }
+      },
+      "files": [
+        {
+          "file_kind": "generated_image",
+          "storage_ref": "mock://generated/assetreq_sensoji_temple.png",
+          "mime_type": "image/png",
+          "width": 1440,
+          "height": 960
+        }
+      ],
+      "review": {
+        "status": "pending",
+        "notes": "Initialized by manifest writer stub."
+      },
+      "metadata": {
+        "priority": 2,
+        "variants_requested": 1
+      }
+    },
+    {
+      "asset_id": "asset_monjayaki_dinner",
+      "asset_request_id": "assetreq_monjayaki_dinner",
+      "asset_role": "food",
+      "status": "completed",
+      "subject_snapshot": {
+        "entity_type": "food_entity",
+        "entity_id": "monjayaki_dinner",
+        "entity_ref": "food://monjayaki_dinner",
+        "title": "Monjayaki Dinner",
+        "location_name": "Tsukishima"
+      },
+      "provider": {
+        "provider_id": "mock",
+        "provider_label": "mock",
+        "model_id": "mock-image-model-v1",
+        "model_label": "mock-image-model-v1"
+      },
+      "generation": {
+        "submitted_at": "2026-01-01T00:00:02.000Z",
+        "completed_at": "2026-01-01T00:00:02.250Z",
+        "duration_ms": 250,
+        "provider_request_id": "mockjob_2b30443510",
+        "size": {
+          "width": 1080,
+          "height": 1350
+        },
+        "parameters": {
+          "asset_role": "food",
+          "style_profile_id": "food_story_photo_v1",
+          "aspect_ratio": "4:5",
+          "orientation": "portrait",
+          "quality_requirements": [
+            "clear_subject",
+            "coherent_composition",
+            "brand_consistent"
+          ]
+        }
+      },
+      "files": [
+        {
+          "file_kind": "generated_image",
+          "storage_ref": "mock://generated/assetreq_monjayaki_dinner.png",
+          "mime_type": "image/png",
+          "width": 1080,
+          "height": 1350
+        }
+      ],
+      "review": {
+        "status": "pending",
+        "notes": "Initialized by manifest writer stub."
+      },
+      "metadata": {
+        "priority": 3,
+        "variants_requested": 1
+      }
+    },
+    {
+      "asset_id": "asset_day1_evening_walk",
+      "asset_request_id": "assetreq_day1_evening_walk",
+      "asset_role": "scene",
+      "status": "completed",
+      "subject_snapshot": {
+        "entity_type": "scene_unit",
+        "entity_id": "day1_evening_walk",
+        "entity_ref": "scene://day1_evening_walk",
+        "title": "Evening Walk Through Lantern Streets",
+        "location_name": "Asakusa Side Streets",
+        "day_index": 1,
+        "part_of_day": "evening"
+      },
+      "provider": {
+        "provider_id": "mock",
+        "provider_label": "mock",
+        "model_id": "mock-image-model-v1",
+        "model_label": "mock-image-model-v1"
+      },
+      "generation": {
+        "submitted_at": "2026-01-01T00:00:03.000Z",
+        "completed_at": "2026-01-01T00:00:03.250Z",
+        "duration_ms": 250,
+        "provider_request_id": "mockjob_65be8d9088",
+        "size": {
+          "width": 1600,
+          "height": 900
+        },
+        "parameters": {
+          "asset_role": "scene",
+          "style_profile_id": "wanderly_scene_diary_v1",
+          "aspect_ratio": "16:9",
+          "orientation": "landscape",
+          "quality_requirements": [
+            "clear_subject",
+            "coherent_composition",
+            "brand_consistent"
+          ]
+        }
+      },
+      "files": [
+        {
+          "file_kind": "generated_image",
+          "storage_ref": "mock://generated/assetreq_day1_evening_walk.png",
+          "mime_type": "image/png",
+          "width": 1600,
+          "height": 900
+        }
+      ],
+      "review": {
+        "status": "pending",
+        "notes": "Initialized by manifest writer stub."
+      },
+      "metadata": {
+        "priority": 3,
+        "variants_requested": 1
+      }
+    },
+    {
+      "asset_id": "asset_river_walk_reflection",
+      "asset_request_id": "assetreq_river_walk_reflection",
+      "asset_role": "experience",
+      "status": "completed",
+      "subject_snapshot": {
+        "entity_type": "experience_entity",
+        "entity_id": "river_walk_reflection",
+        "entity_ref": "experience://river_walk_reflection",
+        "title": "Sumida River Reflection Walk",
+        "location_name": "Sumida River",
+        "day_index": 1,
+        "part_of_day": "sunset"
+      },
+      "provider": {
+        "provider_id": "mock",
+        "provider_label": "mock",
+        "model_id": "mock-image-model-v1",
+        "model_label": "mock-image-model-v1"
+      },
+      "generation": {
+        "submitted_at": "2026-01-01T00:00:04.000Z",
+        "completed_at": "2026-01-01T00:00:04.250Z",
+        "duration_ms": 250,
+        "provider_request_id": "mockjob_c645ff149c",
+        "size": {
+          "width": 1440,
+          "height": 960
+        },
+        "parameters": {
+          "asset_role": "experience",
+          "style_profile_id": "wanderly_experience_memory_v1",
+          "aspect_ratio": "3:2",
+          "orientation": "landscape",
+          "quality_requirements": [
+            "clear_subject",
+            "coherent_composition",
+            "brand_consistent"
+          ]
+        }
+      },
+      "files": [
+        {
+          "file_kind": "generated_image",
+          "storage_ref": "mock://generated/assetreq_river_walk_reflection.png",
+          "mime_type": "image/png",
+          "width": 1440,
+          "height": 960
+        }
+      ],
+      "review": {
+        "status": "pending",
+        "notes": "Initialized by manifest writer stub."
+      },
+      "metadata": {
+        "priority": 4,
+        "variants_requested": 1
+      }
+    }
+  ],
+  "metadata": {
+    "manifest_builder_version": "phase1-manifest-writer-stub",
+    "provider_id": "mock",
+    "model_id": "mock-image-model-v1"
+  }
+}

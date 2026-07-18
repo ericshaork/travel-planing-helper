@@ -1,0 +1,7 @@
+{
+  "asset_id": "sample_ai_generated_asset",
+  "image_slot": "detail_header",
+  "source": "ai_generated",
+  "file_path": "mock://image-assets/sample_ai_generated_asset.ai_generated.jpg",
+  "status": "completed"
+}

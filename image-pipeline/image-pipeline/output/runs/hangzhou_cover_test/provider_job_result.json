@@ -1,0 +1,43 @@
+{
+  "request_id": "imgreq_hangzhou_cover_test",
+  "provider_id": "seedream",
+  "model_id": "doubao-seedream-5-0-pro-260628",
+  "job_results": [
+    {
+      "provider_job_id": "seedream_assetreq_trip_hangzhou_cover_test",
+      "asset_request_id": "assetreq_trip_hangzhou_cover_test",
+      "provider_id": "seedream",
+      "model_id": "doubao-seedream-5-0-pro-260628",
+      "status": "completed",
+      "submitted_at": "2026-07-16T05:32:15.231Z",
+      "completed_at": "2026-07-16T05:34:19.740Z",
+      "files": [
+        {
+          "file_id": "assetreq_trip_hangzhou_cover_test_generated",
+          "file_kind": "generated_image",
+          "storage_ref": "C:\\Users\\10200\\Desktop\\image-pipeline\\image-pipeline\\output\\runs\\hangzhou_cover_test\\generated\\cover_001.png",
+          "mime_type": "image/png",
+          "width": 1080,
+          "height": 1350,
+          "size_bytes": 397326
+        }
+      ],
+      "parameters": {
+        "asset_role": "cover",
+        "style_profile_id": "wanderly_editorial_travel_v1",
+        "aspect_ratio": "4:5",
+        "orientation": "portrait",
+        "prompt": "A light-toned watercolor travel cover illustration for Hangzhou Lakeside Weekend Journal. Destination context: Hangzhou, China. Scene idea: A soft, dreamy cover centered on West Lake, tea culture, and quiet reflective city moments. Style: soft watercolor, pastel highlights, personalized travel journal aesthetic, elegant hand-crafted composition. Visual direction: airy layout, gentle paper texture feeling, warm and refined editorial cover image. Constraints: no text, no letters, no typography, no watermark, no logo, no frame.",
+        "response_format": "b64_json"
+      }
+    }
+  ],
+  "metadata": {
+    "provider_kind": "seedream",
+    "provider_label": "Seedream / Ark",
+    "mode": "real_test",
+    "base_url": "https://ark.cn-beijing.volces.com",
+    "endpoint": "/api/v3/images/generations",
+    "output_dir": "C:\\Users\\10200\\Desktop\\image-pipeline\\image-pipeline\\output\\runs\\hangzhou_cover_test\\generated"
+  }
+}

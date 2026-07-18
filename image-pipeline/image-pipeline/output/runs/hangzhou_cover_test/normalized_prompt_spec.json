@@ -1,0 +1,148 @@
+{
+  "spec_version": "1.0.0",
+  "request_id": "imgreq_hangzhou_cover_test",
+  "source_document": {
+    "document_type": "travel_plan",
+    "document_id": "hangzhou_cover_test",
+    "document_version": "2.0.0",
+    "source_ref": "C:\\Users\\10200\\Desktop\\image-pipeline\\image-pipeline\\input\\hangzhou_cover_test.json",
+    "locale": "en-US"
+  },
+  "global_context": {
+    "destination": {
+      "city": "Hangzhou",
+      "region": "Zhejiang",
+      "country": "China"
+    },
+    "audience": [
+      "solo traveler",
+      "aesthetic seekers"
+    ],
+    "themes": [
+      "lakeside wandering",
+      "tea culture",
+      "quiet city retreat"
+    ],
+    "style_direction": [],
+    "content_warnings": []
+  },
+  "prompt_specs": [
+    {
+      "asset_request_id": "assetreq_trip_hangzhou_cover_test",
+      "asset_role": "cover",
+      "subject": {
+        "subject_type": "cover",
+        "source_entity_type": "trip",
+        "source_entity_ref": "trip://hangzhou_cover_test",
+        "title": "Hangzhou Lakeside Weekend Journal",
+        "summary": "A soft, dreamy cover centered on West Lake, tea culture, and quiet reflective city moments.",
+        "tags": [
+          "hangzhou",
+          "west lake",
+          "travel journal"
+        ],
+        "location_context": {
+          "name": "West Lake",
+          "city": "Hangzhou",
+          "region": "Zhejiang",
+          "country": "China"
+        },
+        "time_context": {},
+        "identity_markers": [
+          "Hangzhou Lakeside Weekend Journal",
+          "West Lake"
+        ],
+        "cultural_markers": []
+      },
+      "style_profile": {
+        "style_profile_id": "wanderly_editorial_travel_v1",
+        "asset_role": "cover",
+        "style_family": "editorial_travel",
+        "style_keywords": [
+          "watercolor",
+          "hand drawn",
+          "collage",
+          "vintage travel poster",
+          "oriental travel aesthetic"
+        ],
+        "mood_keywords": [
+          "inviting",
+          "narrative",
+          "collectible"
+        ],
+        "color_tendency": "warm_washed_editorial",
+        "realism_level": "illustrative"
+      },
+      "visual_direction": {
+        "primary_goal": "express_trip_identity_as_editorial_visual_entrypoint",
+        "authenticity_level": "illustrative",
+        "style_family": "editorial_travel",
+        "destination_bias": {
+          "city": "Hangzhou",
+          "region": "Zhejiang",
+          "country": "China"
+        },
+        "thematic_signals": [
+          "lakeside wandering",
+          "tea culture",
+          "quiet city retreat"
+        ],
+        "audience_signals": [
+          "solo traveler",
+          "aesthetic seekers"
+        ]
+      },
+      "composition": {
+        "shot_type": "editorial_hero",
+        "framing": "single_strong_subject_with_supporting_context",
+        "focus_priority": [
+          "destination identity",
+          "trip concept",
+          "editorial composition"
+        ],
+        "foreground_background_balance": "layered",
+        "visual_density": "rich",
+        "text_safe_area": "upper_and_center_safe",
+        "provider_notes": []
+      },
+      "mood": {
+        "primary": "inviting",
+        "secondary": [
+          "narrative",
+          "collectible"
+        ],
+        "keywords": [
+          "inviting",
+          "narrative",
+          "collectible"
+        ]
+      },
+      "constraints": {
+        "must_include": [],
+        "avoid": [],
+        "cultural_notes": [],
+        "usage_constraints": [
+          "card",
+          "detail_header",
+          "social_share"
+        ],
+        "quality_requirements": [
+          "clear_subject",
+          "coherent_composition",
+          "brand_consistent"
+        ]
+      },
+      "output_spec": {
+        "aspect_ratio": "4:5",
+        "orientation": "portrait",
+        "min_width": 1080,
+        "min_height": 1350,
+        "transparent_background": false
+      }
+    }
+  ],
+  "metadata": {
+    "prompt_builder_version": "phase1-prompt-builder-skeleton",
+    "request_schema_version": "1.0.0"
+  }
+}

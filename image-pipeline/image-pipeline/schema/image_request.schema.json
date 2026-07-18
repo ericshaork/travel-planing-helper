@@ -1,0 +1,375 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wanderly.dev/schemas/image-pipeline/image_request.schema.json",
+  "title": "Wanderly Image Request",
+  "description": "Describes visual asset generation needs for a travel plan without storing generated image locations.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "request_id",
+    "source_document",
+    "asset_requests"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "description": "Version of the image request schema.",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "request_id": {
+      "type": "string",
+      "description": "Unique identifier for this image generation request batch.",
+      "minLength": 1
+    },
+    "request_label": {
+      "type": "string",
+      "description": "Human-readable label for operations and debugging."
+    },
+    "source_document": {
+      "$ref": "#/$defs/sourceDocument"
+    },
+    "global_context": {
+      "$ref": "#/$defs/globalContext"
+    },
+    "asset_requests": {
+      "type": "array",
+      "description": "Requested visual assets derived from the travel plan.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/assetRequest"
+      }
+    },
+    "requested_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Pipeline-specific extensible metadata.",
+      "additionalProperties": true
+    }
+  },
+  "$defs": {
+    "sourceDocument": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "document_type"
+      ],
+      "properties": {
+        "document_type": {
+          "type": "string",
+          "description": "Logical source type, such as explore_plan, guide, or itinerary."
+        },
+        "document_id": {
+          "type": "string",
+          "description": "Stable upstream document identifier."
+        },
+        "document_version": {
+          "type": "string",
+          "description": "Upstream schema or content version."
+        },
+        "source_ref": {
+          "type": "string",
+          "description": "Relative file path, object key, or external reference to the source plan JSON."
+        },
+        "locale": {
+          "type": "string",
+          "description": "Primary content locale, such as zh-CN or en-US."
+        }
+      }
+    },
+    "globalContext": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "destination": {
+          "$ref": "#/$defs/destination"
+        },
+        "audience": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "themes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "style_direction": {
+          "type": "array",
+          "description": "Optional default visual direction keywords for the whole batch.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "content_warnings": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "destination": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "city": {
+          "type": "string"
+        },
+        "region": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        }
+      }
+    },
+    "assetRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "asset_request_id",
+        "asset_role",
+        "subject"
+      ],
+      "properties": {
+        "asset_request_id": {
+          "type": "string",
+          "description": "Stable ID for this requested asset."
+        },
+        "asset_role": {
+          "type": "string",
+          "description": "Visual role of the asset in the travel experience.",
+          "enum": [
+            "cover",
+            "place",
+            "food",
+            "scene",
+            "experience"
+          ]
+        },
+        "subject": {
+          "$ref": "#/$defs/subject"
+        },
+        "usage": {
+          "type": "array",
+          "description": "Expected product surfaces for this asset.",
+          "items": {
+            "type": "string",
+            "enum": [
+              "card",
+              "detail_header",
+              "gallery",
+              "section_inline",
+              "day_block",
+              "social_share",
+              "other"
+            ]
+          }
+        },
+        "visual_intent": {
+          "$ref": "#/$defs/visualIntent"
+        },
+        "composition_hints": {
+          "type": "array",
+          "description": "Compositional instructions that are not provider-specific prompts.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "output_spec": {
+          "$ref": "#/$defs/outputSpec"
+        },
+        "priority": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5,
+          "description": "Operational priority, where 1 is highest."
+        },
+        "variants_requested": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 1
+        },
+        "metadata": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      }
+    },
+    "subject": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "entity_type"
+      ],
+      "properties": {
+        "entity_type": {
+          "type": "string",
+          "description": "Logical content entity type. Kept flexible for future travel content formats."
+        },
+        "entity_id": {
+          "type": "string",
+          "description": "Stable entity identifier if available."
+        },
+        "entity_ref": {
+          "type": "string",
+          "description": "Reference into the source document, such as JSON Pointer, path, or custom lookup key."
+        },
+        "title": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "time_context": {
+          "$ref": "#/$defs/timeContext"
+        },
+        "location": {
+          "$ref": "#/$defs/location"
+        }
+      }
+    },
+    "timeContext": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "day_index": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "part_of_day": {
+          "type": "string",
+          "enum": [
+            "dawn",
+            "morning",
+            "noon",
+            "afternoon",
+            "sunset",
+            "evening",
+            "night",
+            "flexible"
+          ]
+        },
+        "season": {
+          "type": "string"
+        }
+      }
+    },
+    "location": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "region": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "lat": {
+          "type": "number"
+        },
+        "lng": {
+          "type": "number"
+        }
+      }
+    },
+    "visualIntent": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "style_family": {
+          "type": "string",
+          "description": "High-level artistic family, such as watercolor, collage, poster, or cinematic photo."
+        },
+        "style_keywords": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "mood_keywords": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "authenticity_level": {
+          "type": "string",
+          "description": "Desired realism level.",
+          "enum": [
+            "illustrative",
+            "stylized_real",
+            "photoreal"
+          ]
+        },
+        "must_include": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "avoid": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "cultural_notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "outputSpec": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "aspect_ratio": {
+          "type": "string",
+          "description": "Target aspect ratio, such as 1:1, 4:5, 3:2, 16:9."
+        },
+        "orientation": {
+          "type": "string",
+          "enum": [
+            "portrait",
+            "landscape",
+            "square",
+            "flexible"
+          ]
+        },
+        "min_width": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "min_height": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "transparent_background": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    }
+  }
+}

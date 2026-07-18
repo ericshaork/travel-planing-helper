@@ -1,0 +1,51 @@
+{
+  "asset_id": "ca_beijing_beihai_park",
+  "asset_instance_id": "ca_beijing_beihai_park_poi_gallery",
+  "image_slot": "poi_gallery",
+  "source": "pexels",
+  "file_path": "C:\\Users\\10200\\Desktop\\image-pipeline\\image-pipeline\\assets\\external\\ca_beijing_beihai_park.jpeg",
+  "status": "completed",
+  "retry_count": 0,
+  "last_error": null,
+  "download_status": "completed",
+  "fallback_available": false,
+  "selection": {
+    "selected_candidate": {
+      "source": "pexels",
+      "candidate_id": "6754806",
+      "image_url": "https://images.pexels.com/photos/6754806/pexels-photo-6754806.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    },
+    "rank_score": 50,
+    "candidate_count": 10,
+    "rejected_count": 0
+  },
+  "metadata": {
+    "source_runs": [
+      {
+        "source": "wikimedia",
+        "priority": 1,
+        "candidate_count": 0,
+        "error": "Wikimedia request failed with status 429."
+      },
+      {
+        "source": "pexels",
+        "priority": 2,
+        "candidate_count": 10,
+        "error": null
+      }
+    ],
+    "title": "Entrance of Prince Gong's Mansion in Beijing showcasing traditional Chinese architectural design.",
+    "description": "Entrance of Prince Gong's Mansion in Beijing showcasing traditional Chinese architectural design.",
+    "author": "zhang kaiyv",
+    "license": "Pexels License",
+    "source_url": "https://www.pexels.com/photo/red-and-green-doorway-6754806/",
+    "image_url": "https://images.pexels.com/photos/6754806/pexels-photo-6754806.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "width": 9504,
+    "height": 6336,
+    "mime_type": "image/jpeg",
+    "score_reasons": [
+      "location_match",
+      "high_resolution_3000"
+    ]
+  }
+}

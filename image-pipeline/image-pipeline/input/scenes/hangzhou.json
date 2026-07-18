@@ -1,0 +1,55 @@
+{
+  "city": "Hangzhou",
+  "scenes": [
+    {
+      "name": "Lakeside Teahouse",
+      "mood": "slow afternoon",
+      "visual_elements": [
+        "wooden tea table",
+        "tea cup",
+        "bamboo chair",
+        "open tea house",
+        "lake view"
+      ],
+      "avoid": [
+        "pavilion",
+        "boat",
+        "lotus"
+      ]
+    },
+    {
+      "name": "Jiangnan Old Lane",
+      "mood": "quiet morning walk",
+      "visual_elements": [
+        "stone lane",
+        "white wall houses",
+        "wooden doorway",
+        "tree shade",
+        "soft morning light"
+      ],
+      "avoid": [
+        "pavilion",
+        "boat",
+        "lotus",
+        "wide open lake"
+      ]
+    },
+    {
+      "name": "Longjing Tea Hills",
+      "mood": "clear mountain morning",
+      "visual_elements": [
+        "tea terraces",
+        "green hillside",
+        "mountain path",
+        "tea shrubs",
+        "light mist"
+      ],
+      "avoid": [
+        "pavilion",
+        "boat",
+        "lotus",
+        "flat lakeside composition"
+      ]
+    }
+  ]
+}

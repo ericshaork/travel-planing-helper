@@ -1,0 +1,115 @@
+{
+  "document_type": "travel_plan",
+  "document_version": "2.0.0",
+  "trip_id": "tokyo_weekend_culture",
+  "title": "Tokyo Weekend of Streets, Food, and Slow Evenings",
+  "locale": "en-US",
+  "destination": {
+    "city": "Tokyo",
+    "region": "Kanto",
+    "country": "Japan"
+  },
+  "audience": [
+    "couple",
+    "culture_seekers"
+  ],
+  "travel_concept": [
+    "street culture",
+    "slow travel",
+    "food discovery"
+  ],
+  "semantic_version": "phase1-abstract-plan-v1",
+  "entities": [
+    {
+      "asset_role": "cover",
+      "entity_type": "trip",
+      "entity_id": "trip_tokyo_weekend_culture",
+      "entity_ref": "trip://tokyo_weekend_culture",
+      "title": "Tokyo Weekend of Streets, Food, and Slow Evenings",
+      "summary": "A warm editorial overview of Tokyo neighborhoods, food, and reflective city moments.",
+      "tags": [
+        "tokyo",
+        "editorial",
+        "weekend"
+      ],
+      "location": {
+        "name": "Tokyo",
+        "city": "Tokyo",
+        "region": "Kanto",
+        "country": "Japan"
+      }
+    },
+    {
+      "asset_role": "place",
+      "entity_type": "poi_entity",
+      "entity_id": "sensoji_temple",
+      "entity_ref": "poi://sensoji_temple",
+      "title": "Senso-ji Temple",
+      "summary": "Historic temple grounds with lantern-lined approaches and dense cultural detail.",
+      "tags": [
+        "temple",
+        "heritage"
+      ],
+      "location": {
+        "name": "Senso-ji Temple",
+        "city": "Tokyo",
+        "country": "Japan"
+      },
+      "cultural_notes": [
+        "highlight temple approach atmosphere",
+        "avoid generic skyline framing"
+      ]
+    },
+    {
+      "asset_role": "food",
+      "entity_type": "food_entity",
+      "entity_id": "monjayaki_dinner",
+      "entity_ref": "food://monjayaki_dinner",
+      "title": "Monjayaki Dinner",
+      "summary": "Local griddle dining with warmth, texture, and casual group atmosphere.",
+      "tags": [
+        "local food",
+        "dinner"
+      ],
+      "location": {
+        "name": "Tsukishima",
+        "city": "Tokyo",
+        "country": "Japan"
+      }
+    },
+    {
+      "asset_role": "scene",
+      "entity_type": "scene_unit",
+      "entity_id": "day1_evening_walk",
+      "entity_ref": "scene://day1_evening_walk",
+      "title": "Evening Walk Through Lantern Streets",
+      "summary": "A transitional evening atmosphere with glowing signs, pedestrians, and unhurried motion.",
+      "time_context": {
+        "day_index": 1,
+        "part_of_day": "evening"
+      },
+      "location": {
+        "name": "Asakusa Side Streets",
+        "city": "Tokyo",
+        "country": "Japan"
+      }
+    },
+    {
+      "asset_role": "experience",
+      "entity_type": "experience_entity",
+      "entity_id": "river_walk_reflection",
+      "entity_ref": "experience://river_walk_reflection",
+      "title": "Sumida River Reflection Walk",
+      "summary": "A quiet riverside moment centered on participation, movement, and memory.",
+      "time_context": {
+        "day_index": 1,
+        "part_of_day": "sunset"
+      },
+      "location": {
+        "name": "Sumida River",
+        "city": "Tokyo",
+        "country": "Japan"
+      }
+    }
+  ]
+}

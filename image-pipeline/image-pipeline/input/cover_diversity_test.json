@@ -1,0 +1,133 @@
+{
+  "document_type": "travel_plan",
+  "document_version": "2.0.0",
+  "trip_id": "cover_diversity_test",
+  "title": "Wanderly Cover Diversity Test",
+  "locale": "en-US",
+  "semantic_version": "phase3-cover-diversity-v1",
+  "audience": [
+    "explore readers",
+    "quiet aesthetic seekers"
+  ],
+  "travel_concept": [
+    "personal travel journal",
+    "soft watercolor editorial",
+    "city-specific travel storytelling"
+  ],
+  "entities": [
+    {
+      "asset_role": "cover",
+      "entity_type": "trip",
+      "entity_id": "trip_hangzhou_cover_diversity",
+      "entity_ref": "trip://hangzhou_cover_diversity",
+      "title": "Hangzhou Jiangnan Waterside Cover",
+      "summary": "An original Jiangnan travel journal illustration for Hangzhou with lake, pavilion, willow, and mist in a quiet poetic scene.",
+      "tags": [
+        "hangzhou",
+        "jiangnan",
+        "waterside",
+        "watercolor"
+      ],
+      "location": {
+        "name": "West Lake",
+        "city": "Hangzhou",
+        "region": "Zhejiang",
+        "country": "China"
+      },
+      "style_reference": {
+        "images": [
+          {
+            "path": "assets/style_reference/lake-card.png",
+            "purpose": "cover_visual_style_reference"
+          }
+        ]
+      },
+      "must_include": [
+        "lake atmosphere",
+        "pavilion accent",
+        "willow softness",
+        "misty air"
+      ],
+      "avoid": [
+        "copied reference composition"
+      ],
+      "variants_requested": 3
+    },
+    {
+      "asset_role": "cover",
+      "entity_type": "trip",
+      "entity_id": "trip_chengdu_cover_diversity",
+      "entity_ref": "trip://chengdu_cover_diversity",
+      "title": "Chengdu Slow Street Cover",
+      "summary": "An original Chengdu travel journal illustration with an old street, teahouse, leafy trees, and gentle morning light in a slow-living neighborhood scene.",
+      "tags": [
+        "chengdu",
+        "old street",
+        "teahouse",
+        "morning light"
+      ],
+      "location": {
+        "name": "Chengdu Old Street",
+        "city": "Chengdu",
+        "region": "Sichuan",
+        "country": "China"
+      },
+      "style_reference": {
+        "images": [
+          {
+            "path": "assets/style_reference/lake-card.png",
+            "purpose": "cover_visual_style_reference"
+          }
+        ]
+      },
+      "must_include": [
+        "old street rhythm",
+        "teahouse presence",
+        "trees",
+        "morning light"
+      ],
+      "avoid": [
+        "lake pavilion composition"
+      ],
+      "variants_requested": 3
+    },
+    {
+      "asset_role": "cover",
+      "entity_type": "trip",
+      "entity_id": "trip_yunnan_cover_diversity",
+      "entity_ref": "trip://yunnan_cover_diversity",
+      "title": "Yunnan Valley Journey Cover",
+      "summary": "An original Yunnan travel journal illustration with a mountain village, layered clouds, and flowers in a calm valley journey scene.",
+      "tags": [
+        "yunnan",
+        "mountain village",
+        "clouds",
+        "flowers"
+      ],
+      "location": {
+        "name": "Yunnan Valley",
+        "city": "Yunnan",
+        "region": "Yunnan",
+        "country": "China"
+      },
+      "style_reference": {
+        "images": [
+          {
+            "path": "assets/style_reference/lake-card.png",
+            "purpose": "cover_visual_style_reference"
+          }
+        ]
+      },
+      "must_include": [
+        "mountain village",
+        "layered clouds",
+        "flowers",
+        "valley travel mood"
+      ],
+      "avoid": [
+        "lakeside pavilion layout"
+      ],
+      "variants_requested": 3
+    }
+  ]
+}

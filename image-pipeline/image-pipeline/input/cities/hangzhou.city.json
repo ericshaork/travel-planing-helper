@@ -1,0 +1,279 @@
+{
+  "city_id": "hangzhou",
+  "city_name": {
+    "zh": "杭州",
+    "en": "Hangzhou"
+  },
+  "province": {
+    "zh": "浙江",
+    "en": "Zhejiang"
+  },
+  "country": {
+    "zh": "中国",
+    "en": "China"
+  },
+  "identity": {
+    "identity_keywords": [
+      {
+        "zh": "江南水城",
+        "en": "jiangnan water city"
+      },
+      {
+        "zh": "南宋文化",
+        "en": "southern song heritage"
+      },
+      {
+        "zh": "龙井茶文化",
+        "en": "longjing tea culture"
+      },
+      {
+        "zh": "运河与湖泊双重城市性格",
+        "en": "canal-and-lake dual identity"
+      },
+      {
+        "zh": "东南文人气质",
+        "en": "literary east china calm"
+      }
+    ],
+    "visual_character": [
+      {
+        "zh": "雾气中的横向水面层次",
+        "en": "misty horizontal water layers"
+      },
+      {
+        "zh": "堤岸垂柳和柔和水线",
+        "en": "willow-lined embankments"
+      },
+      {
+        "zh": "白墙黛瓦的江南建筑肌理",
+        "en": "white walls and dark tiled roofs"
+      },
+      {
+        "zh": "柔和起伏的茶山茶垄",
+        "en": "soft tea-hill terraces"
+      },
+      {
+        "zh": "克制雅致的宋韵氛围",
+        "en": "refined and restrained song-dynasty atmosphere"
+      }
+    ]
+  },
+  "visual_assets": {
+    "landmarks": [
+      {
+        "name_zh": "西湖长堤",
+        "name_en": "West Lake causeways",
+        "visual_description_zh": "横向延展的长堤、垂柳、水雾和远山层次",
+        "visual_description_en": "long linear causeways with willow edges, light mist, calm water, and distant hills"
+      },
+      {
+        "name_zh": "雷峰塔剪影",
+        "name_en": "Leifeng Pagoda silhouette",
+        "visual_description_zh": "塔身层檐、湖岸远景和朦胧天际线",
+        "visual_description_en": "tiered pagoda silhouette with distant lakeshore profile and soft skyline haze"
+      },
+      {
+        "name_zh": "断桥轮廓",
+        "name_en": "Broken Bridge profile",
+        "visual_description_zh": "低桥弧线、桥头垂柳和浅雾水面",
+        "visual_description_en": "low bridge arc with willow edges, pale mist, and quiet reflective water"
+      },
+      {
+        "name_zh": "京杭大运河水岸",
+        "name_en": "Grand Canal waterside edges",
+        "visual_description_zh": "运河台阶、旧墙、沿岸生活痕迹和狭长水道",
+        "visual_description_en": "stone canal steps, aged walls, lived-in waterside edges, and narrow canal depth"
+      },
+      {
+        "name_zh": "南宋皇城遗韵",
+        "name_en": "Southern Song imperial-city traces",
+        "visual_description_zh": "低调宫城文脉、石阶、树影和克制的历史感",
+        "visual_description_en": "subtle imperial-city traces with stone steps, filtered tree shade, and restrained historical mood"
+      }
+    ],
+    "architecture": [
+      {
+        "name_zh": "江南白墙民居",
+        "name_en": "jiangnan white wall houses",
+        "visual_description_zh": "白墙、深色屋檐、低矮体量和安静巷道",
+        "visual_description_en": "whitewashed walls, dark rooflines, low building scale, and quiet lanes"
+      },
+      {
+        "name_zh": "黛瓦屋顶",
+        "name_en": "dark tiled roofs",
+        "visual_description_zh": "细密瓦片、压低的屋面线条和雨后光泽",
+        "visual_description_en": "dense dark roof tiles, lowered roof silhouettes, and subtle post-rain sheen"
+      },
+      {
+        "name_zh": "运河石阶",
+        "name_en": "canal-side stone steps",
+        "visual_description_zh": "通向水面的石阶、边缘青苔和缓慢水纹",
+        "visual_description_en": "stone steps descending toward water with moss edges and slow canal ripples"
+      },
+      {
+        "name_zh": "木格门窗",
+        "name_en": "wooden lattice doors",
+        "visual_description_zh": "木格栅、窄门洞和文气十足的院落入口",
+        "visual_description_en": "wood lattice doors, narrow entry frames, and scholarly courtyard thresholds"
+      },
+      {
+        "name_zh": "低矮小桥",
+        "name_en": "low bridges over still water",
+        "visual_description_zh": "贴近水面的低桥、温和曲线和静止倒影",
+        "visual_description_en": "low bridges crossing still water with gentle arcs and quiet reflections"
+      }
+    ],
+    "food": [
+      {
+        "name_zh": "龙井茶",
+        "name_en": "Longjing tea",
+        "visual_description_zh": "扁平茶叶、青绿色调、白瓷茶器和清淡蒸汽",
+        "visual_description_en": "flat green tea leaves, pale green tones, white porcelain tea ware, and delicate steam"
+      },
+      {
+        "name_zh": "西湖醋鱼",
+        "name_en": "West Lake vinegar fish",
+        "visual_description_zh": "整鱼摆盘、浅色酱汁和江南宴席器皿",
+        "visual_description_en": "whole-fish plating with light glaze and refined Jiangnan banquet tableware"
+      },
+      {
+        "name_zh": "竹笋时蔬",
+        "name_en": "sliced bamboo shoot dishes",
+        "visual_description_zh": "浅色竹笋片、青瓷小盘和春季轻盈感",
+        "visual_description_en": "pale bamboo shoots, celadon side plates, and a spring-like lightness"
+      },
+      {
+        "name_zh": "桂花甜点",
+        "name_en": "osmanthus sweets",
+        "visual_description_zh": "淡黄色糖霜、半透明糕点和秋季香甜气息",
+        "visual_description_en": "light yellow glaze, translucent pastries, and a soft autumn sweetness"
+      },
+      {
+        "name_zh": "临水宴席器皿",
+        "name_en": "delicate riverside banquet tableware",
+        "visual_description_zh": "细口白瓷、浅色桌面和文雅餐席细节",
+        "visual_description_en": "fine white porcelain, pale table surfaces, and elegant riverside dining details"
+      }
+    ],
+    "craft_and_culture": [
+      {
+        "name_zh": "手工炒制龙井",
+        "name_en": "hand-roasted Longjing leaves",
+        "visual_description_zh": "竹匾、嫩茶叶、手工翻炒和微微蒸汽",
+        "visual_description_en": "bamboo trays, fresh tea leaves, hand-roasting motion, and light steam haze"
+      },
+      {
+        "name_zh": "南宋书房器物",
+        "name_en": "Southern Song scholarly objects",
+        "visual_description_zh": "笔墨纸砚、低案、卷轴和安静书房光线",
+        "visual_description_en": "brushes, inkstone, paper, low desk surfaces, scrolls, and quiet study light"
+      },
+      {
+        "name_zh": "丝绸材质文化",
+        "name_en": "silk-related material culture",
+        "visual_description_zh": "柔软布面、浅色织纹和轻垂的布料感",
+        "visual_description_en": "soft silk surfaces, pale woven textures, and lightly draped fabric movement"
+      },
+      {
+        "name_zh": "篆刻与书法气质",
+        "name_en": "seal carving and brush-calligraphy mood",
+        "visual_description_zh": "印章石、墨迹、留白和文人手作感",
+        "visual_description_en": "seal stones, brush ink traces, negative space, and literati handcraft mood"
+      },
+      {
+        "name_zh": "书店与茶读氛围",
+        "name_en": "bookshop and literary tea-reading atmosphere",
+        "visual_description_zh": "木书架、纸页、茶盏和安静靠窗阅读场景",
+        "visual_description_en": "wood bookshelves, paper textures, tea cups, and quiet window-side reading scenes"
+      }
+    ],
+    "nature": [
+      {
+        "name_zh": "西湖水面",
+        "name_en": "West Lake water surface",
+        "visual_description_zh": "平静浅水、轻雾、水纹和柔和天光倒影",
+        "visual_description_en": "calm shallow water, light mist, soft ripples, and muted sky reflections"
+      },
+      {
+        "name_zh": "龙井茶山",
+        "name_en": "Longjing tea hills",
+        "visual_description_zh": "层叠茶垄、山坡小径、晨雾和柔和绿色",
+        "visual_description_en": "layered tea fields, hillside paths, morning mist, and soft green tones"
+      },
+      {
+        "name_zh": "春季柳树与初花",
+        "name_en": "spring willow and early blossom palette",
+        "visual_description_zh": "浅绿柳丝、零星花枝和湿润春晨空气",
+        "visual_description_en": "pale willow threads, sparse blossoms, and moist spring-morning air"
+      },
+      {
+        "name_zh": "荷花季节肌理",
+        "name_en": "lotus season textures",
+        "visual_description_zh": "圆形荷叶、粉白荷花和靠水边的柔和生长感",
+        "visual_description_en": "round lotus leaves, pale pink blossoms, and soft waterside growth texture"
+      },
+      {
+        "name_zh": "山麓低雾",
+        "name_en": "low mist over foothills",
+        "visual_description_zh": "贴近山脚的薄雾、灰蓝山体和层叠远景",
+        "visual_description_en": "low-lying mist over foothills with blue-gray mountain layering"
+      }
+    ]
+  },
+  "generation_constraints": {
+    "must_include_when_relevant": [
+      {
+        "zh": "茶山场景应体现龙井茶垄结构，不要退化成普通绿色山坡",
+        "en": "tea-hill scenes should show structured Longjing terraces instead of generic green mountains"
+      },
+      {
+        "zh": "江南街巷场景应保留白墙、瓦顶和石路质感",
+        "en": "jiangnan street scenes should preserve white walls, tiled roofs, and stone paving"
+      },
+      {
+        "zh": "湖景场景优先使用长堤、桥、堤岸或精致水边结构，而不是泛化明信片构图",
+        "en": "lake scenes should favor causeways, bridges, embankments, or refined waterside edges over generic postcard icons"
+      }
+    ],
+    "avoid_generic_patterns": [
+      {
+        "zh": "不要把杭州反复压缩成亭子、小船、荷花的重复组合",
+        "en": "do not reduce Hangzhou to pavilion-boat-lotus repetition"
+      },
+      {
+        "zh": "避免把杭州画成泛化的中国湖边小镇",
+        "en": "avoid treating Hangzhou as a generic chinese lake town"
+      },
+      {
+        "zh": "避免没有城市结构支撑的大面积空泛水面",
+        "en": "avoid overusing empty panoramic water surfaces without city-specific structure"
+      }
+    ]
+  },
+  "editorial_notes": {
+    "cover_bias": [
+      {
+        "zh": "杭州封面适合在文人气与明确空间结构之间取得平衡",
+        "en": "Hangzhou covers work best when they balance literary calm with one strong place-defining structure"
+      },
+      {
+        "zh": "茶 craft 和运河 texture 是跳出西湖主图的重要方向",
+        "en": "tea craft and canal texture can diversify the city beyond West Lake hero shots"
+      }
+    ],
+    "scene_balance_notes": [
+      {
+        "zh": "不要让五张封面都回到同一种湖景母版",
+        "en": "do not let all five cover scenes return to the same lake composition"
+      },
+      {
+        "zh": "保留一到两个城市名片场景，其余应分流到茶、运河、巷道和文化细节",
+        "en": "keep one or two city-name scenes, then diversify into tea, canal, lane, and quiet cultural detail"
+      }
+    ]
+  },
+  "metadata": {
+    "version": "v2",
+    "source_type": "manual_curated_bilingual"
+  }
+}

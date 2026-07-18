@@ -1,0 +1,127 @@
+{
+  "city": "Hangzhou",
+  "draft_version": "v1",
+  "scenes": [
+    {
+      "scene_id": "HZ_SCENE_001",
+      "city": "Hangzhou",
+      "scene_name": "Lakeside Tea Seat",
+      "scene_type": "slow_moment",
+      "mood": "slow afternoon",
+      "story_hint": "A solo traveler pauses by West Lake with tea and a sketchbook, letting the city feel intimate instead of touristic.",
+      "visual_elements": [
+        "wooden tea table",
+        "porcelain gaiwan",
+        "bamboo chair",
+        "open-sided lakeside tea shelter",
+        "pale lake surface",
+        "willow branches",
+        "folded paper notebook"
+      ],
+      "avoid": [
+        "large central pavilion",
+        "tourist boat as main subject",
+        "dense lotus foreground",
+        "dramatic sunset sky"
+      ],
+      "why_it_fits_cover": "The foreground tea setup gives the cover a clear focal point while keeping Hangzhou recognizable and personal."
+    },
+    {
+      "scene_id": "HZ_SCENE_002",
+      "city": "Hangzhou",
+      "scene_name": "Jiangnan Stone Lane Morning",
+      "scene_type": "street",
+      "mood": "quiet morning",
+      "story_hint": "The scene captures Hangzhou before the crowds, when white walls, stone paving, and soft shade feel more memorable than landmarks.",
+      "visual_elements": [
+        "narrow stone lane",
+        "white wall houses",
+        "dark wooden doorway",
+        "climbing vine",
+        "plane tree shade",
+        "soft morning light",
+        "small potted plant"
+      ],
+      "avoid": [
+        "open lake panorama",
+        "pavilion",
+        "boat",
+        "lotus pond",
+        "crowded market signs"
+      ],
+      "why_it_fits_cover": "It gives Hangzhou a strong editorial silhouette and a distinctive lifestyle mood instead of another lake postcard."
+    },
+    {
+      "scene_id": "HZ_SCENE_003",
+      "city": "Hangzhou",
+      "scene_name": "Longjing Tea Hills Walk",
+      "scene_type": "nature",
+      "mood": "clear mountain morning",
+      "story_hint": "A walking path through Longjing tea fields turns Hangzhou into a journey scene rather than a static attraction image.",
+      "visual_elements": [
+        "tea terraces",
+        "curved hillside path",
+        "low tea shrubs",
+        "light mountain mist",
+        "distant ridge",
+        "travel figure from behind",
+        "pale morning sky"
+      ],
+      "avoid": [
+        "lakeside pavilion",
+        "boat",
+        "lotus flowers",
+        "flat water composition"
+      ],
+      "why_it_fits_cover": "The terraced rhythm reads beautifully in watercolor and immediately diversifies the city's cover language."
+    },
+    {
+      "scene_id": "HZ_SCENE_004",
+      "city": "Hangzhou",
+      "scene_name": "Rainy Canal Bookshop Corner",
+      "scene_type": "lifestyle",
+      "mood": "rainy and reflective",
+      "story_hint": "Hangzhou feels literary and personal when seen from a canal-side shopfront after light rain.",
+      "visual_elements": [
+        "canal-side stone steps",
+        "paper lantern glow",
+        "bookshop window",
+        "wet stone reflections",
+        "narrow umbrella",
+        "trailing ivy",
+        "muted rain haze"
+      ],
+      "avoid": [
+        "wide lake horizon",
+        "grand bridge centerpiece",
+        "lotus cluster",
+        "tour group energy"
+      ],
+      "why_it_fits_cover": "It offers a more intimate urban scene with mood, texture, and strong cover readability."
+    },
+    {
+      "scene_id": "HZ_SCENE_005",
+      "city": "Hangzhou",
+      "scene_name": "Bridge Mist and Early Blossoms",
+      "scene_type": "landmark",
+      "mood": "misty and poetic",
+      "story_hint": "The city is expressed through a soft stone bridge and early spring atmosphere rather than a catalog of icons.",
+      "visual_elements": [
+        "low stone bridge",
+        "mist above water",
+        "early blossoms",
+        "willow edge",
+        "quiet embankment",
+        "pale mountain backdrop",
+        "empty walking path"
+      ],
+      "avoid": [
+        "centered pavilion",
+        "prominent boat",
+        "oversized lotus foreground",
+        "fireworks or festival scene"
+      ],
+      "why_it_fits_cover": "It keeps a recognizable Hangzhou landmark feeling while staying restrained and editorial."
+    }
+  ]
+}

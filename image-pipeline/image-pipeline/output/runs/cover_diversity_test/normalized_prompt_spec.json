@@ -1,0 +1,468 @@
+{
+  "spec_version": "1.0.0",
+  "request_id": "imgreq_cover_diversity_test",
+  "source_document": {
+    "document_type": "travel_plan",
+    "document_id": "cover_diversity_test",
+    "document_version": "2.0.0",
+    "source_ref": "C:\\Users\\10200\\Desktop\\image-pipeline\\image-pipeline\\input\\cover_diversity_test.json",
+    "locale": "en-US"
+  },
+  "global_context": {
+    "audience": [
+      "explore readers",
+      "quiet aesthetic seekers"
+    ],
+    "themes": [
+      "personal travel journal",
+      "soft watercolor editorial",
+      "city-specific travel storytelling"
+    ],
+    "style_direction": [],
+    "content_warnings": []
+  },
+  "prompt_specs": [
+    {
+      "asset_request_id": "assetreq_trip_hangzhou_cover_diversity",
+      "asset_role": "cover",
+      "subject": {
+        "subject_type": "cover",
+        "source_entity_type": "trip",
+        "source_entity_ref": "trip://hangzhou_cover_diversity",
+        "title": "Hangzhou Jiangnan Waterside Cover",
+        "summary": "An original Jiangnan travel journal illustration for Hangzhou with lake, pavilion, willow, and mist in a quiet poetic scene.",
+        "tags": [
+          "hangzhou",
+          "jiangnan",
+          "waterside",
+          "watercolor"
+        ],
+        "location_context": {
+          "name": "West Lake",
+          "city": "Hangzhou",
+          "region": "Zhejiang",
+          "country": "China"
+        },
+        "time_context": {},
+        "identity_markers": [
+          "Hangzhou Jiangnan Waterside Cover",
+          "West Lake"
+        ],
+        "cultural_markers": []
+      },
+      "style_reference": {
+        "images": [
+          {
+            "path": "assets/style_reference/lake-card.png",
+            "purpose": "cover_visual_style_reference"
+          }
+        ],
+        "usage_policy": {
+          "role": "visual_language_only",
+          "learn_from": [
+            "watercolor texture",
+            "paper feeling",
+            "color palette",
+            "quiet editorial mood"
+          ],
+          "avoid_copying": [
+            "object placement",
+            "landmark arrangement",
+            "exact scenery structure",
+            "reference composition"
+          ],
+          "output_expectation": "create_original_travel_scene"
+        }
+      },
+      "style_profile": {
+        "style_profile_id": "wanderly_personal_travel_journal_cover_v2",
+        "asset_role": "cover",
+        "style_family": "personal_travel_journal_cover",
+        "style_keywords": [
+          "watercolor",
+          "hand drawn",
+          "collage",
+          "vintage travel poster",
+          "oriental travel aesthetic"
+        ],
+        "mood_keywords": [
+          "inviting",
+          "narrative",
+          "collectible"
+        ],
+        "color_tendency": "muted_gray_blue_rice_paper_green",
+        "realism_level": "illustrative"
+      },
+      "visual_direction": {
+        "primary_goal": "express_trip_identity_as_editorial_visual_entrypoint",
+        "authenticity_level": "illustrative",
+        "style_family": "editorial_travel",
+        "destination_bias": {
+          "city": "Hangzhou",
+          "region": "Zhejiang",
+          "country": "China"
+        },
+        "thematic_signals": [
+          "personal travel journal",
+          "soft watercolor editorial",
+          "city-specific travel storytelling"
+        ],
+        "audience_signals": [
+          "explore readers",
+          "quiet aesthetic seekers"
+        ]
+      },
+      "composition": {
+        "shot_type": "original_editorial_travel_scene",
+        "framing": "balanced_composition_with_unique_scene_story",
+        "focus_priority": [
+          "city-specific travel story",
+          "original composition",
+          "quiet journal mood"
+        ],
+        "foreground_background_balance": "soft_layered_depth",
+        "visual_density": "balanced",
+        "text_safe_area": "flexible_open_safe_area",
+        "provider_notes": []
+      },
+      "mood": {
+        "primary": "inviting",
+        "secondary": [
+          "narrative",
+          "collectible"
+        ],
+        "keywords": [
+          "inviting",
+          "narrative",
+          "collectible"
+        ]
+      },
+      "constraints": {
+        "must_include": [
+          "lake atmosphere",
+          "pavilion accent",
+          "willow softness",
+          "misty air"
+        ],
+        "avoid": [
+          "copied reference composition"
+        ],
+        "cultural_notes": [],
+        "usage_constraints": [
+          "card",
+          "detail_header",
+          "social_share"
+        ],
+        "quality_requirements": [
+          "clear_subject",
+          "coherent_composition",
+          "brand_consistent"
+        ]
+      },
+      "output_spec": {
+        "aspect_ratio": "4:5",
+        "orientation": "portrait",
+        "min_width": 1080,
+        "min_height": 1350,
+        "transparent_background": false,
+        "variant_count": 3
+      }
+    },
+    {
+      "asset_request_id": "assetreq_trip_chengdu_cover_diversity",
+      "asset_role": "cover",
+      "subject": {
+        "subject_type": "cover",
+        "source_entity_type": "trip",
+        "source_entity_ref": "trip://chengdu_cover_diversity",
+        "title": "Chengdu Slow Street Cover",
+        "summary": "An original Chengdu travel journal illustration with an old street, teahouse, leafy trees, and gentle morning light in a slow-living neighborhood scene.",
+        "tags": [
+          "chengdu",
+          "old street",
+          "teahouse",
+          "morning light"
+        ],
+        "location_context": {
+          "name": "Chengdu Old Street",
+          "city": "Chengdu",
+          "region": "Sichuan",
+          "country": "China"
+        },
+        "time_context": {},
+        "identity_markers": [
+          "Chengdu Slow Street Cover",
+          "Chengdu Old Street"
+        ],
+        "cultural_markers": []
+      },
+      "style_reference": {
+        "images": [
+          {
+            "path": "assets/style_reference/lake-card.png",
+            "purpose": "cover_visual_style_reference"
+          }
+        ],
+        "usage_policy": {
+          "role": "visual_language_only",
+          "learn_from": [
+            "watercolor texture",
+            "paper feeling",
+            "color palette",
+            "quiet editorial mood"
+          ],
+          "avoid_copying": [
+            "object placement",
+            "landmark arrangement",
+            "exact scenery structure",
+            "reference composition"
+          ],
+          "output_expectation": "create_original_travel_scene"
+        }
+      },
+      "style_profile": {
+        "style_profile_id": "wanderly_personal_travel_journal_cover_v2",
+        "asset_role": "cover",
+        "style_family": "personal_travel_journal_cover",
+        "style_keywords": [
+          "watercolor",
+          "hand drawn",
+          "collage",
+          "vintage travel poster",
+          "oriental travel aesthetic"
+        ],
+        "mood_keywords": [
+          "inviting",
+          "narrative",
+          "collectible"
+        ],
+        "color_tendency": "muted_gray_blue_rice_paper_green",
+        "realism_level": "illustrative"
+      },
+      "visual_direction": {
+        "primary_goal": "express_trip_identity_as_editorial_visual_entrypoint",
+        "authenticity_level": "illustrative",
+        "style_family": "editorial_travel",
+        "destination_bias": {
+          "city": "Chengdu",
+          "region": "Sichuan",
+          "country": "China"
+        },
+        "thematic_signals": [
+          "personal travel journal",
+          "soft watercolor editorial",
+          "city-specific travel storytelling"
+        ],
+        "audience_signals": [
+          "explore readers",
+          "quiet aesthetic seekers"
+        ]
+      },
+      "composition": {
+        "shot_type": "original_editorial_travel_scene",
+        "framing": "balanced_composition_with_unique_scene_story",
+        "focus_priority": [
+          "city-specific travel story",
+          "original composition",
+          "quiet journal mood"
+        ],
+        "foreground_background_balance": "soft_layered_depth",
+        "visual_density": "balanced",
+        "text_safe_area": "flexible_open_safe_area",
+        "provider_notes": []
+      },
+      "mood": {
+        "primary": "inviting",
+        "secondary": [
+          "narrative",
+          "collectible"
+        ],
+        "keywords": [
+          "inviting",
+          "narrative",
+          "collectible"
+        ]
+      },
+      "constraints": {
+        "must_include": [
+          "old street rhythm",
+          "teahouse presence",
+          "trees",
+          "morning light"
+        ],
+        "avoid": [
+          "lake pavilion composition"
+        ],
+        "cultural_notes": [],
+        "usage_constraints": [
+          "card",
+          "detail_header",
+          "social_share"
+        ],
+        "quality_requirements": [
+          "clear_subject",
+          "coherent_composition",
+          "brand_consistent"
+        ]
+      },
+      "output_spec": {
+        "aspect_ratio": "4:5",
+        "orientation": "portrait",
+        "min_width": 1080,
+        "min_height": 1350,
+        "transparent_background": false,
+        "variant_count": 3
+      }
+    },
+    {
+      "asset_request_id": "assetreq_trip_yunnan_cover_diversity",
+      "asset_role": "cover",
+      "subject": {
+        "subject_type": "cover",
+        "source_entity_type": "trip",
+        "source_entity_ref": "trip://yunnan_cover_diversity",
+        "title": "Yunnan Valley Journey Cover",
+        "summary": "An original Yunnan travel journal illustration with a mountain village, layered clouds, and flowers in a calm valley journey scene.",
+        "tags": [
+          "yunnan",
+          "mountain village",
+          "clouds",
+          "flowers"
+        ],
+        "location_context": {
+          "name": "Yunnan Valley",
+          "city": "Yunnan",
+          "region": "Yunnan",
+          "country": "China"
+        },
+        "time_context": {},
+        "identity_markers": [
+          "Yunnan Valley Journey Cover",
+          "Yunnan Valley"
+        ],
+        "cultural_markers": []
+      },
+      "style_reference": {
+        "images": [
+          {
+            "path": "assets/style_reference/lake-card.png",
+            "purpose": "cover_visual_style_reference"
+          }
+        ],
+        "usage_policy": {
+          "role": "visual_language_only",
+          "learn_from": [
+            "watercolor texture",
+            "paper feeling",
+            "color palette",
+            "quiet editorial mood"
+          ],
+          "avoid_copying": [
+            "object placement",
+            "landmark arrangement",
+            "exact scenery structure",
+            "reference composition"
+          ],
+          "output_expectation": "create_original_travel_scene"
+        }
+      },
+      "style_profile": {
+        "style_profile_id": "wanderly_personal_travel_journal_cover_v2",
+        "asset_role": "cover",
+        "style_family": "personal_travel_journal_cover",
+        "style_keywords": [
+          "watercolor",
+          "hand drawn",
+          "collage",
+          "vintage travel poster",
+          "oriental travel aesthetic"
+        ],
+        "mood_keywords": [
+          "inviting",
+          "narrative",
+          "collectible"
+        ],
+        "color_tendency": "muted_gray_blue_rice_paper_green",
+        "realism_level": "illustrative"
+      },
+      "visual_direction": {
+        "primary_goal": "express_trip_identity_as_editorial_visual_entrypoint",
+        "authenticity_level": "illustrative",
+        "style_family": "editorial_travel",
+        "destination_bias": {
+          "city": "Yunnan",
+          "region": "Yunnan",
+          "country": "China"
+        },
+        "thematic_signals": [
+          "personal travel journal",
+          "soft watercolor editorial",
+          "city-specific travel storytelling"
+        ],
+        "audience_signals": [
+          "explore readers",
+          "quiet aesthetic seekers"
+        ]
+      },
+      "composition": {
+        "shot_type": "original_editorial_travel_scene",
+        "framing": "balanced_composition_with_unique_scene_story",
+        "focus_priority": [
+          "city-specific travel story",
+          "original composition",
+          "quiet journal mood"
+        ],
+        "foreground_background_balance": "soft_layered_depth",
+        "visual_density": "balanced",
+        "text_safe_area": "flexible_open_safe_area",
+        "provider_notes": []
+      },
+      "mood": {
+        "primary": "inviting",
+        "secondary": [
+          "narrative",
+          "collectible"
+        ],
+        "keywords": [
+          "inviting",
+          "narrative",
+          "collectible"
+        ]
+      },
+      "constraints": {
+        "must_include": [
+          "mountain village",
+          "layered clouds",
+          "flowers",
+          "valley travel mood"
+        ],
+        "avoid": [
+          "lakeside pavilion layout"
+        ],
+        "cultural_notes": [],
+        "usage_constraints": [
+          "card",
+          "detail_header",
+          "social_share"
+        ],
+        "quality_requirements": [
+          "clear_subject",
+          "coherent_composition",
+          "brand_consistent"
+        ]
+      },
+      "output_spec": {
+        "aspect_ratio": "4:5",
+        "orientation": "portrait",
+        "min_width": 1080,
+        "min_height": 1350,
+        "transparent_background": false,
+        "variant_count": 3
+      }
+    }
+  ],
+  "metadata": {
+    "prompt_builder_version": "phase1-prompt-builder-skeleton",
+    "request_schema_version": "1.0.0"
+  }
+}
