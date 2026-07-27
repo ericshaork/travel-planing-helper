@@ -1,0 +1,21 @@
+{
+  "trip_id": "beijing_couple_v1",
+  "manifest_id": "couple_golden_v35",
+  "status": "passed",
+  "generated_on": "2026-07-19T07:58:50.983Z",
+  "checks": {
+    "explore_plan_exists": true,
+    "image_manifest_exists": true,
+    "image_count_matches": true,
+    "asset_instance_id_unique": true,
+    "completed_assets_have_file_path": true
+  },
+  "counts": {
+    "manifest_images": 7,
+    "pipeline_assets": 7,
+    "packaged_assets": 7,
+    "completed_assets": 7
+  },
+  "issues": [],
+  "warnings": []
+}

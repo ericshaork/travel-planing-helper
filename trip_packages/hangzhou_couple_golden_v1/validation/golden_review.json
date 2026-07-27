@@ -1,0 +1,44 @@
+{
+  "package_id": "hangzhou_couple_golden_v1",
+  "source_package_id": "hangzhou_couple_v1",
+  "status": "passed",
+  "cover_quality": "passed: West Lake cover v2 and lakeside evening v2 selected for stronger Wanderly travel journal cover/experience quality.",
+  "location_identity": "passed_with_note: West Lake and lakeside evening candidates preserve Hangzhou lake identity; Xiaohe food candidate is real food/dining evidence and does not claim a specific shop.",
+  "wanderly_style": "passed: package balances Hangzhou real place evidence, food evidence, and soft watercolor/private journal cover mood.",
+  "duplicate_check": "passed: no duplicate image hashes or unreferenced image files detected.",
+  "provenance_status": "passed: replacement assets preserve required real_photo/hybrid provenance.",
+  "remaining_notes": [
+    "H3.6.4 replacement scope included west_lake cover, lakeside_evening day_cover, and xiaohe food_gallery; other assets are carried over from hangzhou_couple_v1.",
+    "Xiaohe food_gallery v2 candidate is retained as real dining/food evidence without binding to a concrete restaurant.",
+    "West Lake and lakeside evening candidates originated from hybrid AI fallback refinement and are retained as reviewed cover/experience assets."
+  ],
+  "assets": [
+    {
+      "asset_instance_id": "ca_hangzhou_west_lake_explore_cover",
+      "source": "hybrid",
+      "generation_mode": "hybrid",
+      "file_path": "images/files/ca_hangzhou_west_lake_explore_cover.jpg",
+      "image_asset_path": "images/image_assets/ca_hangzhou_west_lake_explore_cover.image_asset.json",
+      "mime_type": "image/jpeg",
+      "sha256": "c0f401667aa8635ab01e5f9366b2936619c3153d6ef34d47acfaafcbfcf4ad3e"
+    },
+    {
+      "asset_instance_id": "ca_hangzhou_lakeside_evening_day_cover",
+      "source": "hybrid",
+      "generation_mode": "hybrid",
+      "file_path": "images/files/ca_hangzhou_lakeside_evening_day_cover.jpg",
+      "image_asset_path": "images/image_assets/ca_hangzhou_lakeside_evening_day_cover.image_asset.json",
+      "mime_type": "image/jpeg",
+      "sha256": "f2a89b00bcd926cac73f1d256bd8023c254cab01757f6d2958b77a7ba77b9214"
+    },
+    {
+      "asset_instance_id": "ca_hangzhou_xiaohe_straight_street_food_gallery",
+      "source": "pexels",
+      "generation_mode": "real_photo",
+      "file_path": "images/files/ca_hangzhou_xiaohe_straight_street_food_gallery.avif",
+      "image_asset_path": "images/image_assets/ca_hangzhou_xiaohe_straight_street_food_gallery.image_asset.json",
+      "mime_type": "image/avif",
+      "sha256": "105a26fa70b25c48ede0d57dfe8cb1c16ae2f5bd8a4363e2abb4008a5a747806"
+    }
+  ]
+}

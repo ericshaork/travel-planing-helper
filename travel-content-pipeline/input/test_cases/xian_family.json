@@ -1,0 +1,8 @@
+{
+  "city": "xian",
+  "days": 4,
+  "trip_type": "family",
+  "budget": "medium",
+  "preferences": ["history", "family_friendly", "food"],
+  "pace": "slow"
+}

@@ -1,0 +1,30 @@
+{
+  "id": "ca_chengdu_people_park_teahouse",
+  "name": "People's Park Teahouse",
+  "asset_type": "teahouse_park",
+  "category": "teahouse_life",
+  "content_role": ["signature_anchor", "slow_solo", "local_culture", "food_backbone"],
+  "traveler_fit": {
+    "couple": "high",
+    "student": "medium",
+    "solo": "high",
+    "family": "medium"
+  },
+  "season_fit": {
+    "spring": "high",
+    "summer": "medium",
+    "autumn": "high",
+    "winter": "medium"
+  },
+  "best_time": {
+    "time_of_day": ["morning", "afternoon"],
+    "note": "Best as a slow local rhythm anchor with tea, shade, and people-watching."
+  },
+  "experience_value": {
+    "primary": ["teahouse_life", "slow_pause", "couple_memory", "local_texture"],
+    "summary": "Chengdu's clearest slow-life anchor for a couple route."
+  },
+  "avoid_when": ["rushed_schedule", "only_night_food_route"],
+  "nearby_assets": ["ca_chengdu_kuanzhai_alley"],
+  "map_asset_id": "poi_people_park"
+}

@@ -1,0 +1,109 @@
+{
+  "city_code": "qingdao",
+  "city_name": "Qingdao",
+  "region_name": "Shandong",
+  "summary": "Qingdao works well for sea-breeze city travel combining coast walks, red-roof old quarters, casual seafood culture, and relaxed day-to-evening movement.",
+  "transport_notes": [
+    "Plans work best when old-city slopes, seafront walks, and food zones are grouped by coastline section.",
+    "Short rides plus walking are often better than jumping between far-apart beaches in one day.",
+    "Evenings are strongest when kept near coastal promenades or beer-and-seafood districts."
+  ],
+  "budget_notes": {
+    "low": "Focus on public seafront walks, old-quarter streets, and straightforward local seafood or snack areas.",
+    "medium": "Combine one coastal viewpoint, one old-city district, and one recognizable food area each day.",
+    "high": "Add slower sea-view dining, more comfortable pacing, and polished waterfront breaks."
+  },
+  "trip_type_notes": {
+    "student": "Student trips in Qingdao should feel breezy, casual, and full of affordable street-level sea-city experiences.",
+    "solo": "Solo plans should emphasize coast wandering, neighborhood observation, and easy scenic transitions.",
+    "couple": "Couple plans should focus on sea views, soft light, and relaxed old-town-to-waterfront pacing.",
+    "family": "Family plans should favor broad promenades, easier coastal parks, and low-friction dining."
+  },
+  "suggested_tags": [
+    "coastal-city",
+    "red-roof-old-town",
+    "seafood",
+    "seafront-walk",
+    "photo-friendly",
+    "relaxed-pacing"
+  ],
+  "pois": [
+    {
+      "id": "poi_badaguan",
+      "name": "Badaguan Area",
+      "district": "Shinan",
+      "type": "historic coastal district",
+      "description": "A scenic district combining villas, tree-lined roads, and easy sea-adjacent walking.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_zhanqiao",
+      "name": "Zhanqiao Pier Area",
+      "district": "Shinan",
+      "type": "coastal landmark",
+      "description": "A recognizable Qingdao landmark that works well as an old-city-seafront starting point.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 75
+    },
+    {
+      "id": "poi_xiaoyushan",
+      "name": "Xiaoyushan Viewpoint",
+      "district": "Shinan",
+      "type": "city viewpoint",
+      "description": "A strong panoramic stop for reading Qingdao's red roofs and coastline together.",
+      "best_for": ["student", "solo", "couple"],
+      "recommended_duration_minutes": 75
+    },
+    {
+      "id": "poi_signal_hill",
+      "name": "Signal Hill Park Area",
+      "district": "Shibei",
+      "type": "city park viewpoint",
+      "description": "A useful hill-and-old-town contrast with a lighter walking feel than longer coastal routes.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_may_fourth",
+      "name": "May Fourth Square Waterfront",
+      "district": "Shinan",
+      "type": "modern waterfront district",
+      "description": "A broader public seafront zone suited to evening movement, skyline views, and open-air pacing.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_pichaiyuan",
+      "name": "Pichaiyuan Old Street Area",
+      "district": "Shinan",
+      "type": "food and old-street district",
+      "description": "A practical old-quarter stop for local snacks, dense street life, and approachable city texture.",
+      "best_for": ["student", "solo", "couple"],
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food_areas": [
+    {
+      "name": "Pichaiyuan Snack Area",
+      "district": "Shinan",
+      "specialties": ["seafood snacks", "old-street bites", "casual local food"],
+      "best_for": ["student", "solo", "couple"],
+      "note": "Best for affordable, lively eating with recognizable old-city character."
+    },
+    {
+      "name": "Taidong Casual Food Streets",
+      "district": "Shibei",
+      "specialties": ["youth-friendly food", "street snacks", "casual late-day meals"],
+      "best_for": ["student", "solo"],
+      "note": "Best for denser, practical local food with stronger urban energy."
+    },
+    {
+      "name": "Waterfront Seafood Dining Zone",
+      "district": "Shinan",
+      "specialties": ["shared seafood meals", "sea-view dining", "evening coastal dining"],
+      "best_for": ["couple", "family"],
+      "note": "Best for slower meals and sea-breeze atmosphere near evening walks."
+    }
+  ]
+}

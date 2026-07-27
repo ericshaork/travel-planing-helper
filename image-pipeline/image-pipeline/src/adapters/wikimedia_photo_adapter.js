@@ -1,14 +1,27 @@
 const https = require("https");
+const { HttpsProxyAgent } = require("https-proxy-agent");
 
 const { parseExtMetadata } = require("../license/asset_license_parser");
 
 const WIKIMEDIA_API_URL = "https://commons.wikimedia.org/w/api.php";
 const DEFAULT_REQUEST_TIMEOUT_MS = 15000;
 
+function resolveProxyAgent() {
+  const proxyUrl = process.env.HTTPS_PROXY || process.env.HTTP_PROXY;
+
+  if (!proxyUrl) {
+    return undefined;
+  }
+
+  return new HttpsProxyAgent(proxyUrl);
+}
+
 function requestJson(url, timeoutMs = DEFAULT_REQUEST_TIMEOUT_MS) {
   return new Promise((resolve, reject) => {
+    const agent = resolveProxyAgent();
     const request = https
       .get(url, {
+        agent,
         headers: {
           "User-Agent": "WanderlyImagePipeline/1.0 (manifest-driven real photo adapter)"
         }

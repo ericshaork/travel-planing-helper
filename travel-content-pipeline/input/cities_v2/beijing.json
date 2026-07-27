@@ -1,0 +1,803 @@
+{
+  "schema_version": "city_context_v2",
+  "city_code": "beijing",
+  "city_name": "Beijing",
+  "region_name": "Beijing",
+  "city_personality": {
+    "one_line_summary": "Beijing is strongest when imperial scale, hutong daily life, and modern city contrast are arranged as layered routes rather than stacked as a generic landmark checklist.",
+    "core_temperaments": [
+      "historical",
+      "layered",
+      "ceremonial",
+      "lived-in",
+      "contrasting-old-and-new"
+    ],
+    "explore_strengths": [
+      "heritage-centered route design",
+      "hutong and lakeside neighborhood texture",
+      "viewpoint-plus-citywalk combinations",
+      "modern creative district contrast",
+      "night atmosphere in selected urban zones"
+    ],
+    "best_experience_modes": [
+      "heritage walk",
+      "hutong citywalk",
+      "district-based one-day route",
+      "photo-friendly evening stroll",
+      "old-city plus modern-city contrast day"
+    ],
+    "signature_contrasts": [
+      "imperial order vs everyday hutong life",
+      "old capital texture vs contemporary creative energy",
+      "formal landmarks vs relaxed neighborhood wandering"
+    ],
+    "avoid_generic_framing": [
+      "Do not reduce Beijing to a famous landmark checklist.",
+      "Do not describe every route as grand, cultural, and profound without district texture.",
+      "Do not make all traveler types start from the same landmark pair and end with the same food rhythm.",
+      "Do not use empty big-city praise that could fit any capital city."
+    ]
+  },
+  "district_knowledge": [
+    {
+      "id": "district_imperial_core",
+      "name": "Imperial Core",
+      "role": "primary heritage anchor",
+      "vibe": [
+        "grand",
+        "ceremonial",
+        "high-recognition",
+        "historical"
+      ],
+      "best_for": [
+        "family",
+        "couple",
+        "student",
+        "solo"
+      ],
+      "best_time_of_day": [
+        "morning",
+        "afternoon"
+      ],
+      "signature_experiences": [
+        "imperial-axis sightseeing",
+        "capital-history route building",
+        "landmark-led opening half day"
+      ],
+      "pair_with_district_ids": [
+        "district_hutong_shichahai",
+        "district_sanlitun_modern"
+      ],
+      "mobility_notes": [
+        "Best used as one major anchor instead of chaining multiple heavy heritage stops.",
+        "Family routes should keep the day geographically tight after this district.",
+        "Works well when softened by hutong or food texture later in the day."
+      ]
+    },
+    {
+      "id": "district_hutong_shichahai",
+      "name": "Hutong and Shichahai",
+      "role": "neighborhood texture and atmosphere anchor",
+      "vibe": [
+        "walkable",
+        "lived-in",
+        "scenic",
+        "romantic",
+        "local-texture"
+      ],
+      "best_for": [
+        "family",
+        "couple",
+        "student",
+        "solo"
+      ],
+      "best_time_of_day": [
+        "afternoon",
+        "evening"
+      ],
+      "signature_experiences": [
+        "hutong citywalk",
+        "lakeside strolling",
+        "casual snack-and-wander rhythm",
+        "photo-friendly dusk route"
+      ],
+      "pair_with_district_ids": [
+        "district_imperial_core",
+        "district_sanlitun_modern"
+      ],
+      "mobility_notes": [
+        "Excellent for walking-heavy half days with low transfer friction.",
+        "Best when paired with one earlier landmark cluster instead of another distant district-heavy route.",
+        "Evening value is much stronger than a rushed midday pass-through."
+      ]
+    },
+    {
+      "id": "district_798_art",
+      "name": "798 Art District",
+      "role": "creative contemporary contrast anchor",
+      "vibe": [
+        "creative",
+        "industrial",
+        "contemporary",
+        "youthful",
+        "visual"
+      ],
+      "best_for": [
+        "couple",
+        "student",
+        "solo"
+      ],
+      "best_time_of_day": [
+        "afternoon"
+      ],
+      "signature_experiences": [
+        "gallery-hopping",
+        "design-forward walking",
+        "contemporary Beijing contrast route",
+        "casual photography and cafe rhythm"
+      ],
+      "pair_with_district_ids": [
+        "district_sanlitun_modern"
+      ],
+      "mobility_notes": [
+        "Works best as a focused modern-culture half day rather than a quick insert into an old-city route.",
+        "Not ideal for low-friction family itineraries centered on classic landmarks.",
+        "Pair with another eastern urban district instead of imperial-core overloading."
+      ]
+    },
+    {
+      "id": "district_sanlitun_modern",
+      "name": "Sanlitun and Modern Urban Core",
+      "role": "modern lifestyle, nightlife, and youth-energy anchor",
+      "vibe": [
+        "energetic",
+        "urban",
+        "social",
+        "stylish",
+        "night-oriented"
+      ],
+      "best_for": [
+        "couple",
+        "student",
+        "solo"
+      ],
+      "best_time_of_day": [
+        "late_afternoon",
+        "evening",
+        "night"
+      ],
+      "signature_experiences": [
+        "modern-city strolling",
+        "night dining",
+        "people-watching and retail browsing",
+        "contemporary Beijing social atmosphere"
+      ],
+      "pair_with_district_ids": [
+        "district_798_art",
+        "district_hutong_shichahai"
+      ],
+      "mobility_notes": [
+        "Most useful as an evening closer or modern-contrast half day.",
+        "Can feel generic if used without a clear urban-lifestyle angle.",
+        "Should not replace city-specific texture for every traveler type."
+      ]
+    }
+  ],
+  "poi_knowledge": [
+    {
+      "id": "poi_forbidden_city_edge",
+      "name": "Forbidden City Outer Axis Visit",
+      "district_id": "district_imperial_core",
+      "type": "imperial landmark",
+      "landmark_level": "iconic_anchor",
+      "experience_tags": [
+        "history",
+        "capital-identity",
+        "ceremonial-scale",
+        "high-recognition"
+      ],
+      "best_for": [
+        "family",
+        "couple",
+        "student",
+        "solo"
+      ],
+      "recommended_duration_minutes": 180,
+      "route_roles": [
+        "primary_anchor",
+        "day-opener",
+        "heritage-weight"
+      ],
+      "risks": [
+        "Very high repeat risk across many Beijing plans.",
+        "Can dominate the day and flatten variety if always used as the default anchor.",
+        "Crowd and walking load can make family pacing feel heavy when paired poorly."
+      ],
+      "description": "Use as a strong history anchor only when the route truly needs imperial scale."
+    },
+    {
+      "id": "poi_jingshan",
+      "name": "Jingshan Viewpoint",
+      "district_id": "district_imperial_core",
+      "type": "city viewpoint",
+      "landmark_level": "secondary_anchor",
+      "experience_tags": [
+        "viewpoint",
+        "photo-value",
+        "city-overlook",
+        "route-breathing-room"
+      ],
+      "best_for": [
+        "family",
+        "couple",
+        "student",
+        "solo"
+      ],
+      "recommended_duration_minutes": 75,
+      "route_roles": [
+        "scenic_insert",
+        "transition_stop",
+        "photo-anchor"
+      ],
+      "risks": [
+        "Can become formulaic if always paired mechanically with the same imperial-core route.",
+        "Adds value only when the route benefits from contrast and viewpoint payoff."
+      ],
+      "description": "Useful when a heavy heritage route needs a scenic and photogenic release point."
+    },
+    {
+      "id": "poi_shichahai_hutong",
+      "name": "Shichahai Hutong Walk",
+      "district_id": "district_hutong_shichahai",
+      "type": "hutong district",
+      "landmark_level": "city-character_anchor",
+      "experience_tags": [
+        "citywalk",
+        "lakeside",
+        "daily-life",
+        "atmosphere",
+        "evening-value"
+      ],
+      "best_for": [
+        "family",
+        "couple",
+        "student",
+        "solo"
+      ],
+      "recommended_duration_minutes": 120,
+      "route_roles": [
+        "neighborhood_anchor",
+        "soft-afternoon-core",
+        "evening-atmosphere-stop"
+      ],
+      "risks": [
+        "Can feel too similar to other hutong content if no route angle is defined.",
+        "Needs pacing and nearby food logic to avoid turning into generic wandering."
+      ],
+      "description": "A strong source of lived-in Beijing texture and a reliable route softener after major landmarks."
+    },
+    {
+      "id": "poi_nanluoguxiang_edges",
+      "name": "Nanluoguxiang and Side Lanes",
+      "district_id": "district_hutong_shichahai",
+      "type": "historic lane district",
+      "landmark_level": "high-traffic_character_spot",
+      "experience_tags": [
+        "light-shopping",
+        "snack-grazing",
+        "youth-energy",
+        "casual-citywalk"
+      ],
+      "best_for": [
+        "couple",
+        "student",
+        "solo"
+      ],
+      "recommended_duration_minutes": 90,
+      "route_roles": [
+        "snack-route-anchor",
+        "accessible-evening-stop",
+        "youthful-texture-insert"
+      ],
+      "risks": [
+        "Very easy to overuse as a default youth-oriented Beijing stop.",
+        "Main-lane focus can feel generic unless side-lane texture is emphasized."
+      ],
+      "description": "Best used when the plan wants approachable food, light wandering, and a younger neighborhood feel."
+    },
+    {
+      "id": "poi_798_core",
+      "name": "798 Core Gallery Walk",
+      "district_id": "district_798_art",
+      "type": "creative district",
+      "landmark_level": "modern-contrast_anchor",
+      "experience_tags": [
+        "art",
+        "design",
+        "industrial-space",
+        "contemporary-beijing",
+        "photo-value"
+      ],
+      "best_for": [
+        "couple",
+        "student",
+        "solo"
+      ],
+      "recommended_duration_minutes": 150,
+      "route_roles": [
+        "modern-half-day-anchor",
+        "contrast-builder",
+        "visual-walk-core"
+      ],
+      "risks": [
+        "Weak fit for plans that need classic Beijing identity only.",
+        "Can feel detached if paired with distant heritage areas in a dense one-day route."
+      ],
+      "description": "Useful when the route needs a clear old-vs-new contrast rather than a pure heritage shape."
+    },
+    {
+      "id": "poi_sanlitun_evening",
+      "name": "Sanlitun Urban Evening Walk",
+      "district_id": "district_sanlitun_modern",
+      "type": "modern lifestyle district",
+      "landmark_level": "lifestyle_anchor",
+      "experience_tags": [
+        "nightlife",
+        "modern-urban-energy",
+        "social-scene",
+        "retail-and-dining"
+      ],
+      "best_for": [
+        "couple",
+        "student",
+        "solo"
+      ],
+      "recommended_duration_minutes": 120,
+      "route_roles": [
+        "evening-closer",
+        "modern-atmosphere-anchor",
+        "night-dining-companion"
+      ],
+      "risks": [
+        "Can read as generic upscale urban content if not tied to a clear traveler angle.",
+        "Not strong enough to carry a Beijing plan alone without city-specific contrast."
+      ],
+      "description": "Best for routes that want modern-night Beijing energy after a more character-heavy daytime path."
+    }
+  ],
+  "food_knowledge": [
+    {
+      "id": "food_qianmen_traditional",
+      "name": "Qianmen Traditional Food Zone",
+      "district_id": "district_imperial_core",
+      "category": "traditional Beijing dining zone",
+      "food_styles": [
+        "classic Beijing flavors",
+        "heritage-style eateries",
+        "traditional snacks and desserts"
+      ],
+      "meal_moments": [
+        "lunch",
+        "dinner",
+        "snack"
+      ],
+      "best_for": [
+        "family",
+        "couple",
+        "student",
+        "solo"
+      ],
+      "budget_fit": [
+        "low",
+        "medium"
+      ],
+      "route_roles": [
+        "heritage-meal-anchor",
+        "landmark-day-food-stop",
+        "recognizable-old-beijing-flavor"
+      ],
+      "note": "Useful when the route needs traditional Beijing food identity near a landmark-heavy day."
+    },
+    {
+      "id": "food_shichahai_hutong",
+      "name": "Shichahai Hutong Food Area",
+      "district_id": "district_hutong_shichahai",
+      "category": "hutong casual dining zone",
+      "food_styles": [
+        "hutong snacks",
+        "casual Beijing dishes",
+        "walk-and-eat local rhythm"
+      ],
+      "meal_moments": [
+        "afternoon_snack",
+        "dinner",
+        "late_evening"
+      ],
+      "best_for": [
+        "family",
+        "couple",
+        "student",
+        "solo"
+      ],
+      "budget_fit": [
+        "low",
+        "medium"
+      ],
+      "route_roles": [
+        "citywalk-food-anchor",
+        "evening-atmosphere-meal",
+        "soft-route-finisher"
+      ],
+      "note": "Best when the route wants local texture, moderate spend, and a natural connection between walking and eating."
+    },
+    {
+      "id": "food_nanluo_snacks",
+      "name": "Nanluoguxiang Snack Lanes",
+      "district_id": "district_hutong_shichahai",
+      "category": "youthful snack and casual food area",
+      "food_styles": [
+        "street bites",
+        "grazing stops",
+        "casual youth-friendly food"
+      ],
+      "meal_moments": [
+        "afternoon_snack",
+        "early_evening"
+      ],
+      "best_for": [
+        "couple",
+        "student",
+        "solo"
+      ],
+      "budget_fit": [
+        "low",
+        "medium"
+      ],
+      "route_roles": [
+        "snack-route-companion",
+        "light-food-insert",
+        "youthful-energy-builder"
+      ],
+      "note": "Most useful for student and solo routes that want flexible, low-commitment food rhythm."
+    },
+    {
+      "id": "food_sanlitun_modern",
+      "name": "Sanlitun Modern Dining Zone",
+      "district_id": "district_sanlitun_modern",
+      "category": "modern urban dining area",
+      "food_styles": [
+        "trendy casual dining",
+        "night-out meals",
+        "social dining options"
+      ],
+      "meal_moments": [
+        "dinner",
+        "night"
+      ],
+      "best_for": [
+        "couple",
+        "student",
+        "solo"
+      ],
+      "budget_fit": [
+        "medium",
+        "high"
+      ],
+      "route_roles": [
+        "modern-evening-meal-anchor",
+        "date-night-dining",
+        "urban-lifestyle-finisher"
+      ],
+      "note": "Best when the route wants contemporary urban mood rather than traditional Beijing food identity."
+    }
+  ],
+  "traveler_type_guidance": {
+    "family": {
+      "priority_dimensions": [
+        "comfort",
+        "clarity",
+        "low movement cost",
+        "recognizable landmarks",
+        "easy meal access"
+      ],
+      "recommended_district_ids": [
+        "district_imperial_core",
+        "district_hutong_shichahai"
+      ],
+      "recommended_poi_ids": [
+        "poi_forbidden_city_edge",
+        "poi_jingshan",
+        "poi_shichahai_hutong"
+      ],
+      "recommended_food_area_ids": [
+        "food_qianmen_traditional",
+        "food_shichahai_hutong"
+      ],
+      "preferred_route_patterns": [
+        "one major heritage anchor plus one nearby softer walking district",
+        "landmark morning plus relaxed food-and-stroll afternoon"
+      ],
+      "avoid_patterns": [
+        "imperial core plus 798 plus Sanlitun in one day",
+        "too many long transfers after a heavy landmark start",
+        "nightlife-led closing logic"
+      ],
+      "pace_notes": [
+        "Balanced pace is usually stronger than dense pacing.",
+        "Each day should feel geographically clear and easy to recover from."
+      ],
+      "value_notes": [
+        "A strong family Beijing route should feel iconic but not exhausting."
+      ]
+    },
+    "couple": {
+      "priority_dimensions": [
+        "atmosphere",
+        "shared experience",
+        "photo value",
+        "evening payoff",
+        "emotional route flow"
+      ],
+      "recommended_district_ids": [
+        "district_hutong_shichahai",
+        "district_imperial_core",
+        "district_sanlitun_modern"
+      ],
+      "recommended_poi_ids": [
+        "poi_jingshan",
+        "poi_shichahai_hutong",
+        "poi_sanlitun_evening",
+        "poi_798_core"
+      ],
+      "recommended_food_area_ids": [
+        "food_shichahai_hutong",
+        "food_sanlitun_modern"
+      ],
+      "preferred_route_patterns": [
+        "scenic viewpoint plus hutong walk plus evening dining",
+        "old-city texture day followed by modern-night contrast",
+        "creative district afternoon plus stylish urban dinner"
+      ],
+      "avoid_patterns": [
+        "all-function landmark stacks with no atmosphere shift",
+        "museum-like pacing across the whole day"
+      ],
+      "pace_notes": [
+        "Afternoon-to-evening sequencing often works better than early hard-start density."
+      ],
+      "value_notes": [
+        "A strong couple route should soften Beijing's scale with mood, texture, and memorable evening scenes."
+      ]
+    },
+    "student": {
+      "priority_dimensions": [
+        "budget awareness",
+        "youthful energy",
+        "casual food rhythm",
+        "iconic but flexible experiences",
+        "social and local feel"
+      ],
+      "recommended_district_ids": [
+        "district_hutong_shichahai",
+        "district_798_art",
+        "district_sanlitun_modern"
+      ],
+      "recommended_poi_ids": [
+        "poi_nanluoguxiang_edges",
+        "poi_798_core",
+        "poi_sanlitun_evening",
+        "poi_shichahai_hutong"
+      ],
+      "recommended_food_area_ids": [
+        "food_nanluo_snacks",
+        "food_shichahai_hutong"
+      ],
+      "preferred_route_patterns": [
+        "low-cost citywalk plus snack grazing",
+        "creative district afternoon plus lively evening area",
+        "one iconic stop balanced by lighter neighborhood movement"
+      ],
+      "avoid_patterns": [
+        "premium-heavy dining logic",
+        "too much formal heritage in one day with weak local playfulness"
+      ],
+      "pace_notes": [
+        "Balanced to slightly dense can work if the route remains district-clustered."
+      ],
+      "value_notes": [
+        "A strong student route should feel fun, affordable, and visibly different from a standard sightseeing plan."
+      ]
+    },
+    "solo": {
+      "priority_dimensions": [
+        "freedom",
+        "walkability",
+        "clarity",
+        "observation value",
+        "niche exploration"
+      ],
+      "recommended_district_ids": [
+        "district_hutong_shichahai",
+        "district_798_art",
+        "district_imperial_core"
+      ],
+      "recommended_poi_ids": [
+        "poi_shichahai_hutong",
+        "poi_798_core",
+        "poi_jingshan",
+        "poi_nanluoguxiang_edges"
+      ],
+      "recommended_food_area_ids": [
+        "food_shichahai_hutong",
+        "food_nanluo_snacks"
+      ],
+      "preferred_route_patterns": [
+        "landmark-light day with strong citywalk texture",
+        "heritage anchor followed by independent wandering district",
+        "creative district plus neighborhood food route"
+      ],
+      "avoid_patterns": [
+        "overly couple-coded date-night logic",
+        "family-style comfort-only pacing",
+        "high-transfer routes without strong payoff"
+      ],
+      "pace_notes": [
+        "Solo routes should leave room for flexible wandering and unhurried observation."
+      ],
+      "value_notes": [
+        "A strong solo Beijing route should feel self-directed, layered, and rich in city texture."
+      ]
+    }
+  },
+  "route_strategy": {
+    "half_day_combinations": [
+      {
+        "name": "Imperial Core Heritage Half Day",
+        "district_ids": [
+          "district_imperial_core"
+        ],
+        "poi_ids": [
+          "poi_forbidden_city_edge",
+          "poi_jingshan"
+        ],
+        "food_area_ids": [
+          "food_qianmen_traditional"
+        ],
+        "best_for": [
+          "family",
+          "student",
+          "solo"
+        ],
+        "note": "Best when the route needs a clear Beijing history anchor without overloading later movement."
+      },
+      {
+        "name": "Hutong and Shichahai Soft Walk Half Day",
+        "district_ids": [
+          "district_hutong_shichahai"
+        ],
+        "poi_ids": [
+          "poi_shichahai_hutong",
+          "poi_nanluoguxiang_edges"
+        ],
+        "food_area_ids": [
+          "food_shichahai_hutong",
+          "food_nanluo_snacks"
+        ],
+        "best_for": [
+          "family",
+          "couple",
+          "student",
+          "solo"
+        ],
+        "note": "Best for low-friction texture, food rhythm, and atmosphere."
+      },
+      {
+        "name": "798 Contemporary Contrast Half Day",
+        "district_ids": [
+          "district_798_art"
+        ],
+        "poi_ids": [
+          "poi_798_core"
+        ],
+        "food_area_ids": [],
+        "best_for": [
+          "couple",
+          "student",
+          "solo"
+        ],
+        "note": "Useful when the route needs modern creative Beijing rather than another old-city loop."
+      },
+      {
+        "name": "Sanlitun Modern Evening Half Day",
+        "district_ids": [
+          "district_sanlitun_modern"
+        ],
+        "poi_ids": [
+          "poi_sanlitun_evening"
+        ],
+        "food_area_ids": [
+          "food_sanlitun_modern"
+        ],
+        "best_for": [
+          "couple",
+          "student",
+          "solo"
+        ],
+        "note": "Best as an evening finisher rather than the full identity of the day."
+      }
+    ],
+    "one_day_routes": [
+      {
+        "name": "Classic Beijing With Soft Neighborhood Finish",
+        "district_ids": [
+          "district_imperial_core",
+          "district_hutong_shichahai"
+        ],
+        "best_for": [
+          "family",
+          "couple",
+          "student",
+          "solo"
+        ],
+        "logic": "Use a strong heritage anchor in the first half, then shift into walkable hutong and food texture to avoid a rigid landmark-only day."
+      },
+      {
+        "name": "Creative East-Side Contrast Day",
+        "district_ids": [
+          "district_798_art",
+          "district_sanlitun_modern"
+        ],
+        "best_for": [
+          "couple",
+          "student",
+          "solo"
+        ],
+        "logic": "Use 798 for contemporary visual culture, then close with modern urban dining or nightlife energy."
+      },
+      {
+        "name": "Student-Friendly Low-Pressure Citywalk Day",
+        "district_ids": [
+          "district_hutong_shichahai"
+        ],
+        "best_for": [
+          "student",
+          "solo"
+        ],
+        "logic": "Keep the route snack-friendly, walkable, and flexible instead of landmark-heavy."
+      }
+    ],
+    "avoid_combinations": [
+      {
+        "district_ids": [
+          "district_imperial_core",
+          "district_798_art",
+          "district_sanlitun_modern"
+        ],
+        "reason": "Too transfer-heavy for a clean one-day route and weakens the city texture arc."
+      },
+      {
+        "district_ids": [
+          "district_imperial_core",
+          "district_imperial_core"
+        ],
+        "reason": "Stacking too many heavy heritage anchors creates repetition and reduces traveler-type differences."
+      },
+      {
+        "district_ids": [
+          "district_sanlitun_modern"
+        ],
+        "reason": "Modern urban nightlife alone is not enough to represent Beijing's distinctive Explore identity."
+      }
+    ]
+  },
+  "metadata": {
+    "version": "experimental_v2_beijing",
+    "last_updated": "2026-07-15",
+    "source_method": "manual city-context experiment",
+    "editor_notes": [
+      "This file is a V2 test dataset only.",
+      "It is intentionally selective rather than exhaustive.",
+      "The focus is traveler differentiation and route-shaping value."
+    ]
+  }
+}

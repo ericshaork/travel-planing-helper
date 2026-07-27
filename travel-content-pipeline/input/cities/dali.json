@@ -1,0 +1,109 @@
+{
+  "city_code": "dali",
+  "city_name": "Dali",
+  "region_name": "Yunnan",
+  "summary": "Dali is best for slower, open-air travel shaped by mountain-and-lake light, old-town texture, and generous room for wandering.",
+  "transport_notes": [
+    "Dali works best when old town, lakeside, and outlying scenic areas are not all forced into the same dense day.",
+    "Slower pacing matters here; solo and reflective trips benefit from leaving time between major stops.",
+    "Short car or local transport hops are useful, but plans should still keep one clear geographic focus per day."
+  ],
+  "budget_notes": {
+    "low": "Focus on walking, old-town browsing, lake views, and simple local meals.",
+    "medium": "Mix one atmospheric old-town stretch, one scenic lake or village stop, and one slow dining moment each day.",
+    "high": "Allow more open time, softer boutique pacing, and stronger landscape-led meal choices."
+  },
+  "trip_type_notes": {
+    "student": "Student plans should make Dali feel relaxed, photogenic, and backpacker-friendly without overspending.",
+    "solo": "Solo plans should emphasize freedom, mountain-lake stillness, personal rhythm, and contemplative wandering.",
+    "couple": "Couple plans should lean into lakeside light, old-town intimacy, and soft scenic transitions.",
+    "family": "Family plans should keep movement easy, avoid overlong scenic detours, and favor calm open spaces."
+  },
+  "suggested_tags": [
+    "slow-travel",
+    "mountain-lake",
+    "solo-escape",
+    "old-town",
+    "nature",
+    "reflective"
+  ],
+  "pois": [
+    {
+      "id": "poi_dali_old_town",
+      "name": "Dali Old Town Walk",
+      "district": "Dali Ancient Town",
+      "type": "old town district",
+      "description": "The most accessible base for Dali's stone lanes, craft storefronts, and slow-town rhythm.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_erhai_scenic_edge",
+      "name": "Erhai Lake Scenic Edge",
+      "district": "Erhai",
+      "type": "lakefront scenic area",
+      "description": "A broad, light-filled lakeside setting that gives Dali its signature openness and calm.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 150
+    },
+    {
+      "id": "poi_cangshan_view",
+      "name": "Cangshan View Area",
+      "district": "Dali West",
+      "type": "mountain viewpoint",
+      "description": "A scenic mountain-facing stop that frames Dali's dramatic landscape identity.",
+      "best_for": ["solo", "couple", "family"],
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_longkan_wharf",
+      "name": "Longkan Wharf Area",
+      "district": "Erhai",
+      "type": "lakefront promenade",
+      "description": "A softer lakeside point for dawn or sunset atmosphere and open reflective pacing.",
+      "best_for": ["solo", "couple", "family"],
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_xizhou_edge",
+      "name": "Xizhou Old Settlement Edge",
+      "district": "Xizhou",
+      "type": "historic village area",
+      "description": "A cultural-rural layer for travelers wanting a quieter side of Dali beyond the main old town.",
+      "best_for": ["solo", "couple", "family"],
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_old_town_night",
+      "name": "Old Town Evening Lanes",
+      "district": "Dali Ancient Town",
+      "type": "evening strolling district",
+      "description": "A gentle evening zone where lantern light and mountain air keep the pace slow and open.",
+      "best_for": ["student", "solo", "couple"],
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food_areas": [
+    {
+      "name": "Dali Old Town Casual Food Area",
+      "district": "Dali Ancient Town",
+      "specialties": ["casual Yunnan-style meals", "walking-friendly snack stops", "easy solo dining"],
+      "best_for": ["student", "solo", "couple", "family"],
+      "note": "Best for keeping the plan flexible and unhurried in the town core."
+    },
+    {
+      "name": "Erhai Lake Light Dining Stops",
+      "district": "Erhai",
+      "specialties": ["lake-view meals", "light scenic dining", "slow afternoon food breaks"],
+      "best_for": ["solo", "couple", "family"],
+      "note": "Best for plans that want atmosphere and stillness more than food density."
+    },
+    {
+      "name": "Xizhou Local Food Pocket",
+      "district": "Xizhou",
+      "specialties": ["village-style meals", "local baked and simple dishes", "slower cultural dining"],
+      "best_for": ["solo", "couple", "family"],
+      "note": "Best when the plan wants Dali to feel rooted, local, and less polished."
+    }
+  ]
+}

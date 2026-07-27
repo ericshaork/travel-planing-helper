@@ -1,0 +1,544 @@
+{
+  "inventory_id": "shanghai_city_inventory_v1",
+  "inventory_version": "city_inventory_v1",
+  "city": {
+    "code": "shanghai",
+    "name": "Shanghai",
+    "region": "Shanghai",
+    "country": "China"
+  },
+  "city_identity": {
+    "visual_keywords": [
+      "Bund riverfront",
+      "Lujiazui skyline",
+      "plane-tree streets",
+      "shikumen lanes",
+      "Huangpu River lights",
+      "modern contrast"
+    ],
+    "signature_moods": [
+      "modern contrast",
+      "riverside night walk",
+      "old lane texture",
+      "city mood cover"
+    ],
+    "seasonal_texture": {
+      "primary_season": "autumn",
+      "visual_cues": [
+        "warm building lights",
+        "river reflections",
+        "plane-tree shadows",
+        "stone lane facades"
+      ],
+      "avoid_cues": [
+        "generic skyscraper stock photo",
+        "only shopping mall interiors",
+        "overly cyberpunk neon",
+        "wrong river city"
+      ]
+    }
+  },
+  "assets": [
+    {
+      "asset_id": "ca_shanghai_bund",
+      "asset_name": "The Bund",
+      "asset_category": "place",
+      "asset_family": "signature_anchor",
+      "priority": 1,
+      "traveler_fit": [
+        "couple",
+        "solo",
+        "family",
+        "friends"
+      ],
+      "route_role": "first_anchor",
+      "time_of_day": [
+        "afternoon",
+        "evening"
+      ],
+      "pace_hint": "balanced",
+      "image_context": {
+        "recommended_slots": [
+          "explore_cover",
+          "poi_gallery"
+        ],
+        "image_usage_profile": "cover",
+        "default_generation_mode": "hybrid",
+        "source_preference": "mixed",
+        "search_keywords": [
+          "The Bund Shanghai",
+          "Shanghai Bund riverfront",
+          "Bund Shanghai Pudong skyline",
+          "Shanghai Bund travel photo"
+        ],
+        "visual_subject": {
+          "main_subject": "Bund riverfront with historic buildings and Pudong skyline",
+          "secondary_elements": [
+            "Huangpu River",
+            "walking promenade",
+            "evening lights"
+          ]
+        },
+        "positive_cues": [
+          "historic Bund facades",
+          "Pudong skyline across the river",
+          "Huangpu river reflections",
+          "walking-scale foreground"
+        ],
+        "negative_cues": [
+          "generic skyline only",
+          "no river context",
+          "wrong city waterfront",
+          "poster text or watermark"
+        ]
+      },
+      "review_rules": {
+        "manual_review_required": true,
+        "identity_check": [
+          "Bund identity is readable through historic riverfront buildings or Pudong skyline relation.",
+          "Cover keeps Wanderly editorial travel-journal mood."
+        ],
+        "failure_examples": [
+          "anonymous skyscraper skyline",
+          "mall interior",
+          "riverfront from another city"
+        ]
+      },
+      "golden_reference": {
+        "package_id": "future_shanghai_golden",
+        "asset_instance_ids": []
+      }
+    },
+    {
+      "asset_id": "ca_shanghai_lujiazui",
+      "asset_name": "Lujiazui",
+      "asset_category": "place",
+      "asset_family": "modern_contrast",
+      "priority": 2,
+      "traveler_fit": [
+        "couple",
+        "solo",
+        "family",
+        "friends"
+      ],
+      "route_role": "main_anchor",
+      "time_of_day": [
+        "afternoon",
+        "evening"
+      ],
+      "pace_hint": "balanced",
+      "image_context": {
+        "recommended_slots": [
+          "poi_gallery",
+          "day_cover"
+        ],
+        "image_usage_profile": "place",
+        "default_generation_mode": "real_photo",
+        "source_preference": "real_first",
+        "search_keywords": [
+          "Lujiazui Shanghai",
+          "Oriental Pearl Tower Shanghai",
+          "Shanghai Lujiazui skyline street",
+          "Pudong Lujiazui travel photo"
+        ],
+        "visual_subject": {
+          "main_subject": "Lujiazui skyline and street-scale city space",
+          "secondary_elements": [
+            "Oriental Pearl Tower",
+            "pedestrians",
+            "modern towers"
+          ]
+        },
+        "positive_cues": [
+          "Oriental Pearl Tower or recognizable Pudong towers",
+          "street-level scale",
+          "modern city contrast"
+        ],
+        "negative_cues": [
+          "generic glass buildings",
+          "airport or mall interior",
+          "skyline with no Shanghai landmark"
+        ]
+      },
+      "review_rules": {
+        "manual_review_required": true,
+        "identity_check": [
+          "Lujiazui/Pudong identity is clear.",
+          "Image works as place evidence, not only mood."
+        ],
+        "failure_examples": [
+          "generic CBD tower cluster",
+          "non-Shanghai skyline",
+          "over-processed night poster"
+        ]
+      },
+      "golden_reference": {
+        "package_id": "future_shanghai_golden",
+        "asset_instance_ids": []
+      }
+    },
+    {
+      "asset_id": "ca_shanghai_suzhou_creek",
+      "asset_name": "Suzhou Creek Walk",
+      "asset_category": "experience",
+      "asset_family": "modern_contrast",
+      "priority": 3,
+      "traveler_fit": [
+        "couple",
+        "solo",
+        "friends"
+      ],
+      "route_role": "supporting_stop",
+      "time_of_day": [
+        "afternoon",
+        "evening"
+      ],
+      "pace_hint": "slow",
+      "image_context": {
+        "recommended_slots": [
+          "day_cover",
+          "poi_gallery"
+        ],
+        "image_usage_profile": "experience",
+        "default_generation_mode": "hybrid",
+        "source_preference": "mixed",
+        "search_keywords": [
+          "Suzhou Creek Shanghai walk",
+          "Shanghai Suzhou Creek evening",
+          "Suzhou Creek riverside lights",
+          "Shanghai creek walking path"
+        ],
+        "visual_subject": {
+          "main_subject": "slow riverside walk along Suzhou Creek",
+          "secondary_elements": [
+            "bridges",
+            "city lights",
+            "people walking"
+          ]
+        },
+        "positive_cues": [
+          "creek-side pedestrian scale",
+          "bridge and city texture",
+          "evening reflection",
+          "slow couple route feeling"
+        ],
+        "negative_cues": [
+          "canal town in Jiangnan",
+          "empty riverbank",
+          "generic city river"
+        ]
+      },
+      "review_rules": {
+        "manual_review_required": true,
+        "identity_check": [
+          "Suzhou Creek or Shanghai river-walk context is plausible.",
+          "Experience image should feel like a walk, not a static postcard."
+        ],
+        "failure_examples": [
+          "water town bridge scene",
+          "anonymous river photo",
+          "no pedestrian scale"
+        ]
+      },
+      "golden_reference": {
+        "package_id": "future_shanghai_golden",
+        "asset_instance_ids": []
+      }
+    },
+    {
+      "asset_id": "ca_shanghai_wukang_road",
+      "asset_name": "Wukang Road",
+      "asset_category": "place",
+      "asset_family": "historic_texture",
+      "priority": 4,
+      "traveler_fit": [
+        "couple",
+        "solo",
+        "friends"
+      ],
+      "route_role": "supporting_stop",
+      "time_of_day": [
+        "morning",
+        "afternoon"
+      ],
+      "pace_hint": "slow",
+      "image_context": {
+        "recommended_slots": [
+          "poi_gallery"
+        ],
+        "image_usage_profile": "place",
+        "default_generation_mode": "real_photo",
+        "source_preference": "real_first",
+        "search_keywords": [
+          "Wukang Road Shanghai",
+          "Shanghai Wukang Road plane trees",
+          "Former French Concession Shanghai street",
+          "Wukang Mansion Shanghai"
+        ],
+        "visual_subject": {
+          "main_subject": "plane-tree historic street texture",
+          "secondary_elements": [
+            "old apartments",
+            "sidewalk cafes",
+            "walking visitors"
+          ]
+        },
+        "positive_cues": [
+          "plane-tree canopy",
+          "historic apartment facades",
+          "Shanghai street scale",
+          "quiet walking texture"
+        ],
+        "negative_cues": [
+          "generic European street",
+          "no Shanghai identity",
+          "luxury mall frontage"
+        ]
+      },
+      "review_rules": {
+        "manual_review_required": true,
+        "identity_check": [
+          "Historic Shanghai street texture is evident.",
+          "Image should support a slow walk route."
+        ],
+        "failure_examples": [
+          "generic cafe street",
+          "overseas-looking boulevard",
+          "building interior"
+        ]
+      },
+      "golden_reference": {
+        "package_id": "future_shanghai_golden",
+        "asset_instance_ids": []
+      }
+    },
+    {
+      "asset_id": "ca_shanghai_local_food",
+      "asset_name": "Shanghai Local Food Table",
+      "asset_category": "food",
+      "asset_family": "food_backbone",
+      "priority": 5,
+      "traveler_fit": [
+        "couple",
+        "solo",
+        "family",
+        "friends"
+      ],
+      "route_role": "food_anchor",
+      "time_of_day": [
+        "lunch",
+        "dinner"
+      ],
+      "pace_hint": "balanced",
+      "image_context": {
+        "recommended_slots": [
+          "food_gallery"
+        ],
+        "image_usage_profile": "food",
+        "default_generation_mode": "real_photo",
+        "source_preference": "real_first",
+        "search_keywords": [
+          "Shanghai xiaolongbao table",
+          "Shanghai shengjian bao",
+          "Shanghai scallion oil noodles",
+          "Shanghai local food dining"
+        ],
+        "visual_subject": {
+          "main_subject": "Shanghai food or dining table experience",
+          "secondary_elements": [
+            "xiaolongbao",
+            "shengjian",
+            "noodles",
+            "shared table"
+          ]
+        },
+        "positive_cues": [
+          "food is the clear subject",
+          "local Shanghai dishes",
+          "dining table context",
+          "life-like meal scene"
+        ],
+        "negative_cues": [
+          "storefront only",
+          "AI-generated specific restaurant",
+          "generic Chinese banquet",
+          "menu text as main subject"
+        ]
+      },
+      "review_rules": {
+        "manual_review_required": true,
+        "identity_check": [
+          "Food or dining experience is the subject.",
+          "No invented specific shop or dish provenance."
+        ],
+        "failure_examples": [
+          "shop sign only",
+          "generic stir-fry table",
+          "AI-looking dish closeup"
+        ]
+      },
+      "golden_reference": {
+        "package_id": "future_shanghai_golden",
+        "asset_instance_ids": []
+      }
+    },
+    {
+      "asset_id": "ca_shanghai_huangpu_evening",
+      "asset_name": "Huangpu River Evening Walk",
+      "asset_category": "experience",
+      "asset_family": "evening_closure",
+      "priority": 6,
+      "traveler_fit": [
+        "couple",
+        "solo",
+        "friends"
+      ],
+      "route_role": "evening_closure",
+      "time_of_day": [
+        "evening",
+        "night"
+      ],
+      "pace_hint": "slow",
+      "image_context": {
+        "recommended_slots": [
+          "day_cover"
+        ],
+        "image_usage_profile": "experience",
+        "default_generation_mode": "hybrid",
+        "source_preference": "mixed",
+        "search_keywords": [
+          "Shanghai Huangpu River evening walk",
+          "Bund night walk couple",
+          "Shanghai riverfront night lights",
+          "Huangpu River reflection night"
+        ],
+        "visual_subject": {
+          "main_subject": "couple-scale evening walk by Huangpu River",
+          "secondary_elements": [
+            "river lights",
+            "skyline reflection",
+            "walking promenade"
+          ]
+        },
+        "positive_cues": [
+          "blue hour or night light",
+          "river reflection",
+          "human walking scale",
+          "romantic but not staged"
+        ],
+        "negative_cues": [
+          "pure skyline postcard",
+          "daytime tourist crowd",
+          "no walking context"
+        ]
+      },
+      "review_rules": {
+        "manual_review_required": true,
+        "identity_check": [
+          "Evening Shanghai riverfront atmosphere is clear.",
+          "Image supports an end-of-day couple experience."
+        ],
+        "failure_examples": [
+          "generic night skyline",
+          "white daytime river scene",
+          "stage-like couple portrait"
+        ]
+      },
+      "golden_reference": {
+        "package_id": "future_shanghai_golden",
+        "asset_instance_ids": []
+      }
+    },
+    {
+      "asset_id": "ca_shanghai_city_mood",
+      "asset_name": "Shanghai City Mood",
+      "asset_category": "city_mood",
+      "asset_family": "city_mood",
+      "priority": 7,
+      "traveler_fit": [
+        "couple",
+        "solo",
+        "friends"
+      ],
+      "route_role": "mood_cover",
+      "time_of_day": [
+        "afternoon",
+        "evening"
+      ],
+      "pace_hint": "slow",
+      "image_context": {
+        "recommended_slots": [
+          "explore_cover",
+          "trip_cover"
+        ],
+        "image_usage_profile": "cover",
+        "default_generation_mode": "ai_generated",
+        "source_preference": "ai_first",
+        "search_keywords": [
+          "Shanghai city mood",
+          "Shanghai travel journal plane trees",
+          "Shanghai old lane and river lights",
+          "Shanghai couple city walk"
+        ],
+        "visual_subject": {
+          "main_subject": "Shanghai modern-old city mood for a couple trip",
+          "secondary_elements": [
+            "plane trees",
+            "shikumen lane texture",
+            "river light hint",
+            "small couple figure"
+          ]
+        },
+        "positive_cues": [
+          "plane-tree shade",
+          "shikumen or old lane texture",
+          "subtle skyline or river light cue",
+          "private travel-journal composition"
+        ],
+        "negative_cues": [
+          "cyberpunk poster",
+          "generic skyscraper montage",
+          "European city illustration",
+          "text or logos"
+        ]
+      },
+      "review_rules": {
+        "manual_review_required": true,
+        "identity_check": [
+          "Shanghai mood is visible without depending only on skyline.",
+          "AI cover should not pretend to be place evidence."
+        ],
+        "failure_examples": [
+          "generic neon city",
+          "European street scene",
+          "tourism poster text"
+        ]
+      },
+      "golden_reference": {
+        "package_id": "future_shanghai_golden",
+        "asset_instance_ids": []
+      }
+    }
+  ],
+  "compiler_hints": {
+    "default_asset_family_order": [
+      "signature_anchor",
+      "modern_contrast",
+      "historic_texture",
+      "evening_closure",
+      "food_backbone",
+      "city_mood"
+    ],
+    "minimum_asset_mix": {
+      "place": 3,
+      "food": 1,
+      "experience": 2,
+      "city_mood": 1
+    },
+    "avoid_overuse": [
+      "Do not make every image a skyline.",
+      "Do not replace food evidence with storefront photos.",
+      "Do not let old-street assets drift into generic Jiangnan water town imagery."
+    ]
+  }
+}

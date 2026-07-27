@@ -1,18 +1,24 @@
 import { describe, expect, it } from "vitest";
 
 import {
+  clearLocalTripDraftState,
   loadParsedTripSession,
   loadTripPlanDraft,
   loadTripRequest,
   loadTripRequestDraft,
   PARSED_TRIP_STORAGE_KEY,
+  RESTORED_SAVED_TRIP_STORAGE_KEY,
   saveParsedTripSession,
   saveTripPlanDraft,
   saveTripRequest,
   saveTripRequestDraft,
   TRIP_DRAFT_STORAGE_KEY,
+  TRIP_ENRICHMENT_STORAGE_KEY,
+  TRIP_PLAN_STORAGE_KEY,
   TRIP_PLAN_DRAFT_STORAGE_KEY,
   TRIP_REQUEST_STORAGE_KEY,
+  TRIP_WEATHER_SUMMARY_STORAGE_KEY,
+  WORKSPACE_SESSION_STORAGE_KEY,
 } from "../../lib/trip/storage";
 
 class MemoryStorage {
@@ -240,5 +246,32 @@ describe("trip storage", () => {
 
     expect(loadTripPlanDraft(storage)).toEqual(draft);
     expect(loadTripRequestDraft(storage)).toEqual(draft.tripRequestDraft);
+  });
+
+  it("clears local draft state without touching unrelated keys", () => {
+    const storage = new MemoryStorage();
+    storage.setItem(PARSED_TRIP_STORAGE_KEY, "parsed");
+    storage.setItem(TRIP_DRAFT_STORAGE_KEY, "draft");
+    storage.setItem(TRIP_PLAN_DRAFT_STORAGE_KEY, "plan-draft");
+    storage.setItem(TRIP_REQUEST_STORAGE_KEY, "request");
+    storage.setItem(TRIP_PLAN_STORAGE_KEY, "plan");
+    storage.setItem(TRIP_ENRICHMENT_STORAGE_KEY, "enrichment");
+    storage.setItem(TRIP_WEATHER_SUMMARY_STORAGE_KEY, "weather");
+    storage.setItem(RESTORED_SAVED_TRIP_STORAGE_KEY, "saved");
+    storage.setItem(WORKSPACE_SESSION_STORAGE_KEY, "workspace");
+    storage.setItem("unrelated", "keep");
+
+    clearLocalTripDraftState(storage);
+
+    expect(storage.getItem(PARSED_TRIP_STORAGE_KEY)).toBeNull();
+    expect(storage.getItem(TRIP_DRAFT_STORAGE_KEY)).toBeNull();
+    expect(storage.getItem(TRIP_PLAN_DRAFT_STORAGE_KEY)).toBeNull();
+    expect(storage.getItem(TRIP_REQUEST_STORAGE_KEY)).toBeNull();
+    expect(storage.getItem(TRIP_PLAN_STORAGE_KEY)).toBeNull();
+    expect(storage.getItem(TRIP_ENRICHMENT_STORAGE_KEY)).toBeNull();
+    expect(storage.getItem(TRIP_WEATHER_SUMMARY_STORAGE_KEY)).toBeNull();
+    expect(storage.getItem(RESTORED_SAVED_TRIP_STORAGE_KEY)).toBeNull();
+    expect(storage.getItem(WORKSPACE_SESSION_STORAGE_KEY)).toBeNull();
+    expect(storage.getItem("unrelated")).toBe("keep");
   });
 });

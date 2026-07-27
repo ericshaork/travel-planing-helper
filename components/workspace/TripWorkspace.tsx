@@ -11,7 +11,11 @@ import { ResultDayNav } from "@/components/trip/ResultDayNav";
 import { RouteInsightPanel } from "@/components/trip/RouteInsightPanel";
 import { TransportAdvice } from "@/components/trip/TransportAdvice";
 import { WeatherAlertCard } from "@/components/trip/WeatherAlertCard";
-import { useTripWorkspaceState, type AttractionEntry } from "@/hooks/useTripWorkspaceState";
+import {
+  useTripWorkspaceState,
+  type AttractionEntry,
+  type WorkspaceMode,
+} from "@/hooks/useTripWorkspaceState";
 import {
   getMobileOverviewAccentText,
   MOBILE_OVERVIEW_FALLBACK,
@@ -19,9 +23,11 @@ import {
 } from "@/lib/trip/result-overview";
 import type { WorkspaceSessionSourceType } from "@/lib/trip/storage";
 import type { TripPlan, TripRequest } from "@/lib/trip/types";
+import { buildWorkspaceReadViewModel } from "@/lib/workspace/read-model";
 
 import { MapPanel } from "./MapPanel";
 import { ModificationPanel } from "./ModificationPanel";
+import { WorkspaceReadView } from "./read/WorkspaceReadView";
 import { SaveStatus } from "./SaveStatus";
 import { TripEditor } from "./TripEditor";
 import { WorkspaceLayout } from "./WorkspaceLayout";
@@ -36,6 +42,24 @@ interface MobilePageShellProps {
 interface TripWorkspaceProps {
   tripPlan: TripPlan;
   tripRequest: TripRequest | null;
+  initialWorkspaceModeDefault?: WorkspaceMode;
+}
+
+export function shouldUseCompactBlankEditMode(input: {
+  workspaceMode: WorkspaceMode;
+  workspaceSourceType?: WorkspaceSessionSourceType;
+}) {
+  return (
+    input.workspaceMode === "edit" &&
+    input.workspaceSourceType === "blank_manual"
+  );
+}
+
+export function shouldUseWorkspaceReadView(input: {
+  workspaceMode: WorkspaceMode;
+  compactBlankReadMode: boolean;
+}) {
+  return input.workspaceMode === "read" && !input.compactBlankReadMode;
 }
 
 function MobilePageShell({
@@ -128,6 +152,7 @@ function summarizeNotes(tripPlan: TripPlan) {
 export function TripWorkspace({
   tripPlan,
   tripRequest,
+  initialWorkspaceModeDefault,
 }: TripWorkspaceProps) {
   const {
     currentTripPlan,
@@ -188,8 +213,10 @@ export function TripWorkspace({
     handleWorkspaceTimeSlotAdd,
     handleWorkspaceTimeSlotUpdate,
     handleWorkspaceTimeSlotDelete,
+    handleWorkspaceTimeSlotsChange,
     handleDesktopMapPointSelect,
     handleWorkspaceBlockSelect,
+    handleWorkspaceBlockSelectionClear,
     handleMapSearchSubmit,
     handleMapSearchResultSelect,
     handleMapSearchClear,
@@ -206,6 +233,7 @@ export function TripWorkspace({
   } = useTripWorkspaceState({
     tripPlan,
     tripRequest,
+    initialWorkspaceModeDefault,
   });
 
   const compactBlankReadMode =
@@ -214,6 +242,18 @@ export function TripWorkspace({
     !hasStops &&
     cabinets.length <= 1 &&
     (activeWorkspaceCabinet?.itemCount ?? 0) === 0;
+  const isBlankEditMode = shouldUseCompactBlankEditMode({
+    workspaceMode,
+    workspaceSourceType:
+      workspaceSourceType as WorkspaceSessionSourceType | undefined,
+  });
+  const useWorkspaceReadView = shouldUseWorkspaceReadView({
+    workspaceMode,
+    compactBlankReadMode,
+  });
+  const readViewModel = useWorkspaceReadView
+    ? buildWorkspaceReadViewModel(currentTripPlan)
+    : null;
 
   function renderAttractionsContent(columnClassName = "grid gap-4 lg:grid-cols-2") {
     if (attractions.length === 0) {
@@ -534,7 +574,15 @@ export function TripWorkspace({
     />
   );
 
-  const desktopMain = (
+  const desktopMain = useWorkspaceReadView ? (
+    <WorkspaceReadView
+      viewModel={readViewModel!}
+      activeDayNumber={activeWorkspaceCabinet?.dayNumber ?? 1}
+      activeBlockId={resolvedActiveItineraryBlockId}
+      onSelectDay={handleWorkspaceDaySelect}
+      onBlockSelect={handleWorkspaceBlockSelect}
+    />
+  ) : (
     <>
       <TripEditor
         cabinets={cabinets}
@@ -543,7 +591,29 @@ export function TripWorkspace({
         insight={desktopSelectedInsight}
         showActions={workspaceMode === "edit"}
         compactBlankReadMode={compactBlankReadMode}
+        compactEmptyEditMode={isBlankEditMode}
         activeBlockId={resolvedActiveItineraryBlockId}
+        searchCity={currentTripPlan.destination}
+        editEmptyToolbar={
+          isBlankEditMode ? (
+            <>
+              <button
+                type="button"
+                onClick={handleWritePendingChangesToDraft}
+                className="inline-flex min-h-8 items-center rounded-full border border-[rgba(158,136,110,0.32)] bg-[rgba(255,253,247,0.62)] px-3 py-1 text-xs font-semibold text-[var(--ink-muted)] transition-colors hover:bg-[var(--paper-bright)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)]"
+              >
+                待调整内容
+              </button>
+              <button
+                type="button"
+                onClick={handleWorkspaceOpenAiAssist}
+                className="inline-flex min-h-8 items-center rounded-full border border-[rgba(88,69,52,0.38)] bg-[rgba(255,253,247,0.72)] px-3 py-1 text-xs font-semibold text-[var(--ink)] shadow-[2px_2px_0_var(--sand-soft)] transition-colors hover:bg-[var(--paper-bright)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)]"
+              >
+                AI 帮我补全
+              </button>
+            </>
+          ) : null
+        }
         onRequestEdit={handleWorkspaceFocusEdit}
         onAddDay={handleWorkspaceAddDay}
         onAddPlace={handleWorkspaceAddPlace}
@@ -551,15 +621,17 @@ export function TripWorkspace({
         onOpenAiAssist={handleWorkspaceOpenAiAssist}
         onSelectDay={handleWorkspaceDaySelect}
         onBlockSelect={handleWorkspaceBlockSelect}
+        onBlockSelectionClear={handleWorkspaceBlockSelectionClear}
         onBlockUpdate={handleWorkspaceBlockUpdate}
         onBlockDelete={handleWorkspaceBlockDelete}
         onBlockMove={handleWorkspaceBlockMove}
         onTimeSlotAdd={handleWorkspaceTimeSlotAdd}
         onTimeSlotUpdate={handleWorkspaceTimeSlotUpdate}
         onTimeSlotDelete={handleWorkspaceTimeSlotDelete}
+        onTimeSlotsChange={handleWorkspaceTimeSlotsChange}
         onBlockAction={handleBlockAction}
       />
-      {workspaceMode === "edit" ? (
+      {workspaceMode === "edit" && !isBlankEditMode ? (
         <ModificationPanel
           tripPlan={currentTripPlan}
           tripRequest={tripRequest}
@@ -626,6 +698,7 @@ export function TripWorkspace({
       main={desktopMain}
       inspector={desktopInspector}
       compactBlankReadMode={compactBlankReadMode}
+      compactEmptyEditMode={isBlankEditMode}
     />
   );
 }

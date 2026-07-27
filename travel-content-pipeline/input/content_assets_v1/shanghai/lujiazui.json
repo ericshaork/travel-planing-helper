@@ -1,0 +1,121 @@
+{
+  "id": "ca_shanghai_lujiazui",
+  "name": "Lujiazui",
+  "asset_type": "place_modern_contrast",
+  "category": [
+    "place",
+    "modern_contrast",
+    "main_anchor"
+  ],
+  "content_role": [
+    "modern_contrast",
+    "main_anchor",
+    "place",
+    "real_photo"
+  ],
+  "traveler_fit": {
+    "couple": "high",
+    "student": "medium",
+    "solo": "high",
+    "family": "high",
+    "friends": "high"
+  },
+  "season_fit": {
+    "spring": "medium",
+    "summer": "medium",
+    "autumn": "high",
+    "winter": "medium"
+  },
+  "best_time": {
+    "time_of_day": [
+      "afternoon",
+      "evening"
+    ],
+    "note": "Lujiazui is intended as main_anchor with balanced pacing."
+  },
+  "experience_value": {
+    "primary": [
+      "modern_contrast",
+      "main_anchor",
+      "place",
+      "Oriental Pearl Tower or recognizable Pudong towers",
+      "street-level scale",
+      "modern city contrast"
+    ],
+    "summary": "Lujiazui skyline and street-scale city space"
+  },
+  "avoid_when": [
+    "generic glass buildings",
+    "airport or mall interior",
+    "skyline with no Shanghai landmark"
+  ],
+  "nearby_assets": [],
+  "map_asset_id": "poi_lujiazui",
+  "bridge_metadata": {
+    "source": "city_inventory",
+    "source_inventory_id": "shanghai_city_inventory_v1",
+    "asset_id": "ca_shanghai_lujiazui",
+    "asset_name": "Lujiazui",
+    "asset_category": "place",
+    "asset_family": "modern_contrast",
+    "route_role": "main_anchor",
+    "why_it_matters": "Lujiazui skyline and street-scale city space",
+    "pace_hint": "balanced",
+    "priority": 2
+  },
+  "image_context": {
+    "recommended_slots": [
+      "poi_gallery",
+      "day_cover"
+    ],
+    "image_usage_profile": "place",
+    "default_generation_mode": "real_photo",
+    "source_preference": "real_first",
+    "search_keywords": [
+      "Lujiazui Shanghai",
+      "Oriental Pearl Tower Shanghai",
+      "Shanghai Lujiazui skyline street",
+      "Pudong Lujiazui travel photo"
+    ],
+    "visual_subject": {
+      "main_subject": "Lujiazui skyline and street-scale city space",
+      "secondary_elements": [
+        "Oriental Pearl Tower",
+        "pedestrians",
+        "modern towers"
+      ]
+    },
+    "positive_cues": [
+      "Oriental Pearl Tower or recognizable Pudong towers",
+      "street-level scale",
+      "modern city contrast"
+    ],
+    "negative_cues": [
+      "generic glass buildings",
+      "airport or mall interior",
+      "skyline with no Shanghai landmark"
+    ]
+  },
+  "search_keywords": [
+    "Lujiazui Shanghai",
+    "Oriental Pearl Tower Shanghai",
+    "Shanghai Lujiazui skyline street",
+    "Pudong Lujiazui travel photo"
+  ],
+  "review_rules": {
+    "manual_review_required": true,
+    "identity_check": [
+      "Lujiazui/Pudong identity is clear.",
+      "Image works as place evidence, not only mood."
+    ],
+    "failure_examples": [
+      "generic CBD tower cluster",
+      "non-Shanghai skyline",
+      "over-processed night poster"
+    ]
+  },
+  "golden_reference": {
+    "package_id": "future_shanghai_golden",
+    "asset_instance_ids": []
+  }
+}

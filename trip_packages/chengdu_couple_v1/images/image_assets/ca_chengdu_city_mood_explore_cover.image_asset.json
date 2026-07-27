@@ -1,0 +1,14 @@
+{
+  "asset_id": "ca_chengdu_city_mood",
+  "asset_instance_id": "ca_chengdu_city_mood_explore_cover",
+  "image_slot": "explore_cover",
+  "source": "ai_generated",
+  "file_path": "C:\\Users\\10200\\Desktop\\travel_planing\\image-pipeline\\image-pipeline\\output\\runs\\seedream\\generated\\chengdu_cover_001.png",
+  "status": "completed",
+  "metadata": {
+    "provider_id": "seedream",
+    "model_id": "doubao-seedream-5-0-pro-260628",
+    "provider_job_id": "seedream_ca_chengdu_city_mood_explore_cover",
+    "prompt": "A personalized travel journal cover illustration for Chengdu. Destination context: chengdu. Scene idea: Chengdu spring couple travel magazine cover with private journal feeling. Visual identity: teahouse life, Sichuan food, old alleys, bamboo shade, slow city rhythm, night market warmth. Mood: slow teahouse pause, street food memory, old neighborhood walk, warm evening closure. No text, no logo, no fake signage, no named restaurant or dish fabrication. Style profile: wanderly_travel_journal. Create an original travel illustration with scene-specific storytelling and a unique composition for this destination. Use a light-toned, low-saturation watercolor palette with muted gray-blue, rice white, and pale soft green. Emphasize an oriental watercolor travel journal mood with textured watercolor paper, soft ink wash, visible paper grain, and gently blurred edges. Use a balanced composition with soft layered depth, one clear primary scene, and enough breathing room for an Explore cover card without copying a template layout. Prefer a quiet poetic atmosphere, private and intimate rather than commercial, with soft calm light, restrained detail, and an original travel story specific to the destination. Only a few delicate accents are allowed, such as a small pavilion, a tiny boat, lotus, or willow branches. Avoid multiple landmarks, avoid dense storytelling, avoid crowded elements, avoid high saturation, avoid strong contrast, avoid sharp digital illustration feeling, avoid game concept art feeling, avoid tourism poster feeling. No text, no letters, no typography, no watermark, no logo."
+  }
+}

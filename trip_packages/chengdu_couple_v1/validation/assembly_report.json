@@ -1,0 +1,21 @@
+{
+  "trip_id": "chengdu_couple_v1",
+  "manifest_id": "chengdu_couple_v1",
+  "status": "passed",
+  "generated_on": "2026-07-18T12:22:25.586Z",
+  "checks": {
+    "explore_plan_exists": true,
+    "image_manifest_exists": true,
+    "image_count_matches": true,
+    "asset_instance_id_unique": true,
+    "completed_assets_have_file_path": true
+  },
+  "counts": {
+    "manifest_images": 6,
+    "pipeline_assets": 6,
+    "packaged_assets": 6,
+    "completed_assets": 6
+  },
+  "issues": [],
+  "warnings": []
+}

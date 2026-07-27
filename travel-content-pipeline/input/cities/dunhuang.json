@@ -1,0 +1,109 @@
+{
+  "city_code": "dunhuang",
+  "city_name": "Dunhuang",
+  "region_name": "Gansu",
+  "summary": "Dunhuang suits theme-led travel focused on desert atmosphere, Silk Road culture, iconic scenic anchors, and slower light-sensitive pacing.",
+  "transport_notes": [
+    "Dunhuang plans should stay simple because major scenic stops often involve longer transfers than city destinations.",
+    "Use one major desert or heritage anchor per half day rather than stacking several large sites tightly together.",
+    "Sunrise, sunset, and evening atmosphere matter more here than dense attraction sequencing."
+  ],
+  "budget_notes": {
+    "low": "Keep the plan centered on one or two major signature areas plus simple city food stops.",
+    "medium": "Combine one core heritage site, one desert atmosphere stop, and one compact town dining area each day.",
+    "high": "Use slower pacing, stronger comfort around transport-heavy days, and more selective scenic timing."
+  },
+  "trip_type_notes": {
+    "student": "Student plans in Dunhuang should prioritize iconic scenery, clear routing, and manageable spending around major landmarks.",
+    "solo": "Solo plans should emphasize silence, landscape, and contemplative heritage pacing.",
+    "couple": "Couple plans should focus on sunset, open landscape, and memorable visual contrast between desert and town light.",
+    "family": "Family plans should reduce repeated long transfers and build enough rest around major scenic stops."
+  },
+  "suggested_tags": [
+    "silk-road",
+    "desert-scenery",
+    "sunset",
+    "cultural-landmarks",
+    "photo-friendly",
+    "theme-led-travel"
+  ],
+  "pois": [
+    {
+      "id": "poi_mogao_edge",
+      "name": "Mogao Caves Area",
+      "district": "Dunhuang",
+      "type": "cultural landmark",
+      "description": "The defining culture anchor for Dunhuang plans and the clearest Silk Road heritage reference point.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 150
+    },
+    {
+      "id": "poi_mingsha_edge",
+      "name": "Mingsha Mountain and Crescent Lake Edge",
+      "district": "Dunhuang",
+      "type": "desert scenic area",
+      "description": "A signature desert atmosphere stop best used for strong visual impact and late-day pacing.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 150
+    },
+    {
+      "id": "poi_shazhou_market",
+      "name": "Shazhou Night Market Area",
+      "district": "Dunhuang",
+      "type": "food and evening district",
+      "description": "A practical city stop for local snacks, night atmosphere, and a softer landing after major scenic routes.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_museum_edge",
+      "name": "Dunhuang Museum Edge Visit",
+      "district": "Dunhuang",
+      "type": "museum area",
+      "description": "A useful support stop for adding context to Silk Road imagery without heavy scenic movement.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_desert_evening",
+      "name": "Desert Evening Viewpoint",
+      "district": "Dunhuang",
+      "type": "sunset scenic area",
+      "description": "A visual-mood stop for plans that want atmosphere and open-sky pacing more than dense scheduling.",
+      "best_for": ["solo", "couple"],
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_town_walk",
+      "name": "Old Town Leisure Walk",
+      "district": "Dunhuang",
+      "type": "town district",
+      "description": "A simple urban contrast to the larger scenic sites, useful for slower local pacing.",
+      "best_for": ["student", "solo", "family"],
+      "recommended_duration_minutes": 75
+    }
+  ],
+  "food_areas": [
+    {
+      "name": "Shazhou Night Market Food Zone",
+      "district": "Dunhuang",
+      "specialties": ["northwest snacks", "night-market food", "casual local dishes"],
+      "best_for": ["student", "solo", "couple", "family"],
+      "note": "Best for recognizable local flavor after major scenic or heritage stops."
+    },
+    {
+      "name": "Town Center Casual Dining Area",
+      "district": "Dunhuang",
+      "specialties": ["simple northwest meals", "noodle dishes", "shared family-style plates"],
+      "best_for": ["student", "solo", "couple", "family"],
+      "note": "Best for practical meals that keep routing simple."
+    },
+    {
+      "name": "Desert-Route Dining Stops",
+      "district": "Dunhuang",
+      "specialties": ["route-side meals", "light scenic-day dining", "comfort food before evening views"],
+      "best_for": ["couple", "family"],
+      "note": "Best for reducing friction on days built around bigger scenic transitions."
+    }
+  ]
+}

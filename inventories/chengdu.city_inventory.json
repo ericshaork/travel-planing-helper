@@ -1,0 +1,647 @@
+{
+  "inventory_id": "chengdu_city_inventory_v1",
+  "inventory_version": "city_inventory_v1",
+  "city": {
+    "code": "chengdu",
+    "name": "Chengdu",
+    "region": "Sichuan",
+    "country": "China"
+  },
+  "city_identity": {
+    "visual_keywords": [
+      "teahouse life",
+      "Sichuan food",
+      "old alleys",
+      "bamboo shade",
+      "slow city rhythm",
+      "night market warmth"
+    ],
+    "signature_moods": [
+      "slow teahouse pause",
+      "street food memory",
+      "old neighborhood walk",
+      "warm evening closure"
+    ],
+    "seasonal_texture": {
+      "primary_season": "autumn",
+      "visual_cues": [
+        "warm afternoon tea light",
+        "bamboo chairs",
+        "covered tea bowls",
+        "street food steam",
+        "riverside night lights"
+      ],
+      "avoid_cues": [
+        "only panda-themed imagery",
+        "generic Jiangnan garden",
+        "shopping-only route",
+        "fake restaurant signage"
+      ]
+    }
+  },
+  "assets": [
+    {
+      "asset_id": "ca_chengdu_peoples_park_teahouse",
+      "asset_name": "People's Park Teahouse",
+      "asset_category": "place",
+      "asset_family": "signature_anchor",
+      "priority": 0,
+      "traveler_fit": [
+        "couple",
+        "solo",
+        "family",
+        "friends"
+      ],
+      "route_role": "first_anchor",
+      "time_of_day": [
+        "morning",
+        "afternoon"
+      ],
+      "pace_hint": "slow",
+      "image_context": {
+        "recommended_slots": [
+          "explore_cover",
+          "poi_gallery"
+        ],
+        "image_usage_profile": "cover",
+        "default_generation_mode": "hybrid",
+        "source_preference": "mixed",
+        "search_keywords": [
+          "Chengdu People's Park teahouse",
+          "Chengdu bamboo chairs tea house",
+          "Chengdu covered tea bowls park",
+          "?? ???? ??",
+          "?? ??? ??"
+        ],
+        "visual_subject": {
+          "main_subject": "Chengdu People's Park teahouse life",
+          "secondary_elements": [
+            "bamboo chairs",
+            "covered tea bowls",
+            "local residents",
+            "tree shade"
+          ]
+        },
+        "positive_cues": [
+          "People's Park teahouse atmosphere",
+          "rows of bamboo chairs",
+          "covered tea bowls",
+          "local residents chatting"
+        ],
+        "negative_cues": [
+          "generic garden courtyard",
+          "Jiangnan water town",
+          "fake shop signage",
+          "panda as main subject"
+        ]
+      },
+      "review_rules": {
+        "manual_review_required": true,
+        "identity_check": [
+          "People's Park teahouse or old Chengdu tea-life cues are clear.",
+          "Image does not pretend to prove a specific shop."
+        ],
+        "failure_examples": [
+          "generic southern courtyard",
+          "Suzhou garden feeling",
+          "fake tea shop sign"
+        ]
+      },
+      "golden_reference": {
+        "package_id": "chengdu_couple_golden_v1",
+        "asset_instance_ids": [
+          "ca_chengdu_city_mood_explore_cover"
+        ]
+      }
+    },
+    {
+      "asset_id": "ca_chengdu_kuanzhai_alley",
+      "asset_name": "Kuanzhai Alley",
+      "asset_category": "place",
+      "asset_family": "historic_texture",
+      "priority": 1,
+      "traveler_fit": [
+        "couple",
+        "solo",
+        "friends",
+        "family"
+      ],
+      "route_role": "main_anchor",
+      "time_of_day": [
+        "morning",
+        "afternoon",
+        "evening"
+      ],
+      "pace_hint": "balanced",
+      "image_context": {
+        "recommended_slots": [
+          "explore_cover",
+          "poi_gallery"
+        ],
+        "image_usage_profile": "cover",
+        "default_generation_mode": "hybrid",
+        "source_preference": "mixed",
+        "search_keywords": [
+          "Kuanzhai Alley Chengdu",
+          "Kuanzhai Alley travel photo",
+          "Kuanzhai Alley streetscape",
+          "Kuanzhai Alley architecture",
+          "Kuanzhai Alley landmark photo"
+        ],
+        "visual_subject": {
+          "main_subject": "old Chengdu alley travel scene",
+          "secondary_elements": [
+            "grey brick walls",
+            "teahouse life",
+            "visitors",
+            "warm lights"
+          ]
+        },
+        "positive_cues": [
+          "grey brick alley",
+          "old Chengdu street texture",
+          "teahouse or slow street life",
+          "human-scale couple route"
+        ],
+        "negative_cues": [
+          "generic ancient town",
+          "Jiangnan water town",
+          "fake shop signage",
+          "tourism poster gloss"
+        ]
+      },
+      "review_rules": {
+        "manual_review_required": true,
+        "identity_check": [
+          "Old Chengdu / Kuanzhai alley texture is readable.",
+          "Cover does not collapse into generic ancient town."
+        ],
+        "failure_examples": [
+          "generic grey-wall lane",
+          "water-town bridge scene",
+          "storefront-only image"
+        ]
+      },
+      "golden_reference": {
+        "package_id": "chengdu_couple_golden_v1",
+        "asset_instance_ids": [
+          "ca_chengdu_kuanzhai_alley_explore_cover"
+        ]
+      }
+    },
+    {
+      "asset_id": "ca_chengdu_taikoo_li",
+      "asset_name": "Taikoo Li Chengdu",
+      "asset_category": "place",
+      "asset_family": "modern_contrast",
+      "priority": 2,
+      "traveler_fit": [
+        "couple",
+        "solo",
+        "friends"
+      ],
+      "route_role": "supporting_stop",
+      "time_of_day": [
+        "afternoon",
+        "evening"
+      ],
+      "pace_hint": "balanced",
+      "image_context": {
+        "recommended_slots": [
+          "poi_gallery"
+        ],
+        "image_usage_profile": "place",
+        "default_generation_mode": "real_photo",
+        "source_preference": "real_first",
+        "search_keywords": [
+          "Sino-Ocean Taikoo Li Chengdu",
+          "Chengdu Taikoo Li street",
+          "Taikoo Li Chengdu street view",
+          "成都远洋太古里",
+          "成都太古里街区"
+        ],
+        "visual_subject": {
+          "main_subject": "Sino-Ocean Taikoo Li Chengdu open-air street district",
+          "secondary_elements": [
+            "low-rise commercial street",
+            "pedestrians",
+            "storefront rhythm"
+          ]
+        },
+        "positive_cues": [
+          "open-air low-rise commercial street",
+          "pedestrian scale",
+          "recognizable Taikoo Li architecture"
+        ],
+        "negative_cues": [
+          "generic cityscape",
+          "lake or river view",
+          "mall interior",
+          "unidentifiable modern building"
+        ]
+      },
+      "review_rules": {
+        "manual_review_required": false,
+        "identity_check": [
+          "Image proves Taikoo Li, not any modern Chengdu street.",
+          "Real photo provenance is preserved."
+        ],
+        "failure_examples": [
+          "ordinary modern bridge or lake",
+          "shopping mall interior",
+          "no Taikoo Li street identity"
+        ]
+      },
+      "golden_reference": {
+        "package_id": "chengdu_couple_golden_v1",
+        "asset_instance_ids": [
+          "ca_chengdu_taikoo_li_poi_gallery"
+        ]
+      }
+    },
+    {
+      "asset_id": "ca_chengdu_chuanchuan_snacks",
+      "asset_name": "Chengdu Chuanchuan and Snacks",
+      "asset_category": "food",
+      "asset_family": "food_backbone",
+      "priority": 3,
+      "traveler_fit": [
+        "couple",
+        "solo",
+        "friends"
+      ],
+      "route_role": "food_anchor",
+      "time_of_day": [
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "pace_hint": "balanced",
+      "image_context": {
+        "recommended_slots": [
+          "food_gallery"
+        ],
+        "image_usage_profile": "food",
+        "default_generation_mode": "real_photo",
+        "source_preference": "real_first",
+        "search_keywords": [
+          "Chengdu chuanchuan skewers food",
+          "Chengdu street food dining table",
+          "Sichuan skewers close up",
+          "Chengdu Chuanchuan and Snacks food photo"
+        ],
+        "visual_subject": {
+          "main_subject": "real Chengdu chuanchuan food experience",
+          "secondary_elements": [
+            "skewers",
+            "food table",
+            "purchase context",
+            "night street life"
+          ]
+        },
+        "positive_cues": [
+          "food subject is clear",
+          "skewers or spicy snack table",
+          "real purchase or dining moment"
+        ],
+        "negative_cues": [
+          "storefront facade",
+          "empty street",
+          "AI-generated named dish",
+          "generic Chinese food"
+        ]
+      },
+      "review_rules": {
+        "manual_review_required": true,
+        "identity_check": [
+          "Food is the main subject, not just a shop facade.",
+          "No concrete restaurant or dish is fabricated by AI."
+        ],
+        "failure_examples": [
+          "street facade only",
+          "no visible food",
+          "fake named restaurant dish"
+        ]
+      },
+      "golden_reference": {
+        "package_id": "chengdu_couple_golden_v1",
+        "asset_instance_ids": [
+          "ca_chengdu_chuanchuan_snacks_food_gallery"
+        ]
+      }
+    },
+    {
+      "asset_id": "ca_chengdu_hotpot_table",
+      "asset_name": "Chengdu Hotpot Table",
+      "asset_category": "food",
+      "asset_family": "food_backbone",
+      "priority": 4,
+      "traveler_fit": [
+        "couple",
+        "solo",
+        "friends",
+        "family"
+      ],
+      "route_role": "food_anchor",
+      "time_of_day": [
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "pace_hint": "balanced",
+      "image_context": {
+        "recommended_slots": [
+          "food_gallery"
+        ],
+        "image_usage_profile": "food",
+        "default_generation_mode": "real_photo",
+        "source_preference": "real_first",
+        "search_keywords": [
+          "Chengdu hotpot table",
+          "Sichuan hotpot food",
+          "hotpot dining table",
+          "Chengdu Hotpot Table food photo"
+        ],
+        "visual_subject": {
+          "main_subject": "real Sichuan hotpot table",
+          "secondary_elements": [
+            "red broth",
+            "ingredients",
+            "dipping bowls",
+            "shared table"
+          ]
+        },
+        "positive_cues": [
+          "hotpot pot and ingredients",
+          "shared dining table",
+          "real food evidence"
+        ],
+        "negative_cues": [
+          "restaurant facade",
+          "AI-generated named restaurant",
+          "generic soup bowl"
+        ]
+      },
+      "review_rules": {
+        "manual_review_required": true,
+        "identity_check": [
+          "Hotpot table and food evidence are clear.",
+          "No named shop fabrication."
+        ],
+        "failure_examples": [
+          "storefront only",
+          "generic restaurant interior",
+          "missing food subject"
+        ]
+      },
+      "golden_reference": {
+        "package_id": "chengdu_couple_golden_v1",
+        "asset_instance_ids": [
+          "ca_chengdu_hotpot_table_food_gallery"
+        ]
+      }
+    },
+    {
+      "asset_id": "ca_chengdu_wangping_street",
+      "asset_name": "Wangping Street Riverside",
+      "asset_category": "experience",
+      "asset_family": "evening_closure",
+      "priority": 5,
+      "traveler_fit": [
+        "couple",
+        "solo",
+        "friends"
+      ],
+      "route_role": "evening_closure",
+      "time_of_day": [
+        "evening",
+        "night"
+      ],
+      "pace_hint": "slow",
+      "image_context": {
+        "recommended_slots": [
+          "day_cover"
+        ],
+        "image_usage_profile": "experience",
+        "default_generation_mode": "hybrid",
+        "source_preference": "mixed",
+        "search_keywords": [
+          "Wangping Street Riverside Chengdu",
+          "Wangping Street Riverside evening view",
+          "Chengdu Jinjiang riverside nightlife",
+          "Chengdu Wangping Street nightlife"
+        ],
+        "visual_subject": {
+          "main_subject": "Chengdu riverside evening nightlife walk",
+          "secondary_elements": [
+            "warm lights",
+            "river reflection",
+            "pedestrians",
+            "slow walking"
+          ]
+        },
+        "positive_cues": [
+          "Jinjiang or Wangping Street night identity",
+          "warm cafe lights",
+          "slow evening walk",
+          "Chengdu nightlife atmosphere"
+        ],
+        "negative_cues": [
+          "Jiangnan water town",
+          "generic canal",
+          "daytime street",
+          "pure landscape without experience"
+        ]
+      },
+      "review_rules": {
+        "manual_review_required": true,
+        "identity_check": [
+          "Evening Chengdu riverside or Wangping Street identity is clear.",
+          "Scene supports couple slow-walk closure."
+        ],
+        "failure_examples": [
+          "looks like Jiangnan water town",
+          "white daytime street",
+          "ordinary dock photo"
+        ]
+      },
+      "golden_reference": {
+        "package_id": "chengdu_couple_golden_v1",
+        "asset_instance_ids": [
+          "ca_chengdu_wangping_street_day_cover"
+        ]
+      }
+    },
+    {
+      "asset_id": "ca_chengdu_city_mood",
+      "asset_name": "Chengdu City Mood",
+      "asset_category": "city_mood",
+      "asset_family": "city_mood",
+      "priority": 6,
+      "traveler_fit": [
+        "couple",
+        "solo",
+        "friends"
+      ],
+      "route_role": "mood_cover",
+      "time_of_day": [
+        "any"
+      ],
+      "pace_hint": "slow",
+      "image_context": {
+        "recommended_slots": [
+          "explore_cover",
+          "trip_cover"
+        ],
+        "image_usage_profile": "cover",
+        "default_generation_mode": "ai_generated",
+        "source_preference": "ai_first",
+        "search_keywords": [
+          "teahouse life Chengdu",
+          "Sichuan food Chengdu",
+          "old alleys Chengdu",
+          "bamboo shade Chengdu",
+          "slow city rhythm Chengdu",
+          "night market warmth Chengdu"
+        ],
+        "visual_subject": {
+          "main_subject": "Chengdu romantic city mood",
+          "secondary_elements": [
+            "teahouse life",
+            "Sichuan food",
+            "old alleys",
+            "bamboo shade"
+          ]
+        },
+        "positive_cues": [
+          "People's Park teahouse mood",
+          "rows of bamboo chairs",
+          "covered tea bowls",
+          "local residents chatting",
+          "old Chengdu slow life"
+        ],
+        "negative_cues": [
+          "Jiangnan water town",
+          "Suzhou garden",
+          "specific shop signage",
+          "tourism poster",
+          "panda as main subject"
+        ]
+      },
+      "review_rules": {
+        "manual_review_required": true,
+        "identity_check": [
+          "Teahouse, bamboo chair, covered tea bowl, or old Chengdu slow-life cues are clear.",
+          "It is a city mood cover, not POI evidence."
+        ],
+        "failure_examples": [
+          "generic southern courtyard",
+          "Jiangnan bridge/water scene",
+          "fake shop sign",
+          "tourism poster mood"
+        ]
+      },
+      "golden_reference": {
+        "package_id": "chengdu_couple_golden_v1",
+        "asset_instance_ids": [
+          "ca_chengdu_city_mood_explore_cover"
+        ]
+      }
+    },
+    {
+      "asset_id": "ca_chengdu_gaiwan_tea_experience",
+      "asset_name": "Chengdu Gaiwan Tea Experience",
+      "asset_category": "experience",
+      "asset_family": "slow_solo",
+      "priority": 8,
+      "traveler_fit": [
+        "couple",
+        "solo",
+        "friends"
+      ],
+      "route_role": "supporting_stop",
+      "time_of_day": [
+        "morning",
+        "afternoon"
+      ],
+      "pace_hint": "slow",
+      "image_context": {
+        "recommended_slots": [
+          "day_cover",
+          "detail_image"
+        ],
+        "image_usage_profile": "experience",
+        "default_generation_mode": "hybrid",
+        "source_preference": "mixed",
+        "search_keywords": [
+          "Chengdu gaiwan tea experience",
+          "Chengdu teahouse bamboo chair afternoon",
+          "Sichuan covered tea bowl experience",
+          "?? ??? ??",
+          "?? ?? ?? ??"
+        ],
+        "visual_subject": {
+          "main_subject": "slow gaiwan tea pause in Chengdu teahouse",
+          "secondary_elements": [
+            "covered tea bowl",
+            "bamboo chair",
+            "afternoon light",
+            "quiet conversation"
+          ]
+        },
+        "positive_cues": [
+          "covered tea bowl close enough to read",
+          "slow couple pause or local chatting",
+          "bamboo chair texture",
+          "warm afternoon light"
+        ],
+        "negative_cues": [
+          "generic cafe",
+          "empty ancient courtyard",
+          "specific shop signage",
+          "AI-fabricated brand or menu"
+        ]
+      },
+      "review_rules": {
+        "manual_review_required": true,
+        "identity_check": [
+          "Gaiwan tea experience is the main route mood.",
+          "Scene supports Chengdu slow-life pacing."
+        ],
+        "failure_examples": [
+          "generic coffee shop",
+          "no tea or bamboo chair cues",
+          "fake storefront text"
+        ]
+      },
+      "golden_reference": {
+        "package_id": "chengdu_couple_golden_v1",
+        "asset_instance_ids": [
+          "ca_chengdu_city_mood_explore_cover"
+        ]
+      }
+    }
+  ],
+  "compiler_hints": {
+    "default_asset_family_order": [
+      "city_mood",
+      "signature_anchor",
+      "historic_texture",
+      "slow_solo",
+      "modern_contrast",
+      "food_backbone",
+      "evening_closure"
+    ],
+    "minimum_asset_mix": {
+      "place": 2,
+      "food": 2,
+      "experience": 1,
+      "city_mood": 1
+    },
+    "avoid_overuse": [
+      "Do not make Chengdu only panda-themed.",
+      "Do not make every stop a food stop.",
+      "Balance spicy meals with tea pauses."
+    ]
+  }
+}

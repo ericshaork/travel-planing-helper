@@ -1,11 +1,14 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 
+import { createProjectTripsRepository } from "../../../lib/projects/trips/repository";
+import { createProjectTripsService } from "../../../lib/projects/trips/service";
 import { tripPlanSchema, tripRequestSchema } from "../../../lib/trip/schema";
 import { createSupabaseAccessTokenClient } from "../../../lib/supabase/server";
 import { buildSavedTripInsert } from "../../../lib/trips/save-payload";
 import type {
   ListTripsResponse,
+  SavedTripListItem,
   SaveTripResponse,
 } from "../../../lib/trips/types";
 import { AppError, toApiErrorResponse } from "../../../lib/utils/errors";
@@ -38,7 +41,7 @@ const listTripsQuerySchema = z.object({
   search: z.string().trim().min(1).max(120).optional(),
   status: z.enum(["draft", "saved", "archived"]).optional(),
   source_type: z
-    .enum(["ai_generated", "blank_manual", "explore_import"])
+    .enum(["ai_generated", "blank_manual", "explore_import", "file_import"])
     .optional(),
 });
 
@@ -104,6 +107,115 @@ function listTripsErrorResponse(
     code,
     message,
   } satisfies ListTripsResponse;
+}
+
+function mapProjectSummaryToSavedTripItem(
+  summary: Awaited<
+    ReturnType<ReturnType<typeof createProjectTripsService>["listUserProjects"]>
+  >[number],
+  helpers: {
+    mapLifecycleToStatus: ReturnType<typeof createProjectTripsService>["mapLifecycleToStatus"];
+    mapProjectSourceType: ReturnType<typeof createProjectTripsService>["mapProjectSourceType"];
+  },
+): SavedTripListItem {
+  return {
+    id: `project:${summary.projectId}`,
+    entity_type: "project",
+    project_id: summary.projectId,
+    current_version_id: summary.currentVersionId,
+    project_source_type: summary.sourceType,
+    project_lifecycle_state: summary.lifecycleState,
+    title: summary.title,
+    destination_city: summary.destinationCity,
+    start_date: summary.startDate,
+    end_date: summary.endDate,
+    days: summary.days,
+    budget: summary.budget,
+    cover_image_url: null,
+    source_type: helpers.mapProjectSourceType(summary.sourceType),
+    status: helpers.mapLifecycleToStatus(summary.lifecycleState),
+    trip_preferences_json: {},
+    local_draft_id: null,
+    last_opened_at: summary.lastActivityAt,
+    created_at: summary.createdAt,
+    updated_at: summary.updatedAt,
+  };
+}
+
+function mapLegacyTripToSavedTripItem(row: Record<string, unknown>): SavedTripListItem {
+  return {
+    id: typeof row.id === "string" ? row.id : String(row.id ?? ""),
+    entity_type: "saved_trip",
+    project_id: null,
+    current_version_id: null,
+    project_source_type: null,
+    project_lifecycle_state: null,
+    title: typeof row.title === "string" ? row.title : "Untitled trip",
+    destination_city:
+      typeof row.destination_city === "string" ? row.destination_city : null,
+    start_date: typeof row.start_date === "string" ? row.start_date : null,
+    end_date: typeof row.end_date === "string" ? row.end_date : null,
+    days: typeof row.days === "number" ? row.days : null,
+    budget: typeof row.budget === "number" ? row.budget : null,
+    cover_image_url:
+      typeof row.cover_image_url === "string" ? row.cover_image_url : null,
+    source_type:
+      row.source_type === "ai_generated" ||
+      row.source_type === "blank_manual" ||
+      row.source_type === "explore_import"
+        ? row.source_type
+        : "ai_generated",
+    status:
+      row.status === "draft" || row.status === "saved" || row.status === "archived"
+        ? row.status
+        : "saved",
+    trip_preferences_json:
+      row.trip_preferences_json &&
+      typeof row.trip_preferences_json === "object" &&
+      !Array.isArray(row.trip_preferences_json)
+        ? (row.trip_preferences_json as Record<string, unknown>)
+        : {},
+    local_draft_id:
+      typeof row.local_draft_id === "string" ? row.local_draft_id : null,
+    last_opened_at:
+      typeof row.last_opened_at === "string" ? row.last_opened_at : null,
+    created_at:
+      typeof row.created_at === "string"
+        ? row.created_at
+        : new Date(0).toISOString(),
+    updated_at:
+      typeof row.updated_at === "string"
+        ? row.updated_at
+        : new Date(0).toISOString(),
+  };
+}
+
+function toSortableTimestamp(value: string | null) {
+  if (!value) {
+    return 0;
+  }
+
+  const timestamp = Date.parse(value);
+  return Number.isFinite(timestamp) ? timestamp : 0;
+}
+
+function sortSavedTripItems(left: SavedTripListItem, right: SavedTripListItem) {
+  const lastOpenedDiff =
+    toSortableTimestamp(right.last_opened_at) -
+    toSortableTimestamp(left.last_opened_at);
+
+  if (lastOpenedDiff !== 0) {
+    return lastOpenedDiff;
+  }
+
+  const updatedDiff =
+    toSortableTimestamp(right.updated_at) - toSortableTimestamp(left.updated_at);
+
+  if (updatedDiff !== 0) {
+    return updatedDiff;
+  }
+
+  return toSortableTimestamp(right.created_at) - toSortableTimestamp(left.created_at);
 }
 
 export function createTripsPostHandler(
@@ -185,6 +297,20 @@ export function createTripsGetHandler(
       const query = listTripsQuerySchema.parse(
         Object.fromEntries(new URL(request.url).searchParams.entries()),
       );
+      const projectTripsService = createProjectTripsService(
+        createProjectTripsRepository(client as never),
+      );
+      const projectTrips = await projectTripsService.listUserProjects(user.id, {
+        search: query.search,
+        status: query.status ?? "all",
+        sourceType: query.source_type ?? "all",
+      });
+      const mappedProjectTrips = projectTrips.map((summary) =>
+        mapProjectSummaryToSavedTripItem(summary, {
+          mapLifecycleToStatus: projectTripsService.mapLifecycleToStatus,
+          mapProjectSourceType: projectTripsService.mapProjectSourceType,
+        }),
+      );
 
       let builder = client
         .from("trip_plans")
@@ -195,7 +321,7 @@ export function createTripsGetHandler(
         builder = builder.eq("status", query.status);
       }
 
-      if (query.source_type) {
+      if (query.source_type && query.source_type !== "file_import") {
         builder = builder.eq("source_type", query.source_type);
       }
 
@@ -225,9 +351,16 @@ export function createTripsGetHandler(
         );
       }
 
+      const legacyTrips =
+        query.source_type === "file_import"
+          ? []
+          : ((data ?? []) as Record<string, unknown>[]).map(
+              mapLegacyTripToSavedTripItem,
+            );
+
       return NextResponse.json({
         ok: true,
-        trips: data ?? [],
+        trips: [...mappedProjectTrips, ...legacyTrips].sort(sortSavedTripItems),
       } satisfies ListTripsResponse);
     } catch (error) {
       if (error instanceof z.ZodError) {

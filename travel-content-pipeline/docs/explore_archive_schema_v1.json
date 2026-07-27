@@ -1,0 +1,362 @@
+{
+  "schemaVersion": "v1",
+  "schemaName": "wanderly_explore_archive_generator_schema",
+  "scope": {
+    "product": "Wanderly v1.8 Explore",
+    "allowedRegions": [
+      "中国大陆",
+      "香港",
+      "澳门",
+      "台湾"
+    ],
+    "forbiddenRegions": [
+      "海外城市",
+      "国外目的地"
+    ]
+  },
+  "globalRules": {
+    "slugRule": "slug 必须英文小写、短横线连接、全局唯一，不允许随机串。",
+    "externalIdRule": "externalId 必须稳定唯一，推荐使用 explore_{sourceFileStem} 或 explore_{cityCode}_{theme}_{index}，禁止随机数。",
+    "languageRule": "title、summary、story、featuredReason、highlights.description、tags、recommendedFor 必须为中文可读文案。",
+    "themeEnum": [
+      "citywalk",
+      "food",
+      "heritage",
+      "night",
+      "seaside",
+      "jiangnan",
+      "nature",
+      "family",
+      "romance",
+      "museum",
+      "shopping",
+      "mountain",
+      "lake",
+      "slowTravel",
+      "general"
+    ],
+    "forbiddenDisplaySnippets": [
+      "锟",
+      "�",
+      "{activity.description}",
+      "undefined",
+      "null",
+      "NaN"
+    ],
+    "imagePromptRule": "imagePrompt 只用于后续补图，不作为前端展示文案。"
+  },
+  "fields": {
+    "externalId": {
+      "type": "string",
+      "required": true,
+      "example": "explore_beijing_couple_2d_001",
+      "generationRule": "稳定唯一，禁止随机数；优先使用 explore_ + 原始文件 stem。",
+      "forbidden": [
+        "随机 UUID",
+        "纯时间戳"
+      ],
+      "fallback": "如果没有原始 externalId，则由标准化层生成。"
+    },
+    "slug": {
+      "type": "string",
+      "required": true,
+      "example": "beijing-couple-2d-shichahai-night",
+      "generationRule": "英文小写、短横线连接、唯一；重复时追加稳定尾号。",
+      "forbidden": [
+        "空格",
+        "大写字母",
+        "随机短串"
+      ],
+      "fallback": "如果原始 slug 冲突，追加源文件尾号。"
+    },
+    "title": {
+      "type": "string",
+      "required": true,
+      "example": "什刹海夜色与胡同烟火：两人慢时光",
+      "generationRule": "中文标题，具体、有场景感，不要像 SEO 词条。",
+      "forbidden": [
+        "英文标题",
+        "空泛营销话术"
+      ],
+      "fallback": "必须人工或生成器补齐，不能留空。"
+    },
+    "summary": {
+      "type": "string",
+      "required": true,
+      "example": "为喜欢拍照、城市漫步和美食的情侣设计。",
+      "generationRule": "1-3 句中文摘要，交代适合谁、为什么值得读。",
+      "forbidden": [
+        "英文摘要",
+        "长段攻略堆砌"
+      ],
+      "fallback": "至少保留一句中文摘要。"
+    },
+    "city": {
+      "type": "string",
+      "required": true,
+      "example": "北京",
+      "generationRule": "正式中国版推荐输出中文城市名。",
+      "forbidden": [
+        "国外城市"
+      ],
+      "fallback": "若源数据是英文名，可由标准化层映射。"
+    },
+    "cityCode": {
+      "type": "string",
+      "required": true,
+      "example": "beijing",
+      "generationRule": "英文小写 slug，用于路由、图片命名和数据索引。",
+      "forbidden": [
+        "空值",
+        "中文"
+      ],
+      "fallback": "必须由标准化层补齐。"
+    },
+    "region": {
+      "type": "string",
+      "required": true,
+      "example": "华北",
+      "generationRule": "用于地区聚类和覆盖分析。",
+      "forbidden": [
+        "国外行政区"
+      ],
+      "fallback": "可根据城市映射。"
+    },
+    "theme": {
+      "type": "string",
+      "required": true,
+      "example": "citywalk",
+      "generationRule": "必须从受控 theme 集合中选，不输出中文长句。",
+      "forbidden": [
+        "自由文本主题"
+      ],
+      "fallback": "无法稳定判断时回退到 general。"
+    },
+    "tripType": {
+      "type": "string",
+      "required": true,
+      "example": "couple",
+      "generationRule": "受控枚举，建议保留 couple / family / solo / student 等稳定值。",
+      "forbidden": [
+        "中文自由文本"
+      ],
+      "fallback": "必须在生成阶段选定。"
+    },
+    "days": {
+      "type": "integer",
+      "required": true,
+      "example": 3,
+      "generationRule": "正整数，建议聚焦 2-5 天常见自由行。",
+      "forbidden": [
+        0,
+        -1,
+        1.5
+      ],
+      "fallback": "不可缺省。"
+    },
+    "pace": {
+      "type": "string",
+      "required": true,
+      "example": "slow",
+      "generationRule": "建议使用 slow / balanced / dense 等受控值。",
+      "forbidden": [
+        "随机修饰词"
+      ],
+      "fallback": "没有时回退到 balanced。"
+    },
+    "budgetLevel": {
+      "type": "string",
+      "required": true,
+      "example": "medium",
+      "generationRule": "建议使用 low / medium / high。",
+      "forbidden": [
+        "复杂价格句子"
+      ],
+      "fallback": "没有时回退到 medium。"
+    },
+    "budgetNote": {
+      "type": "string",
+      "required": true,
+      "example": "适中预算，兼顾一处主要文化景点与两片氛围感街区。",
+      "generationRule": "中文预算说明，偏策略和感受，不写实时价格。",
+      "forbidden": [
+        "实时票价",
+        "实时酒店价格"
+      ],
+      "fallback": "可输出保守说明。"
+    },
+    "tags": {
+      "type": "string[]",
+      "required": true,
+      "example": [
+        "citywalk",
+        "food",
+        "photo"
+      ],
+      "generationRule": "中文展示可在前端映射，但原始 tags 建议保持稳定可统计的短标签。",
+      "forbidden": [
+        "超长句子",
+        "重复标签"
+      ],
+      "fallback": "至少保留 3-6 个有效标签。"
+    },
+    "recommendedFor": {
+      "type": "string[]",
+      "required": true,
+      "example": [
+        "情侣",
+        "摄影"
+      ],
+      "generationRule": "中文数组，适合谁去必须可读。",
+      "forbidden": [
+        "英文受众标签"
+      ],
+      "fallback": "可根据 tripType 和 tags 推导。"
+    },
+    "coverImageUrl": {
+      "type": "string",
+      "required": true,
+      "example": "",
+      "generationRule": "有正式封面时填 URL；没有也必须保留空字符串字段。",
+      "forbidden": [
+        "无效 URL"
+      ],
+      "fallback": "空字符串，由图片 manifest 接管。"
+    },
+    "galleryImages": {
+      "type": "string[]",
+      "required": true,
+      "example": [],
+      "generationRule": "用于正文图集，可为空数组。",
+      "forbidden": [
+        "null"
+      ],
+      "fallback": "空数组。"
+    },
+    "story": {
+      "type": "string",
+      "required": true,
+      "example": "避开北京的宏大喧嚣，聚焦什刹海湖边的温柔夜色。",
+      "generationRule": "中文可读短文，不编造长篇散文。",
+      "forbidden": [
+        "英文 story",
+        "虚构实时信息"
+      ],
+      "fallback": "可由 title + summary 保守扩展。"
+    },
+    "featuredReason": {
+      "type": "string",
+      "required": true,
+      "example": "为喜欢拍照、城市漫步和美食的情侣设计。",
+      "generationRule": "一句中文理由，适合精选位和卡片摘要。",
+      "forbidden": [
+        "英文说明",
+        "乱码"
+      ],
+      "fallback": "可由 summary 压缩生成一句短说明。"
+    },
+    "highlights": {
+      "type": "object[]",
+      "required": true,
+      "example": [
+        {
+          "title": "紫禁城之巅到后海夜风",
+          "description": "从景山俯瞰紫禁城全景开始，穿过胡同抵达什刹海。",
+          "tag": "城市漫步"
+        }
+      ],
+      "generationRule": "建议 2-4 条，每条都要有 title / description / tag。",
+      "forbidden": [
+        "字符串数组混用",
+        "空 description"
+      ],
+      "fallback": "可从 itinerary / pois / tags 提炼。"
+    },
+    "dailyItinerary": {
+      "type": "object[]",
+      "required": true,
+      "example": [
+        {
+          "dayNumber": 1,
+          "title": "紫禁城之巅到后海夜风",
+          "summary": "从景山俯瞰紫禁城全景开始。",
+          "activities": [
+            {
+              "timeBlock": "afternoon",
+              "label": "下午",
+              "description": "下午抵达景山公园。",
+              "poiRefs": [
+                "poi_jingshan"
+              ],
+              "foodRefs": []
+            }
+          ]
+        }
+      ],
+      "generationRule": "必须结构化，保证前端不再出现模板字符串。",
+      "forbidden": [
+        "{activity.description}",
+        "undefined"
+      ],
+      "fallback": "缺描述时可根据 title / place 生成自然中文。"
+    },
+    "food": {
+      "type": "object[]",
+      "required": true,
+      "example": [
+        {
+          "name": "什刹海胡同美食区",
+          "description": "沿湖分布着许多有氛围的胡同小馆。",
+          "type": "胡同餐饮区",
+          "imageUrl": ""
+        }
+      ],
+      "generationRule": "结构化数组，至少包含 name / description / type / imageUrl。",
+      "forbidden": [
+        "纯字符串数组"
+      ],
+      "fallback": "imageUrl 允许为空字符串。"
+    },
+    "places": {
+      "type": "object[]",
+      "required": true,
+      "example": [
+        {
+          "name": "景山公园",
+          "description": "登上万春亭，紫禁城全景尽收眼底。",
+          "type": "城市观景台",
+          "imageUrl": ""
+        }
+      ],
+      "generationRule": "结构化数组，至少包含 name / description / type / imageUrl。",
+      "forbidden": [
+        "纯字符串数组"
+      ],
+      "fallback": "imageUrl 允许为空字符串。"
+    },
+    "imagePrompt": {
+      "type": "string",
+      "required": true,
+      "example": "National Geographic travel magazine style photo...",
+      "generationRule": "仅服务后续补图和图片生成器，不出现在前端文案里。",
+      "forbidden": [
+        "前端直接展示"
+      ],
+      "fallback": "允许为空字符串。"
+    },
+    "source": {
+      "type": "object",
+      "required": true,
+      "example": {
+        "type": "ai_generated_v1",
+        "sourceFile": "beijing_couple_2d_001.json",
+        "sourceVersion": "v1"
+      },
+      "generationRule": "必须可追溯，至少保留 type / sourceFile / sourceVersion。",
+      "forbidden": [
+        "缺失来源信息"
+      ],
+      "fallback": "标准化层补固定 type 和 version。"
+    }
+  }
+}

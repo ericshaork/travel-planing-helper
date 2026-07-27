@@ -111,6 +111,128 @@ export interface UserSettingsUpdate {
   ai_preferences_json?: Record<string, unknown>;
 }
 
+export interface TravelProjectRow {
+  id: string;
+  user_id: string;
+  title: string;
+  lifecycle_state:
+    | "new"
+    | "exploring"
+    | "planning"
+    | "proposed"
+    | "generating"
+    | "workspace"
+    | "editing"
+    | "archived";
+  current_flow_stage:
+    | "source_received"
+    | "source_review"
+    | "clarifying"
+    | "proposal_ready"
+    | "proposal_adjusting"
+    | "generating"
+    | "workspace_ready"
+    | "abandoned"
+    | null;
+  current_version_id: string | null;
+  last_activity_at: string;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface TravelProjectInsert {
+  user_id: string;
+  title: string;
+  lifecycle_state?: TravelProjectRow["lifecycle_state"];
+  current_flow_stage?: TravelProjectRow["current_flow_stage"];
+  current_version_id?: string | null;
+  last_activity_at?: string;
+}
+
+export interface TravelProjectUpdate {
+  title?: string;
+  lifecycle_state?: TravelProjectRow["lifecycle_state"];
+  current_flow_stage?: TravelProjectRow["current_flow_stage"];
+  current_version_id?: string | null;
+  last_activity_at?: string;
+}
+
+export interface TravelProjectVersionRow {
+  id: string;
+  project_id: string;
+  version_number: number;
+  version_status: "draft" | "proposed" | "accepted";
+  created_from:
+    | "ai_generate"
+    | "ai_adjust"
+    | "manual_edit"
+    | "template_import"
+    | "import_transform"
+    | null;
+  trip_plan_json: Record<string, unknown>;
+  trip_request_snapshot_json: Record<string, unknown> | null;
+  proposal_summary_json: Record<string, unknown> | null;
+  created_by: string | null;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface TravelProjectVersionInsert {
+  project_id: string;
+  version_number: number;
+  version_status?: TravelProjectVersionRow["version_status"];
+  created_from?: TravelProjectVersionRow["created_from"];
+  trip_plan_json: Record<string, unknown>;
+  trip_request_snapshot_json?: Record<string, unknown> | null;
+  proposal_summary_json?: Record<string, unknown> | null;
+  created_by?: string | null;
+}
+
+export interface TravelProjectVersionUpdate {
+  version_status?: TravelProjectVersionRow["version_status"];
+  created_from?: TravelProjectVersionRow["created_from"];
+  trip_plan_json?: Record<string, unknown>;
+  trip_request_snapshot_json?: Record<string, unknown> | null;
+  proposal_summary_json?: Record<string, unknown> | null;
+  created_by?: string | null;
+}
+
+export interface TravelProjectSourceRow {
+  id: string;
+  project_id: string;
+  source_type:
+    | "blank_input"
+    | "explore_archive"
+    | "import_text"
+    | "uploaded_file"
+    | "existing_trip";
+  source_title: string | null;
+  source_payload_json: Record<string, unknown>;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface TravelProjectSourceInsert {
+  project_id: string;
+  source_type: TravelProjectSourceRow["source_type"];
+  source_title?: string | null;
+  source_payload_json?: Record<string, unknown>;
+}
+
+export interface TravelProjectMessageRow {
+  id: string;
+  project_id: string;
+  role: "system" | "user" | "assistant";
+  content: string;
+  created_at: string;
+}
+
+export interface TravelProjectMessageInsert {
+  project_id: string;
+  role: TravelProjectMessageRow["role"];
+  content: string;
+}
+
 export interface ExploreTripContentRow {
   id: string;
   external_id: string;

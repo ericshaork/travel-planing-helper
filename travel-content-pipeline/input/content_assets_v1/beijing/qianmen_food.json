@@ -1,0 +1,30 @@
+{
+  "id": "ca_beijing_qianmen_food",
+  "name": "\u524d\u95e8\u4f20\u7edf\u7f8e\u98df\u533a",
+  "asset_type": "poi",
+  "category": ["food_backbone", "food_history_connection", "old_city_food_zone"],
+  "content_role": ["food_history_connection", "first_visit_food"],
+  "traveler_fit": {
+    "couple": "high",
+    "student": "high",
+    "solo": "medium"
+  },
+  "season_fit": ["spring", "autumn", "winter"],
+  "best_time": ["lunch", "early_evening", "dinner"],
+  "experience_value": [
+    "Lets first-visit food experiences stay connected to the city's symbolic core instead of feeling geographically detached.",
+    "Works as a bridge between historic sightseeing and edible memory, especially for student and couple samples.",
+    "Useful when Beijing food should read as continuity with route history, not just as a separate detour."
+  ],
+  "avoid_when": [
+    "the itinerary is explicitly avoiding high-traffic classic first-visit zones",
+    "the route already leans too heavily on Qianmen and needs another district identity",
+    "the traveler wants deep neighborhood food texture rather than high-recognition old-city food logic"
+  ],
+  "nearby_assets": [
+    "ca_beijing_temple_of_heaven",
+    "ca_beijing_yangmeizhu_street",
+    "ca_beijing_forbidden_city"
+  ],
+  "map_asset_id": "B000A858BG"
+}

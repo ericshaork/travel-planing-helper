@@ -1,0 +1,29 @@
+{
+  "id": "ca_beijing_temple_of_heaven",
+  "name": "\u5929\u575b\u516c\u56ed",
+  "asset_type": "poi",
+  "category": ["signature_anchor", "cultural_landmark", "ritual_architecture"],
+  "content_role": ["imperial_architecture", "cultural_anchor"],
+  "traveler_fit": {
+    "couple": "high",
+    "student": "high",
+    "solo": "medium"
+  },
+  "season_fit": ["spring", "autumn", "winter"],
+  "best_time": ["morning", "late_morning"],
+  "experience_value": [
+    "Supports first-visit routes that need a second imperial logic different from the Forbidden City.",
+    "Adds ceremonial architecture and open-axis calm without repeating palace storytelling beat for beat.",
+    "Helps student routes carry cultural weight in a more breathable way than another dense museum block."
+  ],
+  "avoid_when": [
+    "the route is intentionally avoiding major symbolic landmarks",
+    "the day already contains a long imperial-core walk and needs a more casual neighborhood texture instead",
+    "the traveler wants a highly contemporary or food-led day with minimal ceremonial tone"
+  ],
+  "nearby_assets": [
+    "ca_beijing_qianmen_food",
+    "ca_beijing_yangmeizhu_street"
+  ],
+  "map_asset_id": "B000A81CB2"
+}

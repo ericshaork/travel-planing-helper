@@ -1,4 +1,5 @@
 const https = require("https");
+const { HttpsProxyAgent } = require("https-proxy-agent");
 
 const { downloadImage } = require("../../download/image_downloader");
 const { validateImageCandidate } = require("../../validation/image_validator");
@@ -7,6 +8,16 @@ const { loadEnv } = require("../../config/load_env");
 
 const PEXELS_SEARCH_URL = "https://api.pexels.com/v1/search";
 const DEFAULT_PEXELS_TIMEOUT_MS = 15000;
+
+function resolveProxyAgent() {
+  const proxyUrl = process.env.HTTPS_PROXY || process.env.HTTP_PROXY;
+
+  if (!proxyUrl) {
+    return undefined;
+  }
+
+  return new HttpsProxyAgent(proxyUrl);
+}
 
 function buildRankingContext(task) {
   return {
@@ -85,8 +96,10 @@ function buildPexelsSearchUrl(query) {
 
 function requestPexelsJson(url, apiKey, timeoutMs = DEFAULT_PEXELS_TIMEOUT_MS) {
   return new Promise((resolve, reject) => {
+    const agent = resolveProxyAgent();
     const request = https
       .get(url, {
+        agent,
         headers: {
           Authorization: apiKey,
           "User-Agent": "WanderlyImagePipeline/1.0 (pexels real photo adapter)"

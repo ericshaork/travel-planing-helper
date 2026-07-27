@@ -1,9 +1,14 @@
 import { useState, type DragEvent } from "react";
 
-import type { ItineraryBlockView, TimeSlotView } from "../../lib/trip/itinerary-view";
+import type {
+  ItineraryBlockUpdate,
+  ItineraryBlockView,
+  TimeSlotView,
+} from "../../lib/trip/itinerary-view";
 import type { PendingChangeAction } from "../../lib/trip/modification-intents";
 import type { MapPoint } from "../../lib/trip/enrichment-types";
 import type { DailyTimeSlot } from "../../lib/trip/types";
+import type { WorkspaceCreateEventInput } from "../../lib/trip/workspace-events";
 import {
   getItineraryBlockId,
   getItineraryBlockMapStatus,
@@ -25,7 +30,7 @@ interface TimeSlotSectionProps {
   onDragEnd?: () => void;
   onDragHoverSlot?: (slotId: string | null) => void;
   onDropBlock?: (targetDayNumber: number, targetSlotId: string) => void;
-  onAddPlace?: (slotId: string) => void;
+  onAddPlace?: (slotId: string, input?: WorkspaceCreateEventInput) => void;
   onAddNote?: (note: string) => void;
   onAddTimeSlot?: (dayNumber: number, afterSlotId: string) => void;
   onTimeSlotUpdate?: (
@@ -37,7 +42,7 @@ interface TimeSlotSectionProps {
   onBlockSelect?: (block: ItineraryBlockView) => void;
   onBlockUpdate?: (
     block: ItineraryBlockView,
-    updates: { placeName: string; reason: string },
+    updates: ItineraryBlockUpdate,
   ) => void;
   onBlockDelete?: (block: ItineraryBlockView) => void;
   onBlockAction?: (
@@ -135,17 +140,15 @@ export function TimeSlotSection({
 
   return (
     <section
-      className={`journal-slot rounded-[18px] border border-dashed px-4 py-4 transition-colors ${
-        isActiveDropTarget
-          ? "border-[var(--clay-deep)] bg-[rgba(245,236,220,0.75)]"
-          : "border-[var(--line)] bg-[rgba(255,253,247,0.5)]"
-      }`}
+      className={`edit-drawer ${
+        isActiveDropTarget ? "edit-drawer--drop-target" : ""
+      } ${slot.isEmpty && !showActions ? "edit-drawer--empty" : ""}`}
       onDragOver={handleDragOver}
       onDrop={handleDrop}
     >
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div className="space-y-1">
-          <p className="workspace-kicker">时间段</p>
+          <p className="edit-kicker">时间段</p>
           {isEditingSlot ? (
             <div className="flex flex-wrap items-center gap-2">
               <input
@@ -173,7 +176,7 @@ export function TimeSlotSection({
                 {slot.label}
               </h3>
               {slotTimeRange ? (
-                <span className="rounded-full border border-[var(--line)] bg-[var(--paper)] px-2 py-0.5 font-mono text-[11px] text-[var(--ink-muted)]">
+                <span className="edit-time-label">
                   {slotTimeRange}
                 </span>
               ) : null}
@@ -189,7 +192,7 @@ export function TimeSlotSection({
             <button
               type="button"
               onClick={openSlotEditor}
-              className="rounded-full border border-dashed border-[var(--line-strong)] bg-[var(--paper)] px-3 py-1.5 text-xs font-semibold text-[var(--ink)]"
+              className="edit-action-pill"
             >
               编辑时间段
             </button>
@@ -199,14 +202,14 @@ export function TimeSlotSection({
               <button
                 type="button"
                 onClick={saveSlotEditor}
-                className="rounded-full border border-[var(--ink)] bg-[var(--ink)] px-3 py-1.5 text-xs font-semibold text-[var(--paper-bright)]"
+                className="edit-action-pill edit-action-pill--primary"
               >
                 保存
               </button>
               <button
                 type="button"
                 onClick={() => setIsEditingSlot(false)}
-                className="rounded-full border border-[var(--line-strong)] bg-[var(--paper)] px-3 py-1.5 text-xs font-semibold text-[var(--ink)]"
+                className="edit-action-pill"
               >
                 取消
               </button>
@@ -222,25 +225,25 @@ export function TimeSlotSection({
       ) : null}
 
       {slot.isEmpty ? (
-        <div className="mt-3 rounded-[16px] border border-dashed border-[var(--line)] bg-[rgba(255,253,247,0.72)] px-4 py-4">
+        <div className="mt-3 edit-drawer--empty rounded-[14px] border px-4 py-4">
           <p className="text-sm leading-6 text-[var(--ink-muted)]">
             {showActions
               ? `先把 ${slot.label} 想去的地方放进来。`
               : `${slot.label} 暂时留白。`}
           </p>
           {showActions ? (
-            <div className="mt-3 flex flex-wrap gap-2">
+            <div className="mt-3 flex flex-wrap justify-center gap-2">
               <button
                 type="button"
                 onClick={() => onAddPlace?.(slot.id)}
-                className="rounded-full border border-[var(--ink)] bg-[var(--ink)] px-3.5 py-2 text-sm font-semibold text-[var(--paper-bright)]"
+                className="edit-action-pill edit-action-pill--primary"
               >
                 + 添加地点
               </button>
               <button
                 type="button"
                 onClick={() => setIsWritingNote(true)}
-                className="rounded-full border border-[var(--line-strong)] bg-[var(--paper)] px-3.5 py-2 text-sm font-semibold text-[var(--ink)]"
+                className="edit-action-pill"
               >
                 写一点备注
               </button>
@@ -276,14 +279,14 @@ export function TimeSlotSection({
               <button
                 type="button"
                 onClick={() => onAddPlace?.(slot.id)}
-                className="rounded-full border border-dashed border-[var(--line-strong)] bg-[var(--paper)] px-3 py-2 text-sm font-semibold text-[var(--ink)]"
+                className="edit-action-pill"
               >
                 + 再加一个地点
               </button>
               <button
                 type="button"
                 onClick={() => setIsWritingNote(true)}
-                className="rounded-full border border-dashed border-[var(--line-strong)] bg-[var(--paper)] px-3 py-2 text-sm font-semibold text-[var(--ink)]"
+                className="edit-action-pill"
               >
                 写备注
               </button>
@@ -293,8 +296,8 @@ export function TimeSlotSection({
       )}
 
       {showActions && isWritingNote ? (
-        <div className="mt-3 rounded-[16px] border border-dashed border-[var(--line)] bg-[rgba(255,253,247,0.78)] px-4 py-4">
-          <p className="workspace-kicker">当天备注</p>
+        <div className="mt-3 rounded-[14px] border border-dashed border-[var(--line)] bg-[rgba(255,253,247,0.68)] px-4 py-4">
+          <p className="edit-kicker">当天备注</p>
           <textarea
             value={draftNote}
             onChange={(event) => setDraftNote(event.target.value)}
@@ -306,7 +309,7 @@ export function TimeSlotSection({
             <button
               type="button"
               onClick={submitNote}
-              className="rounded-full border border-[var(--ink)] bg-[var(--ink)] px-3.5 py-2 text-sm font-semibold text-[var(--paper-bright)]"
+              className="edit-action-pill edit-action-pill--primary"
             >
               保存备注
             </button>
@@ -316,7 +319,7 @@ export function TimeSlotSection({
                 setDraftNote("");
                 setIsWritingNote(false);
               }}
-              className="rounded-full border border-[var(--line-strong)] bg-[var(--paper)] px-3.5 py-2 text-sm font-semibold text-[var(--ink)]"
+              className="edit-action-pill"
             >
               取消
             </button>

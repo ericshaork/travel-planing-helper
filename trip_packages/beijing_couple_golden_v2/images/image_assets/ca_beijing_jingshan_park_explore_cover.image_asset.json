@@ -1,0 +1,16 @@
+{
+  "asset_id": "ca_beijing_jingshan_park",
+  "asset_instance_id": "ca_beijing_jingshan_park_explore_cover",
+  "image_slot": "explore_cover",
+  "source": "ai_generated",
+  "file_path": "images/files/ca_beijing_jingshan_park_explore_cover.png",
+  "status": "completed",
+  "metadata": {
+    "provider_id": "openai_builtin_imagegen",
+    "model_id": "builtin_image_generation_model_not_exposed",
+    "provider_job_id": "call_d8RRWQXwU6cwtBLmMVrUbVTl",
+    "prompt": "Jingshan Park viewpoint watercolor cover over Forbidden City central axis.",
+    "generation_strategy": "ai_generated_candidate_for_cover",
+    "provenance_note": "Generated during H3.4.1 Golden Sample Refinement with Codex built-in image generation; no pipeline provider or manifest schema change."
+  }
+}

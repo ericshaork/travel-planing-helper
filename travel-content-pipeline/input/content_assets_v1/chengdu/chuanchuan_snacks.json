@@ -1,0 +1,30 @@
+{
+  "id": "ca_chengdu_chuanchuan_snacks",
+  "name": "Chengdu Chuanchuan and Snacks",
+  "asset_type": "food_experience",
+  "category": "sichuan_snacks",
+  "content_role": ["food_backbone", "street_food_memory"],
+  "traveler_fit": {
+    "couple": "high",
+    "student": "high",
+    "solo": "medium",
+    "family": "medium"
+  },
+  "season_fit": {
+    "spring": "high",
+    "summer": "medium",
+    "autumn": "high",
+    "winter": "medium"
+  },
+  "best_time": {
+    "time_of_day": ["lunch", "early_evening"],
+    "note": "Works as casual shared tasting rather than another heavy meal."
+  },
+  "experience_value": {
+    "primary": ["street_food", "chuanchuan", "snack_sampling", "local_life"],
+    "summary": "A flexible food backbone for Chengdu without making every meal heavy."
+  },
+  "avoid_when": ["spice_sensitive_without_fallback"],
+  "nearby_assets": ["ca_chengdu_kuanzhai_alley", "ca_chengdu_jinli_evening"],
+  "map_asset_id": "food_chengdu_chuanchuan"
+}

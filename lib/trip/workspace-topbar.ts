@@ -50,7 +50,7 @@ export function getWorkspaceEnrichmentStatusMeta(
 
   if (state === "error") {
     return {
-      label: "路线洞察暂不可用",
+      label: "路线洞察暂时不可用",
       tone: "warning",
     };
   }

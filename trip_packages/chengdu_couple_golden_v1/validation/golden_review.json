@@ -1,0 +1,42 @@
+{
+  "package_id": "chengdu_couple_golden_v1",
+  "source_package_id": "chengdu_couple_v1",
+  "status": "passed",
+  "cover_quality": "passed_with_note: Kuanzhai and Chengdu city mood covers meet Wanderly travel journal direction; city mood v4 accepted with note.",
+  "location_identity": "passed_with_scope_note: Taikoo Li replaced with explicit Sino-Ocean Taikoo Li Chengdu real photo. Wangping Street and Kuanzhai were outside the H3.6.3-C4 replacement list and remain as carried-over v1 package assets.",
+  "wanderly_style": "passed: final package balances real place evidence, food evidence, and watercolor/private journal city mood cover.",
+  "duplicate_check": "passed: no duplicate image hashes or unreferenced image files detected.",
+  "provenance_status": "passed: replacement assets preserve required real_photo and ai_generated provenance.",
+  "remaining_notes": [
+    "Strong Chengdu teahouse atmosphere, slightly classical garden-like, accepted as city mood cover.",
+    "Taikoo Li v3 real photo contains visible luxury brand signage; accepted for POI identity evidence during Golden Finalize.",
+    "Chengdu hotpot food_gallery remains from v1 package because H3.6.3-C4 replacement scope specified only chuanchuan, taikoo_li, and city_mood.",
+    "H3.6.3-C4 replacement scope included only chuanchuan, taikoo_li, and city_mood; other assets are carried over from chengdu_couple_v1."
+  ],
+  "assets": [
+    {
+      "asset_instance_id": "ca_chengdu_taikoo_li_poi_gallery",
+      "source": "wikimedia",
+      "generation_mode": "real_photo",
+      "file_path": "images/files/ca_chengdu_taikoo_li_poi_gallery.jpg",
+      "image_asset_path": "images/image_assets/ca_chengdu_taikoo_li_poi_gallery.image_asset.json",
+      "sha256": "453bffbf832f74a5867951234023c8a045e8cec781bf89ed8d3efb9c4d75f3b5"
+    },
+    {
+      "asset_instance_id": "ca_chengdu_city_mood_explore_cover",
+      "source": "ai_generated",
+      "generation_mode": "ai_generated",
+      "file_path": "images/files/ca_chengdu_city_mood_explore_cover.png",
+      "image_asset_path": "images/image_assets/ca_chengdu_city_mood_explore_cover.image_asset.json",
+      "sha256": "778848ca02c11913e5eab6966cae838bf422db17e023c1df4451bd511f570992"
+    },
+    {
+      "asset_instance_id": "ca_chengdu_chuanchuan_snacks_food_gallery",
+      "source": "wikimedia",
+      "generation_mode": "real_photo",
+      "file_path": "images/files/ca_chengdu_chuanchuan_snacks_food_gallery.jpg",
+      "image_asset_path": "images/image_assets/ca_chengdu_chuanchuan_snacks_food_gallery.image_asset.json",
+      "sha256": "75bac23cf7caac3ffeb0a269f7f4be26e5c9184d4f8d814b32c6a7ad504c67f4"
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "general": [
+    {
+      "text": "每一次出发，都是重新认识世界的一次机会。",
+      "author": "Wanderly Journal"
+    },
+    {
+      "text": "好的旅行，不只是抵达目的地，也是一路发现新的自己。",
+      "author": "Wanderly Journal"
+    },
+    {
+      "text": "远方不会催促你，值得看的风景总会等待。",
+      "author": "Wanderly Journal"
+    },
+    {
+      "text": "一段旅程的开始，往往只是一个简单的想法。",
+      "author": "Wanderly Journal"
+    }
+  ],
+  "city": [
+    {
+      "text": "一座城市最迷人的地方，藏在人们日常经过的小路里。",
+      "author": "Wanderly Journal"
+    },
+    {
+      "text": "城市不是地图上的坐标，而是无数故事交汇的地方。",
+      "author": "Wanderly Journal"
+    },
+    {
+      "text": "慢慢走，城市会告诉你它自己的名字。",
+      "author": "Wanderly Journal"
+    }
+  ],
+  "coastal": [
+    {
+      "text": "海浪从不着急抵达，它只是一次次靠近远方。",
+      "author": "Wanderly Journal"
+    },
+    {
+      "text": "有些地方适合探索，有些地方适合停下来感受。",
+      "author": "Wanderly Journal"
+    },
+    {
+      "text": "听见海风的时候，旅行才真正开始。",
+      "author": "Wanderly Journal"
+    }
+  ],
+  "nature": [
+    {
+      "text": "山川不会改变方向，却总能带人找到新的答案。",
+      "author": "Wanderly Journal"
+    },
+    {
+      "text": "离开熟悉的道路，才能遇见未知的风景。",
+      "author": "Wanderly Journal"
+    },
+    {
+      "text": "自然提醒我们，慢一点，也是一种前进。",
+      "author": "Wanderly Journal"
+    }
+  ],
+  "culture": [
+    {
+      "text": "每一座古老的城市，都保存着时间留下的笔记。",
+      "author": "Wanderly Journal"
+    },
+    {
+      "text": "了解一个地方，要从它的故事开始。",
+      "author": "Wanderly Journal"
+    },
+    {
+      "text": "过去不会消失，它只是换了一种方式陪伴今天。",
+      "author": "Wanderly Journal"
+    }
+  ]
+}

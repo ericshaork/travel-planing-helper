@@ -11,6 +11,7 @@ import {
   formatSavedTripUpdatedAt,
 } from "../../lib/trips/list-format";
 import {
+  getProjectLifecycleLabel,
   getTripSourceTypeLabel,
   getTripStatusLabel,
   validateSavedTripTitle,
@@ -46,7 +47,7 @@ function CoverPlaceholder({ destination }: { destination: string | null }) {
 
 function Fact({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-[16px] border border-dashed border-[var(--line)] bg-[var(--paper)] px-3 py-2.5">
+    <div className="archive-fact">
       <p className="text-[11px] font-semibold tracking-[0.14em] text-[var(--ink-muted)]">
         {label}
       </p>
@@ -78,6 +79,10 @@ function MetaTag({
   );
 }
 
+function getEntityTypeLabel(trip: SavedTripListItem) {
+  return trip.entity_type === "project" ? "Project" : "Legacy";
+}
+
 export function SavedTripCard({
   trip,
   isOpening = false,
@@ -95,10 +100,10 @@ export function SavedTripCard({
   const [isEditingTitle, setIsEditingTitle] = useState(false);
   const [titleDraft, setTitleDraft] = useState(trip.title);
   const [localRenameError, setLocalRenameError] = useState<string | null>(null);
+  const isProjectTrip = trip.entity_type === "project";
 
   async function handleRenameSubmit() {
     const normalizedTitle = titleDraft.trim();
-
     const validationMessage = validateSavedTripTitle(normalizedTitle);
 
     if (validationMessage) {
@@ -116,18 +121,20 @@ export function SavedTripCard({
   }
 
   const renameMessage = localRenameError ?? renameError;
+  const statusKey =
+    trip.status === "saved" ? "saved" : trip.status === "draft" ? "draft" : "archived";
 
   return (
-    <article className="workspace-panel px-4 py-4 sm:px-5 sm:py-5">
+    <article className="archive-card px-4 py-4 sm:px-5 sm:py-5" data-status={statusKey}>
       <div className="relative z-[1] space-y-4">
         {trip.cover_image_url ? (
-          <div className="overflow-hidden rounded-[20px] border border-[var(--line)]">
+          <div className="archive-card--cover overflow-hidden">
             <Image
               src={trip.cover_image_url}
               alt={trip.title}
               width={1200}
               height={448}
-              className="h-28 w-full object-cover"
+              className="archive-cover-img h-28 w-full object-cover"
             />
           </div>
         ) : (
@@ -137,7 +144,7 @@ export function SavedTripCard({
         <div className="space-y-3">
           <div className="flex flex-wrap items-start justify-between gap-3">
             <div>
-              <p className="workspace-kicker">我的行程</p>
+              <p className="archive-kicker">旅行档案</p>
               {isEditingTitle ? (
                 <div className="mt-2 flex flex-wrap items-center gap-2">
                   <label className="sr-only" htmlFor={`rename-trip-${trip.id}`}>
@@ -200,7 +207,15 @@ export function SavedTripCard({
           </div>
 
           <div className="flex flex-wrap gap-2">
-            <MetaTag label={getTripStatusLabel(trip.status)} tone="sage" />
+            <MetaTag label={getEntityTypeLabel(trip)} />
+            <MetaTag
+              label={
+                isProjectTrip
+                  ? getProjectLifecycleLabel(trip.project_lifecycle_state)
+                  : getTripStatusLabel(trip.status)
+              }
+              tone="sage"
+            />
             <MetaTag label={getTripSourceTypeLabel(trip.source_type)} tone="sand" />
           </div>
         </div>
@@ -210,10 +225,7 @@ export function SavedTripCard({
           <Fact label="天数" value={formatSavedTripDays(trip.days)} />
           <Fact label="预算" value={formatSavedTripBudget(trip.budget)} />
           <Fact label="最近更新" value={formatSavedTripUpdatedAt(trip.updated_at)} />
-          <Fact
-            label="最近打开"
-            value={formatSavedTripLastOpenedAt(trip.last_opened_at)}
-          />
+          <Fact label="最近打开" value={formatSavedTripLastOpenedAt(trip.last_opened_at)} />
         </div>
 
         <div className="flex flex-wrap items-center gap-3">
@@ -232,7 +244,17 @@ export function SavedTripCard({
             disabled={!onDelete || isOpening || isDeleting || isRenaming}
             className="inline-flex min-h-11 items-center justify-center rounded-full border border-[var(--dusty-rose)] bg-[rgb(196_104_89_/_0.08)] px-4 py-2.5 text-sm font-semibold text-[var(--dusty-rose)] transition-colors hover:bg-[rgb(196_104_89_/_0.14)] disabled:cursor-not-allowed disabled:opacity-60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--dusty-rose)]"
           >
-            {isDeleting ? "正在删除..." : isConfirmingDelete ? "确认删除" : "删除"}
+            {isDeleting
+              ? isProjectTrip
+                ? "正在归档..."
+                : "正在删除..."
+              : isConfirmingDelete
+                ? isProjectTrip
+                  ? "确认归档"
+                  : "确认删除"
+                : isProjectTrip
+                  ? "归档"
+                  : "删除"}
           </button>
 
           {isConfirmingDelete && !isDeleting ? (
@@ -248,12 +270,17 @@ export function SavedTripCard({
 
         {isConfirmingDelete && !isDeleting ? (
           <p className="rounded-[16px] border border-[var(--line)] bg-[var(--paper)] px-3 py-2 text-sm leading-6 text-[var(--ink-muted)]">
-            再点一次“确认删除”，这条已保存计划就会从“我的行程”里移除。
+            {isProjectTrip
+              ? "再点一次“确认归档”，这个旅行项目会进入 archived 状态，但版本、消息和来源记录都会保留。"
+              : "再点一次“确认删除”，这条已保存计划就会从“我的行程”里移除。"}
+          </p>
+        ) : isProjectTrip ? (
+          <p className="text-xs leading-5 text-[var(--ink-muted)]">
+            这是 TravelProject 项目入口，打开后会直接恢复对应版本到 `/workspace`。
           </p>
         ) : (
           <p className="text-xs leading-5 text-[var(--ink-muted)]">
-            打开时会先尝试记录最近打开时间，然后仍然沿用原来的恢复流程进入
-            /workspace。
+            打开时会先尝试记录最近打开时间，然后仍然沿用原来的恢复流程进入 `/workspace`。
           </p>
         )}
 

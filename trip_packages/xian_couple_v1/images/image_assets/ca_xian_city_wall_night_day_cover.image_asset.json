@@ -1,0 +1,64 @@
+{
+  "asset_id": "ca_xian_city_wall_night",
+  "asset_instance_id": "ca_xian_city_wall_night_day_cover",
+  "image_slot": "day_cover",
+  "source": "hybrid",
+  "file_path": "C:\\Users\\10200\\Desktop\\travel_planing\\image-pipeline\\image-pipeline\\assets\\external\\ca_xian_city_wall_night.jpeg",
+  "status": "completed",
+  "metadata": {
+    "strategy": "real_photo_first_ai_fallback",
+    "usage_profile": "experience",
+    "resolved_via": "real_photo",
+    "real_photo": {
+      "source": "pexels",
+      "status": "completed",
+      "file_path": "C:\\Users\\10200\\Desktop\\travel_planing\\image-pipeline\\image-pipeline\\assets\\external\\ca_xian_city_wall_night.jpeg",
+      "retry_count": 0,
+      "last_error": null,
+      "download_status": "completed",
+      "fallback_available": false,
+      "selection": {
+        "selected_candidate": {
+          "source": "pexels",
+          "candidate_id": "28678710",
+          "image_url": "https://images.pexels.com/photos/28678710/pexels-photo-28678710.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+        },
+        "rank_score": 60,
+        "candidate_count": 10,
+        "rejected_count": 1
+      },
+      "metadata": {
+        "source_runs": [
+          {
+            "source": "wikimedia",
+            "priority": 1,
+            "candidate_count": 1,
+            "error": "no_valid_photo_candidate",
+            "rejected_count": 1
+          },
+          {
+            "source": "pexels",
+            "priority": 2,
+            "candidate_count": 10,
+            "error": null
+          }
+        ],
+        "title": "Silhouetted skyline of traditional and modern architecture at sunset along historical city wall.",
+        "description": "Silhouetted skyline of traditional and modern architecture at sunset along historical city wall.",
+        "author": "Rain Lü",
+        "license": "Pexels License",
+        "source_url": "https://www.pexels.com/photo/scenic-sunset-view-of-ancient-city-wall-28678710/",
+        "image_url": "https://images.pexels.com/photos/28678710/pexels-photo-28678710.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "width": 5184,
+        "height": 3888,
+        "mime_type": "image/jpeg",
+        "score_reasons": [
+          "location_match",
+          "high_resolution_3000",
+          "wanderly_fit"
+        ]
+      }
+    },
+    "ai_fallback": null
+  }
+}

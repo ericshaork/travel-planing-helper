@@ -1,0 +1,9 @@
+{
+  "destinations": ["厦门", "泉州"],
+  "originCity": "深圳",
+  "days": 3,
+  "travelerType": "student_budget",
+  "styleTags": ["sea", "food", "history", "slow"],
+  "budgetLevel": "low",
+  "language": "zh-CN"
+}

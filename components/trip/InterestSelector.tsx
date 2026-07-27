@@ -19,7 +19,7 @@ interface InterestSelectorProps {
 }
 
 function buildButtonClassName(isSelected: boolean): string {
-  return `min-h-11 min-w-0 w-full border px-3 py-2 text-center text-sm leading-5 whitespace-normal break-words transition-[transform,background-color,border-color] duration-150 ease-out focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)] sm:min-h-10 sm:w-auto sm:max-w-full ${
+  return `min-h-9 min-w-0 w-full border px-2.5 py-1 text-center text-sm leading-5 whitespace-normal break-words transition-[transform,background-color,border-color] duration-150 ease-out focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)] sm:min-h-8 sm:w-auto sm:max-w-full ${
     isSelected
       ? "border-[var(--sage-deep)] bg-[var(--sage-soft)] font-semibold text-[var(--sage-deep)] sm:-rotate-1 sm:hover:-translate-y-0.5"
       : "border-[var(--line)] bg-[var(--paper)] text-[var(--ink-muted)] hover:border-[var(--ink-muted)]"
@@ -77,12 +77,12 @@ export function InterestSelector({
       </legend>
 
       {helperText ? (
-        <p className="mt-1 text-xs leading-[1.1rem] text-[var(--ink-muted)] sm:leading-5">
+        <p className="mt-0.5 text-xs leading-[1.1rem] text-[var(--ink-muted)]">
           {helperText}
         </p>
       ) : null}
 
-      <div className="mt-2.5 grid grid-cols-2 gap-1.5 sm:hidden">
+      <div className="mt-1.5 grid grid-cols-2 gap-1 sm:hidden">
         {mobileOptions.map((interest) => {
           const isSelected = selected.includes(interest);
 
@@ -100,7 +100,7 @@ export function InterestSelector({
         })}
       </div>
 
-      <div className="mt-3 hidden sm:flex sm:flex-wrap sm:gap-2">
+      <div className="mt-1.5 hidden sm:flex sm:flex-wrap sm:gap-1">
         {INTEREST_OPTIONS.map((interest) => {
           const isSelected = selected.includes(interest);
 
@@ -122,7 +122,7 @@ export function InterestSelector({
         <button
           type="button"
           onClick={() => setShowAllMobileOptions((current) => !current)}
-          className="mt-2 inline-flex min-h-10 items-center border border-dashed border-[var(--line-strong)] bg-[var(--paper-bright)] px-3 py-2 text-sm font-semibold text-[var(--ink-muted)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)] sm:hidden"
+          className="mt-1.5 inline-flex min-h-9 items-center border border-dashed border-[var(--line-strong)] bg-[var(--paper-bright)] px-3 py-1.5 text-sm font-semibold text-[var(--ink-muted)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)] sm:hidden"
         >
           {showAllMobileOptions
             ? "收起更多兴趣"
@@ -134,7 +134,7 @@ export function InterestSelector({
         <p
           id={errorId}
           role="alert"
-          className="mt-2.5 text-xs leading-5 text-[var(--clay-deep)]"
+          className="mt-2 text-xs leading-5 text-[var(--clay-deep)]"
         >
           {errorMessage}
         </p>

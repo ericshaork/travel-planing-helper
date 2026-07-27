@@ -1,0 +1,109 @@
+{
+  "city_code": "suzhou",
+  "city_name": "Suzhou",
+  "region_name": "Jiangsu",
+  "summary": "Suzhou suits slower, detail-rich travel centered on classical gardens, canal-side streets, elegant Jiangnan atmosphere, and low-pressure walking routes.",
+  "transport_notes": [
+    "Suzhou is best experienced by clustering one garden area with one nearby canal street or old-town zone per day.",
+    "Central Suzhou works well with metro plus walking, but garden-heavy days should stay light on extra transfers.",
+    "Evening pacing is strongest in canal districts with food and slower pedestrian movement."
+  ],
+  "budget_notes": {
+    "low": "Use public canal walks, one signature old street, and simple local dining with easy walking access.",
+    "medium": "Blend one garden, one canal district, and one atmospheric food area each day.",
+    "high": "Add quieter boutique districts, slower tea or dining breaks, and more comfort-oriented pacing."
+  },
+  "trip_type_notes": {
+    "student": "Student plans in Suzhou should emphasize scenic walking, photogenic old streets, and accessible Jiangnan food.",
+    "solo": "Solo plans should feel calm, reflective, and rooted in canal-side wandering and garden detail.",
+    "couple": "Couple plans should emphasize elegant scenery, water-town atmosphere, and soft evening light.",
+    "family": "Family plans should keep distances short and focus on gardens, easier canals, and low-stress shared strolling."
+  },
+  "suggested_tags": [
+    "jiangnan",
+    "classical-gardens",
+    "canal-walk",
+    "slow-travel",
+    "photo-friendly",
+    "old-town"
+  ],
+  "pois": [
+    {
+      "id": "poi_pingjiang",
+      "name": "Pingjiang Road",
+      "district": "Gusu",
+      "type": "historic canal street",
+      "description": "A signature Suzhou walking district where canals, shops, and old-town movement come together easily.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_humble_admin",
+      "name": "Humble Administrator's Garden Area",
+      "district": "Gusu",
+      "type": "classical garden",
+      "description": "A defining Suzhou culture anchor for plans that want garden scenery and Jiangnan refinement.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_tiger_hill",
+      "name": "Tiger Hill Area",
+      "district": "Gusu",
+      "type": "historic scenic area",
+      "description": "A useful larger-scale stop that mixes heritage, views, and a more open walking feel.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_shantang",
+      "name": "Shantang Street",
+      "district": "Gusu",
+      "type": "historic canal district",
+      "description": "A classic evening-friendly water-street area suited to lights, snacks, and slower strolling.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_lion_grove",
+      "name": "Lion Grove Garden Area",
+      "district": "Gusu",
+      "type": "classical garden",
+      "description": "A compact garden option with strong Suzhou identity that fits neatly into slower old-city routes.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_jinji_lake_edge",
+      "name": "Jinji Lake Edge",
+      "district": "Suzhou Industrial Park",
+      "type": "modern waterfront district",
+      "description": "A contemporary contrast for plans that want a cleaner, more polished evening skyline side of Suzhou.",
+      "best_for": ["student", "solo", "couple"],
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food_areas": [
+    {
+      "name": "Pingjiang Road Snack and Tea Stops",
+      "district": "Gusu",
+      "specialties": ["Jiangnan snacks", "tea-house bites", "canal-side casual food"],
+      "best_for": ["student", "solo", "couple", "family"],
+      "note": "Best for pairing food with slow canal-side walking and lighter scenic pacing."
+    },
+    {
+      "name": "Shantang Street Food Pockets",
+      "district": "Gusu",
+      "specialties": ["old-street snacks", "shared local dishes", "evening dessert stops"],
+      "best_for": ["student", "solo", "couple", "family"],
+      "note": "Best for recognizable atmosphere and softer evening energy."
+    },
+    {
+      "name": "Guanqian Street Casual Dining Zone",
+      "district": "Gusu",
+      "specialties": ["city-center meals", "shopping-district snacks", "easy local dining"],
+      "best_for": ["student", "solo", "family"],
+      "note": "Best for practical central meals without overcomplicating the route."
+    }
+  ]
+}

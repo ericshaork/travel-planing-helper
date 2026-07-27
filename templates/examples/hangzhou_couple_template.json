@@ -1,0 +1,112 @@
+{
+  "template_id": "hangzhou_couple_template_v1",
+  "template_version": "city_template_v1",
+  "city_identity": {
+    "code": "hangzhou",
+    "name": "Hangzhou",
+    "region_name": "Zhejiang",
+    "country": "China",
+    "language": "zh-CN",
+    "timezone": "Asia/Shanghai",
+    "visual_identity_keywords": [
+      "West Lake",
+      "willow-lined causeways",
+      "tea hills",
+      "misty water",
+      "Song dynasty texture",
+      "canal old streets"
+    ],
+    "signature_moods": [
+      "lake slow walk",
+      "tea hill pause",
+      "romantic dusk",
+      "soft rain journal"
+    ]
+  },
+  "traveler_profile": {
+    "traveler_type": "couple",
+    "days": 3,
+    "season": "spring",
+    "budget": "medium",
+    "pace": "balanced",
+    "motivation": "slow_romantic_escape",
+    "theme": "Hangzhou lake, tea, and old street couple route",
+    "must_include": [
+      "West Lake",
+      "Su Causeway",
+      "Longjing tea fields",
+      "Lingyin Temple",
+      "Xiaohe Straight Street"
+    ],
+    "avoid": [
+      "only checking off West Lake viewpoints",
+      "overcrowded commercial blocks as the main route",
+      "too many temple stops in one day"
+    ]
+  },
+  "content_rules": {
+    "tone": "travel magazine plus private journal",
+    "route_quality": [
+      "Keep West Lake walking sections slow and breathable.",
+      "Group lake, tea hills, and old streets into distinct day moods.",
+      "Use dusk or soft rain moments as couple-trip memory anchors.",
+      "Avoid crossing the city repeatedly within one day."
+    ],
+    "poi_rules": [
+      "Use West Lake as the signature first-arrival anchor.",
+      "Use Longjing tea fields for quiet experience texture.",
+      "Use Lingyin Temple as a cultural anchor without overloading the day.",
+      "Use canal or old street texture for the private journal layer."
+    ],
+    "food_rules": [
+      "Use real local food context for Hangzhou dishes and tea-house stops.",
+      "Do not fabricate specific restaurant dishes with AI images.",
+      "Pair meals with route geography instead of making food a separate checklist."
+    ],
+    "hard_constraints": [
+      "Do not fabricate real-time opening status.",
+      "Do not fabricate live ticket availability.",
+      "Do not fabricate live queue time.",
+      "Preserve source provenance for every final image."
+    ]
+  },
+  "asset_requirements": {
+    "families": [
+      {
+        "family": "signature_anchor",
+        "minimum_count": 1,
+        "purpose": "West Lake as the city-defining first-arrival anchor"
+      },
+      {
+        "family": "historic_texture",
+        "minimum_count": 1,
+        "purpose": "canal old street or temple texture for private journal detail"
+      },
+      {
+        "family": "slow_solo",
+        "minimum_count": 1,
+        "purpose": "tea hill, causeway, or lakeside pause for slow couple rhythm"
+      },
+      {
+        "family": "evening_closure",
+        "minimum_count": 1,
+        "purpose": "West Lake dusk, bridge lights, or quiet riverside ending"
+      },
+      {
+        "family": "food_backbone",
+        "minimum_count": 1,
+        "purpose": "Hangzhou local dishes or tea-house memory"
+      }
+    ],
+    "minimum_images": {
+      "cover": 3,
+      "place": 3,
+      "experience": 1,
+      "food": 1
+    }
+  },
+  "image_template_ref": {
+    "template_id": "wanderly_image_template_v1",
+    "template_version": "image_template_v1"
+  }
+}

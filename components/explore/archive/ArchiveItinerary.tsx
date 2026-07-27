@@ -24,8 +24,10 @@ export function ArchiveItinerary({ item }: ArchiveItineraryProps) {
     <section className="relative space-y-4 border-t border-[rgba(158,136,110,0.12)] pt-7">
       <ArchiveDecorations variant="route" />
       <div className="max-w-3xl">
-        <p className="workspace-kicker">DAILY ROUTE</p>
-        <h2 className="mt-2 text-lg font-semibold text-[var(--ink)]">每日路线</h2>
+        <p className="workspace-kicker">每日行程</p>
+        <h2 className="mt-2 text-lg font-semibold text-[var(--ink)]">
+          每天大概这样展开
+        </h2>
       </div>
 
       <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_16rem] lg:items-start">
@@ -37,7 +39,7 @@ export function ArchiveItinerary({ item }: ArchiveItineraryProps) {
             >
               <div className="flex flex-wrap items-center gap-3">
                 <span className="rounded-full border border-[rgba(158,136,110,0.14)] px-2.5 py-1 text-[11px] font-semibold tracking-[0.08em] text-[var(--ink-muted)]">
-                  Day {typeof day.dayNumber === "number" ? day.dayNumber : dayIndex + 1}
+                  第 {typeof day.dayNumber === "number" ? day.dayNumber : dayIndex + 1} 天
                 </span>
                 <h3 className="text-base font-semibold text-[var(--ink)]">
                   {cleanDisplayText(day.title, `第 ${dayIndex + 1} 天`)}

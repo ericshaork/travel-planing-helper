@@ -2,13 +2,13 @@ import Link from "next/link";
 
 export function TripsEmptyState() {
   return (
-    <section className="workspace-panel px-5 py-5 sm:px-6 sm:py-6">
+    <section className="archive-empty px-5 py-5 sm:px-6 sm:py-6">
       <div className="relative z-[1] max-w-2xl">
-        <p className="workspace-kicker">还没有保存计划</p>
-        <h2 className="mt-2 text-2xl font-semibold tracking-[-0.03em] text-[var(--ink)] sm:text-3xl">
-          这里还没有存下来的行程。
+        <p className="archive-kicker">档案还是空的</p>
+        <h2 className="mt-2 archive-title text-2xl sm:text-3xl">
+          这里还没有你的旅行记录。
         </h2>
-        <p className="mt-3 text-sm leading-6 text-[var(--ink-muted)] sm:text-[15px] sm:leading-7">
+        <p className="mt-3 archive-subtitle sm:text-[15px] sm:leading-7">
           可以先让 AI 排一版，也可以去 Explore 找灵感，或者从空白工作台慢慢写。
         </p>
         <div className="mt-5 flex flex-wrap gap-3">

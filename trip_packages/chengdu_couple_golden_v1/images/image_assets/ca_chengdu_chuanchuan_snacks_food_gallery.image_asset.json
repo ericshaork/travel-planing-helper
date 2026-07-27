@@ -1,0 +1,58 @@
+{
+  "asset_id": "ca_chengdu_chuanchuan_snacks",
+  "asset_instance_id": "ca_chengdu_chuanchuan_snacks_food_gallery",
+  "image_slot": "food_gallery",
+  "source": "wikimedia",
+  "file_path": "C:\\Users\\10200\\Desktop\\travel_planing\\trip_packages\\chengdu_couple_golden_v1\\images\\files\\ca_chengdu_chuanchuan_snacks_food_gallery.jpg",
+  "status": "completed",
+  "retry_count": 0,
+  "last_error": null,
+  "download_status": "completed",
+  "fallback_available": false,
+  "selection": {
+    "selected_candidate": {
+      "source": "wikimedia",
+      "candidate_id": "Man buying chuan in Chengdu, China",
+      "image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Man%20buying%20chuan%20in%20Chengdu%2C%20China.jpg"
+    },
+    "rank_score": 60,
+    "candidate_count": 10,
+    "rejected_count": 0
+  },
+  "metadata": {
+    "source_runs": [
+      {
+        "source": "wikimedia",
+        "priority": 1,
+        "candidate_count": 0,
+        "error": null
+      },
+      {
+        "source": "pexels",
+        "priority": 2,
+        "candidate_count": 10,
+        "error": null
+      }
+    ],
+    "title": "Man buying chuan in Chengdu, China",
+    "description": "Colorful facade of a street food shop in Chengdu, China, showcasing traditional design and local character.",
+    "author": "Blackcurrant Great",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Man_buying_chuan_in_Chengdu,_China.jpg",
+    "image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Man%20buying%20chuan%20in%20Chengdu%2C%20China.jpg",
+    "width": 5410,
+    "height": 3043,
+    "mime_type": "image/jpeg",
+    "score_reasons": [
+      "location_match",
+      "high_resolution_3000",
+      "wanderly_fit"
+    ],
+    "source": "wikimedia",
+    "provenance_note": "H3.6.3-C v2 real_photo candidate selected after manual review; food subject is explicit and not a storefront facade.",
+    "finalized_in_package": "chengdu_couple_golden_v1",
+    "candidate_file_path": "temp/chengdu_couple_v2_images/files/ca_chengdu_chuanchuan_snacks_food_gallery_v2.jpg",
+    "packaged_file_path": "images/files/ca_chengdu_chuanchuan_snacks_food_gallery.jpg",
+    "sha256": "75bac23cf7caac3ffeb0a269f7f4be26e5c9184d4f8d814b32c6a7ad504c67f4"
+  }
+}

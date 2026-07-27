@@ -1,0 +1,2352 @@
+{
+  "schema_version": "city_context_v3",
+  "city_code": "beijing",
+  "city_name": "Beijing",
+  "region_name": "Beijing",
+  "city_personality": {
+    "one_line_summary": "Beijing works best as a layered capital-city journey where imperial history, hutong texture, food memory, and modern contrast are arranged as executable routes instead of a generic checklist.",
+    "core_temperaments": [
+      "historical",
+      "layered",
+      "ceremonial",
+      "lived_in",
+      "contrasting_old_and_new"
+    ],
+    "explore_strengths": [
+      "heritage routes with strong historical weight",
+      "hutong and lakeside atmosphere",
+      "district-based citywalk structure",
+      "old-city versus modern-city contrast days",
+      "food rhythms that change by district and time of day"
+    ],
+    "best_experience_modes": [
+      "heritage morning plus neighborhood afternoon",
+      "hutong citywalk plus food crawl",
+      "creative east-side contrast route",
+      "photo-friendly dusk and night sequencing",
+      "family-friendly landmark day with soft evening landing"
+    ],
+    "signature_contrasts": [
+      "imperial order versus everyday alley life",
+      "formal capital landmarks versus relaxed neighborhood wandering",
+      "traditional food memory versus modern urban dining",
+      "broad ceremonial scale versus intimate district texture"
+    ],
+    "avoid_generic_framing": [
+      "Do not reduce Beijing to only famous monuments.",
+      "Do not give every traveler type the same old-city opening and the same evening ending.",
+      "Do not use vague cultural praise without district texture.",
+      "Do not treat modern Beijing as interchangeable with any other big city."
+    ]
+  },
+  "district_knowledge": [
+    {
+      "id": "district_imperial_core",
+      "name": "Imperial Core",
+      "city_role": "primary capital-history anchor and highest-recognition opening zone",
+      "best_for": [
+        "family",
+        "couple",
+        "student",
+        "solo"
+      ],
+      "best_time_of_day": [
+        "morning",
+        "late_morning"
+      ],
+      "pair_with": [
+        "district_hutong_shichahai",
+        "district_qianmen_dashilar"
+      ],
+      "avoid_pairing": [
+        "district_798_art",
+        "district_cbd_guomao"
+      ],
+      "signature_experiences": [
+        "imperial-axis sightseeing",
+        "capital identity and ceremonial space",
+        "viewpoint release after heavy history"
+      ],
+      "mobility_notes": [
+        "Use as one major anchor rather than stacking multiple heavy landmarks in the same day.",
+        "Morning-first routing is much stronger than late-day insertion.",
+        "Walking load compounds quickly if paired with too many large-format heritage stops."
+      ],
+      "route_use_cases": [
+        "day opener for first-time Beijing",
+        "student and solo history anchor",
+        "family iconic day when followed by softer district texture"
+      ]
+    },
+    {
+      "id": "district_hutong_shichahai",
+      "name": "Hutong / Shichahai",
+      "city_role": "local-texture softener, citywalk core, and evening atmosphere zone",
+      "best_for": [
+        "family",
+        "couple",
+        "student",
+        "solo"
+      ],
+      "best_time_of_day": [
+        "afternoon",
+        "dusk",
+        "evening"
+      ],
+      "pair_with": [
+        "district_imperial_core",
+        "district_qianmen_dashilar",
+        "district_sanlitun_modern"
+      ],
+      "avoid_pairing": [
+        "district_olympic_park"
+      ],
+      "signature_experiences": [
+        "lakeside strolling",
+        "hutong wandering",
+        "snack-and-walk rhythm",
+        "photogenic dusk route"
+      ],
+      "mobility_notes": [
+        "Walking quality is high but total walking time can still be substantial.",
+        "Best used as a clustered half day rather than a quick stop between distant districts.",
+        "Evening value is much higher than forced midday pass-through."
+      ],
+      "route_use_cases": [
+        "couple mood-building route",
+        "student low-cost citywalk day",
+        "solo observation-led wandering",
+        "family soft landing after a heavier morning"
+      ]
+    },
+    {
+      "id": "district_798_art",
+      "name": "798 Art District",
+      "city_role": "creative contemporary contrast anchor for premium non-generic Beijing routes",
+      "best_for": [
+        "couple",
+        "student",
+        "solo"
+      ],
+      "best_time_of_day": [
+        "late_morning",
+        "afternoon"
+      ],
+      "pair_with": [
+        "district_sanlitun_modern",
+        "district_cbd_guomao"
+      ],
+      "avoid_pairing": [
+        "district_imperial_core",
+        "district_temple_south_city"
+      ],
+      "signature_experiences": [
+        "gallery-hopping",
+        "design-forward walking",
+        "cafe-and-photo rhythm",
+        "modern Beijing contrast day"
+      ],
+      "mobility_notes": [
+        "Works best as an east-side dedicated half day.",
+        "Not a good filler between two old-city clusters.",
+        "Can become tiring if visitors try to over-cover galleries instead of choosing a clear route."
+      ],
+      "route_use_cases": [
+        "student modern-culture day",
+        "couple contrast day",
+        "solo slow-exploration creative district half day"
+      ]
+    },
+    {
+      "id": "district_sanlitun_modern",
+      "name": "Sanlitun Modern Urban Core",
+      "city_role": "modern lifestyle, dining, and evening energy anchor",
+      "best_for": [
+        "couple",
+        "student",
+        "solo"
+      ],
+      "best_time_of_day": [
+        "late_afternoon",
+        "evening",
+        "night"
+      ],
+      "pair_with": [
+        "district_798_art",
+        "district_hutong_shichahai",
+        "district_cbd_guomao"
+      ],
+      "avoid_pairing": [
+        "district_olympic_park"
+      ],
+      "signature_experiences": [
+        "modern city strolling",
+        "night dining",
+        "retail and people-watching",
+        "young urban Beijing social atmosphere"
+      ],
+      "mobility_notes": [
+        "Most effective as an evening closer rather than a full cultural day.",
+        "Weak if used as the only identity layer in a Beijing route.",
+        "Taxi and metro flexibility is important for late evening exits."
+      ],
+      "route_use_cases": [
+        "couple night finish",
+        "student lively urban close",
+        "solo modern-city contrast after old-city day"
+      ]
+    },
+    {
+      "id": "district_qianmen_dashilar",
+      "name": "Qianmen / Dashilar",
+      "city_role": "heritage-food and old-commercial-texture zone with strong route transition value",
+      "best_for": [
+        "family",
+        "couple",
+        "student",
+        "solo"
+      ],
+      "best_time_of_day": [
+        "late_morning",
+        "afternoon",
+        "early_evening"
+      ],
+      "pair_with": [
+        "district_imperial_core",
+        "district_temple_south_city"
+      ],
+      "avoid_pairing": [
+        "district_798_art",
+        "district_olympic_park"
+      ],
+      "signature_experiences": [
+        "traditional street texture",
+        "old-Beijing snack and dessert logic",
+        "heritage-commercial side-lane wandering"
+      ],
+      "mobility_notes": [
+        "Best when used as a food-and-texture extension after a nearby heritage anchor.",
+        "Main axis crowds can slow down family pacing during peak periods.",
+        "More rewarding in side lanes than in rushed pass-through mode."
+      ],
+      "route_use_cases": [
+        "family and couple food-supported heritage day",
+        "student accessible old-city route",
+        "solo side-lane texture exploration"
+      ]
+    },
+    {
+      "id": "district_temple_south_city",
+      "name": "Temple of Heaven / South City",
+      "city_role": "open-space ceremonial heritage zone and southern food-culture bridge",
+      "best_for": [
+        "family",
+        "couple",
+        "student",
+        "solo"
+      ],
+      "best_time_of_day": [
+        "morning",
+        "late_morning",
+        "early_afternoon"
+      ],
+      "pair_with": [
+        "district_qianmen_dashilar"
+      ],
+      "avoid_pairing": [
+        "district_798_art",
+        "district_sanlitun_modern"
+      ],
+      "signature_experiences": [
+        "ceremonial architecture with more breathing room",
+        "cypress-lined walking",
+        "southern old-city food transition"
+      ],
+      "mobility_notes": [
+        "More open and manageable than some imperial-core routes, but still walking-heavy in hot weather.",
+        "Works well as a heritage day with food logic nearby, not as a late add-on after a large old-city morning.",
+        "Family pacing improves if the day includes rest and meal buffers."
+      ],
+      "route_use_cases": [
+        "family softer heritage day",
+        "student south-city contrast route",
+        "solo reflective morning route"
+      ]
+    },
+    {
+      "id": "district_olympic_park",
+      "name": "Olympic Park",
+      "city_role": "broad-space family-friendly and skyline-scale modern landmark zone",
+      "best_for": [
+        "family",
+        "solo",
+        "student"
+      ],
+      "best_time_of_day": [
+        "late_afternoon",
+        "evening"
+      ],
+      "pair_with": [
+        "district_cbd_guomao"
+      ],
+      "avoid_pairing": [
+        "district_hutong_shichahai",
+        "district_qianmen_dashilar"
+      ],
+      "signature_experiences": [
+        "broad-axis walking",
+        "stadium exterior photo moments",
+        "night lighting and open-space release"
+      ],
+      "mobility_notes": [
+        "Distance inside the park can be deceptively large.",
+        "Better for one focused open-space block than for chaining with dense old-city walking.",
+        "Night visual payoff is stronger than midday intensity."
+      ],
+      "route_use_cases": [
+        "family recovery-style day",
+        "student skyline-and-night-light insert",
+        "solo spacious modern-city contrast"
+      ]
+    },
+    {
+      "id": "district_cbd_guomao",
+      "name": "CBD / Guomao",
+      "city_role": "skyline, business-urban contrast, and polished modern Beijing layer",
+      "best_for": [
+        "couple",
+        "student",
+        "solo"
+      ],
+      "best_time_of_day": [
+        "late_afternoon",
+        "evening"
+      ],
+      "pair_with": [
+        "district_798_art",
+        "district_sanlitun_modern",
+        "district_olympic_park"
+      ],
+      "avoid_pairing": [
+        "district_imperial_core",
+        "district_temple_south_city"
+      ],
+      "signature_experiences": [
+        "urban canyon walking",
+        "business-core skyline contrast",
+        "elevated modern dining and night views"
+      ],
+      "mobility_notes": [
+        "Most useful as a contrast layer, not a whole-trip identity.",
+        "Can feel sterile if not paired with a stronger neighborhood or cultural zone elsewhere in the itinerary.",
+        "Works best from late afternoon onward when light and skyline atmosphere improve."
+      ],
+      "route_use_cases": [
+        "couple polished modern finish",
+        "student urban-contrast half day",
+        "solo reflective skyline walk after heritage-heavy days"
+      ]
+    }
+  ],
+  "poi_experience_knowledge": [
+    {
+      "id": "poi_forbidden_city",
+      "name": "Forbidden City Main Visit",
+      "district_id": "district_imperial_core",
+      "experience_tags": [
+        "imperial_history",
+        "capital_identity",
+        "ceremonial_scale"
+      ],
+      "best_for": [
+        "family",
+        "student",
+        "solo",
+        "couple"
+      ],
+      "recommended_duration_minutes": 210,
+      "budget_level": "medium",
+      "reservation_requirement": "strongly_required_in_peak_season",
+      "transport_mode": [
+        "metro",
+        "walk"
+      ],
+      "route_roles": [
+        "day_opener",
+        "primary_anchor"
+      ],
+      "walking_intensity": "high",
+      "queue_risk": "extreme_in_peak_season",
+      "time_restriction_notes": [
+        "Use early entry logic whenever possible.",
+        "Avoid making it the second heavy stop of the day.",
+        "Midday crowds sharply reduce relaxed-exploration value."
+      ],
+      "risks": [
+        "Very high repetition risk across Beijing plans.",
+        "Can consume too much energy for family itineraries if the rest of the day remains heavy.",
+        "Weak as a default if the route needs more neighborhood texture than grand history."
+      ],
+      "landmark_level": "iconic_anchor",
+      "description": "Use only when the plan truly needs Beijing's highest-recognition historical anchor."
+    },
+    {
+      "id": "poi_jingshan",
+      "name": "Jingshan Park Viewpoint",
+      "district_id": "district_imperial_core",
+      "experience_tags": [
+        "viewpoint",
+        "photo_value",
+        "route_release"
+      ],
+      "best_for": [
+        "family",
+        "couple",
+        "student",
+        "solo"
+      ],
+      "recommended_duration_minutes": 75,
+      "budget_level": "low",
+      "reservation_requirement": "none",
+      "transport_mode": [
+        "walk",
+        "metro"
+      ],
+      "route_roles": [
+        "scenic_insert",
+        "transition_stop"
+      ],
+      "walking_intensity": "medium",
+      "queue_risk": "medium",
+      "time_restriction_notes": [
+        "Best when used after a heavy heritage block.",
+        "Late afternoon light often improves the photo payoff."
+      ],
+      "risks": [
+        "Becomes formulaic if automatically paired with every old-city route.",
+        "Hill climb adds fatigue for young children after a long morning."
+      ],
+      "landmark_level": "secondary_anchor",
+      "description": "A compact scenic release point that works well after history-heavy movement."
+    },
+    {
+      "id": "poi_tiananmen_axis_walk",
+      "name": "Tiananmen Axis Exterior Walk",
+      "district_id": "district_imperial_core",
+      "experience_tags": [
+        "capital_axis",
+        "civic_scale",
+        "orientation"
+      ],
+      "best_for": [
+        "student",
+        "solo",
+        "family"
+      ],
+      "recommended_duration_minutes": 60,
+      "budget_level": "low",
+      "reservation_requirement": "recommended",
+      "transport_mode": [
+        "metro",
+        "walk"
+      ],
+      "route_roles": [
+        "orientation_stop",
+        "day_opener"
+      ],
+      "walking_intensity": "medium",
+      "queue_risk": "high",
+      "time_restriction_notes": [
+        "Use as a short orientation layer rather than a full standalone block.",
+        "Peak-day security and crowd conditions can distort timing."
+      ],
+      "risks": [
+        "Operational friction can outweigh experience value on crowded days.",
+        "Easy to overbuild symbolic weight with limited route payoff."
+      ],
+      "landmark_level": "iconic_supporting_stop",
+      "description": "Better as a framing move than as the emotional center of the whole day."
+    },
+    {
+      "id": "poi_imperial_moat_walk",
+      "name": "Imperial Moat and Wall Edge Walk",
+      "district_id": "district_imperial_core",
+      "experience_tags": [
+        "citywalk",
+        "water_edge",
+        "quieter_history"
+      ],
+      "best_for": [
+        "couple",
+        "solo",
+        "student"
+      ],
+      "recommended_duration_minutes": 50,
+      "budget_level": "low",
+      "reservation_requirement": "none",
+      "transport_mode": [
+        "walk"
+      ],
+      "route_roles": [
+        "softener",
+        "optional_detour"
+      ],
+      "walking_intensity": "low",
+      "queue_risk": "low",
+      "time_restriction_notes": [
+        "Best when the route needs calm after major landmark density."
+      ],
+      "risks": [
+        "Can feel underpowered if used without a stronger nearby anchor."
+      ],
+      "landmark_level": "texture_support",
+      "description": "A useful quiet edge for routes that want to soften the imperial core."
+    },
+    {
+      "id": "poi_shichahai_lakeside",
+      "name": "Shichahai Lakeside Walk",
+      "district_id": "district_hutong_shichahai",
+      "experience_tags": [
+        "lakeside",
+        "atmosphere",
+        "evening_value",
+        "citywalk"
+      ],
+      "best_for": [
+        "couple",
+        "family",
+        "student",
+        "solo"
+      ],
+      "recommended_duration_minutes": 90,
+      "budget_level": "low",
+      "reservation_requirement": "none",
+      "transport_mode": [
+        "walk",
+        "metro"
+      ],
+      "route_roles": [
+        "afternoon_core",
+        "evening_closer"
+      ],
+      "walking_intensity": "medium",
+      "queue_risk": "medium",
+      "time_restriction_notes": [
+        "Dusk and evening are materially stronger than flat midday visits.",
+        "Works well before or after a meal stop."
+      ],
+      "risks": [
+        "Too generic if the route never leaves the main edge and fails to enter neighborhood texture.",
+        "Busy periods can reduce its relaxed quality."
+      ],
+      "landmark_level": "city_character_anchor",
+      "description": "A signature atmosphere zone for routes that need warmth and walkable payoff."
+    },
+    {
+      "id": "poi_bell_drum_towers_edge",
+      "name": "Bell and Drum Towers Edge Walk",
+      "district_id": "district_hutong_shichahai",
+      "experience_tags": [
+        "historic_urban_texture",
+        "photo_value",
+        "old_city_scale"
+      ],
+      "best_for": [
+        "couple",
+        "student",
+        "solo"
+      ],
+      "recommended_duration_minutes": 60,
+      "budget_level": "low",
+      "reservation_requirement": "none",
+      "transport_mode": [
+        "walk"
+      ],
+      "route_roles": [
+        "transition_stop",
+        "citywalk_anchor"
+      ],
+      "walking_intensity": "medium",
+      "queue_risk": "medium",
+      "time_restriction_notes": [
+        "Best used as part of a flowing hutong route, not as an isolated stop."
+      ],
+      "risks": [
+        "Can feel like a pass-through backdrop unless paired with side-lane exploration."
+      ],
+      "landmark_level": "heritage_texture_anchor",
+      "description": "Useful for shaping an old-city walk with recognizable historical texture."
+    },
+    {
+      "id": "poi_nanluoguxiang_side_lanes",
+      "name": "Nanluoguxiang Side Lanes",
+      "district_id": "district_hutong_shichahai",
+      "experience_tags": [
+        "snack_grazing",
+        "youthful_energy",
+        "side_lane_texture"
+      ],
+      "best_for": [
+        "student",
+        "solo",
+        "couple"
+      ],
+      "recommended_duration_minutes": 90,
+      "budget_level": "low",
+      "reservation_requirement": "none",
+      "transport_mode": [
+        "walk",
+        "metro"
+      ],
+      "route_roles": [
+        "snack_route_anchor",
+        "accessible_evening_stop"
+      ],
+      "walking_intensity": "medium",
+      "queue_risk": "high",
+      "time_restriction_notes": [
+        "Main lane alone is too generic; side-lane detours are the real value.",
+        "Better outside the heaviest crowd peaks."
+      ],
+      "risks": [
+        "Very high overuse risk in youth-oriented Beijing plans.",
+        "Main-stream crowding can flatten local character."
+      ],
+      "landmark_level": "high_traffic_character_spot",
+      "description": "Use only when the route needs snack rhythm and younger lane energy, not as default hutong coverage."
+    },
+    {
+      "id": "poi_yandai_xiejie",
+      "name": "Yandai Xiejie Bend Walk",
+      "district_id": "district_hutong_shichahai",
+      "experience_tags": [
+        "short_lane_texture",
+        "photo_detail",
+        "old_shopfronts"
+      ],
+      "best_for": [
+        "couple",
+        "solo",
+        "student"
+      ],
+      "recommended_duration_minutes": 45,
+      "budget_level": "low",
+      "reservation_requirement": "none",
+      "transport_mode": [
+        "walk"
+      ],
+      "route_roles": [
+        "micro_detour",
+        "texture_insert"
+      ],
+      "walking_intensity": "low",
+      "queue_risk": "medium",
+      "time_restriction_notes": [
+        "Best as a short insert within a larger hutong route."
+      ],
+      "risks": [
+        "Too small to carry a route by itself.",
+        "Can feel souvenir-heavy if not balanced with quieter nearby movement."
+      ],
+      "landmark_level": "micro_texture_stop",
+      "description": "A compact old-street detail layer rather than a main route anchor."
+    },
+    {
+      "id": "poi_798_core_lane",
+      "name": "798 Core Gallery Lane Walk",
+      "district_id": "district_798_art",
+      "experience_tags": [
+        "art",
+        "design",
+        "industrial_space",
+        "photo_value"
+      ],
+      "best_for": [
+        "student",
+        "couple",
+        "solo"
+      ],
+      "recommended_duration_minutes": 150,
+      "budget_level": "medium",
+      "reservation_requirement": "none",
+      "transport_mode": [
+        "metro",
+        "walk",
+        "taxi"
+      ],
+      "route_roles": [
+        "primary_anchor",
+        "modern_half_day_core"
+      ],
+      "walking_intensity": "medium",
+      "queue_risk": "medium",
+      "time_restriction_notes": [
+        "Best with a slower afternoon rhythm rather than a rushed cross-city insert."
+      ],
+      "risks": [
+        "Can become visually repetitive if the route tries to over-cover the whole district.",
+        "Weak choice for family plans that need stronger ease and landmark clarity."
+      ],
+      "landmark_level": "modern_contrast_anchor",
+      "description": "A contemporary counterweight to old-city Beijing when the route needs creative energy."
+    },
+    {
+      "id": "poi_ucca_edges",
+      "name": "UCCA and Adjacent Gallery Cluster",
+      "district_id": "district_798_art",
+      "experience_tags": [
+        "contemporary_art",
+        "curated_experience",
+        "quieter_focus"
+      ],
+      "best_for": [
+        "couple",
+        "solo",
+        "student"
+      ],
+      "recommended_duration_minutes": 90,
+      "budget_level": "medium",
+      "reservation_requirement": "recommended",
+      "transport_mode": [
+        "walk",
+        "taxi",
+        "metro"
+      ],
+      "route_roles": [
+        "focused_insert",
+        "quality_anchor"
+      ],
+      "walking_intensity": "low",
+      "queue_risk": "low",
+      "time_restriction_notes": [
+        "Works best when one or two focused gallery choices replace overcoverage."
+      ],
+      "risks": [
+        "Less useful if the route already has too much formal culture and not enough movement variety."
+      ],
+      "landmark_level": "quality_sub_anchor",
+      "description": "A stronger premium insert than a broad undirected sweep of the whole district."
+    },
+    {
+      "id": "poi_751_dpark",
+      "name": "751 D-Park Industrial Spine",
+      "district_id": "district_798_art",
+      "experience_tags": [
+        "industrial_landscape",
+        "event_space",
+        "visual_contrast"
+      ],
+      "best_for": [
+        "student",
+        "solo",
+        "couple"
+      ],
+      "recommended_duration_minutes": 60,
+      "budget_level": "low",
+      "reservation_requirement": "none",
+      "transport_mode": [
+        "walk",
+        "taxi"
+      ],
+      "route_roles": [
+        "contrast_insert",
+        "photo_anchor"
+      ],
+      "walking_intensity": "low",
+      "queue_risk": "low",
+      "time_restriction_notes": [
+        "Best used when the route wants industrial visual contrast, not just gallery hopping."
+      ],
+      "risks": [
+        "Can feel empty if there is no adjacent food or cafe logic."
+      ],
+      "landmark_level": "contrast_support",
+      "description": "Useful when a 798 route needs spatial variation and less gallery-only pacing."
+    },
+    {
+      "id": "poi_798_courtyard_cafes",
+      "name": "798 Courtyard Cafe Loop",
+      "district_id": "district_798_art",
+      "experience_tags": [
+        "cafe_rhythm",
+        "slow_pace",
+        "creative_break"
+      ],
+      "best_for": [
+        "couple",
+        "solo",
+        "student"
+      ],
+      "recommended_duration_minutes": 50,
+      "budget_level": "medium",
+      "reservation_requirement": "none",
+      "transport_mode": [
+        "walk"
+      ],
+      "route_roles": [
+        "pace_break",
+        "softener"
+      ],
+      "walking_intensity": "low",
+      "queue_risk": "medium",
+      "time_restriction_notes": [
+        "Most useful as a tempo-control tool inside a longer creative district half day."
+      ],
+      "risks": [
+        "Can become filler if the overall route lacks a stronger cultural or visual anchor."
+      ],
+      "landmark_level": "tempo_support",
+      "description": "A useful pacing device for premium slower routes."
+    },
+    {
+      "id": "poi_taikooli_walk",
+      "name": "Taikoo Li Urban Walk",
+      "district_id": "district_sanlitun_modern",
+      "experience_tags": [
+        "modern_urban_energy",
+        "retail",
+        "people_watching"
+      ],
+      "best_for": [
+        "couple",
+        "student",
+        "solo"
+      ],
+      "recommended_duration_minutes": 90,
+      "budget_level": "medium",
+      "reservation_requirement": "none",
+      "transport_mode": [
+        "metro",
+        "taxi",
+        "walk"
+      ],
+      "route_roles": [
+        "evening_closer",
+        "modern_anchor"
+      ],
+      "walking_intensity": "low",
+      "queue_risk": "medium",
+      "time_restriction_notes": [
+        "Stronger in late afternoon and evening than daytime.",
+        "Best after a route that already established Beijing-specific texture elsewhere."
+      ],
+      "risks": [
+        "Can feel globally generic if the day lacks local context.",
+        "Weak primary choice for family sample routes."
+      ],
+      "landmark_level": "lifestyle_anchor",
+      "description": "Use as a contrastive modern-energy finish, not as the entire identity of Beijing."
+    },
+    {
+      "id": "poi_workers_stadium_edge",
+      "name": "Workers Stadium Perimeter Walk",
+      "district_id": "district_sanlitun_modern",
+      "experience_tags": [
+        "urban_energy",
+        "night_transition",
+        "sports_cityscape"
+      ],
+      "best_for": [
+        "student",
+        "solo",
+        "couple"
+      ],
+      "recommended_duration_minutes": 40,
+      "budget_level": "low",
+      "reservation_requirement": "none",
+      "transport_mode": [
+        "walk",
+        "taxi"
+      ],
+      "route_roles": [
+        "transition_stop",
+        "evening_scene_builder"
+      ],
+      "walking_intensity": "low",
+      "queue_risk": "medium",
+      "time_restriction_notes": [
+        "Best used as an atmosphere transition around dinner or nightlife movement."
+      ],
+      "risks": [
+        "Can feel thin if not embedded within a larger Sanlitun urban route."
+      ],
+      "landmark_level": "urban_support_stop",
+      "description": "A short city-energy insert rather than a destination by itself."
+    },
+    {
+      "id": "poi_embassy_street_cafes",
+      "name": "Embassy Area Cafe Streets",
+      "district_id": "district_sanlitun_modern",
+      "experience_tags": [
+        "cafe_walk",
+        "quiet_modernity",
+        "urban_pause"
+      ],
+      "best_for": [
+        "solo",
+        "couple"
+      ],
+      "recommended_duration_minutes": 60,
+      "budget_level": "medium",
+      "reservation_requirement": "none",
+      "transport_mode": [
+        "walk",
+        "taxi"
+      ],
+      "route_roles": [
+        "pace_break",
+        "urban_texture_insert"
+      ],
+      "walking_intensity": "low",
+      "queue_risk": "low",
+      "time_restriction_notes": [
+        "Useful before the district becomes fully night-oriented."
+      ],
+      "risks": [
+        "Lacks strong Beijing specificity if used without contrastive old-city content in the itinerary."
+      ],
+      "landmark_level": "premium_support",
+      "description": "Useful for premium slower routes that need a quieter modern-city layer."
+    },
+    {
+      "id": "poi_sanlitun_night_spine",
+      "name": "Sanlitun Night Spine",
+      "district_id": "district_sanlitun_modern",
+      "experience_tags": [
+        "nightlife",
+        "social_energy",
+        "after_dinner_walk"
+      ],
+      "best_for": [
+        "student",
+        "couple",
+        "solo"
+      ],
+      "recommended_duration_minutes": 75,
+      "budget_level": "medium",
+      "reservation_requirement": "none",
+      "transport_mode": [
+        "walk",
+        "taxi"
+      ],
+      "route_roles": [
+        "night_closer",
+        "post_dinner_insert"
+      ],
+      "walking_intensity": "low",
+      "queue_risk": "high",
+      "time_restriction_notes": [
+        "Night value only; weak daytime route contribution."
+      ],
+      "risks": [
+        "Too generic if used without a clear traveler-type reason.",
+        "Not appropriate as a standard family route layer."
+      ],
+      "landmark_level": "night_scene_anchor",
+      "description": "Use sparingly and intentionally for urban-night energy."
+    },
+    {
+      "id": "poi_qianmen_axis",
+      "name": "Qianmen Pedestrian Axis",
+      "district_id": "district_qianmen_dashilar",
+      "experience_tags": [
+        "heritage_commercial_axis",
+        "old_city_food_access",
+        "recognizable_street_scene"
+      ],
+      "best_for": [
+        "family",
+        "student",
+        "solo",
+        "couple"
+      ],
+      "recommended_duration_minutes": 75,
+      "budget_level": "low",
+      "reservation_requirement": "none",
+      "transport_mode": [
+        "metro",
+        "walk"
+      ],
+      "route_roles": [
+        "food_transition_anchor",
+        "heritage_extension"
+      ],
+      "walking_intensity": "low",
+      "queue_risk": "high",
+      "time_restriction_notes": [
+        "Best when followed by side-lane texture or food logic, not as a pure crowd corridor."
+      ],
+      "risks": [
+        "Crowding can quickly reduce route quality.",
+        "Main-axis-only use feels generic."
+      ],
+      "landmark_level": "high_traffic_heritage_anchor",
+      "description": "Use as a bridge between big heritage and edible old-city texture."
+    },
+    {
+      "id": "poi_dashilar_side_lanes",
+      "name": "Dashilar Side Lanes",
+      "district_id": "district_qianmen_dashilar",
+      "experience_tags": [
+        "lane_texture",
+        "old_shops",
+        "slow_wandering"
+      ],
+      "best_for": [
+        "solo",
+        "couple",
+        "student"
+      ],
+      "recommended_duration_minutes": 90,
+      "budget_level": "low",
+      "reservation_requirement": "none",
+      "transport_mode": [
+        "walk"
+      ],
+      "route_roles": [
+        "texture_anchor",
+        "post_meal_walk"
+      ],
+      "walking_intensity": "medium",
+      "queue_risk": "medium",
+      "time_restriction_notes": [
+        "Stronger when the route slows down and enters smaller lanes instead of staying on the main strip."
+      ],
+      "risks": [
+        "Can blur into generic old-street tourism if the route lacks focus.",
+        "Weak for very compressed family schedules."
+      ],
+      "landmark_level": "character_anchor",
+      "description": "A more useful premium zone than the main corridor when the route needs old-city texture."
+    },
+    {
+      "id": "poi_yangmeizhu_xiejie",
+      "name": "Yangmeizhu Xiejie",
+      "district_id": "district_qianmen_dashilar",
+      "experience_tags": [
+        "small_street_design",
+        "craft_texture",
+        "quieter_old_city"
+      ],
+      "best_for": [
+        "couple",
+        "solo",
+        "student"
+      ],
+      "recommended_duration_minutes": 45,
+      "budget_level": "low",
+      "reservation_requirement": "none",
+      "transport_mode": [
+        "walk"
+      ],
+      "route_roles": [
+        "micro_detour",
+        "premium_texture_insert"
+      ],
+      "walking_intensity": "low",
+      "queue_risk": "low",
+      "time_restriction_notes": [
+        "Useful when the route wants a smaller, calmer old-street detail."
+      ],
+      "risks": [
+        "Too subtle to carry a route alone.",
+        "Needs stronger anchor nearby."
+      ],
+      "landmark_level": "micro_texture_stop",
+      "description": "A fine-grained premium insert for routes avoiding the most obvious old-city flow."
+    },
+    {
+      "id": "poi_zhengyangmen_exterior",
+      "name": "Zhengyangmen and Arrow Tower Exterior",
+      "district_id": "district_qianmen_dashilar",
+      "experience_tags": [
+        "historic_gate",
+        "city_threshold",
+        "visual_orientation"
+      ],
+      "best_for": [
+        "family",
+        "student",
+        "solo"
+      ],
+      "recommended_duration_minutes": 35,
+      "budget_level": "low",
+      "reservation_requirement": "none",
+      "transport_mode": [
+        "walk",
+        "metro"
+      ],
+      "route_roles": [
+        "orientation_stop",
+        "entry_marker"
+      ],
+      "walking_intensity": "low",
+      "queue_risk": "medium",
+      "time_restriction_notes": [
+        "Best as a visual framing move at route start or transition."
+      ],
+      "risks": [
+        "Low standalone payoff if treated as a full attraction stop."
+      ],
+      "landmark_level": "supporting_historic_marker",
+      "description": "A framing landmark that works best as part of a stronger food-texture route."
+    },
+    {
+      "id": "poi_temple_of_heaven_main",
+      "name": "Temple of Heaven Main Visit",
+      "district_id": "district_temple_south_city",
+      "experience_tags": [
+        "ceremonial_architecture",
+        "open_space",
+        "historical_weight"
+      ],
+      "best_for": [
+        "family",
+        "couple",
+        "student",
+        "solo"
+      ],
+      "recommended_duration_minutes": 150,
+      "budget_level": "medium",
+      "reservation_requirement": "recommended",
+      "transport_mode": [
+        "metro",
+        "walk"
+      ],
+      "route_roles": [
+        "primary_anchor",
+        "heritage_day_core"
+      ],
+      "walking_intensity": "medium",
+      "queue_risk": "high",
+      "time_restriction_notes": [
+        "Morning or late morning is stronger than late-day fatigue use.",
+        "Works best with a lighter second half nearby."
+      ],
+      "risks": [
+        "Can feel redundant if paired with another monumental heritage anchor the same day.",
+        "Open exposure becomes tiring in summer heat."
+      ],
+      "landmark_level": "major_heritage_anchor",
+      "description": "A more breathable ceremonial landmark than the imperial core, but still a real time-and-energy block."
+    },
+    {
+      "id": "poi_tiantan_cypress_loop",
+      "name": "Tiantan Cypress Loop",
+      "district_id": "district_temple_south_city",
+      "experience_tags": [
+        "quiet_walk",
+        "trees",
+        "reflective_pause"
+      ],
+      "best_for": [
+        "family",
+        "solo",
+        "couple"
+      ],
+      "recommended_duration_minutes": 60,
+      "budget_level": "low",
+      "reservation_requirement": "none",
+      "transport_mode": [
+        "walk"
+      ],
+      "route_roles": [
+        "softener",
+        "recovery_insert"
+      ],
+      "walking_intensity": "low",
+      "queue_risk": "low",
+      "time_restriction_notes": [
+        "Useful after the main ceremonial stop when the route needs breathing room."
+      ],
+      "risks": [
+        "Low payoff if the day already lacks a stronger anchor."
+      ],
+      "landmark_level": "breathing_space_support",
+      "description": "A practical pacing tool for routes that need calm without leaving the area."
+    },
+    {
+      "id": "poi_south_city_breakfast_street_walk",
+      "name": "South City Breakfast Street Walk",
+      "district_id": "district_temple_south_city",
+      "experience_tags": [
+        "morning_food_texture",
+        "daily_life",
+        "local_rhythm"
+      ],
+      "best_for": [
+        "student",
+        "solo",
+        "family"
+      ],
+      "recommended_duration_minutes": 50,
+      "budget_level": "low",
+      "reservation_requirement": "none",
+      "transport_mode": [
+        "walk",
+        "metro"
+      ],
+      "route_roles": [
+        "day_opener",
+        "food_texture_insert"
+      ],
+      "walking_intensity": "low",
+      "queue_risk": "medium",
+      "time_restriction_notes": [
+        "Morning-only value; weak later in the day."
+      ],
+      "risks": [
+        "Needs nearby route logic or it becomes just a meal stop."
+      ],
+      "landmark_level": "local_texture_anchor",
+      "description": "A non-monument opening for routes that want more lived-in south-city rhythm."
+    },
+    {
+      "id": "poi_hongqiao_market_edge",
+      "name": "Hongqiao and South-City Edge Glimpse",
+      "district_id": "district_temple_south_city",
+      "experience_tags": [
+        "market_edge",
+        "practical_city_layer",
+        "urban_contrast"
+      ],
+      "best_for": [
+        "student",
+        "solo"
+      ],
+      "recommended_duration_minutes": 35,
+      "budget_level": "low",
+      "reservation_requirement": "none",
+      "transport_mode": [
+        "walk",
+        "metro"
+      ],
+      "route_roles": [
+        "brief_detour",
+        "contrast_insert"
+      ],
+      "walking_intensity": "low",
+      "queue_risk": "low",
+      "time_restriction_notes": [
+        "Works only as a short route texture layer."
+      ],
+      "risks": [
+        "Too practical to anchor a premium route alone."
+      ],
+      "landmark_level": "minor_support_stop",
+      "description": "A small contrast note for routes that want less postcard and more city edge."
+    },
+    {
+      "id": "poi_olympic_green_axis",
+      "name": "Olympic Green Central Axis",
+      "district_id": "district_olympic_park",
+      "experience_tags": [
+        "broad_space",
+        "modern_landmark",
+        "night_lighting"
+      ],
+      "best_for": [
+        "family",
+        "student",
+        "solo"
+      ],
+      "recommended_duration_minutes": 90,
+      "budget_level": "low",
+      "reservation_requirement": "none",
+      "transport_mode": [
+        "metro",
+        "walk"
+      ],
+      "route_roles": [
+        "open_space_anchor",
+        "evening_closer"
+      ],
+      "walking_intensity": "medium",
+      "queue_risk": "low",
+      "time_restriction_notes": [
+        "Late afternoon and evening are significantly stronger than midday."
+      ],
+      "risks": [
+        "Feels too spatially empty if the whole day lacks a stronger cultural or neighborhood layer."
+      ],
+      "landmark_level": "modern_open_space_anchor",
+      "description": "Useful as a spacious reset or family-friendly skyline day component."
+    },
+    {
+      "id": "poi_birds_nest_exterior",
+      "name": "Bird's Nest Exterior View",
+      "district_id": "district_olympic_park",
+      "experience_tags": [
+        "iconic_structure",
+        "photo_value",
+        "modern_symbol"
+      ],
+      "best_for": [
+        "family",
+        "student",
+        "solo",
+        "couple"
+      ],
+      "recommended_duration_minutes": 45,
+      "budget_level": "low",
+      "reservation_requirement": "none",
+      "transport_mode": [
+        "walk",
+        "metro"
+      ],
+      "route_roles": [
+        "photo_anchor",
+        "supporting_stop"
+      ],
+      "walking_intensity": "low",
+      "queue_risk": "low",
+      "time_restriction_notes": [
+        "Night lighting improves payoff considerably."
+      ],
+      "risks": [
+        "Low standalone value if treated as a deep cultural stop."
+      ],
+      "landmark_level": "modern_icon_support",
+      "description": "A strong visual marker, best used within a broader open-space or skyline route."
+    },
+    {
+      "id": "poi_water_cube_night",
+      "name": "Water Cube Night Exterior",
+      "district_id": "district_olympic_park",
+      "experience_tags": [
+        "night_view",
+        "lighting",
+        "easy_photo_stop"
+      ],
+      "best_for": [
+        "couple",
+        "family",
+        "student",
+        "solo"
+      ],
+      "recommended_duration_minutes": 30,
+      "budget_level": "low",
+      "reservation_requirement": "none",
+      "transport_mode": [
+        "walk"
+      ],
+      "route_roles": [
+        "night_scene_insert",
+        "evening_closer"
+      ],
+      "walking_intensity": "low",
+      "queue_risk": "low",
+      "time_restriction_notes": [
+        "Night-value only; daytime use is weak."
+      ],
+      "risks": [
+        "Not enough by itself to justify a long cross-city move."
+      ],
+      "landmark_level": "night_support_marker",
+      "description": "A short high-payoff night visual insert."
+    },
+    {
+      "id": "poi_olympic_forest_south_loop",
+      "name": "Olympic Forest South Loop",
+      "district_id": "district_olympic_park",
+      "experience_tags": [
+        "green_space",
+        "recovery_walk",
+        "family_breathing_room"
+      ],
+      "best_for": [
+        "family",
+        "solo"
+      ],
+      "recommended_duration_minutes": 90,
+      "budget_level": "low",
+      "reservation_requirement": "none",
+      "transport_mode": [
+        "metro",
+        "walk"
+      ],
+      "route_roles": [
+        "recovery_half_day",
+        "soft_day_anchor"
+      ],
+      "walking_intensity": "low",
+      "queue_risk": "low",
+      "time_restriction_notes": [
+        "Stronger in mild weather and later afternoon light."
+      ],
+      "risks": [
+        "Too low-intensity for routes that still need strong city identity that day."
+      ],
+      "landmark_level": "family_recovery_anchor",
+      "description": "Useful when a premium family sample needs one non-exhausting day."
+    },
+    {
+      "id": "poi_cctv_exterior_walk",
+      "name": "CCTV Headquarters Exterior Walk",
+      "district_id": "district_cbd_guomao",
+      "experience_tags": [
+        "architecture",
+        "urban_scale",
+        "business_core_contrast"
+      ],
+      "best_for": [
+        "student",
+        "solo",
+        "couple"
+      ],
+      "recommended_duration_minutes": 40,
+      "budget_level": "low",
+      "reservation_requirement": "none",
+      "transport_mode": [
+        "metro",
+        "walk",
+        "taxi"
+      ],
+      "route_roles": [
+        "contrast_insert",
+        "urban_marker"
+      ],
+      "walking_intensity": "low",
+      "queue_risk": "low",
+      "time_restriction_notes": [
+        "Best when used within a skyline or modern-business district walk."
+      ],
+      "risks": [
+        "Can feel cold and abstract if the itinerary lacks more human-scale texture elsewhere."
+      ],
+      "landmark_level": "urban_contrast_marker",
+      "description": "Useful for showcasing Beijing's business-core architecture without letting it dominate the trip."
+    },
+    {
+      "id": "poi_china_world_terrace_walk",
+      "name": "China World Terrace and Mall Edge Walk",
+      "district_id": "district_cbd_guomao",
+      "experience_tags": [
+        "skyline",
+        "polished_modernity",
+        "shopping_support"
+      ],
+      "best_for": [
+        "couple",
+        "solo",
+        "student"
+      ],
+      "recommended_duration_minutes": 60,
+      "budget_level": "medium",
+      "reservation_requirement": "none",
+      "transport_mode": [
+        "walk",
+        "metro"
+      ],
+      "route_roles": [
+        "evening_closer",
+        "premium_modern_insert"
+      ],
+      "walking_intensity": "low",
+      "queue_risk": "low",
+      "time_restriction_notes": [
+        "Late afternoon to evening gives the strongest city-light contrast."
+      ],
+      "risks": [
+        "Can slide into generic mall tourism if not tied to skyline or route contrast logic."
+      ],
+      "landmark_level": "premium_urban_support",
+      "description": "A polished modern finish for routes that need controlled skyline atmosphere."
+    },
+    {
+      "id": "poi_guomao_skyline_walk",
+      "name": "Guomao Skyline Canyon Walk",
+      "district_id": "district_cbd_guomao",
+      "experience_tags": [
+        "urban_canyon",
+        "business_beijing",
+        "night_reflection"
+      ],
+      "best_for": [
+        "solo",
+        "couple",
+        "student"
+      ],
+      "recommended_duration_minutes": 50,
+      "budget_level": "low",
+      "reservation_requirement": "none",
+      "transport_mode": [
+        "walk",
+        "metro"
+      ],
+      "route_roles": [
+        "contrast_anchor",
+        "reflective_close"
+      ],
+      "walking_intensity": "low",
+      "queue_risk": "low",
+      "time_restriction_notes": [
+        "Much stronger at dusk and night than in flat midday light."
+      ],
+      "risks": [
+        "Not enough local warmth for a route that lacks older-city or neighborhood material elsewhere."
+      ],
+      "landmark_level": "modern_contrast_anchor",
+      "description": "A clear skyline contrast move for premium urban-night routes."
+    },
+    {
+      "id": "poi_tonghui_river_edge",
+      "name": "Tonghui River Edge Urban Walk",
+      "district_id": "district_cbd_guomao",
+      "experience_tags": [
+        "water_edge",
+        "quieter_modernity",
+        "urban_pause"
+      ],
+      "best_for": [
+        "solo",
+        "couple"
+      ],
+      "recommended_duration_minutes": 45,
+      "budget_level": "low",
+      "reservation_requirement": "none",
+      "transport_mode": [
+        "walk",
+        "taxi"
+      ],
+      "route_roles": [
+        "softener",
+        "optional_detour"
+      ],
+      "walking_intensity": "low",
+      "queue_risk": "low",
+      "time_restriction_notes": [
+        "Best for quieter late-day modern routes."
+      ],
+      "risks": [
+        "Too subtle to justify a special trip without nearby stronger anchors."
+      ],
+      "landmark_level": "urban_texture_support",
+      "description": "A calmer modern edge useful for solo and couple routes that want less retail-heavy CBD pacing."
+    }
+  ],
+  "food_knowledge": [
+    {
+      "id": "food_qianmen_traditional_snacks",
+      "name": "Qianmen Traditional Snack and Dessert Run",
+      "district_id": "district_qianmen_dashilar",
+      "recommended_foods": [
+        "old-style Beijing pastries",
+        "traditional sweet snacks",
+        "classic small bites"
+      ],
+      "best_for": [
+        "family",
+        "student",
+        "solo",
+        "couple"
+      ],
+      "budget": "low_to_medium",
+      "dining_scenarios": [
+        "late_morning snack route",
+        "heritage-day food support",
+        "light afternoon grazing"
+      ],
+      "meal_moments": [
+        "snack",
+        "light_lunch",
+        "dessert"
+      ],
+      "route_roles": [
+        "heritage_food_anchor",
+        "walk_and_eat_support"
+      ],
+      "note": "Best when used to support an old-city route rather than as a stand-alone food day."
+    },
+    {
+      "id": "food_dashilar_bakery_cafe_mix",
+      "name": "Dashilar Side-Lane Bakery and Cafe Mix",
+      "district_id": "district_qianmen_dashilar",
+      "recommended_foods": [
+        "specialty coffee",
+        "baked goods",
+        "small craft-style snacks"
+      ],
+      "best_for": [
+        "couple",
+        "solo",
+        "student"
+      ],
+      "budget": "medium",
+      "dining_scenarios": [
+        "slow afternoon break",
+        "premium side-lane wandering",
+        "lighter second-half route pause"
+      ],
+      "meal_moments": [
+        "coffee_break",
+        "dessert",
+        "light_afternoon"
+      ],
+      "route_roles": [
+        "pace_break",
+        "premium_texture_food_insert"
+      ],
+      "note": "Useful when the route wants a more editorial old-city texture than a pure snack corridor."
+    },
+    {
+      "id": "food_shichahai_hutong_dinner",
+      "name": "Shichahai Hutong Dinner Rhythm",
+      "district_id": "district_hutong_shichahai",
+      "recommended_foods": [
+        "casual Beijing dishes",
+        "hutong snacks",
+        "atmosphere dining"
+      ],
+      "best_for": [
+        "family",
+        "couple",
+        "student",
+        "solo"
+      ],
+      "budget": "low_to_medium",
+      "dining_scenarios": [
+        "evening meal after citywalk",
+        "date-friendly dinner",
+        "family-friendly route close"
+      ],
+      "meal_moments": [
+        "dinner",
+        "early_evening"
+      ],
+      "route_roles": [
+        "evening_meal_anchor",
+        "soft_route_finisher"
+      ],
+      "note": "Best when the route already earned enough time to enjoy the district rather than rushing through."
+    },
+    {
+      "id": "food_nanluo_snack_grazing",
+      "name": "Nanluo Snack-Grazing Logic",
+      "district_id": "district_hutong_shichahai",
+      "recommended_foods": [
+        "small street bites",
+        "easy takeaway snacks",
+        "casual sweets and drinks"
+      ],
+      "best_for": [
+        "student",
+        "solo",
+        "couple"
+      ],
+      "budget": "low",
+      "dining_scenarios": [
+        "student snack route",
+        "low-commitment food wandering",
+        "casual early-evening grazing"
+      ],
+      "meal_moments": [
+        "afternoon_snack",
+        "early_evening"
+      ],
+      "route_roles": [
+        "youthful_food_insert",
+        "citywalk_companion"
+      ],
+      "note": "Useful only when the route wants flexibility and youth energy, not as the default food logic for every hutong day."
+    },
+    {
+      "id": "food_niujie_breakfast_lunch",
+      "name": "South-City Breakfast and Lunch Corridor",
+      "district_id": "district_temple_south_city",
+      "recommended_foods": [
+        "breakfast breads and pastries",
+        "savory local staples",
+        "noodle and halal-friendly options"
+      ],
+      "best_for": [
+        "student",
+        "solo",
+        "family"
+      ],
+      "budget": "low",
+      "dining_scenarios": [
+        "morning opener",
+        "practical lunch near south-city routes",
+        "local-life food framing"
+      ],
+      "meal_moments": [
+        "breakfast",
+        "brunch",
+        "lunch"
+      ],
+      "route_roles": [
+        "morning_food_anchor",
+        "local_texture_food_support"
+      ],
+      "note": "Best for routes that want daily-life food rhythm instead of polished dining."
+    },
+    {
+      "id": "food_south_city_hotpot",
+      "name": "South-City Copper-Pot and Warm Meal Logic",
+      "district_id": "district_temple_south_city",
+      "recommended_foods": [
+        "copper-pot style meals",
+        "warming shared dishes",
+        "classic hearty options"
+      ],
+      "best_for": [
+        "family",
+        "couple",
+        "student"
+      ],
+      "budget": "medium",
+      "dining_scenarios": [
+        "cold-weather dinner",
+        "shared-meal anchor after heritage walking",
+        "family recovery meal"
+      ],
+      "meal_moments": [
+        "dinner"
+      ],
+      "route_roles": [
+        "recovery_meal_anchor",
+        "cold_weather_support"
+      ],
+      "note": "Especially useful in cooler seasons when the route needs comfort and recovery."
+    },
+    {
+      "id": "food_798_cafe_brunch",
+      "name": "798 Cafe and Brunch Pattern",
+      "district_id": "district_798_art",
+      "recommended_foods": [
+        "coffee",
+        "brunch plates",
+        "light cafe meals"
+      ],
+      "best_for": [
+        "couple",
+        "solo",
+        "student"
+      ],
+      "budget": "medium",
+      "dining_scenarios": [
+        "slow creative-district afternoon",
+        "gallery-break pacing tool",
+        "premium casual date rhythm"
+      ],
+      "meal_moments": [
+        "brunch",
+        "light_lunch",
+        "coffee_break"
+      ],
+      "route_roles": [
+        "pace_control_food_anchor",
+        "creative_district_support"
+      ],
+      "note": "Works best when used to control pace inside a curated 798 half day."
+    },
+    {
+      "id": "food_sanlitun_modern_dining",
+      "name": "Sanlitun Modern Dining Close",
+      "district_id": "district_sanlitun_modern",
+      "recommended_foods": [
+        "trendy casual dining",
+        "date-night meals",
+        "social dinner options"
+      ],
+      "best_for": [
+        "couple",
+        "student",
+        "solo"
+      ],
+      "budget": "medium_to_high",
+      "dining_scenarios": [
+        "date-night finish",
+        "student celebration meal",
+        "urban-evening route close"
+      ],
+      "meal_moments": [
+        "dinner",
+        "late_dinner"
+      ],
+      "route_roles": [
+        "modern_evening_meal_anchor",
+        "night_close_support"
+      ],
+      "note": "Best as a modern contrast finish after a route that already established more local Beijing identity."
+    },
+    {
+      "id": "food_guomao_business_lunch",
+      "name": "Guomao Polished Business Lunch Layer",
+      "district_id": "district_cbd_guomao",
+      "recommended_foods": [
+        "business lunch sets",
+        "refined casual dining",
+        "international-modern meal options"
+      ],
+      "best_for": [
+        "solo",
+        "couple"
+      ],
+      "budget": "medium_to_high",
+      "dining_scenarios": [
+        "modern-city contrast lunch",
+        "polished solo pause",
+        "urban skyline day support"
+      ],
+      "meal_moments": [
+        "lunch",
+        "late_lunch"
+      ],
+      "route_roles": [
+        "urban_contrast_meal_anchor",
+        "premium_pause"
+      ],
+      "note": "Should be used sparingly so the route does not lose Beijing-specific food identity."
+    },
+    {
+      "id": "food_olympic_family_casual",
+      "name": "Olympic Park Casual Family Meal Logic",
+      "district_id": "district_olympic_park",
+      "recommended_foods": [
+        "simple family-friendly meals",
+        "easy refuel options",
+        "low-friction casual food"
+      ],
+      "best_for": [
+        "family",
+        "student"
+      ],
+      "budget": "low_to_medium",
+      "dining_scenarios": [
+        "family recovery meal",
+        "simple pre-night-view dinner",
+        "park-day refuel"
+      ],
+      "meal_moments": [
+        "late_lunch",
+        "dinner"
+      ],
+      "route_roles": [
+        "practical_meal_support",
+        "low_friction_refuel"
+      ],
+      "note": "Not a destination food layer, but useful for keeping family sample routes executable."
+    }
+  ],
+  "traveler_type_guidance": {
+    "family": {
+      "priority_dimensions": [
+        "comfort",
+        "landmark clarity",
+        "predictable transfers",
+        "easy meals",
+        "manageable walking"
+      ],
+      "recommended_district_ids": [
+        "district_imperial_core",
+        "district_hutong_shichahai",
+        "district_temple_south_city",
+        "district_olympic_park"
+      ],
+      "preferred_route_patterns": [
+        "one heavy anchor plus one soft district",
+        "open-space recovery day after a monument-heavy day",
+        "meal-supported pacing with low surprise friction"
+      ],
+      "avoid_patterns": [
+        "three-district dense days",
+        "late-night modern urban closes",
+        "back-to-back high-walking heritage days"
+      ]
+    },
+    "couple": {
+      "priority_dimensions": [
+        "atmosphere",
+        "photo value",
+        "day-to-night transition",
+        "shared meal moments",
+        "contrast between grand and intimate"
+      ],
+      "recommended_district_ids": [
+        "district_hutong_shichahai",
+        "district_imperial_core",
+        "district_798_art",
+        "district_sanlitun_modern"
+      ],
+      "preferred_route_patterns": [
+        "heritage morning plus scenic or hutong dusk",
+        "creative afternoon plus polished dinner close",
+        "slower final day with texture rather than checklist pressure"
+      ],
+      "avoid_patterns": [
+        "museum-like density all day",
+        "nightlife with no emotional route build-up"
+      ]
+    },
+    "student": {
+      "priority_dimensions": [
+        "budget control",
+        "youth energy",
+        "casual food rhythm",
+        "iconic but flexible movement",
+        "modern contrast"
+      ],
+      "recommended_district_ids": [
+        "district_hutong_shichahai",
+        "district_798_art",
+        "district_sanlitun_modern",
+        "district_qianmen_dashilar"
+      ],
+      "preferred_route_patterns": [
+        "one iconic layer plus neighborhood or snack texture",
+        "creative east-side day",
+        "low-cost wandering with a clear route center"
+      ],
+      "avoid_patterns": [
+        "premium-heavy dining logic",
+        "landmark-only days with little local playfulness"
+      ]
+    },
+    "solo": {
+      "priority_dimensions": [
+        "freedom",
+        "clarity",
+        "walkability",
+        "observation value",
+        "small discoveries"
+      ],
+      "recommended_district_ids": [
+        "district_hutong_shichahai",
+        "district_798_art",
+        "district_imperial_core",
+        "district_cbd_guomao"
+      ],
+      "preferred_route_patterns": [
+        "one anchor plus flexible wandering district",
+        "heritage and skyline contrast across different days",
+        "slower routes with room for pause"
+      ],
+      "avoid_patterns": [
+        "couple-coded date-night logic as the main value",
+        "high-friction transfer chains with weak payoff"
+      ]
+    }
+  },
+  "real_travel_constraints": {
+    "peak_season_notes": [
+      "Major old-city landmarks can dominate the entire day during holidays if entry timing is not managed early.",
+      "Qianmen and other high-recognition corridors lose some premium quality when crowd density turns the route into slow procession.",
+      "When holiday crowd pressure is high, district clustering matters more than route ambition."
+    ],
+    "queue_behavior_notes": [
+      "Forbidden City type anchors should not be paired casually with multiple other queue-prone heritage stops.",
+      "High-queue landmarks should usually be the first major commitment of the day, not a midday add-on.",
+      "If queues consume the emotional center of the day, the route needs a softer second half nearby rather than another hard ticketed block."
+    ],
+    "walking_load_notes": [
+      "Imperial-core routes often look compact on paper but become physically heavy in practice.",
+      "Hutong and Shichahai routes feel relaxed yet still involve meaningful walking time.",
+      "Summer heat sharply increases fatigue cost for exposed heritage and open-space days."
+    ],
+    "time_limit_notes": [
+      "Some night-value zones such as Sanlitun and Water Cube are not meaningful daytime anchors.",
+      "Breakfast-style south-city routes lose their identity after the morning window.",
+      "798 is stronger as a dedicated slower half day than as a rushed route fragment."
+    ],
+    "booking_notes": [
+      "High-recognition monuments should be treated as booking-sensitive and timing-sensitive in premium sample planning.",
+      "Premium routes should avoid assuming spontaneous access to every top landmark in peak periods."
+    ],
+    "family_friction_notes": [
+      "Family premium routes should avoid more than one high-walking anchor in a single day.",
+      "Open-space recovery days are valuable and should not be treated as weak content days.",
+      "Meal access and rest rhythm are part of route quality, not secondary details."
+    ],
+    "night_mobility_notes": [
+      "Night-value districts work best when the route closes nearby instead of forcing a long final transfer.",
+      "Modern evening districts should be used intentionally for couple/student/solo routes, not copied across all templates."
+    ]
+  },
+  "route_strategy": {
+    "half_day_combinations": [
+      {
+        "id": "halfday_imperial_soft_finish",
+        "name": "Imperial Morning Plus Soft Old-City Finish",
+        "district_ids": [
+          "district_imperial_core",
+          "district_hutong_shichahai"
+        ],
+        "best_for": [
+          "family",
+          "couple",
+          "student",
+          "solo"
+        ],
+        "energy_profile": "high_then_soft",
+        "logic": "Use one heavy capital-history anchor first, then move into more walkable texture and food support."
+      },
+      {
+        "id": "halfday_south_heritage_food",
+        "name": "Temple of Heaven Plus South-City Food Rhythm",
+        "district_ids": [
+          "district_temple_south_city",
+          "district_qianmen_dashilar"
+        ],
+        "best_for": [
+          "family",
+          "student",
+          "solo",
+          "couple"
+        ],
+        "energy_profile": "medium_then_food_texture",
+        "logic": "Use a more breathable ceremonial landmark followed by south-central food and heritage-commercial texture."
+      },
+      {
+        "id": "halfday_798_sanlitun",
+        "name": "798 Creative Afternoon Plus Sanlitun Evening",
+        "district_ids": [
+          "district_798_art",
+          "district_sanlitun_modern"
+        ],
+        "best_for": [
+          "student",
+          "couple",
+          "solo"
+        ],
+        "energy_profile": "slow_then_social",
+        "logic": "Contemporary visual culture first, urban dinner and evening energy second."
+      },
+      {
+        "id": "halfday_olympic_relief",
+        "name": "Olympic Broad-Space Relief Block",
+        "district_ids": [
+          "district_olympic_park"
+        ],
+        "best_for": [
+          "family",
+          "solo",
+          "student"
+        ],
+        "energy_profile": "open_space_recovery",
+        "logic": "Use when the itinerary needs spacious movement and lower cultural density."
+      }
+    ],
+    "one_day_route_shapes": [
+      {
+        "id": "oneday_classic_beijing_premium",
+        "name": "Classic Beijing Premium Shape",
+        "start_logic": "Begin with one iconic anchor early.",
+        "midday_rhythm": "Shift into food or viewpoint support rather than stacking another heavy ticketed stop.",
+        "afternoon_transition": "Move into hutong or side-lane texture.",
+        "evening_close": "Use lakeside or casual old-city dinner rather than forcing a distant modern zone.",
+        "best_for": [
+          "family",
+          "couple",
+          "student",
+          "solo"
+        ]
+      },
+      {
+        "id": "oneday_east_side_contrast",
+        "name": "East-Side Creative Contrast Shape",
+        "start_logic": "Keep the day east-side from the beginning.",
+        "midday_rhythm": "Use 798 or another creative core as the main slow block.",
+        "afternoon_transition": "Reduce transfer count and allow cafe or gallery pacing.",
+        "evening_close": "Finish in Sanlitun or CBD depending on traveler type.",
+        "best_for": [
+          "student",
+          "couple",
+          "solo"
+        ]
+      },
+      {
+        "id": "oneday_family_soft_heritage",
+        "name": "Family Soft Heritage Shape",
+        "start_logic": "Use one clear landmark with easy orientation.",
+        "midday_rhythm": "Insert meal and rest support early enough.",
+        "afternoon_transition": "Move into open, lower-pressure walking or park-like texture.",
+        "evening_close": "Close close to the day zone without nightlife pressure.",
+        "best_for": [
+          "family"
+        ]
+      }
+    ],
+    "multi_day_balance_rules": [
+      "Do not place the two most physically expensive heritage days back-to-back in family 5-day templates.",
+      "For 3-day routes, do not let all three days open with the same monument-heavy pattern.",
+      "At least one day in student and solo templates should be neighborhood- or creative-district-led rather than landmark-led.",
+      "Modern districts should appear as contrast layers, not replace Beijing-specific city identity."
+    ],
+    "avoid_combinations": [
+      {
+        "district_ids": [
+          "district_imperial_core",
+          "district_798_art",
+          "district_sanlitun_modern"
+        ],
+        "reason": "Too transfer-heavy and too thematically fragmented for a premium one-day route."
+      },
+      {
+        "district_ids": [
+          "district_imperial_core",
+          "district_temple_south_city"
+        ],
+        "reason": "Can become an over-monument day unless the rest of the route is dramatically softened."
+      },
+      {
+        "district_ids": [
+          "district_olympic_park",
+          "district_hutong_shichahai"
+        ],
+        "reason": "Creates an awkward long-distance contrast day with weak route flow for most sample plans."
+      }
+    ],
+    "backup_logic": [
+      "If a heavy iconic landmark becomes operationally too risky, switch to a neighborhood-led day in Hutong / Shichahai or Qianmen / Dashilar rather than forcing another big-ticket substitute.",
+      "If weather or fatigue weakens a planned long walk, shorten the district count and protect the food-and-evening logic instead of preserving every stop."
+    ],
+    "diversification_rules": [
+      "Do not use Forbidden City as the mandatory first-day anchor for every Beijing sample.",
+      "Rotate between old-city heritage-led, hutong-led, south-city-led, and east-side modern-contrast route centers.",
+      "Use food logic as a differentiator rather than repeating one generic Beijing dinner pattern."
+    ]
+  },
+  "route_templates": [
+    {
+      "id": "template_beijing_student_3d",
+      "trip_type": "student",
+      "days": 3,
+      "design_goal": "Affordable, youthful, flexible, and clearly different from family or couple logic.",
+      "day_templates": [
+        {
+          "day": 1,
+          "theme": "Iconic but not over-formal old-city entry",
+          "districts": [
+            "district_imperial_core",
+            "district_qianmen_dashilar"
+          ],
+          "route_shape": "One lighter iconic anchor plus food-backed heritage-commercial texture.",
+          "must_have_traits": [
+            "Do not overload tickets.",
+            "Use snack or low-cost meal rhythm.",
+            "Keep enough freedom for casual wandering."
+          ]
+        },
+        {
+          "day": 2,
+          "theme": "Creative east-side contrast",
+          "districts": [
+            "district_798_art",
+            "district_sanlitun_modern"
+          ],
+          "route_shape": "Slow afternoon creative district plus lively modern evening.",
+          "must_have_traits": [
+            "Keep the day socially usable.",
+            "Let modern Beijing feel youthful, not premium-only."
+          ]
+        },
+        {
+          "day": 3,
+          "theme": "Low-pressure hutong and snack citywalk",
+          "districts": [
+            "district_hutong_shichahai"
+          ],
+          "route_shape": "Flexible wandering day with food grazing and optional scenic close.",
+          "must_have_traits": [
+            "Low transfer cost.",
+            "Strong local texture.",
+            "Visible contrast from day 1 and day 2."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "template_beijing_couple_3d",
+      "trip_type": "couple",
+      "days": 3,
+      "design_goal": "Atmospheric, photogenic, and emotionally paced rather than monument-stacked.",
+      "day_templates": [
+        {
+          "day": 1,
+          "theme": "Heritage scale plus romantic old-city atmosphere",
+          "districts": [
+            "district_imperial_core",
+            "district_hutong_shichahai"
+          ],
+          "route_shape": "History anchor, scenic release, then hutong / lakeside evening.",
+          "must_have_traits": [
+            "Photo-value transition.",
+            "Evening payoff matters."
+          ]
+        },
+        {
+          "day": 2,
+          "theme": "Creative contrast and polished dinner close",
+          "districts": [
+            "district_798_art",
+            "district_sanlitun_modern"
+          ],
+          "route_shape": "Slower visual afternoon and a stylish urban night finish.",
+          "must_have_traits": [
+            "The route should feel like a mood arc.",
+            "Avoid generic mall-tourism energy."
+          ]
+        },
+        {
+          "day": 3,
+          "theme": "Softer local-texture final day",
+          "districts": [
+            "district_qianmen_dashilar",
+            "district_hutong_shichahai"
+          ],
+          "route_shape": "Less checklist pressure, more shared wandering and food memory.",
+          "must_have_traits": [
+            "No heavy monument stack.",
+            "Keep room for slower moments."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "template_beijing_family_5d",
+      "trip_type": "family",
+      "days": 5,
+      "design_goal": "Clear, iconic, low-friction, and genuinely executable over multiple days.",
+      "day_templates": [
+        {
+          "day": 1,
+          "theme": "Easy city arrival and orientation",
+          "districts": [
+            "district_qianmen_dashilar"
+          ],
+          "route_shape": "Recognizable old-city entry with meal access and manageable walking.",
+          "must_have_traits": [
+            "Do not burn too much energy on arrival day.",
+            "Use simple route logic."
+          ]
+        },
+        {
+          "day": 2,
+          "theme": "Primary imperial landmark day",
+          "districts": [
+            "district_imperial_core",
+            "district_hutong_shichahai"
+          ],
+          "route_shape": "One major heritage anchor and one softer nearby afternoon/evening landing.",
+          "must_have_traits": [
+            "Protect rest and meal timing.",
+            "No second heavy monument block."
+          ]
+        },
+        {
+          "day": 3,
+          "theme": "Breathable ceremonial heritage day",
+          "districts": [
+            "district_temple_south_city"
+          ],
+          "route_shape": "Open-space heritage with gentler pacing and south-city meal support.",
+          "must_have_traits": [
+            "This day should feel easier than day 2."
+          ]
+        },
+        {
+          "day": 4,
+          "theme": "Open-space recovery and modern skyline relief",
+          "districts": [
+            "district_olympic_park"
+          ],
+          "route_shape": "Broad-space family-friendly route with lower cultural density.",
+          "must_have_traits": [
+            "Use recovery as a quality feature, not dead time."
+          ]
+        },
+        {
+          "day": 5,
+          "theme": "Light closeout with low friction",
+          "districts": [
+            "district_hutong_shichahai"
+          ],
+          "route_shape": "Shorter walkable texture and flexible meal close.",
+          "must_have_traits": [
+            "No long final cross-city transfer.",
+            "Keep packing and departure realities in mind."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "template_beijing_solo_3d",
+      "trip_type": "solo",
+      "days": 3,
+      "design_goal": "Self-directed, layered, and rich in observation value without feeling empty or generic.",
+      "day_templates": [
+        {
+          "day": 1,
+          "theme": "Capital-history anchor plus reflective old-city walking",
+          "districts": [
+            "district_imperial_core",
+            "district_hutong_shichahai"
+          ],
+          "route_shape": "One clear anchor followed by a more open-ended neighborhood walk.",
+          "must_have_traits": [
+            "Leave room for slowing down.",
+            "Do not overschedule the second half."
+          ]
+        },
+        {
+          "day": 2,
+          "theme": "Creative or modern contrast day",
+          "districts": [
+            "district_798_art",
+            "district_cbd_guomao"
+          ],
+          "route_shape": "From contemporary creative texture into quieter skyline contrast.",
+          "must_have_traits": [
+            "Independent pace matters more than volume."
+          ]
+        },
+        {
+          "day": 3,
+          "theme": "South-city or old-street observation day",
+          "districts": [
+            "district_temple_south_city",
+            "district_qianmen_dashilar"
+          ],
+          "route_shape": "Local rhythm, morning food logic, and reflective close instead of climax-chasing.",
+          "must_have_traits": [
+            "Favor texture over checklist completion."
+          ]
+        }
+      ]
+    }
+  ],
+  "season_timing_notes": {
+    "all_year_notes": [
+      "District clustering is more important than total POI count in Beijing because movement cost rises quickly once the route spans too many zones.",
+      "Old-city and modern-east-side content should usually live on different route shapes unless the itinerary is explicitly contrast-driven."
+    ],
+    "seasonal_highlights": [
+      "Spring and autumn strengthen citywalk-heavy districts such as Hutong / Shichahai and Dashilar side lanes.",
+      "Cooler months make shared warming meal logic in south-city routes more valuable."
+    ],
+    "weather_sensitive_notes": [
+      "Summer heat punishes exposed monument and broad-axis days.",
+      "Winter wind lowers the value of long open-space walking unless the day is built around short high-payoff exterior moments."
+    ],
+    "day_vs_night_notes": [
+      "Hutong / Shichahai and Olympic lighting routes improve at dusk and night.",
+      "Sanlitun and CBD are much stronger late than early."
+    ],
+    "weekday_vs_weekend_notes": [
+      "High-traffic old-city corridors degrade more on weekends and holidays.",
+      "Modern districts tolerate crowding better than heritage corridors when used as evening closers."
+    ]
+  },
+  "metadata": {
+    "version": "v3_beijing_premium_sample_draft",
+    "last_updated": "2026-07-15",
+    "source_method": "manual premium-sample design",
+    "editor_notes": [
+      "This file is intentionally selective rather than exhaustive.",
+      "The focus is premium route quality, traveler differentiation, and execution feasibility.",
+      "POI list is curated to support the first batch of high-quality Explore samples."
+    ]
+  }
+}

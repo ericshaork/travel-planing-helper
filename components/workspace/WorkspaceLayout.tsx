@@ -8,6 +8,7 @@ interface WorkspaceLayoutProps {
   main: ReactNode;
   inspector: ReactNode;
   compactBlankReadMode?: boolean;
+  compactEmptyEditMode?: boolean;
 }
 
 export function WorkspaceLayout({
@@ -16,6 +17,7 @@ export function WorkspaceLayout({
   main,
   inspector,
   compactBlankReadMode = false,
+  compactEmptyEditMode = false,
 }: WorkspaceLayoutProps) {
   return (
     <>
@@ -26,6 +28,7 @@ export function WorkspaceLayout({
         main={main}
         inspector={inspector}
         compactBlankReadMode={compactBlankReadMode}
+        compactEmptyEditMode={compactEmptyEditMode}
       />
     </>
   );

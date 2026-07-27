@@ -1,0 +1,386 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wanderly.local/schemas/city_template.schema.json",
+  "title": "Wanderly City Template v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "template_id",
+    "template_version",
+    "city_identity",
+    "traveler_profile",
+    "content_rules",
+    "asset_requirements",
+    "image_template_ref"
+  ],
+  "properties": {
+    "template_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "template_version": {
+      "const": "city_template_v1"
+    },
+    "city_identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "code",
+        "name",
+        "region_name",
+        "country",
+        "language",
+        "timezone",
+        "visual_identity_keywords",
+        "signature_moods"
+      ],
+      "properties": {
+        "code": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "region_name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "country": {
+          "type": "string",
+          "minLength": 1
+        },
+        "language": {
+          "type": "string",
+          "minLength": 1
+        },
+        "timezone": {
+          "type": "string",
+          "minLength": 1
+        },
+        "visual_identity_keywords": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "signature_moods": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "seasonal_texture": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "Optional seasonal or weather-linked city texture used for content and image planning.",
+          "properties": {
+            "primary_season": {
+              "type": "string",
+              "minLength": 1
+            },
+            "weather_moods": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "default": []
+            },
+            "visual_cues": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "default": []
+            },
+            "avoid_cues": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "default": []
+            }
+          }
+        }
+      }
+    },
+    "traveler_profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "traveler_type",
+        "days",
+        "season",
+        "budget",
+        "pace",
+        "motivation",
+        "theme"
+      ],
+      "properties": {
+        "traveler_type": {
+          "enum": ["couple", "solo", "student", "family", "friends"]
+        },
+        "days": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 14
+        },
+        "season": {
+          "type": "string",
+          "minLength": 1
+        },
+        "budget": {
+          "enum": ["low", "medium", "high"]
+        },
+        "pace": {
+          "enum": ["slow", "balanced", "packed"]
+        },
+        "motivation": {
+          "type": "string",
+          "minLength": 1
+        },
+        "theme": {
+          "type": "string",
+          "minLength": 1
+        },
+        "must_include": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": []
+        },
+        "avoid": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": []
+        }
+      }
+    },
+    "content_rules": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "tone",
+        "route_quality",
+        "poi_rules",
+        "food_rules",
+        "hard_constraints"
+      ],
+      "properties": {
+        "tone": {
+          "type": "string",
+          "minLength": 1
+        },
+        "route_quality": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "poi_rules": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "food_rules": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "hard_constraints": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "asset_requirements": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["families", "minimum_images"],
+      "properties": {
+        "families": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["family", "minimum_count", "purpose"],
+            "properties": {
+              "family": {
+                "enum": [
+                  "signature_anchor",
+                  "historic_texture",
+                  "slow_solo",
+                  "modern_contrast",
+                  "evening_closure",
+          "food_backbone"
+                ]
+              },
+              "minimum_count": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "purpose": {
+                "type": "string",
+                "minLength": 1
+              },
+              "asset_examples": {
+                "type": "array",
+                "description": "Optional authoring examples for this asset family. These are not generated asset ids.",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "default": []
+              }
+            }
+          }
+        },
+        "minimum_images": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["cover", "place", "experience", "food"],
+          "properties": {
+            "cover": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "place": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "experience": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "food": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        },
+        "food_evidence_level": {
+          "enum": ["none", "city_mood", "real_dish", "named_shop_or_dish"],
+          "description": "Clarifies whether food imagery may be mood-level or must be real evidence."
+        },
+        "golden_review_thresholds": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "Optional minimum review thresholds before this template can be treated as a Golden Sample.",
+          "properties": {
+            "minimum_reviewed_covers": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "minimum_real_place_gallery": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "maximum_duplicate_final_images": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "require_provenance_for_all_assets": {
+              "type": "boolean"
+            },
+            "require_manual_review_for_cover": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    },
+    "image_template_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["template_id", "template_version"],
+      "properties": {
+        "template_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "template_version": {
+          "const": "image_template_v1"
+        }
+      }
+    },
+    "golden_reference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["package_id", "path"],
+      "properties": {
+        "package_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "path": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "image_template": {
+      "type": "object",
+      "description": "Optional embedded Image Template v1 example or co-located template contract."
+    },
+    "golden_sample_mapping": {
+      "type": "array",
+      "description": "Optional example mapping from Golden Sample package assets.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "asset_instance_id",
+          "image_slot",
+          "image_usage_profile",
+          "generation_mode",
+          "final_source"
+        ],
+        "properties": {
+          "asset_instance_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "image_slot": {
+            "enum": [
+              "explore_cover",
+              "trip_cover",
+              "day_cover",
+              "poi_gallery",
+              "food_gallery",
+              "detail_image"
+            ]
+          },
+          "image_usage_profile": {
+            "enum": ["cover", "place", "experience", "food"]
+          },
+          "generation_mode": {
+            "enum": ["real_photo", "ai_generated", "hybrid"]
+          },
+          "final_source": {
+            "enum": ["wikimedia", "pexels", "local", "ai_generated", "hybrid"]
+          }
+        }
+      }
+    }
+  }
+}

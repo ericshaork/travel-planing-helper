@@ -1,0 +1,52 @@
+{
+  "asset_id": "ca_chengdu_hotpot_table",
+  "asset_instance_id": "ca_chengdu_hotpot_table_food_gallery",
+  "image_slot": "food_gallery",
+  "source": "pexels",
+  "file_path": "C:\\Users\\10200\\Desktop\\travel_planing\\image-pipeline\\image-pipeline\\assets\\external\\ca_chengdu_hotpot_table.jpeg",
+  "status": "completed",
+  "retry_count": 0,
+  "last_error": null,
+  "download_status": "completed",
+  "fallback_available": false,
+  "selection": {
+    "selected_candidate": {
+      "source": "pexels",
+      "candidate_id": "29191590",
+      "image_url": "https://images.pexels.com/photos/29191590/pexels-photo-29191590.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    },
+    "rank_score": 60,
+    "candidate_count": 10,
+    "rejected_count": 0
+  },
+  "metadata": {
+    "source_runs": [
+      {
+        "source": "wikimedia",
+        "priority": 1,
+        "candidate_count": 0,
+        "error": "Wikimedia request failed with status 429."
+      },
+      {
+        "source": "pexels",
+        "priority": 2,
+        "candidate_count": 10,
+        "error": null
+      }
+    ],
+    "title": "Colorful facade of a street food shop in Chengdu, China, showcasing traditional design and local character.",
+    "description": "Colorful facade of a street food shop in Chengdu, China, showcasing traditional design and local character.",
+    "author": "Blackcurrant Great",
+    "license": "Pexels License",
+    "source_url": "https://www.pexels.com/photo/traditional-chinese-street-food-shop-in-chengdu-29191590/",
+    "image_url": "https://images.pexels.com/photos/29191590/pexels-photo-29191590.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "width": 5410,
+    "height": 3043,
+    "mime_type": "image/jpeg",
+    "score_reasons": [
+      "location_match",
+      "high_resolution_3000",
+      "wanderly_fit"
+    ]
+  }
+}

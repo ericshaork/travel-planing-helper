@@ -2,6 +2,7 @@ import "server-only";
 
 import {
   getServerEnvironment,
+  resolveAiRuntimeConfig,
   type ServerEnvironment,
 } from "../utils/env";
 import { MockLLMProvider } from "./mock";
@@ -11,17 +12,17 @@ import type { LLMProvider } from "./provider";
 export function createLLMProvider(
   environment: ServerEnvironment = getServerEnvironment(),
 ): LLMProvider {
-  if (environment.USE_MOCK_AI) {
+  const config = resolveAiRuntimeConfig(environment);
+
+  if (config.providerName === "mock") {
     return new MockLLMProvider();
   }
 
-  const { LLM_BASE_URL, LLM_API_KEY, LLM_MODEL } = environment;
-
   return new OpenAICompatibleProvider({
-    baseUrl: LLM_BASE_URL!,
-    apiKey: LLM_API_KEY!,
-    model: LLM_MODEL!,
-    timeoutMs: environment.LLM_TIMEOUT_MS,
+    baseUrl: config.baseUrl!,
+    apiKey: config.apiKey!,
+    model: config.model!,
+    timeoutMs: config.timeoutMs,
   });
 }
 

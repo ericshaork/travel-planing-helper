@@ -1,0 +1,153 @@
+{
+  "template_id": "xian_couple_template_v1",
+  "template_version": "city_template_v1",
+  "city_identity": {
+    "code": "xian",
+    "name": "Xi'an",
+    "region_name": "Shaanxi",
+    "country": "China",
+    "language": "zh-CN",
+    "timezone": "Asia/Shanghai",
+    "visual_identity_keywords": [
+      "city wall",
+      "Tang dynasty atmosphere",
+      "heritage landmarks",
+      "old alleys",
+      "Muslim Quarter food",
+      "warm night lights"
+    ],
+    "signature_moods": [
+      "historic first arrival",
+      "heritage place evidence",
+      "city wall dusk",
+      "night market memory"
+    ],
+    "seasonal_texture": {
+      "primary_season": "autumn",
+      "weather_moods": [
+        "dry clear light",
+        "golden dusk",
+        "cool evening"
+      ],
+      "visual_cues": [
+        "earth-toned city wall",
+        "lantern warmth",
+        "stone road texture",
+        "heritage silhouettes"
+      ],
+      "avoid_cues": [
+        "fantasy Tang palace",
+        "fake ancient costumes as main proof",
+        "generic desert palette"
+      ]
+    }
+  },
+  "traveler_profile": {
+    "traveler_type": "couple",
+    "days": 3,
+    "season": "autumn",
+    "budget": "medium",
+    "pace": "balanced",
+    "motivation": "heritage_and_evening_food",
+    "theme": "Xi'an heritage landmarks, city wall dusk, and food street couple route",
+    "must_include": [
+      "Xi'an City Wall",
+      "Big Wild Goose Pagoda",
+      "Shaanxi History Museum",
+      "Muslim Quarter",
+      "Bell Tower or Drum Tower"
+    ],
+    "avoid": [
+      "all heritage sites in one day",
+      "fake historical spectacle replacing real places",
+      "food route without provenance"
+    ]
+  },
+  "content_rules": {
+    "tone": "travel magazine plus private journal",
+    "route_quality": [
+      "Use heritage density carefully so days are not museum-heavy.",
+      "Keep city wall and pagoda moments visually distinct.",
+      "Use night market or city wall lights as emotional closure.",
+      "Group ancient city core walking routes by geography."
+    ],
+    "poi_rules": [
+      "Use City Wall or Big Wild Goose Pagoda as signature anchors.",
+      "Use real place evidence for heritage POIs.",
+      "Use museum content with conservative timing and reservation reminders.",
+      "Use old streets and towers for historic texture."
+    ],
+    "food_rules": [
+      "Use real provenance for named foods and shops such as roujiamo, biangbiang noodles, paomo, or Muslim Quarter stalls.",
+      "Do not generate AI images for named food/shop evidence.",
+      "Keep food stops tied to route and comfort."
+    ],
+    "hard_constraints": [
+      "Do not fabricate real-time opening status.",
+      "Do not fabricate live ticket availability.",
+      "Do not fabricate live queue time.",
+      "Preserve source provenance for every final image."
+    ]
+  },
+  "asset_requirements": {
+    "families": [
+      {
+        "family": "signature_anchor",
+        "minimum_count": 2,
+        "purpose": "major heritage landmarks that define first-arrival Xi'an",
+        "asset_examples": [
+          "Xi'an City Wall",
+          "Big Wild Goose Pagoda",
+          "Bell Tower"
+        ]
+      },
+      {
+        "family": "historic_texture",
+        "minimum_count": 2,
+        "purpose": "heritage streets, tower surroundings, and old-city walking texture",
+        "asset_examples": [
+          "Muslim Quarter",
+          "Drum Tower area",
+          "old city alleys"
+        ]
+      },
+      {
+        "family": "evening_closure",
+        "minimum_count": 1,
+        "purpose": "city wall night lights or market warmth",
+        "asset_examples": [
+          "City Wall night view",
+          "Muslim Quarter evening"
+        ]
+      },
+      {
+        "family": "food_backbone",
+        "minimum_count": 2,
+        "purpose": "named local food evidence with provenance",
+        "asset_examples": [
+          "roujiamo",
+          "biangbiang noodles",
+          "yangrou paomo"
+        ]
+      }
+    ],
+    "minimum_images": {
+      "cover": 3,
+      "place": 4,
+      "experience": 1,
+      "food": 2
+    },
+    "food_evidence_level": "named_shop_or_dish",
+    "golden_review_thresholds": {
+      "minimum_reviewed_covers": 3,
+      "minimum_real_place_gallery": 4,
+      "maximum_duplicate_final_images": 0,
+      "require_provenance_for_all_assets": true,
+      "require_manual_review_for_cover": true
+    }
+  },
+  "image_template_ref": {
+    "template_id": "wanderly_image_template_v1",
+    "template_version": "image_template_v1"
+  }
+}

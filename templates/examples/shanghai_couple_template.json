@@ -1,0 +1,161 @@
+{
+  "template_id": "shanghai_couple_template_v1",
+  "template_version": "city_template_v1",
+  "city_identity": {
+    "code": "shanghai",
+    "name": "Shanghai",
+    "region_name": "Shanghai",
+    "country": "China",
+    "language": "zh-CN",
+    "timezone": "Asia/Shanghai",
+    "visual_identity_keywords": [
+      "Bund riverfront",
+      "Lujiazui skyline",
+      "plane-tree streets",
+      "historic villas",
+      "Suzhou Creek",
+      "night city lights"
+    ],
+    "signature_moods": [
+      "modern contrast",
+      "city mood cover",
+      "romantic night walk",
+      "old street texture"
+    ],
+    "seasonal_texture": {
+      "primary_season": "autumn",
+      "weather_moods": [
+        "clear evening",
+        "humid river haze",
+        "soft street shade"
+      ],
+      "visual_cues": [
+        "warm building lights",
+        "river reflections",
+        "plane-tree shadows",
+        "stone lane facades"
+      ],
+      "avoid_cues": [
+        "generic skyscraper stock photo",
+        "only shopping mall interiors",
+        "overly cyberpunk neon"
+      ]
+    }
+  },
+  "traveler_profile": {
+    "traveler_type": "couple",
+    "days": 3,
+    "season": "autumn",
+    "budget": "medium",
+    "pace": "balanced",
+    "motivation": "city_mood_and_walks",
+    "theme": "Shanghai modern skyline and old street couple route",
+    "must_include": [
+      "The Bund",
+      "Lujiazui",
+      "Wukang Road",
+      "Suzhou Creek",
+      "Former French Concession"
+    ],
+    "avoid": [
+      "only shopping malls",
+      "overpacked photo checklist",
+      "generic skyline without walking texture"
+    ]
+  },
+  "content_rules": {
+    "tone": "travel magazine plus private journal",
+    "route_quality": [
+      "Balance skyline moments with human-scale street walks.",
+      "Use riverfront and old neighborhood contrast as the main route logic.",
+      "Keep night experience focused and not overpacked.",
+      "Avoid crossing Pudong and Puxi repeatedly in one day."
+    ],
+    "poi_rules": [
+      "Use the Bund and Lujiazui as the modern contrast anchor.",
+      "Use Wukang Road or Former French Concession for historic street texture.",
+      "Use Suzhou Creek for a softer urban walking layer.",
+      "Separate city mood cover from place evidence gallery."
+    ],
+    "food_rules": [
+      "Use real food evidence for xiaolongbao, local noodles, coffee shops, or named restaurants.",
+      "Do not fabricate named shops or dishes with AI images.",
+      "Food should support walking rhythm rather than dominate the route."
+    ],
+    "hard_constraints": [
+      "Do not fabricate real-time opening status.",
+      "Do not fabricate live queue time.",
+      "Do not fabricate live restaurant availability.",
+      "Preserve source provenance for every final image."
+    ]
+  },
+  "asset_requirements": {
+    "families": [
+      {
+        "family": "signature_anchor",
+        "minimum_count": 1,
+        "purpose": "Bund or Lujiazui as the city-defining anchor",
+        "asset_examples": [
+          "The Bund",
+          "Lujiazui skyline"
+        ]
+      },
+      {
+        "family": "modern_contrast",
+        "minimum_count": 2,
+        "purpose": "contrast between skyline, riverfront, and old street texture",
+        "asset_examples": [
+          "Lujiazui",
+          "Suzhou Creek",
+          "Bund riverfront"
+        ]
+      },
+      {
+        "family": "historic_texture",
+        "minimum_count": 1,
+        "purpose": "plane-tree street, old villa, or lane texture",
+        "asset_examples": [
+          "Wukang Road",
+          "Former French Concession"
+        ]
+      },
+      {
+        "family": "evening_closure",
+        "minimum_count": 1,
+        "purpose": "night river walk or skyline lights for couple memory",
+        "asset_examples": [
+          "Bund night walk",
+          "Suzhou Creek lights"
+        ]
+      },
+      {
+        "family": "food_backbone",
+        "minimum_count": 1,
+        "purpose": "local food evidence without turning route into a food checklist",
+        "asset_examples": [
+          "xiaolongbao",
+          "scallion oil noodles",
+          "local coffee stop"
+        ]
+      }
+    ],
+    "minimum_images": {
+      "cover": 3,
+      "place": 3,
+      "experience": 2,
+      "food": 1
+    },
+    "food_evidence_level": "named_shop_or_dish",
+    "golden_review_thresholds": {
+      "minimum_reviewed_covers": 3,
+      "minimum_real_place_gallery": 3,
+      "maximum_duplicate_final_images": 0,
+      "require_provenance_for_all_assets": true,
+      "require_manual_review_for_cover": true
+    }
+  },
+  "image_template_ref": {
+    "template_id": "wanderly_image_template_v1",
+    "template_version": "image_template_v1"
+  }
+}

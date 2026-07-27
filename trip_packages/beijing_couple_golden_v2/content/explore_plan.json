@@ -1,0 +1,225 @@
+{
+  "id": "exp_beijing_couple_first_impression",
+  "slug": "beijing-couple-first-impression",
+  "title": "北京 3 天 · 情侣首印象路线",
+  "summary": "用皇城尺度开场、景山过渡、北海与什刹海黄昏收尾，搭配亮马河夜景的现代感，为情侣创造第一次共同看见北京的稳定记忆。",
+  "city": {
+    "code": "beijing",
+    "name": "Beijing",
+    "region_name": "Beijing"
+  },
+  "trip_type": "couple",
+  "days": 3,
+  "budget": {
+    "level": "medium",
+    "note": "主要支出为故宫门票、景山公园门票、北海公园门票、什刹海晚餐、亮马河游船或酒吧消费，预算可控。"
+  },
+  "pace": "balanced",
+  "tags": [
+    "北京",
+    "情侣",
+    "首次到访",
+    "皇城",
+    "胡同",
+    "黄昏",
+    "夜景"
+  ],
+  "image_prompt": "autumn morning hero image of 故宫博物院. Preserve real geography and architecture while allowing a travel magazine and private journal mood. Focus on landmark scale, clear architecture, first-arrival recognition, and a concrete sense of place.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "皇城开场 · 故宫与景山",
+      "summary": "用故宫建立北京第一印象，午后登景山俯瞰中轴线，傍晚在前门大栅栏侧巷感受老城纹理与晚餐。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "从午门进入故宫，沿中轴线参观太和殿、中和殿、保和殿，经乾清宫至御花园。建议租用讲解器或跟随官方导览，约3小时。注意提前预约门票，避免排队过久。",
+          "poi_refs": [
+            "poi_forbidden_city"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "从故宫神武门出，步行约15分钟至景山公园南门。登万春亭俯瞰故宫全景与中轴线，拍照停留约1小时。之后可步行或打车前往前门地区。",
+          "poi_refs": [
+            "poi_jingshan"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "进入大栅栏侧巷，避开主街人流，探索老字号店铺、胡同肌理和独立咖啡馆。推荐在「铃木食堂」或「前门故事」咖啡店稍作停顿，感受老城慢节奏。",
+          "poi_refs": [
+            "poi_dashilar_side_streets"
+          ],
+          "food_refs": [
+            "food_dashilar_cafe"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "在前门传统美食区享用晚餐，推荐「利群烤鸭」或「四季民福前门店」，品尝北京烤鸭与经典京菜。饭后可沿前门大街散步，欣赏城楼夜景。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_qianmen_dinner"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "皇家园林与湖滨黄昏 · 北海、什刹海",
+      "summary": "上午游览北海公园，感受皇家园林的宁静；下午在什刹海周边胡同漫步，黄昏沿湖散步，晚餐选择湖边的氛围餐厅，用亮马河夜景收尾。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "从北海公园南门进入，游览琼华岛、白塔、五龙亭等经典景观。秋季公园色彩丰富，适合慢行拍照，约2小时。",
+          "poi_refs": [
+            "poi_beihai"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "从北海公园北门出，步行约10分钟至什刹海前海。沿湖边向银锭桥方向散步，进入烟袋斜街和周边胡同，感受老北京生活纹理。可租一辆自行车或乘坐三轮车体验胡同。",
+          "poi_refs": [
+            "poi_shichahai_hutong"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "黄昏时分在什刹海湖边找一家观景餐厅，推荐「孔乙己」或「后海16号」，品尝北京家常菜，享受湖面夕阳。餐后可步行至后海酒吧街，或打车前往亮马河，乘坐游船或沿河散步，欣赏现代北京夜景。",
+          "poi_refs": [
+            "poi_liangma_river"
+          ],
+          "food_refs": [
+            "food_shichahai_dinner"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "天坛与城南慢行 · 天坛、前门侧巷",
+      "summary": "上午在天坛感受古代祭祀建筑的庄严，下午在前门侧巷探索烘焙与咖啡文化，傍晚结束旅程。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "从天坛南门进入，游览圜丘坛、皇穹宇、祈年殿。天坛公园内古柏参天，适合散步和拍照，约2小时。",
+          "poi_refs": [
+            "poi_temple_of_heaven"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "从天坛北门出，步行或骑行至前门地区，深入大栅栏侧巷，在「前门故事咖啡」或「VOYAGE COFFEE」享用下午茶，搭配烘焙点心。之后可自由逛胡同或购买伴手礼。",
+          "poi_refs": [
+            "poi_dashilar_side_streets"
+          ],
+          "food_refs": [
+            "food_dashilar_cafe"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "在前门附近简单用餐，推荐「方砖厂69号炸酱面」体验地道北京炸酱面，随后结束行程。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_qianmen_noodle"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_forbidden_city",
+      "name": "故宫博物院",
+      "district": "东城区",
+      "type": "imperial landmark",
+      "reason": "北京最高识别度历史锚点，首次到访情侣必看。选择上午入场可避开人流高峰，中轴线参观3小时强度适中。",
+      "recommended_duration_minutes": 210
+    },
+    {
+      "id": "poi_jingshan",
+      "name": "景山公园",
+      "district": "西城区",
+      "type": "city viewpoint",
+      "reason": "从故宫步行可达，登高俯瞰故宫全景与北京中轴线，是重历史片段后的视角释放，适合情侣拍照留念。",
+      "recommended_duration_minutes": 75
+    },
+    {
+      "id": "poi_dashilar_side_streets",
+      "name": "大栅栏侧巷与老街纹理",
+      "district": "东城区",
+      "type": "historic lane district",
+      "reason": "避开主街人流，侧巷保留老北京店铺与胡同肌理，适合情侣慢行、咖啡停顿，感受老城生活纹理。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_beihai",
+      "name": "北海公园",
+      "district": "西城区",
+      "type": "royal garden",
+      "reason": "皇家园林代表，秋季色彩丰富，适合情侣慢行拍照，与什刹海相邻便于路线衔接。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_shichahai_hutong",
+      "name": "什刹海胡同步行区",
+      "district": "西城区",
+      "type": "hutong district",
+      "reason": "湖边与胡同结合，黄昏氛围极佳，适合情侣散步、拍照，晚餐后还可继续体验夜景。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_liangma_river",
+      "name": "亮马河夜景步道",
+      "district": "朝阳区",
+      "type": "modern waterfront",
+      "reason": "现代北京夜景代表，游船或河边散步可提供与老城不同的都市氛围，适合情侣晚间收尾。",
+      "recommended_duration_minutes": 60
+    },
+    {
+      "id": "poi_temple_of_heaven",
+      "name": "天坛公园",
+      "district": "东城区",
+      "type": "cultural landmark",
+      "reason": "古代祭祀建筑群，祈年殿为北京标志，公园开阔适合散步，与天坛南门进入的路线设计匹配。",
+      "recommended_duration_minutes": 120
+    }
+  ],
+  "food": [
+    {
+      "id": "food_dashilar_cafe",
+      "name": "前门侧巷咖啡与烘焙",
+      "district": "东城区",
+      "category": "cafe",
+      "reason": "在老城侧巷中提供咖啡与烘焙停顿，节奏缓冲，适合情侣下午休息，补充老城质感。"
+    },
+    {
+      "id": "food_qianmen_dinner",
+      "name": "前门传统烤鸭晚餐",
+      "district": "东城区",
+      "category": "dinner",
+      "reason": "北京烤鸭是首次到访必尝，前门地区老字号多，氛围正宗，适合作为首日收尾。"
+    },
+    {
+      "id": "food_shichahai_dinner",
+      "name": "什刹海湖畔晚餐",
+      "district": "西城区",
+      "category": "dinner",
+      "reason": "湖滨餐厅提供北京家常菜与湖景，黄昏时分用餐氛围极佳，是第二天的情绪收尾。"
+    },
+    {
+      "id": "food_qianmen_noodle",
+      "name": "方砖厂69号炸酱面",
+      "district": "东城区",
+      "category": "casual",
+      "reason": "地道老北京炸酱面，价格亲民，适合最后一天简单用餐，体验本地日常味道。"
+    }
+  ]
+}

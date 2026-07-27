@@ -1,4 +1,4 @@
-import normalizedArchivesJson from "@/data/explore/normalized/explore_archives_v1.json";
+import normalizedArchivesJson from "../../data/explore/normalized/explore_archives_v1.json";
 
 import { filterV18ExploreVisibleArchives } from "./display";
 import type {

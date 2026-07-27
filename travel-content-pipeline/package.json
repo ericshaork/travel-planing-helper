@@ -1,0 +1,39 @@
+{
+  "name": "travel-content-pipeline",
+  "version": "0.3.0",
+  "private": true,
+  "description": "Internal Explore content seeder for generating structured travel plans.",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "generate": "tsx src/run.ts",
+    "generate:batch": "tsx src/batchGenerate.ts",
+    "seed:beijing-map-assets": "tsx src/map/scripts/seedBeijingMapAssets.ts",
+    "validate:beijing-map-assets": "tsx src/map/scripts/validateBeijingMapAssets.ts",
+    "test:map-context-integration": "tsx src/testMapContextIntegration.ts",
+    "test:map-context-trace": "tsx src/context/testMapContextTrace.ts",
+    "test:map-resolver": "tsx src/testMapResolver.ts",
+    "test:amap": "tsx src/testAmap.ts",
+    "test:map-assets": "tsx src/testMapAssets.ts",
+    "test:content-assets": "tsx src/testContentAssetRanking.ts",
+    "test:content-asset-candidates": "tsx src/testContentAssetCandidateSelection.ts",
+    "test:content-asset-context": "tsx src/context/testContentAssetContext.ts",
+    "test:generation-context-assets": "tsx src/context/testGenerationContextWithAssets.ts",
+    "test:golden-samples-with-assets": "tsx src/testGenerateGoldenSamplesWithAssets.ts",
+    "test:golden-run-output": "tsx src/testGoldenRunOutputNormalization.ts",
+    "test:image-manifest": "tsx src/testExportImageManifest.ts",
+    "test:context": "tsx src/testGenerationContext.ts",
+    "test:select-context": "tsx src/testSelectContext.ts",
+    "test:generate:context": "tsx src/testGenerateFromContext.ts",
+    "test:generate:selected-contexts": "tsx src/testGenerateSelectedContexts.ts",
+    "review": "node review-tool/server.js"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.13",
+    "tsx": "^4.19.2",
+    "typescript": "^5.8.3"
+  }
+}

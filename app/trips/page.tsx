@@ -8,6 +8,7 @@ import { useAuthStatus } from "../../components/auth/useAuthStatus";
 import { Footer } from "../../components/layout/Footer";
 import { Header } from "../../components/layout/Header";
 import { SavedTripsList } from "../../components/trips/SavedTripsList";
+import { patchProjectTrip } from "../../lib/projects/trips/client";
 import { deleteSavedTrip } from "../../lib/trips/delete-flow";
 import { listSavedTrips } from "../../lib/trips/list-client";
 import {
@@ -23,14 +24,14 @@ type TripsPageState = "idle" | "loading" | "ready" | "error";
 
 function LoginPrompt() {
   return (
-    <section className="workspace-panel px-5 py-5 sm:px-6 sm:py-6">
+    <section className="archive-empty px-5 py-5 sm:px-6 sm:py-6">
       <div className="relative z-[1] max-w-2xl">
-        <p className="workspace-kicker">需要登录</p>
-        <h1 className="mt-2 text-2xl font-semibold tracking-[-0.03em] text-[var(--ink)] sm:text-4xl">
-          登录后查看“我的行程”
+        <p className="archive-kicker">需要登录</p>
+        <h1 className="mt-2 archive-title text-2xl sm:text-4xl">
+          登录后查看你的旅行档案
         </h1>
-        <p className="mt-3 text-sm leading-6 text-[var(--ink-muted)] sm:text-[15px] sm:leading-7">
-          这里会集中放你保存过的旅行计划。未登录也可以继续从创建页生成，或先去 Workspace 手动整理。
+        <p className="mt-3 archive-subtitle sm:text-[15px] sm:leading-7">
+          这里会集中存放你保存过的旅行计划。未登录也可以继续从创建页生成，或先去 Workspace 手动整理。
         </p>
         <Link
           href={buildSaveTripLoginHref("/trips")}
@@ -45,11 +46,11 @@ function LoginPrompt() {
 
 function TripsLoadingState() {
   return (
-    <section className="workspace-panel px-5 py-5 sm:px-6 sm:py-6">
+    <section className="archive-empty px-5 py-5 sm:px-6 sm:py-6">
       <div className="relative z-[1]">
-        <p className="workspace-kicker">正在加载</p>
+        <p className="archive-kicker">正在翻阅档案</p>
         <h2 className="mt-2 text-2xl font-semibold text-[var(--ink)]">
-          正在翻出你保存过的行程
+          正在翻出你保存过的旅行记录
         </h2>
         <p className="mt-3 text-sm leading-6 text-[var(--ink-muted)]">
           先拉轻量列表，打开某一条时再恢复完整计划。
@@ -67,11 +68,11 @@ function TripsErrorState({
   onRetry: () => void;
 }) {
   return (
-    <section className="workspace-panel px-5 py-5 sm:px-6 sm:py-6">
+    <section className="archive-empty px-5 py-5 sm:px-6 sm:py-6">
       <div className="relative z-[1] max-w-2xl">
-        <p className="workspace-kicker">列表暂不可用</p>
+        <p className="archive-kicker">暂时无法加载</p>
         <h2 className="mt-2 text-2xl font-semibold text-[var(--ink)]">
-          暂时没拉到你的行程列表
+          暂时没找到你的旅行档案
         </h2>
         <p className="mt-3 text-sm leading-6 text-[var(--ink-muted)]">{message}</p>
         <button
@@ -154,7 +155,7 @@ export default function TripsPage() {
     }));
 
     try {
-      await openSavedTripIntoWorkspace(trip.id, {
+      await openSavedTripIntoWorkspace(trip, {
         markTripOpened: markSavedTripOpened,
         navigate: (href) => router.push(href),
       });
@@ -179,6 +180,58 @@ export default function TripsPage() {
   }
 
   async function handleDeleteTrip(trip: SavedTripListItem) {
+    if (trip.entity_type === "project") {
+      if (confirmingDeleteTripId !== trip.id) {
+        setConfirmingDeleteTripId(trip.id);
+        return;
+      }
+
+      setDeletingTripId(trip.id);
+      setDeleteErrorByTripId((current) => ({
+        ...current,
+        [trip.id]: undefined,
+      }));
+
+      try {
+        const projectId = trip.project_id;
+
+        if (!projectId) {
+          throw new Error("这个旅行项目缺少 projectId，暂时无法归档。");
+        }
+
+        const updatedProject = await patchProjectTrip(projectId, {
+          lifecycleState: "archived",
+        });
+
+        setTrips((current) =>
+          current.map((item) =>
+            item.id === trip.id
+              ? {
+                  ...item,
+                  title: updatedProject.title,
+                  project_lifecycle_state: updatedProject.lifecycleState,
+                  status: "archived",
+                  updated_at: updatedProject.updatedAt,
+                }
+              : item,
+          ),
+        );
+        setConfirmingDeleteTripId(null);
+      } catch (error) {
+        setDeleteErrorByTripId((current) => ({
+          ...current,
+          [trip.id]:
+            error instanceof Error && error.message.trim()
+              ? error.message
+              : "暂时归档不了这个旅行项目，请稍后再试。",
+        }));
+      } finally {
+        setDeletingTripId((current) => (current === trip.id ? null : current));
+      }
+
+      return;
+    }
+
     if (confirmingDeleteTripId !== trip.id) {
       setConfirmingDeleteTripId(trip.id);
       return;
@@ -208,6 +261,51 @@ export default function TripsPage() {
   }
 
   async function handleRenameTrip(trip: SavedTripListItem, nextTitle: string) {
+    if (trip.entity_type === "project") {
+      setRenamingTripId(trip.id);
+      setRenameErrorByTripId((current) => ({
+        ...current,
+        [trip.id]: undefined,
+      }));
+
+      try {
+        const projectId = trip.project_id;
+
+        if (!projectId) {
+          throw new Error("这个旅行项目缺少 projectId，暂时无法重命名。");
+        }
+
+        const updatedProject = await patchProjectTrip(projectId, {
+          title: nextTitle,
+        });
+
+        setTrips((current) =>
+          current.map((item) =>
+            item.id === trip.id
+              ? {
+                  ...item,
+                  title: updatedProject.title,
+                  project_lifecycle_state: updatedProject.lifecycleState,
+                  updated_at: updatedProject.updatedAt,
+                }
+              : item,
+          ),
+        );
+
+      } catch (error) {
+        setRenameErrorByTripId((current) => ({
+          ...current,
+          [trip.id]:
+            error instanceof Error && error.message.trim()
+              ? error.message
+              : "暂时改不了这个旅行项目的标题，请稍后再试。",
+        }));
+        throw error;
+      } finally {
+        setRenamingTripId((current) => (current === trip.id ? null : current));
+      }
+    }
+
     setRenamingTripId(trip.id);
     setRenameErrorByTripId((current) => ({
       ...current,
@@ -267,14 +365,13 @@ export default function TripsPage() {
 
         <section className="mb-6 max-w-3xl sm:mb-8">
           <p className="inline-flex -rotate-1 rounded-full border border-[var(--sage-deep)] bg-[var(--sage-soft)] px-3 py-1 text-[11px] font-semibold tracking-[0.16em] text-[var(--sage-deep)] sm:text-xs">
-            Workspace 入口收口
+            我的旅行档案
           </p>
-          <h1 className="mt-4 text-3xl font-semibold leading-[1.08] tracking-[-0.05em] sm:mt-6 sm:text-6xl">
-            把已保存计划重新打开，继续在 Workspace 里往下做
+          <h1 className="mt-4 archive-title text-3xl sm:mt-6 sm:text-5xl">
+            你保存过的旅行，都在这里
           </h1>
-          <p className="mt-3 max-w-2xl text-sm leading-6 text-[var(--ink-muted)] sm:mt-6 sm:text-lg sm:leading-8">
-            这里可以搜标题、筛状态、改名字，也能看到最近一次打开时间。真正打开时，还是沿用原来的恢复流程进入
-            /workspace。
+          <p className="mt-3 max-w-2xl archive-subtitle sm:mt-4 sm:text-base sm:leading-7">
+            这里收着你每一次整理过的旅行计划。搜一搜标题、筛一筛状态，再打开到 Workspace 继续往下做。
           </p>
         </section>
 

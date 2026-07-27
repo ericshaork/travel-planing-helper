@@ -1,0 +1,122 @@
+{
+  "id": "ca_xian_city_wall_night",
+  "name": "Xi'an City Wall Night Walk",
+  "asset_type": "experience_evening_closure",
+  "category": [
+    "experience",
+    "evening_closure"
+  ],
+  "content_role": [
+    "evening_closure",
+    "experience",
+    "hybrid"
+  ],
+  "traveler_fit": {
+    "couple": "high",
+    "student": "medium",
+    "solo": "high",
+    "family": "none",
+    "friends": "high"
+  },
+  "season_fit": {
+    "spring": "medium",
+    "summer": "medium",
+    "autumn": "high",
+    "winter": "medium"
+  },
+  "best_time": {
+    "time_of_day": [
+      "evening",
+      "night"
+    ],
+    "note": "Xi'an City Wall Night Walk is intended as evening_closure with slow pacing."
+  },
+  "experience_value": {
+    "primary": [
+      "evening_closure",
+      "experience",
+      "city wall night lights",
+      "heritage silhouette",
+      "walking-scale foreground",
+      "warm end-of-day mood"
+    ],
+    "summary": "slow evening walk near Xi'an City Wall"
+  },
+  "avoid_when": [
+    "generic ancient town street",
+    "fantasy lantern festival",
+    "no Xi'an wall identity",
+    "daytime tourist crowd"
+  ],
+  "nearby_assets": [],
+  "map_asset_id": "poi_city_wall_night",
+  "bridge_metadata": {
+    "source": "city_inventory",
+    "source_inventory_id": "xian_city_inventory_v1",
+    "asset_id": "ca_xian_city_wall_night",
+    "asset_name": "Xi'an City Wall Night Walk",
+    "asset_category": "experience",
+    "asset_family": "evening_closure",
+    "route_role": "evening_closure",
+    "why_it_matters": "slow evening walk near Xi'an City Wall",
+    "pace_hint": "slow",
+    "priority": 7
+  },
+  "image_context": {
+    "recommended_slots": [
+      "day_cover"
+    ],
+    "image_usage_profile": "experience",
+    "default_generation_mode": "hybrid",
+    "source_preference": "mixed",
+    "search_keywords": [
+      "Xi'an City Wall night lights",
+      "Xi'an South Gate night view",
+      "Xi'an city wall evening walk",
+      "Xi'an city wall lantern night"
+    ],
+    "visual_subject": {
+      "main_subject": "slow evening walk near Xi'an City Wall",
+      "secondary_elements": [
+        "wall lights",
+        "gate tower",
+        "couple-scale walking",
+        "warm night atmosphere"
+      ]
+    },
+    "positive_cues": [
+      "city wall night lights",
+      "heritage silhouette",
+      "walking-scale foreground",
+      "warm end-of-day mood"
+    ],
+    "negative_cues": [
+      "generic ancient town street",
+      "fantasy lantern festival",
+      "no Xi'an wall identity",
+      "daytime tourist crowd"
+    ]
+  },
+  "search_keywords": [
+    "Xi'an City Wall night lights",
+    "Xi'an South Gate night view",
+    "Xi'an city wall evening walk",
+    "Xi'an city wall lantern night"
+  ],
+  "review_rules": {
+    "manual_review_required": true,
+    "identity_check": [
+      "Evening closure clearly belongs to Xi'an wall or old-city night context.",
+      "Experience image reads as a slow couple route."
+    ],
+    "failure_examples": [
+      "generic lantern street",
+      "fake Tang palace night",
+      "unrelated old town"
+    ]
+  },
+  "golden_reference": {
+    "package_id": "future_xian_golden",
+    "asset_instance_ids": []
+  }
+}

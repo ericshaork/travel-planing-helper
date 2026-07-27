@@ -63,9 +63,13 @@ describe("workspace top bar helpers", () => {
       label: "路线洞察已加载",
       tone: "ready",
     });
-    expect(getWorkspaceEnrichmentStatusMeta("error").tone).toBe("warning");
+    expect(getWorkspaceEnrichmentStatusMeta("error")).toEqual({
+      label: "路线洞察暂时不可用",
+      tone: "warning",
+    });
     expect(getWorkspaceEnrichmentStatusMeta("loading").label).toBe(
       "路线洞察整理中",
     );
+    expect(getWorkspaceEnrichmentStatusMeta("idle").label).toBe("等待路线洞察");
   });
 });

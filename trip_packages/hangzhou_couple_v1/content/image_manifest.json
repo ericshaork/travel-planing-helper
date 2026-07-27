@@ -1,0 +1,270 @@
+{
+  "trip_id": "hangzhou_couple_v1",
+  "city": "hangzhou",
+  "images": [
+    {
+      "asset_instance_id": "ca_hangzhou_longjing_tea_fields_poi_gallery",
+      "asset_id": "ca_hangzhou_longjing_tea_fields",
+      "asset_name": "Longjing Tea Fields",
+      "image_slot": "poi_gallery",
+      "type": "experience",
+      "source_preference": "real_first",
+      "generation_mode": "real_photo",
+      "decision_reason": "Experience assets intentionally combine real place credibility with AI-supported travel narrative and journal atmosphere. Template policy enforced place imagery as real_photo evidence.",
+      "prompt": "spring morning experience image of Longjing Tea Fields. Preserve real street or spatial relationship, natural human movement, and the reason this route moment works. Focus on street texture, walking rhythm, human-scale old-city detail, and authentic neighborhood atmosphere.",
+      "location_context": {
+        "city": "hangzhou",
+        "district": "N/A",
+        "poi": "Longjing Tea Fields",
+        "keywords": [
+          "Longjing Tea Fields Hangzhou",
+          "Longjing Tea Fields travel photo",
+          "Longjing Tea Fields streetscape"
+        ]
+      },
+      "search_keywords": [
+        "Longjing Tea Fields Hangzhou",
+        "Longjing Tea Fields travel photo",
+        "Longjing Tea Fields streetscape",
+        "Longjing Tea Fields street view",
+        "Longjing Tea Fields visitor photo"
+      ],
+      "visual_subject": {
+        "main_subject": "place-based travel scene",
+        "secondary_elements": [
+          "visitors",
+          "ambient light"
+        ]
+      },
+      "image_usage_profile": "place",
+      "review_requirement": {
+        "required": false,
+        "reason": "standard asset can enter normal pipeline QA"
+      },
+      "status": "pending"
+    },
+    {
+      "asset_instance_id": "ca_hangzhou_xiaohe_straight_street_food_gallery",
+      "asset_id": "ca_hangzhou_xiaohe_straight_street",
+      "asset_name": "Xiaohe Straight Street",
+      "image_slot": "food_gallery",
+      "type": "food",
+      "source_preference": "real_first",
+      "generation_mode": "real_photo",
+      "decision_reason": "Food assets should default to real photos so the pipeline does not fabricate specific shops, dishes, or serving details. Template policy enforced food imagery as real_photo evidence.",
+      "prompt": "spring afternoon real food and on-site dining scene at Xiaohe Straight Street. Preserve actual dish, counter, table, or serving details. Focus on real food appearance, serving context, table details, and local flavor memory.",
+      "location_context": {
+        "city": "hangzhou",
+        "district": "N/A",
+        "poi": "Xiaohe Straight Street",
+        "keywords": [
+          "Xiaohe Straight Street Hangzhou",
+          "Xiaohe Straight Street travel photo",
+          "Xiaohe Straight Street streetscape"
+        ]
+      },
+      "search_keywords": [
+        "Xiaohe Straight Street Hangzhou",
+        "Xiaohe Straight Street travel photo",
+        "Xiaohe Straight Street streetscape",
+        "Xiaohe Straight Street food",
+        "Xiaohe Straight Street Hangzhou food photo"
+      ],
+      "visual_subject": {
+        "main_subject": "local food presentation",
+        "secondary_elements": [
+          "serving counter",
+          "tableware",
+          "visitors",
+          "ambient light"
+        ]
+      },
+      "image_usage_profile": "food",
+      "review_requirement": {
+        "required": true,
+        "reason": "food asset requires realism and appetite check"
+      },
+      "status": "pending"
+    },
+    {
+      "asset_instance_id": "ca_hangzhou_lakeside_evening_day_cover",
+      "asset_id": "ca_hangzhou_lakeside_evening",
+      "asset_name": "Lakeside Evening Promenade",
+      "image_slot": "day_cover",
+      "type": "experience",
+      "source_preference": "mixed",
+      "generation_mode": "hybrid",
+      "decision_reason": "Experience assets intentionally combine real place credibility with AI-supported travel narrative and journal atmosphere.",
+      "prompt": "spring dusk experience image of Lakeside Evening Promenade. Preserve real street or spatial relationship, natural human movement, and the reason this route moment works. Focus on dusk or evening closure, lights, water or street atmosphere, and a relaxed end-of-day feeling.",
+      "location_context": {
+        "city": "hangzhou",
+        "district": "N/A",
+        "poi": "Lakeside Evening Promenade",
+        "keywords": [
+          "Lakeside Evening Promenade Hangzhou",
+          "Lakeside Evening Promenade travel photo",
+          "Lakeside Evening Promenade streetscape"
+        ]
+      },
+      "search_keywords": [
+        "Lakeside Evening Promenade Hangzhou",
+        "Lakeside Evening Promenade travel photo",
+        "Lakeside Evening Promenade streetscape",
+        "Lakeside Evening Promenade evening view",
+        "Lakeside Evening Promenade atmosphere"
+      ],
+      "visual_subject": {
+        "main_subject": "place-based travel scene",
+        "secondary_elements": [
+          "visitors",
+          "ambient light"
+        ]
+      },
+      "image_usage_profile": "experience",
+      "review_requirement": {
+        "required": false,
+        "reason": "standard asset can enter normal pipeline QA"
+      },
+      "status": "pending"
+    },
+    {
+      "asset_instance_id": "ca_hangzhou_west_lake_explore_cover",
+      "asset_id": "ca_hangzhou_west_lake",
+      "asset_name": "West Lake",
+      "image_slot": "explore_cover",
+      "type": "hero",
+      "source_preference": "mixed",
+      "generation_mode": "hybrid",
+      "decision_reason": "A concrete place-entry cover needs both landmark credibility and the travel magazine plus private journal mood, so Hybrid is the active strategy.",
+      "prompt": "spring morning hero image of West Lake. Preserve real geography and architecture while allowing a travel magazine and private journal mood. Focus on landmark scale, clear architecture, first-arrival recognition, and a concrete sense of place.",
+      "location_context": {
+        "city": "hangzhou",
+        "district": "N/A",
+        "poi": "West Lake",
+        "keywords": [
+          "West Lake Hangzhou",
+          "West Lake travel photo",
+          "West Lake streetscape"
+        ]
+      },
+      "search_keywords": [
+        "West Lake Hangzhou",
+        "West Lake travel photo",
+        "West Lake streetscape",
+        "West Lake architecture",
+        "West Lake landmark photo"
+      ],
+      "visual_subject": {
+        "main_subject": "place-based travel scene",
+        "secondary_elements": [
+          "visitors",
+          "ambient light"
+        ]
+      },
+      "image_usage_profile": "cover",
+      "review_requirement": {
+        "required": true,
+        "reason": "cover asset requires visual quality review"
+      },
+      "status": "pending"
+    },
+    {
+      "asset_instance_id": "ca_hangzhou_su_causeway_explore_cover",
+      "asset_id": "ca_hangzhou_su_causeway",
+      "asset_name": "Su Causeway",
+      "image_slot": "explore_cover",
+      "type": "hero",
+      "source_preference": "mixed",
+      "generation_mode": "hybrid",
+      "decision_reason": "A concrete place-entry cover needs both landmark credibility and the travel magazine plus private journal mood, so Hybrid is the active strategy.",
+      "prompt": "spring morning hero image of Su Causeway. Preserve real geography and architecture while allowing a travel magazine and private journal mood. Focus on landmark scale, clear architecture, first-arrival recognition, and a concrete sense of place.",
+      "location_context": {
+        "city": "hangzhou",
+        "district": "N/A",
+        "poi": "Su Causeway",
+        "keywords": [
+          "Su Causeway Hangzhou",
+          "Su Causeway travel photo",
+          "Su Causeway streetscape"
+        ]
+      },
+      "search_keywords": [
+        "Su Causeway Hangzhou",
+        "Su Causeway travel photo",
+        "Su Causeway streetscape",
+        "Su Causeway architecture",
+        "Su Causeway landmark photo"
+      ],
+      "visual_subject": {
+        "main_subject": "place-based travel scene",
+        "secondary_elements": [
+          "visitors",
+          "ambient light"
+        ]
+      },
+      "image_usage_profile": "cover",
+      "review_requirement": {
+        "required": true,
+        "reason": "cover asset requires visual quality review"
+      },
+      "status": "pending"
+    },
+    {
+      "asset_instance_id": "ca_hangzhou_city_mood_explore_cover",
+      "asset_id": "ca_hangzhou_city_mood",
+      "asset_name": "Hangzhou city mood",
+      "image_slot": "explore_cover",
+      "type": "hero",
+      "source_preference": "ai_first",
+      "generation_mode": "ai_generated",
+      "decision_reason": "Template-driven city mood cover added to exercise the ai_generated path without fabricating a concrete shop, food, or POI evidence image.",
+      "prompt": "Hangzhou spring couple travel magazine cover with private journal feeling. Visual identity: West Lake, willow-lined causeways, tea hills, misty water, Song dynasty texture, canal old streets. Mood: lake slow walk, tea hill pause, romantic dusk, soft rain journal. No text, no logo, no fake signage, no named restaurant or dish fabrication.",
+      "location_context": {
+        "city": "hangzhou",
+        "district": "N/A",
+        "poi": "Hangzhou",
+        "keywords": [
+          "West Lake",
+          "willow-lined causeways",
+          "tea hills"
+        ]
+      },
+      "search_keywords": [
+        "West Lake Hangzhou",
+        "willow-lined causeways Hangzhou",
+        "tea hills Hangzhou",
+        "misty water Hangzhou",
+        "Song dynasty texture Hangzhou",
+        "canal old streets Hangzhou"
+      ],
+      "visual_subject": {
+        "main_subject": "Hangzhou romantic city mood",
+        "secondary_elements": [
+          "West Lake",
+          "willow-lined causeways",
+          "tea hills",
+          "misty water"
+        ]
+      },
+      "image_usage_profile": "cover",
+      "review_requirement": {
+        "required": true,
+        "reason": "Template-driven city mood cover requires Golden Sample visual review."
+      },
+      "status": "pending"
+    }
+  ],
+  "manifest_id": "hangzhou_couple_v1",
+  "metadata": {
+    "template_compiler_run_id": "hangzhou_couple_v1",
+    "image_template_id": "wanderly_image_template_v1",
+    "image_template_version": "image_template_v1",
+    "join_key": "asset_instance_id",
+    "asset_instance_id_rule": "{asset_id}_{image_slot}",
+    "strategy_counts": {
+      "real_photo": 2,
+      "hybrid": 3,
+      "ai_generated": 1
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "city": "chongqing",
+  "days": 3,
+  "trip_type": "student",
+  "budget": "low",
+  "preferences": ["food", "citywalk", "nightlife"],
+  "pace": "dense"
+}

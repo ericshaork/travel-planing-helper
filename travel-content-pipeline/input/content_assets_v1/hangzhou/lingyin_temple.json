@@ -1,0 +1,30 @@
+{
+  "id": "ca_hangzhou_lingyin_temple",
+  "name": "Lingyin Temple",
+  "asset_type": "temple",
+  "category": "heritage_place",
+  "content_role": ["historic_texture", "local_culture", "spiritual_pause"],
+  "traveler_fit": {
+    "couple": "medium",
+    "student": "medium",
+    "solo": "high",
+    "family": "medium"
+  },
+  "season_fit": {
+    "spring": "high",
+    "summer": "medium",
+    "autumn": "high",
+    "winter": "medium"
+  },
+  "best_time": {
+    "time_of_day": ["morning", "afternoon"],
+    "note": "Use as one cultural anchor, not one stop among too many temples."
+  },
+  "experience_value": {
+    "primary": ["temple_texture", "cultural_anchor", "mountain_edge", "quiet_detail"],
+    "summary": "A cultural texture asset that adds depth without turning the route into a temple checklist."
+  },
+  "avoid_when": ["temple_overload_day", "only_romantic_lake_route"],
+  "nearby_assets": ["ca_hangzhou_longjing_tea_fields"],
+  "map_asset_id": "poi_lingyin_temple"
+}

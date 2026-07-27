@@ -1,8 +1,42 @@
+"use client";
+
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import type { MouseEvent } from "react";
+
 import { ExploreHome } from "@/components/explore/ExploreHome";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
+import { createBlankWorkspaceProjectEntry } from "@/lib/projects/entry-client";
 
 export default function ExplorePage() {
+  const router = useRouter();
+  const [isCreatingBlankTrip, setIsCreatingBlankTrip] = useState(false);
+
+  async function handleCreateBlankTrip(
+    event: MouseEvent<HTMLAnchorElement>,
+  ) {
+    event.preventDefault();
+
+    if (isCreatingBlankTrip) {
+      return;
+    }
+
+    setIsCreatingBlankTrip(true);
+
+    try {
+      await createBlankWorkspaceProjectEntry();
+      router.push("/workspace");
+    } catch (error) {
+      window.alert(
+        error instanceof Error && error.message.trim()
+          ? error.message
+          : "空白计划暂时没创建成功，请稍后再试。",
+      );
+      setIsCreatingBlankTrip(false);
+    }
+  }
+
   return (
     <div className="paper-texture explore-page-bg relative flex min-h-screen flex-col overflow-x-clip text-[var(--ink)]">
       <div
@@ -15,7 +49,12 @@ export default function ExplorePage() {
         navItems={[
           { href: "/explore", label: "探索灵感" },
           { href: "/trips", label: "我的行程" },
-          { href: "/create", label: "创建旅行", emphasized: true },
+          {
+            href: "/workspace",
+            label: isCreatingBlankTrip ? "正在创建" : "创建旅行",
+            emphasized: true,
+            onClick: handleCreateBlankTrip,
+          },
           { href: "/favorites", label: "收藏" },
         ]}
       />

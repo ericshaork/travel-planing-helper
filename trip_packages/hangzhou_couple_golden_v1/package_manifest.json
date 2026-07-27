@@ -1,0 +1,172 @@
+{
+  "package_id": "hangzhou_couple_golden_v1",
+  "package_version": "trip_package_v1",
+  "generated_on": "2026-07-19T07:58:31.355Z",
+  "trip_id": "hangzhou_couple_golden_v1",
+  "golden_run_id": "hangzhou_couple_golden_v1",
+  "content_trip_id": "hangzhou_couple_v1",
+  "image_manifest_id": "hangzhou_couple_v1",
+  "city": {
+    "code": "hangzhou",
+    "name": "Hangzhou",
+    "region_name": "Zhejiang"
+  },
+  "title": "杭州3日情侣游：湖光·茶韵·老街",
+  "days": 3,
+  "source_outputs": {
+    "content_run_dir": "C:\\Users\\10200\\Desktop\\travel_planing\\travel-content-pipeline\\output\\golden_runs\\hangzhou_couple_v1",
+    "image_run_dir": "C:\\Users\\10200\\Desktop\\travel_planing\\output\\manifest_runs\\hangzhou_couple_v1",
+    "explore_plan_path": "C:\\Users\\10200\\Desktop\\travel_planing\\travel-content-pipeline\\output\\golden_runs\\hangzhou_couple_v1\\explore_plan.json",
+    "image_manifest_path": "C:\\Users\\10200\\Desktop\\travel_planing\\travel-content-pipeline\\output\\golden_runs\\hangzhou_couple_v1\\image_manifest.json",
+    "generation_report_path": "C:\\Users\\10200\\Desktop\\travel_planing\\travel-content-pipeline\\output\\golden_runs\\hangzhou_couple_v1\\generation_report.json",
+    "pipeline_summary_path": "C:\\Users\\10200\\Desktop\\travel_planing\\output\\manifest_runs\\hangzhou_couple_v1\\pipeline_summary.json"
+  },
+  "content": {
+    "explore_plan_path": "content/explore_plan.json",
+    "image_manifest_path": "content/image_manifest.json"
+  },
+  "images": {
+    "files_dir": "images/files",
+    "image_assets_dir": "images/image_assets",
+    "assets": [
+      {
+        "asset_instance_id": "ca_hangzhou_longjing_tea_fields_poi_gallery",
+        "asset_id": "ca_hangzhou_longjing_tea_fields",
+        "asset_name": "Longjing Tea Fields",
+        "image_slot": "poi_gallery",
+        "image_usage_profile": "place",
+        "source_preference": "real_first",
+        "generation_mode": "real_photo",
+        "status": "completed",
+        "source": "wikimedia",
+        "original_file_path": "C:\\Users\\10200\\Desktop\\travel_planing\\image-pipeline\\image-pipeline\\assets\\external\\ca_hangzhou_longjing_tea_fields.jpg",
+        "packaged_file_path": "images/files/ca_hangzhou_longjing_tea_fields_poi_gallery.jpg",
+        "image_asset_path": "images/image_assets/ca_hangzhou_longjing_tea_fields_poi_gallery.image_asset.json"
+      },
+      {
+        "asset_instance_id": "ca_hangzhou_xiaohe_straight_street_food_gallery",
+        "asset_id": "ca_hangzhou_xiaohe_straight_street",
+        "asset_name": "Xiaohe Straight Street",
+        "image_slot": "food_gallery",
+        "image_usage_profile": "food",
+        "source_preference": "real_first",
+        "generation_mode": "real_photo",
+        "status": "completed",
+        "source": "pexels",
+        "original_file_path": "temp/hangzhou_couple_v2_images/files/ca_hangzhou_xiaohe_straight_street_food_gallery_v2.jpeg",
+        "packaged_file_path": "images/files/ca_hangzhou_xiaohe_straight_street_food_gallery.avif",
+        "image_asset_path": "images/image_assets/ca_hangzhou_xiaohe_straight_street_food_gallery.image_asset.json",
+        "finalized_from_candidate": true,
+        "provenance": {
+          "title": "Delicious spicy Asian dish featuring crispy pork, red peppers, and fresh lettuce on a restaurant table.",
+          "source": "pexels",
+          "license": "Pexels License",
+          "source_url": "https://www.pexels.com/photo/spicy-asian-cuisine-with-crispy-pork-and-peppers-35627597/",
+          "image_url": "https://images.pexels.com/photos/35627597/pexels-photo-35627597.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+          "mime_type": "image/avif",
+          "no_specific_shop_claim": true,
+          "golden_review": {
+            "status": "passed",
+            "note": "Accepted v2 food candidate as real dining/food subject; not bound to a concrete restaurant."
+          },
+          "provenance_note": "H3.6.4 replacement from reviewed v2 Xiaohe food candidate; preserves real_photo provenance and does not fabricate a specific shop."
+        }
+      },
+      {
+        "asset_instance_id": "ca_hangzhou_lakeside_evening_day_cover",
+        "asset_id": "ca_hangzhou_lakeside_evening",
+        "asset_name": "Lakeside Evening Promenade",
+        "image_slot": "day_cover",
+        "image_usage_profile": "experience",
+        "source_preference": "mixed",
+        "generation_mode": "hybrid",
+        "status": "completed",
+        "source": "hybrid",
+        "original_file_path": "temp/hangzhou_couple_v2_images/files/ca_hangzhou_lakeside_evening_day_cover_v2.png",
+        "packaged_file_path": "images/files/ca_hangzhou_lakeside_evening_day_cover.jpg",
+        "image_asset_path": "images/image_assets/ca_hangzhou_lakeside_evening_day_cover.image_asset.json",
+        "finalized_from_candidate": true,
+        "provenance": {
+          "strategy": "hybrid refinement via forced real-photo failure then Seedream AI fallback candidate",
+          "resolved_via": "ai_fallback",
+          "provider_id": "seedream",
+          "model_id": "doubao-seedream-5-0-pro-260628",
+          "provider_job_id": "seedream_ca_hangzhou_lakeside_evening_ai_v2_candidate_day_cover",
+          "prompt_summary": "Blue-hour Hangzhou West Lake lakeside walk with warm lamps, willow silhouettes, lake reflections, slow couple scale, travel magazine composition, private journal warmth; no text, logo, or poster gloss.",
+          "golden_review": {
+            "status": "passed",
+            "note": "Accepted v2 lakeside evening candidate for experience/day_cover mood."
+          },
+          "provenance_note": "H3.6.4 replacement from temp/hangzhou_couple_v2_images reviewed lakeside evening candidate."
+        }
+      },
+      {
+        "asset_instance_id": "ca_hangzhou_west_lake_explore_cover",
+        "asset_id": "ca_hangzhou_west_lake",
+        "asset_name": "West Lake",
+        "image_slot": "explore_cover",
+        "image_usage_profile": "cover",
+        "source_preference": "mixed",
+        "generation_mode": "hybrid",
+        "status": "completed",
+        "source": "hybrid",
+        "original_file_path": "temp/hangzhou_couple_v2_images/files/ca_hangzhou_west_lake_explore_cover_v2.png",
+        "packaged_file_path": "images/files/ca_hangzhou_west_lake_explore_cover.jpg",
+        "image_asset_path": "images/image_assets/ca_hangzhou_west_lake_explore_cover.image_asset.json",
+        "finalized_from_candidate": true,
+        "provenance": {
+          "strategy": "hybrid refinement via forced real-photo failure then Seedream AI fallback candidate",
+          "resolved_via": "ai_fallback",
+          "provider_id": "seedream",
+          "model_id": "doubao-seedream-5-0-pro-260628",
+          "provider_job_id": "seedream_ca_hangzhou_west_lake_cover_ai_v2_candidate_explore_cover",
+          "prompt_summary": "Hangzhou West Lake editorial couple-trip cover with willow-lined bank, lake surface, distant green hills, Su Causeway or Broken Bridge feeling, small boat/path detail, Jiangnan softness, travel journal intimacy; avoid skyline dominance, text, logos, and poster gloss.",
+          "golden_review": {
+            "status": "passed",
+            "note": "Accepted v2 West Lake cover candidate for stronger Wanderly cover identity."
+          },
+          "provenance_note": "H3.6.4 replacement from temp/hangzhou_couple_v2_images reviewed west lake cover candidate."
+        }
+      },
+      {
+        "asset_instance_id": "ca_hangzhou_su_causeway_explore_cover",
+        "asset_id": "ca_hangzhou_su_causeway",
+        "asset_name": "Su Causeway",
+        "image_slot": "explore_cover",
+        "image_usage_profile": "cover",
+        "source_preference": "mixed",
+        "generation_mode": "hybrid",
+        "status": "completed",
+        "source": "hybrid",
+        "original_file_path": "C:\\Users\\10200\\Desktop\\travel_planing\\image-pipeline\\image-pipeline\\assets\\external\\ca_hangzhou_su_causeway.jpeg",
+        "packaged_file_path": "images/files/ca_hangzhou_su_causeway_explore_cover.jpeg",
+        "image_asset_path": "images/image_assets/ca_hangzhou_su_causeway_explore_cover.image_asset.json"
+      },
+      {
+        "asset_instance_id": "ca_hangzhou_city_mood_explore_cover",
+        "asset_id": "ca_hangzhou_city_mood",
+        "asset_name": "Hangzhou city mood",
+        "image_slot": "explore_cover",
+        "image_usage_profile": "cover",
+        "source_preference": "ai_first",
+        "generation_mode": "ai_generated",
+        "status": "completed",
+        "source": "ai_generated",
+        "original_file_path": "C:\\Users\\10200\\Desktop\\travel_planing\\image-pipeline\\image-pipeline\\output\\runs\\seedream\\generated\\hangzhou_cover_001.png",
+        "packaged_file_path": "images/files/ca_hangzhou_city_mood_explore_cover.png",
+        "image_asset_path": "images/image_assets/ca_hangzhou_city_mood_explore_cover.image_asset.json"
+      }
+    ]
+  },
+  "validation": {
+    "assembly_report_path": "validation/assembly_report.json",
+    "status": "passed"
+  },
+  "source_package_id": "hangzhou_couple_v1",
+  "finalization": {
+    "stage": "H3.6.4 Hangzhou Golden Finalize",
+    "finalized_from_package": "hangzhou_couple_v1",
+    "replacement_count": 3,
+    "package_updated_from_candidates": true
+  }
+}

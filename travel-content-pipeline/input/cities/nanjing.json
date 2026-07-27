@@ -1,0 +1,109 @@
+{
+  "city_code": "nanjing",
+  "city_name": "Nanjing",
+  "region_name": "Jiangsu",
+  "summary": "Nanjing suits layered city travel that combines Republican-era streets, major history sites, lakeside calm, and manageable old-city food routes.",
+  "transport_notes": [
+    "Keep the old city, Qinhuai River, and museum-heavy areas grouped rather than crossing back and forth through the day.",
+    "Metro plus short taxi or walking connections works well for central Nanjing.",
+    "Evening plans are strongest around Qinhuai River or older walkable food districts."
+  ],
+  "budget_notes": {
+    "low": "Focus on city walls, public parks, old-street walks, and affordable neighborhood food.",
+    "medium": "Combine one major heritage stop, one scenic district, and one recognizable local dining area each day.",
+    "high": "Use a slower pace with stronger dining moments and more comfort between large historic sites."
+  },
+  "trip_type_notes": {
+    "student": "Student trips in Nanjing should mix iconic history, walkable streets, and affordable local food.",
+    "solo": "Solo plans should emphasize reflective history, city-wall wandering, and everyday neighborhood texture.",
+    "couple": "Couple plans should soften the historical tone with riverside lights, lake views, and atmospheric old streets.",
+    "family": "Family plans should keep landmark movement simple and leave room for rest between major heritage stops."
+  },
+  "suggested_tags": [
+    "republican-era",
+    "historic-city",
+    "river-evening",
+    "old-street",
+    "cultural-landmarks",
+    "citywalk"
+  ],
+  "pois": [
+    {
+      "id": "poi_qinhuai",
+      "name": "Qinhuai River and Confucius Temple Area",
+      "district": "Qinhuai",
+      "type": "historic riverside district",
+      "description": "A signature Nanjing zone where river scenery, old-city movement, and evening lights naturally come together.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 150
+    },
+    {
+      "id": "poi_xuanwu_lake",
+      "name": "Xuanwu Lake Edge",
+      "district": "Xuanwu",
+      "type": "lakefront scenic area",
+      "description": "A broad, calmer public space suited to softer pacing and scenic breathing room.",
+      "best_for": ["solo", "couple", "family"],
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_city_wall",
+      "name": "Nanjing City Wall Section Walk",
+      "district": "Xuanwu",
+      "type": "historic landmark",
+      "description": "A useful city-scale history anchor with strong visual identity and manageable walking value.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_presidential_palace",
+      "name": "Presidential Palace Area",
+      "district": "Xuanwu",
+      "type": "historical site",
+      "description": "A strong stop for plans that want modern Chinese historical context and a more formal cultural layer.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_laomendong",
+      "name": "Laomendong",
+      "district": "Qinhuai",
+      "type": "historic street district",
+      "description": "A heritage-style lane district suited to slow walking, casual food, and easy photo moments.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_niushoushan_edge",
+      "name": "Niushoushan Edge Visit",
+      "district": "Jiangning",
+      "type": "cultural landscape",
+      "description": "A larger-scale culture-and-scenery option for slower plans that want one more expansive stop.",
+      "best_for": ["solo", "couple", "family"],
+      "recommended_duration_minutes": 150
+    }
+  ],
+  "food_areas": [
+    {
+      "name": "Qinhuai Snack Streets",
+      "district": "Qinhuai",
+      "specialties": ["duck dishes", "old-city snacks", "evening grazing food"],
+      "best_for": ["student", "solo", "couple", "family"],
+      "note": "Best for recognizable local flavor linked to scenic evening routes."
+    },
+    {
+      "name": "Laomendong Dining Pockets",
+      "district": "Qinhuai",
+      "specialties": ["Jiangnan-style snacks", "shared dishes", "street-meets-courtyard dining"],
+      "best_for": ["student", "solo", "couple", "family"],
+      "note": "Best when the plan wants food with heritage-street atmosphere."
+    },
+    {
+      "name": "Xinjiekou Casual Food Zone",
+      "district": "Qinhuai",
+      "specialties": ["casual city-center meals", "youth-friendly dining", "easy transit-linked food"],
+      "best_for": ["student", "solo"],
+      "note": "Best for practical, central eating without detouring far from major routes."
+    }
+  ]
+}

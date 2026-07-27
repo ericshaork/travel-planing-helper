@@ -1,8 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
+import type {
+  WorkspaceDistanceSummary,
+  WorkspaceMode,
+} from "@/hooks/useTripWorkspaceState";
 import type { PoiCandidate } from "@/lib/poi/types";
+import { getUserSettings } from "@/lib/settings/client";
+import type { WorkspacePreferences } from "@/lib/settings/types";
 import type { MapPoint } from "@/lib/trip/enrichment-types";
 import type { DayCabinetView } from "@/lib/trip/itinerary-view";
 import type { DayRouteInsight } from "@/lib/trip/route-insight";
@@ -11,10 +17,6 @@ import {
   buildWorkspaceInsightStats,
   formatRouteDistance,
 } from "@/lib/trip/workspace-inspector";
-import type {
-  WorkspaceDistanceSummary,
-  WorkspaceMode,
-} from "@/hooks/useTripWorkspaceState";
 
 import { InspectorMapPreview } from "./InspectorMapPreview";
 import { InspectorPointDetailCard } from "./InspectorPointDetailCard";
@@ -71,9 +73,9 @@ function ToolbarButton({
     <button
       type="button"
       onClick={onClick}
-      className={`map-workspace-toolbar-button ${
+      className={`map-desk-toolbar ${
         active
-          ? "border-[var(--clay-deep)] bg-[rgba(255,253,247,0.96)] text-[var(--ink)]"
+          ? "!border-[var(--clay-deep)] !bg-[rgb(255_253_247_/_0.96)] !text-[var(--ink)]"
           : ""
       }`}
     >
@@ -103,7 +105,13 @@ function buildPaneDescription({
     return `第 ${activeCabinet.dayNumber} 天`;
   }
 
-  return "地图会和左侧行程同步";
+  return "跟随左侧行程";
+}
+
+export function shouldDefaultMapInspectorOpen(
+  mapOverlay: WorkspacePreferences["mapOverlay"],
+) {
+  return mapOverlay === "expanded";
 }
 
 export function MapPanel({
@@ -143,6 +151,7 @@ export function MapPanel({
   onEstimateDistance,
   onPointSelect,
 }: MapPanelProps) {
+  const inspectorTouchedRef = useRef(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isDistanceOpen, setIsDistanceOpen] = useState(false);
   const [isInspectorOpen, setIsInspectorOpen] = useState(false);
@@ -150,6 +159,39 @@ export function MapPanel({
   const stats = buildWorkspaceInsightStats(insight);
   const visibleErrorMessage = isBlankWorkspace ? undefined : errorMessage;
   const slotOptions = activeCabinet?.slots ?? [];
+  const showMapTools = !compactBlankReadMode;
+
+  useEffect(() => {
+    let cancelled = false;
+
+    void getUserSettings()
+      .then((settings) => {
+        if (cancelled || inspectorTouchedRef.current) {
+          return;
+        }
+
+        setIsInspectorOpen(
+          shouldDefaultMapInspectorOpen(settings.workspacePreferences.mapOverlay),
+        );
+      })
+      .catch(() => {
+        // Keep the default collapsed state when settings are unavailable.
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  function handleInspectorToggle() {
+    inspectorTouchedRef.current = true;
+    setIsInspectorOpen((current) => !current);
+  }
+
+  function handleInspectorClose() {
+    inspectorTouchedRef.current = true;
+    setIsInspectorOpen(false);
+  }
 
   const handlePreviewMarkerClick = (pointId: string) => {
     if (pointId.startsWith("draft-")) {
@@ -160,11 +202,17 @@ export function MapPanel({
   };
 
   const hasPointOverlay = Boolean(
-    selectedSearchCandidate || activePointId || unmatchedPlaceName || mapActionMessage,
+    selectedSearchCandidate ||
+      activePointId ||
+      unmatchedPlaceName ||
+      mapActionMessage,
   );
 
   return (
-    <section id="workspace-route-insight" className="map-workspace-shell relative h-full min-h-0 overflow-hidden">
+    <section
+      id="workspace-route-insight"
+      className="map-workspace-shell relative h-full min-h-0 overflow-hidden"
+    >
       <div className="absolute inset-0 overflow-hidden">
         <InspectorMapPreview
           workspaceSourceType={workspaceSourceType}
@@ -181,13 +229,25 @@ export function MapPanel({
 
       <div className="pointer-events-none absolute inset-x-3 top-3 z-[5] sm:inset-x-4">
         <div className="pointer-events-auto flex flex-wrap items-start justify-between gap-3">
-          <div className="map-workspace-overlay max-w-[18rem] px-3 py-2">
-            <p className="workspace-kicker">地图</p>
+          <div
+            className={`map-desk-overlay ${
+              compactBlankReadMode
+                ? "max-w-[14rem] px-2.5 py-2 opacity-90"
+                : "max-w-[18rem] px-3 py-2"
+            }`}
+          >
+            <p className="map-desk-kicker">桌面地图</p>
             <div className="mt-1 flex flex-wrap items-center gap-2">
-              <h2 className="text-base font-semibold text-[var(--ink)] sm:text-lg">
-                行程地图
+              <h2
+                className={
+                  compactBlankReadMode
+                    ? "text-sm font-semibold text-[var(--ink)]"
+                    : "text-base font-semibold text-[var(--ink)] sm:text-lg"
+                }
+              >
+                这天的路线
               </h2>
-              <span className="map-workspace-chip">
+              <span className="map-desk-chip">
                 {buildPaneDescription({
                   insight,
                   isBlankWorkspace,
@@ -195,15 +255,15 @@ export function MapPanel({
                   hasStops,
                 })}
               </span>
-              <span className="map-workspace-chip">
-                {workspaceMode === "edit" ? "编辑中" : "阅读中"}
-              </span>
               {!compactBlankReadMode ? (
                 <>
-                  <span className="map-workspace-chip">
+                  <span className="map-desk-chip">
+                    {workspaceMode === "edit" ? "编辑中" : "阅读中"}
+                  </span>
+                  <span className="map-desk-chip">
                     {insight?.mapPoints.length ?? 0} 个地点
                   </span>
-                  <span className="map-workspace-chip">
+                  <span className="map-desk-chip">
                     {insight?.routeSummary
                       ? formatRouteDistance(stats.totalDistanceMeters)
                       : "等待路线"}
@@ -211,40 +271,47 @@ export function MapPanel({
                 </>
               ) : null}
             </div>
+            {compactBlankReadMode ? (
+              <p className="mt-1.5 text-xs leading-5 text-[var(--ink-muted)]">
+                添加第一站后，这里会开始标记路线。
+              </p>
+            ) : null}
           </div>
 
-          <div className="flex flex-wrap items-center justify-end gap-1.5">
-            <ToolbarButton
-              label="搜索地点"
-              active={isSearchOpen}
-              onClick={() => setIsSearchOpen((current) => !current)}
-            />
-            <ToolbarButton
-              label="查询距离"
-              active={isDistanceOpen}
-              onClick={() => setIsDistanceOpen((current) => !current)}
-            />
-            <ToolbarButton
-              label="路线详情"
-              active={isInspectorOpen}
-              onClick={() => setIsInspectorOpen((current) => !current)}
-            />
-            <ToolbarButton
-              label="优化当天路线"
-              onClick={() =>
-                setRouteHint(
-                  resolvedPoints.length >= 2
-                    ? "路线优化将在后续版本支持。"
-                    : "先选择至少 2 个已定位地点，再使用路线优化。",
-                )
-              }
-            />
-          </div>
+          {showMapTools ? (
+            <div className="flex flex-wrap items-center justify-end gap-1.5">
+              <ToolbarButton
+                label="搜搜地点"
+                active={isSearchOpen}
+                onClick={() => setIsSearchOpen((current) => !current)}
+              />
+              <ToolbarButton
+                label="量量距离"
+                active={isDistanceOpen}
+                onClick={() => setIsDistanceOpen((current) => !current)}
+              />
+              <ToolbarButton
+                label="整条路线"
+                active={isInspectorOpen}
+                onClick={handleInspectorToggle}
+              />
+              <ToolbarButton
+                label="优化路线"
+                onClick={() =>
+                  setRouteHint(
+                    resolvedPoints.length >= 2
+                      ? "路线优化会在后续版本继续补上。"
+                      : "先选中至少 2 个已定位地点，再使用路线优化。",
+                  )
+                }
+              />
+            </div>
+          ) : null}
         </div>
       </div>
 
-      {isSearchOpen ? (
-        <section className="map-workspace-overlay absolute left-3 top-[5.5rem] z-[6] max-h-[40%] w-[min(22rem,calc(100%-1.5rem))] overflow-hidden px-3 py-3 shadow-[0_18px_40px_rgba(45,36,29,0.12)] sm:left-4 sm:top-[5.75rem]">
+      {isSearchOpen && showMapTools ? (
+        <section className="map-desk-overlay absolute left-3 top-[5.5rem] z-[6] max-h-[40%] w-[min(22rem,calc(100%-1.5rem))] overflow-hidden px-3 py-3 shadow-[0_18px_40px_rgba(45,36,29,0.12)] sm:left-4 sm:top-[5.75rem]">
           <div className="flex flex-wrap items-center gap-2">
             <input
               value={searchKeyword}
@@ -258,7 +325,7 @@ export function MapPanel({
               placeholder={
                 searchCity
                   ? `在 ${searchCity} 搜索地点`
-                  : "先确定目的地，再搜索地点"
+                  : "先确认目的地，再搜索地点"
               }
               className="min-w-[12rem] flex-1 rounded-full border border-[var(--line-strong)] bg-[var(--paper-bright)] px-4 py-2 text-sm text-[var(--ink)] outline-none transition-colors focus:border-[var(--clay-deep)]"
             />
@@ -289,7 +356,7 @@ export function MapPanel({
             {searchWarnings.length > 0 ? (
               <div className="mb-3 flex flex-wrap gap-2">
                 {searchWarnings.map((warning) => (
-                  <span key={warning} className="map-workspace-chip">
+                  <span key={warning} className="map-desk-chip">
                     {warning}
                   </span>
                 ))}
@@ -303,10 +370,10 @@ export function MapPanel({
                     key={candidate.id}
                     type="button"
                     onClick={() => onSearchResultSelect(candidate)}
-                    className={`rounded-[16px] border px-3 py-2 text-left transition-colors ${
+                    className={`map-desk-card px-3 py-2 text-left transition-colors ${
                       selectedSearchCandidate?.id === candidate.id
-                        ? "border-[var(--clay-deep)] bg-[rgba(255,253,247,0.96)]"
-                        : "border-[var(--line)] bg-[rgba(255,253,247,0.72)]"
+                        ? "!border-[var(--clay-deep)] !bg-[rgb(255_253_247_/_0.96)]"
+                        : ""
                     }`}
                   >
                     <p className="text-sm font-semibold text-[var(--ink)]">
@@ -332,23 +399,23 @@ export function MapPanel({
         </section>
       ) : null}
 
-      {routeHint ? (
+      {routeHint && showMapTools ? (
         <div className="pointer-events-none absolute right-3 top-[5.5rem] z-[5] w-[min(18rem,calc(100%-1.5rem))] sm:right-4 sm:top-[5.75rem]">
-          <div className="map-workspace-band px-3 py-2 text-sm leading-6 text-[var(--ink-muted)]">
+          <div className="map-desk-card px-3 py-2 text-sm leading-6 text-[var(--ink-muted)]">
             {routeHint}
           </div>
         </div>
       ) : null}
 
-      {isInspectorOpen ? (
-        <div className="absolute right-3 top-[8.75rem] z-[6] w-[min(22rem,calc(100%-1.5rem))] max-h-[48%] overflow-hidden sm:right-4">
-          <div className="map-workspace-overlay h-full overflow-hidden px-2 py-2">
+      {isInspectorOpen && showMapTools ? (
+        <div className="absolute right-3 top-[8.75rem] z-[6] max-h-[48%] w-[min(22rem,calc(100%-1.5rem))] overflow-hidden sm:right-4">
+          <div className="map-desk-overlay h-full overflow-hidden px-2 py-2">
             <div className="mb-2 flex items-center justify-between gap-2 px-1">
-              <p className="workspace-kicker">路线详情</p>
+              <p className="edit-kicker">整条路线</p>
               <button
                 type="button"
-                onClick={() => setIsInspectorOpen(false)}
-                className="map-workspace-chip"
+                onClick={handleInspectorClose}
+                className="map-desk-chip"
               >
                 收起
               </button>

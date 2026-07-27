@@ -47,6 +47,13 @@ const timeoutEnvironmentValue = z.preprocess((value) => {
 }, z.number().int().positive().default(DEFAULT_LLM_TIMEOUT_MS));
 
 const serverEnvironmentSchema = z.object({
+  AI_PROVIDER: z
+    .enum(["mock", "qwen", "deepseek", "openai-compatible"])
+    .optional(),
+  AI_BASE_URL: optionalUrl,
+  AI_API_KEY: optionalEnvironmentValue,
+  AI_MODEL: optionalEnvironmentValue,
+  AI_TIMEOUT_MS: timeoutEnvironmentValue,
   LLM_BASE_URL: optionalUrl,
   LLM_API_KEY: optionalEnvironmentValue,
   LLM_MODEL: optionalEnvironmentValue,
@@ -66,29 +73,68 @@ const serverEnvironmentSchema = z.object({
 
 export type ServerEnvironment = z.infer<typeof serverEnvironmentSchema>;
 
+export type ResolvedAiProviderName =
+  | "mock"
+  | "qwen"
+  | "deepseek"
+  | "openai-compatible";
+
+export interface ResolvedAiRuntimeConfig {
+  providerName: ResolvedAiProviderName;
+  baseUrl?: string;
+  apiKey?: string;
+  model?: string;
+  timeoutMs: number;
+}
+
+export function shouldUseMockAi(environment: ServerEnvironment) {
+  return environment.USE_MOCK_AI || environment.AI_PROVIDER === "mock";
+}
+
+export function resolveAiRuntimeConfig(
+  environment: ServerEnvironment,
+): ResolvedAiRuntimeConfig {
+  if (shouldUseMockAi(environment)) {
+    return {
+      providerName: "mock",
+      timeoutMs: environment.AI_TIMEOUT_MS ?? environment.LLM_TIMEOUT_MS,
+    };
+  }
+
+  return {
+    providerName: environment.AI_PROVIDER ?? "openai-compatible",
+    baseUrl: environment.AI_BASE_URL ?? environment.LLM_BASE_URL,
+    apiKey: environment.AI_API_KEY ?? environment.LLM_API_KEY,
+    model: environment.AI_MODEL ?? environment.LLM_MODEL,
+    timeoutMs: environment.AI_TIMEOUT_MS ?? environment.LLM_TIMEOUT_MS,
+  };
+}
+
 function ensureRealAiConfiguration(environment: ServerEnvironment) {
-  if (environment.USE_MOCK_AI) {
+  if (shouldUseMockAi(environment)) {
     return;
   }
 
-  if (!environment.LLM_BASE_URL) {
+  const config = resolveAiRuntimeConfig(environment);
+
+  if (!config.baseUrl) {
     throw new AppError(
       "AI_GENERATION_FAILED",
-      "真实模型已开启，但缺少 LLM_BASE_URL，请检查服务端环境变量。",
+      "Real AI is enabled, but AI_BASE_URL or LLM_BASE_URL is missing.",
     );
   }
 
-  if (!environment.LLM_API_KEY) {
+  if (!config.apiKey) {
     throw new AppError(
       "AI_GENERATION_FAILED",
-      "真实模型已开启，但缺少 LLM_API_KEY，请检查服务端环境变量。",
+      "Real AI is enabled, but AI_API_KEY or LLM_API_KEY is missing.",
     );
   }
 
-  if (!environment.LLM_MODEL) {
+  if (!config.model) {
     throw new AppError(
       "AI_GENERATION_FAILED",
-      "真实模型已开启，但缺少 LLM_MODEL，请检查服务端环境变量。",
+      "Real AI is enabled, but AI_MODEL or LLM_MODEL is missing.",
     );
   }
 }
@@ -99,20 +145,23 @@ export function getServerEnvironment(
   const parsed = serverEnvironmentSchema.safeParse(source);
 
   if (!parsed.success) {
+    const aiBaseUrlIssue = parsed.error.issues.find(
+      (issue) => issue.path[0] === "AI_BASE_URL",
+    );
     const llmBaseUrlIssue = parsed.error.issues.find(
       (issue) => issue.path[0] === "LLM_BASE_URL",
     );
 
-    if (llmBaseUrlIssue) {
+    if (aiBaseUrlIssue || llmBaseUrlIssue) {
       throw new AppError(
         "AI_GENERATION_FAILED",
-        "LLM_BASE_URL 格式不正确，请填写 OpenAI-compatible Base URL。",
+        "AI base URL is invalid. Please provide a valid OpenAI-compatible endpoint.",
       );
     }
 
     throw new AppError(
       "UNKNOWN_ERROR",
-      "服务端环境变量格式不正确，请检查部署配置。",
+      "Server environment variables are invalid.",
     );
   }
 

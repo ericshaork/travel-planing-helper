@@ -1,14 +1,14 @@
 import type { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 
-import {
-  clearTripRequest,
-  ensureWorkspaceSessionMetadata,
-  markCurrentTripAsUnsaved,
-  saveTripPlan,
-  saveTripPlanDraft,
-} from "../trip/storage";
+import type { StorageLike } from "../trip/storage";
 import { tripPlanSchema } from "../trip/schema";
 import type { DailyItinerary, TripPlan, TripPlanDraft } from "../trip/types";
+import {
+  prepareExploreProjectWorkspaceFlow,
+  startExploreProjectCreateFlow,
+  startExploreProjectWorkspaceFlow,
+  type ExploreProjectFlowDependencies,
+} from "./project-source-client";
 
 function normalizeExploreDay(
   day: DailyItinerary | undefined,
@@ -18,31 +18,31 @@ function normalizeExploreDay(
   if (!day) {
     return {
       day: dayNumber,
-      theme: `第 ${dayNumber} 天灵感草稿`,
+      theme: `绗?${dayNumber} 澶╃伒鎰熻崏绋縛`,
       routeOrder: [destination],
-      routeReason: "这一天来自 Explore 灵感草稿，导入后可以继续细化地点和路线。",
+      routeReason: "杩欎竴澶╂潵鑷?Explore 鐏垫劅鑽夌锛屽鍏ュ悗鍙互缁х画缁嗗寲鍦扮偣鍜岃矾绾裤€?",
       morning: [],
       afternoon: [],
       evening: [],
-      dailyTips: ["导入工作台后，可以继续添加地点和备注。"],
+      dailyTips: ["瀵煎叆宸ヤ綔鍙板悗锛屽彲浠ョ户缁坊鍔犲湴鐐瑰拰澶囨敞銆?"],
     };
   }
 
   return {
     ...day,
     day: dayNumber,
-    theme: day.theme?.trim() || `第 ${dayNumber} 天灵感草稿`,
+    theme: day.theme?.trim() || `绗?${dayNumber} 澶╃伒鎰熻崏绋縛`,
     routeOrder:
       day.routeOrder.length > 0
         ? day.routeOrder
-        : [destination || day.theme || `第 ${dayNumber} 天`],
+        : [destination || day.theme || `绗?${dayNumber} 澶?`],
     routeReason:
       day.routeReason?.trim() ||
-      "这一天来自 Explore 灵感草稿，导入后可以继续细化地点和路线。",
+      "杩欎竴澶╂潵鑷?Explore 鐏垫劅鑽夌锛屽鍏ュ悗鍙互缁х画缁嗗寲鍦扮偣鍜岃矾绾裤€?",
     dailyTips:
       day.dailyTips.length > 0
         ? day.dailyTips
-        : ["导入工作台后，可以继续添加地点和备注。"],
+        : ["瀵煎叆宸ヤ綔鍙板悗锛屽彲浠ョ户缁坊鍔犲湴鐐瑰拰澶囨敞銆?"],
   };
 }
 
@@ -51,20 +51,20 @@ function buildWorkspacePlanFromExploreDraft(draft: TripPlanDraft): TripPlan {
   const destination =
     seed.destination?.trim() ||
     draft.tripRequestDraft.destinationCity?.trim() ||
-    "待定目的地";
+    "寰呭畾鐩殑鍦?";
   const days = Math.max(1, seed.days || draft.tripRequestDraft.days || 1);
 
   const candidate: TripPlan = {
     ...seed,
-    tripTitle: seed.tripTitle?.trim() || draft.tripTitle || "Explore 灵感草稿",
+    tripTitle: seed.tripTitle?.trim() || draft.tripTitle || "Explore 鐏垫劅鑽夌",
     summary:
       seed.summary?.trim() ||
-      "这是一份从 Explore 导入的灵感草稿，可以在 Workspace 里继续调整。",
+      "杩欐槸涓€浠戒粠 Explore 瀵煎叆鐨勭伒鎰熻崏绋匡紝鍙互鍦?Workspace 閲岀户缁皟鏁淬€?",
     destination,
     days,
     travelStyleSummary:
       seed.travelStyleSummary?.trim() ||
-      "从 Explore 灵感开始，后续按你的节奏继续调整。",
+      "浠?Explore 鐏垫劅寮€濮嬶紝鍚庣画鎸変綘鐨勮妭濂忕户缁皟鏁淬€?",
     dailyItinerary: Array.from({ length: days }, (_, index) =>
       normalizeExploreDay(seed.dailyItinerary[index], index + 1, destination),
     ),
@@ -77,77 +77,142 @@ function buildWorkspacePlanFromExploreDraft(draft: TripPlanDraft): TripPlan {
   }
 
   return {
-    tripTitle: draft.tripTitle || `${destination} 灵感草稿`,
+    tripTitle: draft.tripTitle || `${destination} 鐏垫劅鑽夌`,
     summary:
-      "这是一份从 Explore 导入的灵感草稿，已经先整理成可在 Workspace 打开的版本。",
+      "杩欐槸涓€浠戒粠 Explore 瀵煎叆鐨勭伒鎰熻崏绋匡紝宸茬粡鍏堟暣鐞嗘垚鍙湪 Workspace 鎵撳紑鐨勭増鏈€?",
     destination,
     days,
-    travelStyleSummary: "从 Explore 灵感开始，后续按你的节奏继续调整。",
+    travelStyleSummary: "浠?Explore 鐏垫劅寮€濮嬶紝鍚庣画鎸変綘鐨勮妭濂忕户缁皟鏁淬€?",
     weatherSummary: {
       available: false,
-      overview: "导入工作台后，可以再按日期和目的地补实时天气。",
+      overview: "瀵煎叆宸ヤ綔鍙板悗锛屽彲浠ュ啀鎸夋棩鏈熷拰鐩殑鍦拌ˉ瀹炴椂澶╂皵銆?",
       dailyForecast: [],
       alerts: [],
-      reminders: ["正式出行前再确认天气。"],
-      dataNote: "Explore 导入草稿不携带实时天气。",
+      reminders: ["姝ｅ紡鍑鸿鍓嶅啀纭澶╂皵銆?"],
+      dataNote: "Explore 瀵煎叆鑽夌涓嶆惡甯﹀疄鏃跺ぉ姘斻€?",
     },
     budgetSummary: {
-      totalEstimate: "待补充",
-      transport: "待补充",
-      hotel: "待补充",
-      food: "待补充",
-      tickets: "待补充",
-      localTransport: "待补充",
-      flexibleSpending: "待补充",
-      note: "导入后可以按你的预算重新估算。",
+      totalEstimate: "寰呰ˉ鍏?",
+      transport: "寰呰ˉ鍏?",
+      hotel: "寰呰ˉ鍏?",
+      food: "寰呰ˉ鍏?",
+      tickets: "寰呰ˉ鍏?",
+      localTransport: "寰呰ˉ鍏?",
+      flexibleSpending: "寰呰ˉ鍏?",
+      note: "瀵煎叆鍚庡彲浠ユ寜浣犵殑棰勭畻閲嶆柊浼扮畻銆?",
     },
     hotelAreaAdvice: [],
     transportAdvice: {
-      summary: "路线细节确认后，再补具体交通建议。",
+      summary: "璺嚎缁嗚妭纭鍚庯紝鍐嶈ˉ鍏蜂綋浜ら€氬缓璁€?",
       options: [
         {
           mode: "other",
-          pros: ["先保留灵感草稿，方便继续编辑。"],
-          cons: ["暂时还没有具体交通方案。"],
-          recommendation: "先在 Workspace 里补齐地点，再刷新交通建议。",
+          pros: ["鍏堜繚鐣欑伒鎰熻崏绋匡紝鏂逛究缁х画缂栬緫銆?"],
+          cons: ["鏆傛椂杩樻病鏈夊叿浣撲氦閫氭柟妗堛€?"],
+          recommendation: "鍏堝湪 Workspace 閲岃ˉ榻愬湴鐐癸紝鍐嶅埛鏂颁氦閫氬缓璁€?",
         },
       ],
       suggestedPlatforms: [],
-      note: "当前是导入草稿，交通信息待补充。",
+      note: "褰撳墠鏄鍏ヨ崏绋匡紝浜ら€氫俊鎭緟琛ュ厖銆?",
     },
     dailyItinerary: Array.from({ length: days }, (_, index) =>
       normalizeExploreDay(undefined, index + 1, destination),
     ),
-    generalTips: ["这份草稿来自 Explore，可以继续添加地点、备注和时间段。"],
-    warnings: ["正式出行前，请按自己的日期、预算和开放信息再次核实。"],
+    generalTips: ["杩欎唤鑽夌鏉ヨ嚜 Explore锛屽彲浠ョ户缁坊鍔犲湴鐐广€佸娉ㄥ拰鏃堕棿娈点€?"],
+    warnings: ["姝ｅ紡鍑鸿鍓嶏紝璇锋寜鑷繁鐨勬棩鏈熴€侀绠楀拰寮€鏀句俊鎭啀娆℃牳瀹炪€?"],
   };
 }
 
-export function startExploreCreateFlow(
+export type ExploreCreateFlowEntry =
+  | {
+      source: "ai";
+    }
+  | {
+      source: "explore_archive";
+      archiveSlug: string;
+      mode?: "chat";
+    };
+
+export async function startExploreCreateFlow(
   draft: TripPlanDraft,
   router: AppRouterInstance,
+  entry: ExploreCreateFlowEntry,
+  storage?: StorageLike,
+  dependencies: ExploreProjectFlowDependencies = {},
 ) {
-  markCurrentTripAsUnsaved();
-  saveTripPlanDraft(draft);
-  router.push("/create?entry=explore");
+  const projectSession = await startExploreProjectCreateFlow(
+    draft,
+    storage,
+    dependencies,
+  );
+
+  if (!projectSession?.projectId) {
+    throw new Error("鏃呰椤圭洰鍒涘缓澶辫触锛岃绋嶅悗鍐嶈瘯銆?");
+  }
+
+  const searchParams = new URLSearchParams({
+    source: entry.source,
+    continue: "1",
+  });
+
+  if (entry.source === "explore_archive") {
+    if (entry.mode) {
+      searchParams.set("mode", entry.mode);
+    }
+    searchParams.set("archiveSlug", entry.archiveSlug);
+  }
+
+  router.push(`/create?${searchParams.toString()}`);
 }
 
-export function startExploreWorkspaceFlow(
+export interface ExploreWorkspaceEntryResult {
+  projectId: string;
+  versionId: string;
+  revisionHref: string;
+}
+
+export function buildExploreRevisionHref(projectId: string, versionId: string) {
+  const searchParams = new URLSearchParams({
+    source: "revision",
+    projectId,
+    versionId,
+  });
+
+  return `/create?${searchParams.toString()}`;
+}
+
+export async function prepareExploreWorkspaceEntry(
+  draft: TripPlanDraft,
+  storage?: StorageLike,
+  dependencies: ExploreProjectFlowDependencies = {},
+): Promise<ExploreWorkspaceEntryResult> {
+  const workspacePlan = buildWorkspacePlanFromExploreDraft(draft);
+  const created = await prepareExploreProjectWorkspaceFlow(
+    draft,
+    workspacePlan,
+    storage,
+    dependencies,
+  );
+
+  return {
+    projectId: created.projectId,
+    versionId: created.versionId,
+    revisionHref: buildExploreRevisionHref(created.projectId, created.versionId),
+  };
+}
+
+export async function startExploreWorkspaceFlow(
   draft: TripPlanDraft,
   router: AppRouterInstance,
 ) {
-  const workspacePlan = buildWorkspacePlanFromExploreDraft(draft);
+  const projectSession = await startExploreProjectWorkspaceFlow(
+    draft,
+    buildWorkspacePlanFromExploreDraft(draft),
+  );
 
-  markCurrentTripAsUnsaved();
-  saveTripPlanDraft({
-    ...draft,
-    tripPlanSeed: workspacePlan,
-  });
-  saveTripPlan(workspacePlan);
-  clearTripRequest();
-  ensureWorkspaceSessionMetadata({
-    sourceType: "explore_import",
-    workspaceModeDefault: "read",
-  });
+  if (!projectSession?.projectId || !projectSession.versionId) {
+    throw new Error("鏃呰椤圭洰鎴栫増鏈垱寤哄け璐ワ紝璇风◢鍚庡啀璇曘€?");
+  }
+
   router.push("/workspace");
 }

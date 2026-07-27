@@ -307,6 +307,323 @@ describe("generateTripWithProvider", () => {
     expect(result.tripPlan.transportAdvice.options[0]?.mode).toBe("other");
   });
 
+  it("guide / dailyTips / matchedInterests 被写成字符串时会自动包成数组", async () => {
+    const valid = await createValidResponse(exampleOneRequest);
+    const brokenPlan = {
+      ...valid.tripPlan,
+      generalTips: "带上防晒霜",
+      warnings: "沿海注意台风",
+      weatherSummary: {
+        ...valid.tripPlan.weatherSummary,
+        reminders: "带上雨伞",
+      },
+      transportAdvice: {
+        ...valid.tripPlan.transportAdvice,
+        suggestedPlatforms: "12306",
+        options: valid.tripPlan.transportAdvice.options.map((option) => ({
+          ...option,
+          pros: "速度快",
+          cons: "价格贵",
+        })),
+      },
+      dailyItinerary: valid.tripPlan.dailyItinerary.map((day) => ({
+        ...day,
+        routeOrder: "鼓浪屿",
+        dailyTips: "早上早点出发",
+        morning: day.morning.map((item) => ({
+          ...item,
+          guide: "提前预约门票",
+          matchedInterests: "海边",
+        })),
+      })),
+    };
+
+    const provider = new StubLLMProvider(
+      JSON.stringify({ tripPlan: brokenPlan }),
+    );
+
+    const result = await generateTripWithProvider(
+      { tripRequest: exampleOneRequest },
+      provider,
+    );
+
+    expect(provider.repairCalls).toBe(0);
+    expect(result.tripPlan.generalTips).toEqual(["带上防晒霜"]);
+    expect(result.tripPlan.warnings).toEqual(["沿海注意台风"]);
+    expect(result.tripPlan.weatherSummary.reminders).toEqual(["带上雨伞"]);
+    expect(result.tripPlan.transportAdvice.suggestedPlatforms).toEqual([
+      "12306",
+    ]);
+    expect(result.tripPlan.transportAdvice.options[0]?.pros).toEqual([
+      "速度快",
+    ]);
+    expect(result.tripPlan.transportAdvice.options[0]?.cons).toEqual([
+      "价格贵",
+    ]);
+    expect(result.tripPlan.dailyItinerary[0]?.routeOrder).toEqual([
+      "鼓浪屿",
+    ]);
+    expect(result.tripPlan.dailyItinerary[0]?.dailyTips).toEqual([
+      "早上早点出发",
+    ]);
+    expect(result.tripPlan.dailyItinerary[0]?.morning[0]?.guide).toEqual([
+      "提前预约门票",
+    ]);
+    expect(result.tripPlan.dailyItinerary[0]?.morning[0]?.matchedInterests).toEqual([
+      "海边",
+    ]);
+  });
+
+  it.each([
+    ["美食", "food"],
+    ["景点", "attraction"],
+    ["餐饮", "food"],
+    ["自由活动", "free_time"],
+    ["购物", "shopping"],
+    ["酒店", "hotel"],
+    ["ATTRACTIONS", "attraction"],
+    ["Restaurant", "food"],
+  ])(
+    'ItineraryItem type = "%s" 时归一化到英文枚举 "%s"',
+    async (typeInput, expected) => {
+      const valid = await createValidResponse(exampleOneRequest);
+      const brokenPlan = {
+        ...valid.tripPlan,
+        dailyItinerary: valid.tripPlan.dailyItinerary.map((day, dayIndex) => ({
+          ...day,
+          morning:
+            dayIndex === 0
+              ? day.morning.map((item) => ({ ...item, type: typeInput }))
+              : day.morning,
+        })),
+      };
+
+      const provider = new StubLLMProvider(
+        JSON.stringify({ tripPlan: brokenPlan }),
+      );
+
+      const result = await generateTripWithProvider(
+        { tripRequest: exampleOneRequest },
+        provider,
+      );
+
+      expect(provider.repairCalls).toBe(0);
+      expect(result.tripPlan.dailyItinerary[0]?.morning[0]?.type).toBe(expected);
+    },
+  );
+
+  it("morning / afternoon / evening 是单对象时会被包成数组", async () => {
+    const valid = await createValidResponse(exampleOneRequest);
+    const originalMorningItem = valid.tripPlan.dailyItinerary[0]!.morning[0]!;
+    const brokenPlan = {
+      ...valid.tripPlan,
+      dailyItinerary: valid.tripPlan.dailyItinerary.map((day, index) => {
+        if (index !== 0) return day;
+        return {
+          ...day,
+          // 模拟模型偶尔把三时段全部返回成单对象而非数组
+          morning: { ...originalMorningItem, placeName: "西安城墙" },
+          afternoon: { ...originalMorningItem, placeName: "陕西历史博物馆" },
+          evening: { ...originalMorningItem, placeName: "老米家肉丸胡辣汤" },
+        };
+      }),
+    };
+    const provider = new StubLLMProvider(
+      JSON.stringify({ tripPlan: brokenPlan }),
+    );
+
+    const result = await generateTripWithProvider(
+      { tripRequest: exampleOneRequest },
+      provider,
+    );
+
+    expect(provider.repairCalls).toBe(0);
+    expect(Array.isArray(result.tripPlan.dailyItinerary[0]?.morning)).toBe(
+      true,
+    );
+    expect(result.tripPlan.dailyItinerary[0]?.morning[0]?.placeName).toBe(
+      "西安城墙",
+    );
+    expect(result.tripPlan.dailyItinerary[0]?.afternoon[0]?.placeName).toBe(
+      "陕西历史博物馆",
+    );
+    expect(result.tripPlan.dailyItinerary[0]?.evening[0]?.placeName).toBe(
+      "老米家肉丸胡辣汤",
+    );
+  });
+
+  it("morning / afternoon / evening 是 null 时会归一化为空数组", async () => {
+    const valid = await createValidResponse(exampleOneRequest);
+    const originalMorningItem = valid.tripPlan.dailyItinerary[0]!.morning[0]!;
+    const brokenPlan = {
+      ...valid.tripPlan,
+      dailyItinerary: valid.tripPlan.dailyItinerary.map((day, index) => {
+        if (index !== 0) return day;
+        return {
+          ...day,
+          morning: [{ ...originalMorningItem, placeName: "西安城墙" }],
+          afternoon: null,
+          evening: undefined,
+        };
+      }),
+    };
+    const provider = new StubLLMProvider(
+      JSON.stringify({ tripPlan: brokenPlan }),
+    );
+
+    const result = await generateTripWithProvider(
+      { tripRequest: exampleOneRequest },
+      provider,
+    );
+
+    expect(provider.repairCalls).toBe(0);
+    expect(result.tripPlan.dailyItinerary[0]?.morning).toHaveLength(1);
+    expect(result.tripPlan.dailyItinerary[0]?.afternoon).toEqual([]);
+    expect(result.tripPlan.dailyItinerary[0]?.evening).toEqual([]);
+  });
+
+  it("weatherSummary.dailyForecast[].date 缺失时会用 forecast/fallback 兜底而不失败", async () => {
+    const valid = await createValidResponse(exampleThreeRequest);
+    const brokenPlan = {
+      ...valid.tripPlan,
+      weatherSummary: {
+        ...valid.tripPlan.weatherSummary,
+        dailyForecast: [
+          // model 完全没给 date / dayWeather / summary
+          {},
+          // model 只给了空字符串
+          { date: "", dayWeather: "", summary: "" },
+          // model 只给了 summary
+          { summary: "多云偶阵雨" },
+        ],
+      },
+    };
+    const provider = new StubLLMProvider(
+      JSON.stringify({ tripPlan: brokenPlan }),
+    );
+
+    const result = await generateTripWithProvider(
+      {
+        tripRequest: exampleThreeRequest,
+        weatherForecast: exampleThreeWeather,
+      },
+      provider,
+    );
+
+    const forecast = result.tripPlan.weatherSummary.dailyForecast;
+    expect(forecast).toHaveLength(3);
+    // 第 0、1 项走 weatherForecast 的日期兜底
+    expect(forecast[0]?.date).toBe(exampleThreeWeather.forecastDays[0]?.date);
+    expect(forecast[1]?.date).toBe(exampleThreeWeather.forecastDays[1]?.date);
+    // 第 2 项没有对应 forecast，退化到 today+index 计算的合法 ISO 日期
+    expect(forecast[2]?.date).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+    // dayWeather 缺失时也不会阻断 schema
+    expect(typeof forecast[0]?.dayWeather).toBe("string");
+    expect(forecast[0]?.dayWeather?.length ?? 0).toBeGreaterThan(0);
+  });
+
+  it("模型把 3 个 block 全塞在 morning 时，会自动均摊到 morning/afternoon/evening", async () => {
+    const valid = await createValidResponse(exampleOneRequest);
+    const firstDay = valid.tripPlan.dailyItinerary[0]!;
+    const packedMorning = [
+      { ...firstDay.morning[0]!, placeName: "上午地点" },
+      { ...firstDay.morning[0]!, placeName: "下午地点" },
+      { ...firstDay.morning[0]!, placeName: "晚上地点" },
+    ];
+    const brokenPlan = {
+      ...valid.tripPlan,
+      dailyItinerary: valid.tripPlan.dailyItinerary.map((day, index) =>
+        index === 0
+          ? {
+              ...day,
+              morning: packedMorning,
+              afternoon: [],
+              evening: [],
+            }
+          : day,
+      ),
+    };
+    const provider = new StubLLMProvider(
+      JSON.stringify({ tripPlan: brokenPlan }),
+    );
+
+    const result = await generateTripWithProvider(
+      { tripRequest: exampleOneRequest },
+      provider,
+    );
+
+    expect(provider.repairCalls).toBe(0);
+    expect(result.tripPlan.dailyItinerary[0]?.morning).toHaveLength(1);
+    expect(result.tripPlan.dailyItinerary[0]?.morning[0]?.placeName).toBe(
+      "上午地点",
+    );
+    expect(result.tripPlan.dailyItinerary[0]?.afternoon).toHaveLength(1);
+    expect(result.tripPlan.dailyItinerary[0]?.afternoon[0]?.placeName).toBe(
+      "下午地点",
+    );
+    expect(result.tripPlan.dailyItinerary[0]?.evening).toHaveLength(1);
+    expect(result.tripPlan.dailyItinerary[0]?.evening[0]?.placeName).toBe(
+      "晚上地点",
+    );
+  });
+
+  it("模型正常分布在三个时段时槽位不再被改动", async () => {
+    const valid = await createValidResponse(exampleOneRequest);
+    const original = valid.tripPlan.dailyItinerary[0]!;
+    // 强制构造 morning=1, afternoon=1, evening=1
+    const balancedDay = {
+      ...original,
+      morning: [
+        { ...original.morning[0]!, placeName: "上午原样" },
+      ],
+      afternoon: [
+        { ...original.morning[0]!, placeName: "下午原样" },
+      ],
+      evening: [
+        { ...original.morning[0]!, placeName: "晚上原样" },
+      ],
+    };
+    const brokenPlan = {
+      ...valid.tripPlan,
+      dailyItinerary: valid.tripPlan.dailyItinerary.map((day, index) =>
+        index === 0 ? balancedDay : day,
+      ),
+    };
+    const provider = new StubLLMProvider(
+      JSON.stringify({ tripPlan: brokenPlan }),
+    );
+
+    const result = await generateTripWithProvider(
+      { tripRequest: exampleOneRequest },
+      provider,
+    );
+
+    expect(result.tripPlan.dailyItinerary[0]?.morning[0]?.placeName).toBe(
+      "上午原样",
+    );
+    expect(result.tripPlan.dailyItinerary[0]?.afternoon[0]?.placeName).toBe(
+      "下午原样",
+    );
+    expect(result.tripPlan.dailyItinerary[0]?.evening[0]?.placeName).toBe(
+      "晚上原样",
+    );
+  });
+
+  it("模型把 tripPlan 内容摊平到顶层时也能被自动 rewrap", async () => {
+    const valid = await createValidResponse(exampleOneRequest);
+    const flatPlan = { ...valid.tripPlan };
+    const provider = new StubLLMProvider(JSON.stringify(flatPlan));
+
+    const result = await generateTripWithProvider(
+      { tripRequest: exampleOneRequest },
+      provider,
+    );
+
+    expect(provider.repairCalls).toBe(0);
+    expect(result.tripPlan.destination).toBe("厦门");
+    expect(result.tripPlan.days).toBe(3);
+  });
+
   it("repair 后也会再次 normalize", async () => {
     const valid = await createValidResponse(exampleThreeRequest);
     const repaired = {
@@ -344,12 +661,24 @@ describe("generateTripWithProvider", () => {
     expect(result.tripPlan.transportAdvice.options[0]?.mode).toBe("other");
   });
 
-  it("repairJson 仍明确要求修成最终 TripPlan", () => {
+  it("repairJson 明确要求最终结构是 GenerateTripResponse 且保留 tripPlan 外层", () => {
     const instructions = buildTripPlanRepairInstructions("generate-trip");
 
-    expect(instructions).toContain("修复目标是 TripPlan");
+    expect(instructions).toContain("GenerateTripResponse");
+    expect(instructions).toContain("tripPlan 是必需的外层包裹字段");
+    expect(instructions).toContain(
+      "禁止把 tripTitle / dailyItinerary 等直接放到顶层",
+    );
     expect(instructions).toContain("weatherSummary.dailyForecast 每一项都必须包含 summary");
-    expect(instructions).toContain("transportAdvice.options[].mode 只能使用 flight、train、high_speed_rail、bus、ship、other");
+    expect(instructions).toContain(
+      "transportAdvice.options[].mode 只能使用 flight、train、high_speed_rail、bus、ship、other",
+    );
+    expect(instructions).toContain(
+      "以下字段必须是 JSON 数组",
+    );
+    expect(instructions).toContain(
+      "type 只能使用英文枚举 attraction / food / transport / hotel / free_time / shopping / other",
+    );
   });
 
   it("Mock generate 不受影响", async () => {

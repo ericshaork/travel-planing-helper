@@ -1,0 +1,109 @@
+{
+  "city_code": "chengdu",
+  "city_name": "Chengdu",
+  "region_name": "Sichuan",
+  "summary": "Chengdu is well suited for food-focused, low-pressure city travel with walkable historic districts, tea-house culture, and strong neighborhood character.",
+  "transport_notes": [
+    "Central Chengdu works well with metro rides plus short walks.",
+    "Keep the itinerary clustered by district to avoid unnecessary cross-city movement.",
+    "Evening activities work best when they stay near food streets or riverwalk zones."
+  ],
+  "budget_notes": {
+    "low": "Prioritize snack streets, public transit, and compact walking districts.",
+    "medium": "Mix classic neighborhoods, signature food areas, and one or two slower cultural stops.",
+    "high": "Add more refined dining and slower, comfort-oriented breaks without overpacking the day."
+  },
+  "trip_type_notes": {
+    "student": "Student trips should feel affordable, lively, and easy to execute without private transport.",
+    "solo": "Solo plans should feel flexible and safe with clear district logic.",
+    "couple": "Couple plans should balance atmosphere, food, and relaxed evening pacing.",
+    "family": "Family plans should avoid excessive transfers and long high-density walking blocks."
+  },
+  "suggested_tags": [
+    "food",
+    "citywalk",
+    "local-culture",
+    "historic-districts",
+    "tea-house-vibe",
+    "budget-friendly"
+  ],
+  "pois": [
+    {
+      "id": "poi_kuanzhai_alley",
+      "name": "Kuanzhai Alley",
+      "district": "Qingyang",
+      "type": "historic district",
+      "description": "A signature walkable district combining old-lane atmosphere, snacks, and easy city entry.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_people_park",
+      "name": "People's Park",
+      "district": "Qingyang",
+      "type": "city park",
+      "description": "A relaxed local stop known for tea-house culture and low-pressure pacing.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_jinli",
+      "name": "Jinli",
+      "district": "Wuhou",
+      "type": "historic commercial street",
+      "description": "A classic evening-friendly district with strong local atmosphere, snacks, and visitor-friendly access.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_wuhou_shrine",
+      "name": "Wuhou Shrine",
+      "district": "Wuhou",
+      "type": "cultural site",
+      "description": "A useful culture anchor for history and local-context itineraries.",
+      "best_for": ["student", "solo", "couple"],
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_wangpingfang",
+      "name": "Wangpingfang Riverside Area",
+      "district": "Chenghua",
+      "type": "riverwalk district",
+      "description": "A relaxed riverside zone suited to evening walks, cafes, and youth-oriented local energy.",
+      "best_for": ["student", "solo", "couple"],
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_construction_road",
+      "name": "Construction Road Food Area",
+      "district": "Chenghua",
+      "type": "food district",
+      "description": "A strong student-friendly food stop known for affordable, dense snack options.",
+      "best_for": ["student", "solo"],
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food_areas": [
+    {
+      "name": "Construction Road Food Area",
+      "district": "Chenghua",
+      "specialties": ["street snacks", "late-night bites", "budget-friendly local food"],
+      "best_for": ["student", "solo"],
+      "note": "Best for affordable evening-heavy eating with a lively local atmosphere."
+    },
+    {
+      "name": "Jinli Snack Corridor",
+      "district": "Wuhou",
+      "specialties": ["classic Sichuan snacks", "casual tasting stops", "tourist-friendly food sampling"],
+      "best_for": ["student", "couple", "solo", "family"],
+      "note": "Best when paired with a nearby cultural or evening walk stop."
+    },
+    {
+      "name": "Kuanzhai Lane Food Pockets",
+      "district": "Qingyang",
+      "specialties": ["tea-house snacks", "shared plates", "easy first-day food options"],
+      "best_for": ["student", "solo", "couple", "family"],
+      "note": "Good for an accessible first-day introduction to local food and street atmosphere."
+    }
+  ]
+}

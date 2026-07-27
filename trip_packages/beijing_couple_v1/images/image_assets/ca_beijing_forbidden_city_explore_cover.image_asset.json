@@ -1,0 +1,57 @@
+{
+  "asset_id": "ca_beijing_forbidden_city",
+  "asset_instance_id": "ca_beijing_forbidden_city_explore_cover",
+  "image_slot": "explore_cover",
+  "source": "hybrid",
+  "file_path": "C:\\Users\\10200\\Desktop\\travel_planing\\assets\\external\\ca_beijing_forbidden_city.jpg",
+  "status": "completed",
+  "metadata": {
+    "strategy": "real_photo_first_ai_fallback",
+    "usage_profile": "cover",
+    "resolved_via": "real_photo",
+    "real_photo": {
+      "source": "wikimedia",
+      "status": "completed",
+      "file_path": "C:\\Users\\10200\\Desktop\\travel_planing\\assets\\external\\ca_beijing_forbidden_city.jpg",
+      "retry_count": 0,
+      "last_error": null,
+      "download_status": "completed",
+      "fallback_available": false,
+      "selection": {
+        "selected_candidate": {
+          "source": "wikimedia",
+          "candidate_id": "",
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Beijing_Forbidden_City_water_vessel-20071018-RM-150052.jpg/1920px-Beijing_Forbidden_City_water_vessel-20071018-RM-150052.jpg"
+        },
+        "rank_score": 50,
+        "candidate_count": 5,
+        "rejected_count": 0
+      },
+      "metadata": {
+        "source_runs": [
+          {
+            "source": "wikimedia",
+            "priority": 1,
+            "candidate_count": 5,
+            "error": null
+          }
+        ],
+        "title": "File:Beijing Forbidden City water vessel-20071018-RM-150052.jpg",
+        "description": "Water vessel in the Forbidden City in Beijing",
+        "author": "Ermell",
+        "license": "CC BY-SA 4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File%3ABeijing_Forbidden_City_water_vessel-20071018-RM-150052.jpg",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Beijing_Forbidden_City_water_vessel-20071018-RM-150052.jpg/1920px-Beijing_Forbidden_City_water_vessel-20071018-RM-150052.jpg",
+        "width": 1600,
+        "height": 2133,
+        "mime_type": "image/jpeg",
+        "score_reasons": [
+          "location_match",
+          "good_resolution_2000",
+          "license_cc_by"
+        ]
+      }
+    },
+    "ai_fallback": null
+  }
+}

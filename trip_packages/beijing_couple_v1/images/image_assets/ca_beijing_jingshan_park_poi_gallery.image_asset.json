@@ -1,0 +1,46 @@
+{
+  "asset_id": "ca_beijing_jingshan_park",
+  "asset_instance_id": "ca_beijing_jingshan_park_poi_gallery",
+  "image_slot": "poi_gallery",
+  "source": "wikimedia",
+  "file_path": "C:\\Users\\10200\\Desktop\\travel_planing\\assets\\external\\ca_beijing_jingshan_park.jpg",
+  "status": "completed",
+  "retry_count": 2,
+  "last_error": "Image download failed with status 429.",
+  "download_status": "completed",
+  "fallback_available": false,
+  "selection": {
+    "selected_candidate": {
+      "source": "wikimedia",
+      "candidate_id": "",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Shanyouli_Gate%2C_Jingshan_Park%2C_Xicheng_District%2C_Beijing_%28202409301733%29.jpg/1920px-Shanyouli_Gate%2C_Jingshan_Park%2C_Xicheng_District%2C_Beijing_%28202409301733%29.jpg"
+    },
+    "rank_score": 50,
+    "candidate_count": 5,
+    "rejected_count": 1
+  },
+  "metadata": {
+    "source_runs": [
+      {
+        "source": "wikimedia",
+        "priority": 1,
+        "candidate_count": 5,
+        "error": null
+      }
+    ],
+    "title": "File:Shanyouli Gate, Jingshan Park, Xicheng District, Beijing (202409301733).jpg",
+    "description": "The plaque of Shanyouli Gate, Jingshan Park, Xicheng District, Beijing, inscribed in Manchu and Chinese. Photographed on September 30, 2024.",
+    "author": "MiiCii",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File%3AShanyouli_Gate%2C_Jingshan_Park%2C_Xicheng_District%2C_Beijing_(202409301733).jpg",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Shanyouli_Gate%2C_Jingshan_Park%2C_Xicheng_District%2C_Beijing_%28202409301733%29.jpg/1920px-Shanyouli_Gate%2C_Jingshan_Park%2C_Xicheng_District%2C_Beijing_%28202409301733%29.jpg",
+    "width": 1600,
+    "height": 2133,
+    "mime_type": "image/jpeg",
+    "score_reasons": [
+      "location_match",
+      "good_resolution_2000",
+      "license_cc_by"
+    ]
+  }
+}

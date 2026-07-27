@@ -1,0 +1,1684 @@
+{
+  "plans": [
+    {
+      "id": "guangzhou_couple_2d_021",
+      "city": "guangzhou",
+      "days": 2,
+      "trip_type": "couple",
+      "budget": "medium",
+      "preferences": [
+        "photo",
+        "citywalk",
+        "food"
+      ],
+      "pace": "balanced",
+      "theme": "珠江晚风与早茶日常之间的两人慢时光"
+    },
+    {
+      "id": "guangzhou_student_3d_022",
+      "city": "guangzhou",
+      "days": 3,
+      "trip_type": "student",
+      "budget": "low",
+      "preferences": [
+        "food",
+        "citywalk",
+        "local_culture"
+      ],
+      "pace": "dense",
+      "theme": "骑楼街巷、早茶日常和年轻街头的高性价比探索"
+    },
+    {
+      "id": "guangzhou_family_3d_023",
+      "city": "guangzhou",
+      "days": 3,
+      "trip_type": "family",
+      "budget": "medium",
+      "preferences": [
+        "family_friendly",
+        "nature",
+        "history"
+      ],
+      "pace": "slow",
+      "theme": "骑楼街巷与早茶日常串起的轻松亲子时光"
+    },
+    {
+      "id": "guangzhou_couple_4d_024",
+      "city": "guangzhou",
+      "days": 4,
+      "trip_type": "couple",
+      "budget": "medium",
+      "preferences": [
+        "photo",
+        "nature",
+        "shopping"
+      ],
+      "pace": "slow",
+      "theme": "珠江晚风、骑楼街巷和夜色里的城市约会"
+    },
+    {
+      "id": "guangzhou_student_3d_025",
+      "city": "guangzhou",
+      "days": 3,
+      "trip_type": "student",
+      "budget": "low",
+      "preferences": [
+        "food",
+        "shopping",
+        "citywalk"
+      ],
+      "pace": "balanced",
+      "theme": "在早茶日常与珠江晚风之间感受城市最有活力的一面"
+    },
+    {
+      "id": "guangzhou_solo_2d_026",
+      "city": "guangzhou",
+      "days": 2,
+      "trip_type": "solo",
+      "budget": "medium",
+      "preferences": [
+        "citywalk",
+        "local_culture",
+        "photo"
+      ],
+      "pace": "balanced",
+      "theme": "珠江晚风与早茶日常之间的独自城市漫游"
+    },
+    {
+      "id": "guangzhou_couple_3d_027",
+      "city": "guangzhou",
+      "days": 3,
+      "trip_type": "couple",
+      "budget": "medium",
+      "preferences": [
+        "photo",
+        "citywalk",
+        "food"
+      ],
+      "pace": "slow",
+      "theme": "从珠江晚风走到骑楼街巷的浪漫氛围旅程"
+    },
+    {
+      "id": "guangzhou_family_5d_028",
+      "city": "guangzhou",
+      "days": 5,
+      "trip_type": "family",
+      "budget": "high",
+      "preferences": [
+        "family_friendly",
+        "nature",
+        "history"
+      ],
+      "pace": "slow",
+      "theme": "在骑楼街巷和珠江晚风之间展开一段舒服的家庭探索"
+    },
+    {
+      "id": "guangzhou_student_3d_029",
+      "city": "guangzhou",
+      "days": 3,
+      "trip_type": "student",
+      "budget": "low",
+      "preferences": [
+        "food",
+        "nightlife",
+        "shopping"
+      ],
+      "pace": "balanced",
+      "theme": "珠江晚风连着骑楼街巷的青春烟火漫游"
+    },
+    {
+      "id": "guangzhou_couple_3d_030",
+      "city": "guangzhou",
+      "days": 3,
+      "trip_type": "couple",
+      "budget": "medium",
+      "preferences": [
+        "photo",
+        "nature",
+        "shopping"
+      ],
+      "pace": "slow",
+      "theme": "把骑楼街巷和早茶日常过成一段值得收藏的双人记忆"
+    },
+    {
+      "id": "shenzhen_couple_2d_031",
+      "city": "shenzhen",
+      "days": 2,
+      "trip_type": "couple",
+      "budget": "high",
+      "preferences": [
+        "photo",
+        "citywalk",
+        "food"
+      ],
+      "pace": "balanced",
+      "theme": "创意园午后与城市天际线之间的两人慢时光"
+    },
+    {
+      "id": "shenzhen_student_3d_032",
+      "city": "shenzhen",
+      "days": 3,
+      "trip_type": "student",
+      "budget": "low",
+      "preferences": [
+        "food",
+        "citywalk",
+        "local_culture"
+      ],
+      "pace": "dense",
+      "theme": "海边栈道、城市天际线和年轻街头的高性价比探索"
+    },
+    {
+      "id": "shenzhen_family_4d_033",
+      "city": "shenzhen",
+      "days": 4,
+      "trip_type": "family",
+      "budget": "high",
+      "preferences": [
+        "family_friendly",
+        "nature",
+        "history"
+      ],
+      "pace": "slow",
+      "theme": "城市天际线与创意园午后串起的轻松亲子时光"
+    },
+    {
+      "id": "shenzhen_couple_3d_034",
+      "city": "shenzhen",
+      "days": 3,
+      "trip_type": "couple",
+      "budget": "medium",
+      "preferences": [
+        "photo",
+        "nature",
+        "shopping"
+      ],
+      "pace": "slow",
+      "theme": "城市天际线、创意园午后和夜色里的城市约会"
+    },
+    {
+      "id": "shenzhen_student_2d_035",
+      "city": "shenzhen",
+      "days": 2,
+      "trip_type": "student",
+      "budget": "low",
+      "preferences": [
+        "food",
+        "shopping",
+        "citywalk"
+      ],
+      "pace": "dense",
+      "theme": "在海边栈道与创意园午后之间感受城市最有活力的一面"
+    },
+    {
+      "id": "shenzhen_solo_3d_036",
+      "city": "shenzhen",
+      "days": 3,
+      "trip_type": "solo",
+      "budget": "medium",
+      "preferences": [
+        "citywalk",
+        "local_culture",
+        "photo"
+      ],
+      "pace": "balanced",
+      "theme": "海边栈道与城市天际线之间的独自城市漫游"
+    },
+    {
+      "id": "shenzhen_couple_4d_037",
+      "city": "shenzhen",
+      "days": 4,
+      "trip_type": "couple",
+      "budget": "high",
+      "preferences": [
+        "photo",
+        "citywalk",
+        "food"
+      ],
+      "pace": "slow",
+      "theme": "从海边栈道走到城市天际线的浪漫氛围旅程"
+    },
+    {
+      "id": "shenzhen_family_3d_038",
+      "city": "shenzhen",
+      "days": 3,
+      "trip_type": "family",
+      "budget": "medium",
+      "preferences": [
+        "family_friendly",
+        "nature",
+        "history"
+      ],
+      "pace": "balanced",
+      "theme": "在城市天际线和创意园午后之间展开一段舒服的家庭探索"
+    },
+    {
+      "id": "shenzhen_student_3d_039",
+      "city": "shenzhen",
+      "days": 3,
+      "trip_type": "student",
+      "budget": "low",
+      "preferences": [
+        "food",
+        "nightlife",
+        "shopping"
+      ],
+      "pace": "balanced",
+      "theme": "创意园午后连着海边栈道的青春烟火漫游"
+    },
+    {
+      "id": "shenzhen_couple_3d_040",
+      "city": "shenzhen",
+      "days": 3,
+      "trip_type": "couple",
+      "budget": "medium",
+      "preferences": [
+        "photo",
+        "nature",
+        "shopping"
+      ],
+      "pace": "slow",
+      "theme": "把海边栈道和城市天际线过成一段值得收藏的双人记忆"
+    },
+    {
+      "id": "nanjing_couple_2d_091",
+      "city": "nanjing",
+      "days": 2,
+      "trip_type": "couple",
+      "budget": "medium",
+      "preferences": [
+        "photo",
+        "citywalk",
+        "food"
+      ],
+      "pace": "balanced",
+      "theme": "老城散步与秦淮灯影之间的两人慢时光"
+    },
+    {
+      "id": "nanjing_student_3d_092",
+      "city": "nanjing",
+      "days": 3,
+      "trip_type": "student",
+      "budget": "low",
+      "preferences": [
+        "food",
+        "citywalk",
+        "local_culture"
+      ],
+      "pace": "dense",
+      "theme": "梧桐大道、秦淮灯影和年轻街头的高性价比探索"
+    },
+    {
+      "id": "nanjing_family_4d_093",
+      "city": "nanjing",
+      "days": 4,
+      "trip_type": "family",
+      "budget": "high",
+      "preferences": [
+        "family_friendly",
+        "nature",
+        "history"
+      ],
+      "pace": "slow",
+      "theme": "秦淮灯影与老城散步串起的轻松亲子时光"
+    },
+    {
+      "id": "nanjing_couple_3d_094",
+      "city": "nanjing",
+      "days": 3,
+      "trip_type": "couple",
+      "budget": "medium",
+      "preferences": [
+        "photo",
+        "nature",
+        "shopping"
+      ],
+      "pace": "slow",
+      "theme": "秦淮灯影、老城散步和夜色里的城市约会"
+    },
+    {
+      "id": "nanjing_student_2d_095",
+      "city": "nanjing",
+      "days": 2,
+      "trip_type": "student",
+      "budget": "low",
+      "preferences": [
+        "food",
+        "shopping",
+        "citywalk"
+      ],
+      "pace": "dense",
+      "theme": "在梧桐大道与老城散步之间感受城市最有活力的一面"
+    },
+    {
+      "id": "nanjing_solo_3d_096",
+      "city": "nanjing",
+      "days": 3,
+      "trip_type": "solo",
+      "budget": "medium",
+      "preferences": [
+        "citywalk",
+        "local_culture",
+        "photo"
+      ],
+      "pace": "balanced",
+      "theme": "梧桐大道与秦淮灯影之间的独自城市漫游"
+    },
+    {
+      "id": "nanjing_couple_4d_097",
+      "city": "nanjing",
+      "days": 4,
+      "trip_type": "couple",
+      "budget": "high",
+      "preferences": [
+        "photo",
+        "citywalk",
+        "food"
+      ],
+      "pace": "slow",
+      "theme": "从梧桐大道走到秦淮灯影的浪漫氛围旅程"
+    },
+    {
+      "id": "nanjing_family_3d_098",
+      "city": "nanjing",
+      "days": 3,
+      "trip_type": "family",
+      "budget": "medium",
+      "preferences": [
+        "family_friendly",
+        "nature",
+        "history"
+      ],
+      "pace": "balanced",
+      "theme": "在秦淮灯影和老城散步之间展开一段舒服的家庭探索"
+    },
+    {
+      "id": "nanjing_student_3d_099",
+      "city": "nanjing",
+      "days": 3,
+      "trip_type": "student",
+      "budget": "low",
+      "preferences": [
+        "food",
+        "nightlife",
+        "shopping"
+      ],
+      "pace": "balanced",
+      "theme": "老城散步连着梧桐大道的青春烟火漫游"
+    },
+    {
+      "id": "nanjing_couple_3d_100",
+      "city": "nanjing",
+      "days": 3,
+      "trip_type": "couple",
+      "budget": "medium",
+      "preferences": [
+        "photo",
+        "nature",
+        "shopping"
+      ],
+      "pace": "slow",
+      "theme": "把梧桐大道和秦淮灯影过成一段值得收藏的双人记忆"
+    },
+    {
+      "id": "suzhou_family_2d_101",
+      "city": "suzhou",
+      "days": 2,
+      "trip_type": "family",
+      "budget": "high",
+      "preferences": [
+        "family_friendly",
+        "local_culture",
+        "nature"
+      ],
+      "pace": "slow",
+      "theme": "水巷灯影与平江路慢步串起的轻松亲子时光"
+    },
+    {
+      "id": "suzhou_couple_3d_102",
+      "city": "suzhou",
+      "days": 3,
+      "trip_type": "couple",
+      "budget": "medium",
+      "preferences": [
+        "photo",
+        "citywalk",
+        "food"
+      ],
+      "pace": "slow",
+      "theme": "园林清晨与平江路慢步之间的两人慢时光"
+    },
+    {
+      "id": "suzhou_student_3d_103",
+      "city": "suzhou",
+      "days": 3,
+      "trip_type": "student",
+      "budget": "low",
+      "preferences": [
+        "food",
+        "local_culture",
+        "nightlife"
+      ],
+      "pace": "balanced",
+      "theme": "园林清晨、平江路慢步和年轻街头的高性价比探索"
+    },
+    {
+      "id": "suzhou_couple_4d_104",
+      "city": "suzhou",
+      "days": 4,
+      "trip_type": "couple",
+      "budget": "medium",
+      "preferences": [
+        "photo",
+        "nature",
+        "shopping"
+      ],
+      "pace": "slow",
+      "theme": "水巷灯影、园林清晨和夜色里的城市约会"
+    },
+    {
+      "id": "suzhou_family_3d_105",
+      "city": "suzhou",
+      "days": 3,
+      "trip_type": "family",
+      "budget": "medium",
+      "preferences": [
+        "family_friendly",
+        "museum",
+        "local_culture"
+      ],
+      "pace": "slow",
+      "theme": "在平江路慢步和水巷灯影之间展开一段舒服的家庭探索"
+    },
+    {
+      "id": "suzhou_solo_2d_106",
+      "city": "suzhou",
+      "days": 2,
+      "trip_type": "solo",
+      "budget": "medium",
+      "preferences": [
+        "citywalk",
+        "local_culture",
+        "photo"
+      ],
+      "pace": "balanced",
+      "theme": "水巷灯影与平江路慢步之间的独自城市漫游"
+    },
+    {
+      "id": "suzhou_student_3d_107",
+      "city": "suzhou",
+      "days": 3,
+      "trip_type": "student",
+      "budget": "low",
+      "preferences": [
+        "food",
+        "citywalk",
+        "local_culture"
+      ],
+      "pace": "balanced",
+      "theme": "在平江路慢步与水巷灯影之间感受城市最有活力的一面"
+    },
+    {
+      "id": "suzhou_couple_5d_108",
+      "city": "suzhou",
+      "days": 5,
+      "trip_type": "couple",
+      "budget": "medium",
+      "preferences": [
+        "photo",
+        "citywalk",
+        "food"
+      ],
+      "pace": "slow",
+      "theme": "从平江路慢步走到园林清晨的浪漫氛围旅程"
+    },
+    {
+      "id": "suzhou_family_3d_109",
+      "city": "suzhou",
+      "days": 3,
+      "trip_type": "family",
+      "budget": "medium",
+      "preferences": [
+        "family_friendly",
+        "history",
+        "museum"
+      ],
+      "pace": "slow",
+      "theme": "水巷灯影配上园林清晨的陪伴型合家欢旅程"
+    },
+    {
+      "id": "suzhou_student_3d_110",
+      "city": "suzhou",
+      "days": 3,
+      "trip_type": "student",
+      "budget": "low",
+      "preferences": [
+        "food",
+        "shopping",
+        "citywalk"
+      ],
+      "pace": "dense",
+      "theme": "水巷灯影连着园林清晨的青春烟火漫游"
+    },
+    {
+      "id": "qingdao_family_2d_111",
+      "city": "qingdao",
+      "days": 2,
+      "trip_type": "family",
+      "budget": "high",
+      "preferences": [
+        "family_friendly",
+        "local_culture",
+        "nature"
+      ],
+      "pace": "slow",
+      "theme": "海边日落与红瓦老城串起的轻松亲子时光"
+    },
+    {
+      "id": "qingdao_couple_3d_112",
+      "city": "qingdao",
+      "days": 3,
+      "trip_type": "couple",
+      "budget": "medium",
+      "preferences": [
+        "photo",
+        "citywalk",
+        "food"
+      ],
+      "pace": "slow",
+      "theme": "海岸木栈道与红瓦老城之间的两人慢时光"
+    },
+    {
+      "id": "qingdao_student_4d_113",
+      "city": "qingdao",
+      "days": 4,
+      "trip_type": "student",
+      "budget": "low",
+      "preferences": [
+        "food",
+        "local_culture",
+        "nightlife"
+      ],
+      "pace": "balanced",
+      "theme": "红瓦老城、海边日落和年轻街头的高性价比探索"
+    },
+    {
+      "id": "qingdao_couple_3d_114",
+      "city": "qingdao",
+      "days": 3,
+      "trip_type": "couple",
+      "budget": "medium",
+      "preferences": [
+        "photo",
+        "nature",
+        "shopping"
+      ],
+      "pace": "slow",
+      "theme": "红瓦老城、海边日落和夜色里的城市约会"
+    },
+    {
+      "id": "qingdao_family_2d_115",
+      "city": "qingdao",
+      "days": 2,
+      "trip_type": "family",
+      "budget": "medium",
+      "preferences": [
+        "family_friendly",
+        "museum",
+        "local_culture"
+      ],
+      "pace": "slow",
+      "theme": "在海岸木栈道和海边日落之间展开一段舒服的家庭探索"
+    },
+    {
+      "id": "qingdao_solo_3d_116",
+      "city": "qingdao",
+      "days": 3,
+      "trip_type": "solo",
+      "budget": "medium",
+      "preferences": [
+        "citywalk",
+        "local_culture",
+        "photo"
+      ],
+      "pace": "balanced",
+      "theme": "海岸木栈道与红瓦老城之间的独自城市漫游"
+    },
+    {
+      "id": "qingdao_student_4d_117",
+      "city": "qingdao",
+      "days": 4,
+      "trip_type": "student",
+      "budget": "low",
+      "preferences": [
+        "food",
+        "citywalk",
+        "local_culture"
+      ],
+      "pace": "balanced",
+      "theme": "在海边日落与海岸木栈道之间感受城市最有活力的一面"
+    },
+    {
+      "id": "qingdao_couple_3d_118",
+      "city": "qingdao",
+      "days": 3,
+      "trip_type": "couple",
+      "budget": "medium",
+      "preferences": [
+        "photo",
+        "citywalk",
+        "food"
+      ],
+      "pace": "slow",
+      "theme": "从海边日落走到海岸木栈道的浪漫氛围旅程"
+    },
+    {
+      "id": "qingdao_family_3d_119",
+      "city": "qingdao",
+      "days": 3,
+      "trip_type": "family",
+      "budget": "medium",
+      "preferences": [
+        "family_friendly",
+        "history",
+        "museum"
+      ],
+      "pace": "slow",
+      "theme": "海边日落配上海岸木栈道的陪伴型合家欢旅程"
+    },
+    {
+      "id": "qingdao_student_3d_120",
+      "city": "qingdao",
+      "days": 3,
+      "trip_type": "student",
+      "budget": "low",
+      "preferences": [
+        "food",
+        "shopping",
+        "citywalk"
+      ],
+      "pace": "dense",
+      "theme": "海边日落连着海岸木栈道的青春烟火漫游"
+    },
+    {
+      "id": "wuhan_family_2d_121",
+      "city": "wuhan",
+      "days": 2,
+      "trip_type": "family",
+      "budget": "high",
+      "preferences": [
+        "family_friendly",
+        "local_culture",
+        "nature"
+      ],
+      "pace": "slow",
+      "theme": "老街烟火与江城夜色串起的轻松亲子时光"
+    },
+    {
+      "id": "wuhan_couple_3d_122",
+      "city": "wuhan",
+      "days": 3,
+      "trip_type": "couple",
+      "budget": "medium",
+      "preferences": [
+        "photo",
+        "citywalk",
+        "food"
+      ],
+      "pace": "slow",
+      "theme": "东湖慢骑与江城夜色之间的两人慢时光"
+    },
+    {
+      "id": "wuhan_student_3d_123",
+      "city": "wuhan",
+      "days": 3,
+      "trip_type": "student",
+      "budget": "low",
+      "preferences": [
+        "food",
+        "local_culture",
+        "nightlife"
+      ],
+      "pace": "balanced",
+      "theme": "东湖慢骑、江城夜色和年轻街头的高性价比探索"
+    },
+    {
+      "id": "wuhan_couple_4d_124",
+      "city": "wuhan",
+      "days": 4,
+      "trip_type": "couple",
+      "budget": "medium",
+      "preferences": [
+        "photo",
+        "nature",
+        "shopping"
+      ],
+      "pace": "slow",
+      "theme": "老街烟火、东湖慢骑和夜色里的城市约会"
+    },
+    {
+      "id": "wuhan_family_3d_125",
+      "city": "wuhan",
+      "days": 3,
+      "trip_type": "family",
+      "budget": "medium",
+      "preferences": [
+        "family_friendly",
+        "museum",
+        "local_culture"
+      ],
+      "pace": "slow",
+      "theme": "在江城夜色和老街烟火之间展开一段舒服的家庭探索"
+    },
+    {
+      "id": "wuhan_solo_2d_126",
+      "city": "wuhan",
+      "days": 2,
+      "trip_type": "solo",
+      "budget": "medium",
+      "preferences": [
+        "citywalk",
+        "local_culture",
+        "photo"
+      ],
+      "pace": "balanced",
+      "theme": "老街烟火与江城夜色之间的独自城市漫游"
+    },
+    {
+      "id": "wuhan_student_3d_127",
+      "city": "wuhan",
+      "days": 3,
+      "trip_type": "student",
+      "budget": "low",
+      "preferences": [
+        "food",
+        "citywalk",
+        "local_culture"
+      ],
+      "pace": "balanced",
+      "theme": "在江城夜色与老街烟火之间感受城市最有活力的一面"
+    },
+    {
+      "id": "wuhan_couple_5d_128",
+      "city": "wuhan",
+      "days": 5,
+      "trip_type": "couple",
+      "budget": "medium",
+      "preferences": [
+        "photo",
+        "citywalk",
+        "food"
+      ],
+      "pace": "slow",
+      "theme": "从江城夜色走到东湖慢骑的浪漫氛围旅程"
+    },
+    {
+      "id": "wuhan_family_3d_129",
+      "city": "wuhan",
+      "days": 3,
+      "trip_type": "family",
+      "budget": "medium",
+      "preferences": [
+        "family_friendly",
+        "history",
+        "museum"
+      ],
+      "pace": "slow",
+      "theme": "老街烟火配上东湖慢骑的陪伴型合家欢旅程"
+    },
+    {
+      "id": "wuhan_student_3d_130",
+      "city": "wuhan",
+      "days": 3,
+      "trip_type": "student",
+      "budget": "low",
+      "preferences": [
+        "food",
+        "shopping",
+        "citywalk"
+      ],
+      "pace": "dense",
+      "theme": "老街烟火连着东湖慢骑的青春烟火漫游"
+    },
+    {
+      "id": "changsha_family_2d_131",
+      "city": "changsha",
+      "days": 2,
+      "trip_type": "family",
+      "budget": "high",
+      "preferences": [
+        "family_friendly",
+        "local_culture",
+        "nature"
+      ],
+      "pace": "slow",
+      "theme": "年轻街区与江边灯火串起的轻松亲子时光"
+    },
+    {
+      "id": "changsha_couple_3d_132",
+      "city": "changsha",
+      "days": 3,
+      "trip_type": "couple",
+      "budget": "medium",
+      "preferences": [
+        "photo",
+        "citywalk",
+        "food"
+      ],
+      "pace": "slow",
+      "theme": "夜市热气与江边灯火之间的两人慢时光"
+    },
+    {
+      "id": "changsha_student_4d_133",
+      "city": "changsha",
+      "days": 4,
+      "trip_type": "student",
+      "budget": "low",
+      "preferences": [
+        "food",
+        "local_culture",
+        "nightlife"
+      ],
+      "pace": "balanced",
+      "theme": "江边灯火、年轻街区和年轻街头的高性价比探索"
+    },
+    {
+      "id": "changsha_couple_3d_134",
+      "city": "changsha",
+      "days": 3,
+      "trip_type": "couple",
+      "budget": "medium",
+      "preferences": [
+        "photo",
+        "nature",
+        "shopping"
+      ],
+      "pace": "slow",
+      "theme": "江边灯火、年轻街区和夜色里的城市约会"
+    },
+    {
+      "id": "changsha_family_2d_135",
+      "city": "changsha",
+      "days": 2,
+      "trip_type": "family",
+      "budget": "medium",
+      "preferences": [
+        "family_friendly",
+        "museum",
+        "local_culture"
+      ],
+      "pace": "slow",
+      "theme": "在夜市热气和年轻街区之间展开一段舒服的家庭探索"
+    },
+    {
+      "id": "changsha_solo_3d_136",
+      "city": "changsha",
+      "days": 3,
+      "trip_type": "solo",
+      "budget": "medium",
+      "preferences": [
+        "citywalk",
+        "local_culture",
+        "photo"
+      ],
+      "pace": "balanced",
+      "theme": "夜市热气与江边灯火之间的独自城市漫游"
+    },
+    {
+      "id": "changsha_student_4d_137",
+      "city": "changsha",
+      "days": 4,
+      "trip_type": "student",
+      "budget": "low",
+      "preferences": [
+        "food",
+        "citywalk",
+        "local_culture"
+      ],
+      "pace": "balanced",
+      "theme": "在年轻街区与夜市热气之间感受城市最有活力的一面"
+    },
+    {
+      "id": "changsha_couple_3d_138",
+      "city": "changsha",
+      "days": 3,
+      "trip_type": "couple",
+      "budget": "medium",
+      "preferences": [
+        "photo",
+        "citywalk",
+        "food"
+      ],
+      "pace": "slow",
+      "theme": "从年轻街区走到夜市热气的浪漫氛围旅程"
+    },
+    {
+      "id": "changsha_family_3d_139",
+      "city": "changsha",
+      "days": 3,
+      "trip_type": "family",
+      "budget": "medium",
+      "preferences": [
+        "family_friendly",
+        "history",
+        "museum"
+      ],
+      "pace": "slow",
+      "theme": "年轻街区配上夜市热气的陪伴型合家欢旅程"
+    },
+    {
+      "id": "changsha_student_3d_140",
+      "city": "changsha",
+      "days": 3,
+      "trip_type": "student",
+      "budget": "low",
+      "preferences": [
+        "food",
+        "shopping",
+        "citywalk"
+      ],
+      "pace": "dense",
+      "theme": "年轻街区连着夜市热气的青春烟火漫游"
+    },
+    {
+      "id": "guilin_family_2d_141",
+      "city": "guilin",
+      "days": 2,
+      "trip_type": "family",
+      "budget": "high",
+      "preferences": [
+        "family_friendly",
+        "local_culture",
+        "nature"
+      ],
+      "pace": "slow",
+      "theme": "老城慢步与漓江微风串起的轻松亲子时光"
+    },
+    {
+      "id": "guilin_couple_3d_142",
+      "city": "guilin",
+      "days": 3,
+      "trip_type": "couple",
+      "budget": "medium",
+      "preferences": [
+        "photo",
+        "citywalk",
+        "food"
+      ],
+      "pace": "slow",
+      "theme": "山水晨雾与漓江微风之间的两人慢时光"
+    },
+    {
+      "id": "guilin_student_3d_143",
+      "city": "guilin",
+      "days": 3,
+      "trip_type": "student",
+      "budget": "low",
+      "preferences": [
+        "food",
+        "local_culture",
+        "nightlife"
+      ],
+      "pace": "balanced",
+      "theme": "山水晨雾、漓江微风和年轻街头的高性价比探索"
+    },
+    {
+      "id": "guilin_couple_4d_144",
+      "city": "guilin",
+      "days": 4,
+      "trip_type": "couple",
+      "budget": "medium",
+      "preferences": [
+        "photo",
+        "nature",
+        "shopping"
+      ],
+      "pace": "slow",
+      "theme": "老城慢步、山水晨雾和夜色里的城市约会"
+    },
+    {
+      "id": "guilin_family_3d_145",
+      "city": "guilin",
+      "days": 3,
+      "trip_type": "family",
+      "budget": "medium",
+      "preferences": [
+        "family_friendly",
+        "museum",
+        "local_culture"
+      ],
+      "pace": "slow",
+      "theme": "在漓江微风和老城慢步之间展开一段舒服的家庭探索"
+    },
+    {
+      "id": "guilin_solo_2d_146",
+      "city": "guilin",
+      "days": 2,
+      "trip_type": "solo",
+      "budget": "medium",
+      "preferences": [
+        "citywalk",
+        "local_culture",
+        "photo"
+      ],
+      "pace": "balanced",
+      "theme": "老城慢步与漓江微风之间的独自城市漫游"
+    },
+    {
+      "id": "guilin_student_3d_147",
+      "city": "guilin",
+      "days": 3,
+      "trip_type": "student",
+      "budget": "low",
+      "preferences": [
+        "food",
+        "citywalk",
+        "local_culture"
+      ],
+      "pace": "balanced",
+      "theme": "在漓江微风与老城慢步之间感受城市最有活力的一面"
+    },
+    {
+      "id": "guilin_couple_5d_148",
+      "city": "guilin",
+      "days": 5,
+      "trip_type": "couple",
+      "budget": "medium",
+      "preferences": [
+        "photo",
+        "citywalk",
+        "food"
+      ],
+      "pace": "slow",
+      "theme": "从漓江微风走到山水晨雾的浪漫氛围旅程"
+    },
+    {
+      "id": "guilin_family_3d_149",
+      "city": "guilin",
+      "days": 3,
+      "trip_type": "family",
+      "budget": "medium",
+      "preferences": [
+        "family_friendly",
+        "history",
+        "museum"
+      ],
+      "pace": "slow",
+      "theme": "老城慢步配上山水晨雾的陪伴型合家欢旅程"
+    },
+    {
+      "id": "guilin_student_3d_150",
+      "city": "guilin",
+      "days": 3,
+      "trip_type": "student",
+      "budget": "low",
+      "preferences": [
+        "food",
+        "shopping",
+        "citywalk"
+      ],
+      "pace": "dense",
+      "theme": "老城慢步连着山水晨雾的青春烟火漫游"
+    },
+    {
+      "id": "sanya_family_2d_151",
+      "city": "sanya",
+      "days": 2,
+      "trip_type": "family",
+      "budget": "high",
+      "preferences": [
+        "family_friendly",
+        "local_culture",
+        "nature"
+      ],
+      "pace": "slow",
+      "theme": "湾区晚风与椰林午后串起的轻松亲子时光"
+    },
+    {
+      "id": "sanya_couple_3d_152",
+      "city": "sanya",
+      "days": 3,
+      "trip_type": "couple",
+      "budget": "medium",
+      "preferences": [
+        "photo",
+        "citywalk",
+        "food"
+      ],
+      "pace": "slow",
+      "theme": "海边落日与椰林午后之间的两人慢时光"
+    },
+    {
+      "id": "sanya_student_4d_153",
+      "city": "sanya",
+      "days": 4,
+      "trip_type": "student",
+      "budget": "low",
+      "preferences": [
+        "food",
+        "local_culture",
+        "nightlife"
+      ],
+      "pace": "balanced",
+      "theme": "椰林午后、湾区晚风和年轻街头的高性价比探索"
+    },
+    {
+      "id": "sanya_couple_3d_154",
+      "city": "sanya",
+      "days": 3,
+      "trip_type": "couple",
+      "budget": "medium",
+      "preferences": [
+        "photo",
+        "nature",
+        "shopping"
+      ],
+      "pace": "slow",
+      "theme": "椰林午后、湾区晚风和夜色里的城市约会"
+    },
+    {
+      "id": "sanya_family_2d_155",
+      "city": "sanya",
+      "days": 2,
+      "trip_type": "family",
+      "budget": "medium",
+      "preferences": [
+        "family_friendly",
+        "museum",
+        "local_culture"
+      ],
+      "pace": "slow",
+      "theme": "在海边落日和湾区晚风之间展开一段舒服的家庭探索"
+    },
+    {
+      "id": "sanya_solo_3d_156",
+      "city": "sanya",
+      "days": 3,
+      "trip_type": "solo",
+      "budget": "medium",
+      "preferences": [
+        "citywalk",
+        "local_culture",
+        "photo"
+      ],
+      "pace": "balanced",
+      "theme": "海边落日与椰林午后之间的独自城市漫游"
+    },
+    {
+      "id": "sanya_student_4d_157",
+      "city": "sanya",
+      "days": 4,
+      "trip_type": "student",
+      "budget": "low",
+      "preferences": [
+        "food",
+        "citywalk",
+        "local_culture"
+      ],
+      "pace": "balanced",
+      "theme": "在湾区晚风与海边落日之间感受城市最有活力的一面"
+    },
+    {
+      "id": "sanya_couple_3d_158",
+      "city": "sanya",
+      "days": 3,
+      "trip_type": "couple",
+      "budget": "medium",
+      "preferences": [
+        "photo",
+        "citywalk",
+        "food"
+      ],
+      "pace": "slow",
+      "theme": "从湾区晚风走到海边落日的浪漫氛围旅程"
+    },
+    {
+      "id": "sanya_family_3d_159",
+      "city": "sanya",
+      "days": 3,
+      "trip_type": "family",
+      "budget": "medium",
+      "preferences": [
+        "family_friendly",
+        "history",
+        "museum"
+      ],
+      "pace": "slow",
+      "theme": "湾区晚风配上海边落日的陪伴型合家欢旅程"
+    },
+    {
+      "id": "sanya_student_3d_160",
+      "city": "sanya",
+      "days": 3,
+      "trip_type": "student",
+      "budget": "low",
+      "preferences": [
+        "food",
+        "shopping",
+        "citywalk"
+      ],
+      "pace": "dense",
+      "theme": "湾区晚风连着海边落日的青春烟火漫游"
+    },
+    {
+      "id": "lijiang_family_2d_171",
+      "city": "lijiang",
+      "days": 2,
+      "trip_type": "family",
+      "budget": "high",
+      "preferences": [
+        "family_friendly",
+        "local_culture",
+        "nature"
+      ],
+      "pace": "slow",
+      "theme": "石板路漫步与雪山天光串起的轻松亲子时光"
+    },
+    {
+      "id": "lijiang_couple_3d_172",
+      "city": "lijiang",
+      "days": 3,
+      "trip_type": "couple",
+      "budget": "medium",
+      "preferences": [
+        "photo",
+        "citywalk",
+        "food"
+      ],
+      "pace": "slow",
+      "theme": "古城灯火与雪山天光之间的两人慢时光"
+    },
+    {
+      "id": "lijiang_student_4d_173",
+      "city": "lijiang",
+      "days": 4,
+      "trip_type": "student",
+      "budget": "low",
+      "preferences": [
+        "food",
+        "local_culture",
+        "nightlife"
+      ],
+      "pace": "balanced",
+      "theme": "雪山天光、石板路漫步和年轻街头的高性价比探索"
+    },
+    {
+      "id": "lijiang_couple_3d_174",
+      "city": "lijiang",
+      "days": 3,
+      "trip_type": "couple",
+      "budget": "medium",
+      "preferences": [
+        "photo",
+        "nature",
+        "shopping"
+      ],
+      "pace": "slow",
+      "theme": "雪山天光、石板路漫步和夜色里的城市约会"
+    },
+    {
+      "id": "lijiang_family_2d_175",
+      "city": "lijiang",
+      "days": 2,
+      "trip_type": "family",
+      "budget": "medium",
+      "preferences": [
+        "family_friendly",
+        "museum",
+        "local_culture"
+      ],
+      "pace": "slow",
+      "theme": "在古城灯火和石板路漫步之间展开一段舒服的家庭探索"
+    },
+    {
+      "id": "lijiang_solo_3d_176",
+      "city": "lijiang",
+      "days": 3,
+      "trip_type": "solo",
+      "budget": "medium",
+      "preferences": [
+        "citywalk",
+        "local_culture",
+        "photo"
+      ],
+      "pace": "balanced",
+      "theme": "古城灯火与雪山天光之间的独自城市漫游"
+    },
+    {
+      "id": "lijiang_student_4d_177",
+      "city": "lijiang",
+      "days": 4,
+      "trip_type": "student",
+      "budget": "low",
+      "preferences": [
+        "food",
+        "citywalk",
+        "local_culture"
+      ],
+      "pace": "balanced",
+      "theme": "在石板路漫步与古城灯火之间感受城市最有活力的一面"
+    },
+    {
+      "id": "lijiang_couple_3d_178",
+      "city": "lijiang",
+      "days": 3,
+      "trip_type": "couple",
+      "budget": "medium",
+      "preferences": [
+        "photo",
+        "citywalk",
+        "food"
+      ],
+      "pace": "slow",
+      "theme": "从石板路漫步走到古城灯火的浪漫氛围旅程"
+    },
+    {
+      "id": "lijiang_family_3d_179",
+      "city": "lijiang",
+      "days": 3,
+      "trip_type": "family",
+      "budget": "medium",
+      "preferences": [
+        "family_friendly",
+        "history",
+        "museum"
+      ],
+      "pace": "slow",
+      "theme": "石板路漫步配上古城灯火的陪伴型合家欢旅程"
+    },
+    {
+      "id": "lijiang_student_3d_180",
+      "city": "lijiang",
+      "days": 3,
+      "trip_type": "student",
+      "budget": "low",
+      "preferences": [
+        "food",
+        "shopping",
+        "citywalk"
+      ],
+      "pace": "dense",
+      "theme": "石板路漫步连着古城灯火的青春烟火漫游"
+    },
+    {
+      "id": "dunhuang_family_2d_181",
+      "city": "dunhuang",
+      "days": 2,
+      "trip_type": "family",
+      "budget": "high",
+      "preferences": [
+        "family_friendly",
+        "local_culture",
+        "nature"
+      ],
+      "pace": "slow",
+      "theme": "戈壁星空与壁画时光串起的轻松亲子时光"
+    },
+    {
+      "id": "dunhuang_couple_3d_182",
+      "city": "dunhuang",
+      "days": 3,
+      "trip_type": "couple",
+      "budget": "medium",
+      "preferences": [
+        "photo",
+        "citywalk",
+        "food"
+      ],
+      "pace": "slow",
+      "theme": "大漠落日与壁画时光之间的两人慢时光"
+    },
+    {
+      "id": "dunhuang_student_3d_183",
+      "city": "dunhuang",
+      "days": 3,
+      "trip_type": "student",
+      "budget": "low",
+      "preferences": [
+        "food",
+        "local_culture",
+        "nightlife"
+      ],
+      "pace": "balanced",
+      "theme": "大漠落日、壁画时光和年轻街头的高性价比探索"
+    },
+    {
+      "id": "dunhuang_couple_4d_184",
+      "city": "dunhuang",
+      "days": 4,
+      "trip_type": "couple",
+      "budget": "medium",
+      "preferences": [
+        "photo",
+        "nature",
+        "shopping"
+      ],
+      "pace": "slow",
+      "theme": "戈壁星空、大漠落日和夜色里的城市约会"
+    },
+    {
+      "id": "dunhuang_family_3d_185",
+      "city": "dunhuang",
+      "days": 3,
+      "trip_type": "family",
+      "budget": "medium",
+      "preferences": [
+        "family_friendly",
+        "museum",
+        "local_culture"
+      ],
+      "pace": "slow",
+      "theme": "在壁画时光和戈壁星空之间展开一段舒服的家庭探索"
+    },
+    {
+      "id": "dunhuang_solo_2d_186",
+      "city": "dunhuang",
+      "days": 2,
+      "trip_type": "solo",
+      "budget": "medium",
+      "preferences": [
+        "citywalk",
+        "local_culture",
+        "photo"
+      ],
+      "pace": "balanced",
+      "theme": "戈壁星空与壁画时光之间的独自城市漫游"
+    },
+    {
+      "id": "dunhuang_student_3d_187",
+      "city": "dunhuang",
+      "days": 3,
+      "trip_type": "student",
+      "budget": "low",
+      "preferences": [
+        "food",
+        "citywalk",
+        "local_culture"
+      ],
+      "pace": "balanced",
+      "theme": "在壁画时光与戈壁星空之间感受城市最有活力的一面"
+    },
+    {
+      "id": "dunhuang_couple_5d_188",
+      "city": "dunhuang",
+      "days": 5,
+      "trip_type": "couple",
+      "budget": "medium",
+      "preferences": [
+        "photo",
+        "citywalk",
+        "food"
+      ],
+      "pace": "slow",
+      "theme": "从壁画时光走到大漠落日的浪漫氛围旅程"
+    },
+    {
+      "id": "dunhuang_family_3d_189",
+      "city": "dunhuang",
+      "days": 3,
+      "trip_type": "family",
+      "budget": "medium",
+      "preferences": [
+        "family_friendly",
+        "history",
+        "museum"
+      ],
+      "pace": "slow",
+      "theme": "戈壁星空配上大漠落日的陪伴型合家欢旅程"
+    },
+    {
+      "id": "dunhuang_student_3d_190",
+      "city": "dunhuang",
+      "days": 3,
+      "trip_type": "student",
+      "budget": "low",
+      "preferences": [
+        "food",
+        "shopping",
+        "citywalk"
+      ],
+      "pace": "dense",
+      "theme": "戈壁星空连着大漠落日的青春烟火漫游"
+    },
+    {
+      "id": "harbin_family_2d_191",
+      "city": "harbin",
+      "days": 2,
+      "trip_type": "family",
+      "budget": "high",
+      "preferences": [
+        "family_friendly",
+        "local_culture",
+        "nature"
+      ],
+      "pace": "slow",
+      "theme": "欧陆老街与松花江风串起的轻松亲子时光"
+    },
+    {
+      "id": "harbin_couple_3d_192",
+      "city": "harbin",
+      "days": 3,
+      "trip_type": "couple",
+      "budget": "medium",
+      "preferences": [
+        "photo",
+        "citywalk",
+        "food"
+      ],
+      "pace": "slow",
+      "theme": "冰雪街景与松花江风之间的两人慢时光"
+    },
+    {
+      "id": "harbin_student_4d_193",
+      "city": "harbin",
+      "days": 4,
+      "trip_type": "student",
+      "budget": "low",
+      "preferences": [
+        "food",
+        "local_culture",
+        "nightlife"
+      ],
+      "pace": "balanced",
+      "theme": "松花江风、欧陆老街和年轻街头的高性价比探索"
+    },
+    {
+      "id": "harbin_couple_3d_194",
+      "city": "harbin",
+      "days": 3,
+      "trip_type": "couple",
+      "budget": "medium",
+      "preferences": [
+        "photo",
+        "nature",
+        "shopping"
+      ],
+      "pace": "slow",
+      "theme": "松花江风、欧陆老街和夜色里的城市约会"
+    },
+    {
+      "id": "harbin_family_2d_195",
+      "city": "harbin",
+      "days": 2,
+      "trip_type": "family",
+      "budget": "medium",
+      "preferences": [
+        "family_friendly",
+        "museum",
+        "local_culture"
+      ],
+      "pace": "slow",
+      "theme": "在冰雪街景和欧陆老街之间展开一段舒服的家庭探索"
+    },
+    {
+      "id": "harbin_solo_3d_196",
+      "city": "harbin",
+      "days": 3,
+      "trip_type": "solo",
+      "budget": "medium",
+      "preferences": [
+        "citywalk",
+        "local_culture",
+        "photo"
+      ],
+      "pace": "balanced",
+      "theme": "冰雪街景与松花江风之间的独自城市漫游"
+    },
+    {
+      "id": "harbin_student_4d_197",
+      "city": "harbin",
+      "days": 4,
+      "trip_type": "student",
+      "budget": "low",
+      "preferences": [
+        "food",
+        "citywalk",
+        "local_culture"
+      ],
+      "pace": "balanced",
+      "theme": "在欧陆老街与冰雪街景之间感受城市最有活力的一面"
+    },
+    {
+      "id": "harbin_couple_3d_198",
+      "city": "harbin",
+      "days": 3,
+      "trip_type": "couple",
+      "budget": "medium",
+      "preferences": [
+        "photo",
+        "citywalk",
+        "food"
+      ],
+      "pace": "slow",
+      "theme": "从欧陆老街走到冰雪街景的浪漫氛围旅程"
+    },
+    {
+      "id": "harbin_family_3d_199",
+      "city": "harbin",
+      "days": 3,
+      "trip_type": "family",
+      "budget": "medium",
+      "preferences": [
+        "family_friendly",
+        "history",
+        "museum"
+      ],
+      "pace": "slow",
+      "theme": "欧陆老街配上冰雪街景的陪伴型合家欢旅程"
+    },
+    {
+      "id": "harbin_student_3d_200",
+      "city": "harbin",
+      "days": 3,
+      "trip_type": "student",
+      "budget": "low",
+      "preferences": [
+        "food",
+        "shopping",
+        "citywalk"
+      ],
+      "pace": "dense",
+      "theme": "欧陆老街连着冰雪街景的青春烟火漫游"
+    }
+  ]
+}

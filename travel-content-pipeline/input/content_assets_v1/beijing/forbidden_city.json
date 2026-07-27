@@ -1,0 +1,37 @@
+{
+  "id": "ca_beijing_forbidden_city",
+  "name": "\u6545\u5bab\u535a\u7269\u9662",
+  "asset_type": "landmark",
+  "category": "imperial_landmark",
+  "content_role": ["signature_anchor", "city_symbolism"],
+  "traveler_fit": {
+    "couple": "high",
+    "student": "medium",
+    "solo": "medium",
+    "family": "medium"
+  },
+  "season_fit": {
+    "spring": "high",
+    "summer": "medium",
+    "autumn": "high",
+    "winter": "medium"
+  },
+  "best_time": {
+    "time_of_day": ["morning"],
+    "note": "Strongest as an early-day opener before crowd pressure dominates the route."
+  },
+  "experience_value": {
+    "primary": ["city_symbolism", "imperial_scale", "first_impression"],
+    "summary": "Beijing's clearest first-visit anchor when the route needs ceremonial scale, recognition value, and historical weight."
+  },
+  "avoid_when": [
+    "ultra_low_friction_route",
+    "deep_revisit_that_avoids_mainstream_icons",
+    "major_holiday_peak_without_early_entry_plan"
+  ],
+  "nearby_assets": [
+    "ca_beijing_jingshan_view_release",
+    "ca_beijing_shichahai_evening_transition"
+  ],
+  "map_asset_id": "B000A8UIN8"
+}

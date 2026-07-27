@@ -1,0 +1,120 @@
+{
+  "id": "ca_xian_bell_drum_tower",
+  "name": "Bell Tower and Drum Tower Area",
+  "asset_type": "place_historic_texture",
+  "category": [
+    "place",
+    "historic_texture",
+    "supporting_stop"
+  ],
+  "content_role": [
+    "historic_texture",
+    "supporting_stop",
+    "place",
+    "real_photo"
+  ],
+  "traveler_fit": {
+    "couple": "high",
+    "student": "medium",
+    "solo": "high",
+    "family": "high",
+    "friends": "high"
+  },
+  "season_fit": {
+    "spring": "medium",
+    "summer": "medium",
+    "autumn": "high",
+    "winter": "medium"
+  },
+  "best_time": {
+    "time_of_day": [
+      "afternoon",
+      "evening"
+    ],
+    "note": "Bell Tower and Drum Tower Area is intended as supporting_stop with balanced pacing."
+  },
+  "experience_value": {
+    "primary": [
+      "historic_texture",
+      "supporting_stop",
+      "place",
+      "recognizable tower architecture",
+      "old-city street context",
+      "warm evening light"
+    ],
+    "summary": "Bell Tower or Drum Tower with old-city walking context"
+  },
+  "avoid_when": [
+    "generic Chinese tower",
+    "festival stage only",
+    "no street scale"
+  ],
+  "nearby_assets": [],
+  "map_asset_id": "poi_bell_drum_tower",
+  "bridge_metadata": {
+    "source": "city_inventory",
+    "source_inventory_id": "xian_city_inventory_v1",
+    "asset_id": "ca_xian_bell_drum_tower",
+    "asset_name": "Bell Tower and Drum Tower Area",
+    "asset_category": "place",
+    "asset_family": "historic_texture",
+    "route_role": "supporting_stop",
+    "why_it_matters": "Bell Tower or Drum Tower with old-city walking context",
+    "pace_hint": "balanced",
+    "priority": 3
+  },
+  "image_context": {
+    "recommended_slots": [
+      "poi_gallery"
+    ],
+    "image_usage_profile": "place",
+    "default_generation_mode": "real_photo",
+    "source_preference": "real_first",
+    "search_keywords": [
+      "Xi'an Bell Tower",
+      "Xi'an Drum Tower",
+      "Bell Tower Xi'an night",
+      "Drum Tower Xi'an street"
+    ],
+    "visual_subject": {
+      "main_subject": "Bell Tower or Drum Tower with old-city walking context",
+      "secondary_elements": [
+        "tower architecture",
+        "street lights",
+        "pedestrians"
+      ]
+    },
+    "positive_cues": [
+      "recognizable tower architecture",
+      "old-city street context",
+      "warm evening light"
+    ],
+    "negative_cues": [
+      "generic Chinese tower",
+      "festival stage only",
+      "no street scale"
+    ]
+  },
+  "search_keywords": [
+    "Xi'an Bell Tower",
+    "Xi'an Drum Tower",
+    "Bell Tower Xi'an night",
+    "Drum Tower Xi'an street"
+  ],
+  "review_rules": {
+    "manual_review_required": true,
+    "identity_check": [
+      "Bell Tower or Drum Tower location identity is readable.",
+      "Works as historic texture in the route."
+    ],
+    "failure_examples": [
+      "generic tower from another city",
+      "close crop with no context",
+      "fake historical scene"
+    ]
+  },
+  "golden_reference": {
+    "package_id": "future_xian_golden",
+    "asset_instance_ids": []
+  }
+}

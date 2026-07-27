@@ -1,0 +1,58 @@
+{
+  "asset_id": "ca_chengdu_taikoo_li",
+  "asset_instance_id": "ca_chengdu_taikoo_li_poi_gallery",
+  "image_slot": "poi_gallery",
+  "source": "wikimedia",
+  "file_path": "C:\\Users\\10200\\Desktop\\travel_planing\\trip_packages\\chengdu_couple_golden_v1\\images\\files\\ca_chengdu_taikoo_li_poi_gallery.jpg",
+  "status": "completed",
+  "retry_count": 0,
+  "last_error": null,
+  "download_status": "completed",
+  "fallback_available": false,
+  "selection": {
+    "selected_candidate": {
+      "source": "wikimedia",
+      "candidate_id": "Sino-Ocean Taikoo Li Chengdu 10",
+      "image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sino-Ocean%20Taikoo%20Li%20Chengdu%2010.jpg"
+    },
+    "rank_score": 60,
+    "candidate_count": 10,
+    "rejected_count": 0
+  },
+  "metadata": {
+    "source_runs": [
+      {
+        "source": "wikimedia",
+        "priority": 1,
+        "candidate_count": 0,
+        "error": "Wikimedia request failed with status 429."
+      },
+      {
+        "source": "pexels",
+        "priority": 2,
+        "candidate_count": 10,
+        "error": null
+      }
+    ],
+    "title": "Sino-Ocean Taikoo Li Chengdu 10",
+    "description": "Scenic view of modern architecture and bridge by a lake in Chengdu, China.",
+    "author": "Kenny Foo",
+    "license": "CC0 1.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Sino-Ocean_Taikoo_Li_Chengdu_10.jpg",
+    "image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sino-Ocean%20Taikoo%20Li%20Chengdu%2010.jpg",
+    "width": 6048,
+    "height": 4024,
+    "mime_type": "image/jpeg",
+    "score_reasons": [
+      "location_match",
+      "high_resolution_3000",
+      "wanderly_fit"
+    ],
+    "source": "wikimedia",
+    "provenance_note": "H3.6.3-C2-B v3 real_photo candidate selected for stronger Taikoo Li place identity.",
+    "finalized_in_package": "chengdu_couple_golden_v1",
+    "candidate_file_path": "temp/chengdu_couple_v3_images/real_photo/ca_chengdu_taikoo_li_poi_gallery_v3.jpg",
+    "packaged_file_path": "images/files/ca_chengdu_taikoo_li_poi_gallery.jpg",
+    "sha256": "453bffbf832f74a5867951234023c8a045e8cec781bf89ed8d3efb9c4d75f3b5"
+  }
+}

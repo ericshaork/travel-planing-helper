@@ -41,11 +41,11 @@ describe("ItineraryBlock selection", () => {
 
   it("BlockActions 按钮仍会渲染出来", () => {
     const markup = renderToStaticMarkup(
-      <ItineraryBlock block={block} onAction={() => {}} />,
+      <ItineraryBlock block={block} isExpanded onAction={() => {}} />,
     );
 
-    expect(markup).toContain("不要这个");
-    expect(markup).toContain("换一个");
+    expect(markup).toContain("让 AI 换一个");
+    expect(markup).toContain("让 AI 加类似");
   });
 
   it("会阻断 block 选择冒泡", () => {

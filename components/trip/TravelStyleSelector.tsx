@@ -28,9 +28,9 @@ export function TravelStyleSelector({
   highlighted = false,
 }: TravelStyleSelectorProps) {
   const optionLayoutClassName =
-    "mt-2.5 grid grid-cols-2 gap-1.5 sm:mt-3 sm:flex sm:flex-wrap sm:gap-2";
+    "mt-1.5 grid grid-cols-2 gap-1 sm:mt-1.5 sm:flex sm:flex-wrap sm:gap-1";
   const optionClassName =
-    "min-h-11 min-w-0 w-full border px-3 py-2 text-center text-sm leading-5 whitespace-normal break-words transition-[transform,background-color,border-color] duration-150 ease-out focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)] sm:min-h-10 sm:w-auto sm:max-w-full";
+    "min-h-9 min-w-0 w-full border px-2.5 py-1 text-center text-sm leading-5 whitespace-normal break-words transition-[transform,background-color,border-color] duration-150 ease-out focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)] sm:min-h-8 sm:w-auto sm:max-w-full";
 
   return (
     <fieldset
@@ -49,7 +49,7 @@ export function TravelStyleSelector({
         {legend}
       </legend>
       {helperText ? (
-        <p className="mt-1 text-xs leading-[1.1rem] text-[var(--ink-muted)] sm:leading-5">
+        <p className="mt-0.5 text-xs leading-[1.1rem] text-[var(--ink-muted)]">
           {helperText}
         </p>
       ) : null}
@@ -80,7 +80,7 @@ export function TravelStyleSelector({
         <p
           id={errorId}
           role="alert"
-          className="mt-2.5 text-xs leading-5 text-[var(--clay-deep)]"
+          className="mt-2 text-xs leading-5 text-[var(--clay-deep)]"
         >
           {errorMessage}
         </p>

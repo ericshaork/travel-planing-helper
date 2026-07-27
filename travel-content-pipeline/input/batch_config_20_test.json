@@ -1,0 +1,284 @@
+{
+  "plans": [
+    {
+      "id": "beijing_couple_2d_001",
+      "city": "beijing",
+      "days": 2,
+      "trip_type": "couple",
+      "budget": "medium",
+      "preferences": [
+        "photo",
+        "citywalk",
+        "food"
+      ],
+      "pace": "balanced",
+      "theme": "什刹海夜色与胡同烟火之间的两人慢时光"
+    },
+    {
+      "id": "beijing_student_3d_002",
+      "city": "beijing",
+      "days": 3,
+      "trip_type": "student",
+      "budget": "low",
+      "preferences": [
+        "food",
+        "citywalk",
+        "local_culture"
+      ],
+      "pace": "dense",
+      "theme": "皇城中轴、胡同烟火和年轻街头的高性价比探索"
+    },
+    {
+      "id": "beijing_family_3d_003",
+      "city": "beijing",
+      "days": 3,
+      "trip_type": "family",
+      "budget": "medium",
+      "preferences": [
+        "family_friendly",
+        "nature",
+        "history"
+      ],
+      "pace": "slow",
+      "theme": "皇城中轴与胡同烟火串起的轻松亲子时光"
+    },
+    {
+      "id": "beijing_couple_4d_004",
+      "city": "beijing",
+      "days": 4,
+      "trip_type": "couple",
+      "budget": "medium",
+      "preferences": [
+        "photo",
+        "nature",
+        "shopping"
+      ],
+      "pace": "slow",
+      "theme": "什刹海夜色、皇城中轴和夜色里的城市约会"
+    },
+    {
+      "id": "beijing_student_3d_005",
+      "city": "beijing",
+      "days": 3,
+      "trip_type": "student",
+      "budget": "low",
+      "preferences": [
+        "food",
+        "shopping",
+        "citywalk"
+      ],
+      "pace": "balanced",
+      "theme": "在胡同烟火与什刹海夜色之间感受城市最有活力的一面"
+    },
+    {
+      "id": "beijing_solo_2d_006",
+      "city": "beijing",
+      "days": 2,
+      "trip_type": "solo",
+      "budget": "medium",
+      "preferences": [
+        "citywalk",
+        "local_culture",
+        "photo"
+      ],
+      "pace": "balanced",
+      "theme": "什刹海夜色与胡同烟火之间的独自城市漫游"
+    },
+    {
+      "id": "beijing_couple_3d_007",
+      "city": "beijing",
+      "days": 3,
+      "trip_type": "couple",
+      "budget": "medium",
+      "preferences": [
+        "photo",
+        "citywalk",
+        "food"
+      ],
+      "pace": "slow",
+      "theme": "从什刹海夜色走到皇城中轴的浪漫氛围旅程"
+    },
+    {
+      "id": "beijing_family_5d_008",
+      "city": "beijing",
+      "days": 5,
+      "trip_type": "family",
+      "budget": "high",
+      "preferences": [
+        "family_friendly",
+        "nature",
+        "history"
+      ],
+      "pace": "slow",
+      "theme": "在皇城中轴和什刹海夜色之间展开一段舒服的家庭探索"
+    },
+    {
+      "id": "beijing_student_3d_009",
+      "city": "beijing",
+      "days": 3,
+      "trip_type": "student",
+      "budget": "low",
+      "preferences": [
+        "food",
+        "nightlife",
+        "shopping"
+      ],
+      "pace": "balanced",
+      "theme": "什刹海夜色连着皇城中轴的青春烟火漫游"
+    },
+    {
+      "id": "beijing_couple_3d_010",
+      "city": "beijing",
+      "days": 3,
+      "trip_type": "couple",
+      "budget": "medium",
+      "preferences": [
+        "photo",
+        "nature",
+        "shopping"
+      ],
+      "pace": "slow",
+      "theme": "把皇城中轴和胡同烟火过成一段值得收藏的双人记忆"
+    },
+    {
+      "id": "shanghai_couple_2d_011",
+      "city": "shanghai",
+      "days": 2,
+      "trip_type": "couple",
+      "budget": "high",
+      "preferences": [
+        "photo",
+        "citywalk",
+        "food"
+      ],
+      "pace": "balanced",
+      "theme": "法租界散步与黄浦江夜景之间的两人慢时光"
+    },
+    {
+      "id": "shanghai_student_3d_012",
+      "city": "shanghai",
+      "days": 3,
+      "trip_type": "student",
+      "budget": "low",
+      "preferences": [
+        "food",
+        "citywalk",
+        "local_culture"
+      ],
+      "pace": "dense",
+      "theme": "梧桐街区、黄浦江夜景和年轻街头的高性价比探索"
+    },
+    {
+      "id": "shanghai_family_4d_013",
+      "city": "shanghai",
+      "days": 4,
+      "trip_type": "family",
+      "budget": "high",
+      "preferences": [
+        "family_friendly",
+        "nature",
+        "history"
+      ],
+      "pace": "slow",
+      "theme": "黄浦江夜景与法租界散步串起的轻松亲子时光"
+    },
+    {
+      "id": "shanghai_couple_3d_014",
+      "city": "shanghai",
+      "days": 3,
+      "trip_type": "couple",
+      "budget": "medium",
+      "preferences": [
+        "photo",
+        "nature",
+        "shopping"
+      ],
+      "pace": "slow",
+      "theme": "黄浦江夜景、法租界散步和夜色里的城市约会"
+    },
+    {
+      "id": "shanghai_student_2d_015",
+      "city": "shanghai",
+      "days": 2,
+      "trip_type": "student",
+      "budget": "low",
+      "preferences": [
+        "food",
+        "shopping",
+        "citywalk"
+      ],
+      "pace": "dense",
+      "theme": "在梧桐街区与法租界散步之间感受城市最有活力的一面"
+    },
+    {
+      "id": "shanghai_solo_3d_016",
+      "city": "shanghai",
+      "days": 3,
+      "trip_type": "solo",
+      "budget": "medium",
+      "preferences": [
+        "citywalk",
+        "local_culture",
+        "photo"
+      ],
+      "pace": "balanced",
+      "theme": "梧桐街区与黄浦江夜景之间的独自城市漫游"
+    },
+    {
+      "id": "shanghai_couple_4d_017",
+      "city": "shanghai",
+      "days": 4,
+      "trip_type": "couple",
+      "budget": "high",
+      "preferences": [
+        "photo",
+        "citywalk",
+        "food"
+      ],
+      "pace": "slow",
+      "theme": "从梧桐街区走到黄浦江夜景的浪漫氛围旅程"
+    },
+    {
+      "id": "shanghai_family_3d_018",
+      "city": "shanghai",
+      "days": 3,
+      "trip_type": "family",
+      "budget": "medium",
+      "preferences": [
+        "family_friendly",
+        "nature",
+        "history"
+      ],
+      "pace": "balanced",
+      "theme": "在黄浦江夜景和法租界散步之间展开一段舒服的家庭探索"
+    },
+    {
+      "id": "shanghai_student_3d_019",
+      "city": "shanghai",
+      "days": 3,
+      "trip_type": "student",
+      "budget": "low",
+      "preferences": [
+        "food",
+        "nightlife",
+        "shopping"
+      ],
+      "pace": "balanced",
+      "theme": "法租界散步连着梧桐街区的青春烟火漫游"
+    },
+    {
+      "id": "shanghai_couple_3d_020",
+      "city": "shanghai",
+      "days": 3,
+      "trip_type": "couple",
+      "budget": "medium",
+      "preferences": [
+        "photo",
+        "nature",
+        "shopping"
+      ],
+      "pace": "slow",
+      "theme": "把梧桐街区和黄浦江夜景过成一段值得收藏的双人记忆"
+    }
+  ]
+}

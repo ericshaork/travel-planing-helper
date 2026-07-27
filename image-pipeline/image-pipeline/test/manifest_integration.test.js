@@ -52,7 +52,9 @@ test("manifest pipeline preserves source_preference and routes generation_mode t
   assert.equal(hybridAsset.image_asset.status, "completed");
 
   assert.equal(aiAsset.image_asset.source, "ai_generated");
-  assert.equal(aiAsset.image_asset.status, "completed");
+  assert.equal(aiAsset.image_asset.status, "failed");
+  assert.equal(aiAsset.image_asset.file_path, "");
+  assert.equal(aiAsset.image_asset.reason, "ai_generated_executor_error");
 });
 
 test("manifest integration writes image_asset outputs successfully", async () => {
@@ -81,4 +83,5 @@ test("manifest integration writes image_asset outputs successfully", async () =>
   assert.equal(aiAsset.asset_id, "sample_ai_generated_asset");
   assert.equal(aiAsset.asset_instance_id, "sample_ai_generated_asset_detail_header");
   assert.equal(aiAsset.source, "ai_generated");
+  assert.equal(aiAsset.status, "failed");
 });

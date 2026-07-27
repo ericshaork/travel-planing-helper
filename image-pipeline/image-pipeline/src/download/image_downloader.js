@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const https = require("https");
+const { HttpsProxyAgent } = require("https-proxy-agent");
 
 const DEFAULT_DOWNLOAD_TIMEOUT_MS = 20000;
 const RETRY_DELAYS_MS = [3000, 8000, 15000];
@@ -10,6 +11,16 @@ const DEFAULT_DOWNLOAD_HEADERS = {
   Accept: "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
   Referer: "https://www.pexels.com/"
 };
+
+function resolveProxyAgent() {
+  const proxyUrl = process.env.HTTPS_PROXY || process.env.HTTP_PROXY;
+
+  if (!proxyUrl) {
+    return undefined;
+  }
+
+  return new HttpsProxyAgent(proxyUrl);
+}
 
 function inferExtension(url) {
   try {
@@ -53,6 +64,9 @@ function queueDownload(executor) {
 function requestBinary(url, options = {}) {
   const requestFn = options.requestFn || https.get;
   const timeoutMs = options.timeoutMs || DEFAULT_DOWNLOAD_TIMEOUT_MS;
+  const agent = Object.prototype.hasOwnProperty.call(options, "agent")
+    ? options.agent
+    : resolveProxyAgent();
   const headers = {
     ...DEFAULT_DOWNLOAD_HEADERS,
     ...(options.headers || {})
@@ -62,6 +76,7 @@ function requestBinary(url, options = {}) {
     const request = requestFn(
       url,
       {
+        agent,
         headers
       },
       (response) => {

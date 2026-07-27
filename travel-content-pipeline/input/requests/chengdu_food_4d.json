@@ -1,0 +1,9 @@
+{
+  "destinations": ["成都"],
+  "originCity": "广州",
+  "days": 4,
+  "travelerType": "friends",
+  "styleTags": ["food", "history", "nightlife", "photo"],
+  "budgetLevel": "medium",
+  "language": "zh-CN"
+}

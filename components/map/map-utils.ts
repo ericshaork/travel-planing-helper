@@ -50,6 +50,7 @@ export const DEFAULT_AMAP_CENTER: MapCenter = {
 
 export const DEFAULT_AMAP_ZOOM = 4;
 export const SINGLE_POINT_ZOOM = 13;
+export const ACTIVE_POINT_ZOOM = 15;
 const DEFAULT_MARKER_Z_INDEX = 110;
 const ACTIVE_MARKER_Z_INDEX = 160;
 
@@ -126,23 +127,50 @@ export function buildAmapMarkerOptions(
     title: `${point.order}. ${point.name}`,
     zIndex: active ? ACTIVE_MARKER_Z_INDEX : DEFAULT_MARKER_Z_INDEX,
     ...(markerLabel
-      ? {
+        ? {
           label: {
-            content: buildAmapMarkerLabelContent(point.order, active),
+            content: buildAmapMarkerLabelContent(point, active),
             direction: "top",
+            offset: [0, -2],
           },
         }
       : {}),
   };
 }
 
-export function buildAmapMarkerLabelContent(order: number, active: boolean): string {
-  const background = active ? "#2F3E34" : "#FFFDF7";
-  const color = active ? "#FFFDF7" : "#7A3F31";
-  const border = active ? "#2F3E34" : "#C9B6A7";
-  const shadow = active ? "#D9C8BA" : "#EDE2D7";
+function escapeMarkerLabelText(value: string) {
+  return value
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+}
 
-  return `<span style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:999px;border:1px solid ${border};background:${background};color:${color};font-size:12px;font-weight:700;box-shadow:2px 2px 0 ${shadow};">${order}</span>`;
+function truncateMarkerName(value: string, maxLength = 6) {
+  const normalized = value.trim();
+
+  if (normalized.length <= maxLength) {
+    return normalized;
+  }
+
+  return `${normalized.slice(0, maxLength)}...`;
+}
+
+export function buildAmapMarkerLabelContent(
+  point: Pick<AmapMarkerPoint, "order" | "name">,
+  active: boolean,
+): string {
+  const background = active ? "#2F3E34" : "rgba(255,253,247,0.96)";
+  const color = active ? "#FFFDF7" : "#3D3127";
+  const border = active ? "#2F3E34" : "#C9B6A7";
+  const shadow = active ? "rgba(157,124,98,0.28)" : "rgba(201,182,167,0.38)";
+  const badgeBackground = active ? "rgba(255,253,247,0.2)" : "#7A3F31";
+  const badgeColor = "#FFFDF7";
+  const label = escapeMarkerLabelText(truncateMarkerName(point.name));
+  const scale = active ? "1.04" : "1";
+
+  return `<span style="display:inline-flex;align-items:center;gap:6px;max-width:148px;padding:6px 10px;border-radius:999px;border:1px solid ${border};background:${background};color:${color};font-size:12px;font-weight:700;line-height:1;box-shadow:0 10px 20px ${shadow};transform:scale(${scale});transform-origin:center;white-space:nowrap;"><span style="display:inline-flex;align-items:center;justify-content:center;min-width:22px;height:22px;padding:0 6px;border-radius:999px;background:${badgeBackground};color:${badgeColor};font-size:11px;font-weight:800;">${point.order}</span><span style="overflow:hidden;text-overflow:ellipsis;">${label}</span></span>`;
 }
 
 export function createAmapMapInstance(
@@ -274,6 +302,27 @@ export function syncAmapViewportForMarkerPoints(
   syncAmapViewport(map, {
     center: averageCenter ?? fallbackConfig.center,
     zoom: fallbackConfig.zoom,
+  });
+}
+
+export function syncAmapViewportForActivePoint(
+  map: AMapMapInstance,
+  points: AmapMarkerPoint[],
+  activePointId: string | null | undefined,
+) {
+  if (!activePointId) {
+    return;
+  }
+
+  const activePoint = points.find((point) => point.id === activePointId);
+
+  if (!activePoint) {
+    return;
+  }
+
+  syncAmapViewport(map, {
+    center: activePoint.coordinates,
+    zoom: ACTIVE_POINT_ZOOM,
   });
 }
 

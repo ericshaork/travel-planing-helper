@@ -1,0 +1,56 @@
+{
+  "asset_id": "ca_beijing_liangma_river",
+  "asset_instance_id": "ca_beijing_liangma_river_day_cover",
+  "image_slot": "day_cover",
+  "source": "hybrid",
+  "file_path": "C:\\Users\\10200\\Desktop\\travel_planing\\assets\\external\\ca_beijing_liangma_river.jpg",
+  "status": "completed",
+  "metadata": {
+    "strategy": "real_photo_first_ai_fallback",
+    "usage_profile": "experience",
+    "resolved_via": "real_photo",
+    "real_photo": {
+      "source": "wikimedia",
+      "status": "completed",
+      "file_path": "C:\\Users\\10200\\Desktop\\travel_planing\\assets\\external\\ca_beijing_liangma_river.jpg",
+      "retry_count": 1,
+      "last_error": "Image download failed with status 429.",
+      "download_status": "completed",
+      "fallback_available": false,
+      "selection": {
+        "selected_candidate": {
+          "source": "wikimedia",
+          "candidate_id": "",
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Liangma_River_at_Xinyuan_St_%2820200808164518%29.jpg/1920px-Liangma_River_at_Xinyuan_St_%2820200808164518%29.jpg"
+        },
+        "rank_score": 40,
+        "candidate_count": 5,
+        "rejected_count": 0
+      },
+      "metadata": {
+        "source_runs": [
+          {
+            "source": "wikimedia",
+            "priority": 1,
+            "candidate_count": 5,
+            "error": null
+          }
+        ],
+        "title": "File:Liangma River at Xinyuan St (20200808164518).jpg",
+        "description": "Here, the river serves as the border line between Zuojiazhuang and Sanlitun subdistricts.",
+        "author": "N509FZ",
+        "license": "CC BY-SA 4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File%3ALiangma_River_at_Xinyuan_St_(20200808164518).jpg",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Liangma_River_at_Xinyuan_St_%2820200808164518%29.jpg/1920px-Liangma_River_at_Xinyuan_St_%2820200808164518%29.jpg",
+        "width": 1600,
+        "height": 1067,
+        "mime_type": "image/jpeg",
+        "score_reasons": [
+          "location_match",
+          "license_cc_by"
+        ]
+      }
+    },
+    "ai_fallback": null
+  }
+}

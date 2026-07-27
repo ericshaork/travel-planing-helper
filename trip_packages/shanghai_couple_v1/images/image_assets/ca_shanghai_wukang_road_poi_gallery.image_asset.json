@@ -1,0 +1,46 @@
+{
+  "asset_id": "ca_shanghai_wukang_road",
+  "asset_instance_id": "ca_shanghai_wukang_road_poi_gallery",
+  "image_slot": "poi_gallery",
+  "source": "wikimedia",
+  "file_path": "C:\\Users\\10200\\Desktop\\travel_planing\\image-pipeline\\image-pipeline\\assets\\external\\ca_shanghai_wukang_road.JPG",
+  "status": "completed",
+  "retry_count": 0,
+  "last_error": null,
+  "download_status": "completed",
+  "fallback_available": false,
+  "selection": {
+    "selected_candidate": {
+      "source": "wikimedia",
+      "candidate_id": "",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Street_View_of_Wukang_Road.JPG/1920px-Street_View_of_Wukang_Road.JPG"
+    },
+    "rank_score": 50,
+    "candidate_count": 5,
+    "rejected_count": 1
+  },
+  "metadata": {
+    "source_runs": [
+      {
+        "source": "wikimedia",
+        "priority": 1,
+        "candidate_count": 5,
+        "error": null
+      }
+    ],
+    "title": "File:Street View of Wukang Road.JPG",
+    "description": "​武康路街景",
+    "author": "Livelikerw",
+    "license": "CC BY-SA 3.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File%3AStreet_View_of_Wukang_Road.JPG",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Street_View_of_Wukang_Road.JPG/1920px-Street_View_of_Wukang_Road.JPG",
+    "width": 1600,
+    "height": 1063,
+    "mime_type": "image/jpeg",
+    "score_reasons": [
+      "location_match",
+      "license_cc_by",
+      "wanderly_fit"
+    ]
+  }
+}

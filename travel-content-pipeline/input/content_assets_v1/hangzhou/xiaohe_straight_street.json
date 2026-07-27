@@ -1,0 +1,30 @@
+{
+  "id": "ca_hangzhou_xiaohe_straight_street",
+  "name": "Xiaohe Straight Street",
+  "asset_type": "historic_street",
+  "category": "canal_old_street",
+  "content_role": ["historic_texture", "food_backbone", "evening_closure"],
+  "traveler_fit": {
+    "couple": "high",
+    "student": "medium",
+    "solo": "medium",
+    "family": "medium"
+  },
+  "season_fit": {
+    "spring": "high",
+    "summer": "medium",
+    "autumn": "high",
+    "winter": "medium"
+  },
+  "best_time": {
+    "time_of_day": ["afternoon", "early_evening"],
+    "note": "Good for canal texture, small shops, and a gentle evening transition."
+  },
+  "experience_value": {
+    "primary": ["old_street_texture", "canal_walk", "food_context", "private_journal"],
+    "summary": "A compact old-street asset for local texture and low-pressure food context."
+  },
+  "avoid_when": ["only_nature_route"],
+  "nearby_assets": ["ca_hangzhou_lakeside_evening"],
+  "map_asset_id": "poi_xiaohe_straight_street"
+}

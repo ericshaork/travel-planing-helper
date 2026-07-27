@@ -1,0 +1,72 @@
+{
+  "asset_id": "ca_hangzhou_west_lake",
+  "asset_instance_id": "ca_hangzhou_west_lake_explore_cover",
+  "image_slot": "explore_cover",
+  "source": "hybrid",
+  "file_path": "C:\\Users\\10200\\Desktop\\travel_planing\\trip_packages\\hangzhou_couple_golden_v1\\images\\files\\ca_hangzhou_west_lake_explore_cover.jpg",
+  "status": "completed",
+  "metadata": {
+    "strategy": "hybrid refinement via forced real-photo failure then Seedream AI fallback candidate",
+    "usage_profile": "cover",
+    "resolved_via": "ai_fallback",
+    "real_photo": {
+      "source": "wikimedia",
+      "status": "completed",
+      "file_path": "C:\\Users\\10200\\Desktop\\travel_planing\\image-pipeline\\image-pipeline\\assets\\external\\ca_hangzhou_west_lake.jpg",
+      "retry_count": 0,
+      "last_error": null,
+      "download_status": "completed",
+      "fallback_available": false,
+      "selection": {
+        "selected_candidate": {
+          "source": "wikimedia",
+          "candidate_id": "",
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/ed/20260424_West_Lake_and_Hangzhou_Skyline.jpg"
+        },
+        "rank_score": 40,
+        "candidate_count": 5,
+        "rejected_count": 0
+      },
+      "metadata": {
+        "source_runs": [
+          {
+            "source": "wikimedia",
+            "priority": 1,
+            "candidate_count": 5,
+            "error": null
+          }
+        ],
+        "title": "File:20260424 West Lake and Hangzhou Skyline.jpg",
+        "description": "West Lake and Hangzhou Skyline",
+        "author": "Windmemories",
+        "license": "CC BY-SA 4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File%3A20260424_West_Lake_and_Hangzhou_Skyline.jpg",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/ed/20260424_West_Lake_and_Hangzhou_Skyline.jpg",
+        "width": 1800,
+        "height": 1200,
+        "mime_type": "image/jpeg",
+        "score_reasons": [
+          "location_match",
+          "license_cc_by"
+        ]
+      }
+    },
+    "ai_fallback": null,
+    "provider_id": "seedream",
+    "model_id": "doubao-seedream-5-0-pro-260628",
+    "provider_job_id": "seedream_ca_hangzhou_west_lake_cover_ai_v2_candidate_explore_cover",
+    "prompt_summary": "Hangzhou West Lake editorial couple-trip cover with willow-lined bank, lake surface, distant green hills, Su Causeway or Broken Bridge feeling, small boat/path detail, Jiangnan softness, travel journal intimacy; avoid skyline dominance, text, logos, and poster gloss.",
+    "golden_review": {
+      "status": "passed",
+      "note": "Accepted v2 West Lake cover candidate for stronger Wanderly cover identity."
+    },
+    "provenance_note": "H3.6.4 replacement from temp/hangzhou_couple_v2_images reviewed west lake cover candidate.",
+    "finalized_in_package": "hangzhou_couple_golden_v1",
+    "candidate_file_path": "temp/hangzhou_couple_v2_images/files/ca_hangzhou_west_lake_explore_cover_v2.png",
+    "packaged_file_path": "images/files/ca_hangzhou_west_lake_explore_cover.jpg",
+    "mime_type": "image/jpeg",
+    "sha256": "c0f401667aa8635ab01e5f9366b2936619c3153d6ef34d47acfaafcbfcf4ad3e"
+  },
+  "download_status": "completed",
+  "last_error": null
+}

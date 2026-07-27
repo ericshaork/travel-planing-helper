@@ -1,0 +1,119 @@
+{
+  "id": "ca_shanghai_huangpu_evening",
+  "name": "Huangpu River Evening Walk",
+  "asset_type": "experience_evening_closure",
+  "category": [
+    "experience",
+    "evening_closure"
+  ],
+  "content_role": [
+    "evening_closure",
+    "experience",
+    "hybrid"
+  ],
+  "traveler_fit": {
+    "couple": "high",
+    "student": "medium",
+    "solo": "high",
+    "family": "none",
+    "friends": "high"
+  },
+  "season_fit": {
+    "spring": "medium",
+    "summer": "medium",
+    "autumn": "high",
+    "winter": "medium"
+  },
+  "best_time": {
+    "time_of_day": [
+      "evening",
+      "night"
+    ],
+    "note": "Huangpu River Evening Walk is intended as evening_closure with slow pacing."
+  },
+  "experience_value": {
+    "primary": [
+      "evening_closure",
+      "experience",
+      "blue hour or night light",
+      "river reflection",
+      "human walking scale",
+      "romantic but not staged"
+    ],
+    "summary": "couple-scale evening walk by Huangpu River"
+  },
+  "avoid_when": [
+    "pure skyline postcard",
+    "daytime tourist crowd",
+    "no walking context"
+  ],
+  "nearby_assets": [],
+  "map_asset_id": "poi_huangpu_evening",
+  "bridge_metadata": {
+    "source": "city_inventory",
+    "source_inventory_id": "shanghai_city_inventory_v1",
+    "asset_id": "ca_shanghai_huangpu_evening",
+    "asset_name": "Huangpu River Evening Walk",
+    "asset_category": "experience",
+    "asset_family": "evening_closure",
+    "route_role": "evening_closure",
+    "why_it_matters": "couple-scale evening walk by Huangpu River",
+    "pace_hint": "slow",
+    "priority": 6
+  },
+  "image_context": {
+    "recommended_slots": [
+      "day_cover"
+    ],
+    "image_usage_profile": "experience",
+    "default_generation_mode": "hybrid",
+    "source_preference": "mixed",
+    "search_keywords": [
+      "Shanghai Huangpu River evening walk",
+      "Bund night walk couple",
+      "Shanghai riverfront night lights",
+      "Huangpu River reflection night"
+    ],
+    "visual_subject": {
+      "main_subject": "couple-scale evening walk by Huangpu River",
+      "secondary_elements": [
+        "river lights",
+        "skyline reflection",
+        "walking promenade"
+      ]
+    },
+    "positive_cues": [
+      "blue hour or night light",
+      "river reflection",
+      "human walking scale",
+      "romantic but not staged"
+    ],
+    "negative_cues": [
+      "pure skyline postcard",
+      "daytime tourist crowd",
+      "no walking context"
+    ]
+  },
+  "search_keywords": [
+    "Shanghai Huangpu River evening walk",
+    "Bund night walk couple",
+    "Shanghai riverfront night lights",
+    "Huangpu River reflection night"
+  ],
+  "review_rules": {
+    "manual_review_required": true,
+    "identity_check": [
+      "Evening Shanghai riverfront atmosphere is clear.",
+      "Image supports an end-of-day couple experience."
+    ],
+    "failure_examples": [
+      "generic night skyline",
+      "white daytime river scene",
+      "stage-like couple portrait"
+    ]
+  },
+  "golden_reference": {
+    "package_id": "future_shanghai_golden",
+    "asset_instance_ids": []
+  }
+}

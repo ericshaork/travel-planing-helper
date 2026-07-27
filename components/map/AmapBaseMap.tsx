@@ -17,9 +17,10 @@ import {
   createAmapMarkerInstances,
   createAmapMapInstance,
   destroyAmapMapInstance,
-  type AmapMarkerPoint,
   syncAmapViewport,
+  syncAmapViewportForActivePoint,
   syncAmapViewportForMarkerPoints,
+  type AmapMarkerPoint,
   type MapCenter,
 } from "./map-utils";
 
@@ -48,15 +49,15 @@ export function AmapBaseMap({
   center,
   zoom,
   className,
-  ariaLabel = "基础地图预览",
+  ariaLabel = "行程地图",
   markerPoints = [],
   fitToMarkers = true,
   markerLabel = true,
   unresolvedCount = 0,
   activePointId = null,
   onMarkerClick,
-  emptyTitle = "这一天暂时没有已确认点位",
-  emptyDescription = "先看右侧点位列表和路线提醒，等地点核对清楚后再显示到地图上。",
+  emptyTitle = "还没有地点",
+  emptyDescription = "添加第一站后，地图会在这里标记路线和顺序。",
   surfaceClassName,
 }: AmapBaseMapProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -160,6 +161,14 @@ export function AmapBaseMap({
       return;
     }
 
+    syncAmapViewportForActivePoint(mapRef.current, markerPoints, activePointId);
+  }, [activePointId, markerPoints, viewState.status]);
+
+  useEffect(() => {
+    if (!mapRef.current || viewState.status !== "ready") {
+      return;
+    }
+
     syncAmapViewportForMarkerPoints(
       mapRef.current,
       markerPoints,
@@ -202,7 +211,7 @@ export function AmapBaseMap({
       />
       {markerPoints.length === 0 ? (
         <div className="pointer-events-none absolute inset-x-4 bottom-4 z-[1] sm:inset-x-auto sm:right-4 sm:max-w-sm">
-          <div className="map-workspace-overlay px-3.5 py-2.5">
+          <div className="map-desk-overlay px-3.5 py-2.5">
             <p className="text-sm font-semibold text-[var(--ink)]">{emptyTitle}</p>
             <p className="mt-1 text-sm leading-6 text-[var(--ink-muted)]">
               {emptyDescription}
@@ -212,8 +221,8 @@ export function AmapBaseMap({
       ) : null}
       {unresolvedCount > 0 && markerPoints.length > 0 ? (
         <div className="pointer-events-none absolute inset-x-4 bottom-4 z-[1]">
-          <p className="map-workspace-overlay px-3 py-2.5 text-sm leading-6 text-[var(--ink-muted)]">
-            还有 {unresolvedCount} 个地点待确认，暂时没有显示在地图上。
+          <p className="map-desk-overlay px-3 py-2.5 text-sm leading-6 text-[var(--ink-muted)]">
+            还有 {unresolvedCount} 个地点待确认，暂时还没有显示在地图上。
           </p>
         </div>
       ) : null}

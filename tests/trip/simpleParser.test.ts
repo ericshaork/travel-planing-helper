@@ -50,9 +50,57 @@ describe("simpleParseTripText", () => {
     expect(parsed.departureCity).toBeUndefined();
   });
 
-  it("不会把“不想去寺庙”猜成目的地", () => {
+  it("不会把“不想去寺庙”猜成目的地，同时把寺庙提取到 avoidPlaces", () => {
     expect(simpleParseTripText("不想去寺庙，喜欢历史。")).toEqual({
       interests: ["历史文化"],
+      avoidPlaces: ["寺庙"],
     });
+  });
+
+  it("从「不去兵马俑」抽出 avoidPlaces", () => {
+    const parsed = simpleParseTripText(
+      "去西安 3 天，喜欢历史文化和美食，不去兵马俑，预算 3000。",
+    );
+    expect(parsed).toMatchObject({
+      destinationCity: "西安",
+      days: 3,
+      budget: 3000,
+      interests: ["美食", "历史文化"],
+      avoidPlaces: ["兵马俑"],
+    });
+  });
+
+  it("识别多个避免地点，忽略明显不是地名的短语", () => {
+    const parsed = simpleParseTripText(
+      "去成都 4 天，不去锦里，避开人民公园；不想太累。",
+    );
+    expect(parsed.avoidPlaces).toEqual(["锦里", "人民公园"]);
+    expect(parsed.travelStyles).toContain("轻松");
+  });
+
+  it("识别 mustVisitPlaces 但不会重复目的地", () => {
+    const parsed = simpleParseTripText(
+      "我想去西安玩 3 天，必去大雁塔，一定要去回民街，喜欢历史。",
+    );
+    expect(parsed.destinationCity).toBe("西安");
+    expect(parsed.mustVisitPlaces).toEqual(["大雁塔", "回民街"]);
+  });
+
+  it("识别同行人并合并进 travelStyles", () => {
+    const parsed = simpleParseTripText(
+      "我想和爱人去杭州玩 2 天，喜欢城市漫步，不想早起。",
+    );
+    expect(parsed.travelStyles).toEqual(
+      expect.arrayContaining(["不想早起", "情侣同行"]),
+    );
+    expect(parsed.destinationCity).toBe("杭州");
+  });
+
+  it("带孩子的场景会归入家庭亲子", () => {
+    const parsed = simpleParseTripText(
+      "去北京 3 天带孩子，想看故宫和天坛。",
+    );
+    expect(parsed.travelStyles).toContain("家庭亲子");
+    expect(parsed.destinationCity).toBe("北京");
   });
 });

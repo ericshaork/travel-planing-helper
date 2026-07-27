@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import { postGenerateTrip } from "@/lib/ai/generate-client";
+import { regenerateWorkspaceTrip } from "@/lib/projects/workspace-ai/workspace-ai-client";
 import { TRIP_INPUT_LIMITS } from "@/lib/trip/defaults";
 import { generateTripResponseSchema } from "@/lib/trip/schema";
 import type {
@@ -10,7 +10,6 @@ import type {
   TripPlan,
   TripRequest,
 } from "@/lib/trip/types";
-import type { ApiErrorResponse } from "@/lib/utils/errors";
 
 interface RegenerateBoxProps {
   tripPlan: TripPlan;
@@ -76,17 +75,11 @@ export function RegenerateBox({
     setAppliedChanges([]);
 
     try {
-      const response = await postGenerateTrip({
-        tripRequest,
-        previousPlan: tripPlan,
+      const payload = await regenerateWorkspaceTrip({
+        tripPlan,
+        tripRequest: tripRequest as TripRequest,
         modificationRequest: trimmedRequest,
       });
-      const payload = (await response.json()) as unknown;
-
-      if (!response.ok) {
-        const apiError = payload as Partial<ApiErrorResponse>;
-        throw new Error(apiError.error?.message ?? retryableErrorMessage);
-      }
 
       const parsed = generateTripResponseSchema.safeParse(payload);
 

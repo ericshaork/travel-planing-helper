@@ -1,0 +1,109 @@
+{
+  "city_code": "wuhan",
+  "city_name": "Wuhan",
+  "region_name": "Hubei",
+  "summary": "Wuhan suits broad, energetic city travel built around river views, lake spaces, historic campuses, and a strong everyday food culture.",
+  "transport_notes": [
+    "Wuhan is spread across several major zones, so each day should stay clustered around one riverbank, one lake area, or one historic district.",
+    "Metro is useful, but avoid combining East Lake, Hankou old streets, and riverfront landmarks in a single tight day.",
+    "Evening plans work best near riverside promenades, food-heavy neighborhoods, or walkable civic-center pockets."
+  ],
+  "budget_notes": {
+    "low": "Prioritize public lakefront areas, river walks, and practical neighborhood food streets.",
+    "medium": "Combine one landmark or campus area, one scenic public space, and one recognizable local dining zone each day.",
+    "high": "Use fewer cross-city jumps, stronger dining stops, and more comfort-oriented pacing between larger sites."
+  },
+  "trip_type_notes": {
+    "student": "Student plans in Wuhan should feel lively, affordable, and rooted in local food plus youth-heavy city spaces.",
+    "solo": "Solo plans should emphasize observation, riverside wandering, and broad city texture without overpacking routes.",
+    "couple": "Couple plans should soften Wuhan's scale with river lights, lake views, and quieter evening pacing.",
+    "family": "Family plans should keep movement simple and use broad public spaces and landmark clarity to reduce fatigue."
+  },
+  "suggested_tags": [
+    "river-city",
+    "lake-view",
+    "local-food",
+    "citywalk",
+    "historic-campus",
+    "night-view"
+  ],
+  "pois": [
+    {
+      "id": "poi_east_lake_edge",
+      "name": "East Lake Edge Visit",
+      "district": "Wuchang",
+      "type": "lakefront scenic area",
+      "description": "A major scenic breathing-space stop that gives Wuhan plans calmer pacing and open views.",
+      "best_for": ["solo", "couple", "family"],
+      "recommended_duration_minutes": 150
+    },
+    {
+      "id": "poi_hubei_university_area",
+      "name": "Historic Campus Edge Walk",
+      "district": "Wuchang",
+      "type": "historic campus district",
+      "description": "A reflective city layer suited to walking, trees, and lower-pressure cultural atmosphere.",
+      "best_for": ["student", "solo", "couple"],
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_yellow_crane_edge",
+      "name": "Yellow Crane Tower Area",
+      "district": "Wuchang",
+      "type": "cultural landmark",
+      "description": "A useful symbolic landmark for plans wanting a recognizable Wuhan history anchor.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_hankou_riverfront",
+      "name": "Hankou Riverfront Walk",
+      "district": "Jiang'an",
+      "type": "riverfront district",
+      "description": "A practical evening-friendly river zone where wide public space and city light work well together.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_tanhualin",
+      "name": "Tanhualin Area",
+      "district": "Wuchang",
+      "type": "historic neighborhood",
+      "description": "A walkable area with older streets, cafes, and a lighter youth-oriented local texture.",
+      "best_for": ["student", "solo", "couple"],
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_jianghan_road",
+      "name": "Jianghan Road Area",
+      "district": "Jianghan",
+      "type": "commercial historic street",
+      "description": "A dense, practical city-core area for food, movement, and recognizable urban energy.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 120
+    }
+  ],
+  "food_areas": [
+    {
+      "name": "Hubu Lane Food Zone",
+      "district": "Wuchang",
+      "specialties": ["hot dry noodles", "street breakfast", "classic Wuhan snacks"],
+      "best_for": ["student", "solo", "couple", "family"],
+      "note": "Best for recognizable local flavor and easy heritage-area pairing."
+    },
+    {
+      "name": "Jianghan Road Casual Dining Area",
+      "district": "Jianghan",
+      "specialties": ["city-center casual meals", "street snacks", "late-day food options"],
+      "best_for": ["student", "solo", "couple"],
+      "note": "Best for practical, central eating with strong city energy."
+    },
+    {
+      "name": "East Lake Light Dining Pockets",
+      "district": "Wuchang",
+      "specialties": ["light meals", "cafe stops", "scenic break dining"],
+      "best_for": ["couple", "family", "solo"],
+      "note": "Best for slower scenic plans that need a calmer food rhythm."
+    }
+  ]
+}

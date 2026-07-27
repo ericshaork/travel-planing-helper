@@ -1,0 +1,109 @@
+{
+  "city_code": "sanya",
+  "city_name": "Sanya",
+  "region_name": "Hainan",
+  "summary": "Sanya fits warm-weather coastal travel centered on beach pacing, resort-adjacent dining, sea views, and low-pressure day structure.",
+  "transport_notes": [
+    "Keep each day focused on one bay or one coastal zone to avoid spending too much time in transit.",
+    "Beach, island, and shopping-resort areas should be paired carefully because cross-bay movement can eat into the day.",
+    "Evenings work best around bayfront promenades, resort dining areas, or walkable market streets."
+  ],
+  "budget_notes": {
+    "low": "Use public beach areas, simple seafood or local-food streets, and scenic walks over heavy attraction stacking.",
+    "medium": "Combine one bay-area stop, one scenic public space, and one stronger evening dining area each day.",
+    "high": "Lean into slower comfort pacing, better sea-view dining, and fewer transfers between coastal zones."
+  },
+  "trip_type_notes": {
+    "student": "Student plans in Sanya should emphasize scenic public beaches, simple local food, and casual youth-friendly sea-city rhythm.",
+    "solo": "Solo plans should feel calm, sunlit, and easy to adapt around coastlines and personal pacing.",
+    "couple": "Couple plans should highlight sunset, sea breeze, and more intimate beach-to-dinner transitions.",
+    "family": "Family plans should focus on convenient beach access, broad public spaces, and easy dining without overmovement."
+  },
+  "suggested_tags": [
+    "beach",
+    "sea-view",
+    "sunset",
+    "slow-travel",
+    "family-friendly",
+    "coastal-relaxation"
+  ],
+  "pois": [
+    {
+      "id": "poi_yalong_bay",
+      "name": "Yalong Bay Public Coast",
+      "district": "Yalong Bay",
+      "type": "beach scenic area",
+      "description": "A defining Sanya beach setting with open sea views and easy low-pressure coastal pacing.",
+      "best_for": ["solo", "couple", "family"],
+      "recommended_duration_minutes": 150
+    },
+    {
+      "id": "poi_dadonghai",
+      "name": "Dadonghai Area",
+      "district": "Jiyang",
+      "type": "beach and city district",
+      "description": "A practical Sanya zone combining accessible coastline with food and evening convenience.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_luhuitou_edge",
+      "name": "Luhuitou Scenic Edge",
+      "district": "Jiyang",
+      "type": "viewpoint scenic area",
+      "description": "A useful sunset-facing city-and-sea viewpoint for plans wanting one stronger visual moment.",
+      "best_for": ["solo", "couple", "family"],
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_coconut_dream",
+      "name": "Coconut Dream Corridor",
+      "district": "Tianya",
+      "type": "coastal promenade",
+      "description": "A broad seaside walking route suited to slower light-filled movement and end-of-day atmosphere.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_yiheng_market_edge",
+      "name": "Local Market Edge Visit",
+      "district": "Tianya",
+      "type": "local-life district",
+      "description": "A more everyday side of Sanya for plans that want some local street-life contrast to resort rhythms.",
+      "best_for": ["student", "solo"],
+      "recommended_duration_minutes": 75
+    },
+    {
+      "id": "poi_haitang_bay_edge",
+      "name": "Haitang Bay Edge",
+      "district": "Haitang",
+      "type": "coastal leisure district",
+      "description": "A polished bay area suited to slower comfort-oriented beach and dining plans.",
+      "best_for": ["couple", "family"],
+      "recommended_duration_minutes": 120
+    }
+  ],
+  "food_areas": [
+    {
+      "name": "Dadonghai Casual Seafood Area",
+      "district": "Jiyang",
+      "specialties": ["casual seafood", "beach-adjacent meals", "easy evening dining"],
+      "best_for": ["student", "solo", "couple", "family"],
+      "note": "Best for practical beach-day dining without adding extra transfers."
+    },
+    {
+      "name": "Local Market Food Streets",
+      "district": "Tianya",
+      "specialties": ["Hainan local food", "budget street meals", "fruit and dessert stops"],
+      "best_for": ["student", "solo"],
+      "note": "Best for affordable local flavor away from more polished resort areas."
+    },
+    {
+      "name": "Bayfront Dining Zone",
+      "district": "Haitang",
+      "specialties": ["sea-view dining", "shared seafood meals", "sunset-oriented dinners"],
+      "best_for": ["couple", "family"],
+      "note": "Best for slower, more atmosphere-led evening meals."
+    }
+  ]
+}

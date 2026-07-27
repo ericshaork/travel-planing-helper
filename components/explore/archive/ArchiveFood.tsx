@@ -19,8 +19,8 @@ export function ArchiveFood({ item }: ArchiveFoodProps) {
   return (
     <div className="space-y-4">
       <div>
-        <p className="workspace-kicker">FOOD</p>
-        <h3 className="mt-2 text-base font-semibold text-[var(--ink)]">代表美食</h3>
+        <p className="workspace-kicker">美食</p>
+        <h3 className="mt-2 text-base font-semibold text-[var(--ink)]">代表食物</h3>
       </div>
 
       <div className="space-y-4">
@@ -67,7 +67,7 @@ export function ArchiveFood({ item }: ArchiveFoodProps) {
 
       {remainingCount > 0 ? (
         <p className="text-sm leading-6 text-[var(--ink-muted)]">
-          还有 {remainingCount} 个美食灵感，可在 Workspace 里继续展开。
+          还有 {remainingCount} 个美食灵感，可以在 Workspace 里继续展开。
         </p>
       ) : null}
     </div>

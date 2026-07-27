@@ -1,0 +1,207 @@
+{
+  "id": "exp_shanghai_couple_3d_skyline_streets_v1",
+  "slug": "shanghai-couple-3d-skyline-streets",
+  "title": "3天上海·外滩天际线与老城漫步",
+  "summary": "专为情侣设计的上海精华路线，融合外滩天际线的壮丽夜景、法租界的优雅梧桐街道、老城厢的烟火气与现代时尚街区。每天一个主题区域，节奏从容，留足拍照与二人时光，晚餐精选氛围餐厅，让每一晚都有值得回味的城市画面。",
+  "city": {
+    "code": "shanghai",
+    "name": "Shanghai",
+    "region_name": "Shanghai"
+  },
+  "trip_type": "couple",
+  "days": 3,
+  "budget": {
+    "level": "medium",
+    "note": "中等预算足以覆盖一次江景晚餐、两次氛围餐厅、老城小吃与咖啡馆，无需奢侈但能保证品质体验。"
+  },
+  "pace": "balanced",
+  "tags": [
+    "skyline",
+    "romantic",
+    "architecture",
+    "night-view",
+    "citywalk",
+    "modern-meets-historic"
+  ],
+  "image_prompt": "A couple standing on the Bund at dusk, with the Pudong skyline glowing in golden light, tree-lined French Concession street in foreground, soft romantic atmosphere, editorial travel photography style.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "外滩之夜：天际线初见",
+      "summary": "从外滩的经典视角开启上海之旅，傍晚灯光亮起时感受浦江两岸的震撼对比。晚餐选在江景餐厅，让第一晚成为视觉与味觉的双重记忆点。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "抵达后先入住酒店，稍作休整。建议选择外滩或南京东路附近住宿，方便后续出行。可在酒店附近简单午餐，为下午保留体力。",
+          "poi_refs": [],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "前往外滩，沿黄浦江步行从外白渡桥至金陵东路，约1.5小时。欣赏万国建筑群与对岸陆家嘴天际线，这是上海最经典的城市名片。途中在半岛酒店或和平饭店门口拍摄建筑细节，适合情侣合影。",
+          "poi_refs": [
+            "poi_bund"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "外滩灯光亮起后（约18:30-19:00），前往外滩中央区域或金陵东路附近的江景餐厅享用晚餐。推荐选择有露台或靠窗座位的餐厅，一边品尝本帮菜或西餐，一边欣赏浦东夜景。餐后可沿外滩再散步至延安东路段，感受灯光倒影。",
+          "poi_refs": [
+            "poi_bund"
+          ],
+          "food_refs": [
+            "food_bund_dining"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "法租界漫步：梧桐树下的优雅",
+      "summary": "全天沉浸在法租界的静谧与风情中，从武康路到复兴西路，穿梭于老洋房、咖啡馆和精品店之间。午餐选在街角小馆，下午在咖啡馆歇脚，晚餐体验法租界内的氛围餐厅，享受慢节奏的二人世界。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "从武康路开始citywalk，约1.5小时。武康大楼是必拍地标，沿路老洋房、梧桐树影非常适合情侣街拍。沿途可进入一家独立书店或设计小店逛逛。",
+          "poi_refs": [
+            "poi_wukang_road"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "继续沿武康路转入湖南路、永福路、复兴西路，进入法租界核心步行区，约2小时。这一带街道更安静，建筑更精致，适合慢慢走、随时停下拍照。找一家有庭院的咖啡馆休息，享受午后时光。",
+          "poi_refs": [
+            "poi_french_concession_walk"
+          ],
+          "food_refs": [
+            "food_french_cafe"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "在法租界内的氛围餐厅享用晚餐，推荐东平路或桃江路附近的精致小馆，主打创意本帮菜或西餐。餐后可步行至新天地边缘，感受时尚夜生活氛围，但不过度喧闹，适合情侣小酌一杯。",
+          "poi_refs": [
+            "poi_xintiandi_edge"
+          ],
+          "food_refs": [
+            "food_french_dinner"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "老城厢与新天地：烟火与时尚的碰撞",
+      "summary": "上午探访豫园老城厢，感受老上海的市井气息与小吃文化；下午转至新天地，体验石库门建筑改造的时尚街区。最后一晚以一顿轻松晚餐收尾，回味三天的上海故事。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "游览豫园老城厢区域，约2小时。进入豫园外围街区，不一定要买票进园，重点在于感受老城厢的街巷格局、传统手工艺店和热闹氛围。在九曲桥附近拍照，背景是湖心亭茶楼。",
+          "poi_refs": [
+            "poi_yuyuan_edge"
+          ],
+          "food_refs": [
+            "food_yuyuan_snacks"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "从豫园乘地铁或打车至新天地（约20分钟），游览新天地边缘区域，约1.5小时。这里保留了石库门建筑，又融合了现代设计，适合闲逛、拍照。可进入一家设计店或艺术画廊，感受上海时尚的一面。",
+          "poi_refs": [
+            "poi_xintiandi_edge"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "在新天地或附近选择一家轻松的餐厅享用告别晚餐，推荐尝试上海本帮菜或融合料理。餐后可以散步至太平桥公园，欣赏人工湖夜景，为旅程画上温柔句点。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_xintiandi_dining"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_bund",
+      "name": "外滩",
+      "district": "黄浦区",
+      "type": "滨江地标",
+      "reason": "上海最具代表性的天际线观赏点，傍晚灯光亮起时浦江两岸的对比是情侣行程的必看场景。建议安排在第一天傍晚，既能适应初到上海的节奏，又能以视觉震撼开启旅程。注意避开周末人流高峰，沿江步行时选择中段至南段相对人少。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_wukang_road",
+      "name": "武康路区域",
+      "district": "徐汇区",
+      "type": "建筑街区",
+      "reason": "法租界最具代表性的漫步起点，武康大楼是标志性拍摄点，沿路老洋房和梧桐树营造浪漫氛围。适合情侣街拍和慢逛，建议上午前往，光线柔和且游客较少。注意武康大楼前拍照需注意来往车辆。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_french_concession_walk",
+      "name": "法租界漫步",
+      "district": "徐汇区",
+      "type": "历史街区",
+      "reason": "从武康路延伸至复兴西路、湖南路等，是上海最优雅的步行区域。街道安静、建筑精致，适合情侣慢节奏探索。沿途咖啡馆和小店众多，可以随时歇脚。建议预留充足时间，不要赶路。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_yuyuan_edge",
+      "name": "豫园老城厢",
+      "district": "黄浦区",
+      "type": "历史城区",
+      "reason": "体验老上海市井氛围的最佳去处，与法租界和外滩形成鲜明对比。九曲桥和湖心亭是经典画面，外围街区的小吃和手工艺店值得一逛。建议上午前往，避开旅行团高峰。注意不必进入豫园内园，外围街区已足够感受氛围。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_xintiandi_edge",
+      "name": "新天地边缘",
+      "district": "黄浦区",
+      "type": "时尚街区",
+      "reason": "石库门建筑与现代商业结合的典范，适合情侣感受上海时尚一面。相比核心区，边缘更安静，适合闲逛和拍照。建议下午或傍晚前往，光线适合建筑摄影。注意核心区餐饮价格较高，边缘区域更实惠。",
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food": [
+    {
+      "id": "food_bund_dining",
+      "name": "外滩江景餐厅区",
+      "district": "黄浦区",
+      "category": "江景晚餐",
+      "reason": "第一晚的视觉与味觉双重记忆点。推荐选择外滩中间段（广东路至金陵东路）的江景餐厅，人均200-400元可享受靠窗位。建议提前预订靠窗位置，并选择18:30-19:00的时段以同时欣赏日落和夜景。推荐尝试本帮菜或西餐套餐。"
+    },
+    {
+      "id": "food_french_cafe",
+      "name": "法租界庭院咖啡馆",
+      "district": "徐汇区",
+      "category": "咖啡馆",
+      "reason": "法租界漫步中的理想歇脚点，适合情侣在午后享受慢时光。推荐武康路或复兴西路带庭院的咖啡馆，人均50-80元。建议点一杯手冲咖啡搭配甜品，拍照也好看。注意避开下午2-4点高峰，可能需要等位。"
+    },
+    {
+      "id": "food_french_dinner",
+      "name": "法租界氛围餐厅",
+      "district": "徐汇区",
+      "category": "精致晚餐",
+      "reason": "第二晚的浪漫收官，推荐东平路、桃江路或永嘉路附近的创意餐厅，主打本帮菜或融合料理。人均150-300元，环境安静且有设计感。建议提前查看菜单，选择有露台或花园座位的餐厅。餐后可步行至新天地边缘小酌。"
+    },
+    {
+      "id": "food_yuyuan_snacks",
+      "name": "豫园老城小吃区",
+      "district": "黄浦区",
+      "category": "小吃街区",
+      "reason": "体验老上海味道的便捷选择，推荐南翔小笼包、蟹壳黄、梨膏糖等经典小吃。人均30-50元即可吃遍多种风味。建议边走边吃，不要在一家店吃饱。注意避开中午旅行团高峰，上午10点前或下午2点后人流较少。"
+    },
+    {
+      "id": "food_xintiandi_dining",
+      "name": "新天地本帮菜餐厅",
+      "district": "黄浦区",
+      "category": "本帮菜晚餐",
+      "reason": "最后一晚的轻松告别餐，推荐新天地范围内的本帮菜餐厅，人均150-250元。环境时尚又不失传统韵味，适合回味旅程。推荐尝试红烧肉、腌笃鲜等经典菜品。建议提前预订，周末可能排队。"
+    }
+  ]
+}

@@ -9,16 +9,19 @@
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "test:image-pipeline": "cd image-pipeline/image-pipeline && node --test"
+    "test:image-pipeline": "cd image-pipeline/image-pipeline && node --test",
+    "test:trip-package": "node scripts/test_build_trip_package.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.110.0",
+    "https-proxy-agent": "^9.1.0",
     "next": "16.2.9",
     "react": "19.2.7",
     "react-dom": "19.2.7",
     "zod": "4.4.3"
   },
   "devDependencies": {
+    "@playwright/test": "^1.61.1",
     "@tailwindcss/postcss": "4.3.2",
     "@types/node": "26.0.1",
     "@types/react": "19.2.17",

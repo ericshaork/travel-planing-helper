@@ -1,0 +1,8 @@
+{
+  "city": "xiamen",
+  "days": 3,
+  "trip_type": "solo",
+  "budget": "medium",
+  "preferences": ["citywalk", "nature", "photo"],
+  "pace": "slow"
+}

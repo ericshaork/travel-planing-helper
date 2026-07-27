@@ -1,0 +1,316 @@
+{
+  "template_id": "beijing_couple_template_v1",
+  "template_version": "city_template_v1",
+  "city_identity": {
+    "code": "beijing",
+    "name": "Beijing",
+    "region_name": "Beijing",
+    "country": "China",
+    "language": "zh-CN",
+    "timezone": "Asia/Shanghai",
+    "visual_identity_keywords": [
+      "imperial axis",
+      "red walls",
+      "golden roofs",
+      "royal gardens",
+      "hutong lakefront",
+      "modern riverside lights"
+    ],
+    "signature_moods": [
+      "first arrival",
+      "couple slow walk",
+      "historic texture",
+      "evening closure"
+    ]
+  },
+  "traveler_profile": {
+    "traveler_type": "couple",
+    "days": 3,
+    "season": "autumn",
+    "budget": "medium",
+    "pace": "balanced",
+    "motivation": "first_visit",
+    "theme": "Beijing first impression for a couple",
+    "must_include": [
+      "Forbidden City",
+      "Jingshan Park",
+      "Beihai Park",
+      "Shichahai",
+      "Liangma River"
+    ],
+    "avoid": [
+      "overpacked checklist route",
+      "generic commercial street only"
+    ]
+  },
+  "content_rules": {
+    "tone": "travel magazine plus private journal",
+    "route_quality": [
+      "Keep each day walkable and not overpacked.",
+      "Group POIs by geography and day rhythm.",
+      "Use evening closure moments for couple-trip memory.",
+      "Write concrete route guidance for first-time visitors."
+    ],
+    "poi_rules": [
+      "Use signature landmarks as first-arrival anchors.",
+      "Use real place evidence for gallery assets.",
+      "Do not repeat the same neighborhood without a new purpose."
+    ],
+    "food_rules": [
+      "Use real food or restaurant evidence for specific dishes and shops.",
+      "Do not fabricate specific restaurant dishes with AI images.",
+      "Keep food stops useful and route-aware."
+    ],
+    "hard_constraints": [
+      "Do not fabricate real-time opening status.",
+      "Do not fabricate live ticket availability.",
+      "Do not fabricate live queue time.",
+      "Preserve source provenance for every final image."
+    ]
+  },
+  "asset_requirements": {
+    "families": [
+      {
+        "family": "signature_anchor",
+        "minimum_count": 2,
+        "purpose": "first-arrival landmarks and city-defining anchors"
+      },
+      {
+        "family": "historic_texture",
+        "minimum_count": 1,
+        "purpose": "old city walking texture and private journal mood"
+      },
+      {
+        "family": "modern_contrast",
+        "minimum_count": 1,
+        "purpose": "modern Beijing contrast after historic core"
+      },
+      {
+        "family": "evening_closure",
+        "minimum_count": 1,
+        "purpose": "romantic and relaxed end-of-day memory"
+      },
+      {
+        "family": "food_backbone",
+        "minimum_count": 0,
+        "purpose": "optional local food anchors for route support"
+      }
+    ],
+    "minimum_images": {
+      "cover": 3,
+      "place": 3,
+      "experience": 1,
+      "food": 0
+    }
+  },
+  "image_template_ref": {
+    "template_id": "wanderly_image_template_v1",
+    "template_version": "image_template_v1"
+  },
+  "golden_reference": {
+    "package_id": "beijing_couple_golden_v2",
+    "path": "trip_packages/beijing_couple_golden_v2"
+  },
+  "image_template": {
+    "template_id": "wanderly_image_template_v1",
+    "template_version": "image_template_v1",
+    "join_key": "asset_instance_id",
+    "usage_profiles": [
+      {
+        "image_usage_profile": "cover",
+        "purpose": "Editorial entrance image with Wanderly travel magazine plus private journal mood.",
+        "default_generation_mode": "hybrid",
+        "source_preference": "mixed",
+        "golden_refinement_allowed": ["ai_generated", "hybrid"]
+      },
+      {
+        "image_usage_profile": "place",
+        "purpose": "Real place evidence with recognizable geography, architecture, or POI context.",
+        "default_generation_mode": "real_photo",
+        "source_preference": "real_first",
+        "golden_refinement_allowed": ["real_photo"]
+      },
+      {
+        "image_usage_profile": "experience",
+        "purpose": "Route memory, time-of-day mood, walking rhythm, or evening closure.",
+        "default_generation_mode": "hybrid",
+        "source_preference": "mixed",
+        "golden_refinement_allowed": ["real_photo", "ai_generated", "hybrid"]
+      },
+      {
+        "image_usage_profile": "food",
+        "purpose": "Real dish, shop, table, or local food evidence.",
+        "default_generation_mode": "real_photo",
+        "source_preference": "real_first",
+        "golden_refinement_allowed": ["real_photo"]
+      }
+    ],
+    "slots": [
+      {
+        "image_slot": "explore_cover",
+        "image_usage_profile": "cover",
+        "review_required": true,
+        "description": "Explore card entry cover."
+      },
+      {
+        "image_slot": "day_cover",
+        "image_usage_profile": "experience",
+        "review_required": true,
+        "description": "Day or experience closure cover."
+      },
+      {
+        "image_slot": "poi_gallery",
+        "image_usage_profile": "place",
+        "review_required": false,
+        "description": "Real POI/place gallery image."
+      },
+      {
+        "image_slot": "food_gallery",
+        "image_usage_profile": "food",
+        "review_required": false,
+        "description": "Real food gallery image."
+      }
+    ],
+    "generation_strategies": [
+      {
+        "generation_mode": "real_photo",
+        "description": "Use real image providers and preserve source provenance.",
+        "allowed_final_sources": ["wikimedia", "pexels", "local"]
+      },
+      {
+        "generation_mode": "ai_generated",
+        "description": "Use AI generation for mood-led covers or non-specific city atmosphere.",
+        "allowed_final_sources": ["ai_generated"]
+      },
+      {
+        "generation_mode": "hybrid",
+        "description": "Use real place credibility plus AI-supported editorial or journal atmosphere.",
+        "allowed_final_sources": ["wikimedia", "pexels", "local", "ai_generated", "hybrid"]
+      }
+    ],
+    "provenance_requirements": {
+      "ai_generated": ["provider_id", "model_id", "provider_job_id", "prompt"],
+      "real_photo": ["source", "license", "source_url", "image_url"]
+    },
+    "review_requirements": {
+      "cover": {
+        "manual_review_required": true,
+        "quality_bar": [
+          "Place identity is readable.",
+          "Composition feels editorial.",
+          "Mood matches travel magazine plus private journal.",
+          "No watermarks, text, logos, or generic tourist-poster gloss."
+        ],
+        "failure_examples": [
+          "detail crop",
+          "crowded commercial street",
+          "ordinary stock-like photo",
+          "wrong time of day"
+        ]
+      },
+      "place": {
+        "manual_review_required": false,
+        "quality_bar": [
+          "Real photo.",
+          "Recognizable location.",
+          "Provenance preserved.",
+          "No AI fabrication of specific POI."
+        ],
+        "failure_examples": [
+          "unrecognizable detail",
+          "wrong location",
+          "missing license",
+          "AI-generated specific POI"
+        ]
+      },
+      "experience": {
+        "manual_review_required": true,
+        "quality_bar": [
+          "Time of day and route mood are clear.",
+          "Scene supports the itinerary moment.",
+          "Final source is accurately labeled."
+        ],
+        "failure_examples": [
+          "daytime image for night closure",
+          "generic skyline",
+          "no relation to route"
+        ]
+      },
+      "food": {
+        "manual_review_required": false,
+        "quality_bar": [
+          "Real food or shop evidence.",
+          "No AI fabrication for named shops or dishes.",
+          "Useful local context."
+        ],
+        "failure_examples": [
+          "AI-generated named dish",
+          "generic food unrelated to city",
+          "missing provenance"
+        ]
+      }
+    },
+    "golden_review_rules": {
+      "required_dimensions": [
+        "cover_quality",
+        "location_identity",
+        "wanderly_style",
+        "duplicate_check",
+        "provenance_check",
+        "remaining_notes"
+      ],
+      "allowed_statuses": ["passed", "passed_with_note", "warning", "failed"]
+    }
+  },
+  "golden_sample_mapping": [
+    {
+      "asset_instance_id": "ca_beijing_forbidden_city_explore_cover",
+      "image_slot": "explore_cover",
+      "image_usage_profile": "cover",
+      "generation_mode": "hybrid",
+      "final_source": "ai_generated"
+    },
+    {
+      "asset_instance_id": "ca_beijing_jingshan_park_explore_cover",
+      "image_slot": "explore_cover",
+      "image_usage_profile": "cover",
+      "generation_mode": "hybrid",
+      "final_source": "ai_generated"
+    },
+    {
+      "asset_instance_id": "ca_beijing_beihai_park_explore_cover",
+      "image_slot": "explore_cover",
+      "image_usage_profile": "cover",
+      "generation_mode": "hybrid",
+      "final_source": "ai_generated"
+    },
+    {
+      "asset_instance_id": "ca_beijing_liangma_river_day_cover",
+      "image_slot": "day_cover",
+      "image_usage_profile": "experience",
+      "generation_mode": "hybrid",
+      "final_source": "ai_generated"
+    },
+    {
+      "asset_instance_id": "ca_beijing_jingshan_park_poi_gallery",
+      "image_slot": "poi_gallery",
+      "image_usage_profile": "place",
+      "generation_mode": "real_photo",
+      "final_source": "wikimedia"
+    },
+    {
+      "asset_instance_id": "ca_beijing_beihai_park_poi_gallery",
+      "image_slot": "poi_gallery",
+      "image_usage_profile": "place",
+      "generation_mode": "real_photo",
+      "final_source": "wikimedia"
+    },
+    {
+      "asset_instance_id": "ca_beijing_shichahai_poi_gallery",
+      "image_slot": "poi_gallery",
+      "image_usage_profile": "place",
+      "generation_mode": "hybrid",
+      "final_source": "wikimedia"
+    }
+  ]
+}

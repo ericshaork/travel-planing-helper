@@ -9,11 +9,15 @@ import {
   type ReactNode,
 } from "react";
 
+import { getUserSettings } from "@/lib/settings/client";
+import type { WorkspacePreferences } from "@/lib/settings/types";
+
 interface DesktopWorkspaceShellProps {
   topBar: ReactNode;
   main: ReactNode;
   inspector: ReactNode;
   compactBlankReadMode?: boolean;
+  compactEmptyEditMode?: boolean;
 }
 
 const WORKSPACE_SPLIT_RATIO_KEY = "wanderly:workspace-split-ratio";
@@ -24,10 +28,43 @@ const MIN_LEFT_WIDTH = 480;
 const MIN_RIGHT_WIDTH = 420;
 const RESIZER_WIDTH = 12;
 
+export function getDefaultWorkspaceRatioForMapLayout(
+  mapLayout: WorkspacePreferences["mapLayout"],
+) {
+  switch (mapLayout) {
+    case "plan_focus":
+      return 60;
+    case "map_focus":
+      return 48;
+    case "balanced":
+    default:
+      return DEFAULT_LEFT_RATIO;
+  }
+}
+
+export function resolveInitialWorkspaceRatio(input: {
+  savedRatio: string | null;
+  mapLayout: WorkspacePreferences["mapLayout"];
+  containerWidth: number;
+}) {
+  const parsedSavedRatio =
+    input.savedRatio === null ? Number.NaN : Number.parseFloat(input.savedRatio);
+
+  if (Number.isFinite(parsedSavedRatio)) {
+    return clampWorkspaceRatio(parsedSavedRatio, input.containerWidth);
+  }
+
+  return clampWorkspaceRatio(
+    getDefaultWorkspaceRatioForMapLayout(input.mapLayout),
+    input.containerWidth,
+  );
+}
+
 function clampWorkspaceRatio(nextRatio: number, containerWidth: number) {
   const maxRatioByPixels =
     containerWidth > 0
-      ? ((containerWidth - MIN_RIGHT_WIDTH - RESIZER_WIDTH) / containerWidth) * 100
+      ? ((containerWidth - MIN_RIGHT_WIDTH - RESIZER_WIDTH) / containerWidth) *
+        100
       : MAX_LEFT_RATIO;
   const minRatioByPixels =
     containerWidth > 0
@@ -45,8 +82,11 @@ export function DesktopWorkspaceShell({
   main,
   inspector,
   compactBlankReadMode = false,
+  compactEmptyEditMode = false,
 }: DesktopWorkspaceShellProps) {
   const splitRef = useRef<HTMLDivElement | null>(null);
+  const ratioInitializedRef = useRef(false);
+  const sessionAdjustedRatioRef = useRef(false);
   const dragStateRef = useRef<{
     containerLeft: number;
     containerWidth: number;
@@ -59,20 +99,47 @@ export function DesktopWorkspaceShell({
       return;
     }
 
+    ratioInitializedRef.current = true;
     const saved = window.localStorage.getItem(WORKSPACE_SPLIT_RATIO_KEY);
-
-    if (!saved) {
-      return;
-    }
-
-    const parsed = Number.parseFloat(saved);
-
-    if (!Number.isFinite(parsed)) {
-      return;
-    }
-
     const containerWidth = splitRef.current?.getBoundingClientRect().width ?? 0;
-    setLeftRatio(clampWorkspaceRatio(parsed, containerWidth));
+
+    if (saved) {
+      setLeftRatio(
+        resolveInitialWorkspaceRatio({
+          savedRatio: saved,
+          mapLayout: "balanced",
+          containerWidth,
+        }),
+      );
+      return;
+    }
+
+    let cancelled = false;
+
+    void getUserSettings()
+      .then((settings) => {
+        if (cancelled || sessionAdjustedRatioRef.current) {
+          return;
+        }
+
+        const latestContainerWidth =
+          splitRef.current?.getBoundingClientRect().width ?? 0;
+
+        setLeftRatio(
+          resolveInitialWorkspaceRatio({
+            savedRatio: null,
+            mapLayout: settings.workspacePreferences.mapLayout,
+            containerWidth: latestContainerWidth,
+          }),
+        );
+      })
+      .catch(() => {
+        // Guests or failed settings fetch keep the layout default.
+      });
+
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   useEffect(() => {
@@ -111,6 +178,10 @@ export function DesktopWorkspaceShell({
       return;
     }
 
+    if (!ratioInitializedRef.current) {
+      return;
+    }
+
     window.localStorage.setItem(WORKSPACE_SPLIT_RATIO_KEY, String(leftRatio));
   }, [leftRatio]);
 
@@ -127,14 +198,19 @@ export function DesktopWorkspaceShell({
       containerLeft: rect.left,
       containerWidth: rect.width,
     };
+    sessionAdjustedRatioRef.current = true;
     setIsDragging(true);
     event.currentTarget.setPointerCapture(event.pointerId);
   }
 
   const gridTemplateColumns = useMemo(
-    () => `minmax(0, ${leftRatio}%) ${RESIZER_WIDTH}px minmax(0, ${100 - leftRatio}%)`,
+    () =>
+      `minmax(0, ${leftRatio}%) ${RESIZER_WIDTH}px minmax(0, ${
+        100 - leftRatio
+      }%)`,
     [leftRatio],
   );
+  const compactLeftPane = compactBlankReadMode || compactEmptyEditMode;
 
   return (
     <section className="hidden min-h-0 flex-1 flex-col overflow-hidden lg:flex">
@@ -142,13 +218,22 @@ export function DesktopWorkspaceShell({
 
       <div
         ref={splitRef}
+        data-testid="desktop-workspace-split"
         className={`grid min-h-0 min-w-0 flex-1 ${
-          compactBlankReadMode ? "mt-2.5 gap-0" : "mt-4 gap-0"
+          compactLeftPane ? "mt-2 gap-0" : "mt-2.5 gap-0"
         }`}
         style={{ gridTemplateColumns }}
       >
-        <div className="min-h-0 min-w-0 overflow-hidden pr-1">
-          <div className="h-full min-h-0 overflow-y-auto overflow-x-hidden pr-1">
+        <div
+          className={`min-h-0 min-w-0 overflow-hidden ${
+            compactLeftPane ? "pr-0" : "pr-1"
+          }`}
+        >
+          <div
+            className={`h-full min-h-0 overflow-x-hidden pr-1 ${
+              compactLeftPane ? "overflow-hidden pr-0" : "overflow-y-auto"
+            }`}
+          >
             {main}
           </div>
         </div>
@@ -165,7 +250,9 @@ export function DesktopWorkspaceShell({
           >
             <span
               className={`h-full w-px bg-[var(--line-strong)] transition-colors ${
-                isDragging ? "bg-[var(--clay-deep)]" : "group-hover:bg-[var(--clay)]"
+                isDragging
+                  ? "bg-[var(--clay-deep)]"
+                  : "group-hover:bg-[var(--clay)]"
               }`}
             />
             <span

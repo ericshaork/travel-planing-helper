@@ -201,13 +201,11 @@ export function ParsedTripCard({ draft, missingFields }: ParsedTripCardProps) {
       </details>
 
       <aside className="hidden min-w-0 lg:sticky lg:top-6 lg:block">
-        <div className="overflow-hidden border border-[var(--line-strong)] bg-[var(--sand-soft)] p-5 shadow-[6px_7px_0_rgb(173_96_72_/_12%)]">
+        <div className="edit-gear-card overflow-hidden p-5">
           <div className="flex flex-wrap items-start justify-between gap-4">
             <div className="min-w-0">
-              <p className="text-xs font-semibold tracking-[0.14em] text-[var(--clay-deep)]">
-                当前旅行草稿
-              </p>
-              <h2 className="mt-2 text-xl font-semibold">先看看认得准不准</h2>
+              <p className="edit-kicker">当前旅行草稿</p>
+              <h2 className="mt-1 text-xl font-semibold">先看看认得准不准</h2>
             </div>
             <span className="-rotate-2 border border-[var(--sage-deep)] bg-[var(--sage-soft)] px-2 py-1 text-xs font-semibold text-[var(--sage-deep)]">
               可随时修改

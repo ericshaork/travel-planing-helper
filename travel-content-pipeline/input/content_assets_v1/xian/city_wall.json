@@ -1,0 +1,128 @@
+{
+  "id": "ca_xian_city_wall",
+  "name": "Xi'an City Wall",
+  "asset_type": "place_signature_anchor",
+  "category": [
+    "place",
+    "signature_anchor",
+    "first_anchor"
+  ],
+  "content_role": [
+    "signature_anchor",
+    "first_anchor",
+    "place",
+    "cover",
+    "hybrid"
+  ],
+  "traveler_fit": {
+    "couple": "high",
+    "student": "medium",
+    "solo": "high",
+    "family": "high",
+    "friends": "high"
+  },
+  "season_fit": {
+    "spring": "medium",
+    "summer": "medium",
+    "autumn": "high",
+    "winter": "medium"
+  },
+  "best_time": {
+    "time_of_day": [
+      "morning",
+      "afternoon",
+      "evening"
+    ],
+    "note": "Xi'an City Wall is intended as first_anchor with balanced pacing."
+  },
+  "experience_value": {
+    "primary": [
+      "signature_anchor",
+      "first_anchor",
+      "place",
+      "recognizable city wall ramparts",
+      "heritage scale",
+      "walking or cycling context",
+      "warm earth tones"
+    ],
+    "summary": "ancient city wall and walking route"
+  },
+  "avoid_when": [
+    "generic old wall",
+    "fantasy fortress",
+    "no Xi'an identity",
+    "poster text"
+  ],
+  "nearby_assets": [],
+  "map_asset_id": "poi_city_wall",
+  "bridge_metadata": {
+    "source": "city_inventory",
+    "source_inventory_id": "xian_city_inventory_v1",
+    "asset_id": "ca_xian_city_wall",
+    "asset_name": "Xi'an City Wall",
+    "asset_category": "place",
+    "asset_family": "signature_anchor",
+    "route_role": "first_anchor",
+    "why_it_matters": "ancient city wall and walking route",
+    "pace_hint": "balanced",
+    "priority": 1
+  },
+  "image_context": {
+    "recommended_slots": [
+      "explore_cover",
+      "poi_gallery"
+    ],
+    "image_usage_profile": "cover",
+    "default_generation_mode": "hybrid",
+    "source_preference": "mixed",
+    "search_keywords": [
+      "Xi'an City Wall",
+      "Xian ancient city wall",
+      "Xi'an city wall travel photo",
+      "Xi'an city wall South Gate"
+    ],
+    "visual_subject": {
+      "main_subject": "ancient city wall and walking route",
+      "secondary_elements": [
+        "wall ramparts",
+        "gate tower",
+        "people walking",
+        "warm city light"
+      ]
+    },
+    "positive_cues": [
+      "recognizable city wall ramparts",
+      "heritage scale",
+      "walking or cycling context",
+      "warm earth tones"
+    ],
+    "negative_cues": [
+      "generic old wall",
+      "fantasy fortress",
+      "no Xi'an identity",
+      "poster text"
+    ]
+  },
+  "search_keywords": [
+    "Xi'an City Wall",
+    "Xian ancient city wall",
+    "Xi'an city wall travel photo",
+    "Xi'an city wall South Gate"
+  ],
+  "review_rules": {
+    "manual_review_required": true,
+    "identity_check": [
+      "Xi'an City Wall identity is readable.",
+      "Cover has heritage arrival feeling without becoming fantasy."
+    ],
+    "failure_examples": [
+      "generic ancient gate",
+      "fantasy Tang palace",
+      "costume scene replacing place evidence"
+    ]
+  },
+  "golden_reference": {
+    "package_id": "future_xian_golden",
+    "asset_instance_ids": []
+  }
+}

@@ -1,0 +1,101 @@
+[
+  {
+    "id": "B000A8UIN8",
+    "name": "故宫博物院",
+    "city": "北京市",
+    "latitude": 39.917839,
+    "longitude": 116.397029,
+    "address": "景山前街4号",
+    "asset_type": "anchor_poi",
+    "source_provider": "amap",
+    "confidence": "verified"
+  },
+  {
+    "id": "B000A7I1OL",
+    "name": "景山公园",
+    "city": "北京市",
+    "latitude": 39.925875,
+    "longitude": 116.396551,
+    "address": "景山西街44号",
+    "asset_type": "anchor_poi",
+    "source_provider": "amap",
+    "confidence": "verified"
+  },
+  {
+    "id": "B000A7O5PK",
+    "name": "什刹海",
+    "city": "北京市",
+    "latitude": 39.941893,
+    "longitude": 116.385121,
+    "address": "地安门西大街49号",
+    "asset_type": "anchor_poi",
+    "source_provider": "amap",
+    "confidence": "verified"
+  },
+  {
+    "id": "B000A858BG",
+    "name": "前门",
+    "city": "北京市",
+    "latitude": 39.900558,
+    "longitude": 116.398353,
+    "address": "东城区",
+    "asset_type": "anchor_poi",
+    "source_provider": "amap",
+    "confidence": "verified"
+  },
+  {
+    "id": "B000A864JA",
+    "name": "牛街",
+    "city": "北京市",
+    "latitude": 39.884264,
+    "longitude": 116.363972,
+    "address": "西城区",
+    "asset_type": "anchor_poi",
+    "source_provider": "amap",
+    "confidence": "verified"
+  },
+  {
+    "id": "B0FFFS33G2",
+    "name": "鼓楼",
+    "city": "北京市",
+    "latitude": 39.940781,
+    "longitude": 116.395937,
+    "address": "钟楼湾胡同临字9号(什刹海地铁站A2西北口步行240米)",
+    "asset_type": "anchor_poi",
+    "source_provider": "amap",
+    "confidence": "verified"
+  },
+  {
+    "id": "B0FFFAH7I9",
+    "name": "南锣鼓巷",
+    "city": "北京市",
+    "latitude": 39.937182,
+    "longitude": 116.402394,
+    "address": "交道口街道南大街(南锣鼓巷地铁站E西北口旁)",
+    "asset_type": "anchor_poi",
+    "source_provider": "amap",
+    "confidence": "verified"
+  },
+  {
+    "id": "B0FFFDG1X7",
+    "name": "798艺术区",
+    "city": "北京市",
+    "latitude": 39.986642,
+    "longitude": 116.491789,
+    "address": "酒仙桥路2号北京798艺术区(西北角)",
+    "asset_type": "anchor_poi",
+    "source_provider": "amap",
+    "confidence": "verified"
+  },
+  {
+    "id": "B000A81CB2",
+    "name": "天坛公园",
+    "city": "北京市",
+    "latitude": 39.881913,
+    "longitude": 116.410829,
+    "address": "天坛东里甲1号",
+    "asset_type": "anchor_poi",
+    "source_provider": "amap",
+    "confidence": "verified"
+  }
+]

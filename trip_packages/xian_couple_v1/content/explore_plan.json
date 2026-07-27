@@ -1,0 +1,195 @@
+{
+  "id": "exp_xian_couple_3d_heritage_wall_food_v1",
+  "slug": "xian-couple-3d-heritage-wall-food",
+  "title": "西安三日·城墙暮色与古都食光",
+  "summary": "为情侣设计的西安深度路线，将历史底蕴融入漫步节奏，用城墙黄昏与回民街烟火气编织浪漫记忆。每日一个核心地标，搭配老城巷弄与地道美食，节奏从容，氛围感强。",
+  "city": {
+    "code": "xian",
+    "name": "Xi'an",
+    "region_name": "Shaanxi"
+  },
+  "trip_type": "couple",
+  "days": 3,
+  "budget": {
+    "level": "medium",
+    "note": "中档预算足以覆盖主要门票、特色正餐和城墙骑行，无需刻意省钱，也不追求奢华。餐饮集中在回民街和钟楼周边，性价比高。"
+  },
+  "pace": "balanced",
+  "tags": [
+    "历史",
+    "城墙",
+    "美食",
+    "情侣",
+    "citywalk",
+    "夜景"
+  ],
+  "image_prompt": "A romantic evening shot of Xi'an City Wall with warm lantern light, a couple walking hand in hand, the Bell Tower glowing in the distance, and a hint of Muslim Quarter street food stalls in the foreground. Editorial style, cinematic mood.",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "城墙上的日落与古都初印象",
+      "summary": "下午从城墙骑行开始，在暮色中俯瞰老城；傍晚转入回民街，用烟火气十足的小吃填满夜晚。第一天不贪多，用高处的开阔和巷弄的喧闹建立对西安的直观感受。",
+      "activities": [
+        {
+          "time_block": "afternoon",
+          "description": "从南门（永宁门）登上城墙，租双人自行车骑行约2小时。夕阳时分光线最佳，适合拍照，也是情侣共享古城天际线的浪漫时刻。注意：下午4点左右登城，避开正午暴晒，骑行约6公里后从东门或南门返回。",
+          "poi_refs": [
+            "poi_city_wall"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "从城墙步行至回民街，开始晚餐探索。推荐从洒金桥进入，先吃一碗老米家大雨肉夹馍，再尝定家小酥肉、东南亚甑糕，最后以一碗花奶奶酸梅汤收尾。节奏随意，边走边停，感受街巷的喧闹与香气。",
+          "poi_refs": [
+            "poi_muslim_quarter"
+          ],
+          "food_refs": [
+            "food_muslim_quarter"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "晨钟暮鼓与老城烟火",
+      "summary": "上午在钟鼓楼广场感受城市中轴线的历史重量，随后钻进周边小巷发现本地人的早餐铺；下午在小雁塔的园林中享受静谧，傍晚转战永兴坊，体验更有序的陕西小吃集合。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "前往钟鼓楼广场，登楼俯瞰东西南北四条大街。之后在广场东侧的‘秦豫肉夹馍’吃个地道的早餐，或尝试附近的‘贾三灌汤包子’。注意：钟鼓楼内部可登，但更推荐在外围感受氛围，节省体力。",
+          "poi_refs": [
+            "poi_bell_tower_area"
+          ],
+          "food_refs": [
+            "food_bell_tower_dining"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "步行或打车（约15分钟）至小雁塔区域。这里比大雁塔清静许多，适合情侣在园林中散步、拍照。登塔可选，但更推荐在荐福寺内闲坐，感受古都的慢时光。停留约1.5小时。",
+          "poi_refs": [
+            "poi_small_yanta"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "从大雁塔打车（约20分钟）至永兴坊。这里比回民街规整，适合晚餐。推荐品尝三原老黄家的疙瘩面、子长煎饼，以及摔碗酒体验。饭后可在坊内看皮影戏或老手艺表演，为夜晚增添文化趣味。",
+          "poi_refs": [
+            "poi_yongxingfang"
+          ],
+          "food_refs": [
+            "food_yongxingfang"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "大雁塔的古今与终章",
+      "summary": "上午留给大雁塔广场和周边文化区，感受唐代遗风；中午在附近吃一顿正经陕菜；下午自由活动，可以去大唐不夜城散步或返程前再逛一次回民街补货。最后一天以轻松收尾为主。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "前往大雁塔南广场，先在外围拍摄塔身全景，再进入大慈恩寺参观。登塔可俯瞰西安新区。注意：上午游客较多，建议9点前抵达。停留约2小时。",
+          "poi_refs": [
+            "poi_big_wild_goose"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "在大雁塔附近的‘西安饭庄’或‘长安大牌档’用午餐，品尝葫芦鸡、晾衣毛肚等经典陕菜。饭后可在大唐不夜城步行街散步，或返回酒店休整。如果精力充足，可以再去回民街购买伴手礼（如腊牛羊肉、琼锅糖）。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_bell_tower_dining"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "最后一晚可以选择在大唐不夜城看灯光秀，或回到钟楼附近吃一顿简单的晚餐，比如‘biangbiang面’配冰峰汽水。之后在钟楼广场拍夜景，为旅程画上句号。",
+          "poi_refs": [
+            "poi_bell_tower_area"
+          ],
+          "food_refs": [
+            "food_muslim_quarter"
+          ]
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_city_wall",
+      "name": "西安城墙",
+      "district": "Beilin",
+      "type": "historic landmark",
+      "reason": "情侣必选：城墙骑行是西安最浪漫的体验之一，尤其黄昏时分，两人共骑双人车，俯瞰老城屋顶与落日，画面感极强。建议从南门（永宁门）上，租车约45元/人，骑行约2小时，东门或南门下。注意：傍晚光线最好，但需留足时间还车。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_bell_tower_area",
+      "name": "钟鼓楼广场",
+      "district": "Lianhu",
+      "type": "historic city core",
+      "reason": "作为西安的地理中心，钟鼓楼是感受古都中轴线的最佳地点。不一定要登楼，在广场上拍照、看车流环绕，就能体会古今交融。旁边的小巷里有不少地道早餐店，适合情侣清晨漫步。注意：广场全天开放，但早晨人少，拍照更干净。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_muslim_quarter",
+      "name": "回民街",
+      "district": "Lianhu",
+      "type": "historic food district",
+      "reason": "西安烟火气的灵魂所在。虽然游客多，但情侣可以走洒金桥、大皮院等支巷，避开主街人流。推荐傍晚前往，灯光亮起后氛围更佳。注意：小吃分量大，建议两人分食，留肚子尝更多品种。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_big_wild_goose",
+      "name": "大雁塔",
+      "district": "Yanta",
+      "type": "cultural landmark",
+      "reason": "西安最标志性的唐代建筑，适合情侣合影留念。推荐上午前往，光线好且游客相对少。登塔需另购票，但塔上视野开阔。注意：大慈恩寺内面积较大，步行约2小时，建议穿舒适的鞋。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_small_yanta",
+      "name": "小雁塔",
+      "district": "Beilin",
+      "type": "historic garden landmark",
+      "reason": "比大雁塔更清净，园林式布局适合情侣散步、拍照。寺内古树参天，氛围静谧，是避开人群的好去处。注意：免费开放，但需预约。建议下午前往，光线透过树叶很出片。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_yongxingfang",
+      "name": "永兴坊",
+      "district": "Xincheng",
+      "type": "food and folk-culture district",
+      "reason": "比回民街更规整的陕西小吃集合地，适合晚餐。情侣可以一边吃一边看民俗表演，体验摔碗酒等互动项目。注意：晚上有皮影戏表演，建议提前查好时间。",
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food": [
+    {
+      "id": "food_muslim_quarter",
+      "name": "回民街小吃",
+      "district": "Lianhu",
+      "category": "snack street",
+      "reason": "西安美食的灵魂。推荐洒金桥的‘老米家大雨肉夹馍’（肉质酥烂）、‘定家小酥肉’（麻香软糯）、‘东南亚甑糕’（甜而不腻）、‘花奶奶酸梅汤’（解腻）。注意：主街人多，支巷体验更佳；建议两人分食，多尝几样。"
+    },
+    {
+      "id": "food_yongxingfang",
+      "name": "永兴坊小吃",
+      "district": "Xincheng",
+      "category": "food cluster",
+      "reason": "适合晚餐的规整美食区。推荐‘三原老黄家’的疙瘩面（酸汤开胃）、‘子长煎饼’（薄韧有嚼劲）、‘摔碗酒’（体验式互动）。注意：晚上有民俗表演，可以边吃边看。"
+    },
+    {
+      "id": "food_bell_tower_dining",
+      "name": "钟楼周边老店",
+      "district": "Lianhu",
+      "category": "local restaurant",
+      "reason": "适合早餐或正餐。推荐‘秦豫肉夹馍’（肉夹馍配粉丝汤）、‘贾三灌汤包子’（牛肉馅多汁）、‘西安饭庄’（经典陕菜如葫芦鸡）。注意：钟楼周边老店多，但饭点需排队，建议错峰。"
+    }
+  ]
+}

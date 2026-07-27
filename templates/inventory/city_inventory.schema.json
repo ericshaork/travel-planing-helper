@@ -1,0 +1,334 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wanderly.local/schemas/city_inventory.schema.json",
+  "title": "Wanderly City Inventory v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "inventory_id",
+    "inventory_version",
+    "city",
+    "city_identity",
+    "assets"
+  ],
+  "properties": {
+    "inventory_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "inventory_version": {
+      "const": "city_inventory_v1"
+    },
+    "city": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["code", "name", "region", "country"],
+      "properties": {
+        "code": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "region": {
+          "type": "string",
+          "minLength": 1
+        },
+        "country": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "city_identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["visual_keywords", "signature_moods", "seasonal_texture"],
+      "properties": {
+        "visual_keywords": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "signature_moods": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "seasonal_texture": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["primary_season", "visual_cues", "avoid_cues"],
+          "properties": {
+            "primary_season": {
+              "type": "string",
+              "minLength": 1
+            },
+            "visual_cues": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "avoid_cues": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    "assets": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/asset"
+      }
+    },
+    "compiler_hints": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "default_asset_family_order": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/assetFamily"
+          }
+        },
+        "minimum_asset_mix": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "place": { "type": "integer", "minimum": 0 },
+            "food": { "type": "integer", "minimum": 0 },
+            "experience": { "type": "integer", "minimum": 0 },
+            "city_mood": { "type": "integer", "minimum": 0 }
+          }
+        },
+        "avoid_overuse": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "assetFamily": {
+      "enum": [
+        "signature_anchor",
+        "historic_texture",
+        "slow_solo",
+        "modern_contrast",
+        "evening_closure",
+        "food_backbone",
+        "city_mood"
+      ]
+    },
+    "asset": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "asset_id",
+        "asset_name",
+        "asset_category",
+        "asset_family",
+        "priority",
+        "traveler_fit",
+        "route_role",
+        "time_of_day",
+        "pace_hint",
+        "image_context",
+        "review_rules",
+        "golden_reference"
+      ],
+      "properties": {
+        "asset_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "asset_name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "asset_category": {
+          "enum": ["place", "food", "experience", "city_mood"]
+        },
+        "asset_family": {
+          "$ref": "#/$defs/assetFamily"
+        },
+        "priority": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "traveler_fit": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "enum": ["couple", "solo", "student", "family", "friends"]
+          }
+        },
+        "route_role": {
+          "enum": [
+            "first_anchor",
+            "main_anchor",
+            "supporting_stop",
+            "food_anchor",
+            "evening_closure",
+            "mood_cover"
+          ]
+        },
+        "time_of_day": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "enum": ["morning", "afternoon", "evening", "night", "any"]
+          }
+        },
+        "pace_hint": {
+          "enum": ["slow", "balanced", "packed"]
+        },
+        "image_context": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "recommended_slots",
+            "image_usage_profile",
+            "default_generation_mode",
+            "source_preference",
+            "search_keywords",
+            "visual_subject",
+            "positive_cues",
+            "negative_cues"
+          ],
+          "properties": {
+            "recommended_slots": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "enum": [
+                  "explore_cover",
+                  "trip_cover",
+                  "day_cover",
+                  "poi_gallery",
+                  "food_gallery",
+                  "detail_image"
+                ]
+              }
+            },
+            "image_usage_profile": {
+              "enum": ["cover", "place", "experience", "food"]
+            },
+            "default_generation_mode": {
+              "enum": ["real_photo", "ai_generated", "hybrid"]
+            },
+            "source_preference": {
+              "enum": ["real_first", "mixed", "ai_first"]
+            },
+            "search_keywords": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "visual_subject": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["main_subject", "secondary_elements"],
+              "properties": {
+                "main_subject": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "secondary_elements": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            },
+            "positive_cues": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "negative_cues": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "review_rules": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "manual_review_required",
+            "identity_check",
+            "failure_examples"
+          ],
+          "properties": {
+            "manual_review_required": {
+              "type": "boolean"
+            },
+            "identity_check": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "failure_examples": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "golden_reference": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["package_id", "asset_instance_ids"],
+          "properties": {
+            "package_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "asset_instance_ids": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

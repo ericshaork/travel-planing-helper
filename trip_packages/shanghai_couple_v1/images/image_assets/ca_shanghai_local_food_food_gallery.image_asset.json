@@ -1,0 +1,51 @@
+{
+  "asset_id": "ca_shanghai_local_food",
+  "asset_instance_id": "ca_shanghai_local_food_food_gallery",
+  "image_slot": "food_gallery",
+  "source": "pexels",
+  "file_path": "C:\\Users\\10200\\Desktop\\travel_planing\\image-pipeline\\image-pipeline\\assets\\external\\ca_shanghai_local_food_xiaolongbao_pexels.jpeg",
+  "status": "completed",
+  "retry_count": 0,
+  "last_error": null,
+  "download_status": "completed",
+  "fallback_available": false,
+  "selection": {
+    "selected_candidate": {
+      "source": "pexels",
+      "candidate_id": "6752827",
+      "image_url": "https://images.pexels.com/photos/6752827/pexels-photo-6752827.jpeg?cs=srgb&dl=pexels-jonas-f-25733583-6752827.jpg&fm=jpg"
+    },
+    "rank_score": 95,
+    "candidate_count": 1,
+    "rejected_count": 0
+  },
+  "metadata": {
+    "source_runs": [
+      {
+        "source": "manual_refinement_pexels",
+        "priority": 1,
+        "candidate_count": 1,
+        "error": null
+      }
+    ],
+    "title": "Steamed dumplings in a bamboo steamer in Shanghai, China.",
+    "description": "Real photo of xiaolongbao/steamed dumplings in a bamboo steamer. Food is the main subject, suitable for Shanghai local food_gallery refinement.",
+    "author": "Jonas F",
+    "license": "Pexels License",
+    "source_url": "https://www.pexels.com/photo/steamed-dumplings-in-the-bamboo-steamer-6752827/",
+    "image_url": "https://images.pexels.com/photos/6752827/pexels-photo-6752827.jpeg?cs=srgb&dl=pexels-jonas-f-25733583-6752827.jpg&fm=jpg",
+    "width": 1920,
+    "height": 1080,
+    "mime_type": "image/jpeg",
+    "score_reasons": [
+      "food_subject",
+      "dining_table_context",
+      "shanghai_location",
+      "real_photo_provenance"
+    ],
+    "package_refinement": {
+      "refined_from_file_path": "C:\\Users\\10200\\Desktop\\travel_planing\\image-pipeline\\image-pipeline\\assets\\external\\ca_shanghai_local_food.jpeg",
+      "reason": "Previous asset was storefront/street-view. Replaced with food-subject real photo."
+    }
+  }
+}

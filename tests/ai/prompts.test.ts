@@ -7,6 +7,7 @@ import { describe, expect, it } from "vitest";
 import {
   buildGenerateTripPrompt,
   buildRegenerateTripPrompt,
+  TRIP_PLAN_SYSTEM_PROMPT,
 } from "../../lib/ai/prompts";
 import type { TripPlan, TripRequest } from "../../lib/trip/types";
 
@@ -130,5 +131,107 @@ describe("AI prompts", () => {
     expect(prompt).toContain("偏好参考说明");
     expect(prompt).toContain("优先交通便利");
     expect(prompt).toContain("本次更看重海边、美食");
+  });
+
+  it("目的地未命中城市 inventory 时会给出通用真实地点约束提示", () => {
+    const prompt = buildGenerateTripPrompt({ tripRequest });
+
+    expect(prompt).toContain("当前目的地没有城市参考地点池");
+    expect(prompt).not.toContain("参考地点池（优先在此选择");
+  });
+
+  it("目的地命中北京 inventory 时会注入城市参考地点池", () => {
+    const beijingRequest: TripRequest = {
+      ...tripRequest,
+      destinationCity: "北京",
+    };
+    const prompt = buildGenerateTripPrompt({ tripRequest: beijingRequest });
+
+    expect(prompt).toContain("北京 参考地点池");
+    expect(prompt).toContain("故宫博物院");
+    expect(prompt).toContain("景山公园");
+    expect(prompt).toContain("角色:first_anchor");
+  });
+
+  it("Regenerate prompt 同样注入真实地点硬约束与城市池", () => {
+    const beijingRequest: TripRequest = {
+      ...tripRequest,
+      destinationCity: "Beijing",
+    };
+    const prompt = buildRegenerateTripPrompt({
+      tripRequest: beijingRequest,
+      previousPlan: tripPlan,
+      modificationRequest: "第二天多加一处本地美食",
+    });
+
+    expect(prompt).toContain("北京 参考地点池");
+    expect(prompt).toContain("故宫博物院");
+    expect(prompt).toContain("禁止泛化描述");
+    expect(prompt).toContain("transportFromPrevious");
+  });
+
+  it("prompt 会把 tripRequest 展开成人类可读的用户需求段", () => {
+    const xianRequest: TripRequest = {
+      ...tripRequest,
+      destinationCity: "西安",
+      days: 3,
+      budget: 3000,
+      interests: ["历史文化", "美食"],
+      travelStyles: ["情侣同行"],
+      mustVisitPlaces: ["大雁塔"],
+      avoidPlaces: ["兵马俑"],
+    };
+    const prompt = buildGenerateTripPrompt({ tripRequest: xianRequest });
+
+    // humanized sections
+    expect(prompt).toContain("用户旅行需求");
+    expect(prompt).toContain("目的地：西安");
+    expect(prompt).toContain("天数：3 天");
+    expect(prompt).toContain(
+      "兴趣（按优先级）：历史文化 → 美食",
+    );
+    expect(prompt).toContain("出行风格 / 同行人：情侣同行");
+    expect(prompt).toContain(
+      "必去地点（mustVisitPlaces，务必作为黄金档 block 出现）：大雁塔",
+    );
+    expect(prompt).toContain(
+      "明确要避开的地点（avoidPlaces，硬红线，一次都不允许出现）：兵马俑",
+    );
+
+    // quality clauses
+    expect(prompt).toContain(
+      "avoidPlaces 里的地点是硬红线",
+    );
+    expect(prompt).toContain(
+      "mustVisitPlaces 里的每个地点都必须作为核心",
+    );
+    expect(prompt).toContain(
+      "至少 60% 的 attraction/food/experience block 的 matchedInterests",
+    );
+    expect(prompt).toContain(
+      "禁止「特色餐厅」「当地小巷」「附近景点」「城市漫步」「文化体验」这类占位式描述",
+    );
+
+    // 原始 JSON 仍作为参考出现在最后
+    expect(prompt).toContain("原始结构化 TripRequest");
+    expect(prompt).toContain('"destinationCity":"西安"');
+    expect(prompt).toContain('"avoidPlaces":["兵马俑"]');
+  });
+
+  it("system prompt 把用户信号硬约束和每日行程质量硬约束都写进去了", () => {
+    expect(TRIP_PLAN_SYSTEM_PROMPT).toContain("用户信号硬约束");
+    expect(TRIP_PLAN_SYSTEM_PROMPT).toContain(
+      "avoidPlaces 中的每一个地名都是硬红线",
+    );
+    expect(TRIP_PLAN_SYSTEM_PROMPT).toContain(
+      "mustVisitPlaces 中的每一个地名都必须作为核心",
+    );
+    expect(TRIP_PLAN_SYSTEM_PROMPT).toContain("每日行程质量硬约束");
+    expect(TRIP_PLAN_SYSTEM_PROMPT).toContain(
+      "默认每天生成上午 1 + 下午 1 + 晚上 1 共 3 个 block",
+    );
+    expect(TRIP_PLAN_SYSTEM_PROMPT).toContain(
+      "禁止只写「体验当地文化」「感受城市氛围」「适合放松」这类空话",
+    );
   });
 });

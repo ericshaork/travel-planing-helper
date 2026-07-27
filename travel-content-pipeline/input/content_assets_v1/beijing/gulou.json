@@ -1,0 +1,30 @@
+{
+  "id": "ca_beijing_gulou",
+  "name": "\u9f13\u697c",
+  "asset_type": "poi",
+  "category": ["historic_texture", "old_city_axis", "connector_node"],
+  "content_role": ["old_city_axis", "neighborhood_connector"],
+  "traveler_fit": {
+    "couple": "medium",
+    "student": "high",
+    "solo": "high"
+  },
+  "season_fit": ["spring", "autumn", "winter"],
+  "best_time": ["afternoon", "late_afternoon", "evening"],
+  "experience_value": [
+    "Works less as a standalone monument and more as a connector between old-city scale and younger street energy.",
+    "Useful when the route needs a hinge between hutong texture, snacks, small shops, and evening movement.",
+    "Helps student and solo routes feel urban and lived-in rather than purely ceremonial."
+  ],
+  "avoid_when": [
+    "the route already has too many connector nodes and needs a stronger destination-level anchor",
+    "the traveler only has one landmark-heavy first-visit day and cannot spend route budget on transition texture",
+    "the day is optimized for low-crowd calm rather than lively street energy"
+  ],
+  "nearby_assets": [
+    "ca_beijing_shichahai",
+    "ca_beijing_wudaoying",
+    "ca_beijing_huguosi_food"
+  ],
+  "map_asset_id": "B0FFFS33G2"
+}

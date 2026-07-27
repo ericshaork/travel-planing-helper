@@ -1,12 +1,14 @@
-import { useEffect, useMemo, useState } from "react";
+﻿import { useEffect, useMemo, useState } from "react";
 
 import type { WorkspaceSidebarItemId } from "@/components/workspace/WorkspaceSidebar";
 import type { PoiCandidate, Coordinates } from "@/lib/poi/types";
 import type { RouteEstimateResult } from "@/lib/route/types";
+import type { WorkspacePreferences } from "@/lib/settings/types";
 import type { TripResultEnrichment } from "@/lib/trip/enrichment-types";
 import {
   mapTripPlanToCabinets,
   type DayCabinetView,
+  type ItineraryBlockUpdate,
   type ItineraryBlockView,
   type TimeSlotDefinition,
   type TimeSlotKey,
@@ -31,6 +33,12 @@ import type {
   TripPlan,
   TripRequest,
 } from "@/lib/trip/types";
+import {
+  applyWorkspaceItineraryItemUpdate,
+  createWorkspaceEventInputFromPoiCandidate,
+  createWorkspaceItineraryItem,
+  type WorkspaceCreateEventInput,
+} from "@/lib/trip/workspace-events";
 
 import { useTripMap } from "./useTripMap";
 import { useTripModification } from "./useTripModification";
@@ -73,6 +81,14 @@ type MobilePageKey =
 interface UseTripWorkspaceStateOptions {
   tripPlan: TripPlan;
   tripRequest: TripRequest | null;
+  initialWorkspaceModeDefault?: WorkspaceMode;
+}
+
+export function resolveInitialWorkspaceModeDefault(input: {
+  sessionModeDefault?: WorkspaceMode;
+  settingsDefaultMode?: WorkspacePreferences["defaultMode"];
+}) {
+  return input.sessionModeDefault ?? input.settingsDefaultMode ?? "read";
 }
 
 function isValidCoordinates(value: Coordinates | undefined): value is Coordinates {
@@ -107,7 +123,6 @@ function formatDurationText(durationMinutes: number) {
 
   return `${Math.max(1, Math.round(durationMinutes))} 分钟`;
 }
-
 function collectAttractions(tripPlan: TripPlan): AttractionEntry[] {
   const seen = new Set<string>();
   const attractions: AttractionEntry[] = [];
@@ -240,7 +255,7 @@ function buildRouteOrderFromDay(day: DailyItinerary): string[] {
       .map((item) => item.placeName),
   );
 
-  return routeOrder.length > 0 ? routeOrder : ["待补地点"];
+  return routeOrder.length > 0 ? routeOrder : ["还没有地点"];
 }
 
 function updateDayRouteMeta(day: DailyItinerary): DailyItinerary {
@@ -284,9 +299,9 @@ function findBlockItem(
 function createEmptyDay(dayNumber: number): DailyItinerary {
   return {
     day: dayNumber,
-    theme: `第 ${dayNumber} 天待整理`,
-    routeOrder: [],
-    routeReason: "先补地点，再慢慢把这一天排顺。",
+    theme: `第 ${dayNumber} 天`,
+    routeOrder: ["待补充地点"],
+    routeReason: "先把想去的地方放进来，Wanderly 会帮你整理路线。",
     morning: [],
     afternoon: [],
     evening: [],
@@ -299,6 +314,22 @@ function createWorkspaceEmptyDay(dayNumber: number): DailyItinerary {
     ...createEmptyDay(dayNumber),
     date: undefined,
     timeSlots: createDefaultTimeSlots(),
+  };
+}
+
+export function appendWorkspaceDay(tripPlan: TripPlan) {
+  const nextDayNumber = tripPlan.dailyItinerary.length + 1;
+
+  return {
+    nextDayNumber,
+    nextTripPlan: {
+      ...tripPlan,
+      days: nextDayNumber,
+      dailyItinerary: [
+        ...tripPlan.dailyItinerary,
+        createWorkspaceEmptyDay(nextDayNumber),
+      ],
+    },
   };
 }
 
@@ -316,8 +347,8 @@ function createWorkspaceManualPlaceDraft(
   return {
     placeName,
     type: "other",
-    reason: `${slotLabelMap[slot]}先留一个位置，后面再补细节。`,
-    guide: ["先记下想去的地方，路线和备注可以稍后整理。"],
+    reason: `${slotLabelMap[slot]}先把这一站放进行程，后续可以继续补充路线和提醒。`,
+    guide: ["可以在详情里补充备注、时间和交通提醒。"],
     editorId: createEditorId("item"),
     editorSlotId: slotId,
   };
@@ -326,16 +357,17 @@ function createWorkspaceManualPlaceDraft(
 export function useTripWorkspaceState({
   tripPlan,
   tripRequest,
+  initialWorkspaceModeDefault,
 }: UseTripWorkspaceStateOptions) {
   const workspaceSession = useMemo(
     () =>
       ensureWorkspaceSessionMetadata(
         {
           sourceType: "ai_generated",
-          workspaceModeDefault: "read",
+          workspaceModeDefault: initialWorkspaceModeDefault ?? "read",
         },
       ),
-    [],
+    [initialWorkspaceModeDefault],
   );
   const workspaceSourceType: WorkspaceSessionSourceType | undefined =
     workspaceSession?.sourceType;
@@ -365,7 +397,10 @@ export function useTripWorkspaceState({
     useState<WorkspaceSidebarItemId>("route");
   const [sidebarNotice, setSidebarNotice] = useState<SidebarNotice>(null);
   const [workspaceMode, setWorkspaceMode] = useState<WorkspaceMode>(() => {
-    return workspaceSession?.workspaceModeDefault ?? "read";
+    return resolveInitialWorkspaceModeDefault({
+      sessionModeDefault: workspaceSession?.workspaceModeDefault,
+      settingsDefaultMode: initialWorkspaceModeDefault,
+    });
   });
   const [mapSearchKeyword, setMapSearchKeyword] = useState("");
   const [mapSearchResults, setMapSearchResults] = useState<PoiCandidate[]>([]);
@@ -431,7 +466,7 @@ export function useTripWorkspaceState({
       { key: "route", label: "路线" },
       {
         key: "edit",
-        label: "编辑",
+        label: "调整",
         badge: pendingChangesCount,
       },
     ],
@@ -548,7 +583,7 @@ export function useTripWorkspaceState({
 
         setTripEnrichment(null);
         setEnrichmentState("error");
-        setEnrichmentError("暂时拿不到地图补充信息，请稍后再试。");
+        setEnrichmentError("暂时无法加载地图补充信息。");
       }
     }
 
@@ -620,21 +655,20 @@ export function useTripWorkspaceState({
   }
 
   function handleWorkspaceAddDay() {
-    const nextDayNumber = currentTripPlan.dailyItinerary.length + 1;
-    const nextTripPlan = persistWorkspaceTripPlan({
-      ...currentTripPlan,
-      days: nextDayNumber,
-      dailyItinerary: [
-        ...currentTripPlan.dailyItinerary,
-        createWorkspaceEmptyDay(nextDayNumber),
-      ],
-    });
+    const { nextDayNumber, nextTripPlan: appendedTripPlan } =
+      appendWorkspaceDay(currentTripPlan);
+    const nextTripPlan = persistWorkspaceTripPlan(appendedTripPlan);
 
     setActiveWorkspaceDayNumber(nextDayNumber);
     setSelectedInsightDay(nextDayNumber);
     setWorkspaceMode("edit");
     setActiveWorkspaceNav("edit");
+    setActiveMobilePage(`day-${nextDayNumber}`);
     setSidebarNotice(null);
+    setSelectedSearchCandidate(null);
+    setPendingSearchCandidate(null);
+    setMapTargetSlotId(null);
+    setMapActionMessage(undefined);
     setDistanceTargetPointId("");
     setDistanceSummary(null);
     setDistanceError(undefined);
@@ -643,7 +677,10 @@ export function useTripWorkspaceState({
     return nextTripPlan;
   }
 
-  function handleWorkspaceAddPlace(slotId: string) {
+  function handleWorkspaceAddPlace(
+    slotId: string,
+    input?: WorkspaceCreateEventInput,
+  ) {
     const activeDay = activeWorkspaceCabinet;
 
     if (!activeDay) {
@@ -660,7 +697,26 @@ export function useTripWorkspaceState({
       (total, slot) => total + slot.items.length,
       0,
     );
-    const nextPlaceName = `未命名地点 ${currentCount + 1}`;
+    const nextPlaceName = "待补充地点 " + String(currentCount + 1);
+    const fallbackTimeLabel =
+      slotDefinition.startTime || slotDefinition.endTime
+        ? (slotDefinition.startTime || "--:--") +
+          "-" +
+          (slotDefinition.endTime || "--:--")
+        : slotDefinition.label;
+    const nextManualItem = input
+      ? createWorkspaceItineraryItem({
+          event: input,
+          editorId: createEditorId("item"),
+          editorSlotId: slotDefinition.id,
+          fallbackTimeLabel,
+        })
+      : null;
+
+    if (input && !nextManualItem) {
+      return;
+    }
+
     const nextTripPlan = persistWorkspaceTripPlan({
       ...currentTripPlan,
       dailyItinerary: currentTripPlan.dailyItinerary.map((day) => {
@@ -672,11 +728,12 @@ export function useTripWorkspaceState({
           ...day,
           [slotDefinition.key]: [
             ...day[slotDefinition.key],
-            createWorkspaceManualPlaceDraft(
-              slotDefinition.key,
-              nextPlaceName,
-              slotDefinition.id,
-            ),
+            nextManualItem ??
+              createWorkspaceManualPlaceDraft(
+                slotDefinition.key,
+                nextPlaceName,
+                slotDefinition.id,
+              ),
           ],
         });
       }),
@@ -691,11 +748,12 @@ export function useTripWorkspaceState({
     setWorkspaceMode("edit");
     setActiveWorkspaceNav("edit");
     setSidebarNotice(null);
+    setPendingSearchCandidate(input?.sourceCandidate ?? null);
     map.clearMapSelection();
 
     if (nextActiveDay) {
       window.requestAnimationFrame(() => {
-        scrollToSection(`workspace-day-panel-${nextActiveDay.day}`);
+        scrollToSection("workspace-day-panel-" + String(nextActiveDay.day));
       });
     }
   }
@@ -714,14 +772,14 @@ export function useTripWorkspaceState({
     const city = currentTripPlan.destination.trim();
 
     if (!city) {
-      setMapSearchError("还没有明确目的地，暂时不能搜索地点。");
+      setMapSearchError("请先确认目的地城市。");
       setMapSearchResults([]);
       setMapSearchWarnings([]);
       return;
     }
 
     if (!keyword) {
-      setMapSearchError("先输入想找的地点。");
+      setMapSearchError("请输入要搜索的地点。");
       setMapSearchResults([]);
       setMapSearchWarnings([]);
       return;
@@ -751,7 +809,7 @@ export function useTripWorkspaceState({
         "error" in payload ? payload.error?.message : undefined;
 
       if (!response.ok || !("candidates" in payload)) {
-        throw new Error(errorMessage || "地点搜索暂时不可用。");
+        throw new Error(errorMessage || "暂时没有搜到合适的地点。");
       }
 
       setMapSearchResults(payload.candidates);
@@ -765,7 +823,7 @@ export function useTripWorkspaceState({
       setMapSearchError(
         error instanceof Error && error.message.trim()
           ? error.message
-          : "地点搜索暂时不可用，请稍后再试。",
+          : "地点搜索失败，请稍后再试。",
       );
     } finally {
       setMapSearchLoading(false);
@@ -790,12 +848,12 @@ export function useTripWorkspaceState({
 
   function handleMapAddSelectedPlace() {
     if (!selectedSearchCandidate) {
-      setMapActionMessage("先从搜索结果里选一个地点。");
+      setMapActionMessage("请先选择一个地点。");
       return;
     }
 
     if (workspaceMode !== "edit") {
-      setMapActionMessage("切到编辑模式后，才能把地点加入行程。");
+      setMapActionMessage("请先切换到编辑模式，再加入行程。");
       return;
     }
 
@@ -805,7 +863,7 @@ export function useTripWorkspaceState({
       activeDay?.slots[0];
 
     if (!activeDay || !targetSlot) {
-      setMapActionMessage("当前还没有可用时间段，先添加一天或时间段。");
+      setMapActionMessage("请先选择要加入的日期和时间段。");
       return;
     }
 
@@ -816,24 +874,24 @@ export function useTripWorkspaceState({
           return day;
         }
 
-        const slotLabelMap: Record<TimeSlotKey, string> = {
-          morning: "上午",
-          afternoon: "下午",
-          evening: "晚上",
-        };
-        const nextItem: ItineraryItem = {
-          placeName: selectedSearchCandidate.name,
-          type: "other",
-          reason: `${slotLabelMap[targetSlot.key]}从地图加入，后续可以继续补备注。`,
-          guide: [
-            selectedSearchCandidate.address
-              ? `参考位置：${selectedSearchCandidate.address}`
-              : "这个地点是从地图搜索加入的。",
-          ],
+        const nextItem = createWorkspaceItineraryItem({
+          event: createWorkspaceEventInputFromPoiCandidate({
+            candidate: selectedSearchCandidate,
+            timeLabel:
+              targetSlot.startTime || targetSlot.endTime
+                ? (targetSlot.startTime || "--:--") +
+                  "-" +
+                  (targetSlot.endTime || "--:--")
+                : targetSlot.label,
+            type: "other",
+          }),
           editorId: createEditorId("item"),
           editorSlotId: targetSlot.id,
-        };
+        });
 
+        if (!nextItem) {
+          return day;
+        }
         return updateDayRouteMeta({
           ...day,
           [targetSlot.key]: [...day[targetSlot.key], nextItem],
@@ -842,7 +900,13 @@ export function useTripWorkspaceState({
     });
 
     setPendingSearchCandidate(selectedSearchCandidate);
-    setMapActionMessage(`已加入第 ${activeDay.dayNumber} 天的${targetSlot.label}。`);
+    setMapActionMessage(
+      selectedSearchCandidate.name +
+        " 已加入第 " +
+        String(activeDay.dayNumber) +
+        " 天 " +
+        targetSlot.label,
+    );
     setDistanceSummary(null);
     setDistanceError(undefined);
     setDistanceTargetPointId("");
@@ -857,7 +921,7 @@ export function useTripWorkspaceState({
 
     if (nextActiveDay) {
       window.requestAnimationFrame(() => {
-        scrollToSection(`workspace-day-panel-${nextActiveDay.day}`);
+        scrollToSection("workspace-day-panel-" + String(nextActiveDay.day));
       });
     }
   }
@@ -881,13 +945,13 @@ export function useTripWorkspaceState({
       selectedSearchCandidate?.coordinates ?? activePoint?.coordinates;
 
     if (!originName || !isValidCoordinates(originCoordinates)) {
-      setDistanceError("先选一个已定位地点，再查询距离。");
+      setDistanceError("请选择一个带坐标的地点。");
       setDistanceSummary(null);
       return;
     }
 
     if (!distanceTargetPointId) {
-      setDistanceError("再选另一个地点，才能查询距离。");
+      setDistanceError("请选择要比较距离的目标地点。");
       setDistanceSummary(null);
       return;
     }
@@ -897,7 +961,7 @@ export function useTripWorkspaceState({
     );
 
     if (!targetPoint || !isValidCoordinates(targetPoint.coordinates)) {
-      setDistanceError("另一个地点还没有可用坐标，暂时不能查询。");
+      setDistanceError("目标地点缺少坐标，暂时不能估算距离。");
       setDistanceSummary(null);
       return;
     }
@@ -925,7 +989,7 @@ export function useTripWorkspaceState({
         "error" in payload ? payload.error?.message : undefined;
 
       if (!response.ok || !("leg" in payload)) {
-        throw new Error(errorMessage || "距离查询暂时不可用。");
+        throw new Error(errorMessage || "暂时无法估算路线距离。");
       }
 
       setDistanceSummary({
@@ -935,7 +999,10 @@ export function useTripWorkspaceState({
         durationText: formatDurationText(payload.leg.durationMinutes),
         summary:
           payload.leg.summary ||
-          `两地距离约 ${formatDistanceText(payload.leg.distanceMeters)}，预计 ${formatDurationText(payload.leg.durationMinutes)}。`,
+          "预计 " +
+            formatDistanceText(payload.leg.distanceMeters) +
+            "，步行约 " +
+            formatDurationText(payload.leg.durationMinutes),
         provider: payload.leg.provider,
       });
     } catch (error) {
@@ -943,7 +1010,7 @@ export function useTripWorkspaceState({
       setDistanceError(
         error instanceof Error && error.message.trim()
           ? error.message
-          : "距离查询暂时不可用，请稍后再试。",
+          : "暂时无法估算路线距离。",
       );
     } finally {
       setDistanceLoading(false);
@@ -985,14 +1052,22 @@ export function useTripWorkspaceState({
     map.selectItineraryBlock(block);
   }
 
+  function handleWorkspaceBlockSelectionClear() {
+    map.clearMapSelection();
+    setSelectedSearchCandidate(null);
+    setMapActionMessage(undefined);
+    setDistanceSummary(null);
+    setDistanceError(undefined);
+    setDistanceTargetPointId("");
+  }
+
   function handleWorkspaceBlockUpdate(
     block: ItineraryBlockView,
-    updates: Pick<ItineraryItem, "placeName" | "reason">,
+    updates: ItineraryBlockUpdate,
   ) {
-    const nextPlaceName = updates.placeName.trim();
-    const nextReason = updates.reason.trim();
+    const candidateUpdate = applyWorkspaceItineraryItemUpdate(block.item, updates);
 
-    if (!nextPlaceName || !nextReason) {
+    if (!candidateUpdate) {
       return;
     }
 
@@ -1013,11 +1088,7 @@ export function useTripWorkspaceState({
           ...day,
           [blockLocation.slot]: day[blockLocation.slot].map((item, itemIndex) =>
             itemIndex === blockLocation.itemIndex
-              ? {
-                  ...item,
-                  placeName: nextPlaceName,
-                  reason: nextReason,
-                }
+              ? applyWorkspaceItineraryItemUpdate(item, updates) ?? item
               : item,
           ),
         });
@@ -1133,7 +1204,7 @@ export function useTripWorkspaceState({
           currentSlots[currentSlots.length - 1]?.baseSlot ??
           "afternoon";
         const nextSlot = createTimeSlotDefinition(baseSlot, {
-          label: "新增时间段",
+          label: "自定义时间段",
           startTime: "",
           endTime: "",
         });
@@ -1177,6 +1248,33 @@ export function useTripWorkspaceState({
         };
       }),
     });
+  }
+
+  function handleWorkspaceTimeSlotsChange(
+    dayNumber: number,
+    timeSlots: DailyTimeSlot[],
+  ) {
+    if (timeSlots.length === 0) {
+      return;
+    }
+
+    persistWorkspaceTripPlan({
+      ...currentTripPlan,
+      dailyItinerary: currentTripPlan.dailyItinerary.map((day) => {
+        if (day.day !== dayNumber) {
+          return day;
+        }
+
+        return {
+          ...day,
+          timeSlots: timeSlots.map((slot) => ({ ...slot })),
+        };
+      }),
+    });
+
+    setWorkspaceMode("edit");
+    setActiveWorkspaceNav("edit");
+    setSidebarNotice(null);
   }
 
   function handleWorkspaceTimeSlotDelete(dayNumber: number, slotId: string) {
@@ -1305,8 +1403,8 @@ export function useTripWorkspaceState({
   function handleWorkspacePlaceholder(item: WorkspaceSidebarItemId) {
     setActiveWorkspaceNav(item);
     setSidebarNotice({
-      title: "这里还在整理",
-      message: "这一块稍后会补齐，先继续看行程和地图。",
+      title: "这个功能还在整理中",
+      message: "先把地点放进旅行柜，后续会继续补上更完整的编辑工具。",
     });
   }
 
@@ -1401,12 +1499,14 @@ export function useTripWorkspaceState({
     handleWorkspaceAddNote,
     handleDesktopMapPointSelect,
     handleWorkspaceBlockSelect,
+    handleWorkspaceBlockSelectionClear,
     handleWorkspaceBlockUpdate,
     handleWorkspaceBlockDelete,
     handleWorkspaceBlockMove,
     handleWorkspaceTimeSlotAdd,
     handleWorkspaceTimeSlotUpdate,
     handleWorkspaceTimeSlotDelete,
+    handleWorkspaceTimeSlotsChange,
     handleMapSearchSubmit,
     handleMapSearchResultSelect,
     handleMapSearchClear,

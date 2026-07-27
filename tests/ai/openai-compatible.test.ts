@@ -102,7 +102,7 @@ describe("OpenAICompatibleProvider", () => {
     expect(requests[0]?.authorization).toBe("Bearer private-test-key");
     expect(requests[0]?.body.model).toBe("config-model");
     expect(requests[0]?.body.messages).toBeInstanceOf(Array);
-    expect(requests[0]?.body.max_tokens).toBe(8000);
+    expect(requests[0]?.body.max_tokens).toBe(6000);
   });
 
   it("可以从代码围栏和前后说明中提取 JSON", () => {

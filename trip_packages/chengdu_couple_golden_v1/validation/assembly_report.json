@@ -1,0 +1,62 @@
+{
+  "package_id": "chengdu_couple_golden_v1",
+  "source_package_id": "chengdu_couple_v1",
+  "status": "passed",
+  "generated_on": "2026-07-18T14:43:40.793Z",
+  "checks": {
+    "explore_plan_exists": true,
+    "image_manifest_exists": true,
+    "image_count_match": true,
+    "asset_instance_id_unique": true,
+    "asset_instance_id_consistency": true,
+    "completed_assets_have_file_path": true,
+    "packaged_files_exist": true,
+    "image_asset_json_exists": true,
+    "duplicate_image_check": true,
+    "provenance_check": true,
+    "no_unreferenced_image_files": true
+  },
+  "counts": {
+    "manifest_assets": 6,
+    "package_assets": 6,
+    "image_asset_json_files": 6,
+    "packaged_files": 6,
+    "replacements": 3,
+    "actual_image_files": 6
+  },
+  "replacements": [
+    {
+      "asset_instance_id": "ca_chengdu_taikoo_li_poi_gallery",
+      "source": "wikimedia",
+      "generation_mode": "real_photo",
+      "file_path": "images/files/ca_chengdu_taikoo_li_poi_gallery.jpg",
+      "image_asset_path": "images/image_assets/ca_chengdu_taikoo_li_poi_gallery.image_asset.json",
+      "sha256": "453bffbf832f74a5867951234023c8a045e8cec781bf89ed8d3efb9c4d75f3b5"
+    },
+    {
+      "asset_instance_id": "ca_chengdu_city_mood_explore_cover",
+      "source": "ai_generated",
+      "generation_mode": "ai_generated",
+      "file_path": "images/files/ca_chengdu_city_mood_explore_cover.png",
+      "image_asset_path": "images/image_assets/ca_chengdu_city_mood_explore_cover.image_asset.json",
+      "sha256": "778848ca02c11913e5eab6966cae838bf422db17e023c1df4451bd511f570992"
+    },
+    {
+      "asset_instance_id": "ca_chengdu_chuanchuan_snacks_food_gallery",
+      "source": "wikimedia",
+      "generation_mode": "real_photo",
+      "file_path": "images/files/ca_chengdu_chuanchuan_snacks_food_gallery.jpg",
+      "image_asset_path": "images/image_assets/ca_chengdu_chuanchuan_snacks_food_gallery.image_asset.json",
+      "sha256": "75bac23cf7caac3ffeb0a269f7f4be26e5c9184d4f8d814b32c6a7ad504c67f4"
+    }
+  ],
+  "issues": {
+    "missingFiles": [],
+    "missingAssetJson": [],
+    "missingFromPackage": [],
+    "extraInPackage": [],
+    "duplicateHashes": [],
+    "provenanceIssues": [],
+    "extraImageFiles": []
+  }
+}

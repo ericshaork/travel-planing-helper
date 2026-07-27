@@ -74,6 +74,73 @@ const STYLE_KEYWORDS = [
   { keywords: ["深度游", "深度体验"], value: "深度游" },
 ] as const;
 
+const COMPANION_KEYWORDS = [
+  {
+    keywords: ["情侣", "和爱人", "和男友", "和女友", "两个人"],
+    value: "情侣同行",
+  },
+  {
+    keywords: ["家庭", "带孩子", "带娃", "带小孩", "亲子"],
+    value: "家庭亲子",
+  },
+  {
+    keywords: ["和父母", "带父母", "带老人"],
+    value: "带父母",
+  },
+  {
+    keywords: ["闺蜜", "朋友一起", "朋友们", "跟朋友"],
+    value: "朋友出行",
+  },
+  {
+    keywords: ["独自", "一个人", "solo", "单独"],
+    value: "独自出行",
+  },
+] as const;
+
+// 匹配紧跟在动词后的地名 token，允许「兵马俑」「兵马俑博物馆」「秦始皇陵」这类长度。
+// 收尾遇到常见非地名字符（如 太/很/别/多/晚/早/累 等副词/程度词）时截断，避免把"太商业化的景点"误当成地名。
+const PLACE_TOKEN_PATTERN = "([\\u4e00-\\u9fff]{2,15}?)(?=[，,。.!！?？、；\\s]|$)";
+const AVOID_PLACE_PATTERN = new RegExp(
+  `(?:不去|不想去|不要去|不打算去|不希望去|避开|跳过|拒绝去)\\s*${PLACE_TOKEN_PATTERN}`,
+  "g",
+);
+const MUST_VISIT_PLACE_PATTERN = new RegExp(
+  `(?:必去|一定要去|必须去|定要去)\\s*${PLACE_TOKEN_PATTERN}`,
+  "g",
+);
+// 用来过滤误抓的副词短语，避免把「太商业化的景点」「太累的」等塞进 avoid/must-visit
+const NON_PLACE_LEADING_CHARS = new Set([
+  "太",
+  "很",
+  "非",
+  "别",
+  "更",
+  "多",
+  "少",
+  "早",
+  "晚",
+  "累",
+  "老",
+  "更",
+]);
+
+function extractPlaceTokens(regex: RegExp, text: string): string[] {
+  const seen = new Set<string>();
+  const results: string[] = [];
+  regex.lastIndex = 0;
+  let match: RegExpExecArray | null;
+  while ((match = regex.exec(text)) !== null) {
+    const token = match[1]?.trim();
+    if (!token) continue;
+    const firstChar = token.charAt(0);
+    if (NON_PLACE_LEADING_CHARS.has(firstChar)) continue;
+    if (seen.has(token)) continue;
+    seen.add(token);
+    results.push(token);
+  }
+  return results;
+}
+
 function parseChineseNumber(value: string): number | undefined {
   if (value === "十") {
     return 10;
@@ -163,7 +230,17 @@ export function simpleParseTripText(text: string): TripRequestDraft {
   const days = parseDays(normalizedText);
   const budget = parseBudget(normalizedText);
   const interests = collectKeywordValues(normalizedText, INTEREST_KEYWORDS);
-  const travelStyles = collectKeywordValues(normalizedText, STYLE_KEYWORDS);
+  const baseStyles = collectKeywordValues(normalizedText, STYLE_KEYWORDS);
+  const companions = collectKeywordValues(normalizedText, COMPANION_KEYWORDS);
+  const travelStyles = [
+    ...baseStyles,
+    ...companions.filter((value) => !baseStyles.includes(value)),
+  ];
+  const avoidPlaces = extractPlaceTokens(AVOID_PLACE_PATTERN, normalizedText);
+  const mustVisitPlaces = extractPlaceTokens(
+    MUST_VISIT_PLACE_PATTERN,
+    normalizedText,
+  ).filter((place) => place !== route.destinationCity);
 
   return {
     ...route,
@@ -171,7 +248,9 @@ export function simpleParseTripText(text: string): TripRequestDraft {
     ...(budget === undefined ? {} : { budget }),
     ...(interests.length === 0 ? {} : { interests }),
     ...(travelStyles.length === 0 ? {} : { travelStyles }),
-    ...(travelStyles.includes("不想早起")
+    ...(mustVisitPlaces.length === 0 ? {} : { mustVisitPlaces }),
+    ...(avoidPlaces.length === 0 ? {} : { avoidPlaces }),
+    ...(baseStyles.includes("不想早起")
       ? { schedulePreference: "不想早起" }
       : {}),
   };

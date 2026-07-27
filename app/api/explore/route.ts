@@ -8,6 +8,11 @@ import {
 } from "../../../lib/explore/normalized-source";
 import { createExploreRepository } from "../../../lib/explore/repository";
 import { getMockExploreList } from "../../../lib/explore/mock-archives";
+import {
+  getExploreCityKey,
+  normalizeExploreListItemDisplay,
+} from "../../../lib/explore/display-city";
+import { getTripPackageExploreContents } from "../../../lib/trip-packages/source";
 import type {
   ExploreListResponse,
   ExploreTripContent,
@@ -87,7 +92,7 @@ function normalizeFilters(searchParams: URLSearchParams): ExploreTripListFilters
 }
 
 function toListItem(item: ExploreTripContent): ExploreTripListItem {
-  return {
+  return normalizeExploreListItemDisplay({
     id: item.id,
     slug: item.slug,
     title: item.title,
@@ -115,7 +120,37 @@ function toListItem(item: ExploreTripContent): ExploreTripListItem {
     seasonTags: item.seasonTags,
     companionTags: item.companionTags,
     highlights: item.highlights,
-  };
+  });
+}
+
+function mergeExploreContents(items: ExploreTripContent[]) {
+  const seen = new Set<string>();
+  const packageCityKeys = new Set(
+    items
+      .filter((item) => item.source.batchId === "trip-package-v1.9")
+      .map((item) => getExploreCityKey(item.city, item.cityCode))
+      .filter(Boolean),
+  );
+  const merged: ExploreTripContent[] = [];
+
+  for (const item of items) {
+    const keys = [item.id, item.externalId, item.slug].filter(Boolean);
+    const cityKey = getExploreCityKey(item.city, item.cityCode);
+    const isTripPackage = item.source.batchId === "trip-package-v1.9";
+
+    if (!isTripPackage && packageCityKeys.has(cityKey)) {
+      continue;
+    }
+
+    if (keys.some((key) => seen.has(key))) {
+      continue;
+    }
+
+    keys.forEach((key) => seen.add(key));
+    merged.push(item);
+  }
+
+  return merged;
 }
 
 export function createExploreListHandler(
@@ -124,6 +159,7 @@ export function createExploreListHandler(
   return async function GET(request: Request) {
     try {
       const filters = normalizeFilters(new URL(request.url).searchParams);
+      const packageResult = await getTripPackageExploreContents(filters);
       const normalizedItems = filters.search
         ? searchNormalizedExploreArchives(filters.search, filters.limit ?? 40)
         : filters.featured
@@ -132,13 +168,15 @@ export function createExploreListHandler(
               ...filters,
               limit: filters.limit ?? 40,
             });
+      const staticItems = mergeExploreContents([
+        ...packageResult.items,
+        ...normalizedItems.map((item) => mapNormalizedArchiveToExploreContent(item)),
+      ]);
 
-      if (normalizedItems.length > 0) {
+      if (staticItems.length > 0) {
         return NextResponse.json({
           ok: true,
-          items: normalizedItems.map((item) =>
-            toListItem(mapNormalizedArchiveToExploreContent(item)),
-          ),
+          items: staticItems.slice(0, filters.limit).map(toListItem),
         } satisfies ExploreListResponse);
       }
 
@@ -154,10 +192,10 @@ export function createExploreListHandler(
 
       return NextResponse.json({
         ok: true,
-        items: getMockExploreList(),
+        items: getMockExploreList().map(normalizeExploreListItemDisplay),
       } satisfies ExploreListResponse);
     } catch (error) {
-      const fallbackItems = getMockExploreList();
+      const fallbackItems = getMockExploreList().map(normalizeExploreListItemDisplay);
 
       if (fallbackItems.length > 0) {
         return NextResponse.json({

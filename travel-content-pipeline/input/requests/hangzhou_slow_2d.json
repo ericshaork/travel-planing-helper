@@ -1,0 +1,9 @@
+{
+  "destinations": ["杭州"],
+  "originCity": "上海",
+  "days": 2,
+  "travelerType": "couple",
+  "styleTags": ["slow", "nature", "photo", "low_walk"],
+  "budgetLevel": "medium",
+  "language": "zh-CN"
+}

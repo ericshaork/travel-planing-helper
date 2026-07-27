@@ -19,7 +19,7 @@ export function ArchivePOI({ item }: ArchivePOIProps) {
   return (
     <div className="space-y-4">
       <div>
-        <p className="workspace-kicker">PLACES</p>
+        <p className="workspace-kicker">地点</p>
         <h3 className="mt-2 text-base font-semibold text-[var(--ink)]">代表地点</h3>
       </div>
 
@@ -73,7 +73,7 @@ export function ArchivePOI({ item }: ArchivePOIProps) {
 
       {remainingCount > 0 ? (
         <p className="text-sm leading-6 text-[var(--ink-muted)]">
-          还有 {remainingCount} 个地点，可在 Workspace 里继续展开。
+          还有 {remainingCount} 个地点，可以在 Workspace 里继续展开。
         </p>
       ) : null}
     </div>

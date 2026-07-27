@@ -1,0 +1,34 @@
+{
+  "id": "ca_beijing_798_art_district",
+  "name": "798\u827a\u672f\u533a",
+  "asset_type": "creative_area",
+  "category": "contemporary_art_cluster",
+  "content_role": ["secondary_anchor", "city_contrast_anchor"],
+  "traveler_fit": {
+    "couple": "medium",
+    "student": "high",
+    "solo": "high",
+    "family": "low"
+  },
+  "season_fit": {
+    "spring": "high",
+    "summer": "medium",
+    "autumn": "high",
+    "winter": "medium"
+  },
+  "best_time": {
+    "time_of_day": ["late_morning", "afternoon"],
+    "note": "Best used as a contemporary contrast block after stronger historical anchors, not as the only identity carrier of a Beijing route."
+  },
+  "experience_value": {
+    "primary": ["contemporary_contrast", "creative_texture", "flexible_half_day"],
+    "summary": "Useful when the route needs Beijing's modern creative face and a tonal break from imperial or old-city sequences."
+  },
+  "avoid_when": [
+    "compressed_first_visit_day_with_too_many_core_landmarks",
+    "low_transfer_tolerance_route",
+    "traveler_profile_seeking_only_old_beijing_texture"
+  ],
+  "nearby_assets": [],
+  "map_asset_id": "B0FFFDG1X7"
+}

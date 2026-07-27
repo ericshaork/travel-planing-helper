@@ -5,7 +5,34 @@ vi.mock("server-only", () => ({}));
 import { createExploreDetailHandler } from "../../app/api/explore/[id]/route";
 
 describe("GET /api/explore/[id]", () => {
-  it("returns full detail by id", async () => {
+  it("returns trip package detail before normalized or repository sources", async () => {
+    const GET = createExploreDetailHandler({
+      async getById() {
+        throw new Error("repository should not be used for package detail");
+      },
+      async getBySlug() {
+        throw new Error("repository should not be used for package detail");
+      },
+    } as never);
+
+    const response = await GET(
+      new Request("http://localhost/api/explore/beijing_couple_golden_v2"),
+      {
+        params: Promise.resolve({ id: "beijing_couple_golden_v2" }),
+      },
+    );
+    const json = await response.json();
+
+    expect(response.status).toBe(200);
+    expect(json.ok).toBe(true);
+    expect(json.item.externalId).toBe("beijing_couple_golden_v2");
+    expect(json.item.city).toBe("北京");
+    expect(json.item.coverImageUrl).toMatch(
+      /^\/images\/trip-packages\/beijing_couple_golden_v2\//,
+    );
+  });
+
+  it("normalizes repository detail city and region for display", async () => {
     const GET = createExploreDetailHandler({
       async getById(id: string) {
         expect(id).toBe("123e4567-e89b-12d3-a456-426614174000");
@@ -14,7 +41,7 @@ describe("GET /api/explore/[id]", () => {
           id: "123e4567-e89b-12d3-a456-426614174000",
           externalId: "beijing_student_3d_002",
           slug: "beijing-budget-campus-3d",
-          title: "北京学生党 3 天轻预算路线",
+          title: "北京学生 3 天游",
           summary: "summary",
           city: "Beijing",
           cityCode: "beijing",
@@ -63,6 +90,8 @@ describe("GET /api/explore/[id]", () => {
     expect(json.ok).toBe(true);
     expect(json.item.id).toBe("123e4567-e89b-12d3-a456-426614174000");
     expect(json.item.cityCode).toBe("beijing");
+    expect(json.item.city).toBe("北京");
+    expect(json.item.region).toBe("北京");
   });
 
   it("returns 404 when detail is missing", async () => {
@@ -71,6 +100,9 @@ describe("GET /api/explore/[id]", () => {
         return null;
       },
       async getBySlug() {
+        return null;
+      },
+      async getByExternalId() {
         return null;
       },
     } as never);
@@ -94,7 +126,7 @@ describe("GET /api/explore/[id]", () => {
           id: "row-1",
           externalId: "beijing_student_3d_002",
           slug: "beijing-budget-campus-3d",
-          title: "北京学生党 3 天轻预算路线",
+          title: "北京学生 3 天游",
           summary: "summary",
           city: "Beijing",
           cityCode: "beijing",
@@ -135,5 +167,6 @@ describe("GET /api/explore/[id]", () => {
     expect(response.status).toBe(200);
     expect(json.ok).toBe(true);
     expect(json.item.slug).toBe("beijing-budget-campus-3d");
+    expect(json.item.city).toBe("北京");
   });
 });

@@ -1,0 +1,57 @@
+{
+  "asset_id": "ca_chengdu_kuanzhai_alley",
+  "asset_instance_id": "ca_chengdu_kuanzhai_alley_explore_cover",
+  "image_slot": "explore_cover",
+  "source": "hybrid",
+  "file_path": "C:\\Users\\10200\\Desktop\\travel_planing\\image-pipeline\\image-pipeline\\assets\\external\\ca_chengdu_kuanzhai_alley.jpg",
+  "status": "completed",
+  "metadata": {
+    "strategy": "real_photo_first_ai_fallback",
+    "usage_profile": "cover",
+    "resolved_via": "real_photo",
+    "real_photo": {
+      "source": "wikimedia",
+      "status": "completed",
+      "file_path": "C:\\Users\\10200\\Desktop\\travel_planing\\image-pipeline\\image-pipeline\\assets\\external\\ca_chengdu_kuanzhai_alley.jpg",
+      "retry_count": 0,
+      "last_error": null,
+      "download_status": "completed",
+      "fallback_available": false,
+      "selection": {
+        "selected_candidate": {
+          "source": "wikimedia",
+          "candidate_id": "",
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Street_scene_-_Kuanzhai_Alleys_-_Chengdu%2C_China_-_DSC05311.jpg/1920px-Street_scene_-_Kuanzhai_Alleys_-_Chengdu%2C_China_-_DSC05311.jpg"
+        },
+        "rank_score": 55,
+        "candidate_count": 5,
+        "rejected_count": 0
+      },
+      "metadata": {
+        "source_runs": [
+          {
+            "source": "wikimedia",
+            "priority": 1,
+            "candidate_count": 5,
+            "error": null
+          }
+        ],
+        "title": "File:Street scene - Kuanzhai Alleys - Chengdu, China - DSC05311.jpg",
+        "description": "Kuanzhai Alleys - Chengdu, Sichuan, China.",
+        "author": "Daderot",
+        "license": "CC0",
+        "source_url": "https://commons.wikimedia.org/wiki/File%3AStreet_scene_-_Kuanzhai_Alleys_-_Chengdu%2C_China_-_DSC05311.jpg",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Street_scene_-_Kuanzhai_Alleys_-_Chengdu%2C_China_-_DSC05311.jpg/1920px-Street_scene_-_Kuanzhai_Alleys_-_Chengdu%2C_China_-_DSC05311.jpg",
+        "width": 1600,
+        "height": 1067,
+        "mime_type": "image/jpeg",
+        "score_reasons": [
+          "location_match",
+          "license_cc0",
+          "wanderly_fit"
+        ]
+      }
+    },
+    "ai_fallback": null
+  }
+}

@@ -32,6 +32,11 @@ export interface ItineraryBlockView {
   item: ItineraryItem;
 }
 
+export type ItineraryBlockUpdate = Pick<
+  ItineraryItem,
+  "placeName" | "reason" | "type" | "timeLabel"
+>;
+
 export interface TimeSlotView extends TimeSlotDefinition {
   items: ItineraryBlockView[];
   isEmpty: boolean;

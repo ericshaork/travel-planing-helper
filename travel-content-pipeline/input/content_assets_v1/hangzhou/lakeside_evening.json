@@ -1,0 +1,30 @@
+{
+  "id": "ca_hangzhou_lakeside_evening",
+  "name": "Lakeside Evening Promenade",
+  "asset_type": "evening_waterfront",
+  "category": "lake_evening",
+  "content_role": ["evening_closure", "modern_contrast", "couple_memory"],
+  "traveler_fit": {
+    "couple": "high",
+    "student": "medium",
+    "solo": "medium",
+    "family": "low"
+  },
+  "season_fit": {
+    "spring": "high",
+    "summer": "medium",
+    "autumn": "high",
+    "winter": "medium"
+  },
+  "best_time": {
+    "time_of_day": ["dusk", "evening"],
+    "note": "Best as a day-ending couple memory with lake reflections and city lights."
+  },
+  "experience_value": {
+    "primary": ["evening_closure", "lake_reflection", "romantic_walk", "city_mood"],
+    "summary": "A polished but still walkable evening closure for the couple route."
+  },
+  "avoid_when": ["early_sleep_schedule", "heavy_rain_evening"],
+  "nearby_assets": ["ca_hangzhou_west_lake", "ca_hangzhou_su_causeway"],
+  "map_asset_id": "poi_lakeside_evening"
+}

@@ -1,0 +1,30 @@
+{
+  "id": "ca_chengdu_kuanzhai_alley",
+  "name": "Kuanzhai Alley",
+  "asset_type": "historic_district",
+  "category": "old_alley",
+  "content_role": ["signature_anchor", "historic_texture", "food_backbone"],
+  "traveler_fit": {
+    "couple": "high",
+    "student": "medium",
+    "solo": "medium",
+    "family": "medium"
+  },
+  "season_fit": {
+    "spring": "high",
+    "summer": "medium",
+    "autumn": "high",
+    "winter": "medium"
+  },
+  "best_time": {
+    "time_of_day": ["afternoon", "early_evening"],
+    "note": "Useful as a first-day old-alley entry with snacks and easy walking."
+  },
+  "experience_value": {
+    "primary": ["old_alley_texture", "snack_context", "first_arrival", "photo"],
+    "summary": "A recognizable old-neighborhood anchor with food pockets and route accessibility."
+  },
+  "avoid_when": ["avoid_commercial_blocks"],
+  "nearby_assets": ["ca_chengdu_people_park_teahouse"],
+  "map_asset_id": "poi_kuanzhai_alley"
+}

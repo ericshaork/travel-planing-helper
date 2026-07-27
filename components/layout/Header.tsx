@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import type { MouseEvent } from "react";
 
 import { UserMenu } from "@/components/auth/UserMenu";
 
@@ -7,6 +10,7 @@ interface HeaderNavItem {
   href: string;
   label: string;
   emphasized?: boolean;
+  onClick?: (event: MouseEvent<HTMLAnchorElement>) => void;
 }
 
 interface HeaderProps {
@@ -29,6 +33,7 @@ function MinimalNav({ items }: { items: HeaderNavItem[] }) {
         <Link
           key={item.href}
           href={item.href}
+          onClick={item.onClick}
           className={
             item.emphasized
               ? "inline-flex min-h-10 items-center rounded-full border border-[var(--ink)] bg-[rgba(255,253,247,0.9)] px-4 py-2 text-sm font-semibold text-[var(--ink)] transition-colors hover:bg-[var(--paper-bright)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)]"

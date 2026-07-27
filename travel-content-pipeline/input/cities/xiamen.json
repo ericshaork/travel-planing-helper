@@ -1,0 +1,109 @@
+{
+  "city_code": "xiamen",
+  "city_name": "Xiamen",
+  "region_name": "Fujian",
+  "summary": "Xiamen is ideal for easy coastal travel shaped by island air, walkable old streets, sea views, and a calm south-coast rhythm.",
+  "transport_notes": [
+    "Central Xiamen works best when beachside and old-street areas are grouped into compact days.",
+    "Walking plus short taxi or transit hops is enough for most city-core plans.",
+    "Solo and slow-paced itineraries benefit from leaving open time for waterfront pauses and neighborhood wandering."
+  ],
+  "budget_notes": {
+    "low": "Focus on promenades, old streets, market-style snacks, and compact coastal routes.",
+    "medium": "Mix one scenic waterfront stretch, one street-life area, and one signature food zone each day.",
+    "high": "Add softer hotel-adjacent pacing, slower seafront meals, and more refined island-atmosphere stops."
+  },
+  "trip_type_notes": {
+    "student": "Student trips should feel breezy, affordable, snack-heavy, and easy to move through.",
+    "solo": "Solo trips should emphasize sea breeze, self-paced strolling, and space to wander without pressure.",
+    "couple": "Couple plans should lean into sunset, seafront atmosphere, and soft romantic city textures.",
+    "family": "Family plans should reduce backtracking and favor comfortable, open, easy coastal zones."
+  },
+  "suggested_tags": [
+    "coastal-city",
+    "slow-travel",
+    "old-street",
+    "sea-breeze",
+    "snack-friendly",
+    "walkable"
+  ],
+  "pois": [
+    {
+      "id": "poi_zhongshan_road",
+      "name": "Zhongshan Road",
+      "district": "Siming",
+      "type": "historic commercial street",
+      "description": "A classic Xiamen old-street anchor for local flavor, snacks, and easy city entry.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_shapowei",
+      "name": "Shapowei",
+      "district": "Siming",
+      "type": "harbor neighborhood",
+      "description": "A harbor-side area with a creative edge, sea-adjacent calm, and youthful city texture.",
+      "best_for": ["student", "solo", "couple"],
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_huandao_road",
+      "name": "Huandao Road Seafront Walk",
+      "district": "Siming",
+      "type": "coastal promenade",
+      "description": "A signature seafront stretch for open views, easy movement, and relaxed pacing.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_nanputuo_edge",
+      "name": "Nanputuo and University Edge Visit",
+      "district": "Siming",
+      "type": "cultural-campus area",
+      "description": "A useful blend of local spiritual atmosphere and youthful campus-side city feeling.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_bailuzhou_evening",
+      "name": "Bailuzhou Evening Area",
+      "district": "Siming",
+      "type": "urban evening waterfront",
+      "description": "A lighter urban evening setting for travelers wanting a less tourist-heavy city mood.",
+      "best_for": ["solo", "couple", "family"],
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_gulangyu_view",
+      "name": "Gulangyu Viewpoint Framing",
+      "district": "Siming",
+      "type": "coastal landmark view",
+      "description": "A scenic framing point for Xiamen's island identity without overbuilding the day around ferry logistics.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 75
+    }
+  ],
+  "food_areas": [
+    {
+      "name": "Zhongshan Road Snack Strip",
+      "district": "Siming",
+      "specialties": ["local snacks", "market-style bites", "easy first-day food"],
+      "best_for": ["student", "solo", "couple", "family"],
+      "note": "Best for approachable local eating in the historic city core."
+    },
+    {
+      "name": "Shapowei Harbor Food Pocket",
+      "district": "Siming",
+      "specialties": ["casual harbor dining", "creative cafes", "light seafood-style meals"],
+      "best_for": ["student", "solo", "couple"],
+      "note": "Best when the plan wants younger city energy with sea-adjacent atmosphere."
+    },
+    {
+      "name": "Seafront Light Dining Stops",
+      "district": "Siming",
+      "specialties": ["coastal snacks", "sunset drinks", "easy promenade meals"],
+      "best_for": ["solo", "couple", "family"],
+      "note": "Best for slower plans shaped around sea breeze and evening light."
+    }
+  ]
+}

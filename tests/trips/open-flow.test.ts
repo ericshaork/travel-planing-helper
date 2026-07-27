@@ -1,5 +1,6 @@
 import { describe, expect, it, vi } from "vitest";
 
+import { getProjectSession } from "../../lib/projects/session";
 import { openSavedTripIntoWorkspace } from "../../lib/trips/open-flow";
 import type { SavedTripDetail } from "../../lib/trips/types";
 
@@ -161,5 +162,44 @@ describe("openSavedTripIntoWorkspace", () => {
     expect(openTrip).toHaveBeenCalledWith("trip-1");
     expect(restoreTrip).toHaveBeenCalled();
     expect(navigate).toHaveBeenCalledWith("/workspace");
+  });
+
+  it("opens a project item with file import source using version context", async () => {
+    const storage = new MemoryStorage();
+    const navigate = vi.fn();
+
+    await openSavedTripIntoWorkspace(
+      {
+        id: "project:project-1",
+        entity_type: "project",
+        project_id: "project-1",
+        current_version_id: "version-2",
+        project_source_type: "uploaded_file",
+        project_lifecycle_state: "workspace",
+        title: "Imported trip",
+        destination_city: "Kyoto",
+        start_date: null,
+        end_date: null,
+        days: 4,
+        budget: 4000,
+        cover_image_url: null,
+        source_type: "file_import",
+        status: "saved",
+        trip_preferences_json: {},
+        local_draft_id: null,
+        last_opened_at: null,
+        created_at: "2026-07-01T08:00:00.000Z",
+        updated_at: "2026-07-02T08:00:00.000Z",
+      },
+      {
+        storage,
+        navigate,
+      },
+    );
+
+    expect(navigate).toHaveBeenCalledWith("/workspace");
+    expect(getProjectSession(storage)?.projectId).toBe("project-1");
+    expect(getProjectSession(storage)?.versionId).toBe("version-2");
+    expect(getProjectSession(storage)?.sourceType).toBe("uploaded_file");
   });
 });

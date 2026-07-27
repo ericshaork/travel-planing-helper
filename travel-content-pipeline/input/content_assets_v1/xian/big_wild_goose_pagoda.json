@@ -1,0 +1,120 @@
+{
+  "id": "ca_xian_big_wild_goose_pagoda",
+  "name": "Big Wild Goose Pagoda",
+  "asset_type": "place_signature_anchor",
+  "category": [
+    "place",
+    "signature_anchor",
+    "main_anchor"
+  ],
+  "content_role": [
+    "signature_anchor",
+    "main_anchor",
+    "place",
+    "real_photo"
+  ],
+  "traveler_fit": {
+    "couple": "high",
+    "student": "medium",
+    "solo": "high",
+    "family": "high",
+    "friends": "high"
+  },
+  "season_fit": {
+    "spring": "medium",
+    "summer": "medium",
+    "autumn": "high",
+    "winter": "medium"
+  },
+  "best_time": {
+    "time_of_day": [
+      "morning",
+      "afternoon",
+      "evening"
+    ],
+    "note": "Big Wild Goose Pagoda is intended as main_anchor with balanced pacing."
+  },
+  "experience_value": {
+    "primary": [
+      "signature_anchor",
+      "main_anchor",
+      "place",
+      "pagoda silhouette",
+      "heritage square context",
+      "real place evidence"
+    ],
+    "summary": "Big Wild Goose Pagoda and surrounding square"
+  },
+  "avoid_when": [
+    "generic pagoda",
+    "AI temple fantasy",
+    "tight crop without identity"
+  ],
+  "nearby_assets": [],
+  "map_asset_id": "poi_big_wild_goose_pagoda",
+  "bridge_metadata": {
+    "source": "city_inventory",
+    "source_inventory_id": "xian_city_inventory_v1",
+    "asset_id": "ca_xian_big_wild_goose_pagoda",
+    "asset_name": "Big Wild Goose Pagoda",
+    "asset_category": "place",
+    "asset_family": "signature_anchor",
+    "route_role": "main_anchor",
+    "why_it_matters": "Big Wild Goose Pagoda and surrounding square",
+    "pace_hint": "balanced",
+    "priority": 2
+  },
+  "image_context": {
+    "recommended_slots": [
+      "poi_gallery",
+      "day_cover"
+    ],
+    "image_usage_profile": "place",
+    "default_generation_mode": "real_photo",
+    "source_preference": "real_first",
+    "search_keywords": [
+      "Big Wild Goose Pagoda Xi'an",
+      "Da Ci'en Temple Xi'an",
+      "Xi'an Big Wild Goose Pagoda travel photo"
+    ],
+    "visual_subject": {
+      "main_subject": "Big Wild Goose Pagoda and surrounding square",
+      "secondary_elements": [
+        "pagoda silhouette",
+        "temple grounds",
+        "visitors"
+      ]
+    },
+    "positive_cues": [
+      "pagoda silhouette",
+      "heritage square context",
+      "real place evidence"
+    ],
+    "negative_cues": [
+      "generic pagoda",
+      "AI temple fantasy",
+      "tight crop without identity"
+    ]
+  },
+  "search_keywords": [
+    "Big Wild Goose Pagoda Xi'an",
+    "Da Ci'en Temple Xi'an",
+    "Xi'an Big Wild Goose Pagoda travel photo"
+  ],
+  "review_rules": {
+    "manual_review_required": true,
+    "identity_check": [
+      "Big Wild Goose Pagoda identity is clear.",
+      "Image is usable as real place evidence."
+    ],
+    "failure_examples": [
+      "wrong pagoda",
+      "temple interior only",
+      "cartoon or fantasy rendering"
+    ]
+  },
+  "golden_reference": {
+    "package_id": "future_xian_golden",
+    "asset_instance_ids": []
+  }
+}

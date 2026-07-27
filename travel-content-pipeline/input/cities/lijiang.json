@@ -1,0 +1,109 @@
+{
+  "city_code": "lijiang",
+  "city_name": "Lijiang",
+  "region_name": "Yunnan",
+  "summary": "Lijiang suits atmospheric, slower travel built around old-town lanes, mountain views, cafe breaks, and soft day-to-night transitions.",
+  "transport_notes": [
+    "Old town and nearby cultural areas are best grouped on the same day to avoid repeated in-and-out movement.",
+    "Mountain or farther scenic stops should be used selectively because they can easily dominate the day's pacing.",
+    "Evenings are strongest within or near the old town where walking and dining stay simple."
+  ],
+  "budget_notes": {
+    "low": "Focus on old-town walking, public viewpoints, and practical local dining with minimal transfers.",
+    "medium": "Blend one old-town district, one mountain-view or cultural stop, and one atmospheric dining area each day.",
+    "high": "Use slower boutique-style pacing, stronger scenic meals, and fewer high-friction route changes."
+  },
+  "trip_type_notes": {
+    "student": "Student plans in Lijiang should emphasize photogenic lanes, affordable cafe-and-snack rhythm, and flexible old-town movement.",
+    "solo": "Solo plans should feel reflective, free-moving, and visually rich without needing complicated logistics.",
+    "couple": "Couple plans should use old-town light, mountain silhouettes, and evening atmosphere as the emotional core.",
+    "family": "Family plans should avoid overly steep or crowded routes and favor easier old-town or scenic edge experiences."
+  },
+  "suggested_tags": [
+    "old-town",
+    "mountain-view",
+    "slow-travel",
+    "photo-friendly",
+    "yunnan-atmosphere",
+    "evening-walk"
+  ],
+  "pois": [
+    {
+      "id": "poi_lijiang_old_town",
+      "name": "Lijiang Old Town",
+      "district": "Gucheng",
+      "type": "historic town district",
+      "description": "The core walking area for stone lanes, flowing water, cafes, and layered town atmosphere.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 150
+    },
+    {
+      "id": "poi_lion_hill_edge",
+      "name": "Lion Hill Edge View",
+      "district": "Gucheng",
+      "type": "viewpoint",
+      "description": "A useful visual anchor for reading the old town and mountain backdrop together.",
+      "best_for": ["student", "solo", "couple"],
+      "recommended_duration_minutes": 75
+    },
+    {
+      "id": "poi_shuhe",
+      "name": "Shuhe Ancient Town",
+      "district": "Gucheng",
+      "type": "historic town district",
+      "description": "A quieter alternative to the main old town, suited to slower walking and lighter crowds.",
+      "best_for": ["solo", "couple", "family"],
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_black_dragon_pool_edge",
+      "name": "Black Dragon Pool Edge",
+      "district": "Gucheng",
+      "type": "scenic park area",
+      "description": "A practical scenic stop where water, trees, and mountain views create a calmer Lijiang layer.",
+      "best_for": ["solo", "couple", "family"],
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_baisha_edge",
+      "name": "Baisha Old Village Edge",
+      "district": "Yulong",
+      "type": "cultural village area",
+      "description": "A softer local-culture extension for plans wanting less commercial old-town atmosphere.",
+      "best_for": ["solo", "couple", "family"],
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_old_town_evening",
+      "name": "Old Town Evening Walk",
+      "district": "Gucheng",
+      "type": "evening district",
+      "description": "A low-friction night route where lantern light, music, and narrow lanes create a distinctive mood.",
+      "best_for": ["student", "solo", "couple"],
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food_areas": [
+    {
+      "name": "Old Town Casual Food Lanes",
+      "district": "Gucheng",
+      "specialties": ["Yunnan snacks", "small local dishes", "easy grazing meals"],
+      "best_for": ["student", "solo", "couple", "family"],
+      "note": "Best for practical dining that stays integrated with old-town walking."
+    },
+    {
+      "name": "Shuhe Cafe and Light Meal Area",
+      "district": "Gucheng",
+      "specialties": ["cafe meals", "slow brunch spots", "light Yunnan-style dining"],
+      "best_for": ["solo", "couple"],
+      "note": "Best for softer scenic pacing and quieter conversation-led meals."
+    },
+    {
+      "name": "Local Yunnan Dining Cluster",
+      "district": "Gucheng",
+      "specialties": ["mushroom dishes", "shared Yunnan meals", "local comfort food"],
+      "best_for": ["student", "solo", "couple", "family"],
+      "note": "Best for more complete meals after longer old-town or village walking blocks."
+    }
+  ]
+}

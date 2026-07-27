@@ -1,0 +1,109 @@
+{
+  "city_code": "xian",
+  "city_name": "Xi'an",
+  "region_name": "Shaanxi",
+  "summary": "Xi'an is well suited to heritage-led travel shaped by ancient capital atmosphere, city-wall space, Muslim Quarter energy, and strong historical identity.",
+  "transport_notes": [
+    "Xi'an's core heritage zones are easiest to enjoy when grouped around the old city area.",
+    "Family and slower-paced plans should avoid stacking too many major historical stops in one day.",
+    "Evening food experiences work best when paired with old-city walking rather than distant site transfers."
+  ],
+  "budget_notes": {
+    "low": "Use the old city core, snack-heavy areas, and walkable landmark clustering to keep spending manageable.",
+    "medium": "Combine one major heritage site, one old-city district, and one strong local food area each day.",
+    "high": "Allow more breathing room between major heritage stops and include stronger dining moments."
+  },
+  "trip_type_notes": {
+    "student": "Student plans in Xi'an should make history feel vivid, approachable, and well paired with affordable food.",
+    "solo": "Solo plans should emphasize the city's historical depth and the meditative quality of old-city wandering.",
+    "couple": "Couple plans should soften the history with evening walls, lantern light, and textured old-city atmosphere.",
+    "family": "Family plans should keep movement simple, combine history with open space, and avoid museum fatigue."
+  },
+  "suggested_tags": [
+    "ancient-capital",
+    "history",
+    "old-city",
+    "family-friendly",
+    "heritage",
+    "local-food"
+  ],
+  "pois": [
+    {
+      "id": "poi_city_wall",
+      "name": "Xi'an City Wall Area",
+      "district": "Beilin",
+      "type": "historic landmark",
+      "description": "A defining old-capital landmark that gives Xi'an both scale and breathing room.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_bell_tower_area",
+      "name": "Bell and Drum Tower Area",
+      "district": "Lianhu",
+      "type": "historic city core",
+      "description": "A useful central anchor connecting Xi'an's old-city atmosphere with surrounding food and walking routes.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_muslim_quarter",
+      "name": "Muslim Quarter",
+      "district": "Lianhu",
+      "type": "historic food district",
+      "description": "A dense, high-sensory old-city food zone with strong local identity and evening energy.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_big_wild_goose",
+      "name": "Big Wild Goose Pagoda Area",
+      "district": "Yanta",
+      "type": "cultural landmark",
+      "description": "A well-known cultural anchor that adds classical Xi'an symbolism and open plaza space.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_small_yanta",
+      "name": "Small Wild Goose Pagoda Area",
+      "district": "Beilin",
+      "type": "historic garden landmark",
+      "description": "A quieter and more intimate heritage stop for travelers who want history with less pressure.",
+      "best_for": ["solo", "couple", "family"],
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_yongxingfang",
+      "name": "Yongxingfang",
+      "district": "Xincheng",
+      "type": "food and folk-culture district",
+      "description": "A useful heritage-flavored food area for approachable local tasting and lighter cultural texture.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food_areas": [
+    {
+      "name": "Muslim Quarter Food Lanes",
+      "district": "Lianhu",
+      "specialties": ["old-city snacks", "hearty local dishes", "high-density tasting"],
+      "best_for": ["student", "solo", "couple", "family"],
+      "note": "Best for Xi'an's strongest street-level food identity and evening atmosphere."
+    },
+    {
+      "name": "Yongxingfang Food Cluster",
+      "district": "Xincheng",
+      "specialties": ["regional snacks", "folk-style food", "structured tasting stops"],
+      "best_for": ["student", "solo", "couple", "family"],
+      "note": "Best when the plan wants food variety in a more organized cultural setting."
+    },
+    {
+      "name": "Bell Tower Old-City Dining Pocket",
+      "district": "Lianhu",
+      "specialties": ["classic city-center meals", "heritage-area dining", "easy evening food access"],
+      "best_for": ["solo", "couple", "family"],
+      "note": "Best for keeping evenings compact inside Xi'an's most recognizable historic core."
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "city_code": "changsha",
+  "city_name": "Changsha",
+  "region_name": "Hunan",
+  "summary": "Changsha fits high-energy food and nightlife travel shaped by street-level eating, riverside evenings, youth-heavy districts, and practical urban routing.",
+  "transport_notes": [
+    "Changsha works best when plans stay within one central old-city or river-adjacent zone per day.",
+    "Metro plus short walks is practical, but nightlife-heavy plans should avoid long late-night cross-city transfers.",
+    "Evening pacing is strongest around riverside promenades, food streets, and lively central neighborhoods."
+  ],
+  "budget_notes": {
+    "low": "Prioritize snack streets, public riverside areas, and compact central neighborhoods with dense food options.",
+    "medium": "Blend one signature street area, one scenic or cultural stop, and one stronger evening food district each day.",
+    "high": "Add slower dining, more comfort in movement, and selective riverside or skyline evening moments."
+  },
+  "trip_type_notes": {
+    "student": "Student plans in Changsha should emphasize nightlife energy, affordable local food, and easy central-city execution.",
+    "solo": "Solo plans should balance food exploration with enough slower city observation and riverfront breathing room.",
+    "couple": "Couple plans should use Changsha's lights and food culture without making the whole trip feel rushed or noisy.",
+    "family": "Family plans should avoid overly late-night routes and favor easier scenic or cultural anchors with manageable food areas."
+  },
+  "suggested_tags": [
+    "nightlife",
+    "street-food",
+    "river-evening",
+    "youthful-energy",
+    "citywalk",
+    "local-flavor"
+  ],
+  "pois": [
+    {
+      "id": "poi_taiping",
+      "name": "Taiping Street Area",
+      "district": "Tianxin",
+      "type": "historic street district",
+      "description": "A dense central area mixing old-street texture, easy food access, and recognizable Changsha energy.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_pozi",
+      "name": "Pozi Street",
+      "district": "Tianxin",
+      "type": "food street",
+      "description": "A practical anchor for local flavor, fast-moving snack culture, and evening-heavy city rhythm.",
+      "best_for": ["student", "solo", "couple"],
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_ifs_river_axis",
+      "name": "Central Skyline and River Axis",
+      "district": "Furong",
+      "type": "modern city district",
+      "description": "A polished urban section for lights, shopping, and stronger contemporary-city atmosphere.",
+      "best_for": ["student", "solo", "couple"],
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_orange_isle_edge",
+      "name": "Orange Isle Edge Walk",
+      "district": "Yuelu",
+      "type": "river island scenic area",
+      "description": "A broader public space that gives Changsha plans river views and more open pacing.",
+      "best_for": ["solo", "couple", "family"],
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_yuelu_mountain_edge",
+      "name": "Yuelu Mountain Edge Visit",
+      "district": "Yuelu",
+      "type": "nature and culture area",
+      "description": "A useful greener contrast for plans that want a softer side beyond dense central streets.",
+      "best_for": ["solo", "couple", "family"],
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_superwenheyou_edge",
+      "name": "Super Wenheyou Area",
+      "district": "Tianxin",
+      "type": "food and nightlife district",
+      "description": "A highly recognizable food-and-nightlife stop for plans prioritizing youth-heavy city energy.",
+      "best_for": ["student", "solo", "couple"],
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food_areas": [
+    {
+      "name": "Pozi Street Snack Zone",
+      "district": "Tianxin",
+      "specialties": ["Hunan snacks", "night bites", "spicy casual food"],
+      "best_for": ["student", "solo", "couple"],
+      "note": "Best for lively, central, flavor-forward eating with strong local identity."
+    },
+    {
+      "name": "Taiping Street Dining Pockets",
+      "district": "Tianxin",
+      "specialties": ["old-street food", "shared local dishes", "casual evening meals"],
+      "best_for": ["student", "solo", "couple", "family"],
+      "note": "Best when food is paired with older city atmosphere and easier walking."
+    },
+    {
+      "name": "Riverfront Light Dining Area",
+      "district": "Tianxin",
+      "specialties": ["river-view dining", "dessert stops", "slower evening meals"],
+      "best_for": ["couple", "family"],
+      "note": "Best for plans that want to calm the city's energy into a softer finish."
+    }
+  ]
+}

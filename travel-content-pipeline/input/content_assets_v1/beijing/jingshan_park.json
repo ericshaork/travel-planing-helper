@@ -1,0 +1,30 @@
+{
+  "id": "ca_beijing_jingshan_park",
+  "name": "\u666f\u5c71\u516c\u56ed",
+  "asset_type": "poi",
+  "category": ["signature_anchor", "imperial_viewpoint", "elevated_park"],
+  "content_role": ["imperial_view", "first_visit_support", "sunset_anchor"],
+  "traveler_fit": {
+    "couple": "high",
+    "student": "medium",
+    "solo": "high"
+  },
+  "season_fit": ["spring", "autumn", "winter"],
+  "best_time": ["late_afternoon", "sunset"],
+  "experience_value": [
+    "Provides the visual release after a dense imperial landmark block.",
+    "Works as a short but high-payoff transition from palace scale to open skyline memory.",
+    "Gives couple and solo routes a controlled scenic climax without requiring a full additional district."
+  ],
+  "avoid_when": [
+    "the route already has too many scenic lookouts in one day",
+    "the plan needs a deeply local neighborhood slice instead of a symbolic viewpoint",
+    "summer midday exposure would make the stop feel like transit rather than payoff"
+  ],
+  "nearby_assets": [
+    "ca_beijing_forbidden_city",
+    "ca_beijing_beihai_park",
+    "ca_beijing_shichahai"
+  ],
+  "map_asset_id": "B000A7I1OL"
+}

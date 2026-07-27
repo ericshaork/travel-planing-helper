@@ -8,7 +8,12 @@ import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { GenerateLoading } from "@/components/trip/GenerateLoading";
 import { MissingFieldsSummary } from "@/components/trip/MissingFieldsSummary";
-import { ParsedTripCard } from "@/components/trip/ParsedTripCard";
+import { TripDraftSidebar } from "@/components/trip/TripDraftSidebar";
+import {
+  ENTRY_SESSION_SOURCE_TYPES,
+  ensureWorkspaceProjectEntry,
+  getExistingProjectIdFromSession,
+} from "@/lib/projects/entry-client";
 import {
   PLAN_STEPS,
   StepQuestionForm,
@@ -70,10 +75,10 @@ function mergeParsedSessionDraft(
 function ReturnHomeLink() {
   return (
     <Link
-      href="/"
+      href="/create"
       className="inline-flex items-center border-b border-[var(--line-strong)] pb-1 text-sm font-semibold text-[var(--ink-muted)] transition-colors duration-200 ease-out hover:border-[var(--clay-deep)] hover:text-[var(--clay-deep)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--clay)]"
     >
-      回到工作台
+      回到创建页
     </Link>
   );
 }
@@ -273,6 +278,41 @@ export default function PlanPage() {
         sourceType: "ai_generated",
         workspaceModeDefault: "read",
       });
+      await ensureWorkspaceProjectEntry(
+        {
+          title:
+            tripPlanDraft?.tripTitle?.trim() ||
+            result.tripPlan.tripTitle ||
+            `${request.destinationCity} trip`,
+          sessionSourceType:
+            tripPlanDraft?.sourceType === "explore_archive"
+              ? ENTRY_SESSION_SOURCE_TYPES.exploreImport
+              : ENTRY_SESSION_SOURCE_TYPES.aiPrompt,
+          sourceTitle:
+            tripPlanDraft?.tripTitle?.trim() || request.destinationCity || null,
+          sourcePayload:
+            tripPlanDraft?.sourceType === "explore_archive"
+              ? {
+                  sourceOrigin: ENTRY_SESSION_SOURCE_TYPES.exploreImport,
+                  sourceExploreId: tripPlanDraft.sourceExploreId,
+                  sourceExploreSlug: tripPlanDraft.sourceExploreSlug,
+                  tripRequestDraft: tripPlanDraft.tripRequestDraft,
+                }
+              : {
+                  sourceOrigin: ENTRY_SESSION_SOURCE_TYPES.aiPrompt,
+                },
+          tripPlan: result.tripPlan,
+          tripRequest: request,
+          createdFrom:
+            tripPlanDraft?.sourceType === "explore_archive"
+              ? "template_import"
+              : "ai_generate",
+          existingProjectId: getExistingProjectIdFromSession(),
+          lifecycleState: "workspace",
+          flowStage: "workspace_ready",
+          workspaceModeDefault: "read",
+        },
+      ).catch(() => null);
       router.push("/workspace");
     } catch (error) {
       setGenerationError(
@@ -325,9 +365,9 @@ export default function PlanPage() {
     return (
       <div className="paper-texture flex min-h-screen flex-col overflow-x-clip text-[var(--ink)]">
         <Header />
-        <main className="mx-auto flex w-full max-w-3xl flex-1 flex-col px-5 py-8">
+        <main className="mx-auto flex w-full max-w-3xl flex-1 flex-col px-4 py-4">
           <ReturnHomeLink />
-          <p className="py-20 text-center text-sm font-semibold text-[var(--ink-muted)]">
+          <p className="py-8 text-center text-sm font-semibold text-[var(--ink-muted)]">
             正在打开这张旅行草稿…
           </p>
         </main>
@@ -339,30 +379,28 @@ export default function PlanPage() {
     return (
       <div className="paper-texture flex min-h-screen flex-col overflow-x-clip text-[var(--ink)]">
         <Header />
-        <main className="mx-auto flex w-full max-w-xl flex-1 flex-col px-5 py-10">
+        <main className="mx-auto flex w-full max-w-xl flex-1 flex-col px-4 py-5">
           <ReturnHomeLink />
-          <section className="mt-10 border border-[var(--line-strong)] bg-[var(--paper)] p-7 shadow-[8px_9px_0_var(--sand)]">
-            <p className="text-xs font-semibold tracking-[0.14em] text-[var(--clay-deep)]">
-              没找到旅行草稿
-            </p>
-            <h1 className="mt-3 text-3xl font-semibold">
+          <section className="edit-gear-card mt-4 p-4">
+            <p className="journey-kicker">没找到旅行草稿</p>
+            <h1 className="journey-title mt-1.5 text-xl">
               这页还不知道你想去哪。
             </h1>
-            <p className="mt-4 text-sm leading-7 text-[var(--ink-muted)]">
-              先回首页写一句旅行需求。解析完以后，这里会接着帮你补齐信息。
+            <p className="journey-subtitle mt-2 text-sm leading-6">
+              先回创建页写一句旅行需求。解析完以后，这里会接着帮你补齐信息。
             </p>
             <Link
               href="/create"
-              className="mt-7 inline-block border border-[var(--ink)] bg-[var(--ink)] px-5 py-3 text-sm font-semibold text-[var(--paper-bright)] shadow-[4px_4px_0_var(--clay)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)]"
+              className="mt-3 inline-block border border-[var(--ink)] bg-[var(--ink)] px-4 py-2 text-sm font-semibold text-[var(--paper-bright)] shadow-[4px_4px_0_var(--clay)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)]"
             >
               重新填写需求
             </Link>
-            <div className="mt-3">
+            <div className="mt-1.5">
               <Link
-                href="/"
-                className="inline-block border border-[var(--line-strong)] bg-[var(--paper)] px-5 py-3 text-sm font-semibold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)]"
+                href="/create"
+                className="inline-block border border-[var(--line-strong)] bg-[var(--paper)] px-4 py-2 text-sm font-semibold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)]"
               >
-                回到工作台
+                回到创建页
               </Link>
             </div>
           </section>
@@ -375,10 +413,7 @@ export default function PlanPage() {
     return (
       <div className="paper-texture flex min-h-screen flex-col overflow-x-clip text-[var(--ink)]">
         <Header />
-        <main className="flex-1 px-5 py-10 sm:px-8">
-          <div className="mx-auto mb-8 max-w-4xl">
-            <ReturnHomeLink />
-          </div>
+        <main className="flex-1 px-2 py-2 sm:px-3 sm:py-3">
           <GenerateLoading
             tripRequest={tripRequest}
             isGenerating={isGenerating}
@@ -404,29 +439,20 @@ export default function PlanPage() {
   return (
     <div className="paper-texture flex min-h-screen flex-col overflow-x-clip text-[var(--ink)]">
       <Header />
-      <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col overflow-hidden px-4 pb-3 pt-2 sm:px-8 sm:pb-16 sm:pt-10 lg:overflow-visible">
-        <div className="mb-3 sm:mb-4">
-          <ReturnHomeLink />
-        </div>
-
-        <div className="mb-2 max-w-2xl lg:mb-8">
-          <p className="text-xs font-semibold tracking-[0.14em] text-[var(--sage-deep)]">
-            补几句，就能开始排路线
-          </p>
-          <h1 className="mt-1.5 text-2xl font-semibold tracking-[-0.035em] sm:mt-3 sm:text-4xl">
-            先把旅行需求说清楚。
+      <main className="mx-auto flex w-full flex-1 flex-col overflow-hidden px-3 pb-3 pt-1.5 sm:px-5 sm:pb-4 sm:pt-2.5 lg:max-w-7xl lg:overflow-visible">
+        <div className="mb-0.5 max-w-2xl">
+          <p className="journey-kicker">把想法搭成路线</p>
+          <h1 className="journey-title mt-0.5 text-xl sm:mt-0.5 sm:text-xl">
+            补几句，就能开始排路线。
           </h1>
-          <p className="mt-2 hidden text-sm leading-6 text-[var(--ink-muted)] sm:block sm:mt-3 sm:leading-7">
+          <p className="journey-subtitle mt-0.5 sm:mt-1 sm:text-[14px]">
             已经认出来的都留着。你可以直接改，也可以按步骤把空白补上。
-          </p>
-          <p className="mt-2 text-sm leading-6 text-[var(--ink-muted)]">
-            这一页才是最终确认页。你现在改过的预算、日期、天数、地点和偏好，会覆盖上一页的一句话草稿，并作为最终 TripRequest 进入生成。
           </p>
         </div>
 
         <div className="min-h-0 lg:hidden">
-          <div className="flex min-h-0 flex-1 flex-col gap-2.5">
-            <ParsedTripCard draft={draft} missingFields={missingFields} />
+          <div className="flex min-h-0 flex-1 flex-col gap-1.5">
+            <TripDraftSidebar draft={draft} missingFields={missingFields} />
 
             <MissingFieldsSummary
               missingFields={missingFieldDetails}
@@ -455,10 +481,10 @@ export default function PlanPage() {
           </div>
         </div>
 
-        <div className="hidden items-start gap-4 lg:grid lg:grid-cols-[minmax(17rem,0.72fr)_minmax(0,1.28fr)] lg:gap-7">
-          <ParsedTripCard draft={draft} missingFields={missingFields} />
+        <div className="hidden items-start gap-3 lg:grid lg:grid-cols-[minmax(15rem,0.55fr)_minmax(0,1.45fr)] lg:gap-3.5">
+          <TripDraftSidebar draft={draft} missingFields={missingFields} />
 
-          <div className="min-w-0 space-y-4">
+          <div className="min-w-0 space-y-1.5">
             <MissingFieldsSummary
               missingFields={missingFieldDetails}
               onSelect={focusField}

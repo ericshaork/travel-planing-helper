@@ -1,0 +1,30 @@
+{
+  "id": "ca_hangzhou_su_causeway",
+  "name": "Su Causeway",
+  "asset_type": "scenic_walk",
+  "category": "lake_causeway",
+  "content_role": ["slow_solo", "signature_anchor", "lake_slow_walk"],
+  "traveler_fit": {
+    "couple": "high",
+    "student": "medium",
+    "solo": "high",
+    "family": "medium"
+  },
+  "season_fit": {
+    "spring": "high",
+    "summer": "medium",
+    "autumn": "high",
+    "winter": "medium"
+  },
+  "best_time": {
+    "time_of_day": ["morning", "late_afternoon"],
+    "note": "Works best as a breathable walking segment rather than a rushed checklist stop."
+  },
+  "experience_value": {
+    "primary": ["slow_walk", "willow_texture", "couple_pause", "photo"],
+    "summary": "A soft lakeside walking asset for giving the route private-journal rhythm."
+  },
+  "avoid_when": ["overpacked_route", "mobility_limited_day"],
+  "nearby_assets": ["ca_hangzhou_west_lake", "ca_hangzhou_lakeside_evening"],
+  "map_asset_id": "poi_west_lake"
+}

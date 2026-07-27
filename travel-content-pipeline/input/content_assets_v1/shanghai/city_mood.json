@@ -1,0 +1,124 @@
+{
+  "id": "ca_shanghai_city_mood",
+  "name": "Shanghai City Mood",
+  "asset_type": "city_mood_city_mood",
+  "category": [
+    "city_mood",
+    "mood_cover"
+  ],
+  "content_role": [
+    "city_mood",
+    "mood_cover",
+    "cover",
+    "ai_generated"
+  ],
+  "traveler_fit": {
+    "couple": "high",
+    "student": "medium",
+    "solo": "high",
+    "family": "none",
+    "friends": "high"
+  },
+  "season_fit": {
+    "spring": "medium",
+    "summer": "medium",
+    "autumn": "high",
+    "winter": "medium"
+  },
+  "best_time": {
+    "time_of_day": [
+      "afternoon",
+      "evening"
+    ],
+    "note": "Shanghai City Mood is intended as mood_cover with slow pacing."
+  },
+  "experience_value": {
+    "primary": [
+      "city_mood",
+      "mood_cover",
+      "plane-tree shade",
+      "shikumen or old lane texture",
+      "subtle skyline or river light cue",
+      "private travel-journal composition"
+    ],
+    "summary": "Shanghai modern-old city mood for a couple trip"
+  },
+  "avoid_when": [
+    "cyberpunk poster",
+    "generic skyscraper montage",
+    "European city illustration",
+    "text or logos"
+  ],
+  "nearby_assets": [],
+  "map_asset_id": "poi_city_mood",
+  "bridge_metadata": {
+    "source": "city_inventory",
+    "source_inventory_id": "shanghai_city_inventory_v1",
+    "asset_id": "ca_shanghai_city_mood",
+    "asset_name": "Shanghai City Mood",
+    "asset_category": "city_mood",
+    "asset_family": "city_mood",
+    "route_role": "mood_cover",
+    "why_it_matters": "Shanghai modern-old city mood for a couple trip",
+    "pace_hint": "slow",
+    "priority": 7
+  },
+  "image_context": {
+    "recommended_slots": [
+      "explore_cover",
+      "trip_cover"
+    ],
+    "image_usage_profile": "cover",
+    "default_generation_mode": "ai_generated",
+    "source_preference": "ai_first",
+    "search_keywords": [
+      "Shanghai city mood",
+      "Shanghai travel journal plane trees",
+      "Shanghai old lane and river lights",
+      "Shanghai couple city walk"
+    ],
+    "visual_subject": {
+      "main_subject": "Shanghai modern-old city mood for a couple trip",
+      "secondary_elements": [
+        "plane trees",
+        "shikumen lane texture",
+        "river light hint",
+        "small couple figure"
+      ]
+    },
+    "positive_cues": [
+      "plane-tree shade",
+      "shikumen or old lane texture",
+      "subtle skyline or river light cue",
+      "private travel-journal composition"
+    ],
+    "negative_cues": [
+      "cyberpunk poster",
+      "generic skyscraper montage",
+      "European city illustration",
+      "text or logos"
+    ]
+  },
+  "search_keywords": [
+    "Shanghai city mood",
+    "Shanghai travel journal plane trees",
+    "Shanghai old lane and river lights",
+    "Shanghai couple city walk"
+  ],
+  "review_rules": {
+    "manual_review_required": true,
+    "identity_check": [
+      "Shanghai mood is visible without depending only on skyline.",
+      "AI cover should not pretend to be place evidence."
+    ],
+    "failure_examples": [
+      "generic neon city",
+      "European street scene",
+      "tourism poster text"
+    ]
+  },
+  "golden_reference": {
+    "package_id": "future_shanghai_golden",
+    "asset_instance_ids": []
+  }
+}

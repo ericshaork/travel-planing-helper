@@ -1,0 +1,30 @@
+{
+  "id": "ca_chengdu_hotpot_table",
+  "name": "Chengdu Hotpot Table",
+  "asset_type": "food_experience",
+  "category": "sichuan_food",
+  "content_role": ["food_backbone", "evening_closure", "couple_memory"],
+  "traveler_fit": {
+    "couple": "high",
+    "student": "medium",
+    "solo": "medium",
+    "family": "medium"
+  },
+  "season_fit": {
+    "spring": "medium",
+    "summer": "medium",
+    "autumn": "high",
+    "winter": "high"
+  },
+  "best_time": {
+    "time_of_day": ["dinner", "evening"],
+    "note": "Best as a shared evening meal with non-spicy fallback notes."
+  },
+  "experience_value": {
+    "primary": ["hotpot", "shared_food", "sichuan_flavor", "warm_evening"],
+    "summary": "A core Sichuan food asset for the couple route, with comfort pacing."
+  },
+  "avoid_when": ["spice_sensitive_without_fallback"],
+  "nearby_assets": ["ca_chengdu_wangping_street", "ca_chengdu_jinli_evening"],
+  "map_asset_id": "food_chengdu_hotpot"
+}

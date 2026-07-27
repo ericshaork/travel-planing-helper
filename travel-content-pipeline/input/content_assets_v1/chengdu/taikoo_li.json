@@ -1,0 +1,30 @@
+{
+  "id": "ca_chengdu_taikoo_li",
+  "name": "Taikoo Li Chengdu",
+  "asset_type": "modern_district",
+  "category": "modern_contrast",
+  "content_role": ["modern_contrast", "city_contrast_anchor"],
+  "traveler_fit": {
+    "couple": "medium",
+    "student": "medium",
+    "solo": "medium",
+    "family": "low"
+  },
+  "season_fit": {
+    "spring": "high",
+    "summer": "medium",
+    "autumn": "high",
+    "winter": "medium"
+  },
+  "best_time": {
+    "time_of_day": ["afternoon", "early_evening"],
+    "note": "Use lightly as modern contrast, not as the whole trip."
+  },
+  "experience_value": {
+    "primary": ["modern_contrast", "urban_texture", "photo", "short_stop"],
+    "summary": "A contemporary layer that should not turn the route into shopping."
+  },
+  "avoid_when": ["avoid_commercial_blocks"],
+  "nearby_assets": ["ca_chengdu_wangping_street"],
+  "map_asset_id": "poi_taikoo_li"
+}

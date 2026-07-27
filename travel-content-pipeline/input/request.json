@@ -1,0 +1,8 @@
+{
+  "city": "chengdu",
+  "days": 3,
+  "trip_type": "student",
+  "budget": "medium",
+  "preferences": ["food", "citywalk", "local_culture"],
+  "pace": "balanced"
+}

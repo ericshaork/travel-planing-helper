@@ -31,10 +31,11 @@ const markerPoints: AmapMarkerPoint[] = [
 ];
 
 describe("amap marker interactions", () => {
-  it("active 和 inactive marker label 内容不同", () => {
-    expect(buildAmapMarkerLabelContent(1, true)).not.toBe(
-      buildAmapMarkerLabelContent(1, false),
+  it("active 和 inactive marker label 内容不同，并带地点名", () => {
+    expect(buildAmapMarkerLabelContent(markerPoints[0], true)).not.toBe(
+      buildAmapMarkerLabelContent(markerPoints[0], false),
     );
+    expect(buildAmapMarkerLabelContent(markerPoints[0], false)).toContain("鼓浪屿");
   });
 
   it("marker 点击时会调用 onMarkerClick(pointId)", () => {

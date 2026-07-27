@@ -1,0 +1,80 @@
+{
+  "asset_id": "ca_hangzhou_lakeside_evening",
+  "asset_instance_id": "ca_hangzhou_lakeside_evening_day_cover",
+  "image_slot": "day_cover",
+  "source": "hybrid",
+  "file_path": "C:\\Users\\10200\\Desktop\\travel_planing\\trip_packages\\hangzhou_couple_golden_v1\\images\\files\\ca_hangzhou_lakeside_evening_day_cover.jpg",
+  "status": "completed",
+  "metadata": {
+    "strategy": "hybrid refinement via forced real-photo failure then Seedream AI fallback candidate",
+    "usage_profile": "experience",
+    "resolved_via": "ai_fallback",
+    "real_photo": {
+      "source": "pexels",
+      "status": "completed",
+      "file_path": "C:\\Users\\10200\\Desktop\\travel_planing\\image-pipeline\\image-pipeline\\assets\\external\\ca_hangzhou_lakeside_evening.jpeg",
+      "retry_count": 0,
+      "last_error": null,
+      "download_status": "completed",
+      "fallback_available": false,
+      "selection": {
+        "selected_candidate": {
+          "source": "pexels",
+          "candidate_id": "34432212",
+          "image_url": "https://images.pexels.com/photos/34432212/pexels-photo-34432212.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+        },
+        "rank_score": 60,
+        "candidate_count": 10,
+        "rejected_count": 0
+      },
+      "metadata": {
+        "source_runs": [
+          {
+            "source": "wikimedia",
+            "priority": 1,
+            "candidate_count": 5,
+            "error": "no_valid_photo_candidate",
+            "rejected_count": 5
+          },
+          {
+            "source": "pexels",
+            "priority": 2,
+            "candidate_count": 10,
+            "error": null
+          }
+        ],
+        "title": "Beautiful view of traditional Chinese architecture along West Lake in Hangzhou with boats and lush greenery in the background.",
+        "description": "Beautiful view of traditional Chinese architecture along West Lake in Hangzhou with boats and lush greenery in the background.",
+        "author": "nana liu",
+        "license": "Pexels License",
+        "source_url": "https://www.pexels.com/photo/traditional-chinese-architecture-by-west-lake-hangzhou-34432212/",
+        "image_url": "https://images.pexels.com/photos/34432212/pexels-photo-34432212.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "width": 6240,
+        "height": 4160,
+        "mime_type": "image/jpeg",
+        "score_reasons": [
+          "location_match",
+          "high_resolution_3000",
+          "wanderly_fit"
+        ]
+      }
+    },
+    "ai_fallback": null,
+    "provider_id": "seedream",
+    "model_id": "doubao-seedream-5-0-pro-260628",
+    "provider_job_id": "seedream_ca_hangzhou_lakeside_evening_ai_v2_candidate_day_cover",
+    "prompt_summary": "Blue-hour Hangzhou West Lake lakeside walk with warm lamps, willow silhouettes, lake reflections, slow couple scale, travel magazine composition, private journal warmth; no text, logo, or poster gloss.",
+    "golden_review": {
+      "status": "passed",
+      "note": "Accepted v2 lakeside evening candidate for experience/day_cover mood."
+    },
+    "provenance_note": "H3.6.4 replacement from temp/hangzhou_couple_v2_images reviewed lakeside evening candidate.",
+    "finalized_in_package": "hangzhou_couple_golden_v1",
+    "candidate_file_path": "temp/hangzhou_couple_v2_images/files/ca_hangzhou_lakeside_evening_day_cover_v2.png",
+    "packaged_file_path": "images/files/ca_hangzhou_lakeside_evening_day_cover.jpg",
+    "mime_type": "image/jpeg",
+    "sha256": "f2a89b00bcd926cac73f1d256bd8023c254cab01757f6d2958b77a7ba77b9214"
+  },
+  "download_status": "completed",
+  "last_error": null
+}

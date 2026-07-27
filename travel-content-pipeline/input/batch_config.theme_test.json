@@ -1,0 +1,34 @@
+{
+  "plans": [
+    {
+      "id": "theme_test_chengdu_student_3d",
+      "city": "chengdu",
+      "days": 3,
+      "trip_type": "student",
+      "budget": "low",
+      "theme": "茶馆慢生活、巷子烟火和年轻街头的高性价比探索",
+      "preferences": ["food", "citywalk", "local_culture"],
+      "pace": "balanced"
+    },
+    {
+      "id": "theme_test_hangzhou_couple_3d",
+      "city": "hangzhou",
+      "days": 3,
+      "trip_type": "couple",
+      "budget": "medium",
+      "theme": "西湖日落与江南慢生活",
+      "preferences": ["photo", "citywalk", "nature"],
+      "pace": "slow"
+    },
+    {
+      "id": "theme_test_beijing_family_5d",
+      "city": "beijing",
+      "days": 5,
+      "trip_type": "family",
+      "budget": "high",
+      "theme": "皇城文化与亲子轻松探索",
+      "preferences": ["family_friendly", "history", "local_culture"],
+      "pace": "slow"
+    }
+  ]
+}

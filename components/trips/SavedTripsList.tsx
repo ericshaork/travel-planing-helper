@@ -61,15 +61,15 @@ export function SavedTripsList({
 
   return (
     <section className="space-y-4">
-      <div className="workspace-panel px-4 py-4 sm:px-5 sm:py-5">
+      <div className="archive-search-box px-4 py-4 sm:px-5 sm:py-5">
         <div className="relative z-[1] space-y-4">
           <div>
-            <p className="workspace-kicker">我的行程管理</p>
+            <p className="archive-kicker">档案检索</p>
             <h2 className="mt-2 text-2xl font-semibold tracking-[-0.03em] text-[var(--ink)]">
-              搜一搜、筛一筛，再继续打开到 Workspace
+              搜一搜、筛一筛，再继续打开
             </h2>
             <p className="mt-2 text-sm leading-6 text-[var(--ink-muted)]">
-              这里先管标题、状态、来源和最近打开时间，不会改动你原来的 Workspace 恢复逻辑。
+              按标题、状态和来源筛选你的旅行档案。
             </p>
           </div>
 
@@ -122,6 +122,7 @@ export function SavedTripsList({
                 <option value="ai_generated">AI 生成</option>
                 <option value="blank_manual">空白手搓</option>
                 <option value="explore_import">Explore 导入</option>
+                <option value="file_import">文件导入</option>
               </select>
             </label>
 
@@ -148,13 +149,13 @@ export function SavedTripsList({
 
       {trips.length === 0 ? (
         hasFilters ? (
-          <section className="workspace-panel px-5 py-5 sm:px-6 sm:py-6">
+          <section className="archive-empty px-5 py-5 sm:px-6 sm:py-6">
             <div className="relative z-[1] max-w-2xl">
-              <p className="workspace-kicker">没有找到匹配行程</p>
-              <h3 className="mt-2 text-2xl font-semibold tracking-[-0.03em] text-[var(--ink)] sm:text-3xl">
-                这组搜索和筛选下还没有结果
+              <p className="archive-kicker">未找到匹配</p>
+              <h3 className="mt-2 archive-title text-2xl sm:text-3xl">
+                这组条件下还没有结果
               </h3>
-              <p className="mt-3 text-sm leading-6 text-[var(--ink-muted)] sm:text-[15px] sm:leading-7">
+              <p className="mt-3 archive-subtitle sm:text-[15px] sm:leading-7">
                 试试换个标题关键词，或者把状态、来源筛选放宽一点。
               </p>
               <button

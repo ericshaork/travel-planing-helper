@@ -1,0 +1,37 @@
+{
+  "id": "ca_beijing_baita_temple",
+  "name": "\u767d\u5854\u5bfa",
+  "asset_type": "district",
+  "category": "historic_neighborhood_culture",
+  "content_role": ["texture_injector", "slow_walk_anchor"],
+  "traveler_fit": {
+    "couple": "medium",
+    "student": "medium",
+    "solo": "high",
+    "family": "low"
+  },
+  "season_fit": {
+    "spring": "high",
+    "summer": "medium",
+    "autumn": "high",
+    "winter": "medium"
+  },
+  "best_time": {
+    "time_of_day": ["late_morning", "afternoon"],
+    "note": "Works best when the route wants a slower cultural texture block rather than a checklist landmark push."
+  },
+  "experience_value": {
+    "primary": ["street_texture", "quiet_culture", "local_perspective"],
+    "summary": "Useful when Beijing should feel inhabited and textured, not only monumental; especially strong for solo and revisit-style slices."
+  },
+  "avoid_when": [
+    "landmark_only_first_visit_route",
+    "high_energy_cover_more_ground_day",
+    "family_route_needing_clear_entertainment_payoff"
+  ],
+  "nearby_assets": [
+    "ca_beijing_niujie",
+    "ca_beijing_shichahai_evening_transition"
+  ],
+  "map_asset_id": ""
+}

@@ -1,0 +1,52 @@
+{
+  "asset_id": "ca_hangzhou_xiaohe_straight_street",
+  "asset_instance_id": "ca_hangzhou_xiaohe_straight_street_food_gallery",
+  "image_slot": "food_gallery",
+  "source": "pexels",
+  "file_path": "C:\\Users\\10200\\Desktop\\travel_planing\\image-pipeline\\image-pipeline\\assets\\external\\ca_hangzhou_xiaohe_straight_street.jpeg",
+  "status": "completed",
+  "retry_count": 0,
+  "last_error": null,
+  "download_status": "completed",
+  "fallback_available": false,
+  "selection": {
+    "selected_candidate": {
+      "source": "pexels",
+      "candidate_id": "37158456",
+      "image_url": "https://images.pexels.com/photos/37158456/pexels-photo-37158456.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    },
+    "rank_score": 60,
+    "candidate_count": 10,
+    "rejected_count": 0
+  },
+  "metadata": {
+    "source_runs": [
+      {
+        "source": "wikimedia",
+        "priority": 1,
+        "candidate_count": 0,
+        "error": null
+      },
+      {
+        "source": "pexels",
+        "priority": 2,
+        "candidate_count": 10,
+        "error": null
+      }
+    ],
+    "title": "A picturesque street in Hangzhou, China, with historic architecture and red lanterns lining the sidewalk on a quiet afternoon.",
+    "description": "A picturesque street in Hangzhou, China, with historic architecture and red lanterns lining the sidewalk on a quiet afternoon.",
+    "author": "P. Ho",
+    "license": "Pexels License",
+    "source_url": "https://www.pexels.com/photo/charming-street-scene-in-hangzhou-zhejiang-china-37158456/",
+    "image_url": "https://images.pexels.com/photos/37158456/pexels-photo-37158456.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "width": 5472,
+    "height": 3648,
+    "mime_type": "image/jpeg",
+    "score_reasons": [
+      "location_match",
+      "high_resolution_3000",
+      "wanderly_fit"
+    ]
+  }
+}

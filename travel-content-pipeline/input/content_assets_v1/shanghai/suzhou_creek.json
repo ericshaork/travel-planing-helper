@@ -1,0 +1,123 @@
+{
+  "id": "ca_shanghai_suzhou_creek",
+  "name": "Suzhou Creek Walk",
+  "asset_type": "experience_modern_contrast",
+  "category": [
+    "experience",
+    "modern_contrast",
+    "supporting_stop"
+  ],
+  "content_role": [
+    "modern_contrast",
+    "supporting_stop",
+    "experience",
+    "hybrid"
+  ],
+  "traveler_fit": {
+    "couple": "high",
+    "student": "medium",
+    "solo": "high",
+    "family": "none",
+    "friends": "high"
+  },
+  "season_fit": {
+    "spring": "medium",
+    "summer": "medium",
+    "autumn": "high",
+    "winter": "medium"
+  },
+  "best_time": {
+    "time_of_day": [
+      "afternoon",
+      "evening"
+    ],
+    "note": "Suzhou Creek Walk is intended as supporting_stop with slow pacing."
+  },
+  "experience_value": {
+    "primary": [
+      "modern_contrast",
+      "supporting_stop",
+      "experience",
+      "creek-side pedestrian scale",
+      "bridge and city texture",
+      "evening reflection",
+      "slow couple route feeling"
+    ],
+    "summary": "slow riverside walk along Suzhou Creek"
+  },
+  "avoid_when": [
+    "canal town in Jiangnan",
+    "empty riverbank",
+    "generic city river"
+  ],
+  "nearby_assets": [],
+  "map_asset_id": "poi_suzhou_creek",
+  "bridge_metadata": {
+    "source": "city_inventory",
+    "source_inventory_id": "shanghai_city_inventory_v1",
+    "asset_id": "ca_shanghai_suzhou_creek",
+    "asset_name": "Suzhou Creek Walk",
+    "asset_category": "experience",
+    "asset_family": "modern_contrast",
+    "route_role": "supporting_stop",
+    "why_it_matters": "slow riverside walk along Suzhou Creek",
+    "pace_hint": "slow",
+    "priority": 3
+  },
+  "image_context": {
+    "recommended_slots": [
+      "day_cover",
+      "poi_gallery"
+    ],
+    "image_usage_profile": "experience",
+    "default_generation_mode": "hybrid",
+    "source_preference": "mixed",
+    "search_keywords": [
+      "Suzhou Creek Shanghai walk",
+      "Shanghai Suzhou Creek evening",
+      "Suzhou Creek riverside lights",
+      "Shanghai creek walking path"
+    ],
+    "visual_subject": {
+      "main_subject": "slow riverside walk along Suzhou Creek",
+      "secondary_elements": [
+        "bridges",
+        "city lights",
+        "people walking"
+      ]
+    },
+    "positive_cues": [
+      "creek-side pedestrian scale",
+      "bridge and city texture",
+      "evening reflection",
+      "slow couple route feeling"
+    ],
+    "negative_cues": [
+      "canal town in Jiangnan",
+      "empty riverbank",
+      "generic city river"
+    ]
+  },
+  "search_keywords": [
+    "Suzhou Creek Shanghai walk",
+    "Shanghai Suzhou Creek evening",
+    "Suzhou Creek riverside lights",
+    "Shanghai creek walking path"
+  ],
+  "review_rules": {
+    "manual_review_required": true,
+    "identity_check": [
+      "Suzhou Creek or Shanghai river-walk context is plausible.",
+      "Experience image should feel like a walk, not a static postcard."
+    ],
+    "failure_examples": [
+      "water town bridge scene",
+      "anonymous river photo",
+      "no pedestrian scale"
+    ]
+  },
+  "golden_reference": {
+    "package_id": "future_shanghai_golden",
+    "asset_instance_ids": []
+  }
+}

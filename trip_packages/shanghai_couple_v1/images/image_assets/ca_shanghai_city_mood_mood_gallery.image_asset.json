@@ -1,0 +1,56 @@
+{
+  "asset_id": "ca_shanghai_city_mood",
+  "asset_instance_id": "ca_shanghai_city_mood_mood_gallery",
+  "image_slot": "mood_gallery",
+  "source": "pexels",
+  "file_path": "C:\\Users\\10200\\Desktop\\travel_planing\\image-pipeline\\image-pipeline\\assets\\external\\ca_shanghai_city_mood.jpeg",
+  "status": "completed",
+  "retry_count": 0,
+  "last_error": null,
+  "download_status": "completed",
+  "fallback_available": false,
+  "selection": {
+    "selected_candidate": {
+      "source": "pexels",
+      "candidate_id": "12688884",
+      "image_url": "https://images.pexels.com/photos/12688884/pexels-photo-12688884.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    },
+    "rank_score": 50,
+    "candidate_count": 10,
+    "rejected_count": 4
+  },
+  "metadata": {
+    "source_runs": [
+      {
+        "source": "wikimedia",
+        "priority": 1,
+        "candidate_count": 5,
+        "error": "no_valid_photo_candidate",
+        "rejected_count": 5
+      },
+      {
+        "source": "pexels",
+        "priority": 2,
+        "candidate_count": 10,
+        "error": null
+      }
+    ],
+    "title": "Stunning Shanghai skyline featuring the Oriental Pearl Tower and skyscrapers at sunset with dramatic clouds.",
+    "description": "Stunning Shanghai skyline featuring the Oriental Pearl Tower and skyscrapers at sunset with dramatic clouds.",
+    "author": "Martin Wang",
+    "license": "Pexels License",
+    "source_url": "https://www.pexels.com/photo/panoramic-view-of-shanghai-city-china-12688884/",
+    "image_url": "https://images.pexels.com/photos/12688884/pexels-photo-12688884.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "width": 5846,
+    "height": 3818,
+    "mime_type": "image/jpeg",
+    "score_reasons": [
+      "location_match",
+      "high_resolution_3000"
+    ],
+    "asset_mapping_refinement": {
+      "refined_from_asset_instance_id": "ca_shanghai_city_mood_poi_gallery",
+      "reason": "city_mood asset cannot be used as poi_gallery/place; retained as mood_gallery cover-support asset without regenerating image."
+    }
+  }
+}

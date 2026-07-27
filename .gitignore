@@ -37,3 +37,8 @@ Thumbs.db
 
 dist
 coverage
+
+# Nested travel-content-pipeline generated artifacts
+travel-content-pipeline/node_modules/
+travel-content-pipeline/dist/
+travel-content-pipeline/output/

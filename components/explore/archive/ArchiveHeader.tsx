@@ -7,6 +7,7 @@ import {
   formatDaysText,
   formatTripTypeLabel,
 } from "@/lib/explore/archive-display";
+import { displayCityName } from "@/lib/explore/display-city";
 
 import { ArchiveDecorations } from "./ArchiveDecorations";
 
@@ -14,6 +15,14 @@ interface ArchiveHeaderProps {
   item?: ArchiveReaderViewModel | null;
   mode: "drawer" | "page";
   onClose?: () => void;
+}
+
+function metaChips(item: ArchiveReaderViewModel) {
+  return [
+    cleanDisplayText(displayCityName(item.city, item.cityCode), "目的地"),
+    formatDaysText(item.days, "行程待定"),
+    formatTripTypeLabel(item.tripType),
+  ].filter(Boolean);
 }
 
 export function ArchiveHeader({ item, mode, onClose }: ArchiveHeaderProps) {
@@ -42,16 +51,20 @@ export function ArchiveHeader({ item, mode, onClose }: ArchiveHeaderProps) {
             </div>
 
             {item ? (
-              <div className="flex flex-wrap gap-2 text-[11px] font-medium text-[var(--ink-muted)]">
-                <span className="rounded-full border border-[rgba(158,136,110,0.18)] bg-[rgb(255_255_255_/_0.56)] px-2.5 py-1">
-                  {cleanDisplayText(item.city, "目的地")}
-                </span>
-                <span className="rounded-full border border-[rgba(158,136,110,0.18)] bg-[rgb(255_255_255_/_0.56)] px-2.5 py-1">
-                  {formatDaysText(item.days, "行程待定")}
-                </span>
-                <span className="rounded-full border border-dashed border-[rgba(158,136,110,0.22)] bg-[rgba(255,252,246,0.3)] px-2.5 py-1">
-                  {formatTripTypeLabel(item.tripType)}
-                </span>
+              <div className="space-y-2">
+                <h2 className="line-clamp-2 text-base font-semibold text-[var(--ink)] sm:text-lg">
+                  {cleanDisplayText(item.title, "旅行计划")}
+                </h2>
+                <div className="flex flex-wrap gap-2 text-[11px] font-medium text-[var(--ink-muted)]">
+                  {metaChips(item).map((chip) => (
+                    <span
+                      key={chip}
+                      className="rounded-full border border-[rgba(158,136,110,0.18)] bg-[rgb(255_255_255_/_0.56)] px-2.5 py-1"
+                    >
+                      {chip}
+                    </span>
+                  ))}
+                </div>
               </div>
             ) : null}
           </div>
@@ -109,19 +122,18 @@ export function ArchiveHeader({ item, mode, onClose }: ArchiveHeaderProps) {
             ) : null}
           </div>
           <h2 className="mt-2 text-xl font-semibold tracking-[-0.03em] text-[var(--ink)] sm:text-2xl">
-            {cleanDisplayText(item?.title, "旅行档案")}
+            {cleanDisplayText(item?.title, "旅行计划")}
           </h2>
           {item ? (
             <div className="mt-2 flex flex-wrap gap-2 text-xs font-medium text-[var(--ink-muted)]">
-              <span className="rounded-full border border-[rgba(158,136,110,0.18)] bg-[rgb(255_255_255_/_0.56)] px-2.5 py-1">
-                {cleanDisplayText(item.city, "目的地")}
-              </span>
-              <span className="rounded-full border border-[rgba(158,136,110,0.18)] bg-[rgb(255_255_255_/_0.56)] px-2.5 py-1">
-                {formatDaysText(item.days, "行程待定")}
-              </span>
-              <span className="rounded-full border border-dashed border-[rgba(158,136,110,0.22)] bg-[rgba(255,252,246,0.3)] px-2.5 py-1">
-                {formatTripTypeLabel(item.tripType)}
-              </span>
+              {metaChips(item).map((chip) => (
+                <span
+                  key={chip}
+                  className="rounded-full border border-[rgba(158,136,110,0.18)] bg-[rgb(255_255_255_/_0.56)] px-2.5 py-1"
+                >
+                  {chip}
+                </span>
+              ))}
             </div>
           ) : (
             <p className="mt-2 text-sm leading-6 text-[var(--ink-muted)]">

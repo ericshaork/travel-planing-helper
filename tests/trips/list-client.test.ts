@@ -70,6 +70,27 @@ describe("listSavedTrips", () => {
     );
   });
 
+  it("supports the file_import source filter in the query string", async () => {
+    const fetchImpl = vi.fn().mockResolvedValue({
+      ok: true,
+      json: vi.fn().mockResolvedValue({
+        ok: true,
+        trips: [],
+      }),
+    });
+
+    await listSavedTrips({
+      fetchImpl,
+      getAccessToken: async () => "token-123",
+      sourceType: "file_import",
+    });
+
+    expect(fetchImpl).toHaveBeenCalledWith(
+      "/api/trips?source_type=file_import",
+      expect.any(Object),
+    );
+  });
+
   it("requires login before listing trips", async () => {
     await expect(
       listSavedTrips({

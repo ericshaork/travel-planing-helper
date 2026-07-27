@@ -1,0 +1,18 @@
+{
+  "asset_id": "ca_beijing_shichahai",
+  "asset_instance_id": "ca_beijing_shichahai_poi_gallery",
+  "image_slot": "poi_gallery",
+  "source": "wikimedia",
+  "file_path": "images/files/ca_beijing_shichahai_poi_gallery.jpg",
+  "status": "completed",
+  "metadata": {
+    "source": "wikimedia",
+    "title": "File:Houhai Lake and Drum Tower Beijing 2015 October.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Houhai_Lake_and_Drum_Tower_Beijing_2015_October.jpg",
+    "license": "Wikimedia Commons; verify exact license before public commercial use",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Houhai_Lake_and_Drum_Tower_Beijing_2015_October.jpg/960px-Houhai_Lake_and_Drum_Tower_Beijing_2015_October.jpg",
+    "note": "Real Houhai/Shichahai lake and Drum Tower direction; evening mood.",
+    "generation_strategy": "real_photo_reselected",
+    "original_candidate_path": "temp/beijing_couple_v2_images/real_photo/ca_beijing_shichahai_poi_gallery_v2.jpg"
+  }
+}

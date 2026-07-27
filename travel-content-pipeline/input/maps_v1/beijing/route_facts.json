@@ -1,0 +1,62 @@
+[
+  {
+    "id": "amap:walking:B000A8UIN8->B000A7I1OL",
+    "from": "故宫博物院",
+    "to": "景山公园",
+    "mode": "walking",
+    "distance_m": 1445,
+    "duration_min": 19,
+    "source_provider": "amap",
+    "confidence": "verified"
+  },
+  {
+    "id": "amap:walking:B000A7I1OL->B000A7O5PK",
+    "from": "景山公园",
+    "to": "什刹海",
+    "mode": "walking",
+    "distance_m": 2852,
+    "duration_min": 38,
+    "source_provider": "amap",
+    "confidence": "verified"
+  },
+  {
+    "id": "amap:walking:B000A864JA->B000A858BG",
+    "from": "牛街",
+    "to": "前门",
+    "mode": "walking",
+    "distance_m": 4950,
+    "duration_min": 66,
+    "source_provider": "amap",
+    "confidence": "verified"
+  },
+  {
+    "id": "amap:walking:B000A864JA->B0FFFS33G2",
+    "from": "牛街",
+    "to": "鼓楼",
+    "mode": "walking",
+    "distance_m": 8839,
+    "duration_min": 118,
+    "source_provider": "amap",
+    "confidence": "verified"
+  },
+  {
+    "id": "amap:walking:B0FFFS33G2->B0FFFAH7I9",
+    "from": "鼓楼",
+    "to": "南锣鼓巷",
+    "mode": "walking",
+    "distance_m": 1090,
+    "duration_min": 15,
+    "source_provider": "amap",
+    "confidence": "verified"
+  },
+  {
+    "id": "amap:walking:B0FFFS33G2->B0FFFDG1X7",
+    "from": "鼓楼",
+    "to": "798艺术区",
+    "mode": "walking",
+    "distance_m": 11150,
+    "duration_min": 149,
+    "source_provider": "amap",
+    "confidence": "verified"
+  }
+]

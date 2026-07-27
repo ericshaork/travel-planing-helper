@@ -1,0 +1,30 @@
+{
+  "id": "ca_beijing_shichahai",
+  "name": "\u4ec0\u5239\u6d77",
+  "asset_type": "poi",
+  "category": ["historic_texture", "waterfront", "hutong_edge"],
+  "content_role": ["old_beijing_waterfront", "evening_walk", "historic_texture"],
+  "traveler_fit": {
+    "couple": "high",
+    "student": "medium",
+    "solo": "high"
+  },
+  "season_fit": ["spring", "summer", "autumn"],
+  "best_time": ["late_afternoon", "dusk", "evening"],
+  "experience_value": [
+    "Acts as a mood bridge from monument-heavy Beijing into a more intimate waterside and hutong rhythm.",
+    "Strong for dusk sequencing because the waterfront, bridges, and alleys support emotional closure rather than checklist coverage.",
+    "Lets solo routes observe city tempo without forcing a hard sightseeing agenda."
+  ],
+  "avoid_when": [
+    "the route needs a tightly compressed first-visit schedule with no lingering segment",
+    "winter daytime conditions weaken the waterfront payoff and make another anchor more efficient",
+    "the day already closes with a stronger evening asset and does not need a second atmospheric ending"
+  ],
+  "nearby_assets": [
+    "ca_beijing_jingshan_park",
+    "ca_beijing_gulou",
+    "ca_beijing_liangma_river"
+  ],
+  "map_asset_id": "B000A7O5PK"
+}

@@ -1,0 +1,109 @@
+{
+  "city_code": "shenzhen",
+  "city_name": "Shenzhen",
+  "region_name": "Guangdong",
+  "summary": "Shenzhen fits modern, youth-oriented city travel built around waterfront walks, creative districts, skyline views, and easy metro-led movement.",
+  "transport_notes": [
+    "Shenzhen works best when each day stays within one broad zone such as Futian, Nanshan, or OCT areas.",
+    "Metro is efficient, but plans should avoid stacking distant waterfront and inland creative stops into the same short block.",
+    "Evening pacing is strongest when centered on bay views, civic-center skylines, or walkable nightlife streets."
+  ],
+  "budget_notes": {
+    "low": "Use public waterfronts, parks, and casual food streets with metro access.",
+    "medium": "Blend one skyline or bay-area stop, one creative district, and one neighborhood dining cluster each day.",
+    "high": "Add slower comfort pacing, bay-view dining, and more polished evening experiences."
+  },
+  "trip_type_notes": {
+    "student": "Student plans in Shenzhen should feel youthful, photogenic, practical by metro, and centered on lively public spaces.",
+    "solo": "Solo plans should emphasize urban observation, flexible waterfront pacing, and contemporary city texture.",
+    "couple": "Couple plans should balance skyline atmosphere, waterfront scenes, and stylish evening movement.",
+    "family": "Family plans should favor wide public spaces, parks, and lower-friction routes with easy dining access."
+  },
+  "suggested_tags": [
+    "bay-view",
+    "creative-district",
+    "modern-city",
+    "night-view",
+    "photo-friendly",
+    "youthful-energy"
+  ],
+  "pois": [
+    {
+      "id": "poi_shenzhen_bay",
+      "name": "Shenzhen Bay Waterfront",
+      "district": "Nanshan",
+      "type": "waterfront scenic area",
+      "description": "A clean, open bayfront suited to walking, skyline views, and low-pressure city pacing.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_oct_loft",
+      "name": "OCT Loft Creative Area",
+      "district": "Nanshan",
+      "type": "creative district",
+      "description": "A contemporary culture zone with cafes, galleries, and a younger urban atmosphere.",
+      "best_for": ["student", "solo", "couple"],
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_civic_center",
+      "name": "Civic Center Skyline Axis",
+      "district": "Futian",
+      "type": "city landmark zone",
+      "description": "A broad urban axis that captures Shenzhen's modern scale and evening light well.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_lianhuashan",
+      "name": "Lianhuashan Park",
+      "district": "Futian",
+      "type": "city park",
+      "description": "A practical green break with broad city views and easier pacing for families or slower plans.",
+      "best_for": ["solo", "couple", "family"],
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_sea_world",
+      "name": "Sea World Plaza Area",
+      "district": "Nanshan",
+      "type": "evening district",
+      "description": "A polished evening-friendly zone where lights, dining, and casual waterside movement come together.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_dameisha_edge",
+      "name": "Dameisha Coast Edge",
+      "district": "Yantian",
+      "type": "coastal leisure area",
+      "description": "A softer coastal side of Shenzhen for plans wanting sea air and a more relaxed escape.",
+      "best_for": ["solo", "couple", "family"],
+      "recommended_duration_minutes": 150
+    }
+  ],
+  "food_areas": [
+    {
+      "name": "Dongmen Casual Food Streets",
+      "district": "Luohu",
+      "specialties": ["budget snacks", "youth-friendly bites", "fast-moving casual food"],
+      "best_for": ["student", "solo"],
+      "note": "Best for affordable, lively eating with strong street energy."
+    },
+    {
+      "name": "Sea World Dining Cluster",
+      "district": "Nanshan",
+      "specialties": ["waterfront dining", "shared plates", "evening dessert and cafe stops"],
+      "best_for": ["couple", "family"],
+      "note": "Best for atmosphere-driven evening meals and smoother pacing."
+    },
+    {
+      "name": "OCT Loft Cafe and Light Meal Zone",
+      "district": "Nanshan",
+      "specialties": ["cafe meals", "creative-district snacks", "light contemporary dining"],
+      "best_for": ["student", "solo", "couple"],
+      "note": "Best when the plan wants a more stylish and urban-modern break."
+    }
+  ]
+}

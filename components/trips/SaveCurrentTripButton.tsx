@@ -110,9 +110,9 @@ export function SaveCurrentTripButton({
 
   return (
     <div
-      className={`relative flex items-center gap-2 overflow-hidden rounded-full border px-2 py-1.5 ${toneClassName}`}
+      className={`relative flex items-center gap-1.5 overflow-hidden rounded-full border px-2 py-1 ${toneClassName}`}
     >
-      <div className="relative h-8 w-8 shrink-0 overflow-hidden rounded-full border border-[var(--line)] bg-[rgba(255,255,255,0.72)]">
+      <div className="relative hidden h-7 w-7 shrink-0 overflow-hidden rounded-full border border-[var(--line)] bg-[rgba(255,255,255,0.72)] xl:block">
           <Image
             src={visualMeta.imageSrc}
             alt=""
@@ -124,12 +124,12 @@ export function SaveCurrentTripButton({
       </div>
 
       <div className="min-w-0">
-        <p className="text-sm font-semibold text-[var(--ink)]">
+        <p className="text-xs font-semibold text-[var(--ink)]">
           {visualMeta.label}
         </p>
         <p
           aria-live="polite"
-          className="max-w-44 truncate text-[11px] text-[var(--ink-muted)]"
+          className="hidden max-w-36 truncate text-[10px] text-[var(--ink-muted)] 2xl:block"
           title={copy.message}
         >
           {copy.message}
@@ -140,7 +140,7 @@ export function SaveCurrentTripButton({
         type="button"
         onClick={handleSaveClick}
         disabled={isBusy}
-        className={`ml-1 inline-flex min-h-8 shrink-0 items-center justify-center rounded-full border px-3 py-1 text-sm font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-70 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)] ${buttonClassName}`}
+        className={`inline-flex min-h-8 shrink-0 items-center justify-center rounded-full border px-3 py-1 text-xs font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-70 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)] ${buttonClassName}`}
       >
         {copy.label}
       </button>

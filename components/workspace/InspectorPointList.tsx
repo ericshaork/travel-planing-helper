@@ -29,7 +29,7 @@ export function InspectorPointList({
   return (
     <section className="space-y-3">
       <div>
-        <p className="workspace-kicker">路线地点</p>
+        <p className="edit-kicker">路线地点</p>
         <h3 className="mt-1 text-base font-semibold">地点顺序</h3>
       </div>
 
@@ -45,7 +45,7 @@ export function InspectorPointList({
                 type="button"
                 onClick={() => onPointSelect?.(point.id)}
                 aria-pressed={activePointId === point.id}
-                className={`workspace-panel-soft w-full px-3 py-3 text-left transition-all duration-150 ease-out focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)] ${
+                className={`edit-gear-card w-full px-3 py-3 text-left transition-all duration-150 ease-out focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)] ${
                   activePointId === point.id
                     ? "border-[var(--ink)] bg-[var(--sand-soft)] shadow-[4px_4px_0_var(--sand-soft)]"
                     : "hover:-translate-y-0.5 hover:border-[var(--line-strong)]"

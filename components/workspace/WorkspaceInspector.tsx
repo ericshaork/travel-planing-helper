@@ -36,7 +36,7 @@ function InspectorContent({
   return (
     <div className="grid gap-4">
       {errorMessage && !isBlankWorkspace ? (
-        <p className="map-workspace-overlay px-3 py-2.5 text-sm leading-6 text-[var(--ink-muted)]">
+        <p className="map-desk-overlay px-3 py-2.5 text-sm leading-6 text-[var(--ink-muted)]">
           {errorMessage}
         </p>
       ) : null}
@@ -108,18 +108,18 @@ export function WorkspaceInspector({
   }
 
   return (
-    <details className="map-workspace-drawer overflow-hidden">
+    <details className="edit-notebook-panel overflow-hidden">
       <summary className="cursor-pointer list-none px-2 py-2.5">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
-            <p className="workspace-kicker">路线细节</p>
+            <p className="edit-kicker">路线细节</p>
             <p className="mt-1 text-sm leading-6 text-[var(--ink-muted)]">
               {insight
                 ? "路线摘要、节奏备注和地点顺序默认收在这里。"
                 : "暂时还没有完整路线摘要，但地图工作区已经可以先用起来。"}
             </p>
           </div>
-          <span className="map-workspace-chip">
+          <span className="map-desk-chip">
             {hasInsightContent ? "展开详情" : "待补充"}
           </span>
         </div>

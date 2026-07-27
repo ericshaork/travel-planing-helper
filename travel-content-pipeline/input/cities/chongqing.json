@@ -1,0 +1,109 @@
+{
+  "city_code": "chongqing",
+  "city_name": "Chongqing",
+  "region_name": "Chongqing",
+  "summary": "Chongqing is best experienced through layered hill-city movement, bold street food, river views, and dramatic night atmosphere.",
+  "transport_notes": [
+    "Chongqing routes should be kept tightly clustered because terrain and elevation make short distances feel longer.",
+    "Metro is useful, but plans should avoid too many cross-river or multi-hill jumps in one day.",
+    "Evening activities work especially well around riverfront or high-atmosphere urban districts."
+  ],
+  "budget_notes": {
+    "low": "Lean into public transit, snack streets, viewpoints, and strong street-life districts.",
+    "medium": "Mix one signature hill-city area, one food-heavy district, and one scenic evening stretch each day.",
+    "high": "Use a more comfortable pace, strong river-view dining, and fewer physically demanding transitions."
+  },
+  "trip_type_notes": {
+    "student": "Student trips in Chongqing should feel energetic, food-driven, visually dramatic, and budget conscious.",
+    "solo": "Solo plans should respect the city's vertical geography while preserving room for self-paced discovery.",
+    "couple": "Couple plans should emphasize neon night views, layered city atmosphere, and photo-heavy moments.",
+    "family": "Family plans should avoid excessive stair-heavy transitions and keep movement as simple as possible."
+  },
+  "suggested_tags": [
+    "hill-city",
+    "night-view",
+    "street-food",
+    "urban-drama",
+    "youthful-energy",
+    "riverfront"
+  ],
+  "pois": [
+    {
+      "id": "poi_hongyadong_view",
+      "name": "Hongyadong Riverside View",
+      "district": "Yuzhong",
+      "type": "riverfront landmark district",
+      "description": "A high-impact night view and urban icon that captures Chongqing's vertical energy.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_jiefangbei",
+      "name": "Jiefangbei Core Area",
+      "district": "Yuzhong",
+      "type": "urban commercial core",
+      "description": "A dense central district for first contact with Chongqing's fast-moving city life.",
+      "best_for": ["student", "solo", "couple"],
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_shibati",
+      "name": "Shibati Traditional Slope Area",
+      "district": "Yuzhong",
+      "type": "historic hill-city district",
+      "description": "A layered old Chongqing landscape of slopes, stairways, and strong neighborhood texture.",
+      "best_for": ["student", "solo", "couple"],
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_liziba_edge",
+      "name": "Liziba Rail View Area",
+      "district": "Yuzhong",
+      "type": "city-view landmark",
+      "description": "A playful, highly recognizable urban scene that suits visually driven Chongqing itineraries.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 60
+    },
+    {
+      "id": "poi_nanbin_road",
+      "name": "Nanbin Road Evening Stretch",
+      "district": "Nan'an",
+      "type": "riverfront evening district",
+      "description": "A strong evening zone for skyline views, riverside pacing, and softer city glamour.",
+      "best_for": ["solo", "couple", "family"],
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_guanyinqiao",
+      "name": "Guanyinqiao Youth District",
+      "district": "Jiangbei",
+      "type": "youthful food and shopping zone",
+      "description": "A lively district with stronger contemporary youth energy and easy student appeal.",
+      "best_for": ["student", "solo", "couple"],
+      "recommended_duration_minutes": 120
+    }
+  ],
+  "food_areas": [
+    {
+      "name": "Jiefangbei Snack Cluster",
+      "district": "Yuzhong",
+      "specialties": ["street snacks", "spicy quick eats", "dense downtown food options"],
+      "best_for": ["student", "solo", "couple"],
+      "note": "Best for high-energy city-center grazing between landmark stops."
+    },
+    {
+      "name": "Guanyinqiao Night Food Zone",
+      "district": "Jiangbei",
+      "specialties": ["late-night bites", "student-friendly local food", "busy urban snack culture"],
+      "best_for": ["student", "solo", "couple"],
+      "note": "Best for youthful, budget-aware, night-oriented food experiences."
+    },
+    {
+      "name": "Nanbin Road River-View Dining Area",
+      "district": "Nan'an",
+      "specialties": ["riverfront dining", "evening meals", "view-driven casual to polished options"],
+      "best_for": ["couple", "solo", "family"],
+      "note": "Best for plans that want Chongqing's night skyline without overpacking the route."
+    }
+  ]
+}

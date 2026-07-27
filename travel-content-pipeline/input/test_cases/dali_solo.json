@@ -1,0 +1,8 @@
+{
+  "city": "dali",
+  "days": 4,
+  "trip_type": "solo",
+  "budget": "medium",
+  "preferences": ["nature", "citywalk", "local_culture"],
+  "pace": "slow"
+}

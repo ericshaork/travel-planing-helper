@@ -1,0 +1,45 @@
+{
+  "asset_id": "ca_hangzhou_longjing_tea_fields",
+  "asset_instance_id": "ca_hangzhou_longjing_tea_fields_poi_gallery",
+  "image_slot": "poi_gallery",
+  "source": "wikimedia",
+  "file_path": "C:\\Users\\10200\\Desktop\\travel_planing\\image-pipeline\\image-pipeline\\assets\\external\\ca_hangzhou_longjing_tea_fields.jpg",
+  "status": "completed",
+  "retry_count": 0,
+  "last_error": null,
+  "download_status": "completed",
+  "fallback_available": false,
+  "selection": {
+    "selected_candidate": {
+      "source": "wikimedia",
+      "candidate_id": "",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Longjing_tea_fields_near_Hangzhou_-_panoramio.jpg"
+    },
+    "rank_score": 40,
+    "candidate_count": 3,
+    "rejected_count": 0
+  },
+  "metadata": {
+    "source_runs": [
+      {
+        "source": "wikimedia",
+        "priority": 1,
+        "candidate_count": 3,
+        "error": null
+      }
+    ],
+    "title": "File:Longjing tea fields near Hangzhou - panoramio.jpg",
+    "description": "Longjing tea fields near Hangzhou",
+    "author": "ggbaker",
+    "license": "CC BY-SA 3.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File%3ALongjing_tea_fields_near_Hangzhou_-_panoramio.jpg",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Longjing_tea_fields_near_Hangzhou_-_panoramio.jpg",
+    "width": 1824,
+    "height": 1368,
+    "mime_type": "image/jpeg",
+    "score_reasons": [
+      "location_match",
+      "license_cc_by"
+    ]
+  }
+}

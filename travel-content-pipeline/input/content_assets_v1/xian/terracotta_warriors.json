@@ -1,0 +1,118 @@
+{
+  "id": "ca_xian_terracotta_warriors",
+  "name": "Terracotta Warriors",
+  "asset_type": "place_historic_texture",
+  "category": [
+    "place",
+    "historic_texture",
+    "main_anchor"
+  ],
+  "content_role": [
+    "historic_texture",
+    "main_anchor",
+    "place",
+    "real_photo"
+  ],
+  "traveler_fit": {
+    "couple": "high",
+    "student": "medium",
+    "solo": "high",
+    "family": "high",
+    "friends": "high"
+  },
+  "season_fit": {
+    "spring": "medium",
+    "summer": "medium",
+    "autumn": "high",
+    "winter": "medium"
+  },
+  "best_time": {
+    "time_of_day": [
+      "morning",
+      "afternoon"
+    ],
+    "note": "Terracotta Warriors is intended as main_anchor with balanced pacing."
+  },
+  "experience_value": {
+    "primary": [
+      "historic_texture",
+      "main_anchor",
+      "place",
+      "terracotta warrior rows",
+      "museum pit context",
+      "real evidence photo"
+    ],
+    "summary": "Terracotta Warriors museum pit"
+  },
+  "avoid_when": [
+    "souvenir figurines",
+    "fake outdoor army scene",
+    "AI fantasy battlefield"
+  ],
+  "nearby_assets": [],
+  "map_asset_id": "poi_terracotta_warriors",
+  "bridge_metadata": {
+    "source": "city_inventory",
+    "source_inventory_id": "xian_city_inventory_v1",
+    "asset_id": "ca_xian_terracotta_warriors",
+    "asset_name": "Terracotta Warriors",
+    "asset_category": "place",
+    "asset_family": "historic_texture",
+    "route_role": "main_anchor",
+    "why_it_matters": "Terracotta Warriors museum pit",
+    "pace_hint": "balanced",
+    "priority": 4
+  },
+  "image_context": {
+    "recommended_slots": [
+      "poi_gallery"
+    ],
+    "image_usage_profile": "place",
+    "default_generation_mode": "real_photo",
+    "source_preference": "real_first",
+    "search_keywords": [
+      "Terracotta Warriors Xi'an",
+      "Emperor Qinshihuang Mausoleum Site Museum",
+      "Xi'an Terracotta Army travel photo"
+    ],
+    "visual_subject": {
+      "main_subject": "Terracotta Warriors museum pit",
+      "secondary_elements": [
+        "warrior rows",
+        "museum interior",
+        "visitor scale"
+      ]
+    },
+    "positive_cues": [
+      "terracotta warrior rows",
+      "museum pit context",
+      "real evidence photo"
+    ],
+    "negative_cues": [
+      "souvenir figurines",
+      "fake outdoor army scene",
+      "AI fantasy battlefield"
+    ]
+  },
+  "search_keywords": [
+    "Terracotta Warriors Xi'an",
+    "Emperor Qinshihuang Mausoleum Site Museum",
+    "Xi'an Terracotta Army travel photo"
+  ],
+  "review_rules": {
+    "manual_review_required": true,
+    "identity_check": [
+      "Terracotta Warriors identity is unambiguous.",
+      "Image should be a real museum/place evidence asset."
+    ],
+    "failure_examples": [
+      "souvenir closeup",
+      "digital fantasy soldiers",
+      "wrong archaeological site"
+    ]
+  },
+  "golden_reference": {
+    "package_id": "future_xian_golden",
+    "asset_instance_ids": []
+  }
+}

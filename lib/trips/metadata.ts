@@ -3,10 +3,22 @@ export const tripSourceTypeOptions = [
   "ai_generated",
   "blank_manual",
   "explore_import",
+  "file_import",
+] as const;
+export const projectLifecycleStateOptions = [
+  "new",
+  "exploring",
+  "planning",
+  "proposed",
+  "generating",
+  "workspace",
+  "editing",
+  "archived",
 ] as const;
 
 export type TripStatus = (typeof tripStatusOptions)[number];
 export type TripSourceType = (typeof tripSourceTypeOptions)[number];
+export type ProjectLifecycleState = (typeof projectLifecycleStateOptions)[number];
 
 export interface TripsListFilters {
   search?: string;
@@ -22,8 +34,20 @@ const tripStatusLabels: Record<TripStatus, string> = {
 
 const tripSourceTypeLabels: Record<TripSourceType, string> = {
   ai_generated: "AI 生成",
-  blank_manual: "空白手搓",
+  blank_manual: "空白手动",
   explore_import: "Explore 导入",
+  file_import: "文件导入",
+};
+
+const projectLifecycleLabels: Record<ProjectLifecycleState, string> = {
+  new: "新建",
+  exploring: "选来源中",
+  planning: "AI 规划中",
+  proposed: "方案已提案",
+  generating: "生成中",
+  workspace: "已进 Workspace",
+  editing: "编辑中",
+  archived: "已归档",
 };
 
 export function normalizeTripStatus(value: unknown): TripStatus {
@@ -45,6 +69,13 @@ export function getTripStatusLabel(value: unknown) {
 
 export function getTripSourceTypeLabel(value: unknown) {
   return tripSourceTypeLabels[normalizeTripSourceType(value)];
+}
+
+export function getProjectLifecycleLabel(value: unknown) {
+  return typeof value === "string" &&
+    projectLifecycleStateOptions.includes(value as ProjectLifecycleState)
+    ? projectLifecycleLabels[value as ProjectLifecycleState]
+    : projectLifecycleLabels.workspace;
 }
 
 export function buildTripsListQuery(filters?: TripsListFilters) {

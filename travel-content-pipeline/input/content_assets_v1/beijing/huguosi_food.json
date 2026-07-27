@@ -1,0 +1,29 @@
+{
+  "id": "ca_beijing_huguosi_food",
+  "name": "\u62a4\u56fd\u5bfa\u5c0f\u5403",
+  "asset_type": "poi",
+  "category": ["food_backbone", "traditional_food_cluster", "snack_street"],
+  "content_role": ["traditional_food_cluster", "breakfast_anchor"],
+  "traveler_fit": {
+    "couple": "medium",
+    "student": "high",
+    "solo": "high"
+  },
+  "season_fit": ["autumn", "winter", "spring"],
+  "best_time": ["breakfast", "late_morning"],
+  "experience_value": [
+    "Useful when the day should begin with recognizable local food rhythm rather than neutral coffee-shop utility.",
+    "Supports student and solo routes that need budget-efficient flavor memory early in the day.",
+    "Creates a route backbone through eating culture rather than through another major sightseeing headline."
+  ],
+  "avoid_when": [
+    "the route already includes a stronger breakfast or snack cluster and would become repetitive",
+    "the itinerary needs a polished romantic start rather than a practical local-food opening",
+    "the traveler has very limited appetite for snack-style or queue-prone food stops"
+  ],
+  "nearby_assets": [
+    "ca_beijing_gulou",
+    "ca_beijing_beihai_park"
+  ],
+  "map_asset_id": ""
+}

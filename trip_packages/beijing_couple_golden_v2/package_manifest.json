@@ -1,0 +1,181 @@
+{
+  "package_id": "beijing_couple_golden_v2",
+  "package_version": "trip_package_v1",
+  "generated_on": "2026-07-18T08:51:44.044Z",
+  "trip_id": "beijing_couple_golden_v2",
+  "golden_run_id": "beijing_couple_golden_v2",
+  "content_trip_id": "couple_golden_v35",
+  "image_manifest_id": "couple_golden_v35",
+  "city": {
+    "code": "beijing",
+    "name": "Beijing",
+    "region_name": "Beijing"
+  },
+  "title": "北京 3 天 · 情侣首印象路线",
+  "days": 3,
+  "source_outputs": {
+    "content_run_dir": "C:\\Users\\10200\\Desktop\\travel_planing\\travel-content-pipeline\\output\\golden_runs\\beijing_couple_v1",
+    "image_run_dir": "C:\\Users\\10200\\Desktop\\travel_planing\\output\\manifest_runs\\couple_golden_v35",
+    "explore_plan_path": "C:\\Users\\10200\\Desktop\\travel_planing\\travel-content-pipeline\\output\\golden_runs\\beijing_couple_v1\\explore_plan.json",
+    "image_manifest_path": "C:\\Users\\10200\\Desktop\\travel_planing\\travel-content-pipeline\\output\\golden_runs\\beijing_couple_v1\\image_manifest.json",
+    "generation_report_path": "C:\\Users\\10200\\Desktop\\travel_planing\\travel-content-pipeline\\output\\golden_runs\\beijing_couple_v1\\generation_report.json",
+    "pipeline_summary_path": "C:\\Users\\10200\\Desktop\\travel_planing\\output\\manifest_runs\\couple_golden_v35\\pipeline_summary.json",
+    "refinement_candidates_manifest_path": "C:\\Users\\10200\\Desktop\\travel_planing\\temp\\beijing_couple_v2_images\\v2_candidates_manifest.json"
+  },
+  "content": {
+    "explore_plan_path": "content/explore_plan.json",
+    "image_manifest_path": "content/image_manifest.json"
+  },
+  "images": {
+    "files_dir": "images/files",
+    "image_assets_dir": "images/image_assets",
+    "assets": [
+      {
+        "asset_instance_id": "ca_beijing_forbidden_city_explore_cover",
+        "asset_id": "ca_beijing_forbidden_city",
+        "asset_name": "故宫博物院",
+        "image_slot": "explore_cover",
+        "image_usage_profile": "cover",
+        "source_preference": "mixed",
+        "generation_mode": "hybrid",
+        "status": "completed",
+        "source": "ai_generated",
+        "original_file_path": "temp/beijing_couple_v2_images/covers/ca_beijing_forbidden_city_explore_cover_v2.png",
+        "packaged_file_path": "images/files/ca_beijing_forbidden_city_explore_cover.png",
+        "image_asset_path": "images/image_assets/ca_beijing_forbidden_city_explore_cover.image_asset.json",
+        "refinement": {
+          "strategy": "ai_generated_candidate_for_cover",
+          "previous_file_path": "images/files/ca_beijing_forbidden_city_explore_cover.jpg",
+          "review_verdict": "pass_candidate",
+          "note": "Replaces real-photo detail crop with watercolor editorial courtyard cover; strong travel magazine plus private journal fit."
+        }
+      },
+      {
+        "asset_instance_id": "ca_beijing_jingshan_park_explore_cover",
+        "asset_id": "ca_beijing_jingshan_park",
+        "asset_name": "景山公园",
+        "image_slot": "explore_cover",
+        "image_usage_profile": "cover",
+        "source_preference": "mixed",
+        "generation_mode": "hybrid",
+        "status": "completed",
+        "source": "ai_generated",
+        "original_file_path": "temp/beijing_couple_v2_images/covers/ca_beijing_jingshan_park_explore_cover_v2.png",
+        "packaged_file_path": "images/files/ca_beijing_jingshan_park_explore_cover.png",
+        "image_asset_path": "images/image_assets/ca_beijing_jingshan_park_explore_cover.image_asset.json",
+        "refinement": {
+          "strategy": "ai_generated_candidate_for_cover",
+          "previous_file_path": "images/files/ca_beijing_jingshan_park_explore_cover.jpg",
+          "review_verdict": "pass_candidate",
+          "note": "Shows Jingshan viewpoint over Forbidden City; fixes old gate/plaque close-up."
+        }
+      },
+      {
+        "asset_instance_id": "ca_beijing_beihai_park_explore_cover",
+        "asset_id": "ca_beijing_beihai_park",
+        "asset_name": "北海公园",
+        "image_slot": "explore_cover",
+        "image_usage_profile": "cover",
+        "source_preference": "mixed",
+        "generation_mode": "hybrid",
+        "status": "completed",
+        "source": "ai_generated",
+        "original_file_path": "temp/beijing_couple_v2_images/covers/ca_beijing_beihai_park_explore_cover_v2.png",
+        "packaged_file_path": "images/files/ca_beijing_beihai_park_explore_cover.png",
+        "image_asset_path": "images/image_assets/ca_beijing_beihai_park_explore_cover.image_asset.json",
+        "refinement": {
+          "strategy": "ai_generated_candidate_for_cover",
+          "previous_file_path": "images/files/ca_beijing_beihai_park_explore_cover.jpg",
+          "review_verdict": "pass_candidate",
+          "note": "Shows lake, White Dagoba, couple-scale slow walk; fixes old vase detail."
+        }
+      },
+      {
+        "asset_instance_id": "ca_beijing_liangma_river_day_cover",
+        "asset_id": "ca_beijing_liangma_river",
+        "asset_name": "亮马河夜景",
+        "image_slot": "day_cover",
+        "image_usage_profile": "experience",
+        "source_preference": "mixed",
+        "generation_mode": "hybrid",
+        "status": "completed",
+        "source": "ai_generated",
+        "original_file_path": "temp/beijing_couple_v2_images/covers/ca_beijing_liangma_river_day_cover_v2.png",
+        "packaged_file_path": "images/files/ca_beijing_liangma_river_day_cover.png",
+        "image_asset_path": "images/image_assets/ca_beijing_liangma_river_day_cover.image_asset.json",
+        "refinement": {
+          "strategy": "ai_generated_candidate_for_cover",
+          "previous_file_path": "images/files/ca_beijing_liangma_river_day_cover.jpg",
+          "review_verdict": "pass_candidate",
+          "note": "Blue-hour riverside lights and couple walk; fixes old daytime real-photo mismatch."
+        }
+      },
+      {
+        "asset_instance_id": "ca_beijing_jingshan_park_poi_gallery",
+        "asset_id": "ca_beijing_jingshan_park",
+        "asset_name": "景山公园",
+        "image_slot": "poi_gallery",
+        "image_usage_profile": "place",
+        "source_preference": "real_first",
+        "generation_mode": "real_photo",
+        "status": "completed",
+        "source": "wikimedia",
+        "original_file_path": "temp/beijing_couple_v2_images/real_photo/ca_beijing_jingshan_park_poi_gallery_v2.jpg",
+        "packaged_file_path": "images/files/ca_beijing_jingshan_park_poi_gallery.jpg",
+        "image_asset_path": "images/image_assets/ca_beijing_jingshan_park_poi_gallery.image_asset.json",
+        "refinement": {
+          "strategy": "real_photo_reselected",
+          "previous_file_path": "images/files/ca_beijing_jingshan_park_poi_gallery.jpg",
+          "review_verdict": "pass_candidate",
+          "note": "Real viewpoint over Forbidden City; strong place/gallery evidence."
+        }
+      },
+      {
+        "asset_instance_id": "ca_beijing_beihai_park_poi_gallery",
+        "asset_id": "ca_beijing_beihai_park",
+        "asset_name": "北海公园",
+        "image_slot": "poi_gallery",
+        "image_usage_profile": "place",
+        "source_preference": "real_first",
+        "generation_mode": "real_photo",
+        "status": "completed",
+        "source": "wikimedia",
+        "original_file_path": "temp/beijing_couple_v2_images/real_photo/ca_beijing_beihai_park_poi_gallery_v2.jpg",
+        "packaged_file_path": "images/files/ca_beijing_beihai_park_poi_gallery.jpg",
+        "image_asset_path": "images/image_assets/ca_beijing_beihai_park_poi_gallery.image_asset.json",
+        "refinement": {
+          "strategy": "real_photo_reselected",
+          "previous_file_path": "images/files/ca_beijing_beihai_park_poi_gallery.jpg",
+          "review_verdict": "pass_candidate",
+          "note": "Real White Dagoba/Jade Island view; much better place recognition than old vase detail."
+        }
+      },
+      {
+        "asset_instance_id": "ca_beijing_shichahai_poi_gallery",
+        "asset_id": "ca_beijing_shichahai",
+        "asset_name": "什刹海",
+        "image_slot": "poi_gallery",
+        "image_usage_profile": "place",
+        "source_preference": "mixed",
+        "generation_mode": "hybrid",
+        "status": "completed",
+        "source": "wikimedia",
+        "original_file_path": "temp/beijing_couple_v2_images/real_photo/ca_beijing_shichahai_poi_gallery_v2.jpg",
+        "packaged_file_path": "images/files/ca_beijing_shichahai_poi_gallery.jpg",
+        "image_asset_path": "images/image_assets/ca_beijing_shichahai_poi_gallery.image_asset.json",
+        "refinement": {
+          "strategy": "real_photo_reselected",
+          "previous_file_path": "images/files/ca_beijing_shichahai_poi_gallery.jpg",
+          "review_verdict": "pass_with_note",
+          "note": "Real Houhai/Shichahai night lake and Drum Tower direction; stronger than commercial street, though more evening mood than daytime gallery."
+        }
+      }
+    ]
+  },
+  "validation": {
+    "assembly_report_path": "validation/assembly_report.json",
+    "golden_review_path": "validation/golden_review.json",
+    "status": "passed"
+  },
+  "base_package_id": "beijing_couple_v1"
+}

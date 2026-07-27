@@ -33,20 +33,20 @@ function buildEmptyCopy({
   if (isBlankWorkspace || workspaceSourceType === "blank_manual") {
     return {
       title: "还没有地点",
-      description: "添加第一个地点后，地图会在这里开始标记行程。",
+      description: "添加第一站后，这里会开始标记路线和顺序。",
     };
   }
 
   if (hasOnlyUnresolvedPoints) {
     return {
-      title: "这一天的地点还在等确认",
-      description: "地点名或地址更明确之后，地图会继续把它们补上。",
+      title: "地点还在等待确认",
+      description: "等名称或地址更明确一点，地图会继续补上定位。",
     };
   }
 
   return {
-    title: "这一天暂时还没有可显示的地点",
-    description: "等左侧行程补出地点后，这里会自动同步 marker 和顺序。",
+    title: "这一天还没有可显示的地点",
+    description: "左侧补出地点后，这里会同步 marker 和顺序。",
   };
 }
 
@@ -119,9 +119,9 @@ export function InspectorMapPreview({
       />
 
       {errorMessage && !isBlankWorkspace ? (
-        <div className="pointer-events-none absolute left-4 bottom-4 z-[2]">
+        <div className="pointer-events-none absolute bottom-4 left-4 z-[2]">
           <span className="map-workspace-chip">
-            地图补充信息暂时不完整，但当前点位仍可查看。
+            地图补充信息暂时不完整，但当前点位仍然可以查看。
           </span>
         </div>
       ) : null}

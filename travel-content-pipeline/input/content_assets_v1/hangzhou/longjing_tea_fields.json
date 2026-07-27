@@ -1,0 +1,30 @@
+{
+  "id": "ca_hangzhou_longjing_tea_fields",
+  "name": "Longjing Tea Fields",
+  "asset_type": "tea_landscape",
+  "category": "tea_hill",
+  "content_role": ["slow_solo", "historic_texture", "local_culture"],
+  "traveler_fit": {
+    "couple": "high",
+    "student": "medium",
+    "solo": "high",
+    "family": "medium"
+  },
+  "season_fit": {
+    "spring": "high",
+    "summer": "medium",
+    "autumn": "medium",
+    "winter": "low"
+  },
+  "best_time": {
+    "time_of_day": ["late_morning", "afternoon"],
+    "note": "Best when the day wants green quiet, tea scent, and a slower pause."
+  },
+  "experience_value": {
+    "primary": ["tea_culture", "quiet_hills", "slow_pause", "local_texture"],
+    "summary": "A tea-hill experience anchor that gives Hangzhou more than lake scenery."
+  },
+  "avoid_when": ["very_tight_schedule", "heavy_rain"],
+  "nearby_assets": ["ca_hangzhou_lingyin_temple"],
+  "map_asset_id": "poi_longjing_area"
+}

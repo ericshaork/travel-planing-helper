@@ -1,0 +1,30 @@
+{
+  "id": "ca_chengdu_wangping_street",
+  "name": "Wangping Street Riverside",
+  "asset_type": "riverwalk_district",
+  "category": "modern_city_mood",
+  "content_role": ["modern_contrast", "evening_closure", "slow_solo"],
+  "traveler_fit": {
+    "couple": "high",
+    "student": "medium",
+    "solo": "medium",
+    "family": "low"
+  },
+  "season_fit": {
+    "spring": "high",
+    "summer": "medium",
+    "autumn": "high",
+    "winter": "medium"
+  },
+  "best_time": {
+    "time_of_day": ["afternoon", "evening"],
+    "note": "Good for contemporary Chengdu contrast and a softer riverside ending."
+  },
+  "experience_value": {
+    "primary": ["modern_contrast", "riverwalk", "cafe_street", "couple_pause"],
+    "summary": "A modern but relaxed Chengdu layer after old alleys and food stops."
+  },
+  "avoid_when": ["all_heritage_route"],
+  "nearby_assets": ["ca_chengdu_hotpot_table"],
+  "map_asset_id": "poi_wangpingfang"
+}

@@ -1,0 +1,739 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://travel-content-pipeline.local/schemas/explore_plan_schema_v31.json",
+  "title": "Travel Content Pipeline Explore Plan Schema v3.1",
+  "description": "Product-grade Explore travel plan schema for premium, save-worthy, executable route outputs.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "plan_meta",
+    "hero",
+    "pre_trip",
+    "day_overview",
+    "daily_route_details",
+    "route_design_reasoning",
+    "experience_tips",
+    "poi_reference",
+    "food_reference",
+    "operational_notes",
+    "fallback_options"
+  ],
+  "properties": {
+    "plan_meta": {
+      "$ref": "#/$defs/planMeta"
+    },
+    "hero": {
+      "$ref": "#/$defs/hero"
+    },
+    "pre_trip": {
+      "$ref": "#/$defs/preTrip"
+    },
+    "day_overview": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/dayOverviewItem"
+      }
+    },
+    "daily_route_details": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/dailyRouteDetail"
+      }
+    },
+    "route_design_reasoning": {
+      "$ref": "#/$defs/routeDesignReasoning"
+    },
+    "experience_tips": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/experienceTip"
+      }
+    },
+    "poi_reference": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/poiReference"
+      }
+    },
+    "food_reference": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/foodReference"
+      }
+    },
+    "operational_notes": {
+      "$ref": "#/$defs/operationalNotes"
+    },
+    "fallback_options": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/fallbackOption"
+      }
+    }
+  },
+  "$defs": {
+    "cityRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "code",
+        "name",
+        "region_name"
+      ],
+      "properties": {
+        "code": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "region_name": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "planMeta": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "slug",
+        "title",
+        "city",
+        "trip_type",
+        "days",
+        "pace",
+        "budget_level",
+        "tags"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "slug": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "city": {
+          "$ref": "#/$defs/cityRef"
+        },
+        "trip_type": {
+          "type": "string",
+          "enum": [
+            "family",
+            "couple",
+            "student",
+            "solo"
+          ]
+        },
+        "days": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 14
+        },
+        "pace": {
+          "type": "string",
+          "enum": [
+            "slow",
+            "balanced",
+            "dense"
+          ]
+        },
+        "budget_level": {
+          "type": "string",
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "tags": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "hero": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "title",
+        "summary",
+        "route_signature",
+        "quick_facts",
+        "highlights"
+      ],
+      "properties": {
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 1
+        },
+        "route_signature": {
+          "type": "string",
+          "minLength": 1
+        },
+        "quick_facts": {
+          "$ref": "#/$defs/quickFacts"
+        },
+        "highlights": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "quickFacts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "days",
+        "traveler_type",
+        "pace",
+        "budget_level",
+        "best_season_or_timing",
+        "walking_intensity"
+      ],
+      "properties": {
+        "days": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 14
+        },
+        "traveler_type": {
+          "type": "string",
+          "enum": [
+            "family",
+            "couple",
+            "student",
+            "solo"
+          ]
+        },
+        "pace": {
+          "type": "string",
+          "minLength": 1
+        },
+        "budget_level": {
+          "type": "string",
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "best_season_or_timing": {
+          "type": "string",
+          "minLength": 1
+        },
+        "walking_intensity": {
+          "type": "string",
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
+        }
+      }
+    },
+    "preTrip": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "best_start_time",
+        "booking_checklist",
+        "transport_setup",
+        "what_to_wear_or_prepare",
+        "budget_expectation",
+        "day_zero_advice"
+      ],
+      "properties": {
+        "best_start_time": {
+          "type": "string",
+          "minLength": 1
+        },
+        "booking_checklist": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "transport_setup": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "what_to_wear_or_prepare": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "budget_expectation": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "day_zero_advice": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "dayOverviewItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "day",
+        "theme",
+        "summary",
+        "districts",
+        "energy_level"
+      ],
+      "properties": {
+        "day": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "theme": {
+          "type": "string",
+          "minLength": 1
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 1
+        },
+        "districts": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "energy_level": {
+          "type": "string",
+          "enum": [
+            "light",
+            "medium",
+            "heavy"
+          ]
+        }
+      }
+    },
+    "dailyRouteDetail": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "day",
+        "theme",
+        "why_today_matters",
+        "route_summary",
+        "timeline",
+        "district_flow",
+        "meal_plan",
+        "energy_notes",
+        "backup_options"
+      ],
+      "properties": {
+        "day": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "theme": {
+          "type": "string",
+          "minLength": 1
+        },
+        "why_today_matters": {
+          "type": "string",
+          "minLength": 1
+        },
+        "route_summary": {
+          "type": "string",
+          "minLength": 1
+        },
+        "timeline": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/timelineSegment"
+          }
+        },
+        "district_flow": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "meal_plan": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/mealPlanItem"
+          }
+        },
+        "energy_notes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "backup_options": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/fallbackOption"
+          }
+        }
+      }
+    },
+    "timelineSegment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "time_range",
+        "location",
+        "activity",
+        "stay_duration_minutes",
+        "transport_to_next",
+        "why_this_slot"
+      ],
+      "properties": {
+        "time_range": {
+          "type": "string",
+          "minLength": 1
+        },
+        "location": {
+          "type": "string",
+          "minLength": 1
+        },
+        "activity": {
+          "type": "string",
+          "minLength": 1
+        },
+        "stay_duration_minutes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "transport_to_next": {
+          "type": "string",
+          "minLength": 1
+        },
+        "why_this_slot": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "mealPlanItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "meal_moment",
+        "location",
+        "meal_role",
+        "why_here"
+      ],
+      "properties": {
+        "meal_moment": {
+          "type": "string",
+          "minLength": 1
+        },
+        "location": {
+          "type": "string",
+          "minLength": 1
+        },
+        "meal_role": {
+          "type": "string",
+          "minLength": 1
+        },
+        "why_here": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "routeDesignReasoning": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "why_this_route",
+        "why_this_order",
+        "why_these_districts",
+        "why_it_fits_this_traveler"
+      ],
+      "properties": {
+        "why_this_route": {
+          "type": "string",
+          "minLength": 1
+        },
+        "why_this_order": {
+          "type": "string",
+          "minLength": 1
+        },
+        "why_these_districts": {
+          "type": "string",
+          "minLength": 1
+        },
+        "why_it_fits_this_traveler": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "experienceTip": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "tip"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "tip": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "poiReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name",
+        "district",
+        "reason",
+        "recommended_duration_minutes"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "district": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        },
+        "recommended_duration_minutes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "budget_level": {
+          "type": "string",
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "reservation_requirement": {
+          "type": "string",
+          "minLength": 1
+        },
+        "transport_mode": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "walking_intensity": {
+          "type": "string",
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "queue_risk": {
+          "type": "string",
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "extreme_in_peak_season"
+          ]
+        }
+      }
+    },
+    "foodReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name",
+        "district",
+        "recommended_foods",
+        "best_for",
+        "budget",
+        "dining_scenarios"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "district": {
+          "type": "string",
+          "minLength": 1
+        },
+        "recommended_foods": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "best_for": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "budget": {
+          "type": "string",
+          "minLength": 1
+        },
+        "dining_scenarios": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "meal_moments": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "route_roles": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "operationalNotes": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "booking_required",
+        "queue_risk_notes",
+        "transport_notes",
+        "walking_notes",
+        "weather_notes"
+      ],
+      "properties": {
+        "booking_required": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "queue_risk_notes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "transport_notes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "walking_notes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "weather_notes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "fallbackOption": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "scenario",
+        "adjustment"
+      ],
+      "properties": {
+        "scenario": {
+          "type": "string",
+          "minLength": 1
+        },
+        "adjustment": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}

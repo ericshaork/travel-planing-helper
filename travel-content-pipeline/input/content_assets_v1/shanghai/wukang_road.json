@@ -1,0 +1,122 @@
+{
+  "id": "ca_shanghai_wukang_road",
+  "name": "Wukang Road",
+  "asset_type": "place_historic_texture",
+  "category": [
+    "place",
+    "historic_texture",
+    "supporting_stop"
+  ],
+  "content_role": [
+    "historic_texture",
+    "supporting_stop",
+    "place",
+    "real_photo"
+  ],
+  "traveler_fit": {
+    "couple": "high",
+    "student": "medium",
+    "solo": "high",
+    "family": "none",
+    "friends": "high"
+  },
+  "season_fit": {
+    "spring": "medium",
+    "summer": "medium",
+    "autumn": "high",
+    "winter": "medium"
+  },
+  "best_time": {
+    "time_of_day": [
+      "morning",
+      "afternoon"
+    ],
+    "note": "Wukang Road is intended as supporting_stop with slow pacing."
+  },
+  "experience_value": {
+    "primary": [
+      "historic_texture",
+      "supporting_stop",
+      "place",
+      "plane-tree canopy",
+      "historic apartment facades",
+      "Shanghai street scale",
+      "quiet walking texture"
+    ],
+    "summary": "plane-tree historic street texture"
+  },
+  "avoid_when": [
+    "generic European street",
+    "no Shanghai identity",
+    "luxury mall frontage"
+  ],
+  "nearby_assets": [],
+  "map_asset_id": "poi_wukang_road",
+  "bridge_metadata": {
+    "source": "city_inventory",
+    "source_inventory_id": "shanghai_city_inventory_v1",
+    "asset_id": "ca_shanghai_wukang_road",
+    "asset_name": "Wukang Road",
+    "asset_category": "place",
+    "asset_family": "historic_texture",
+    "route_role": "supporting_stop",
+    "why_it_matters": "plane-tree historic street texture",
+    "pace_hint": "slow",
+    "priority": 4
+  },
+  "image_context": {
+    "recommended_slots": [
+      "poi_gallery"
+    ],
+    "image_usage_profile": "place",
+    "default_generation_mode": "real_photo",
+    "source_preference": "real_first",
+    "search_keywords": [
+      "Wukang Road Shanghai",
+      "Shanghai Wukang Road plane trees",
+      "Former French Concession Shanghai street",
+      "Wukang Mansion Shanghai"
+    ],
+    "visual_subject": {
+      "main_subject": "plane-tree historic street texture",
+      "secondary_elements": [
+        "old apartments",
+        "sidewalk cafes",
+        "walking visitors"
+      ]
+    },
+    "positive_cues": [
+      "plane-tree canopy",
+      "historic apartment facades",
+      "Shanghai street scale",
+      "quiet walking texture"
+    ],
+    "negative_cues": [
+      "generic European street",
+      "no Shanghai identity",
+      "luxury mall frontage"
+    ]
+  },
+  "search_keywords": [
+    "Wukang Road Shanghai",
+    "Shanghai Wukang Road plane trees",
+    "Former French Concession Shanghai street",
+    "Wukang Mansion Shanghai"
+  ],
+  "review_rules": {
+    "manual_review_required": true,
+    "identity_check": [
+      "Historic Shanghai street texture is evident.",
+      "Image should support a slow walk route."
+    ],
+    "failure_examples": [
+      "generic cafe street",
+      "overseas-looking boulevard",
+      "building interior"
+    ]
+  },
+  "golden_reference": {
+    "package_id": "future_shanghai_golden",
+    "asset_instance_ids": []
+  }
+}

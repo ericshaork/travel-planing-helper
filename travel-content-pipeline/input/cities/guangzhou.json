@@ -1,0 +1,109 @@
+{
+  "city_code": "guangzhou",
+  "city_name": "Guangzhou",
+  "region_name": "Guangdong",
+  "summary": "Guangzhou suits food-led urban travel built around Lingnan street life, early-to-late dining culture, riverside evenings, and practical district-based routing.",
+  "transport_notes": [
+    "Metro plus short walks works well for central Guangzhou, especially when plans stay within one historic or riverside zone per half day.",
+    "Old-city areas are best paired with nearby food streets instead of cross-city landmark hopping.",
+    "Evening plans work best around the Pearl River, Tianhe nightlife pockets, or classic old-neighborhood dining zones."
+  ],
+  "budget_notes": {
+    "low": "Focus on street food, old-city walks, and metro-friendly neighborhoods with dense eating options.",
+    "medium": "Combine one heritage district, one signature food zone, and one softer riverside or market-area stop each day.",
+    "high": "Add more refined Cantonese dining, slower riverside pacing, and comfort-oriented transitions between districts."
+  },
+  "trip_type_notes": {
+    "student": "Student plans in Guangzhou should emphasize affordable local eats, lively neighborhoods, and easy transit execution.",
+    "solo": "Solo plans should feel grounded in local street rhythm, market life, and flexible neighborhood wandering.",
+    "couple": "Couple plans should balance Lingnan heritage, atmospheric dining, and soft riverfront evening scenes.",
+    "family": "Family plans should avoid excessive transfers and favor calmer heritage streets, parks, and easy dining stops."
+  },
+  "suggested_tags": [
+    "cantonese-food",
+    "lingnan-culture",
+    "old-street",
+    "riverside-evening",
+    "citywalk",
+    "local-life"
+  ],
+  "pois": [
+    {
+      "id": "poi_yongqingfang",
+      "name": "Yongqingfang",
+      "district": "Liwan",
+      "type": "historic district",
+      "description": "A Lingnan-style old district with arcade buildings, walkable lanes, and an accessible introduction to old Guangzhou.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_shamian",
+      "name": "Shamian Island",
+      "district": "Liwan",
+      "type": "historic island district",
+      "description": "A calmer walking area known for leafy streets, heritage facades, and gentler pacing.",
+      "best_for": ["solo", "couple", "family"],
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_beijing_road",
+      "name": "Beijing Road",
+      "district": "Yuexiu",
+      "type": "commercial street",
+      "description": "A practical city-core stop mixing shopping, visible history layers, and easy food access.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_canton_tower_riverfront",
+      "name": "Canton Tower Riverfront Edge",
+      "district": "Haizhu",
+      "type": "riverfront landmark zone",
+      "description": "A modern riverside setting suited to evening light, skyline views, and polished city atmosphere.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_chen_clan",
+      "name": "Chen Clan Ancestral Hall Area",
+      "district": "Liwan",
+      "type": "cultural landmark",
+      "description": "A strong heritage anchor for plans that want architecture, craft detail, and a recognizable Lingnan culture stop.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_zhujiang_night_walk",
+      "name": "Pearl River Evening Walk",
+      "district": "Tianhe",
+      "type": "evening waterfront district",
+      "description": "A smooth evening add-on where skyline lights and river air create a softer urban finish.",
+      "best_for": ["student", "solo", "couple"],
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food_areas": [
+    {
+      "name": "Xihua Road Food Stretch",
+      "district": "Yuexiu",
+      "specialties": ["Cantonese street snacks", "old-school noodles", "budget-friendly local eats"],
+      "best_for": ["student", "solo"],
+      "note": "Best for affordable neighborhood food with a strong everyday Guangzhou feel."
+    },
+    {
+      "name": "Yongqingfang and Liwan Food Pockets",
+      "district": "Liwan",
+      "specialties": ["Lingnan snacks", "tea-house style bites", "classic Cantonese dishes"],
+      "best_for": ["student", "solo", "couple", "family"],
+      "note": "Best when paired with old-city walking and slower heritage-oriented pacing."
+    },
+    {
+      "name": "Pearl River Dining Zone",
+      "district": "Haizhu",
+      "specialties": ["river-view dining", "shared Cantonese meals", "evening dessert stops"],
+      "best_for": ["couple", "family"],
+      "note": "Best for more polished evening meals and a softer skyline-led mood."
+    }
+  ]
+}

@@ -65,10 +65,19 @@ function buildGuide(activity: ExploreTripDailyActivity) {
 function toItineraryItem(
   activity: ExploreTripDailyActivity,
   day: ExploreTripDayContent,
+  resolvePoiName: (id: string | undefined) => string | undefined,
+  resolveFoodName: (id: string | undefined) => string | undefined,
 ): ItineraryItem {
+  const primaryPlaceName =
+    resolvePoiName(activity.poiRefs[0]) ??
+    resolveFoodName(activity.foodRefs[0]) ??
+    activity.poiRefs[0] ??
+    activity.foodRefs[0] ??
+    `${day.title} 停留点`;
+
   return {
     timeLabel: activity.timeBlock,
-    placeName: activity.poiRefs[0] ?? activity.foodRefs[0] ?? `${day.title} 停留点`,
+    placeName: primaryPlaceName,
     type: inferItemType(activity),
     reason: activity.description,
     guide: buildGuide(activity),
@@ -76,7 +85,23 @@ function toItineraryItem(
   };
 }
 
-function buildDailyPlan(day: ExploreTripDayContent) {
+function createNameResolver(items: Array<{ id: string; name: string }>) {
+  const byId = new Map(items.map((item) => [item.id, item.name]));
+
+  return (id: string | undefined) => {
+    if (!id) {
+      return undefined;
+    }
+
+    return byId.get(id);
+  };
+}
+
+function buildDailyPlan(
+  day: ExploreTripDayContent,
+  resolvePoiName: (id: string | undefined) => string | undefined,
+  resolveFoodName: (id: string | undefined) => string | undefined,
+) {
   const nextDay = {
     day: day.dayNumber,
     theme: day.title,
@@ -89,7 +114,7 @@ function buildDailyPlan(day: ExploreTripDayContent) {
   };
 
   for (const activity of day.activities) {
-    const item = toItineraryItem(activity, day);
+    const item = toItineraryItem(activity, day, resolvePoiName, resolveFoodName);
     const slot = inferSlot(activity.timeBlock);
     nextDay[slot].push(item);
 
@@ -117,6 +142,9 @@ function buildTripRequestDraft(content: ExploreTripContent): TripRequestDraft {
 }
 
 function buildTripPlanSeed(content: ExploreTripContent): TripPlan {
+  const resolvePoiName = createNameResolver(content.pois);
+  const resolveFoodName = createNameResolver(content.food);
+
   return {
     tripTitle: content.title,
     summary: content.summary,
@@ -148,11 +176,21 @@ function buildTripPlanSeed(content: ExploreTripContent): TripPlan {
     hotelAreaAdvice: [],
     transportAdvice: {
       summary: "导入为个人计划后，可以再补具体交通建议。",
-      options: [],
+      options: [
+        {
+          mode: "other",
+          pros: ["Keeps the Explore draft lightweight."],
+          cons: ["Transport details still need to be refined for actual travel dates."],
+          recommendation:
+            "Choose the final transport mode after confirming departure city, dates, and the day's pace.",
+        },
+      ],
       suggestedPlatforms: [],
       note: "Explore 档案只保留灵感层信息。",
     },
-    dailyItinerary: content.dailyItinerary.map(buildDailyPlan),
+    dailyItinerary: content.dailyItinerary.map((day) =>
+      buildDailyPlan(day, resolvePoiName, resolveFoodName),
+    ),
     generalTips: [...content.highlights],
     warnings: [
       "这份草稿来自 Explore 公共档案，正式出行前请按自己的日期、预算和节奏调整。",

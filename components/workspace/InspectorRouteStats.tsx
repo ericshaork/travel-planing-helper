@@ -17,8 +17,8 @@ function StatCard({
   value: string | number;
 }) {
   return (
-    <div className="workspace-panel-soft px-3 py-3">
-      <p className="workspace-kicker">{label}</p>
+    <div className="edit-gear-card px-3 py-3">
+      <p className="edit-kicker">{label}</p>
       <p className="mt-1 text-base font-semibold">{value}</p>
     </div>
   );
@@ -30,7 +30,7 @@ export function InspectorRouteStats({ insight }: InspectorRouteStatsProps) {
   return (
     <section className="space-y-3">
       <div>
-        <p className="workspace-kicker">路线摘要</p>
+        <p className="edit-kicker">路线摘要</p>
         <h3 className="mt-1 text-base font-semibold">路线摘要</h3>
       </div>
 

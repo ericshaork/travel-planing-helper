@@ -6,6 +6,9 @@ const { validateImageCandidate } = require("../validation/image_validator");
 const { rankPhotos } = require("../ranking/photo_ranker");
 const { routePhotoSources } = require("../photo_source/photo_source_router");
 const { createPhotoSourceAdapter } = require("../photo_source/adapters");
+const { createProvider } = require("../providers");
+const { buildAiGeneratedPromptSpecFromTask } = require("../generation/build_ai_generated_prompt_spec_from_task");
+const { executeHybridTask: executeHybridTaskV1 } = require("./hybrid_executor");
 
 function buildMockFilePath(task) {
   const assetKey = task.asset_instance_id || task.asset_id;
@@ -40,6 +43,44 @@ function buildFailedRealPhotoAsset(task, reason, selection, metadata) {
     selection,
     metadata
   };
+}
+
+function buildFailedAiGeneratedAsset(task, reason, metadata) {
+  return {
+    asset_id: task.asset_id,
+    asset_instance_id: task.asset_instance_id,
+    image_slot: task.image_slot,
+    source: "ai_generated",
+    file_path: "",
+    status: "failed",
+    reason,
+    metadata
+  };
+}
+
+function pickFirstGeneratedJob(providerJobResult) {
+  const jobResults = Array.isArray(providerJobResult && providerJobResult.job_results)
+    ? providerJobResult.job_results
+    : [];
+
+  return jobResults[0] || null;
+}
+
+function pickFirstGeneratedFile(jobResult) {
+  const files = Array.isArray(jobResult && jobResult.files) ? jobResult.files : [];
+
+  return files[0] || null;
+}
+
+function pickFirstGeneratedError(jobResult) {
+  if (jobResult && jobResult.error) {
+    return jobResult.error;
+  }
+
+  const variants = Array.isArray(jobResult && jobResult.variants) ? jobResult.variants : [];
+  const failedVariant = variants.find((variant) => variant && variant.error);
+
+  return failedVariant ? failedVariant.error : undefined;
 }
 
 function normalizeDownloadResult(downloadResult) {
@@ -257,15 +298,66 @@ async function executeRealPhotoTask(task, taskState) {
 }
 
 async function executeAiGeneratedTask(task, taskState) {
-  transitionTaskStatus(taskState, "completed", "AI-generated executor placeholder completed.");
+  try {
+    const normalizedPromptSpec = buildAiGeneratedPromptSpecFromTask(task);
+    const provider = createProvider("seedream", {
+      outputDir: task.metadata && task.metadata.generated_output_dir
+    });
+    const providerJobResult = await provider.generate(normalizedPromptSpec);
+    const jobResult = pickFirstGeneratedJob(providerJobResult);
+    const generatedFile = pickFirstGeneratedFile(jobResult);
 
-  return buildImageAsset(task, taskState, "ai_generated");
+    if (!jobResult || jobResult.status !== "completed" || !generatedFile || !generatedFile.storage_ref) {
+      transitionTaskStatus(taskState, "failed", "Seedream did not return a completed generated image file.");
+
+      return buildFailedAiGeneratedAsset(
+        task,
+        "ai_generation_failed",
+        {
+          provider_id: providerJobResult && providerJobResult.provider_id,
+          model_id: providerJobResult && providerJobResult.model_id,
+          provider_job_id: jobResult && jobResult.provider_job_id,
+          prompt: jobResult && jobResult.parameters && jobResult.parameters.prompt,
+          provider_status: jobResult && jobResult.status,
+          error: pickFirstGeneratedError(jobResult)
+        }
+      );
+    }
+
+    transitionTaskStatus(taskState, "completed", "AI-generated image completed through Seedream provider.");
+
+    return {
+      asset_id: task.asset_id,
+      asset_instance_id: task.asset_instance_id,
+      image_slot: task.image_slot,
+      source: "ai_generated",
+      file_path: generatedFile.storage_ref,
+      status: taskState.status,
+      metadata: {
+        provider_id: providerJobResult.provider_id,
+        model_id: providerJobResult.model_id,
+        provider_job_id: jobResult.provider_job_id,
+        prompt: jobResult.parameters && jobResult.parameters.prompt
+      }
+    };
+  } catch (error) {
+    transitionTaskStatus(taskState, "failed", error.message || "AI-generated executor failed.");
+
+    return buildFailedAiGeneratedAsset(
+      task,
+      "ai_generated_executor_error",
+      {
+        error: error.message || String(error)
+      }
+    );
+  }
 }
 
 async function executeHybridTask(task, taskState) {
-  transitionTaskStatus(taskState, "completed", "Hybrid executor placeholder completed.");
-
-  return buildImageAsset(task, taskState, "hybrid");
+  return executeHybridTaskV1(task, taskState, {
+    executeRealPhotoTask,
+    executeAiGeneratedTask
+  });
 }
 
 function resolveExecutor(mode) {

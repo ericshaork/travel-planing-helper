@@ -1,0 +1,29 @@
+{
+  "id": "ca_beijing_liangma_river",
+  "name": "\u4eae\u9a6c\u6cb3\u591c\u666f",
+  "asset_type": "poi",
+  "category": ["couple_closure", "evening_asset", "modern_contrast"],
+  "content_role": ["evening_closure", "modern_city_mood"],
+  "traveler_fit": {
+    "couple": "high",
+    "student": "medium",
+    "solo": "medium"
+  },
+  "season_fit": ["spring", "summer", "autumn"],
+  "best_time": ["dusk", "evening", "night"],
+  "experience_value": [
+    "Gives couple routes a modern Beijing closure that feels composed, illuminated, and emotionally distinct from hutong nostalgia.",
+    "Useful when the itinerary needs a final-night mood asset rather than another daytime cultural anchor.",
+    "Adds contemporary city atmosphere without forcing the route into a full nightlife or shopping story."
+  ],
+  "avoid_when": [
+    "the route is intentionally focused on old Beijing texture and should not end in a modern-city register",
+    "winter weather weakens the waterside evening payoff too much",
+    "the day already ends with a strong historic waterfront closure and would duplicate emotional function"
+  ],
+  "nearby_assets": [
+    "ca_beijing_shichahai",
+    "ca_beijing_art_798_art_district"
+  ],
+  "map_asset_id": ""
+}

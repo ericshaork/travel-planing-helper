@@ -1,0 +1,29 @@
+{
+  "id": "ca_beijing_beihai_park",
+  "name": "\u5317\u6d77\u516c\u56ed",
+  "asset_type": "poi",
+  "category": ["signature_anchor", "royal_garden", "water_adjacent_park"],
+  "content_role": ["royal_garden", "slow_pace_anchor"],
+  "traveler_fit": {
+    "couple": "high",
+    "student": "medium",
+    "solo": "high"
+  },
+  "season_fit": ["spring", "summer", "autumn"],
+  "best_time": ["morning", "afternoon"],
+  "experience_value": [
+    "Softens imperial Beijing by replacing hard monument rhythm with garden-and-water breathing space.",
+    "Useful when the route needs recovery after major landmarks without losing historical tone.",
+    "Creates a more graceful pacing option for couple and solo itineraries than another packed attraction."
+  ],
+  "avoid_when": [
+    "the itinerary already has too many large park segments and needs street texture instead",
+    "the traveler wants a highly budget-compressed day with minimal ticketed stops",
+    "winter weather makes water-and-garden value too weak relative to indoor or food-led alternatives"
+  ],
+  "nearby_assets": [
+    "ca_beijing_jingshan_park",
+    "ca_beijing_shichahai"
+  ],
+  "map_asset_id": ""
+}

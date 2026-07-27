@@ -4,23 +4,46 @@ import Link from "next/link";
 import type { MouseEvent } from "react";
 import { useEffect, useState } from "react";
 
+import {
+  cleanDisplayText,
+  formatDaysText,
+  formatTripTypeLabel,
+} from "@/lib/explore/archive-display";
 import { fetchExploreList } from "@/lib/explore/client";
-import type { ExploreTripListItem } from "@/lib/explore/types";
+import { displayCityName } from "@/lib/explore/display-city";
 import { getFeaturedImageCandidates } from "@/lib/explore/image-resolver";
+import type { ExploreTripListItem } from "@/lib/explore/types";
 
+import { ExploreCard } from "./ExploreCard";
 import { ResolvedImage } from "./ResolvedImage";
 
 interface FeaturedSectionProps {
   onOpenArchive?: (archiveId: string) => void;
+  onCreateFromArchive?: (archiveId: string) => void | Promise<void>;
 }
 
-export function FeaturedSection({ onOpenArchive }: FeaturedSectionProps) {
+function visibleTags(item: ExploreTripListItem) {
+  return [...(item.highlights ?? []), ...(item.tags ?? [])]
+    .map((tag) => cleanDisplayText(tag))
+    .filter(Boolean)
+    .slice(0, 5);
+}
+
+export function FeaturedSection({
+  onOpenArchive,
+  onCreateFromArchive,
+}: FeaturedSectionProps) {
   const [archiveWallCards, setArchiveWallCards] = useState<ExploreTripListItem[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [errorText, setErrorText] = useState("");
 
   useEffect(() => {
     let active = true;
 
     async function load() {
+      setLoading(true);
+      setErrorText("");
+
       try {
         const items = await fetchExploreList({
           featured: true,
@@ -33,6 +56,11 @@ export function FeaturedSection({ onOpenArchive }: FeaturedSectionProps) {
       } catch {
         if (active) {
           setArchiveWallCards([]);
+          setErrorText("这批旅行档案刚刚没读出来，先别急，刷新后会再试一次。");
+        }
+      } finally {
+        if (active) {
+          setLoading(false);
         }
       }
     }
@@ -45,6 +73,7 @@ export function FeaturedSection({ onOpenArchive }: FeaturedSectionProps) {
   }, []);
 
   const [heroCard, ...gridCards] = archiveWallCards;
+  const heroCityName = heroCard ? displayCityName(heroCard.city, heroCard.cityCode) : "";
 
   function handleOpenArchive(
     event: MouseEvent<HTMLAnchorElement>,
@@ -58,8 +87,42 @@ export function FeaturedSection({ onOpenArchive }: FeaturedSectionProps) {
     onOpenArchive(archiveId);
   }
 
+  function handleCreateFromArchive(
+    event: MouseEvent<HTMLAnchorElement>,
+    archiveId: string,
+  ) {
+    if (!onCreateFromArchive) {
+      handleOpenArchive(event, archiveId);
+      return;
+    }
+
+    event.preventDefault();
+    void onCreateFromArchive(archiveId);
+  }
+
+  if (loading) {
+    return (
+      <section className="workspace-panel px-4 py-5 sm:px-5">
+        <p className="workspace-kicker">精选档案</p>
+        <p className="mt-2 text-sm leading-6 text-[var(--ink-muted)]">
+          正在翻开五座城市的旅行档案...
+        </p>
+      </section>
+    );
+  }
+
   if (!heroCard) {
-    return null;
+    return (
+      <section className="workspace-panel px-4 py-5 sm:px-5">
+        <p className="workspace-kicker">精选档案</p>
+        <h2 className="mt-2 text-lg font-semibold text-[var(--ink)]">
+          暂时没有可展示的旅行档案
+        </h2>
+        <p className="mt-2 text-sm leading-6 text-[var(--ink-muted)]">
+          {errorText || "如果 Trip Package 暂时不可用，Explore 会继续保留旧档案作为兜底。"}
+        </p>
+      </section>
+    );
   }
 
   return (
@@ -68,50 +131,70 @@ export function FeaturedSection({ onOpenArchive }: FeaturedSectionProps) {
         <div className="max-w-2xl">
           <p className="workspace-kicker">精选档案</p>
           <h2 className="mt-2 text-2xl font-semibold tracking-[-0.04em] text-[var(--ink)] sm:text-[2rem]">
-            先翻开一张封面，再继续往下逛
+            先翻开五座城市的旅行手帐
           </h2>
           <p className="mt-2 text-sm leading-6 text-[var(--ink-muted)]">
-            这一组档案会把不同城市的旅行节奏铺开。现在优先展示 v1.8 标准化档案库里的中国内容。
+            北京、杭州、成都、上海和西安已经接入 Trip Package。先看一眼路线气质，再决定要不要把它带进工作台。
           </p>
         </div>
 
-        <article className="overflow-hidden rounded-[28px] border border-[var(--line)] bg-[rgba(255,253,247,0.84)] shadow-[0_18px_38px_rgba(84,71,53,0.08)]">
+        <article className="overflow-hidden rounded-[24px] border border-[var(--line)] bg-[rgba(255,253,247,0.84)] shadow-[0_18px_38px_rgba(84,71,53,0.08)]">
           <div className="grid gap-0 lg:grid-cols-[1.25fr_0.75fr]">
-            <div className="relative min-h-[26rem] overflow-hidden">
+            <Link
+              href={`/explore/${heroCard.slug}`}
+              onClick={(event) => handleOpenArchive(event, heroCard.slug)}
+              className="group relative min-h-[26rem] overflow-hidden"
+              aria-label={`打开 ${heroCard.title}`}
+            >
               <ResolvedImage
                 sources={getFeaturedImageCandidates(heroCard)}
-                alt={heroCard.city}
+                alt={`${heroCityName} ${heroCard.title} 封面`}
                 sizes="(min-width: 1024px) 56vw, 100vw"
+                priority
                 wrapperClassName="absolute inset-0 bg-[var(--paper)]"
-                imageClassName="object-cover"
+                imageClassName="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
               />
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(18,21,18,0.03)_0%,rgba(18,21,18,0.12)_48%,rgba(18,21,18,0.44)_100%)]" />
               <div className="absolute inset-x-6 bottom-6 text-[var(--paper-bright)]">
                 <p className="text-[11px] font-semibold tracking-[0.16em] text-[rgba(255,253,247,0.82)]">
-                  精选档案
+                  五城 Trip Package
                 </p>
                 <h3 className="mt-2 text-3xl font-semibold tracking-[-0.05em] sm:text-[2.8rem]">
-                  {heroCard.city}
+                  {cleanDisplayText(heroCityName, "目的地")}
                 </h3>
                 <p className="mt-3 max-w-2xl text-sm leading-6 text-[rgba(255,253,247,0.92)] sm:text-[15px]">
-                  {heroCard.summary}
+                  {cleanDisplayText(heroCard.summary)}
                 </p>
               </div>
-            </div>
+            </Link>
 
             <div className="flex flex-col justify-between px-5 py-5 sm:px-6 sm:py-6">
               <div>
                 <p className="workspace-kicker">封面城市</p>
                 <h3 className="mt-2 text-2xl font-semibold tracking-[-0.04em] text-[var(--ink)]">
-                  {heroCard.title}
+                  {cleanDisplayText(heroCard.title, "旅行计划")}
                 </h3>
                 <p className="mt-3 text-sm leading-6 text-[var(--ink-muted)]">
-                  {heroCard.archiveIntro || heroCard.summary}
+                  {cleanDisplayText(heroCard.archiveIntro || heroCard.summary)}
                 </p>
               </div>
 
-              <div className="mt-5 flex flex-wrap gap-2">
-                {heroCard.tags.slice(0, 4).map((tag) => (
+              <div className="mt-5 flex flex-wrap gap-2 text-xs font-medium text-[var(--ink-muted)]">
+                <span className="rounded-full border border-[var(--line)] bg-[rgba(255,253,247,0.82)] px-2.5 py-1">
+                  {formatDaysText(heroCard.days, "天数待定")}
+                </span>
+                <span className="rounded-full border border-[var(--line)] bg-[rgba(255,253,247,0.82)] px-2.5 py-1">
+                  {formatTripTypeLabel(heroCard.tripType)}
+                </span>
+                {heroCard.pace ? (
+                  <span className="rounded-full border border-[var(--line)] bg-[rgba(255,253,247,0.82)] px-2.5 py-1">
+                    {cleanDisplayText(heroCard.pace)}
+                  </span>
+                ) : null}
+              </div>
+
+              <div className="mt-4 flex flex-wrap gap-2">
+                {visibleTags(heroCard).map((tag) => (
                   <span
                     key={tag}
                     className="rounded-full bg-[rgba(223,232,216,0.54)] px-3 py-1 text-xs text-[var(--sage-deep)]"
@@ -121,13 +204,20 @@ export function FeaturedSection({ onOpenArchive }: FeaturedSectionProps) {
                 ))}
               </div>
 
-              <div className="mt-6">
+              <div className="mt-6 flex flex-wrap gap-3">
                 <Link
                   href={`/explore/${heroCard.slug}`}
                   onClick={(event) => handleOpenArchive(event, heroCard.slug)}
                   className="inline-flex min-h-11 items-center justify-center rounded-full border border-[var(--ink)] bg-[rgba(255,253,247,0.92)] px-5 py-2.5 text-sm font-semibold text-[var(--ink)]"
                 >
-                  阅读档案 →
+                  阅读档案
+                </Link>
+                <Link
+                  href={`/explore/${heroCard.slug}`}
+                  onClick={(event) => handleCreateFromArchive(event, heroCard.slug)}
+                  className="inline-flex min-h-11 items-center justify-center rounded-full border border-[var(--line-strong)] bg-[rgba(248,241,228,0.78)] px-5 py-2.5 text-sm font-semibold text-[var(--clay-deep)]"
+                >
+                  用此行程创建
                 </Link>
               </div>
             </div>
@@ -136,54 +226,12 @@ export function FeaturedSection({ onOpenArchive }: FeaturedSectionProps) {
 
         <div className="grid gap-4 lg:grid-cols-4">
           {gridCards.map((item) => (
-            <article
+            <ExploreCard
               key={item.slug}
-              className="overflow-hidden rounded-[24px] border border-[var(--line)] bg-[rgba(255,253,247,0.8)] shadow-[0_10px_24px_rgba(84,71,53,0.05)]"
-            >
-              <div className="relative aspect-[16/11] overflow-hidden">
-                <ResolvedImage
-                  sources={getFeaturedImageCandidates(item)}
-                  alt={item.city}
-                  sizes="(min-width: 1024px) 22vw, 100vw"
-                  wrapperClassName="absolute inset-0 bg-[var(--paper)]"
-                  imageClassName="object-cover"
-                />
-                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(20,22,20,0.02)_0%,rgba(20,22,20,0.12)_52%,rgba(20,22,20,0.34)_100%)]" />
-                <div className="absolute inset-x-4 bottom-4 text-[var(--paper-bright)]">
-                  <p className="text-[11px] font-semibold tracking-[0.16em] text-[rgba(255,253,247,0.82)]">
-                    旅行档案
-                  </p>
-                  <p className="mt-2 text-xl font-semibold tracking-[-0.04em]">{item.city}</p>
-                </div>
-              </div>
-
-              <div className="space-y-3 px-4 py-4">
-                <h3 className="text-lg font-semibold tracking-[-0.03em] text-[var(--ink)]">
-                  {item.title}
-                </h3>
-                <p className="text-sm leading-6 text-[var(--ink-muted)]">{item.summary}</p>
-                <div className="flex flex-wrap gap-2">
-                  {item.tags.slice(0, 3).map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full bg-[rgba(223,232,216,0.54)] px-3 py-1 text-xs text-[var(--sage-deep)]"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="pt-1">
-                  <Link
-                    href={`/explore/${item.slug}`}
-                    onClick={(event) => handleOpenArchive(event, item.slug)}
-                    className="inline-flex min-h-10 items-center justify-center rounded-full border border-[var(--ink)] bg-[rgba(255,253,247,0.92)] px-4 py-2 text-sm font-semibold text-[var(--ink)]"
-                  >
-                    阅读档案 →
-                  </Link>
-                </div>
-              </div>
-            </article>
+              item={item}
+              onOpenArchive={onOpenArchive}
+              onCreateFromArchive={onCreateFromArchive}
+            />
           ))}
         </div>
       </div>

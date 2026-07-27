@@ -1,0 +1,37 @@
+{
+  "id": "ca_beijing_niujie",
+  "name": "\u725b\u8857",
+  "asset_type": "food_cluster",
+  "category": "halal_food_street",
+  "content_role": ["food_backbone", "local_life_anchor"],
+  "traveler_fit": {
+    "couple": "medium",
+    "student": "high",
+    "solo": "high",
+    "family": "medium"
+  },
+  "season_fit": {
+    "spring": "medium",
+    "summer": "medium",
+    "autumn": "high",
+    "winter": "high"
+  },
+  "best_time": {
+    "time_of_day": ["breakfast", "lunch", "early_evening"],
+    "note": "Strongest when food is part of the route backbone rather than a filler stop; especially good in cold-weather appetite-led routes."
+  },
+  "experience_value": {
+    "primary": ["food_memory", "budget_value", "local_life_texture"],
+    "summary": "A high-value Beijing food asset for student and solo routes when eating should shape the day rather than merely support it."
+  },
+  "avoid_when": [
+    "fine_dining_romantic_closure_route",
+    "strictly_iconic_landmark_only_day",
+    "traveler_group_that_cannot_handle_busy_food_street_density"
+  ],
+  "nearby_assets": [
+    "ca_beijing_baita_temple",
+    "ca_beijing_qianmen_old_city_edge"
+  ],
+  "map_asset_id": "B000A864JA"
+}

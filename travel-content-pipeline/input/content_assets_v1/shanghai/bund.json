@@ -1,0 +1,126 @@
+{
+  "id": "ca_shanghai_bund",
+  "name": "The Bund",
+  "asset_type": "place_signature_anchor",
+  "category": [
+    "place",
+    "signature_anchor",
+    "first_anchor"
+  ],
+  "content_role": [
+    "signature_anchor",
+    "first_anchor",
+    "place",
+    "cover",
+    "hybrid"
+  ],
+  "traveler_fit": {
+    "couple": "high",
+    "student": "medium",
+    "solo": "high",
+    "family": "high",
+    "friends": "high"
+  },
+  "season_fit": {
+    "spring": "medium",
+    "summer": "medium",
+    "autumn": "high",
+    "winter": "medium"
+  },
+  "best_time": {
+    "time_of_day": [
+      "afternoon",
+      "evening"
+    ],
+    "note": "The Bund is intended as first_anchor with balanced pacing."
+  },
+  "experience_value": {
+    "primary": [
+      "signature_anchor",
+      "first_anchor",
+      "place",
+      "historic Bund facades",
+      "Pudong skyline across the river",
+      "Huangpu river reflections",
+      "walking-scale foreground"
+    ],
+    "summary": "Bund riverfront with historic buildings and Pudong skyline"
+  },
+  "avoid_when": [
+    "generic skyline only",
+    "no river context",
+    "wrong city waterfront",
+    "poster text or watermark"
+  ],
+  "nearby_assets": [],
+  "map_asset_id": "poi_bund",
+  "bridge_metadata": {
+    "source": "city_inventory",
+    "source_inventory_id": "shanghai_city_inventory_v1",
+    "asset_id": "ca_shanghai_bund",
+    "asset_name": "The Bund",
+    "asset_category": "place",
+    "asset_family": "signature_anchor",
+    "route_role": "first_anchor",
+    "why_it_matters": "Bund riverfront with historic buildings and Pudong skyline",
+    "pace_hint": "balanced",
+    "priority": 1
+  },
+  "image_context": {
+    "recommended_slots": [
+      "explore_cover",
+      "poi_gallery"
+    ],
+    "image_usage_profile": "cover",
+    "default_generation_mode": "hybrid",
+    "source_preference": "mixed",
+    "search_keywords": [
+      "The Bund Shanghai",
+      "Shanghai Bund riverfront",
+      "Bund Shanghai Pudong skyline",
+      "Shanghai Bund travel photo"
+    ],
+    "visual_subject": {
+      "main_subject": "Bund riverfront with historic buildings and Pudong skyline",
+      "secondary_elements": [
+        "Huangpu River",
+        "walking promenade",
+        "evening lights"
+      ]
+    },
+    "positive_cues": [
+      "historic Bund facades",
+      "Pudong skyline across the river",
+      "Huangpu river reflections",
+      "walking-scale foreground"
+    ],
+    "negative_cues": [
+      "generic skyline only",
+      "no river context",
+      "wrong city waterfront",
+      "poster text or watermark"
+    ]
+  },
+  "search_keywords": [
+    "The Bund Shanghai",
+    "Shanghai Bund riverfront",
+    "Bund Shanghai Pudong skyline",
+    "Shanghai Bund travel photo"
+  ],
+  "review_rules": {
+    "manual_review_required": true,
+    "identity_check": [
+      "Bund identity is readable through historic riverfront buildings or Pudong skyline relation.",
+      "Cover keeps Wanderly editorial travel-journal mood."
+    ],
+    "failure_examples": [
+      "anonymous skyscraper skyline",
+      "mall interior",
+      "riverfront from another city"
+    ]
+  },
+  "golden_reference": {
+    "package_id": "future_shanghai_golden",
+    "asset_instance_ids": []
+  }
+}

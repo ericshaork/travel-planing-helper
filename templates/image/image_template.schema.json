@@ -1,0 +1,313 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wanderly.local/schemas/image_template.schema.json",
+  "title": "Wanderly Image Template v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "template_id",
+    "template_version",
+    "join_key",
+    "usage_profiles",
+    "slots",
+    "generation_strategies",
+    "provenance_requirements",
+    "review_requirements",
+    "golden_review_rules"
+  ],
+  "properties": {
+    "template_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "template_version": {
+      "const": "image_template_v1"
+    },
+    "join_key": {
+      "const": "asset_instance_id"
+    },
+    "usage_profiles": {
+      "type": "array",
+      "minItems": 4,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "image_usage_profile",
+          "purpose",
+          "default_generation_mode",
+          "source_preference"
+        ],
+        "properties": {
+          "image_usage_profile": {
+            "enum": ["cover", "place", "experience", "food"]
+          },
+          "purpose": {
+            "type": "string",
+            "minLength": 1
+          },
+          "default_generation_mode": {
+            "enum": ["real_photo", "ai_generated", "hybrid"]
+          },
+          "source_preference": {
+            "enum": ["real_first", "mixed", "ai_first"]
+          },
+          "golden_refinement_allowed": {
+            "type": "array",
+            "items": {
+              "enum": ["real_photo", "ai_generated", "hybrid"]
+            },
+            "default": []
+          },
+          "review_trigger": {
+            "$ref": "#/$defs/reviewTrigger"
+          }
+        }
+      }
+    },
+    "slots": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "image_slot",
+          "image_usage_profile",
+          "review_required",
+          "description"
+        ],
+        "properties": {
+          "image_slot": {
+            "enum": [
+              "explore_cover",
+              "trip_cover",
+              "day_cover",
+              "poi_gallery",
+              "food_gallery",
+              "detail_image"
+            ]
+          },
+          "image_usage_profile": {
+            "enum": ["cover", "place", "experience", "food"]
+          },
+          "review_required": {
+            "type": "boolean"
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "review_trigger": {
+            "$ref": "#/$defs/reviewTrigger"
+          }
+        }
+      }
+    },
+    "generation_strategies": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["generation_mode", "description", "allowed_final_sources"],
+        "properties": {
+          "generation_mode": {
+            "enum": ["real_photo", "ai_generated", "hybrid"]
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "allowed_final_sources": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "enum": ["wikimedia", "pexels", "local", "ai_generated", "hybrid"]
+            }
+          }
+        }
+      }
+    },
+    "provenance_requirements": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ai_generated", "real_photo"],
+      "properties": {
+        "ai_generated": {
+          "$ref": "#/$defs/provenanceRequirement"
+        },
+        "real_photo": {
+          "$ref": "#/$defs/provenanceRequirement"
+        },
+        "hybrid": {
+          "$ref": "#/$defs/provenanceRequirement"
+        }
+      }
+    },
+    "review_requirements": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["cover", "place", "experience", "food"],
+      "properties": {
+        "cover": {
+          "$ref": "#/$defs/reviewRule"
+        },
+        "place": {
+          "$ref": "#/$defs/reviewRule"
+        },
+        "experience": {
+          "$ref": "#/$defs/reviewRule"
+        },
+        "food": {
+          "$ref": "#/$defs/reviewRule"
+        }
+      }
+    },
+    "golden_review_rules": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "required_dimensions",
+        "allowed_statuses"
+      ],
+      "properties": {
+        "required_dimensions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "enum": [
+              "cover_quality",
+              "location_identity",
+              "wanderly_style",
+              "duplicate_check",
+              "provenance_check",
+              "remaining_notes"
+            ]
+          }
+        },
+        "allowed_statuses": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "enum": ["passed", "passed_with_note", "warning", "failed"]
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "reviewTrigger": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Optional rules that trigger manual review or Golden refinement.",
+      "properties": {
+        "manual_review_when": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "default": []
+        },
+        "golden_refinement_when": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "default": []
+        },
+        "reject_when": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "default": []
+        }
+      }
+    },
+    "provenanceRequirement": {
+      "oneOf": [
+        {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "enum": [
+              "provider_id",
+              "model_id",
+              "provider_job_id",
+              "prompt",
+              "source",
+              "license",
+              "source_url",
+              "image_url"
+            ]
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["required_fields", "license_policy", "notes"],
+          "properties": {
+            "required_fields": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "enum": [
+                  "provider_id",
+                  "model_id",
+                  "provider_job_id",
+                  "prompt",
+                  "source",
+                  "license",
+                  "source_url",
+                  "image_url"
+                ]
+              }
+            },
+            "license_policy": {
+              "type": "string",
+              "minLength": 1
+            },
+            "notes": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "default": []
+            }
+          }
+        }
+      ]
+    },
+    "reviewRule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["manual_review_required", "quality_bar", "failure_examples"],
+      "properties": {
+        "manual_review_required": {
+          "type": "boolean"
+        },
+        "quality_bar": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "failure_examples": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "review_trigger": {
+          "$ref": "#/$defs/reviewTrigger"
+        }
+      }
+    }
+  }
+}

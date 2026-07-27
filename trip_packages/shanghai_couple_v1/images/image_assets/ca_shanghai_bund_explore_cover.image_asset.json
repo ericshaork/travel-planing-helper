@@ -1,0 +1,56 @@
+{
+  "asset_id": "ca_shanghai_bund",
+  "asset_instance_id": "ca_shanghai_bund_explore_cover",
+  "image_slot": "explore_cover",
+  "source": "hybrid",
+  "file_path": "C:\\Users\\10200\\Desktop\\travel_planing\\image-pipeline\\image-pipeline\\assets\\external\\ca_shanghai_bund.jpg",
+  "status": "completed",
+  "metadata": {
+    "strategy": "real_photo_first_ai_fallback",
+    "usage_profile": "cover",
+    "resolved_via": "real_photo",
+    "real_photo": {
+      "source": "wikimedia",
+      "status": "completed",
+      "file_path": "C:\\Users\\10200\\Desktop\\travel_planing\\image-pipeline\\image-pipeline\\assets\\external\\ca_shanghai_bund.jpg",
+      "retry_count": 0,
+      "last_error": null,
+      "download_status": "completed",
+      "fallback_available": false,
+      "selection": {
+        "selected_candidate": {
+          "source": "wikimedia",
+          "candidate_id": "",
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Pudong_Shanghai_November_2017_panorama.jpg/1920px-Pudong_Shanghai_November_2017_panorama.jpg"
+        },
+        "rank_score": 40,
+        "candidate_count": 5,
+        "rejected_count": 0
+      },
+      "metadata": {
+        "source_runs": [
+          {
+            "source": "wikimedia",
+            "priority": 1,
+            "candidate_count": 5,
+            "error": null
+          }
+        ],
+        "title": "File:Pudong Shanghai November 2017 panorama.jpg",
+        "description": "Four-segment panorama of <a href=\"https://en.wikipedia.org/wiki/Pudong\" class=\"extiw\" title=\"w:Pudong\">Pudong</a>, <a href=\"//commons.wikimedia.org/wiki/Shanghai\" class=\"mw-redirect\" title=\"Shanghai\">Shanghai</a>, <a href=\"//commons.wikimedia.org/wiki/China\" class=\"mw-redirect\" title=\"China\">China</a>.",
+        "author": "King of Hearts",
+        "license": "CC BY-SA 4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File%3APudong_Shanghai_November_2017_panorama.jpg",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Pudong_Shanghai_November_2017_panorama.jpg/1920px-Pudong_Shanghai_November_2017_panorama.jpg",
+        "width": 1600,
+        "height": 800,
+        "mime_type": "image/jpeg",
+        "score_reasons": [
+          "location_match",
+          "license_cc_by"
+        ]
+      }
+    },
+    "ai_fallback": null
+  }
+}

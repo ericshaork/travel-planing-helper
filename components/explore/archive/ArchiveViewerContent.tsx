@@ -35,10 +35,11 @@ export function ArchiveViewerContent({ item }: ArchiveViewerContentProps) {
             <ArchiveDecorations variant="foodPlaces" />
             <div className="max-w-3xl">
               <p className="workspace-kicker">美食与地点</p>
-              <h2 className="mt-2 text-lg font-semibold text-[var(--ink)]">美食与地点</h2>
+              <h2 className="mt-2 text-lg font-semibold text-[var(--ink)]">
+                代表食物和代表地点
+              </h2>
               <p className="mt-3 text-sm leading-7 text-[var(--ink-muted)]">
-                先看最能代表这条路线气质的几处地点和味道，真正展开时再去 Workspace
-                里补更多细节。
+                先看最能代表这条路线气质的几处地点和味道。真正展开后，再去 Workspace 里补更多细节。
               </p>
             </div>
 

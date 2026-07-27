@@ -38,7 +38,7 @@ export function ArchiveViewer({ id, mode, onClose }: ArchiveViewerProps) {
 
         setItem(normalizeExploreArchiveForReader(nextItem));
         return;
-      } catch (loadError) {
+      } catch {
         const fallbackItem = getMockExploreDetail(id);
 
         if (!active) {
@@ -52,12 +52,7 @@ export function ArchiveViewer({ id, mode, onClose }: ArchiveViewerProps) {
         }
 
         setItem(null);
-        setError(
-          cleanDisplayText(
-            loadError instanceof Error ? loadError.message : "",
-            "这份旅行档案暂时打不开。",
-          ),
-        );
+        setError("这份旅行档案暂时打不开。");
       } finally {
         if (active) {
           setLoading(false);
@@ -79,7 +74,7 @@ export function ArchiveViewer({ id, mode, onClose }: ArchiveViewerProps) {
         <section className="px-5 py-5 sm:px-7 sm:py-6">
           <p className="workspace-kicker">正在展开档案</p>
           <p className="mt-2 text-sm leading-6 text-[var(--ink-muted)]">
-            正在翻开这份旅行档案……
+            正在翻开这份旅行档案...
           </p>
         </section>
       </section>

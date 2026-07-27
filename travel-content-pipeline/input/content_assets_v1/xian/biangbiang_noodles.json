@@ -1,0 +1,125 @@
+{
+  "id": "ca_xian_biangbiang_noodles",
+  "name": "Biangbiang Noodles Dining Experience",
+  "asset_type": "food_food_backbone",
+  "category": [
+    "food",
+    "food_backbone",
+    "food_anchor"
+  ],
+  "content_role": [
+    "food_backbone",
+    "food_anchor",
+    "food",
+    "real_photo"
+  ],
+  "traveler_fit": {
+    "couple": "high",
+    "student": "medium",
+    "solo": "high",
+    "family": "high",
+    "friends": "high"
+  },
+  "season_fit": {
+    "spring": "medium",
+    "summer": "medium",
+    "autumn": "high",
+    "winter": "medium"
+  },
+  "best_time": {
+    "time_of_day": [
+      "lunch",
+      "dinner"
+    ],
+    "note": "Biangbiang Noodles Dining Experience is intended as food_anchor with balanced pacing."
+  },
+  "experience_value": {
+    "primary": [
+      "food_backbone",
+      "food_anchor",
+      "food",
+      "noodles are the clear subject",
+      "Shaanxi/Xi'an local dish identity",
+      "real dining context",
+      "not tied to a fabricated shop"
+    ],
+    "summary": "biangbiang noodles or Shaanxi noodle table"
+  },
+  "avoid_when": [
+    "storefront only",
+    "generic noodle bowl",
+    "AI-generated named restaurant",
+    "menu sign as main evidence"
+  ],
+  "nearby_assets": [],
+  "map_asset_id": "poi_biangbiang_noodles",
+  "bridge_metadata": {
+    "source": "city_inventory",
+    "source_inventory_id": "xian_city_inventory_v1",
+    "asset_id": "ca_xian_biangbiang_noodles",
+    "asset_name": "Biangbiang Noodles Dining Experience",
+    "asset_category": "food",
+    "asset_family": "food_backbone",
+    "route_role": "food_anchor",
+    "why_it_matters": "biangbiang noodles or Shaanxi noodle table",
+    "pace_hint": "balanced",
+    "priority": 6
+  },
+  "image_context": {
+    "recommended_slots": [
+      "food_gallery"
+    ],
+    "image_usage_profile": "food",
+    "default_generation_mode": "real_photo",
+    "source_preference": "real_first",
+    "search_keywords": [
+      "Xi'an biangbiang noodles",
+      "Shaanxi biangbiang noodles table",
+      "Xi'an local noodles dining",
+      "Xi'an noodle restaurant food photo"
+    ],
+    "visual_subject": {
+      "main_subject": "biangbiang noodles or Shaanxi noodle table",
+      "secondary_elements": [
+        "wide noodles",
+        "chili oil",
+        "shared dining table",
+        "local meal context"
+      ]
+    },
+    "positive_cues": [
+      "noodles are the clear subject",
+      "Shaanxi/Xi'an local dish identity",
+      "real dining context",
+      "not tied to a fabricated shop"
+    ],
+    "negative_cues": [
+      "storefront only",
+      "generic noodle bowl",
+      "AI-generated named restaurant",
+      "menu sign as main evidence"
+    ]
+  },
+  "search_keywords": [
+    "Xi'an biangbiang noodles",
+    "Shaanxi biangbiang noodles table",
+    "Xi'an local noodles dining",
+    "Xi'an noodle restaurant food photo"
+  ],
+  "review_rules": {
+    "manual_review_required": true,
+    "identity_check": [
+      "Food subject is visible and locally plausible.",
+      "Use real-photo provenance; do not fabricate a named restaurant."
+    ],
+    "failure_examples": [
+      "shop sign only",
+      "generic noodle stock photo",
+      "AI-looking staged dish"
+    ]
+  },
+  "golden_reference": {
+    "package_id": "future_xian_golden",
+    "asset_instance_ids": []
+  }
+}

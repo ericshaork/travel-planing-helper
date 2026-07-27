@@ -1,0 +1,52 @@
+{
+  "asset_id": "ca_xian_muslim_quarter_food",
+  "asset_instance_id": "ca_xian_muslim_quarter_food_food_gallery",
+  "image_slot": "food_gallery",
+  "source": "pexels",
+  "file_path": "C:\\Users\\10200\\Desktop\\travel_planing\\image-pipeline\\image-pipeline\\assets\\external\\ca_xian_muslim_quarter_food.jpeg",
+  "status": "completed",
+  "retry_count": 0,
+  "last_error": null,
+  "download_status": "completed",
+  "fallback_available": false,
+  "selection": {
+    "selected_candidate": {
+      "source": "pexels",
+      "candidate_id": "35071409",
+      "image_url": "https://images.pexels.com/photos/35071409/pexels-photo-35071409.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    },
+    "rank_score": 60,
+    "candidate_count": 10,
+    "rejected_count": 0
+  },
+  "metadata": {
+    "source_runs": [
+      {
+        "source": "wikimedia",
+        "priority": 1,
+        "candidate_count": 0,
+        "error": "Wikimedia request failed with status 429."
+      },
+      {
+        "source": "pexels",
+        "priority": 2,
+        "candidate_count": 10,
+        "error": null
+      }
+    ],
+    "title": "Street food vendor preparing a spicy tofu dish with various garnishes in an Asian market.",
+    "description": "Street food vendor preparing a spicy tofu dish with various garnishes in an Asian market.",
+    "author": "Bingqian Li",
+    "license": "Pexels License",
+    "source_url": "https://www.pexels.com/photo/street-food-vendor-preparing-spicy-tofu-dish-35071409/",
+    "image_url": "https://images.pexels.com/photos/35071409/pexels-photo-35071409.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "width": 6048,
+    "height": 4032,
+    "mime_type": "image/jpeg",
+    "score_reasons": [
+      "location_match",
+      "high_resolution_3000",
+      "wanderly_fit"
+    ]
+  }
+}

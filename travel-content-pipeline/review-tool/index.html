@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wanderly Review Reader</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <p class="eyebrow">Wanderly Internal</p>
+          <h1>Explore Review Reader</h1>
+          <p class="subtle">导入任意旅行计划 JSON，或继续审核已有生产计划。</p>
+        </div>
+
+        <section class="import-panel">
+          <div class="section-heading">
+            <h2>导入 JSON</h2>
+            <button id="clearImportButton" class="ghost-button hidden" type="button">清除导入</button>
+          </div>
+
+          <label id="dropZone" class="drop-zone" for="fileInput">
+            <input id="fileInput" type="file" accept=".json,application/json" hidden />
+            <span class="drop-title">选择文件或拖拽到这里</span>
+            <span class="drop-subtitle">本地解析，不改动原始 JSON</span>
+          </label>
+
+          <div id="importMeta" class="import-meta hidden"></div>
+        </section>
+
+        <section class="filters">
+          <div class="section-heading">
+            <h2>计划库</h2>
+          </div>
+
+          <label class="field">
+            <span>搜索</span>
+            <input id="searchInput" type="search" placeholder="标题 / 城市 / traveler" />
+          </label>
+
+          <label class="field">
+            <span>城市</span>
+            <select id="cityFilter">
+              <option value="">全部</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>类型</span>
+            <select id="tripTypeFilter">
+              <option value="">全部</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>审核状态</span>
+            <select id="reviewStatusFilter">
+              <option value="">全部</option>
+              <option value="reviewed">已审核</option>
+              <option value="pending">未审核</option>
+            </select>
+          </label>
+        </section>
+
+        <div class="list-meta">
+          <span id="resultCount">0 条计划</span>
+          <span id="statusCount">未审核 0 / 已审核 0</span>
+        </div>
+
+        <div id="planList" class="plan-list"></div>
+      </aside>
+
+      <main class="content">
+        <div id="emptyState" class="empty-state">
+          <h2>选择左侧计划，或导入新的 JSON</h2>
+          <p>当前计划库来自 <code>output/explore_plans_production</code>，导入文件会以阅读模式单独展示。</p>
+        </div>
+
+        <div id="detailView" class="detail-view hidden">
+          <section class="hero-card">
+            <div class="hero-copy">
+              <p id="planSourceBadge" class="eyebrow">Library Plan</p>
+              <h2 id="planTitle">N/A</h2>
+              <p id="planSummary" class="hero-summary">N/A</p>
+            </div>
+            <div id="metaGrid" class="meta-grid"></div>
+          </section>
+
+          <div class="detail-layout">
+            <div class="detail-main">
+              <section class="section-card">
+                <div class="section-heading">
+                  <h2>旅行节奏</h2>
+                </div>
+                <div id="tagList" class="tag-list"></div>
+              </section>
+
+              <section class="section-card">
+                <div class="section-heading">
+                  <h2>Day Cards</h2>
+                </div>
+                <div id="itineraryList" class="stack-list"></div>
+              </section>
+
+              <section class="section-card">
+                <div class="section-heading">
+                  <h2>POI</h2>
+                </div>
+                <div id="poiList" class="stack-list"></div>
+              </section>
+
+              <section class="section-card">
+                <div class="section-heading">
+                  <h2>Food</h2>
+                </div>
+                <div id="foodList" class="stack-list"></div>
+              </section>
+            </div>
+
+            <aside class="detail-side">
+              <section class="section-card sticky-card">
+                <div class="section-heading">
+                  <h2>Review Panel</h2>
+                </div>
+                <div id="reviewInfo" class="review-info"></div>
+                <div id="mapFactsList" class="map-facts-list"></div>
+              </section>
+
+              <section id="manualReviewCard" class="section-card sticky-card">
+                <div class="section-heading">
+                  <h2>人工审核</h2>
+                </div>
+
+                <form id="reviewForm" class="review-form">
+                  <label class="field">
+                    <span>整体质量</span>
+                    <div id="starRating" class="star-rating" aria-label="整体质量评分"></div>
+                  </label>
+
+                  <label class="field">
+                    <span>问题标签</span>
+                    <div id="issueOptions" class="checkbox-grid"></div>
+                  </label>
+
+                  <label class="field">
+                    <span>备注</span>
+                    <textarea
+                      id="commentInput"
+                      rows="6"
+                      placeholder="记录人工判断，例如：节奏稳定，但第二天下午稍显模板化。"
+                    ></textarea>
+                  </label>
+
+                  <div class="form-actions">
+                    <button id="saveButton" type="submit">保存审核结果</button>
+                    <span id="saveMessage" class="save-message"></span>
+                  </div>
+                </form>
+
+                <div id="importReviewNote" class="inline-note hidden">
+                  导入文件目前仅支持阅读与审核辅助展示，不写入 `content_reviews.json`。
+                </div>
+              </section>
+            </aside>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

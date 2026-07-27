@@ -10,6 +10,15 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    "assets/**",
+    "image-pipeline/**",
+    "inventories/**",
+    "output/**",
+    "scripts/**",
+    "temp/**",
+    "templates/**",
+    "travel-content-pipeline/**",
+    "trip_packages/**",
   ]),
 ]);
 

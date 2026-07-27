@@ -1,0 +1,547 @@
+{
+  "inventory_id": "xian_city_inventory_v1",
+  "inventory_version": "city_inventory_v1",
+  "city": {
+    "code": "xian",
+    "name": "Xi'an",
+    "region": "Shaanxi",
+    "country": "China"
+  },
+  "city_identity": {
+    "visual_keywords": [
+      "Xi'an City Wall",
+      "Tang dynasty atmosphere",
+      "Bell Tower",
+      "Drum Tower",
+      "Terracotta Warriors",
+      "Muslim Quarter food",
+      "warm night lanterns"
+    ],
+    "signature_moods": [
+      "heritage first arrival",
+      "ancient wall dusk",
+      "street food memory",
+      "historic texture"
+    ],
+    "seasonal_texture": {
+      "primary_season": "autumn",
+      "visual_cues": [
+        "earth-toned city wall",
+        "warm lantern light",
+        "stone road texture",
+        "heritage silhouettes"
+      ],
+      "avoid_cues": [
+        "fantasy palace",
+        "fake ancient costume spectacle",
+        "generic desert palette",
+        "unverified shop signs"
+      ]
+    }
+  },
+  "assets": [
+    {
+      "asset_id": "ca_xian_city_wall",
+      "asset_name": "Xi'an City Wall",
+      "asset_category": "place",
+      "asset_family": "signature_anchor",
+      "priority": 1,
+      "traveler_fit": [
+        "couple",
+        "solo",
+        "family",
+        "friends"
+      ],
+      "route_role": "first_anchor",
+      "time_of_day": [
+        "morning",
+        "afternoon",
+        "evening"
+      ],
+      "pace_hint": "balanced",
+      "image_context": {
+        "recommended_slots": [
+          "explore_cover",
+          "poi_gallery"
+        ],
+        "image_usage_profile": "cover",
+        "default_generation_mode": "hybrid",
+        "source_preference": "mixed",
+        "search_keywords": [
+          "Xi'an City Wall",
+          "Xian ancient city wall",
+          "Xi'an city wall travel photo",
+          "Xi'an city wall South Gate"
+        ],
+        "visual_subject": {
+          "main_subject": "ancient city wall and walking route",
+          "secondary_elements": [
+            "wall ramparts",
+            "gate tower",
+            "people walking",
+            "warm city light"
+          ]
+        },
+        "positive_cues": [
+          "recognizable city wall ramparts",
+          "heritage scale",
+          "walking or cycling context",
+          "warm earth tones"
+        ],
+        "negative_cues": [
+          "generic old wall",
+          "fantasy fortress",
+          "no Xi'an identity",
+          "poster text"
+        ]
+      },
+      "review_rules": {
+        "manual_review_required": true,
+        "identity_check": [
+          "Xi'an City Wall identity is readable.",
+          "Cover has heritage arrival feeling without becoming fantasy."
+        ],
+        "failure_examples": [
+          "generic ancient gate",
+          "fantasy Tang palace",
+          "costume scene replacing place evidence"
+        ]
+      },
+      "golden_reference": {
+        "package_id": "future_xian_golden",
+        "asset_instance_ids": []
+      }
+    },
+    {
+      "asset_id": "ca_xian_big_wild_goose_pagoda",
+      "asset_name": "Big Wild Goose Pagoda",
+      "asset_category": "place",
+      "asset_family": "signature_anchor",
+      "priority": 2,
+      "traveler_fit": [
+        "couple",
+        "solo",
+        "family",
+        "friends"
+      ],
+      "route_role": "main_anchor",
+      "time_of_day": [
+        "morning",
+        "afternoon",
+        "evening"
+      ],
+      "pace_hint": "balanced",
+      "image_context": {
+        "recommended_slots": [
+          "poi_gallery",
+          "day_cover"
+        ],
+        "image_usage_profile": "place",
+        "default_generation_mode": "real_photo",
+        "source_preference": "real_first",
+        "search_keywords": [
+          "Big Wild Goose Pagoda Xi'an",
+          "Da Ci'en Temple Xi'an",
+          "Xi'an Big Wild Goose Pagoda travel photo"
+        ],
+        "visual_subject": {
+          "main_subject": "Big Wild Goose Pagoda and surrounding square",
+          "secondary_elements": [
+            "pagoda silhouette",
+            "temple grounds",
+            "visitors"
+          ]
+        },
+        "positive_cues": [
+          "pagoda silhouette",
+          "heritage square context",
+          "real place evidence"
+        ],
+        "negative_cues": [
+          "generic pagoda",
+          "AI temple fantasy",
+          "tight crop without identity"
+        ]
+      },
+      "review_rules": {
+        "manual_review_required": true,
+        "identity_check": [
+          "Big Wild Goose Pagoda identity is clear.",
+          "Image is usable as real place evidence."
+        ],
+        "failure_examples": [
+          "wrong pagoda",
+          "temple interior only",
+          "cartoon or fantasy rendering"
+        ]
+      },
+      "golden_reference": {
+        "package_id": "future_xian_golden",
+        "asset_instance_ids": []
+      }
+    },
+    {
+      "asset_id": "ca_xian_bell_drum_tower",
+      "asset_name": "Bell Tower and Drum Tower Area",
+      "asset_category": "place",
+      "asset_family": "historic_texture",
+      "priority": 3,
+      "traveler_fit": [
+        "couple",
+        "solo",
+        "friends",
+        "family"
+      ],
+      "route_role": "supporting_stop",
+      "time_of_day": [
+        "afternoon",
+        "evening"
+      ],
+      "pace_hint": "balanced",
+      "image_context": {
+        "recommended_slots": [
+          "poi_gallery"
+        ],
+        "image_usage_profile": "place",
+        "default_generation_mode": "real_photo",
+        "source_preference": "real_first",
+        "search_keywords": [
+          "Xi'an Bell Tower",
+          "Xi'an Drum Tower",
+          "Bell Tower Xi'an night",
+          "Drum Tower Xi'an street"
+        ],
+        "visual_subject": {
+          "main_subject": "Bell Tower or Drum Tower with old-city walking context",
+          "secondary_elements": [
+            "tower architecture",
+            "street lights",
+            "pedestrians"
+          ]
+        },
+        "positive_cues": [
+          "recognizable tower architecture",
+          "old-city street context",
+          "warm evening light"
+        ],
+        "negative_cues": [
+          "generic Chinese tower",
+          "festival stage only",
+          "no street scale"
+        ]
+      },
+      "review_rules": {
+        "manual_review_required": true,
+        "identity_check": [
+          "Bell Tower or Drum Tower location identity is readable.",
+          "Works as historic texture in the route."
+        ],
+        "failure_examples": [
+          "generic tower from another city",
+          "close crop with no context",
+          "fake historical scene"
+        ]
+      },
+      "golden_reference": {
+        "package_id": "future_xian_golden",
+        "asset_instance_ids": []
+      }
+    },
+    {
+      "asset_id": "ca_xian_terracotta_warriors",
+      "asset_name": "Terracotta Warriors",
+      "asset_category": "place",
+      "asset_family": "historic_texture",
+      "priority": 4,
+      "traveler_fit": [
+        "couple",
+        "solo",
+        "family",
+        "friends"
+      ],
+      "route_role": "main_anchor",
+      "time_of_day": [
+        "morning",
+        "afternoon"
+      ],
+      "pace_hint": "balanced",
+      "image_context": {
+        "recommended_slots": [
+          "poi_gallery"
+        ],
+        "image_usage_profile": "place",
+        "default_generation_mode": "real_photo",
+        "source_preference": "real_first",
+        "search_keywords": [
+          "Terracotta Warriors Xi'an",
+          "Emperor Qinshihuang Mausoleum Site Museum",
+          "Xi'an Terracotta Army travel photo"
+        ],
+        "visual_subject": {
+          "main_subject": "Terracotta Warriors museum pit",
+          "secondary_elements": [
+            "warrior rows",
+            "museum interior",
+            "visitor scale"
+          ]
+        },
+        "positive_cues": [
+          "terracotta warrior rows",
+          "museum pit context",
+          "real evidence photo"
+        ],
+        "negative_cues": [
+          "souvenir figurines",
+          "fake outdoor army scene",
+          "AI fantasy battlefield"
+        ]
+      },
+      "review_rules": {
+        "manual_review_required": true,
+        "identity_check": [
+          "Terracotta Warriors identity is unambiguous.",
+          "Image should be a real museum/place evidence asset."
+        ],
+        "failure_examples": [
+          "souvenir closeup",
+          "digital fantasy soldiers",
+          "wrong archaeological site"
+        ]
+      },
+      "golden_reference": {
+        "package_id": "future_xian_golden",
+        "asset_instance_ids": []
+      }
+    },
+    {
+      "asset_id": "ca_xian_muslim_quarter_food",
+      "asset_name": "Xi'an Muslim Quarter Food",
+      "asset_category": "food",
+      "asset_family": "food_backbone",
+      "priority": 5,
+      "traveler_fit": [
+        "couple",
+        "solo",
+        "friends",
+        "family"
+      ],
+      "route_role": "food_anchor",
+      "time_of_day": [
+        "lunch",
+        "dinner",
+        "night"
+      ],
+      "pace_hint": "balanced",
+      "image_context": {
+        "recommended_slots": [
+          "food_gallery"
+        ],
+        "image_usage_profile": "food",
+        "default_generation_mode": "real_photo",
+        "source_preference": "real_first",
+        "search_keywords": [
+          "Xi'an Muslim Quarter food",
+          "Xi'an roujiamo",
+          "Xi'an biangbiang noodles",
+          "Xi'an yangrou paomo",
+          "Xi'an street food table"
+        ],
+        "visual_subject": {
+          "main_subject": "Xi'an local food or food-table experience",
+          "secondary_elements": [
+            "roujiamo",
+            "biangbiang noodles",
+            "paomo",
+            "shared table"
+          ]
+        },
+        "positive_cues": [
+          "food is the main subject",
+          "Xi'an local dish identity",
+          "dining or street-food experience",
+          "real-photo provenance"
+        ],
+        "negative_cues": [
+          "storefront only",
+          "AI-generated named shop",
+          "generic Chinese noodles",
+          "unreadable menu-board proof"
+        ]
+      },
+      "review_rules": {
+        "manual_review_required": true,
+        "identity_check": [
+          "Food subject is clear and locally plausible.",
+          "No fabricated specific shop provenance."
+        ],
+        "failure_examples": [
+          "shop sign only",
+          "generic food court",
+          "AI-looking staged dish"
+        ]
+      },
+      "golden_reference": {
+        "package_id": "future_xian_golden",
+        "asset_instance_ids": []
+      }
+    },
+    {
+      "asset_id": "ca_xian_biangbiang_noodles",
+      "asset_name": "Biangbiang Noodles Dining Experience",
+      "asset_category": "food",
+      "asset_family": "food_backbone",
+      "priority": 6,
+      "traveler_fit": [
+        "couple",
+        "solo",
+        "friends",
+        "family"
+      ],
+      "route_role": "food_anchor",
+      "time_of_day": [
+        "lunch",
+        "dinner"
+      ],
+      "pace_hint": "balanced",
+      "image_context": {
+        "recommended_slots": [
+          "food_gallery"
+        ],
+        "image_usage_profile": "food",
+        "default_generation_mode": "real_photo",
+        "source_preference": "real_first",
+        "search_keywords": [
+          "Xi'an biangbiang noodles",
+          "Shaanxi biangbiang noodles table",
+          "Xi'an local noodles dining",
+          "Xi'an noodle restaurant food photo"
+        ],
+        "visual_subject": {
+          "main_subject": "biangbiang noodles or Shaanxi noodle table",
+          "secondary_elements": [
+            "wide noodles",
+            "chili oil",
+            "shared dining table",
+            "local meal context"
+          ]
+        },
+        "positive_cues": [
+          "noodles are the clear subject",
+          "Shaanxi/Xi'an local dish identity",
+          "real dining context",
+          "not tied to a fabricated shop"
+        ],
+        "negative_cues": [
+          "storefront only",
+          "generic noodle bowl",
+          "AI-generated named restaurant",
+          "menu sign as main evidence"
+        ]
+      },
+      "review_rules": {
+        "manual_review_required": true,
+        "identity_check": [
+          "Food subject is visible and locally plausible.",
+          "Use real-photo provenance; do not fabricate a named restaurant."
+        ],
+        "failure_examples": [
+          "shop sign only",
+          "generic noodle stock photo",
+          "AI-looking staged dish"
+        ]
+      },
+      "golden_reference": {
+        "package_id": "future_xian_golden",
+        "asset_instance_ids": []
+      }
+    },
+    {
+      "asset_id": "ca_xian_city_wall_night",
+      "asset_name": "Xi'an City Wall Night Walk",
+      "asset_category": "experience",
+      "asset_family": "evening_closure",
+      "priority": 7,
+      "traveler_fit": [
+        "couple",
+        "solo",
+        "friends"
+      ],
+      "route_role": "evening_closure",
+      "time_of_day": [
+        "evening",
+        "night"
+      ],
+      "pace_hint": "slow",
+      "image_context": {
+        "recommended_slots": [
+          "day_cover"
+        ],
+        "image_usage_profile": "experience",
+        "default_generation_mode": "hybrid",
+        "source_preference": "mixed",
+        "search_keywords": [
+          "Xi'an City Wall night lights",
+          "Xi'an South Gate night view",
+          "Xi'an city wall evening walk",
+          "Xi'an city wall lantern night"
+        ],
+        "visual_subject": {
+          "main_subject": "slow evening walk near Xi'an City Wall",
+          "secondary_elements": [
+            "wall lights",
+            "gate tower",
+            "couple-scale walking",
+            "warm night atmosphere"
+          ]
+        },
+        "positive_cues": [
+          "city wall night lights",
+          "heritage silhouette",
+          "walking-scale foreground",
+          "warm end-of-day mood"
+        ],
+        "negative_cues": [
+          "generic ancient town street",
+          "fantasy lantern festival",
+          "no Xi'an wall identity",
+          "daytime tourist crowd"
+        ]
+      },
+      "review_rules": {
+        "manual_review_required": true,
+        "identity_check": [
+          "Evening closure clearly belongs to Xi'an wall or old-city night context.",
+          "Experience image reads as a slow couple route."
+        ],
+        "failure_examples": [
+          "generic lantern street",
+          "fake Tang palace night",
+          "unrelated old town"
+        ]
+      },
+      "golden_reference": {
+        "package_id": "future_xian_golden",
+        "asset_instance_ids": []
+      }
+    }
+  ],
+  "compiler_hints": {
+    "default_asset_family_order": [
+      "signature_anchor",
+      "historic_texture",
+      "evening_closure",
+      "food_backbone"
+    ],
+    "minimum_asset_mix": {
+      "place": 4,
+      "food": 1,
+      "experience": 1,
+      "city_mood": 0
+    },
+    "avoid_overuse": [
+      "Do not replace real heritage places with fantasy historical imagery.",
+      "Do not make food assets storefront-only.",
+      "Do not overpack all major heritage sites into one day."
+    ]
+  }
+}

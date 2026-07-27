@@ -1,0 +1,30 @@
+{
+  "id": "ca_chengdu_wuhou_shrine",
+  "name": "Wuhou Shrine",
+  "asset_type": "heritage_site",
+  "category": "historic_texture",
+  "content_role": ["historic_texture", "cultural_anchor", "signature_anchor"],
+  "traveler_fit": {
+    "couple": "medium",
+    "student": "medium",
+    "solo": "high",
+    "family": "medium"
+  },
+  "season_fit": {
+    "spring": "high",
+    "summer": "medium",
+    "autumn": "high",
+    "winter": "medium"
+  },
+  "best_time": {
+    "time_of_day": ["morning", "afternoon"],
+    "note": "Use as one cultural anchor, then keep the rest of the day lighter."
+  },
+  "experience_value": {
+    "primary": ["shrine_texture", "history", "bamboo_shade", "quiet_detail"],
+    "summary": "A controlled dose of historical texture before nearby food or evening walking."
+  },
+  "avoid_when": ["history_light_route"],
+  "nearby_assets": ["ca_chengdu_jinli_evening"],
+  "map_asset_id": "poi_wuhou_shrine"
+}

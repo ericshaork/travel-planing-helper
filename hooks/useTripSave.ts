@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+import { touchWorkspaceProjectContext } from "@/lib/projects/workspace-context-client";
 import { saveTripPlan } from "@/lib/trip/storage";
 import type { GenerateTripResponse, TripPlan } from "@/lib/trip/types";
 
@@ -10,11 +11,22 @@ interface UseTripSaveResult {
 }
 
 export function useTripSave(initialTripPlan: TripPlan): UseTripSaveResult {
-  const [currentTripPlan, setCurrentTripPlan] = useState(initialTripPlan);
+  const [persistedState, setPersistedState] = useState(() => ({
+    sourceTripPlan: initialTripPlan,
+    currentTripPlan: initialTripPlan,
+  }));
+  const currentTripPlan =
+    persistedState.sourceTripPlan === initialTripPlan
+      ? persistedState.currentTripPlan
+      : initialTripPlan;
 
   function persistTripPlan(nextTripPlan: TripPlan) {
     const savedTripPlan = saveTripPlan(nextTripPlan);
-    setCurrentTripPlan(savedTripPlan);
+    touchWorkspaceProjectContext();
+    setPersistedState({
+      sourceTripPlan: initialTripPlan,
+      currentTripPlan: savedTripPlan,
+    });
     return savedTripPlan;
   }
 

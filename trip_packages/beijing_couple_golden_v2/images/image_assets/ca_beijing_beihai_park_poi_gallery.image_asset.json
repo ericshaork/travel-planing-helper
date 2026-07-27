@@ -1,0 +1,18 @@
+{
+  "asset_id": "ca_beijing_beihai_park",
+  "asset_instance_id": "ca_beijing_beihai_park_poi_gallery",
+  "image_slot": "poi_gallery",
+  "source": "wikimedia",
+  "file_path": "images/files/ca_beijing_beihai_park_poi_gallery.jpg",
+  "status": "completed",
+  "metadata": {
+    "source": "wikimedia",
+    "title": "File:Beihai Park IMG 4406 Beihai Lake - Jade Island - white dagoba.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Beihai_Park_IMG_4406_Beihai_Lake_-_Jade_Island_-_white_dagoba.jpg",
+    "license": "Wikimedia Commons; verify exact license before public commercial use",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Beihai_Park_IMG_4406_Beihai_Lake_-_Jade_Island_-_white_dagoba.jpg/960px-Beihai_Park_IMG_4406_Beihai_Lake_-_Jade_Island_-_white_dagoba.jpg",
+    "note": "Real Beihai Lake, Jade Island, and White Dagoba place evidence.",
+    "generation_strategy": "real_photo_reselected",
+    "original_candidate_path": "temp/beijing_couple_v2_images/real_photo/ca_beijing_beihai_park_poi_gallery_v2.jpg"
+  }
+}

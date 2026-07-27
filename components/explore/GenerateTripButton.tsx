@@ -12,18 +12,15 @@ interface GenerateTripButtonProps {
 
 export function GenerateTripButton({
   label,
-  payload,
   helperText,
   disabled = false,
   onGenerate,
 }: GenerateTripButtonProps) {
-  const [open, setOpen] = useState(false);
   const [isRunning, setIsRunning] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
   async function handleClick() {
     if (!onGenerate) {
-      setOpen((current) => !current);
       return;
     }
 
@@ -62,22 +59,6 @@ export function GenerateTripButton({
         <p className="rounded-[14px] border border-[var(--dusty-rose)] bg-[rgb(196_104_89_/_0.08)] px-3 py-2 text-sm leading-6 text-[var(--dusty-rose)]">
           {errorMessage}
         </p>
-      ) : null}
-
-      {payload ? (
-        <button
-          type="button"
-          onClick={() => setOpen((current) => !current)}
-          className="text-xs font-semibold text-[var(--ink-muted)] underline-offset-4 hover:underline"
-        >
-          {open ? "收起创建参数" : "查看创建参数"}
-        </button>
-      ) : null}
-
-      {open && payload ? (
-        <pre className="overflow-x-auto rounded-[18px] border border-[var(--line)] px-4 py-4 text-xs leading-6 text-[var(--ink-muted)]">
-          {JSON.stringify(payload, null, 2)}
-        </pre>
       ) : null}
     </div>
   );

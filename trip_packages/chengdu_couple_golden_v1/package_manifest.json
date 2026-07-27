@@ -1,0 +1,159 @@
+{
+  "package_id": "chengdu_couple_golden_v1",
+  "package_version": "trip_package_v1",
+  "generated_on": "2026-07-18T14:41:49.371Z",
+  "trip_id": "chengdu_couple_golden_v1",
+  "golden_run_id": "chengdu_couple_golden_v1",
+  "content_trip_id": "chengdu_couple_v1",
+  "image_manifest_id": "chengdu_couple_v1",
+  "city": {
+    "code": "chengdu",
+    "name": "Chengdu",
+    "region_name": "Sichuan"
+  },
+  "title": "3天成都情侣路线：美食、茶馆与老街区",
+  "days": 3,
+  "source_outputs": {
+    "content_run_dir": "C:\\Users\\10200\\Desktop\\travel_planing\\travel-content-pipeline\\output\\golden_runs\\chengdu_couple_v1",
+    "image_run_dir": "C:\\Users\\10200\\Desktop\\travel_planing\\output\\manifest_runs\\chengdu_couple_v1",
+    "explore_plan_path": "C:\\Users\\10200\\Desktop\\travel_planing\\travel-content-pipeline\\output\\golden_runs\\chengdu_couple_v1\\explore_plan.json",
+    "image_manifest_path": "C:\\Users\\10200\\Desktop\\travel_planing\\travel-content-pipeline\\output\\golden_runs\\chengdu_couple_v1\\image_manifest.json",
+    "generation_report_path": "C:\\Users\\10200\\Desktop\\travel_planing\\travel-content-pipeline\\output\\golden_runs\\chengdu_couple_v1\\generation_report.json",
+    "pipeline_summary_path": "C:\\Users\\10200\\Desktop\\travel_planing\\output\\manifest_runs\\chengdu_couple_v1\\pipeline_summary.json"
+  },
+  "content": {
+    "explore_plan_path": "content/explore_plan.json",
+    "image_manifest_path": "content/image_manifest.json"
+  },
+  "images": {
+    "files_dir": "images/files",
+    "image_assets_dir": "images/image_assets",
+    "assets": [
+      {
+        "asset_instance_id": "ca_chengdu_chuanchuan_snacks_food_gallery",
+        "asset_id": "ca_chengdu_chuanchuan_snacks",
+        "asset_name": "Chengdu Chuanchuan and Snacks",
+        "image_slot": "food_gallery",
+        "image_usage_profile": "food",
+        "source_preference": "real_first",
+        "generation_mode": "real_photo",
+        "status": "completed",
+        "source": "wikimedia",
+        "original_file_path": "temp/chengdu_couple_v2_images/files/ca_chengdu_chuanchuan_snacks_food_gallery_v2.jpg",
+        "packaged_file_path": "images/files/ca_chengdu_chuanchuan_snacks_food_gallery.jpg",
+        "image_asset_path": "images/image_assets/ca_chengdu_chuanchuan_snacks_food_gallery.image_asset.json",
+        "finalized_from_candidate": true,
+        "provenance": {
+          "title": "Man buying chuan in Chengdu, China",
+          "source": "wikimedia",
+          "license": "CC BY-SA 4.0",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Man_buying_chuan_in_Chengdu,_China.jpg",
+          "image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Man%20buying%20chuan%20in%20Chengdu%2C%20China.jpg",
+          "provenance_note": "H3.6.3-C v2 real_photo candidate selected after manual review; food subject is explicit and not a storefront facade."
+        }
+      },
+      {
+        "asset_instance_id": "ca_chengdu_kuanzhai_alley_explore_cover",
+        "asset_id": "ca_chengdu_kuanzhai_alley",
+        "asset_name": "Kuanzhai Alley",
+        "image_slot": "explore_cover",
+        "image_usage_profile": "cover",
+        "source_preference": "mixed",
+        "generation_mode": "hybrid",
+        "status": "completed",
+        "source": "hybrid",
+        "original_file_path": "C:\\Users\\10200\\Desktop\\travel_planing\\image-pipeline\\image-pipeline\\assets\\external\\ca_chengdu_kuanzhai_alley.jpg",
+        "packaged_file_path": "images/files/ca_chengdu_kuanzhai_alley_explore_cover.jpg",
+        "image_asset_path": "images/image_assets/ca_chengdu_kuanzhai_alley_explore_cover.image_asset.json"
+      },
+      {
+        "asset_instance_id": "ca_chengdu_wangping_street_day_cover",
+        "asset_id": "ca_chengdu_wangping_street",
+        "asset_name": "Wangping Street Riverside",
+        "image_slot": "day_cover",
+        "image_usage_profile": "experience",
+        "source_preference": "mixed",
+        "generation_mode": "hybrid",
+        "status": "completed",
+        "source": "hybrid",
+        "original_file_path": "C:\\Users\\10200\\Desktop\\travel_planing\\image-pipeline\\image-pipeline\\assets\\external\\ca_chengdu_wangping_street.jpeg",
+        "packaged_file_path": "images/files/ca_chengdu_wangping_street_day_cover.jpeg",
+        "image_asset_path": "images/image_assets/ca_chengdu_wangping_street_day_cover.image_asset.json"
+      },
+      {
+        "asset_instance_id": "ca_chengdu_hotpot_table_food_gallery",
+        "asset_id": "ca_chengdu_hotpot_table",
+        "asset_name": "Chengdu Hotpot Table",
+        "image_slot": "food_gallery",
+        "image_usage_profile": "food",
+        "source_preference": "real_first",
+        "generation_mode": "real_photo",
+        "status": "completed",
+        "source": "pexels",
+        "original_file_path": "C:\\Users\\10200\\Desktop\\travel_planing\\image-pipeline\\image-pipeline\\assets\\external\\ca_chengdu_hotpot_table.jpeg",
+        "packaged_file_path": "images/files/ca_chengdu_hotpot_table_food_gallery.jpeg",
+        "image_asset_path": "images/image_assets/ca_chengdu_hotpot_table_food_gallery.image_asset.json"
+      },
+      {
+        "asset_instance_id": "ca_chengdu_taikoo_li_poi_gallery",
+        "asset_id": "ca_chengdu_taikoo_li",
+        "asset_name": "Taikoo Li Chengdu",
+        "image_slot": "poi_gallery",
+        "image_usage_profile": "place",
+        "source_preference": "real_first",
+        "generation_mode": "real_photo",
+        "status": "completed",
+        "source": "wikimedia",
+        "original_file_path": "temp/chengdu_couple_v3_images/real_photo/ca_chengdu_taikoo_li_poi_gallery_v3.jpg",
+        "packaged_file_path": "images/files/ca_chengdu_taikoo_li_poi_gallery.jpg",
+        "image_asset_path": "images/image_assets/ca_chengdu_taikoo_li_poi_gallery.image_asset.json",
+        "finalized_from_candidate": true,
+        "provenance": {
+          "title": "Sino-Ocean Taikoo Li Chengdu 10",
+          "source": "wikimedia",
+          "license": "CC0 1.0",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Sino-Ocean_Taikoo_Li_Chengdu_10.jpg",
+          "image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sino-Ocean%20Taikoo%20Li%20Chengdu%2010.jpg",
+          "provenance_note": "H3.6.3-C2-B v3 real_photo candidate selected for stronger Taikoo Li place identity."
+        }
+      },
+      {
+        "asset_instance_id": "ca_chengdu_city_mood_explore_cover",
+        "asset_id": "ca_chengdu_city_mood",
+        "asset_name": "Chengdu city mood",
+        "image_slot": "explore_cover",
+        "image_usage_profile": "cover",
+        "source_preference": "ai_first",
+        "generation_mode": "ai_generated",
+        "status": "completed",
+        "source": "ai_generated",
+        "original_file_path": "temp/chengdu_couple_v3_images/covers/ca_chengdu_city_mood_explore_cover_v4.png",
+        "packaged_file_path": "images/files/ca_chengdu_city_mood_explore_cover.png",
+        "image_asset_path": "images/image_assets/ca_chengdu_city_mood_explore_cover.image_asset.json",
+        "finalized_from_candidate": true,
+        "provenance": {
+          "provider_id": "seedream",
+          "model_id": "doubao-seedream-5-0-pro-260628",
+          "provider_job_id": "seedream_ca_chengdu_city_mood_explore_cover_v4_explore_cover",
+          "prompt_summary": "Chengdu People's Park teahouse mood cover with rows of bamboo chairs, covered tea bowls, local residents chatting, old Chengdu leisure life, warm afternoon light, subtle couple scale; avoid Jiangnan water town, lakes, bridges, Suzhou garden, signage, text, logos, and concrete shop fabrication.",
+          "golden_review": {
+            "status": "passed_with_note",
+            "note": "Strong Chengdu teahouse atmosphere, slightly classical garden-like, accepted as city mood cover."
+          },
+          "provenance_note": "H3.6.3-C3 v4 ai_generated candidate selected for Chengdu city mood cover."
+        }
+      }
+    ]
+  },
+  "validation": {
+    "assembly_report_path": "validation/assembly_report.json",
+    "status": "passed"
+  },
+  "source_package_id": "chengdu_couple_v1",
+  "finalization": {
+    "stage": "H3.6.3-C4 Chengdu Golden Finalize",
+    "finalized_from_package": "chengdu_couple_v1",
+    "replacement_count": 3,
+    "package_updated_from_candidates": true
+  }
+}

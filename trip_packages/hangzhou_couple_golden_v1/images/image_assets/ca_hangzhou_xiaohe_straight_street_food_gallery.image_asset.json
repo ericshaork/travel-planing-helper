@@ -1,0 +1,63 @@
+{
+  "asset_id": "ca_hangzhou_xiaohe_straight_street",
+  "asset_instance_id": "ca_hangzhou_xiaohe_straight_street_food_gallery",
+  "image_slot": "food_gallery",
+  "source": "pexels",
+  "file_path": "C:\\Users\\10200\\Desktop\\travel_planing\\trip_packages\\hangzhou_couple_golden_v1\\images\\files\\ca_hangzhou_xiaohe_straight_street_food_gallery.avif",
+  "status": "completed",
+  "retry_count": 0,
+  "last_error": null,
+  "download_status": "completed",
+  "fallback_available": false,
+  "selection": {
+    "selected_candidate": {
+      "source": "pexels",
+      "candidate_id": "35627597",
+      "image_url": "https://images.pexels.com/photos/35627597/pexels-photo-35627597.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    },
+    "rank_score": 60,
+    "candidate_count": 10,
+    "rejected_count": 0
+  },
+  "metadata": {
+    "source_runs": [
+      {
+        "source": "wikimedia",
+        "priority": 1,
+        "candidate_count": 0,
+        "error": null
+      },
+      {
+        "source": "pexels",
+        "priority": 2,
+        "candidate_count": 10,
+        "error": null
+      }
+    ],
+    "title": "Delicious spicy Asian dish featuring crispy pork, red peppers, and fresh lettuce on a restaurant table.",
+    "description": "A picturesque street in Hangzhou, China, with historic architecture and red lanterns lining the sidewalk on a quiet afternoon.",
+    "author": "P. Ho",
+    "license": "Pexels License",
+    "source_url": "https://www.pexels.com/photo/spicy-asian-cuisine-with-crispy-pork-and-peppers-35627597/",
+    "image_url": "https://images.pexels.com/photos/35627597/pexels-photo-35627597.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "width": 5472,
+    "height": 3648,
+    "mime_type": "image/avif",
+    "score_reasons": [
+      "location_match",
+      "high_resolution_3000",
+      "wanderly_fit"
+    ],
+    "source": "pexels",
+    "no_specific_shop_claim": true,
+    "golden_review": {
+      "status": "passed",
+      "note": "Accepted v2 food candidate as real dining/food subject; not bound to a concrete restaurant."
+    },
+    "provenance_note": "H3.6.4 replacement from reviewed v2 Xiaohe food candidate; preserves real_photo provenance and does not fabricate a specific shop.",
+    "finalized_in_package": "hangzhou_couple_golden_v1",
+    "candidate_file_path": "temp/hangzhou_couple_v2_images/files/ca_hangzhou_xiaohe_straight_street_food_gallery_v2.jpeg",
+    "packaged_file_path": "images/files/ca_hangzhou_xiaohe_straight_street_food_gallery.avif",
+    "sha256": "105a26fa70b25c48ede0d57dfe8cb1c16ae2f5bd8a4363e2abb4008a5a747806"
+  }
+}

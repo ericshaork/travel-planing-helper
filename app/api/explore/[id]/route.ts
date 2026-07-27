@@ -7,6 +7,8 @@ import {
 } from "../../../../lib/explore/normalized-source";
 import { createExploreRepository } from "../../../../lib/explore/repository";
 import { getMockExploreDetail } from "../../../../lib/explore/mock-archives";
+import { normalizeExploreContentDisplay } from "../../../../lib/explore/display-city";
+import { getTripPackageExploreContentById } from "../../../../lib/trip-packages/source";
 import type { ExploreDetailResponse } from "../../../../lib/explore/types";
 import { AppError, toApiErrorResponse } from "../../../../lib/utils/errors";
 
@@ -43,6 +45,15 @@ export function createExploreDetailHandler(
         );
       }
 
+      const packageResult = await getTripPackageExploreContentById(normalizedId);
+
+      if (packageResult.item) {
+        return NextResponse.json({
+          ok: true,
+          item: normalizeExploreContentDisplay(packageResult.item),
+        } satisfies ExploreDetailResponse);
+      }
+
       const normalizedItem =
         getNormalizedExploreArchiveBySlug(normalizedId) ??
         getNormalizedExploreArchiveByExternalId(normalizedId);
@@ -50,7 +61,9 @@ export function createExploreDetailHandler(
       if (normalizedItem) {
         return NextResponse.json({
           ok: true,
-          item: mapNormalizedArchiveToExploreContent(normalizedItem),
+          item: normalizeExploreContentDisplay(
+            mapNormalizedArchiveToExploreContent(normalizedItem),
+          ),
         } satisfies ExploreDetailResponse);
       }
 
@@ -68,7 +81,7 @@ export function createExploreDetailHandler(
         if (mockItem) {
           return NextResponse.json({
             ok: true,
-            item: mockItem,
+            item: normalizeExploreContentDisplay(mockItem),
           } satisfies ExploreDetailResponse);
         }
       }
@@ -87,7 +100,7 @@ export function createExploreDetailHandler(
 
       return NextResponse.json({
         ok: true,
-        item,
+        item: normalizeExploreContentDisplay(item),
       } satisfies ExploreDetailResponse);
     } catch (error) {
       const { id } = await context.params;
@@ -96,7 +109,7 @@ export function createExploreDetailHandler(
       if (mockItem) {
         return NextResponse.json({
           ok: true,
-          item: mockItem,
+          item: normalizeExploreContentDisplay(mockItem),
         } satisfies ExploreDetailResponse);
       }
 

@@ -94,7 +94,7 @@ describe("AmapBaseMap helpers", () => {
     expect(map.setZoom).not.toHaveBeenCalled();
   });
 
-  it("unmount helper 会销毁地图实例", () => {
+  it("destroy helper 会销毁地图实例", () => {
     const map: AMapMapInstance = {
       destroy: vi.fn(),
     };

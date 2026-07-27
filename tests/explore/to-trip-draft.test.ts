@@ -4,6 +4,7 @@ import {
   buildTripPlanDraftFromExplore,
   buildTripPlanDraftFromInspiration,
 } from "../../lib/explore/to-trip-draft";
+import { tripPlanSchema } from "../../lib/trip/schema";
 import type {
   ExploreTripContent,
   InspirationSelection,
@@ -19,7 +20,7 @@ const archive: ExploreTripContent = {
   cityCode: "chengdu",
   region: "Sichuan",
   tripType: "food",
-  days: 3,
+  days: 1,
   tags: ["food", "city-walk"],
   theme: "slow",
   pace: "relaxed",
@@ -91,9 +92,11 @@ describe("buildTripPlanDraftFromExplore", () => {
     expect(result.tripPlanSeed.tripTitle).toBe("Chengdu archive");
     expect(result.tripPlanSeed.dailyItinerary).toHaveLength(1);
     expect(result.tripPlanSeed.dailyItinerary[0]?.morning[0]?.placeName).toBe(
-      "kuanzhai",
+      "Kuanzhai Alley",
     );
     expect(result.tripPlanSeed.dailyItinerary[0]?.evening[0]?.type).toBe("food");
+    expect(result.tripPlanSeed.transportAdvice.options.length).toBeGreaterThanOrEqual(1);
+    expect(tripPlanSchema.safeParse(result.tripPlanSeed).success).toBe(true);
   });
 });
 
@@ -111,7 +114,7 @@ describe("buildTripPlanDraftFromInspiration", () => {
     });
 
     expect(result.sourceType).toBe("explore_inspiration");
-    expect(result.tripTitle).toBe("Sanya inspiration draft");
+    expect(result.tripTitle).toBe("Sanya 灵感草稿");
     expect(result.tripRequestDraft.destinationCity).toBe("Sanya");
     expect(result.tripRequestDraft.interests).toContain("seafood");
     expect(result.tripPlanSeed.destination).toBe("Sanya");

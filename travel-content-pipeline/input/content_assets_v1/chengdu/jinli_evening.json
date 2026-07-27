@@ -1,0 +1,30 @@
+{
+  "id": "ca_chengdu_jinli_evening",
+  "name": "Jinli Evening",
+  "asset_type": "historic_food_street",
+  "category": "night_market_warmth",
+  "content_role": ["evening_closure", "food_backbone", "historic_texture"],
+  "traveler_fit": {
+    "couple": "high",
+    "student": "medium",
+    "solo": "medium",
+    "family": "medium"
+  },
+  "season_fit": {
+    "spring": "high",
+    "summer": "medium",
+    "autumn": "high",
+    "winter": "medium"
+  },
+  "best_time": {
+    "time_of_day": ["dusk", "evening"],
+    "note": "Best for warm food-street lights and relaxed day ending."
+  },
+  "experience_value": {
+    "primary": ["evening_closure", "snack_memory", "lantern_warmth", "couple_walk"],
+    "summary": "A food-and-lights closure that keeps Chengdu emotional without overpacking."
+  },
+  "avoid_when": ["avoid_tourist_streets"],
+  "nearby_assets": ["ca_chengdu_wuhou_shrine"],
+  "map_asset_id": "poi_jinli"
+}

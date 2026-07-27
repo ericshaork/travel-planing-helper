@@ -29,6 +29,10 @@ function normalizeManifestItem(item, index) {
     throw new Error(`manifest item "${item.asset_id}" is missing a valid image_slot.`);
   }
 
+  const baseMetadata = item.metadata && typeof item.metadata === "object" && !Array.isArray(item.metadata)
+    ? item.metadata
+    : {};
+
   return {
     asset_id: item.asset_id,
     image_slot: item.image_slot,
@@ -38,11 +42,15 @@ function normalizeManifestItem(item, index) {
     decision_reason: item.decision_reason || "",
     prompt: item.prompt || "",
     metadata: pickDefined({
-      ...(item.metadata && typeof item.metadata === "object" && !Array.isArray(item.metadata) ? item.metadata : {}),
+      ...baseMetadata,
       city: item.city,
       scene_hint: item.scene_hint,
       style_profile: item.style_profile,
-      suggested_source: item.suggested_source
+      suggested_source: item.suggested_source,
+      location_context: item.location_context !== undefined ? item.location_context : baseMetadata.location_context,
+      search_keywords: item.search_keywords !== undefined ? item.search_keywords : baseMetadata.search_keywords,
+      image_usage_profile: item.image_usage_profile !== undefined ? item.image_usage_profile : baseMetadata.image_usage_profile,
+      visual_subject: item.visual_subject !== undefined ? item.visual_subject : baseMetadata.visual_subject
     })
   };
 }

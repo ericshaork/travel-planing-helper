@@ -1,6 +1,7 @@
 import type { TripResultEnrichment } from "../trip/enrichment-types";
 import type { TripPlan, TripRequest, WeatherSummary } from "../trip/types";
 import type { TripWeatherSummary } from "../weather/types";
+import type { TravelProjectSourceType } from "../projects/types";
 
 export interface SaveTripRequestPayload {
   tripRequest: TripRequest;
@@ -53,6 +54,20 @@ export interface DeleteTripResponse {
 
 export interface SavedTripListItem {
   id: string;
+  entity_type?: "saved_trip" | "project";
+  project_id?: string | null;
+  current_version_id?: string | null;
+  project_source_type?: TravelProjectSourceType | null;
+  project_lifecycle_state?:
+    | "new"
+    | "exploring"
+    | "planning"
+    | "proposed"
+    | "generating"
+    | "workspace"
+    | "editing"
+    | "archived"
+    | null;
   title: string;
   destination_city: string | null;
   start_date: string | null;
@@ -60,7 +75,7 @@ export interface SavedTripListItem {
   days: number | null;
   budget: number | null;
   cover_image_url: string | null;
-  source_type: "ai_generated" | "blank_manual" | "explore_import";
+  source_type: "ai_generated" | "blank_manual" | "explore_import" | "file_import";
   status: "draft" | "saved" | "archived";
   trip_preferences_json: Record<string, unknown>;
   local_draft_id: string | null;

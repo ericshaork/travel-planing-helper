@@ -36,7 +36,34 @@
       "source_preference": "hybrid_first",
       "generation_mode": "hybrid",
       "decision_reason": "Upstream selected hybrid mode for a mixed realism and atmosphere asset.",
-      "prompt": "Balanced editorial and real-world visual asset."
+      "prompt": "Balanced editorial and real-world visual asset.",
+      "metadata": {
+        "image_usage_profile": "experience",
+        "photo_source_candidates": [
+          {
+            "source": "mock_gallery",
+            "priority": 1
+          }
+        ],
+        "mock_photo_sources": {
+          "mock_gallery": {
+            "download_file_path": "mock://integration/sample_hybrid_asset.jpg",
+            "candidates": [
+              {
+                "title": "Sample hybrid reference",
+                "description": "real-world travel reference photo with atmosphere",
+                "width": 3200,
+                "height": 2100,
+                "mime_type": "image/jpeg",
+                "url": "https://example.com/sample-hybrid-reference.jpg",
+                "license": "CC0",
+                "author": "Integration Fixture Author",
+                "source_url": "https://example.com/sample-hybrid-reference"
+              }
+            ]
+          }
+        }
+      }
     },
     {
       "asset_id": "sample_ai_generated_asset",

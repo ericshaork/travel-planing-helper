@@ -1,21 +1,16 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-
 import type { ArchiveReaderViewModel } from "@/lib/explore/archive-reader";
 import {
   cleanDisplayText,
   formatDaysText,
   formatTripTypeLabel,
 } from "@/lib/explore/archive-display";
-import {
-  startExploreCreateFlow,
-  startExploreWorkspaceFlow,
-} from "@/lib/explore/flow";
+import { displayCityName } from "@/lib/explore/display-city";
 import { getArchiveHeroCoverSlot } from "@/lib/explore/image-resolver";
 
+import { ExploreProjectEntryButton } from "../ExploreProjectEntryButton";
 import { FavoriteButton } from "../FavoriteButton";
-import { GenerateTripButton } from "../GenerateTripButton";
 import { ResolvedImage } from "../ResolvedImage";
 import { ArchiveTagsPanel } from "./ArchiveTagsPanel";
 
@@ -25,7 +20,7 @@ interface ArchiveCoverProps {
 
 function buildMetaTags(item: ArchiveReaderViewModel) {
   return [
-    cleanDisplayText(item.city, "目的地"),
+    cleanDisplayText(displayCityName(item.city, item.cityCode), "目的地"),
     formatDaysText(item.days),
     cleanDisplayText(item.theme),
     formatTripTypeLabel(item.tripType),
@@ -34,7 +29,6 @@ function buildMetaTags(item: ArchiveReaderViewModel) {
 }
 
 export function ArchiveCover({ item }: ArchiveCoverProps) {
-  const router = useRouter();
   const heroCoverSlot = getArchiveHeroCoverSlot(item);
   const metaTags = buildMetaTags(item);
 
@@ -45,7 +39,7 @@ export function ArchiveCover({ item }: ArchiveCoverProps) {
           <p className="workspace-kicker">旅行档案</p>
           <div className="space-y-3">
             <h1 className="text-[2rem] font-semibold tracking-[-0.05em] text-[var(--ink)] sm:text-[2.65rem]">
-              {cleanDisplayText(item.title, "旅行档案")}
+              {cleanDisplayText(item.title, "旅行计划")}
             </h1>
             <div className="flex flex-wrap gap-2 text-xs font-medium text-[var(--ink-muted)]">
               {metaTags.map((tag) => (
@@ -70,22 +64,7 @@ export function ArchiveCover({ item }: ArchiveCoverProps) {
           <ArchiveTagsPanel item={item} compact />
 
           <div className="flex flex-wrap items-start gap-3 pt-1">
-            <GenerateTripButton
-              label="导入到工作台"
-              payload={{
-                entry: "archive_cover_import_workspace",
-                draft: item.createDraftSeed,
-              }}
-              onGenerate={() => startExploreWorkspaceFlow(item.createDraftSeed, router)}
-            />
-            <GenerateTripButton
-              label="继续补需求"
-              payload={{
-                entry: "archive_cover_create",
-                draft: item.createDraftSeed,
-              }}
-              onGenerate={() => startExploreCreateFlow(item.createDraftSeed, router)}
-            />
+            <ExploreProjectEntryButton item={item} />
             <FavoriteButton archiveId={item.slug} />
           </div>
         </div>

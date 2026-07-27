@@ -1,0 +1,109 @@
+{
+  "city_code": "guilin",
+  "city_name": "Guilin",
+  "region_name": "Guangxi",
+  "summary": "Guilin suits slower scenic travel shaped by karst landscapes, riverside movement, old-town texture, and easy day-to-evening visual transitions.",
+  "transport_notes": [
+    "Keep riverfront, old-city, and hill-viewpoint stops grouped to avoid scattering the day across wider scenic areas.",
+    "Short rides plus walking usually works better than repeatedly jumping between distant mountain-view locations.",
+    "Evenings are strongest near central riverfronts and old-town food streets rather than far scenic detours."
+  ],
+  "budget_notes": {
+    "low": "Focus on public viewpoints, riverside walks, and central local-food streets.",
+    "medium": "Blend one city landmark, one scenic river or hill stop, and one recognizable local dining area each day.",
+    "high": "Add slower comfort pacing, scenic dining, and more selective low-transfer routing."
+  },
+  "trip_type_notes": {
+    "student": "Student plans in Guilin should keep scenery accessible, photogenic, and easy to combine with affordable local food.",
+    "solo": "Solo plans should emphasize observation, riverside pacing, and calm scenic immersion.",
+    "couple": "Couple plans should center on mountain silhouettes, river breeze, and soft evening atmosphere.",
+    "family": "Family plans should use easy city viewpoints, flatter scenic walks, and manageable movement."
+  },
+  "suggested_tags": [
+    "karst-scenery",
+    "river-city",
+    "photo-friendly",
+    "slow-travel",
+    "old-town",
+    "nature-led"
+  ],
+  "pois": [
+    {
+      "id": "poi_two_rivers",
+      "name": "Two Rivers and Four Lakes Area",
+      "district": "Xiufeng",
+      "type": "central scenic district",
+      "description": "A practical central Guilin area where water, bridges, and city scenery connect naturally.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_elephant_trunk_edge",
+      "name": "Elephant Trunk Hill Area",
+      "district": "Xiangshan",
+      "type": "landmark scenic site",
+      "description": "A recognizable city symbol that works well as an easy scenic anchor.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_fubo_hill",
+      "name": "Fubo Hill Area",
+      "district": "Xiufeng",
+      "type": "city viewpoint",
+      "description": "A strong city-and-river perspective stop without requiring a full out-of-town scenic shift.",
+      "best_for": ["student", "solo", "couple"],
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_east_west_lane",
+      "name": "East-West Lane",
+      "district": "Xiufeng",
+      "type": "historic street district",
+      "description": "A useful old-city walking area for local atmosphere, food access, and manageable evening pacing.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_reed_flute_edge",
+      "name": "Reed Flute Scenic Edge",
+      "district": "Xiufeng",
+      "type": "scenic landmark area",
+      "description": "A broader nature-oriented option for plans that want a second layer beyond central river scenery.",
+      "best_for": ["solo", "couple", "family"],
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_river_evening_walk",
+      "name": "Li River Evening Walk",
+      "district": "Xiangshan",
+      "type": "riverfront district",
+      "description": "A soft evening route where mountain outlines and city lights give Guilin its calm signature mood.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food_areas": [
+    {
+      "name": "Zhengyang Walking Street Food Area",
+      "district": "Xiufeng",
+      "specialties": ["rice noodles", "street snacks", "central casual meals"],
+      "best_for": ["student", "solo", "couple", "family"],
+      "note": "Best for practical local food in the most accessible central district."
+    },
+    {
+      "name": "East-West Lane Dining Pockets",
+      "district": "Xiufeng",
+      "specialties": ["old-street dining", "shared local dishes", "light evening meals"],
+      "best_for": ["student", "solo", "couple", "family"],
+      "note": "Best for food that stays integrated with scenic old-city walking."
+    },
+    {
+      "name": "Riverfront Light Dining Zone",
+      "district": "Xiangshan",
+      "specialties": ["scenic dining", "dessert stops", "slower evening meals"],
+      "best_for": ["couple", "family", "solo"],
+      "note": "Best for plans that want to end the day with softer water-and-mountain atmosphere."
+    }
+  ]
+}

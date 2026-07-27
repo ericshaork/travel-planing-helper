@@ -503,6 +503,20 @@ export function clearTripPlan(storage?: StorageLike) {
   browserStorage(storage)?.removeItem(TRIP_PLAN_STORAGE_KEY);
 }
 
+export function clearLocalTripDraftState(storage?: StorageLike) {
+  const targetStorage = browserStorage(storage);
+
+  targetStorage?.removeItem(PARSED_TRIP_STORAGE_KEY);
+  targetStorage?.removeItem(TRIP_DRAFT_STORAGE_KEY);
+  targetStorage?.removeItem(TRIP_PLAN_DRAFT_STORAGE_KEY);
+  targetStorage?.removeItem(TRIP_REQUEST_STORAGE_KEY);
+  targetStorage?.removeItem(TRIP_PLAN_STORAGE_KEY);
+  targetStorage?.removeItem(TRIP_ENRICHMENT_STORAGE_KEY);
+  targetStorage?.removeItem(TRIP_WEATHER_SUMMARY_STORAGE_KEY);
+  removeSavedTripMetadata(targetStorage);
+  removeWorkspaceSessionMetadata(targetStorage);
+}
+
 export function createBlankWorkspaceDraft(storage?: StorageLike) {
   const targetStorage = browserStorage(storage);
 

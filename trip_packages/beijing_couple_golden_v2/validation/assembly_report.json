@@ -1,0 +1,21 @@
+{
+  "trip_id": "beijing_couple_golden_v2",
+  "base_package_id": "beijing_couple_v1",
+  "status": "passed",
+  "generated_on": "2026-07-18T08:51:44.044Z",
+  "checks": {
+    "content_copied": true,
+    "image_count_matches": true,
+    "asset_instance_id_unique": true,
+    "completed_assets_have_file_path": true,
+    "provenance_present": true
+  },
+  "counts": {
+    "expected_assets": 7,
+    "packaged_assets": 7,
+    "ai_generated_assets": 4,
+    "real_photo_assets": 3
+  },
+  "issues": [],
+  "warnings": []
+}

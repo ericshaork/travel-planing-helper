@@ -30,7 +30,7 @@ import type {
 } from "./types";
 
 const DEFAULT_TIMEOUT_MS = 120_000;
-const DEFAULT_MAX_TOKENS = 8_000;
+const DEFAULT_MAX_TOKENS = 6_000;
 const MAX_ERROR_SNIPPET_LENGTH = 300;
 const CHAT_COMPLETIONS_SUFFIX = "/chat/completions";
 

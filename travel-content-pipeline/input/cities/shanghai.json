@@ -1,0 +1,109 @@
+{
+  "city_code": "shanghai",
+  "city_name": "Shanghai",
+  "region_name": "Shanghai",
+  "summary": "Shanghai is best for stylish urban travel shaped by waterfront icons, historic-modern contrast, elegant streets, and polished evening atmosphere.",
+  "transport_notes": [
+    "Shanghai works best when each day is organized by district rather than trying to cross the city repeatedly.",
+    "Metro is strong, but plans should still avoid stacking far-apart riverside, old-city, and former concession areas on the same day.",
+    "Couple-oriented evenings are strongest when the route ends near the Bund, riverfront, or a slower-designed street district."
+  ],
+  "budget_notes": {
+    "low": "Focus on street wandering, riverfront views, and approachable neighborhood food rather than premium dining.",
+    "medium": "Blend one signature skyline or heritage zone with one design-forward street area and one reliable dining cluster each day.",
+    "high": "Add stronger atmosphere-led dining, slower boutique pacing, and polished evening districts."
+  },
+  "trip_type_notes": {
+    "student": "Student plans should make Shanghai feel energetic, photogenic, and still financially manageable.",
+    "solo": "Solo plans should emphasize observing city texture, architecture, and neighborhood contrast at a personal pace.",
+    "couple": "Couple plans should highlight skyline romance, stylish streets, evening reflections, and strong photo moments.",
+    "family": "Family plans should simplify movement and balance landmark moments with gentler public spaces."
+  },
+  "suggested_tags": [
+    "city-skyline",
+    "romantic",
+    "architecture",
+    "night-view",
+    "stylish-citywalk",
+    "modern-meets-historic"
+  ],
+  "pois": [
+    {
+      "id": "poi_bund",
+      "name": "The Bund",
+      "district": "Huangpu",
+      "type": "riverfront landmark",
+      "description": "Shanghai's defining waterfront stage for skyline contrast, evening mood, and city identity.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_french_concession_walk",
+      "name": "Former French Concession Walk",
+      "district": "Xuhui",
+      "type": "historic street district",
+      "description": "A tree-lined, architecture-rich citywalk zone with softer, more intimate Shanghai character.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_yuyuan_edge",
+      "name": "Yu Garden Old City Edge",
+      "district": "Huangpu",
+      "type": "historic city district",
+      "description": "A recognizable old-city layer that adds contrast to Shanghai's sleek modern image.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_suzhou_creek",
+      "name": "Suzhou Creek Walk",
+      "district": "Jing'an",
+      "type": "urban waterside walk",
+      "description": "A calmer urban edge that suits slower reflection and polished city views.",
+      "best_for": ["solo", "couple"],
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_wukang_road",
+      "name": "Wukang Road Area",
+      "district": "Xuhui",
+      "type": "architecture citywalk district",
+      "description": "A highly photogenic citywalk area where historic facades and everyday Shanghai elegance meet.",
+      "best_for": ["student", "solo", "couple"],
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_xintiandi_edge",
+      "name": "Xintiandi Edge Visit",
+      "district": "Huangpu",
+      "type": "stylish urban district",
+      "description": "A polished district for travelers who want a more curated and contemporary Shanghai mood.",
+      "best_for": ["couple", "solo"],
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food_areas": [
+    {
+      "name": "Former French Concession Dining Pocket",
+      "district": "Xuhui",
+      "specialties": ["stylish casual dining", "street-corner cafes", "slow evening meals"],
+      "best_for": ["solo", "couple", "family"],
+      "note": "Best for plans that want atmosphere, walking ease, and a polished city mood."
+    },
+    {
+      "name": "Yu Garden Old-City Food Area",
+      "district": "Huangpu",
+      "specialties": ["classic snack stops", "old-city flavor", "easy tasting moments"],
+      "best_for": ["student", "solo", "couple", "family"],
+      "note": "Best for connecting old Shanghai flavor to the city's heritage side."
+    },
+    {
+      "name": "Bund and Central Evening Dining Zone",
+      "district": "Huangpu",
+      "specialties": ["river-view dining", "date-night meals", "evening city atmosphere"],
+      "best_for": ["couple", "solo", "family"],
+      "note": "Best when the plan wants a stronger skyline-driven evening finish."
+    }
+  ]
+}

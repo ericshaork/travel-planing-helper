@@ -1,0 +1,109 @@
+{
+  "city_code": "beijing",
+  "city_name": "Beijing",
+  "region_name": "Beijing",
+  "summary": "Beijing works best for layered travel that balances imperial history, broad city landmarks, hutong life, and clear district-based routing.",
+  "transport_notes": [
+    "Beijing distances can be large, so each day should stay clustered by area whenever possible.",
+    "Metro is practical for most plans, but family itineraries should avoid too many major site jumps in a single day.",
+    "Historic-core sightseeing works best when paired with one nearby food or hutong zone rather than multiple far-apart landmarks."
+  ],
+  "budget_notes": {
+    "low": "Prioritize hutong walks, public landmarks, and straightforward local food streets with metro access.",
+    "medium": "Combine one major cultural site with one neighborhood exploration and one well-placed local dining area each day.",
+    "high": "Use a more comfortable pace, stronger dining moments, and fewer heavy landmark transitions."
+  },
+  "trip_type_notes": {
+    "student": "Student plans in Beijing should favor iconic culture, hutong atmosphere, and transit-friendly value.",
+    "solo": "Solo plans should emphasize wandering, observation, and the contrast between imperial scale and lived-in neighborhoods.",
+    "couple": "Couple plans should soften Beijing's grand scale with scenic walks, evening mood, and photogenic heritage zones.",
+    "family": "Family plans should focus on convenience, landmark clarity, manageable pacing, and enough rest between big sites."
+  },
+  "suggested_tags": [
+    "imperial-history",
+    "hutong-life",
+    "family-friendly",
+    "cultural-landmarks",
+    "citywalk",
+    "heritage"
+  ],
+  "pois": [
+    {
+      "id": "poi_forbidden_city_edge",
+      "name": "Forbidden City Outer Axis Visit",
+      "district": "Dongcheng",
+      "type": "imperial landmark",
+      "description": "The grand imperial heart of Beijing, best used as a defining history anchor.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 180
+    },
+    {
+      "id": "poi_jingshan",
+      "name": "Jingshan Viewpoint",
+      "district": "Xicheng",
+      "type": "city viewpoint",
+      "description": "A useful panoramic counterpoint to the imperial core, especially for lighter scenic pacing.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 75
+    },
+    {
+      "id": "poi_shichahai_hutong",
+      "name": "Shichahai Hutong Walk",
+      "district": "Xicheng",
+      "type": "hutong district",
+      "description": "A softer, lived-in Beijing experience built around alleys, lakeside rhythm, and neighborhood texture.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_temple_of_heaven",
+      "name": "Temple of Heaven Area",
+      "district": "Dongcheng",
+      "type": "cultural landmark",
+      "description": "A ceremonial and open-space stop that gives Beijing plans breathing room and historical weight.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_nanluoguxiang",
+      "name": "Nanluoguxiang",
+      "district": "Dongcheng",
+      "type": "historic lane district",
+      "description": "A lively lane area that works well for approachable food, light shopping, and casual evening movement.",
+      "best_for": ["student", "solo", "couple"],
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_798_edge",
+      "name": "798 Art District Edge Visit",
+      "district": "Chaoyang",
+      "type": "creative district",
+      "description": "A modern cultural contrast for plans that want a more contemporary Beijing layer.",
+      "best_for": ["student", "solo", "couple"],
+      "recommended_duration_minutes": 120
+    }
+  ],
+  "food_areas": [
+    {
+      "name": "Shichahai Hutong Food Area",
+      "district": "Xicheng",
+      "specialties": ["hutong snacks", "casual Beijing dishes", "lakeside dining"],
+      "best_for": ["student", "solo", "couple", "family"],
+      "note": "Best for connecting neighborhood atmosphere with manageable family-friendly dining."
+    },
+    {
+      "name": "Nanluoguxiang Snack Lanes",
+      "district": "Dongcheng",
+      "specialties": ["street bites", "casual youth-friendly food", "easy grazing stops"],
+      "best_for": ["student", "solo", "couple"],
+      "note": "Best when the plan wants a more youthful and lighter evening food rhythm."
+    },
+    {
+      "name": "Qianmen Traditional Food Zone",
+      "district": "Dongcheng",
+      "specialties": ["classic Beijing flavors", "heritage-style eateries", "traditional dessert and snack stops"],
+      "best_for": ["student", "solo", "couple", "family"],
+      "note": "Best for adding recognizable old-Beijing flavor near major heritage sightseeing."
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "asset_id": "ca_beijing_jingshan_park",
+  "asset_instance_id": "ca_beijing_jingshan_park_poi_gallery",
+  "image_slot": "poi_gallery",
+  "source": "wikimedia",
+  "file_path": "images/files/ca_beijing_jingshan_park_poi_gallery.jpg",
+  "status": "completed",
+  "metadata": {
+    "source": "wikimedia",
+    "title": "File:Beijing View from the Jingshan.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Beijing_View_from_the_Jingshan.jpg",
+    "license": "Wikimedia Commons; verify exact license before public commercial use",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Beijing_View_from_the_Jingshan.jpg/960px-Beijing_View_from_the_Jingshan.jpg",
+    "note": "Real Jingshan viewpoint over the Forbidden City.",
+    "generation_strategy": "real_photo_reselected",
+    "original_candidate_path": "temp/beijing_couple_v2_images/real_photo/ca_beijing_jingshan_park_poi_gallery_v2.jpg"
+  }
+}

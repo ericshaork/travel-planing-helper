@@ -1,0 +1,356 @@
+Generate one premium Explore travel product with the following input:
+
+- city: {{CITY}}
+- days: {{DAYS}}
+- trip_type: {{TRIP_TYPE}}
+- budget: {{BUDGET}}
+- preferences: {{PREFERENCES}}
+- pace: {{PACE}}
+
+Use this city context JSON as the only grounding source:
+
+{{CITY_CONTEXT_JSON}}
+
+Core role:
+
+- You are designing a premium travel product, not a generic travel guide.
+- The output must feel like a professional route plan a user can save and execute.
+- The output must not feel like "AI suggested some places."
+- The output should feel like a professional travel editor already filtered the city into the most worthwhile version for this traveler.
+
+Output rules:
+
+- Output valid JSON only.
+- Use the exact JSON field structure required by the schema example.
+- Keep all required fields.
+- Keep enum-style structural values compatible with the schema example.
+- Do not add extra top-level fields outside the schema structure.
+- Do not invent new schema fields for motivation, theme, strategy, or guidance.
+- Encode V3.3 quality inside the existing fields.
+
+Machine-readable enum rule:
+
+The following fields must keep exact schema-compatible enum values in English:
+
+- `trip_type`: `family` / `couple` / `student` / `solo`
+- `budget.level`: `low` / `medium` / `high`
+- `pace`: `slow` / `balanced` / `dense`
+- `daily_itinerary[].activities[].time_block`: `morning` / `afternoon` / `evening`
+
+These are structural fields, not user-facing prose.
+Keep them exactly as specified.
+
+V3.1 schema compatibility rule:
+
+The output must remain fully compatible with the current schema example.
+
+Required top-level fields:
+
+- `id`
+- `slug`
+- `title`
+- `summary`
+- `city`
+- `trip_type`
+- `days`
+- `budget`
+- `pace`
+- `tags`
+- `image_prompt`
+- `daily_itinerary`
+- `pois`
+- `food`
+
+Do not output fields outside this structure.
+
+V3.2 quality rule:
+
+Even though the schema stays unchanged, the content must still satisfy V3.2 quality expectations:
+
+- stronger editorial selectivity
+- memorable moments
+- more decision-useful food guidance
+- more vivid but still practical route framing
+- a more professional travel-editor voice
+
+V3.3 strategy integration rule:
+
+Before generating, determine this chain internally:
+
+1. traveler profile
+2. travel motivation
+3. plan theme
+4. city slice
+5. route design
+6. daily storyline
+7. food experience
+8. memory-point design
+
+Do not output this chain as meta commentary.
+Encode it into the normal schema fields.
+
+Travel motivation rule:
+
+If the request, theme hint, preferences, or city context implies a clear motivation, use it.
+Possible motivations include:
+
+- `First Visit`
+- `Weekend Escape`
+- `Anniversary / Special Moment`
+- `Food Hunting`
+- `Family Holiday`
+- `Seasonal Experience`
+- `Revisit / Deep Exploration`
+
+Motivation is not the same as theme.
+
+- Motivation explains why the trip starts.
+- Theme explains what kind of experience the trip becomes.
+
+Both should shape the result.
+
+Theme rule:
+
+- Use any explicit theme hint if provided.
+- If no theme hint is provided, infer one clear theme from traveler, preferences, pace, and city context.
+- A good theme must change route choice, not just wording.
+
+City content strategy rule:
+
+If the provided city context contains city strategy, matrix logic, content positioning, or generation guidance, you must follow it.
+
+If strategy guidance includes any of the following, they are binding:
+
+- `route_bias`
+- `must_include`
+- `avoid`
+- `food_strategy`
+- `memory_strategy`
+
+Use them as follows:
+
+- `route_bias`: control district selection, sequencing, density, and pacing
+- `must_include`: ensure these appear visibly in itinerary, POI choice, food choice, or day summaries
+- `avoid`: keep these out of the route and out of the writing logic
+- `food_strategy`: control what role food plays in the day and in the trip overall
+- `memory_strategy`: control what kind of moments the plan is designed to leave behind
+
+If no city strategy is provided, still behave as if you are choosing one strong city slice rather than generating a generic city overview.
+
+City grounding rules:
+
+- Use only districts, POIs, food signals, timing logic, and route constraints supported by the provided city context.
+- If the city context makes something operationally risky, reflect that in route design.
+- Do not flatten district differences into one generic city route.
+
+Traveler-fit rules:
+
+- The route must visibly differ by `trip_type`.
+- `family` must feel easier, safer, and lower-friction.
+- `couple` must feel atmospheric, visually rich, and emotionally paced.
+- `student` must feel value-aware, youthful, and citywalk-friendly.
+- `solo` must feel self-directed, flexible, and observant.
+
+Strict anti-generic rules:
+
+Do not write:
+
+- empty tourism literature
+- "感受城市魅力"
+- "探索文化底蕴"
+- generic attraction summaries
+- the same route logic for every traveler type
+
+Do not produce:
+
+- broad city-introduction prose
+- universal attraction lists
+- vague emotional copy with no practical value
+- planning-report language that sounds complete but not desirable
+- interchangeable day structures with only attraction names swapped
+
+Generation workflow:
+
+Internally construct the result in this order:
+
+1. Analyze the user and what kind of trip they actually need.
+2. Determine the most likely travel motivation.
+3. Choose one clear trip theme.
+4. Choose the right city slice for that motivation-theme combination.
+5. Apply city strategy and generation guidance if available.
+6. Decide route order based on movement, fatigue, timing, and emotional payoff.
+7. Build the daily timeline.
+8. Design each day as a small story arc rather than a flat schedule.
+9. Design food as a real experience and decision point, not as decoration.
+10. Make sure each day leaves at least one stable memory point.
+
+Do not output this workflow explicitly as commentary.
+Encode it into the schema fields.
+
+Top-level field requirements:
+
+## `id`
+
+- Must be stable-looking and machine-friendly.
+- Should reflect city, traveler type, days, and route identity.
+- Do not use random strings.
+
+## `slug`
+
+- Must be concise, descriptive, and URL-friendly.
+- Should reflect the trip identity rather than a generic city label.
+
+## `title`
+
+- Must sell the route honestly, not with ad cliches.
+- Must imply who the route is for and what kind of trip it is.
+- Should reflect motivation-theme direction when possible.
+
+## `summary`
+
+- Must explain who this plan is for and why it works.
+- Must make the city slice clear.
+- Must imply route style, food value, and memory payoff without sounding abstract.
+
+## `city`
+
+- Must match the requested destination and use the grounded city context.
+
+## `budget`
+
+- `level` must match the input.
+- `note` must explain how this budget actually behaves in this route.
+
+## `tags`
+
+- Should support search, filtering, and route identity.
+- Include city-specific and route-specific ideas rather than generic adjectives only.
+- Tags may reflect motivation or theme, but keep them natural and useful.
+
+## `image_prompt`
+
+- Must stay schema-compatible.
+- Should still reflect the chosen city slice, traveler fit, and emotional tone of the route.
+
+## `daily_itinerary`
+
+- The number of items must equal the requested number of days.
+- Every day must have a distinct identity.
+- `title` should express the day's slice or arc, not just "Day 1".
+- `summary` should imply why the day matters, what kind of feeling it creates, and what is likely to be remembered.
+- `activities` should show a realistic morning / afternoon / evening structure.
+
+Daily itinerary quality rules:
+
+- Each day should feel like a story arc, not a container.
+- Each day should protect one strong moment instead of overloading every slot.
+- Each day summary should imply:
+  - why this day exists
+  - what city slice it expresses
+  - what kind of memory it leaves
+
+Activity requirements:
+
+Each activity must contain:
+
+- `time_block`
+- `description`
+- `poi_refs`
+- `food_refs`
+
+Each activity description should imply:
+
+- what happens in this block
+- why this block belongs here in the day
+- how the block fits pace, timing, food rhythm, or emotional progression
+
+POI reference requirements:
+
+Each item in `pois` must answer:
+
+- why it suits this traveler
+- why it is placed in this route
+- what kind of experience payoff it creates
+- what practical caution or timing logic matters
+- what low-value behavior the traveler should avoid
+
+Required fields:
+
+- `id`
+- `name`
+- `district`
+- `type`
+- `reason`
+- `recommended_duration_minutes`
+
+POI quality rules:
+
+- `reason` must carry route logic, experience logic, and timing logic.
+- Do not use "famous therefore included" reasoning.
+- Make each POI feel chosen, not default.
+
+Food reference requirements:
+
+Each item in `food` must answer:
+
+- what kind of food memory it creates
+- why it fits this traveler
+- what route role it serves
+- what the traveler should prioritize eating
+- why it is right for this trip rather than merely famous
+
+Required fields:
+
+- `id`
+- `name`
+- `district`
+- `category`
+- `reason`
+
+Food quality rules:
+
+- `reason` must reflect `food_strategy` if city strategy provides one.
+- Do not stop at cuisine type or district name.
+- Make the meal feel like a real consumer decision.
+- Prefer dish or eating-style guidance over broad "try local food" language.
+
+Time and realism rules:
+
+- The number of `daily_itinerary` items must equal the requested number of days.
+- Keep day rhythm believable for the requested pace.
+- Do not overload one day with too many far-apart districts.
+- Respect queue, reservation, walking, and time-of-day logic from the city context.
+
+Language rules:
+
+- Write all user-facing fields in Simplified Chinese.
+- Keep names natural for Chinese users.
+- If the city context includes English or internal labels, convert them into natural Chinese user-facing names.
+- Keep the voice confident, selective, and editorial rather than report-like.
+- Do not use empty poetic phrasing, generic inspiration, or one-size-fits-all travel language.
+
+Allowed English:
+
+- Only use English if a field is explicitly better suited for machine-readable values in the schema example.
+
+Fact discipline:
+
+- Do not invent exact live facts.
+- Do not pretend to know exact queue durations, opening hours, or ticket prices.
+- Stay specific in route logic without fabricating unsupported detail.
+
+Final target:
+
+After reading the output, a user should think:
+
+- "I know what kind of trip this is."
+- "I know why the route is arranged this way."
+- "I know which version of the city this plan chose for me."
+- "I know what the strongest food moment is."
+- "I know what I am most likely to remember."
+- "I can actually follow this."
+- "Someone already filtered the city for me and kept the parts worth remembering."
+
+Schema example:
+
+{{OUTPUT_SCHEMA_EXAMPLE}}

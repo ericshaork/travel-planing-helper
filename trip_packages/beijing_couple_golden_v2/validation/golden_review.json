@@ -1,0 +1,35 @@
+{
+  "trip_id": "beijing_couple_golden_v2",
+  "generated_on": "2026-07-18T08:51:44.044Z",
+  "cover_quality": {
+    "status": "passed",
+    "notes": [
+      "Four cover assets use AI-generated editorial watercolor candidates instead of ordinary real-photo crops.",
+      "Forbidden City, Jingshan, Beihai, and Liangma River covers now express travel magazine plus private journal mood."
+    ]
+  },
+  "location_identity": {
+    "status": "passed_with_note",
+    "notes": [
+      "Jingshan, Beihai, and Shichahai gallery assets are real Wikimedia place photos.",
+      "Shichahai candidate is Houhai/Shichahai night lake and Drum Tower direction; stronger than commercial street, but evening mood should remain visible in downstream copy."
+    ]
+  },
+  "wanderly_style": {
+    "status": "passed",
+    "notes": [
+      "Cover set uses watercolor paper texture, quiet couple scale, restrained palette, and place-specific composition.",
+      "Gallery set preserves real location evidence and avoids AI fabrication for place assets."
+    ]
+  },
+  "duplicate_check": {
+    "status": "passed",
+    "notes": [
+      "No duplicate final image path across the seven final assets."
+    ]
+  },
+  "remaining_notes": [
+    "Real-photo licenses are preserved as Wikimedia provenance fields and should be verified before public commercial launch.",
+    "This package is a Golden Sample artifact only; no city template abstraction has been started."
+  ]
+}

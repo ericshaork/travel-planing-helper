@@ -1,0 +1,30 @@
+{
+  "id": "ca_hangzhou_west_lake",
+  "name": "West Lake",
+  "asset_type": "lakefront_scenic_area",
+  "category": "signature_landscape",
+  "content_role": ["signature_anchor", "city_symbolism", "lake_slow_walk"],
+  "traveler_fit": {
+    "couple": "high",
+    "student": "medium",
+    "solo": "high",
+    "family": "medium"
+  },
+  "season_fit": {
+    "spring": "high",
+    "summer": "medium",
+    "autumn": "high",
+    "winter": "medium"
+  },
+  "best_time": {
+    "time_of_day": ["morning", "dusk"],
+    "note": "Best as the first-arrival anchor or a soft dusk return."
+  },
+  "experience_value": {
+    "primary": ["first_impression", "romantic_walk", "lake_view", "photo"],
+    "summary": "Hangzhou's clearest city-defining anchor for a slow couple route."
+  },
+  "avoid_when": ["rainstorm_day", "major_holiday_peak_without_buffer"],
+  "nearby_assets": ["ca_hangzhou_su_causeway", "ca_hangzhou_lakeside_evening"],
+  "map_asset_id": "poi_west_lake"
+}

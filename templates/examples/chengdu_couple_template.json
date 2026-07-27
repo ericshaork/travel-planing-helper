@@ -1,0 +1,117 @@
+{
+  "template_id": "chengdu_couple_template_v1",
+  "template_version": "city_template_v1",
+  "city_identity": {
+    "code": "chengdu",
+    "name": "Chengdu",
+    "region_name": "Sichuan",
+    "country": "China",
+    "language": "zh-CN",
+    "timezone": "Asia/Shanghai",
+    "visual_identity_keywords": [
+      "teahouse life",
+      "Sichuan food",
+      "old alleys",
+      "bamboo shade",
+      "slow city rhythm",
+      "night market warmth"
+    ],
+    "signature_moods": [
+      "slow teahouse pause",
+      "street food memory",
+      "old neighborhood walk",
+      "warm evening closure"
+    ]
+  },
+  "traveler_profile": {
+    "traveler_type": "couple",
+    "days": 3,
+    "season": "autumn",
+    "budget": "medium",
+    "pace": "balanced",
+    "motivation": "food_and_slow_city",
+    "theme": "Chengdu food, teahouse, and old neighborhood couple route",
+    "must_include": [
+      "People's Park teahouse",
+      "Kuanzhai Alley",
+      "Wuhou Shrine",
+      "Jinli",
+      "Taikoo Li or Wangping Street"
+    ],
+    "avoid": [
+      "only panda-themed itinerary",
+      "all-commercial shopping route",
+      "too many spicy meals without breaks"
+    ]
+  },
+  "content_rules": {
+    "tone": "travel magazine plus private journal",
+    "route_quality": [
+      "Balance food stops with teahouse pauses and neighborhood walks.",
+      "Keep each day relaxed enough for a couple to linger.",
+      "Use evening food or riverside walks as emotional closure.",
+      "Avoid turning Chengdu into only a checklist of famous blocks."
+    ],
+    "poi_rules": [
+      "Use teahouse life as the primary local rhythm anchor.",
+      "Use Wuhou Shrine or Jinli for historical texture with route restraint.",
+      "Use one contemporary area for modern contrast.",
+      "Use old alleys and small streets for private journal detail."
+    ],
+    "food_rules": [
+      "Use real food photos for hotpot, chuanchuan, noodles, snacks, and tea-house context.",
+      "Do not fabricate named restaurants or dishes with AI images.",
+      "Give non-spicy or lighter fallback notes for comfort."
+    ],
+    "hard_constraints": [
+      "Do not fabricate real-time opening status.",
+      "Do not fabricate live ticket availability.",
+      "Do not fabricate live queue time.",
+      "Preserve source provenance for every final image."
+    ]
+  },
+  "asset_requirements": {
+    "families": [
+      {
+        "family": "signature_anchor",
+        "minimum_count": 1,
+        "purpose": "teahouse, old alley, or Wuhou/Jinli as city-defining anchor"
+      },
+      {
+        "family": "historic_texture",
+        "minimum_count": 1,
+        "purpose": "old neighborhood or shrine texture"
+      },
+      {
+        "family": "slow_solo",
+        "minimum_count": 1,
+        "purpose": "teahouse sitting, bamboo shade, or relaxed couple pause"
+      },
+      {
+        "family": "modern_contrast",
+        "minimum_count": 1,
+        "purpose": "Taikoo Li, Wangping Street, or contemporary Chengdu layer"
+      },
+      {
+        "family": "evening_closure",
+        "minimum_count": 1,
+        "purpose": "warm food street, riverside lights, or late tea ending"
+      },
+      {
+        "family": "food_backbone",
+        "minimum_count": 2,
+        "purpose": "Sichuan food as a core route backbone"
+      }
+    ],
+    "minimum_images": {
+      "cover": 2,
+      "place": 3,
+      "experience": 2,
+      "food": 2
+    }
+  },
+  "image_template_ref": {
+    "template_id": "wanderly_image_template_v1",
+    "template_version": "image_template_v1"
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "id": "ca_xian_muslim_quarter_food",
+  "name": "Xi'an Muslim Quarter Food",
+  "asset_type": "food_food_backbone",
+  "category": [
+    "food",
+    "food_backbone",
+    "food_anchor"
+  ],
+  "content_role": [
+    "food_backbone",
+    "food_anchor",
+    "food",
+    "real_photo"
+  ],
+  "traveler_fit": {
+    "couple": "high",
+    "student": "medium",
+    "solo": "high",
+    "family": "high",
+    "friends": "high"
+  },
+  "season_fit": {
+    "spring": "medium",
+    "summer": "medium",
+    "autumn": "high",
+    "winter": "medium"
+  },
+  "best_time": {
+    "time_of_day": [
+      "lunch",
+      "dinner",
+      "night"
+    ],
+    "note": "Xi'an Muslim Quarter Food is intended as food_anchor with balanced pacing."
+  },
+  "experience_value": {
+    "primary": [
+      "food_backbone",
+      "food_anchor",
+      "food",
+      "food is the main subject",
+      "Xi'an local dish identity",
+      "dining or street-food experience",
+      "real-photo provenance"
+    ],
+    "summary": "Xi'an local food or food-table experience"
+  },
+  "avoid_when": [
+    "storefront only",
+    "AI-generated named shop",
+    "generic Chinese noodles",
+    "unreadable menu-board proof"
+  ],
+  "nearby_assets": [],
+  "map_asset_id": "poi_muslim_quarter_food",
+  "bridge_metadata": {
+    "source": "city_inventory",
+    "source_inventory_id": "xian_city_inventory_v1",
+    "asset_id": "ca_xian_muslim_quarter_food",
+    "asset_name": "Xi'an Muslim Quarter Food",
+    "asset_category": "food",
+    "asset_family": "food_backbone",
+    "route_role": "food_anchor",
+    "why_it_matters": "Xi'an local food or food-table experience",
+    "pace_hint": "balanced",
+    "priority": 5
+  },
+  "image_context": {
+    "recommended_slots": [
+      "food_gallery"
+    ],
+    "image_usage_profile": "food",
+    "default_generation_mode": "real_photo",
+    "source_preference": "real_first",
+    "search_keywords": [
+      "Xi'an Muslim Quarter food",
+      "Xi'an roujiamo",
+      "Xi'an biangbiang noodles",
+      "Xi'an yangrou paomo",
+      "Xi'an street food table"
+    ],
+    "visual_subject": {
+      "main_subject": "Xi'an local food or food-table experience",
+      "secondary_elements": [
+        "roujiamo",
+        "biangbiang noodles",
+        "paomo",
+        "shared table"
+      ]
+    },
+    "positive_cues": [
+      "food is the main subject",
+      "Xi'an local dish identity",
+      "dining or street-food experience",
+      "real-photo provenance"
+    ],
+    "negative_cues": [
+      "storefront only",
+      "AI-generated named shop",
+      "generic Chinese noodles",
+      "unreadable menu-board proof"
+    ]
+  },
+  "search_keywords": [
+    "Xi'an Muslim Quarter food",
+    "Xi'an roujiamo",
+    "Xi'an biangbiang noodles",
+    "Xi'an yangrou paomo",
+    "Xi'an street food table"
+  ],
+  "review_rules": {
+    "manual_review_required": true,
+    "identity_check": [
+      "Food subject is clear and locally plausible.",
+      "No fabricated specific shop provenance."
+    ],
+    "failure_examples": [
+      "shop sign only",
+      "generic food court",
+      "AI-looking staged dish"
+    ]
+  },
+  "golden_reference": {
+    "package_id": "future_xian_golden",
+    "asset_instance_ids": []
+  }
+}

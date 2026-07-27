@@ -1,0 +1,63 @@
+{
+  "asset_id": "ca_chengdu_wangping_street",
+  "asset_instance_id": "ca_chengdu_wangping_street_day_cover",
+  "image_slot": "day_cover",
+  "source": "hybrid",
+  "file_path": "C:\\Users\\10200\\Desktop\\travel_planing\\image-pipeline\\image-pipeline\\assets\\external\\ca_chengdu_wangping_street.jpeg",
+  "status": "completed",
+  "metadata": {
+    "strategy": "real_photo_first_ai_fallback",
+    "usage_profile": "experience",
+    "resolved_via": "real_photo",
+    "real_photo": {
+      "source": "pexels",
+      "status": "completed",
+      "file_path": "C:\\Users\\10200\\Desktop\\travel_planing\\image-pipeline\\image-pipeline\\assets\\external\\ca_chengdu_wangping_street.jpeg",
+      "retry_count": 0,
+      "last_error": null,
+      "download_status": "completed",
+      "fallback_available": false,
+      "selection": {
+        "selected_candidate": {
+          "source": "pexels",
+          "candidate_id": "37349029",
+          "image_url": "https://images.pexels.com/photos/37349029/pexels-photo-37349029.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+        },
+        "rank_score": 60,
+        "candidate_count": 10,
+        "rejected_count": 0
+      },
+      "metadata": {
+        "source_runs": [
+          {
+            "source": "wikimedia",
+            "priority": 1,
+            "candidate_count": 0,
+            "error": "Wikimedia request failed with status 429."
+          },
+          {
+            "source": "pexels",
+            "priority": 2,
+            "candidate_count": 10,
+            "error": null
+          }
+        ],
+        "title": "A black car parked on a quiet tree-lined street during the day in an urban area.",
+        "description": "A black car parked on a quiet tree-lined street during the day in an urban area.",
+        "author": "Oli Liao",
+        "license": "Pexels License",
+        "source_url": "https://www.pexels.com/photo/black-car-parked-on-tree-lined-urban-street-37349029/",
+        "image_url": "https://images.pexels.com/photos/37349029/pexels-photo-37349029.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "width": 15220,
+        "height": 8561,
+        "mime_type": "image/jpeg",
+        "score_reasons": [
+          "location_match",
+          "high_resolution_3000",
+          "wanderly_fit"
+        ]
+      }
+    },
+    "ai_fallback": null
+  }
+}

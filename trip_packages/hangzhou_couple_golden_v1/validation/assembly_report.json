@@ -1,0 +1,65 @@
+{
+  "package_id": "hangzhou_couple_golden_v1",
+  "source_package_id": "hangzhou_couple_v1",
+  "status": "passed",
+  "generated_on": "2026-07-19T07:58:31.385Z",
+  "checks": {
+    "explore_plan_exists": true,
+    "image_manifest_exists": true,
+    "image_count_match": true,
+    "asset_instance_id_unique": true,
+    "asset_instance_id_consistency": true,
+    "completed_assets_have_file_path": true,
+    "packaged_files_exist": true,
+    "image_asset_json_exists": true,
+    "duplicate_image_check": true,
+    "provenance_check": true,
+    "no_unreferenced_image_files": true
+  },
+  "counts": {
+    "manifest_assets": 6,
+    "package_assets": 6,
+    "image_asset_json_files": 6,
+    "packaged_files": 6,
+    "replacements": 3,
+    "actual_image_files": 6
+  },
+  "replacements": [
+    {
+      "asset_instance_id": "ca_hangzhou_west_lake_explore_cover",
+      "source": "hybrid",
+      "generation_mode": "hybrid",
+      "file_path": "images/files/ca_hangzhou_west_lake_explore_cover.jpg",
+      "image_asset_path": "images/image_assets/ca_hangzhou_west_lake_explore_cover.image_asset.json",
+      "mime_type": "image/jpeg",
+      "sha256": "c0f401667aa8635ab01e5f9366b2936619c3153d6ef34d47acfaafcbfcf4ad3e"
+    },
+    {
+      "asset_instance_id": "ca_hangzhou_lakeside_evening_day_cover",
+      "source": "hybrid",
+      "generation_mode": "hybrid",
+      "file_path": "images/files/ca_hangzhou_lakeside_evening_day_cover.jpg",
+      "image_asset_path": "images/image_assets/ca_hangzhou_lakeside_evening_day_cover.image_asset.json",
+      "mime_type": "image/jpeg",
+      "sha256": "f2a89b00bcd926cac73f1d256bd8023c254cab01757f6d2958b77a7ba77b9214"
+    },
+    {
+      "asset_instance_id": "ca_hangzhou_xiaohe_straight_street_food_gallery",
+      "source": "pexels",
+      "generation_mode": "real_photo",
+      "file_path": "images/files/ca_hangzhou_xiaohe_straight_street_food_gallery.avif",
+      "image_asset_path": "images/image_assets/ca_hangzhou_xiaohe_straight_street_food_gallery.image_asset.json",
+      "mime_type": "image/avif",
+      "sha256": "105a26fa70b25c48ede0d57dfe8cb1c16ae2f5bd8a4363e2abb4008a5a747806"
+    }
+  ],
+  "issues": {
+    "missingFiles": [],
+    "missingAssetJson": [],
+    "missingFromPackage": [],
+    "extraInPackage": [],
+    "duplicateHashes": [],
+    "provenanceIssues": [],
+    "extraImageFiles": []
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "package_id": "shanghai_couple_v1",
+  "package_version": "trip_package_v1",
+  "generated_on": "2026-07-19T09:50:44.481Z",
+  "trip_id": "shanghai_couple_v1",
+  "golden_run_id": "shanghai_couple_v1",
+  "content_trip_id": "shanghai_couple_v1",
+  "image_manifest_id": "shanghai_couple_v1",
+  "city": {
+    "code": "shanghai",
+    "name": "Shanghai",
+    "region_name": "Shanghai"
+  },
+  "title": "3天上海·外滩天际线与老城漫步",
+  "days": 3,
+  "source_outputs": {
+    "content_run_dir": "C:\\Users\\10200\\Desktop\\travel_planing\\travel-content-pipeline\\output\\golden_runs\\shanghai_couple_v1",
+    "image_run_dir": "C:\\Users\\10200\\Desktop\\travel_planing\\output\\manifest_runs\\shanghai_couple_v1",
+    "explore_plan_path": "C:\\Users\\10200\\Desktop\\travel_planing\\travel-content-pipeline\\output\\golden_runs\\shanghai_couple_v1\\explore_plan.json",
+    "image_manifest_path": "C:\\Users\\10200\\Desktop\\travel_planing\\travel-content-pipeline\\output\\golden_runs\\shanghai_couple_v1\\image_manifest.json",
+    "generation_report_path": "C:\\Users\\10200\\Desktop\\travel_planing\\travel-content-pipeline\\output\\golden_runs\\shanghai_couple_v1\\generation_report.json",
+    "pipeline_summary_path": "C:\\Users\\10200\\Desktop\\travel_planing\\output\\manifest_runs\\shanghai_couple_v1\\pipeline_summary.json"
+  },
+  "content": {
+    "explore_plan_path": "content/explore_plan.json",
+    "image_manifest_path": "content/image_manifest.json"
+  },
+  "images": {
+    "files_dir": "images/files",
+    "image_assets_dir": "images/image_assets",
+    "assets": [
+      {
+        "asset_instance_id": "ca_shanghai_bund_explore_cover",
+        "asset_id": "ca_shanghai_bund",
+        "asset_name": "The Bund",
+        "image_slot": "explore_cover",
+        "image_usage_profile": "cover",
+        "source_preference": "mixed",
+        "generation_mode": "hybrid",
+        "status": "completed",
+        "source": "hybrid",
+        "original_file_path": "C:\\Users\\10200\\Desktop\\travel_planing\\image-pipeline\\image-pipeline\\assets\\external\\ca_shanghai_bund.jpg",
+        "packaged_file_path": "images/files/ca_shanghai_bund_explore_cover.jpg",
+        "image_asset_path": "images/image_assets/ca_shanghai_bund_explore_cover.image_asset.json"
+      },
+      {
+        "asset_instance_id": "ca_shanghai_huangpu_evening_day_cover",
+        "asset_id": "ca_shanghai_huangpu_evening",
+        "asset_name": "Huangpu River Evening Walk",
+        "image_slot": "day_cover",
+        "image_usage_profile": "experience",
+        "source_preference": "mixed",
+        "generation_mode": "hybrid",
+        "status": "completed",
+        "source": "hybrid",
+        "original_file_path": "C:\\Users\\10200\\Desktop\\travel_planing\\image-pipeline\\image-pipeline\\assets\\external\\ca_shanghai_huangpu_evening.jpeg",
+        "packaged_file_path": "images/files/ca_shanghai_huangpu_evening_day_cover.jpeg",
+        "image_asset_path": "images/image_assets/ca_shanghai_huangpu_evening_day_cover.image_asset.json"
+      },
+      {
+        "asset_instance_id": "ca_shanghai_wukang_road_poi_gallery",
+        "asset_id": "ca_shanghai_wukang_road",
+        "asset_name": "Wukang Road",
+        "image_slot": "poi_gallery",
+        "image_usage_profile": "place",
+        "source_preference": "real_first",
+        "generation_mode": "real_photo",
+        "status": "completed",
+        "source": "wikimedia",
+        "original_file_path": "C:\\Users\\10200\\Desktop\\travel_planing\\image-pipeline\\image-pipeline\\assets\\external\\ca_shanghai_wukang_road.JPG",
+        "packaged_file_path": "images/files/ca_shanghai_wukang_road_poi_gallery.JPG",
+        "image_asset_path": "images/image_assets/ca_shanghai_wukang_road_poi_gallery.image_asset.json"
+      },
+      {
+        "asset_instance_id": "ca_shanghai_city_mood_mood_gallery",
+        "asset_id": "ca_shanghai_city_mood",
+        "asset_name": "Shanghai City Mood",
+        "image_slot": "mood_gallery",
+        "image_usage_profile": "cover",
+        "source_preference": "real_first",
+        "generation_mode": "real_photo",
+        "status": "completed",
+        "source": "pexels",
+        "original_file_path": "C:\\Users\\10200\\Desktop\\travel_planing\\image-pipeline\\image-pipeline\\assets\\external\\ca_shanghai_city_mood.jpeg",
+        "packaged_file_path": "images/files/ca_shanghai_city_mood_mood_gallery.jpeg",
+        "image_asset_path": "images/image_assets/ca_shanghai_city_mood_mood_gallery.image_asset.json"
+      },
+      {
+        "asset_instance_id": "ca_shanghai_local_food_food_gallery",
+        "asset_id": "ca_shanghai_local_food",
+        "asset_name": "Shanghai Local Food Table",
+        "image_slot": "food_gallery",
+        "image_usage_profile": "food",
+        "source_preference": "real_first",
+        "generation_mode": "real_photo",
+        "status": "completed",
+        "source": "pexels",
+        "original_file_path": "C:\\Users\\10200\\Desktop\\travel_planing\\image-pipeline\\image-pipeline\\assets\\external\\ca_shanghai_local_food_xiaolongbao_pexels.jpeg",
+        "packaged_file_path": "images/files/ca_shanghai_local_food_food_gallery.jpeg",
+        "image_asset_path": "images/image_assets/ca_shanghai_local_food_food_gallery.image_asset.json"
+      },
+      {
+        "asset_instance_id": "ca_shanghai_city_mood_explore_cover",
+        "asset_id": "ca_shanghai_city_mood",
+        "asset_name": "Shanghai city mood",
+        "image_slot": "explore_cover",
+        "image_usage_profile": "cover",
+        "source_preference": "ai_first",
+        "generation_mode": "ai_generated",
+        "status": "completed",
+        "source": "ai_generated",
+        "original_file_path": "C:\\Users\\10200\\Desktop\\travel_planing\\image-pipeline\\image-pipeline\\output\\runs\\seedream\\generated\\shanghai_cover_001.png",
+        "packaged_file_path": "images/files/ca_shanghai_city_mood_explore_cover.png",
+        "image_asset_path": "images/image_assets/ca_shanghai_city_mood_explore_cover.image_asset.json"
+      }
+    ]
+  },
+  "validation": {
+    "assembly_report_path": "validation/assembly_report.json",
+    "status": "passed"
+  }
+}

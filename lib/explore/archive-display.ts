@@ -1,8 +1,11 @@
 import type { ExploreCreatorType, ExploreTripDailyActivity } from "./types";
 
 const FORBIDDEN_SNIPPETS = [
-  "锟",
   "�",
+  "锟",
+  "閿",
+  "鍖",
+  "鏃",
   "{activity.description}",
   "undefined",
   "null",
@@ -57,8 +60,11 @@ export function formatTripTypeLabel(tripType: string | undefined) {
       return "情侣";
     case "family":
       return "亲子";
+    case "friends":
+    case "friend":
+      return "朋友";
     case "solo":
-      return "独旅";
+      return "独行";
     case "student":
       return "学生";
     case "citywalk":
@@ -121,7 +127,7 @@ export function formatActivityDescription(
   }
 
   if (title && location) {
-    return `${title}，地点在${location}`;
+    return `${title}，地点在 ${location}`;
   }
 
   if (title) {
@@ -132,5 +138,5 @@ export function formatActivityDescription(
     return location;
   }
 
-  return "保留弹性时间，按当天状态微调。";
+  return "这一段先留一点弹性，按当天状态慢慢调整。";
 }

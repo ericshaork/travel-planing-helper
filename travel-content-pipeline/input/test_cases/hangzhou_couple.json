@@ -1,0 +1,8 @@
+{
+  "city": "hangzhou",
+  "days": 3,
+  "trip_type": "couple",
+  "budget": "high",
+  "preferences": ["nature", "photo", "local_culture"],
+  "pace": "slow"
+}

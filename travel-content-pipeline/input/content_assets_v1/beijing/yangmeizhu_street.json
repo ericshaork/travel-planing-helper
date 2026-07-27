@@ -1,0 +1,30 @@
+{
+  "id": "ca_beijing_yangmeizhu_street",
+  "name": "\u6768\u6885\u7af9\u659c\u8857",
+  "asset_type": "poi",
+  "category": ["historic_texture", "hutong_texture", "old_city_commercial_lane"],
+  "content_role": ["hutong_texture", "slow_exploration"],
+  "traveler_fit": {
+    "couple": "medium",
+    "student": "medium",
+    "solo": "high"
+  },
+  "season_fit": ["spring", "autumn", "winter"],
+  "best_time": ["late_morning", "afternoon"],
+  "experience_value": [
+    "Provides a slower old-city browsing segment where Beijing reads through shopfronts, lane rhythm, and everyday texture.",
+    "Useful near Qianmen when the route needs local grain rather than only big-axis symbolism.",
+    "Gives solo itineraries a place to observe and drift without needing a major ticketed attraction."
+  ],
+  "avoid_when": [
+    "the route is designed as a clear first-visit highlight reel with little time for browsing",
+    "the traveler strongly dislikes slow retail-and-lane exploration",
+    "the day already contains multiple similar hutong browsing blocks"
+  ],
+  "nearby_assets": [
+    "ca_beijing_qianmen_food",
+    "ca_beijing_temple_of_heaven",
+    "ca_beijing_culture_pause_asset"
+  ],
+  "map_asset_id": ""
+}

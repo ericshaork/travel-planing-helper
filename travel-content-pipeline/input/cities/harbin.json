@@ -1,0 +1,109 @@
+{
+  "city_code": "harbin",
+  "city_name": "Harbin",
+  "region_name": "Heilongjiang",
+  "summary": "Harbin suits seasonal city travel shaped by European-style streets, river-edge openness, strong winter atmosphere, and hearty local food culture.",
+  "transport_notes": [
+    "Harbin plans should stay clustered because cold-season travel and wide boulevards can make longer multi-stop days feel heavier.",
+    "Central areas work well with short rides plus walking, especially around major heritage streets and riverfront space.",
+    "Evening movement is strongest in central lit-up districts where dining and strolling stay compact."
+  ],
+  "budget_notes": {
+    "low": "Focus on central heritage streets, public riverfront areas, and practical local food without wide-area transfers.",
+    "medium": "Combine one major street or landmark area, one river or park stop, and one stronger local dining area each day.",
+    "high": "Use slower winter-friendly pacing, warmer dining breaks, and fewer long outdoor transitions."
+  },
+  "trip_type_notes": {
+    "student": "Student plans in Harbin should emphasize iconic streets, photogenic winter atmosphere, and practical local food value.",
+    "solo": "Solo plans should balance broad city mood, reflective river walks, and manageable cold-weather pacing.",
+    "couple": "Couple plans should use lights, snow-season atmosphere, and European-style street texture for memory-rich scenes.",
+    "family": "Family plans should limit long outdoor exposure and keep warm-up breaks and landmark logic very clear."
+  },
+  "suggested_tags": [
+    "winter-city",
+    "european-style-streets",
+    "riverfront",
+    "photo-friendly",
+    "local-food",
+    "seasonal-atmosphere"
+  ],
+  "pois": [
+    {
+      "id": "poi_central_street",
+      "name": "Central Street",
+      "district": "Daoli",
+      "type": "historic commercial street",
+      "description": "The clearest Harbin signature street for architecture, walking, snacks, and seasonal city atmosphere.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_songhua_riverfront",
+      "name": "Songhua Riverfront Area",
+      "district": "Daoli",
+      "type": "riverfront district",
+      "description": "A broad river-edge zone that gives Harbin plans open views and stronger seasonal mood.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_saint_sofia",
+      "name": "Saint Sophia Cathedral Area",
+      "district": "Daoli",
+      "type": "architectural landmark",
+      "description": "A key visual anchor for Harbin's mixed cultural identity and old-city texture.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 75
+    },
+    {
+      "id": "poi_laodaowai",
+      "name": "Lao Daowai Area",
+      "district": "Daowai",
+      "type": "historic neighborhood",
+      "description": "A more local-feeling heritage zone for older street texture, food, and everyday city character.",
+      "best_for": ["student", "solo", "couple"],
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_sun_island_edge",
+      "name": "Sun Island Edge Visit",
+      "district": "Songbei",
+      "type": "scenic leisure area",
+      "description": "A broader scenic break that works best in slower plans needing more open public space.",
+      "best_for": ["solo", "couple", "family"],
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_central_evening",
+      "name": "Central Street Evening Walk",
+      "district": "Daoli",
+      "type": "evening district",
+      "description": "A low-friction night route where lights and architecture carry the city's most recognizable atmosphere.",
+      "best_for": ["student", "solo", "couple", "family"],
+      "recommended_duration_minutes": 90
+    }
+  ],
+  "food_areas": [
+    {
+      "name": "Central Street Casual Food Area",
+      "district": "Daoli",
+      "specialties": ["local snacks", "bread and dessert stops", "easy central meals"],
+      "best_for": ["student", "solo", "couple", "family"],
+      "note": "Best for practical, atmosphere-led dining that stays close to the city's signature route."
+    },
+    {
+      "name": "Lao Daowai Local Dining Streets",
+      "district": "Daowai",
+      "specialties": ["northeast dishes", "hearty local meals", "traditional neighborhood food"],
+      "best_for": ["student", "solo", "couple", "family"],
+      "note": "Best for a more local food layer beyond the main tourist street."
+    },
+    {
+      "name": "Riverfront Warm Dining Zone",
+      "district": "Daoli",
+      "specialties": ["warming meals", "shared dishes", "evening dining near landmark walks"],
+      "best_for": ["couple", "family"],
+      "note": "Best for colder-season pacing that needs smoother indoor breaks."
+    }
+  ]
+}

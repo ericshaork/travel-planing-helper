@@ -1,0 +1,29 @@
+{
+  "id": "ca_beijing_wudaoying",
+  "name": "\u4e94\u9053\u8425\u80e1\u540c",
+  "asset_type": "poi",
+  "category": ["slow_solo", "hutong_walk", "cafe_browse"],
+  "content_role": ["slow_walk_anchor", "solo_texture", "cafe_browse"],
+  "traveler_fit": {
+    "couple": "medium",
+    "student": "medium",
+    "solo": "high"
+  },
+  "season_fit": ["spring", "autumn", "winter"],
+  "best_time": ["late_morning", "afternoon"],
+  "experience_value": [
+    "Provides a place to slow down and watch contemporary daily Beijing without the pressure of a major attraction.",
+    "Useful for solo samples that need browsing, pausing, and small-scale discovery rather than constant headline payoff.",
+    "Can soften an otherwise over-scripted route by inserting a lived-in, self-paced segment."
+  ],
+  "avoid_when": [
+    "the plan has only one day and needs high-recognition Beijing symbols first",
+    "the traveler dislikes cafe, shop, and browse-style exploration",
+    "the route already includes multiple similar hutong slow-walk segments"
+  ],
+  "nearby_assets": [
+    "ca_beijing_gulou",
+    "ca_beijing_culture_pause_asset"
+  ],
+  "map_asset_id": ""
+}

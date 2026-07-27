@@ -3,9 +3,9 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-import { fetchExploreList } from "@/lib/explore/client";
+import { fetchExploreDetail, fetchExploreList } from "@/lib/explore/client";
 import { startExploreCreateFlow } from "@/lib/explore/flow";
-import { buildTripPlanDraftFromInspiration } from "@/lib/explore/to-trip-draft";
+import { buildTripPlanDraftFromExplore, buildTripPlanDraftFromInspiration } from "@/lib/explore/to-trip-draft";
 import type { InspirationSelection } from "@/lib/explore/types";
 
 import { ArchiveDrawerShell } from "./archive/ArchiveDrawerShell";
@@ -18,11 +18,15 @@ function normalizeCityQuery(value: string) {
 }
 
 interface DirectCreateSectionProps {
-  onGenerate: () => void;
+  onGenerate: () => void | Promise<void>;
 }
 
 function DirectCreateSection({ onGenerate }: DirectCreateSectionProps) {
-  const examples = ["深圳出发，厦门 3 天", "预算 3000，成都慢游", "杭州两天，轻松一点"];
+  const examples = [
+    "深圳出发，厦门 3 天",
+    "预算 3000，成都慢游",
+    "杭州两天，轻松一点",
+  ];
 
   return (
     <section className="flex h-full flex-col justify-between rounded-[22px] border border-[rgba(214,205,187,0.5)] bg-[linear-gradient(180deg,rgba(255,253,247,0.88)_0%,rgba(248,241,228,0.8)_100%)] px-4 py-3 shadow-[0_8px_18px_rgba(88,76,57,0.05)]">
@@ -34,7 +38,7 @@ function DirectCreateSection({ onGenerate }: DirectCreateSectionProps) {
           一句话生成你的私人旅行方案
         </h2>
         <p className="mt-1 text-[11px] leading-5 text-[var(--ink-muted)] sm:text-xs">
-          选好的灵感会带入草稿，也可以直接输入一句话开始。
+          可以先翻档案，也可以直接输入一句话开始。
         </p>
       </div>
 
@@ -69,6 +73,7 @@ export function ExploreHome() {
     useState<InspirationSelection>({});
   const [selectedArchiveKey, setSelectedArchiveKey] = useState<string | null>(null);
   const [isArchiveDrawerOpen, setIsArchiveDrawerOpen] = useState(false);
+  const [isCreatingFromArchive, setIsCreatingFromArchive] = useState(false);
 
   function resetFilters() {
     setCityInput("");
@@ -101,16 +106,50 @@ export function ExploreHome() {
     }
   }
 
-  function handleGenerateFromInspiration() {
+  async function handleGenerateFromInspiration() {
     const draft = buildTripPlanDraftFromInspiration(inspirationSelection, {
       cityQuery: cityInput,
     });
-    startExploreCreateFlow(draft, router);
+
+    try {
+      await startExploreCreateFlow(draft, router, { source: "ai" });
+    } catch (error) {
+      window.alert(
+        error instanceof Error && error.message.trim()
+          ? error.message
+          : "旅行项目创建失败，请稍后再试。",
+      );
+    }
   }
 
   function handleOpenArchive(slug: string) {
     setSelectedArchiveKey(slug);
     setIsArchiveDrawerOpen(true);
+  }
+
+  async function handleCreateFromArchive(slug: string) {
+    if (isCreatingFromArchive) {
+      return;
+    }
+
+    setIsCreatingFromArchive(true);
+
+    try {
+      const content = await fetchExploreDetail(slug);
+      const draft = buildTripPlanDraftFromExplore(content);
+      await startExploreCreateFlow(draft, router, {
+        source: "explore_archive",
+        archiveSlug: draft.sourceExploreSlug ?? slug,
+      });
+    } catch (error) {
+      window.alert(
+        error instanceof Error && error.message.trim()
+          ? error.message
+          : "用此行程创建没有成功，请稍后再试。",
+      );
+    } finally {
+      setIsCreatingFromArchive(false);
+    }
   }
 
   function handleCloseArchiveDrawer() {
@@ -120,7 +159,7 @@ export function ExploreHome() {
   return (
     <>
       <div
-        aria-hidden={!isArchiveDrawerOpen}
+        aria-hidden={isArchiveDrawerOpen}
         className={`space-y-3 transition-[filter,opacity] duration-300 sm:space-y-3.5 ${
           isArchiveDrawerOpen
             ? "pointer-events-none select-none opacity-80 blur-[0.5px]"
@@ -165,7 +204,10 @@ export function ExploreHome() {
           </div>
         </section>
 
-        <FeaturedSection onOpenArchive={handleOpenArchive} />
+        <FeaturedSection
+          onOpenArchive={handleOpenArchive}
+          onCreateFromArchive={handleCreateFromArchive}
+        />
       </div>
 
       <ArchiveDrawerShell

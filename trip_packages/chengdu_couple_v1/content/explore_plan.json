@@ -1,0 +1,217 @@
+{
+  "id": "exp_chengdu_couple_3d_food_teahouse_oldneighborhood_v1",
+  "slug": "chengdu-couple-3d-food-teahouse-oldneighborhood",
+  "title": "3天成都情侣路线：美食、茶馆与老街区",
+  "summary": "专为情侣设计的美食与慢生活路线，聚焦成都老街区、茶馆文化和地道小吃。三天内穿行宽窄巷子、人民公园、武侯祠、锦里和望平滨河区，节奏松弛，每晚都有值得回味的烟火气。",
+  "city": {
+    "code": "chengdu",
+    "name": "Chengdu",
+    "region_name": "Sichuan"
+  },
+  "trip_type": "couple",
+  "days": 3,
+  "budget": {
+    "level": "medium",
+    "note": "中等预算可覆盖茶馆休闲、地道小吃和一两顿正餐，无需省吃俭用，也无需高消费。"
+  },
+  "pace": "balanced",
+  "tags": [
+    "美食",
+    "茶馆",
+    "老街",
+    "citywalk",
+    "情侣",
+    "慢生活",
+    "本地文化",
+    "拍照"
+  ],
+  "image_prompt": "一对年轻情侣在成都老茶馆的竹椅上喝茶，背后是青砖灰瓦的老街，桌上摆着盖碗茶和几碟小吃，傍晚暖光透过树叶洒下来，氛围安静又温暖。",
+  "daily_itinerary": [
+    {
+      "day": 1,
+      "title": "宽窄巷子与人民公园：老成都的悠闲开场",
+      "summary": "从宽窄巷子的老街氛围开始，在人民公园的鹤鸣茶馆喝一杯盖碗茶，感受成都人的慢生活。傍晚去锦里，灯火初上时最适合情侣散步和拍照。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "从宽窄巷子开始，先走宽巷子看老建筑，再逛窄巷子感受文艺小店。巷子里有各种小吃摊，可以边逛边尝蛋烘糕、三大炮。注意早上去人少，拍照效果好。",
+          "poi_refs": [
+            "poi_kuanzhai_alley"
+          ],
+          "food_refs": [
+            "food_kuanzhai_snacks"
+          ]
+        },
+        {
+          "time_block": "afternoon",
+          "description": "步行至人民公园，找鹤鸣茶馆坐下。点两杯盖碗茶，可以自带瓜子或买茶馆的零食。这里最有意思的是看当地人打牌、掏耳朵，是体验成都慢节奏的最佳场景。待1.5小时左右，不赶时间。",
+          "poi_refs": [
+            "poi_people_park"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "evening",
+          "description": "乘地铁或打车到锦里，傍晚灯笼亮起后气氛最好。锦里的小吃街适合两人分食，推荐三大炮、钵钵鸡、甜水面。逛完后可以在武侯祠大街找一家串串店吃晚餐。",
+          "poi_refs": [
+            "poi_jinli"
+          ],
+          "food_refs": [
+            "food_jinli_snacks",
+            "food_chuanchuan"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "title": "武侯祠的历史感与望平滨河的夜生活",
+      "summary": "上午在武侯祠感受三国文化，中午在附近吃一碗地道的担担面。下午转场望平滨河区，沿河散步、喝咖啡，晚上在建设路吃小吃，再回望平河畔小酌。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "参观武侯祠，了解三国历史，红墙夹道很适合情侣拍照。建议租一个语音导览，能更深入理解。大约1.5小时。",
+          "poi_refs": [
+            "poi_wuhou_shrine"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "在武侯祠附近找一家老字号面馆吃担担面，推荐“皇城坝”或“小谭豆花”。之后乘地铁到望平滨河区，沿河散步，找一家河边茶馆或咖啡馆休息，看当地人钓鱼、打麻将。",
+          "poi_refs": [
+            "poi_wangpingfang"
+          ],
+          "food_refs": [
+            "food_dandan_noodle"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "打车或步行到建设路，这里是小吃密集区，适合情侣边走边吃。推荐烤脑花、锅巴土豆、冰粉。吃完后回望平河畔，找一家清吧喝杯鸡尾酒，河边的夜景很放松。",
+          "poi_refs": [],
+          "food_refs": [
+            "food_jianshe_lu"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "再探宽窄巷子与人民公园：临别前的慢时光",
+      "summary": "最后一天不赶行程，回到宽窄巷子补逛漏掉的小巷，买点伴手礼。中午在人民公园附近吃顿川菜，下午在茶馆里消磨时光，为旅程画上慵懒的句号。",
+      "activities": [
+        {
+          "time_block": "morning",
+          "description": "再次来到宽窄巷子，这次可以逛井巷子，人更少，有很多涂鸦墙和安静的小店。买些花椒、辣椒酱作为伴手礼。",
+          "poi_refs": [
+            "poi_kuanzhai_alley"
+          ],
+          "food_refs": []
+        },
+        {
+          "time_block": "afternoon",
+          "description": "步行到人民公园，这次可以尝试公园里的另一家茶馆“少城茶庄”，人少更安静。点一壶茶，看当地人跳广场舞、下棋，感受最真实的成都生活。之后在附近找一家川菜馆吃午饭，推荐“陈麻婆豆腐”。",
+          "poi_refs": [
+            "poi_people_park"
+          ],
+          "food_refs": [
+            "food_chen_mapo"
+          ]
+        },
+        {
+          "time_block": "evening",
+          "description": "如果还有精力，可以去九眼桥附近走走，但考虑到是最后一天，建议在人民公园附近吃完晚饭后回酒店整理行李，轻松结束行程。",
+          "poi_refs": [],
+          "food_refs": []
+        }
+      ]
+    }
+  ],
+  "pois": [
+    {
+      "id": "poi_kuanzhai_alley",
+      "name": "宽窄巷子",
+      "district": "青羊区",
+      "type": "historic district",
+      "reason": "情侣首日开场的理想选择：老街氛围轻松，小吃丰富，早上人少适合拍照。注意避开下午人流高峰。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_people_park",
+      "name": "人民公园",
+      "district": "青羊区",
+      "type": "city park",
+      "reason": "茶馆体验的核心地，鹤鸣茶馆是成都慢生活的标志。适合情侣花1.5小时喝茶、看当地人生活，节奏舒缓。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_jinli",
+      "name": "锦里",
+      "district": "武侯区",
+      "type": "historic commercial street",
+      "reason": "傍晚灯笼亮起后气氛最佳，适合情侣散步和拍照。小吃街可以分食多种食物，增加互动。注意周末人非常多，建议工作日傍晚去。",
+      "recommended_duration_minutes": 120
+    },
+    {
+      "id": "poi_wuhou_shrine",
+      "name": "武侯祠",
+      "district": "武侯区",
+      "type": "cultural site",
+      "reason": "为历史爱好者准备，红墙夹道是经典情侣拍照点。建议早上去，人少安静，租语音导览更值。",
+      "recommended_duration_minutes": 90
+    },
+    {
+      "id": "poi_wangpingfang",
+      "name": "望平滨河区",
+      "district": "成华区",
+      "type": "riverwalk district",
+      "reason": "下午和晚上的理想去处：沿河散步、河边茶馆或咖啡馆，晚上有清吧，适合情侣放松。比九眼桥更安静。",
+      "recommended_duration_minutes": 120
+    }
+  ],
+  "food": [
+    {
+      "id": "food_kuanzhai_snacks",
+      "name": "宽窄巷子小吃摊",
+      "district": "青羊区",
+      "category": "snack street",
+      "reason": "作为第一站早餐，蛋烘糕、三大炮等小吃适合边走边尝，两人分食不占肚子。注意选排队长的摊位，味道更可靠。"
+    },
+    {
+      "id": "food_jinli_snacks",
+      "name": "锦里小吃街",
+      "district": "武侯区",
+      "category": "snack street",
+      "reason": "傍晚逛锦里时顺便解决晚餐，推荐三大炮、钵钵鸡、甜水面。适合情侣分食，种类多但分量小。"
+    },
+    {
+      "id": "food_chuanchuan",
+      "name": "武侯祠大街串串店",
+      "district": "武侯区",
+      "category": "local restaurant",
+      "reason": "锦里逛完后步行可达，是体验成都夜宵文化的经典选择。推荐“冒椒火辣”或“钢管厂五区小郡肝”，人均60-80元。"
+    },
+    {
+      "id": "food_dandan_noodle",
+      "name": "武侯祠附近担担面",
+      "district": "武侯区",
+      "category": "local restaurant",
+      "reason": "第二天的午餐，担担面是成都面食代表。推荐“皇城坝”或“小谭豆花”，面条筋道，麻辣鲜香。"
+    },
+    {
+      "id": "food_jianshe_lu",
+      "name": "建设路小吃街",
+      "district": "成华区",
+      "category": "snack street",
+      "reason": "第二天晚上的小吃集中地，烤脑花、锅巴土豆、冰粉是必吃。建议两人分食，每样少买点，尝更多种类。"
+    },
+    {
+      "id": "food_chen_mapo",
+      "name": "陈麻婆豆腐",
+      "district": "青羊区",
+      "category": "local restaurant",
+      "reason": "最后一天的午餐，经典川菜代表。麻婆豆腐必点，另外推荐夫妻肺片、宫保鸡丁。人均60-80元，性价比高。"
+    }
+  ]
+}

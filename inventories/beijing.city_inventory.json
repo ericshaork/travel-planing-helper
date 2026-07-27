@@ -1,0 +1,561 @@
+{
+  "inventory_id": "beijing_city_inventory_v1",
+  "inventory_version": "city_inventory_v1",
+  "city": {
+    "code": "beijing",
+    "name": "Beijing",
+    "region": "Beijing",
+    "country": "China"
+  },
+  "city_identity": {
+    "visual_keywords": [
+      "imperial axis",
+      "red walls",
+      "golden roofs",
+      "royal gardens",
+      "hutong lakefront",
+      "modern riverside lights"
+    ],
+    "signature_moods": [
+      "first arrival",
+      "couple slow walk",
+      "historic texture",
+      "evening closure"
+    ],
+    "seasonal_texture": {
+      "primary_season": "autumn",
+      "visual_cues": [
+        "clear northern light",
+        "ginkgo yellow",
+        "red palace walls",
+        "cool evening river lights"
+      ],
+      "avoid_cues": [
+        "overcrowded checklist tourism",
+        "generic commercial street",
+        "heavy poster gloss"
+      ]
+    }
+  },
+  "assets": [
+    {
+      "asset_id": "ca_beijing_forbidden_city",
+      "asset_name": "Forbidden City",
+      "asset_category": "place",
+      "asset_family": "signature_anchor",
+      "priority": 1,
+      "traveler_fit": [
+        "couple",
+        "solo",
+        "family",
+        "friends"
+      ],
+      "route_role": "first_anchor",
+      "time_of_day": [
+        "morning",
+        "afternoon"
+      ],
+      "pace_hint": "balanced",
+      "image_context": {
+        "recommended_slots": [
+          "explore_cover",
+          "poi_gallery"
+        ],
+        "image_usage_profile": "cover",
+        "default_generation_mode": "hybrid",
+        "source_preference": "mixed",
+        "search_keywords": [
+          "Forbidden City Beijing",
+          "Palace Museum Beijing",
+          "Forbidden City courtyard",
+          "故宫博物院 architecture",
+          "故宫博物院 landmark photo"
+        ],
+        "visual_subject": {
+          "main_subject": "historic palace architecture",
+          "secondary_elements": [
+            "courtyard",
+            "red walls",
+            "visitors"
+          ]
+        },
+        "positive_cues": [
+          "red walls",
+          "imperial rooflines",
+          "courtyard depth",
+          "human scale"
+        ],
+        "negative_cues": [
+          "generic temple",
+          "fake signage",
+          "crowded tourist poster",
+          "wrong palace city"
+        ]
+      },
+      "review_rules": {
+        "manual_review_required": true,
+        "identity_check": [
+          "Forbidden City red wall and palace architecture are readable.",
+          "Cover feels editorial rather than documentary-only."
+        ],
+        "failure_examples": [
+          "generic Chinese palace",
+          "detail crop without place identity",
+          "heavy text or watermark"
+        ]
+      },
+      "golden_reference": {
+        "package_id": "beijing_couple_golden_v2",
+        "asset_instance_ids": [
+          "ca_beijing_forbidden_city_explore_cover"
+        ]
+      }
+    },
+    {
+      "asset_id": "ca_beijing_jingshan_park",
+      "asset_name": "Jingshan Park",
+      "asset_category": "place",
+      "asset_family": "signature_anchor",
+      "priority": 2,
+      "traveler_fit": [
+        "couple",
+        "solo",
+        "family",
+        "friends"
+      ],
+      "route_role": "main_anchor",
+      "time_of_day": [
+        "afternoon",
+        "evening"
+      ],
+      "pace_hint": "balanced",
+      "image_context": {
+        "recommended_slots": [
+          "explore_cover",
+          "poi_gallery"
+        ],
+        "image_usage_profile": "place",
+        "default_generation_mode": "real_photo",
+        "source_preference": "real_first",
+        "search_keywords": [
+          "Jingshan Park Beijing",
+          "Jingshan Park viewpoint",
+          "Beijing imperial hill park",
+          "景山公园 street view",
+          "景山公园 visitor photo"
+        ],
+        "visual_subject": {
+          "main_subject": "imperial city viewpoint",
+          "secondary_elements": [
+            "hilltop view",
+            "park walkway",
+            "visitors"
+          ]
+        },
+        "positive_cues": [
+          "viewpoint over imperial city",
+          "park hill path",
+          "Beijing old city context"
+        ],
+        "negative_cues": [
+          "generic urban park",
+          "unrecognizable trees only",
+          "wrong city skyline"
+        ]
+      },
+      "review_rules": {
+        "manual_review_required": false,
+        "identity_check": [
+          "Jingshan viewpoint or park identity is visible.",
+          "Real photo provenance is preserved."
+        ],
+        "failure_examples": [
+          "generic park path",
+          "missing location evidence",
+          "AI-generated specific POI"
+        ]
+      },
+      "golden_reference": {
+        "package_id": "beijing_couple_golden_v2",
+        "asset_instance_ids": [
+          "ca_beijing_jingshan_park_explore_cover",
+          "ca_beijing_jingshan_park_poi_gallery"
+        ]
+      }
+    },
+    {
+      "asset_id": "ca_beijing_beihai_park",
+      "asset_name": "Beihai Park",
+      "asset_category": "place",
+      "asset_family": "historic_texture",
+      "priority": 3,
+      "traveler_fit": [
+        "couple",
+        "solo",
+        "family",
+        "friends"
+      ],
+      "route_role": "supporting_stop",
+      "time_of_day": [
+        "afternoon",
+        "evening"
+      ],
+      "pace_hint": "slow",
+      "image_context": {
+        "recommended_slots": [
+          "explore_cover",
+          "poi_gallery"
+        ],
+        "image_usage_profile": "place",
+        "default_generation_mode": "real_photo",
+        "source_preference": "real_first",
+        "search_keywords": [
+          "Beihai Park Beijing",
+          "Beihai Park lake",
+          "Beijing royal garden",
+          "北海公园 street view",
+          "北海公园 visitor photo"
+        ],
+        "visual_subject": {
+          "main_subject": "royal garden landscape",
+          "secondary_elements": [
+            "lake",
+            "pavilion",
+            "park visitors"
+          ]
+        },
+        "positive_cues": [
+          "royal garden lake",
+          "pavilion or white pagoda context",
+          "slow walking atmosphere"
+        ],
+        "negative_cues": [
+          "generic lake park",
+          "unidentified waterfront",
+          "commercial boating poster"
+        ]
+      },
+      "review_rules": {
+        "manual_review_required": false,
+        "identity_check": [
+          "Beihai lake or royal garden identity is visible.",
+          "Photo has real place evidence."
+        ],
+        "failure_examples": [
+          "generic lake",
+          "wrong Beijing park",
+          "missing provenance"
+        ]
+      },
+      "golden_reference": {
+        "package_id": "beijing_couple_golden_v2",
+        "asset_instance_ids": [
+          "ca_beijing_beihai_park_explore_cover",
+          "ca_beijing_beihai_park_poi_gallery"
+        ]
+      }
+    },
+    {
+      "asset_id": "ca_beijing_shichahai",
+      "asset_name": "Shichahai",
+      "asset_category": "experience",
+      "asset_family": "historic_texture",
+      "priority": 4,
+      "traveler_fit": [
+        "couple",
+        "solo",
+        "friends"
+      ],
+      "route_role": "supporting_stop",
+      "time_of_day": [
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "pace_hint": "slow",
+      "image_context": {
+        "recommended_slots": [
+          "poi_gallery",
+          "day_cover"
+        ],
+        "image_usage_profile": "place",
+        "default_generation_mode": "hybrid",
+        "source_preference": "mixed",
+        "search_keywords": [
+          "Shichahai Beijing",
+          "Shichahai lakeside",
+          "Beijing hutong waterfront",
+          "什刹海 street view",
+          "什刹海 visitor photo"
+        ],
+        "visual_subject": {
+          "main_subject": "historic waterfront streetscape",
+          "secondary_elements": [
+            "lake edge",
+            "hutong walk",
+            "pedestrians"
+          ]
+        },
+        "positive_cues": [
+          "hutong lakefront",
+          "old city walk",
+          "pedestrian scale",
+          "waterfront rhythm"
+        ],
+        "negative_cues": [
+          "generic bar street",
+          "crowded nightlife-only scene",
+          "wrong water town"
+        ]
+      },
+      "review_rules": {
+        "manual_review_required": true,
+        "identity_check": [
+          "Hutong lakefront and Beijing old city feeling are recognizable."
+        ],
+        "failure_examples": [
+          "generic canal scene",
+          "commercial bar facade only",
+          "missing place identity"
+        ]
+      },
+      "golden_reference": {
+        "package_id": "beijing_couple_golden_v2",
+        "asset_instance_ids": [
+          "ca_beijing_shichahai_poi_gallery"
+        ]
+      }
+    },
+    {
+      "asset_id": "ca_beijing_liangma_river",
+      "asset_name": "Liangma River Night",
+      "asset_category": "experience",
+      "asset_family": "evening_closure",
+      "priority": 5,
+      "traveler_fit": [
+        "couple",
+        "solo",
+        "friends"
+      ],
+      "route_role": "evening_closure",
+      "time_of_day": [
+        "evening",
+        "night"
+      ],
+      "pace_hint": "slow",
+      "image_context": {
+        "recommended_slots": [
+          "day_cover"
+        ],
+        "image_usage_profile": "experience",
+        "default_generation_mode": "hybrid",
+        "source_preference": "mixed",
+        "search_keywords": [
+          "Liangma River Beijing",
+          "Liangma River night view",
+          "Beijing riverside lights",
+          "亮马河夜景 evening view",
+          "亮马河夜景 atmosphere"
+        ],
+        "visual_subject": {
+          "main_subject": "urban riverside night scene",
+          "secondary_elements": [
+            "river lights",
+            "walkway",
+            "night pedestrians"
+          ]
+        },
+        "positive_cues": [
+          "modern riverside lights",
+          "couple walk scale",
+          "soft night reflections"
+        ],
+        "negative_cues": [
+          "generic skyline",
+          "daytime river",
+          "unrelated waterfront"
+        ]
+      },
+      "review_rules": {
+        "manual_review_required": true,
+        "identity_check": [
+          "Evening closure mood and modern Beijing river identity are clear."
+        ],
+        "failure_examples": [
+          "daytime image",
+          "generic river lights",
+          "no route mood"
+        ]
+      },
+      "golden_reference": {
+        "package_id": "beijing_couple_golden_v2",
+        "asset_instance_ids": [
+          "ca_beijing_liangma_river_day_cover"
+        ]
+      }
+    },
+    {
+      "asset_id": "ca_beijing_guomao_cbd",
+      "asset_name": "Beijing Guomao CBD",
+      "asset_category": "place",
+      "asset_family": "modern_contrast",
+      "priority": 6,
+      "traveler_fit": [
+        "couple",
+        "solo",
+        "friends"
+      ],
+      "route_role": "supporting_stop",
+      "time_of_day": [
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "pace_hint": "balanced",
+      "image_context": {
+        "recommended_slots": [
+          "poi_gallery",
+          "day_cover"
+        ],
+        "image_usage_profile": "place",
+        "default_generation_mode": "real_photo",
+        "source_preference": "real_first",
+        "search_keywords": [
+          "Beijing Guomao CBD street view",
+          "China World Trade Center Beijing",
+          "Beijing CBD night lights",
+          "?? ?? ??",
+          "?? CBD ??"
+        ],
+        "visual_subject": {
+          "main_subject": "modern Beijing CBD street scene",
+          "secondary_elements": [
+            "tower skyline",
+            "street lights",
+            "pedestrians",
+            "urban avenue"
+          ]
+        },
+        "positive_cues": [
+          "recognizable Beijing CBD or Guomao scale",
+          "modern urban contrast after historic core",
+          "pedestrian or street-level context"
+        ],
+        "negative_cues": [
+          "generic skyline without Beijing identity",
+          "mall interior",
+          "empty office tower crop",
+          "wrong city CBD"
+        ]
+      },
+      "review_rules": {
+        "manual_review_required": true,
+        "identity_check": [
+          "Modern Beijing contrast is clear through Guomao/CBD scale or China World Trade Center context.",
+          "Image is not a generic skyline-only stock photo."
+        ],
+        "failure_examples": [
+          "unidentified tower cluster",
+          "shopping mall interior",
+          "no Beijing context"
+        ]
+      },
+      "golden_reference": {
+        "package_id": "beijing_couple_golden_v2",
+        "asset_instance_ids": [
+          "inventory_expansion_beijing_guomao_cbd"
+        ]
+      }
+    },
+    {
+      "asset_id": "ca_beijing_traditional_food",
+      "asset_name": "Beijing Traditional Food",
+      "asset_category": "food",
+      "asset_family": "food_backbone",
+      "priority": 7,
+      "traveler_fit": [
+        "couple",
+        "solo",
+        "family",
+        "friends"
+      ],
+      "route_role": "food_anchor",
+      "time_of_day": [
+        "afternoon",
+        "evening"
+      ],
+      "pace_hint": "balanced",
+      "image_context": {
+        "recommended_slots": [
+          "food_gallery"
+        ],
+        "image_usage_profile": "food",
+        "default_generation_mode": "real_photo",
+        "source_preference": "real_first",
+        "search_keywords": [
+          "Beijing traditional food table",
+          "Beijing roast duck table photo",
+          "Beijing snacks food photo",
+          "?? ?? ?? ??",
+          "?? ?? ?? ??"
+        ],
+        "visual_subject": {
+          "main_subject": "real Beijing traditional food or snack table",
+          "secondary_elements": [
+            "tableware",
+            "shared dishes",
+            "local snacks",
+            "dining context"
+          ]
+        },
+        "positive_cues": [
+          "real food subject is clear",
+          "Beijing local food context",
+          "table or serving evidence"
+        ],
+        "negative_cues": [
+          "restaurant facade only",
+          "AI-generated named dish",
+          "generic Chinese food with no Beijing cue",
+          "fake shop signage"
+        ]
+      },
+      "review_rules": {
+        "manual_review_required": true,
+        "identity_check": [
+          "Food is the main subject, not only a storefront.",
+          "No specific shop or dish is fabricated by AI."
+        ],
+        "failure_examples": [
+          "empty restaurant exterior",
+          "generic banquet table",
+          "fake named restaurant image"
+        ]
+      },
+      "golden_reference": {
+        "package_id": "beijing_couple_golden_v2",
+        "asset_instance_ids": [
+          "inventory_expansion_beijing_traditional_food"
+        ]
+      }
+    }
+  ],
+  "compiler_hints": {
+    "default_asset_family_order": [
+      "signature_anchor",
+      "historic_texture",
+      "modern_contrast",
+      "evening_closure"
+    ],
+    "minimum_asset_mix": {
+      "place": 3,
+      "food": 0,
+      "experience": 1,
+      "city_mood": 0
+    },
+    "avoid_overuse": [
+      "Do not make every day palace-focused.",
+      "Do not repeat lakefront walks without a new mood."
+    ]
+  }
+}

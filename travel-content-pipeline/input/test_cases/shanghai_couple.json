@@ -1,0 +1,8 @@
+{
+  "city": "shanghai",
+  "days": 3,
+  "trip_type": "couple",
+  "budget": "high",
+  "preferences": ["photo", "nightlife", "shopping"],
+  "pace": "balanced"
+}

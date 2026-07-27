@@ -68,7 +68,11 @@ function normalizeUpstreamImage(item, city, index) {
     metadata: pickDefined({
       city,
       asset_name: item.asset_name,
-      upstream_status: item.status
+      upstream_status: item.status,
+      location_context: item.location_context,
+      search_keywords: item.search_keywords,
+      image_usage_profile: item.image_usage_profile,
+      visual_subject: item.visual_subject
     })
   };
 }

@@ -1,0 +1,29 @@
+{
+  "id": "ca_beijing_culture_pause_asset",
+  "name": "\u6587\u5316\u505c\u7559\u8d44\u4ea7",
+  "asset_type": "poi",
+  "category": ["slow_solo", "reflection_space", "browse_culture"],
+  "content_role": ["reflection_space", "browse_asset"],
+  "traveler_fit": {
+    "couple": "medium",
+    "student": "medium",
+    "solo": "high"
+  },
+  "season_fit": ["spring", "summer", "autumn", "winter"],
+  "best_time": ["afternoon", "early_evening"],
+  "experience_value": [
+    "Represents the type of stop that lets the route breathe through looking, reading, and reflecting rather than walking harder.",
+    "Useful for solo regeneration because it introduces a non-food, non-landmark pause with real narrative function.",
+    "Can be instantiated later as a museum, gallery, or bookstore-cafe node depending on final selector and map coverage."
+  ],
+  "avoid_when": [
+    "the route is already too abstract and needs a concrete city-signature anchor instead",
+    "the traveler wants only outdoor movement and landmark coverage",
+    "the plan day is so compressed that a reflection stop would feel like an interruption rather than relief"
+  ],
+  "nearby_assets": [
+    "ca_beijing_wudaoying",
+    "ca_beijing_yangmeizhu_street"
+  ],
+  "map_asset_id": ""
+}
