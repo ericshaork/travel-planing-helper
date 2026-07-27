@@ -34,6 +34,94 @@ export const AUTH_LOADING_STATE: AuthStatusState = {
   error: null,
 };
 
+function normalizeRedirectPath(returnTo?: string) {
+  if (!returnTo || !returnTo.startsWith("/")) {
+    return "/";
+  }
+
+  return returnTo;
+}
+
+function repairEncodedPathUrl(value: string) {
+  const trimmedValue = value.trim();
+  const match = trimmedValue.match(/^(https?:\/\/[^/%?#]+)(%2F.*)$/i);
+
+  if (!match) {
+    return trimmedValue;
+  }
+
+  try {
+    return `${match[1]}${decodeURIComponent(match[2])}`;
+  } catch {
+    return trimmedValue;
+  }
+}
+
+function tryResolveUrlOrigin(value: string | null | undefined) {
+  if (!value || !value.trim()) {
+    return null;
+  }
+
+  try {
+    return new URL(value.trim()).origin;
+  } catch {
+    return null;
+  }
+}
+
+export function resolveMagicLinkBaseUrl(
+  source: Readonly<Record<string, string | undefined>> = process.env,
+) {
+  const configuredOrigin = tryResolveUrlOrigin(source.NEXT_PUBLIC_SITE_URL);
+
+  if (configuredOrigin) {
+    return configuredOrigin;
+  }
+
+  if (typeof window !== "undefined") {
+    const browserOrigin = tryResolveUrlOrigin(window.location.origin);
+
+    if (browserOrigin) {
+      return browserOrigin;
+    }
+  }
+
+  return "http://localhost:3000";
+}
+
+export function buildMagicLinkRedirectUrl(
+  returnTo?: string,
+  source: Readonly<Record<string, string | undefined>> = process.env,
+) {
+  return new URL(
+    normalizeRedirectPath(returnTo),
+    `${resolveMagicLinkBaseUrl(source)}/`,
+  ).toString();
+}
+
+export function normalizeMagicLinkRedirectUrl(
+  value: string,
+  source: Readonly<Record<string, string | undefined>> = process.env,
+) {
+  const trimmedValue = value.trim();
+
+  if (!trimmedValue) {
+    return buildMagicLinkRedirectUrl("/", source);
+  }
+
+  if (trimmedValue.startsWith("/")) {
+    return buildMagicLinkRedirectUrl(trimmedValue, source);
+  }
+
+  const repairedValue = repairEncodedPathUrl(trimmedValue);
+
+  try {
+    return new URL(repairedValue).toString();
+  } catch {
+    return buildMagicLinkRedirectUrl("/", source);
+  }
+}
+
 function getFriendlyAuthMessage(fallback: string, error?: unknown): string {
   if (error instanceof Error && error.message.trim()) {
     return error.message;
@@ -121,7 +209,7 @@ export async function requestLoginLink(
   const { error } = await client.auth.signInWithOtp({
     email: normalizedEmail,
     options: {
-      emailRedirectTo,
+      emailRedirectTo: normalizeMagicLinkRedirectUrl(emailRedirectTo),
       shouldCreateUser: true,
     },
   });

@@ -5,6 +5,7 @@ import { useMemo, useState } from "react";
 
 import {
   AUTH_LOADING_STATE,
+  buildMagicLinkRedirectUrl,
   requestLoginLink,
   type AuthStatusState,
 } from "../../lib/supabase/auth-client";
@@ -45,7 +46,7 @@ export function LoginForm({
     setErrorMessage(undefined);
 
     try {
-      const redirectUrl = new URL(resolvedReturnTo, window.location.origin).toString();
+      const redirectUrl = buildMagicLinkRedirectUrl(resolvedReturnTo);
       const result = await requestLoginLink(
         email,
         redirectUrl,

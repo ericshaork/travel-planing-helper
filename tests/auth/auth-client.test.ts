@@ -1,8 +1,11 @@
 import { describe, expect, it, vi } from "vitest";
 
 import {
+  buildMagicLinkRedirectUrl,
   getBrowserAccessToken,
   getBrowserAuthStatus,
+  normalizeMagicLinkRedirectUrl,
+  resolveMagicLinkBaseUrl,
   resolveAuthStatusFromSession,
   resolveAuthStatusFromUser,
   signInWithMagicLink,
@@ -35,6 +38,49 @@ describe("supabase auth client helpers", () => {
     });
   });
 
+  it("buildMagicLinkRedirectUrl uses NEXT_PUBLIC_SITE_URL when configured", () => {
+    expect(
+      buildMagicLinkRedirectUrl("/workspace", {
+        NEXT_PUBLIC_SITE_URL: "https://wanderly.example.com",
+      }),
+    ).toBe("https://wanderly.example.com/workspace");
+  });
+
+  it("buildMagicLinkRedirectUrl falls back to localhost in non-browser tests", () => {
+    expect(buildMagicLinkRedirectUrl("/login")).toBe("http://localhost:3000/login");
+  });
+
+  it("buildMagicLinkRedirectUrl sanitizes unsafe returnTo values", () => {
+    expect(
+      buildMagicLinkRedirectUrl("https://evil.example.com" as never, {
+        NEXT_PUBLIC_SITE_URL: "https://wanderly.example.com/app",
+      }),
+    ).toBe("https://wanderly.example.com/");
+  });
+
+  it("buildMagicLinkRedirectUrl keeps path slashes unencoded", () => {
+    const redirectUrl = buildMagicLinkRedirectUrl("/explore", {
+      NEXT_PUBLIC_SITE_URL: "https://wanderly.example.com",
+    });
+
+    expect(redirectUrl).toBe("https://wanderly.example.com/explore");
+    expect(redirectUrl).not.toContain("%2F");
+  });
+
+  it("normalizeMagicLinkRedirectUrl repairs encoded path segments", () => {
+    expect(
+      normalizeMagicLinkRedirectUrl("https://wanderly.example.com%2Fexplore"),
+    ).toBe("https://wanderly.example.com/explore");
+  });
+
+  it("resolveMagicLinkBaseUrl ignores invalid NEXT_PUBLIC_SITE_URL values", () => {
+    expect(
+      resolveMagicLinkBaseUrl({
+        NEXT_PUBLIC_SITE_URL: "not-a-url",
+      }),
+    ).toBe("http://localhost:3000");
+  });
+
   it("signInWithMagicLink surfaces a friendly error", async () => {
     const signInWithOtp = vi
       .fn()
@@ -47,6 +93,28 @@ describe("supabase auth client helpers", () => {
         },
       } as never),
     ).rejects.toThrow("rate limit");
+  });
+
+  it("signInWithMagicLink normalizes malformed encoded redirect URLs before sending", async () => {
+    const signInWithOtp = vi.fn().mockResolvedValue({ error: null });
+
+    await signInWithMagicLink(
+      "user@example.com",
+      "https://wanderly.example.com%2Fexplore",
+      {
+        auth: {
+          signInWithOtp,
+        },
+      } as never,
+    );
+
+    expect(signInWithOtp).toHaveBeenCalledWith({
+      email: "user@example.com",
+      options: {
+        emailRedirectTo: "https://wanderly.example.com/explore",
+        shouldCreateUser: true,
+      },
+    });
   });
 
   it("signOutBrowserSession calls signOut", async () => {
