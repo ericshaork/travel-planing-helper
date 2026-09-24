@@ -89,7 +89,7 @@ export const updateProjectStateInputSchema = z
       value.currentVersionId !== undefined ||
       value.touchActivity === true,
     {
-      message: "鑷冲皯鎻愪氦涓€涓彲鏇存柊鐨勯」鐩姸鎬佸瓧娈点€?",
+      message: "至少提交一个可更新的项目状态字段。",
       path: ["state"],
     },
   );

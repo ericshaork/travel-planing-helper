@@ -9,7 +9,11 @@ import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { createBlankWorkspaceProjectEntry } from "@/lib/projects/entry-client";
 import { getUserSettings } from "@/lib/settings/client";
-import { restoreWorkspaceProjectVersionContext } from "@/lib/projects/workspace-context-client";
+import {
+  loadWorkspaceProjectLocalFallbackContext,
+  restoreWorkspaceProjectVersionContext,
+} from "@/lib/projects/workspace-context-client";
+import { getProjectSession } from "@/lib/projects/session";
 import {
   loadTripPlan,
   loadTripRequest,
@@ -45,6 +49,7 @@ export function WorkspaceChromeHeader() {
             height={82}
             priority
             className="h-auto w-[7.2rem]"
+            style={{ height: "auto" }}
           />
         </Link>
 
@@ -140,10 +145,20 @@ export function WorkspaceRoutePage({ mode }: WorkspaceRoutePageProps) {
       void (async () => {
         const restoredProjectContext =
           await restoreWorkspaceProjectVersionContext().catch(() => null);
-        const savedTripPlan =
-          restoredProjectContext?.tripPlan ?? loadTripPlan();
-        const savedTripRequest =
-          restoredProjectContext?.tripRequest ?? loadTripRequest();
+        const projectSession = getProjectSession();
+        const projectFallbackContext =
+          restoredProjectContext ??
+          loadWorkspaceProjectLocalFallbackContext();
+        const savedTripPlan = projectFallbackContext
+          ? projectFallbackContext.tripPlan
+          : projectSession?.projectId
+            ? null
+            : loadTripPlan();
+        const savedTripRequest = projectFallbackContext
+          ? projectFallbackContext.tripRequest
+          : projectSession?.projectId
+            ? null
+            : loadTripRequest();
 
         setTripRequest(savedTripRequest);
 

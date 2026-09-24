@@ -76,11 +76,9 @@ export function GenerateLoading({
 
   useEffect(() => {
     if (!isGenerating) {
-      setProgress(0);
       return;
     }
 
-    setProgress(0);
     const startTime = Date.now();
     const maxDuration = 90000;
     const interval = setInterval(() => {
@@ -95,6 +93,7 @@ export function GenerateLoading({
   const currentStatus = errorMessage
     ? STATUS_MESSAGES[STATUS_MESSAGES.length - 1]
     : STATUS_MESSAGES[statusIndex];
+  const displayedProgress = isGenerating ? progress : 0;
 
   return (
     <section className="relative mx-auto min-h-[calc(100vh-5.5rem)] w-full max-w-3xl overflow-hidden px-4 py-4 sm:px-6 sm:py-5">
@@ -189,7 +188,7 @@ export function GenerateLoading({
             <div className="mx-auto mt-1.5 h-1.5 w-full max-w-xs overflow-hidden rounded-full bg-[var(--sand-soft)] sm:max-w-sm">
               <div
                 className="h-full rounded-full bg-[var(--clay)] transition-[width] duration-700 ease-out"
-                style={{ width: `${progress * 100}%` }}
+                style={{ width: `${displayedProgress * 100}%` }}
               />
             </div>
           )}

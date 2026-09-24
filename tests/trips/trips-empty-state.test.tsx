@@ -7,7 +7,7 @@ describe("TripsEmptyState SSR", () => {
   it("renders the empty-state copy and create link", () => {
     const markup = renderToStaticMarkup(<TripsEmptyState />);
 
-    expect(markup).toContain("这里还没有存下来的行程");
+    expect(markup).toContain("这里还没有你的旅行记录。");
     expect(markup).toContain("/create");
   });
 });

@@ -24,6 +24,7 @@ import {
   type TravelProjectSession,
   type TravelProjectSessionSourceType,
 } from "./session";
+import { markWorkspaceProjectLocalFallback } from "./workspace-context-client";
 
 type FetchLike = (input: string | URL | Request, init?: RequestInit) => Promise<Response>;
 
@@ -289,6 +290,7 @@ export async function ensureWorkspaceProjectEntry(
     },
     input.storage,
   );
+  markWorkspaceProjectLocalFallback(input.storage);
 
   return {
     projectSession,

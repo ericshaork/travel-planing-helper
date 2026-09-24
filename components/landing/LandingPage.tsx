@@ -18,14 +18,12 @@ export function LandingPage() {
         <div className="absolute left-0 top-0 h-full w-[58%] bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.28),transparent_46%)]" />
       </div>
 
-      <div className="absolute left-4 top-5 z-20 sm:left-8 sm:top-6 xl:left-12">
-        <Image
+      <div className="absolute left-4 top-5 z-20 w-[9.5rem] sm:left-8 sm:top-6 sm:w-[11.5rem] xl:left-12">
+        {/* eslint-disable-next-line @next/next/no-img-element -- SVG brand mark triggers a Next/Image aspect-ratio warning here. */}
+        <img
           src="/images/brand/logo/logo-horizontal-transparent.svg"
           alt="Wanderly"
-          width={184}
-          height={52}
-          priority
-          className="h-auto w-[9.5rem] sm:w-[11.5rem]"
+          className="block h-auto w-full"
         />
       </div>
 

@@ -1434,12 +1434,12 @@ export function CreateChatWorkspace({
 
   async function handleApplyRevisionSuggestion() {
     if (!revisionSuggestion) {
-      setRevisionApplyError("鍏堢瓑 AI 缁欏嚭鍙互搴旂敤鐨勪慨鏀瑰缓璁€?");
+      setRevisionApplyError("先等 AI 给出可以应用的修改建议。");
       return;
     }
 
     if (!projectId || !selectedRevisionVersion?.id) {
-      setRevisionApplyError("鏆傛椂鎵句笉鍒板綋鍓嶇増鏈殑淇℃伅锛岃鍒锋柊鍚庡啀璇曘€?");
+      setRevisionApplyError("暂时找不到当前版本的信息，请刷新后再试。");
       return;
     }
 
@@ -1458,14 +1458,6 @@ export function CreateChatWorkspace({
       });
       const snapshot = await refreshSnapshot(projectId);
 
-      console.info("[revision-suggestion] workspace ai preview result", {
-        projectId: result.projectId,
-        previousVersionId: result.previousVersionId,
-        versionId: result.versionId,
-        modificationRequest,
-        appliedChanges: result.appliedChanges,
-      });
-
       if (snapshot) {
         setVersions(snapshot.versions);
         setFlowStage(snapshot.flowStage);
@@ -1480,9 +1472,6 @@ export function CreateChatWorkspace({
       setRevisionSuggestion(null);
       setWorkspaceHandoffError(undefined);
 
-      setRevisionApplySuccessMessage(
-        `AI 宸茬粡杩斿洖鏂扮増鏈?${result.versionId} 鐨勭敓鎴愮粨鏋滐紝褰撳墠椤甸潰鏆傛椂淇濇寔 V1 涓嶅垏鎹€?`,
-      );
       const refreshedVersion = snapshot?.versions.find(
         (version) => version.id === result.versionId,
       );
@@ -1494,7 +1483,7 @@ export function CreateChatWorkspace({
       setRevisionApplyError(
         error instanceof Error
           ? error.message
-          : "搴旂敤淇敼鏆傛椂澶辫触锛岃绋嶅悗鍐嶈瘯銆?",
+          : "应用修改暂时失败，请稍后再试。",
       );
     } finally {
       setIsApplyingRevisionSuggestion(false);
@@ -1631,17 +1620,6 @@ export function CreateChatWorkspace({
   const revisionDays =
     selectedRevisionVersion?.days || currentTripPlan?.days || 0;
   const revisionDailyOutline = buildRevisionDailyOutline(selectedRevisionPlan);
-  const revisionDisplayTitle =
-    selectedRevisionVersion?.title?.trim() ||
-    selectedRevisionPlan?.tripTitle?.trim() ||
-    "当前方案";
-  const revisionDisplayDestination =
-    selectedRevisionVersion?.destination?.trim() ||
-    selectedRevisionPlan?.destination?.trim() ||
-    "";
-  const revisionDisplayDays =
-    selectedRevisionVersion?.days || selectedRevisionPlan?.days || 0;
-
   const showArchiveContext =
     !isRevisionMode && entrySource === "explore_archive" && Boolean(initialDraft);
   const archiveDestinationLabel = initialDraft?.tripRequestDraft.destinationCity?.trim();

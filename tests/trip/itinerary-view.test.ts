@@ -112,16 +112,24 @@ describe("itinerary view mapping", () => {
   });
 
   it("为每个积木生成稳定的 day/slot/index/place/type 引用", () => {
-    const blocks = getTimeSlotItems(tripPlan.dailyItinerary[0], "morning");
+    const blocks = getTimeSlotItems(tripPlan.dailyItinerary[0], {
+      id: "morning",
+      key: "morning",
+      label: "上午",
+      startTime: "08:00",
+      endTime: "12:00",
+    });
 
     expect(blocks).toEqual([
       {
         ref: {
           day: 1,
           slot: "morning",
+          slotId: "morning",
           itemIndex: 0,
           placeName: "沙坡尾",
           type: "attraction",
+          editorId: undefined,
         },
         item: tripPlan.dailyItinerary[0].morning[0],
       },
@@ -143,7 +151,7 @@ describe("itinerary view mapping", () => {
     expect(cabinets[0]).toMatchObject({
       dayNumber: 1,
       theme: "海边和城市散步",
-      routeSummary: "酒店 → 沙坡尾 → 八市 → 酒店",
+      routeSummary: "酒店 -> 沙坡尾 -> 八市 -> 酒店",
     });
   });
 

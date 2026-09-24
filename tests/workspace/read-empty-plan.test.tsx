@@ -153,7 +153,7 @@ describe("Workspace empty read mode", () => {
       />,
     );
 
-    expect(markup).toContain("行程地图");
+    expect(markup).toContain("桌面地图");
     expect(markup).toContain("还没有地点");
     expect(markup).toContain("添加第一站后，这里会开始标记路线。");
     expect(markup).not.toContain("搜索地点");

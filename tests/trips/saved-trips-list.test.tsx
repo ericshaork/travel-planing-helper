@@ -61,13 +61,13 @@ describe("SavedTripsList SSR", () => {
       <SavedTripsList trips={[]} searchValue="苏州" statusFilter="archived" />,
     );
 
-    expect(markup).toContain("这组搜索和筛选下还没有结果");
+    expect(markup).toContain("这组条件下还没有结果");
     expect(markup).toContain("回到全部列表");
   });
 
   it("renders the default empty state when the list is empty without filters", () => {
     const markup = renderToStaticMarkup(<SavedTripsList trips={[]} />);
 
-    expect(markup).toContain("这里还没有存下来的行程");
+    expect(markup).toContain("这里还没有你的旅行记录。");
   });
 });

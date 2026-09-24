@@ -62,15 +62,15 @@ describe("SettingsPage SSR", () => {
   it("renders compact settings title, side nav and action buttons", () => {
     const markup = renderContent();
 
-    expect(markup).toContain("设置");
-    expect(markup).toContain("管理旅行习惯、工作台默认行为和 AI 参考偏好。");
+    expect(markup).toContain("你的旅行偏好，都在这里");
+    expect(markup).toContain("你的旅行习惯、工作台默认方式，以及 AI 管家的行事风格，都在这里。");
     expect(markup).toContain("旅行习惯");
     expect(markup).toContain("工作台");
     expect(markup).toContain("AI 助手");
     expect(markup).toContain("账号");
     expect(markup).toContain("恢复默认");
-    expect(markup).toContain("保存设置");
-    expect(markup).toContain("导出旅行记录");
+    expect(markup).toContain("保存默认偏好");
+    expect(markup).toContain("导出我的旅行记录");
     expect(markup).toContain("清理本地草稿");
     expect(markup).toContain("删除账号数据");
     expect(markup).toContain("user@example.com");
@@ -152,7 +152,8 @@ describe("SettingsPage SSR", () => {
       isLoadingSettings: true,
     });
 
-    expect(markup).toContain("正在读取你的默认偏好...");
+    expect(markup).toContain("正在读取偏好");
+    expect(markup).toContain("正在把你已经保存过的偏好拿回来。");
   });
 
   it("renders first-time hint when starting from defaults", () => {

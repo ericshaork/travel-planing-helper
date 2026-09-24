@@ -40,7 +40,7 @@ export function createProjectVersionDetailGetHandler(
           {
             error: {
               code: "UNKNOWN_ERROR",
-              message: "杩欎釜鏃呰鐗堟湰鏆傛椂涓嶅瓨鍦ㄦ垨鏃犳硶璁块棶銆?",
+              message: "这个旅行版本暂时不存在，或无法访问。",
             },
           },
           { status: 404 },

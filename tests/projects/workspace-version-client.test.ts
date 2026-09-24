@@ -4,12 +4,14 @@ import {
   loadWorkspaceVersionSummary,
   saveWorkspacePlanAsNewVersion,
 } from "../../lib/projects/version/version-client";
+import { markWorkspaceProjectDraft } from "../../lib/projects/workspace-context-client";
 import {
   getProjectSession,
   setProjectSession,
 } from "../../lib/projects/session";
 import {
   loadTripPlan,
+  saveTripPlan,
   type StorageLike,
 } from "../../lib/trip/storage";
 
@@ -164,6 +166,7 @@ describe("workspace version client", () => {
       },
       storage,
     );
+    markWorkspaceProjectDraft(storage);
     const nextPlan = createTripPlan("Yunnan v3");
     const fetcher = vi
       .fn()
@@ -228,5 +231,36 @@ describe("workspace version client", () => {
     expect(created?.id).toBe("version-3");
     expect(getProjectSession(storage)?.versionId).toBe("version-3");
     expect(loadTripPlan(storage)?.tripTitle).toBe("Yunnan v3");
+    expect(storage.getItem("travel-planning:workspace-project-draft")).toBeNull();
+  });
+
+  it("keeps the local draft and selected version when the base version cannot be read", async () => {
+    const storage = new MemoryStorage();
+    setProjectSession(
+      {
+        projectId: "project-1",
+        versionId: "version-2",
+        sourceType: "blank_input",
+        flowStage: "workspace_ready",
+      },
+      storage,
+    );
+    const editedPlan = createTripPlan("Unsaved edit");
+    saveTripPlan(editedPlan, storage);
+    markWorkspaceProjectDraft(storage);
+    const fetcher = vi.fn().mockResolvedValueOnce(
+      createJsonResponse({ error: { code: "NOT_FOUND" } }, { status: 404 }),
+    );
+
+    const result = await saveWorkspacePlanAsNewVersion(
+      { tripPlan: editedPlan, tripRequest: null },
+      { fetcher, getAccessToken: async () => "token-123", storage },
+    );
+
+    expect(result).toBeNull();
+    expect(fetcher).toHaveBeenCalledTimes(1);
+    expect(getProjectSession(storage)?.versionId).toBe("version-2");
+    expect(loadTripPlan(storage)?.tripTitle).toBe("Unsaved edit");
+    expect(storage.getItem("travel-planning:workspace-project-draft")).not.toBeNull();
   });
 });

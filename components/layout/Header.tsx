@@ -68,6 +68,7 @@ export function Header({
                 height={102}
                 priority
                 className="h-auto w-[9.8rem]"
+                style={{ height: "auto" }}
               />
             </Link>
 
@@ -93,6 +94,7 @@ export function Header({
             height={102}
             priority
             className="h-auto w-[9.8rem]"
+            style={{ height: "auto" }}
           />
         </Link>
 

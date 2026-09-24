@@ -365,13 +365,6 @@ describe("project API routes", () => {
   });
 
   it("creates version with incremented version number", async () => {
-    const client = buildProjectClient({
-      versionRows: [
-        {
-          ...buildProjectClient().from("travel_project_versions").insert,
-        } as never,
-      ],
-    });
     const versionRows = [
       {
         id: "version-2",

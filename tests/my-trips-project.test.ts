@@ -82,9 +82,13 @@ function createSupabaseClientMock(options?: {
               return base;
             },
             ilike(_column: string, _value: string) {
+              void _column;
+              void _value;
               return base;
             },
             order(_column: string, _options?: { ascending?: boolean; nullsFirst?: boolean }) {
+              void _column;
+              void _options;
               return base;
             },
             maybeSingle: async () => ({

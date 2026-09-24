@@ -46,7 +46,7 @@ export function createProjectStatePatchHandler(
           {
             error: {
               code: "UNKNOWN_ERROR",
-              message: "杩欎釜鏃呰椤圭洰鏆傛椂涓嶅瓨鍦ㄦ垨鏃犳硶鏇存柊銆?",
+              message: "这个旅行项目暂时不存在，或无法更新。",
             },
           },
           { status: 404 },

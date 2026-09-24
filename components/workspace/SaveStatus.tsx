@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import type { TripResultEnrichment } from "@/lib/trip/enrichment-types";
 import type { TripPlan, TripRequest } from "@/lib/trip/types";
@@ -20,14 +20,10 @@ export function SaveStatus({
   tripRequest,
   tripEnrichment = null,
 }: SaveStatusProps) {
-  const [hasProjectVersionContext, setHasProjectVersionContext] = useState(false);
-
-  useEffect(() => {
+  const [hasProjectVersionContext] = useState(() => {
     const projectSession = getProjectSession();
-    setHasProjectVersionContext(
-      Boolean(projectSession?.projectId && projectSession.versionId),
-    );
-  }, []);
+    return Boolean(projectSession?.projectId && projectSession.versionId);
+  });
 
   if (hasProjectVersionContext) {
     return (

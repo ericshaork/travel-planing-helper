@@ -9,6 +9,7 @@ export default defineConfig({
     exclude: [
       "node_modules/**",
       ".next/**",
+      "tests/e2e/**",
       "image-pipeline/**",
       "travel-content-pipeline/**",
       "scripts/**",

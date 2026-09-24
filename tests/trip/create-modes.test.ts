@@ -13,15 +13,15 @@ describe("create modes", () => {
     ]);
   });
 
-  it("marks AI mode as available and self-directed mode as v1.5 placeholder", () => {
+  it("marks AI mode and self-directed mode as available", () => {
     expect(getCreateModeOption("ai-assisted")).toMatchObject({
       available: true,
       statusLabel: "可用",
     });
 
     expect(getCreateModeOption("self-directed")).toMatchObject({
-      available: false,
-      statusLabel: "v1.5",
+      available: true,
+      statusLabel: "可用",
     });
   });
 });

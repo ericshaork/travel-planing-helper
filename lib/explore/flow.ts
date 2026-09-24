@@ -18,31 +18,31 @@ function normalizeExploreDay(
   if (!day) {
     return {
       day: dayNumber,
-      theme: `绗?${dayNumber} 澶╃伒鎰熻崏绋縛`,
+      theme: `第 ${dayNumber} 天灵感草稿`,
       routeOrder: [destination],
-      routeReason: "杩欎竴澶╂潵鑷?Explore 鐏垫劅鑽夌锛屽鍏ュ悗鍙互缁х画缁嗗寲鍦扮偣鍜岃矾绾裤€?",
+      routeReason: "这一天来自 Explore 灵感草稿，导入后可以继续细化地点和路线。",
       morning: [],
       afternoon: [],
       evening: [],
-      dailyTips: ["瀵煎叆宸ヤ綔鍙板悗锛屽彲浠ョ户缁坊鍔犲湴鐐瑰拰澶囨敞銆?"],
+      dailyTips: ["导入工作台后，可以继续添加地点和备注。"],
     };
   }
 
   return {
     ...day,
     day: dayNumber,
-    theme: day.theme?.trim() || `绗?${dayNumber} 澶╃伒鎰熻崏绋縛`,
+    theme: day.theme?.trim() || `第 ${dayNumber} 天灵感草稿`,
     routeOrder:
       day.routeOrder.length > 0
         ? day.routeOrder
-        : [destination || day.theme || `绗?${dayNumber} 澶?`],
+        : [destination || day.theme || `第 ${dayNumber} 天`],
     routeReason:
       day.routeReason?.trim() ||
-      "杩欎竴澶╂潵鑷?Explore 鐏垫劅鑽夌锛屽鍏ュ悗鍙互缁х画缁嗗寲鍦扮偣鍜岃矾绾裤€?",
+      "这一天来自 Explore 灵感草稿，导入后可以继续细化地点和路线。",
     dailyTips:
       day.dailyTips.length > 0
         ? day.dailyTips
-        : ["瀵煎叆宸ヤ綔鍙板悗锛屽彲浠ョ户缁坊鍔犲湴鐐瑰拰澶囨敞銆?"],
+        : ["导入工作台后，可以继续添加地点和备注。"],
   };
 }
 
@@ -51,20 +51,20 @@ function buildWorkspacePlanFromExploreDraft(draft: TripPlanDraft): TripPlan {
   const destination =
     seed.destination?.trim() ||
     draft.tripRequestDraft.destinationCity?.trim() ||
-    "寰呭畾鐩殑鍦?";
+    "待定目的地";
   const days = Math.max(1, seed.days || draft.tripRequestDraft.days || 1);
 
   const candidate: TripPlan = {
     ...seed,
-    tripTitle: seed.tripTitle?.trim() || draft.tripTitle || "Explore 鐏垫劅鑽夌",
+    tripTitle: seed.tripTitle?.trim() || draft.tripTitle || "Explore 灵感草稿",
     summary:
       seed.summary?.trim() ||
-      "杩欐槸涓€浠戒粠 Explore 瀵煎叆鐨勭伒鎰熻崏绋匡紝鍙互鍦?Workspace 閲岀户缁皟鏁淬€?",
+      "这是一份从 Explore 导入的灵感草稿，可以在 Workspace 里继续调整。",
     destination,
     days,
     travelStyleSummary:
       seed.travelStyleSummary?.trim() ||
-      "浠?Explore 鐏垫劅寮€濮嬶紝鍚庣画鎸変綘鐨勮妭濂忕户缁皟鏁淬€?",
+      "从 Explore 灵感开始，后续按你的节奏继续调整。",
     dailyItinerary: Array.from({ length: days }, (_, index) =>
       normalizeExploreDay(seed.dailyItinerary[index], index + 1, destination),
     ),
@@ -77,49 +77,49 @@ function buildWorkspacePlanFromExploreDraft(draft: TripPlanDraft): TripPlan {
   }
 
   return {
-    tripTitle: draft.tripTitle || `${destination} 鐏垫劅鑽夌`,
+    tripTitle: draft.tripTitle || `${destination} 灵感草稿`,
     summary:
-      "杩欐槸涓€浠戒粠 Explore 瀵煎叆鐨勭伒鎰熻崏绋匡紝宸茬粡鍏堟暣鐞嗘垚鍙湪 Workspace 鎵撳紑鐨勭増鏈€?",
+      "这是一份从 Explore 导入的灵感草稿，已整理成可以在 Workspace 打开的版本。",
     destination,
     days,
-    travelStyleSummary: "浠?Explore 鐏垫劅寮€濮嬶紝鍚庣画鎸変綘鐨勮妭濂忕户缁皟鏁淬€?",
+    travelStyleSummary: "从 Explore 灵感开始，后续按你的节奏继续调整。",
     weatherSummary: {
       available: false,
-      overview: "瀵煎叆宸ヤ綔鍙板悗锛屽彲浠ュ啀鎸夋棩鏈熷拰鐩殑鍦拌ˉ瀹炴椂澶╂皵銆?",
+      overview: "导入工作台后，可以按日期和目的地补充天气信息。",
       dailyForecast: [],
       alerts: [],
-      reminders: ["姝ｅ紡鍑鸿鍓嶅啀纭澶╂皵銆?"],
-      dataNote: "Explore 瀵煎叆鑽夌涓嶆惡甯﹀疄鏃跺ぉ姘斻€?",
+      reminders: ["正式出行前再确认天气。"],
+      dataNote: "Explore 导入草稿不包含实时天气。",
     },
     budgetSummary: {
-      totalEstimate: "寰呰ˉ鍏?",
-      transport: "寰呰ˉ鍏?",
-      hotel: "寰呰ˉ鍏?",
-      food: "寰呰ˉ鍏?",
-      tickets: "寰呰ˉ鍏?",
-      localTransport: "寰呰ˉ鍏?",
-      flexibleSpending: "寰呰ˉ鍏?",
-      note: "瀵煎叆鍚庡彲浠ユ寜浣犵殑棰勭畻閲嶆柊浼扮畻銆?",
+      totalEstimate: "待补充",
+      transport: "待补充",
+      hotel: "待补充",
+      food: "待补充",
+      tickets: "待补充",
+      localTransport: "待补充",
+      flexibleSpending: "待补充",
+      note: "导入后可以按你的预算重新估算。",
     },
     hotelAreaAdvice: [],
     transportAdvice: {
-      summary: "璺嚎缁嗚妭纭鍚庯紝鍐嶈ˉ鍏蜂綋浜ら€氬缓璁€?",
+      summary: "路线细节确认后，再补具体交通建议。",
       options: [
         {
           mode: "other",
-          pros: ["鍏堜繚鐣欑伒鎰熻崏绋匡紝鏂逛究缁х画缂栬緫銆?"],
-          cons: ["鏆傛椂杩樻病鏈夊叿浣撲氦閫氭柟妗堛€?"],
-          recommendation: "鍏堝湪 Workspace 閲岃ˉ榻愬湴鐐癸紝鍐嶅埛鏂颁氦閫氬缓璁€?",
+          pros: ["先保留灵感草稿，方便继续编辑。"],
+          cons: ["暂时没有具体交通方案。"],
+          recommendation: "先在 Workspace 里补齐地点，再更新交通建议。",
         },
       ],
       suggestedPlatforms: [],
-      note: "褰撳墠鏄鍏ヨ崏绋匡紝浜ら€氫俊鎭緟琛ュ厖銆?",
+      note: "当前是导入草稿，交通信息待补充。",
     },
     dailyItinerary: Array.from({ length: days }, (_, index) =>
       normalizeExploreDay(undefined, index + 1, destination),
     ),
-    generalTips: ["杩欎唤鑽夌鏉ヨ嚜 Explore锛屽彲浠ョ户缁坊鍔犲湴鐐广€佸娉ㄥ拰鏃堕棿娈点€?"],
-    warnings: ["姝ｅ紡鍑鸿鍓嶏紝璇锋寜鑷繁鐨勬棩鏈熴€侀绠楀拰寮€鏀句俊鎭啀娆℃牳瀹炪€?"],
+    generalTips: ["这份草稿来自 Explore，可以继续添加地点、备注和时间段。"],
+    warnings: ["正式出行前，请按自己的日期、预算和开放信息再次核实。"],
   };
 }
 
@@ -147,7 +147,7 @@ export async function startExploreCreateFlow(
   );
 
   if (!projectSession?.projectId) {
-    throw new Error("鏃呰椤圭洰鍒涘缓澶辫触锛岃绋嶅悗鍐嶈瘯銆?");
+    throw new Error("旅行项目创建失败，请稍后再试。");
   }
 
   const searchParams = new URLSearchParams({
@@ -211,7 +211,7 @@ export async function startExploreWorkspaceFlow(
   );
 
   if (!projectSession?.projectId || !projectSession.versionId) {
-    throw new Error("鏃呰椤圭洰鎴栫増鏈垱寤哄け璐ワ紝璇风◢鍚庡啀璇曘€?");
+    throw new Error("旅行项目或版本创建失败，请稍后再试。");
   }
 
   router.push("/workspace");
