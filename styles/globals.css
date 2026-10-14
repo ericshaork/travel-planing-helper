@@ -67,7 +67,7 @@ select {
 .explore-page-bg {
   background-color: #f3eedf;
   background-image:
-    linear-gradient(180deg, rgb(243 238 223 / 0.76) 0%, rgb(243 238 223 / 0.88) 100%),
+    linear-gradient(180deg, rgb(243 238 223 / 0.72) 0%, rgb(243 238 223 / 0.84) 100%),
     url("/images/explore/background/explore-watercolor-bg-soft.png");
   background-position:
     top center,
