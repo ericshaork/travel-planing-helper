@@ -1,0 +1,38 @@
+:root {
+  --map-studio-label: #fff4d6;
+  --map-studio-label-muted: #e5cf91;
+  --map-studio-label-disabled: rgba(229, 207, 145, 0.42);
+  --map-studio-text-shadow: 0 1px 1px rgba(0, 0, 0, 0.9), 0 0 8px rgba(210, 165, 83, 0.28);
+}
+
+.map-studio-text-button,
+.map-studio-top-tool,
+.map-studio-status-button {
+  color: var(--map-studio-label);
+  font-weight: 700;
+  text-shadow: var(--map-studio-text-shadow);
+}
+
+.map-studio-text-button svg,
+.map-studio-top-tool svg,
+.map-studio-status-button svg {
+  color: var(--map-studio-label-muted);
+  filter: drop-shadow(0 0 4px rgba(210, 165, 83, 0.24));
+}
+
+.map-studio-text-button[aria-disabled="true"],
+.map-studio-top-tool[aria-disabled="true"],
+.map-studio-status-button[aria-disabled="true"],
+.map-studio-text-button:disabled,
+.map-studio-top-tool:disabled,
+.map-studio-status-button:disabled {
+  color: var(--map-studio-label-disabled);
+  opacity: 0.72;
+}
+
+.map-studio-text-button.is-active,
+.map-studio-top-tool.is-active,
+.map-studio-status-button.is-active {
+  color: #fff9e8;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.95), 0 0 10px rgba(229, 188, 103, 0.46);
+}

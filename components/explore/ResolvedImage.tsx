@@ -12,6 +12,10 @@ interface ResolvedImageProps {
   imageClassName?: string;
 }
 
+function isRemoteSource(source: string) {
+  return /^https?:\/\//i.test(source);
+}
+
 export function ResolvedImage({
   sources,
   alt,
@@ -32,19 +36,33 @@ export function ResolvedImage({
     return null;
   }
 
+  function handleSourceError() {
+    setFailedSources((current) => ({ ...current, [currentSource]: true }));
+  }
+
   return (
     <div className={wrapperClassName}>
-      <Image
-        src={currentSource}
-        alt={alt}
-        fill
-        sizes={sizes}
-        priority={priority}
-        className={imageClassName}
-        onError={() => {
-          setFailedSources((current) => ({ ...current, [currentSource]: true }));
-        }}
-      />
+      {isRemoteSource(currentSource) ? (
+        // 远程封面域名未配置进 next/image 优化器，渲染期会直接抛错，这里降级为原生 img
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={currentSource}
+          alt={alt}
+          loading={priority ? "eager" : "lazy"}
+          className={`absolute inset-0 h-full w-full ${imageClassName}`}
+          onError={handleSourceError}
+        />
+      ) : (
+        <Image
+          src={currentSource}
+          alt={alt}
+          fill
+          sizes={sizes}
+          priority={priority}
+          className={imageClassName}
+          onError={handleSourceError}
+        />
+      )}
     </div>
   );
 }

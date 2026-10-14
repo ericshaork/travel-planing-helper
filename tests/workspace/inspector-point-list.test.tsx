@@ -69,7 +69,7 @@ describe("InspectorPointList", () => {
     );
 
     expect(markup).toContain("当前查看");
-    expect(markup).toContain("这个地点还没确认");
+    expect(markup).toContain("这个地点还没完成定位");
     expect(markup).toContain('aria-pressed="true"');
   });
 

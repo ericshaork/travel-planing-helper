@@ -31,26 +31,26 @@ export function WorkspaceDayTabs({
 
   return (
     <section
-      className={`sticky z-10 -mx-2 bg-[linear-gradient(180deg,rgba(255,253,247,0.96)_0%,rgba(255,253,247,0.72)_72%,rgba(255,253,247,0)_100%)] px-2 ${
+      className={`workbench-day-tabs sticky z-10 -mx-2 px-2 ${
         compactEmptyEditMode
           ? "top-0 mb-0 flex-none pb-0.5 pt-0"
           : compactTabs
             ? "top-0 mb-0 flex-none pb-1 pt-0"
-          : "top-4 mb-1 pb-2 pt-1"
+          : "top-2 mb-1 pb-1.5 pt-0.5"
       }`}
     >
       {!compactEmptyEditMode ? (
-        <div className="flex flex-wrap items-center justify-between gap-3">
+        <div className="flex flex-wrap items-center justify-between gap-2">
           <p className="workspace-kicker">日期页签</p>
-          <div className="flex flex-wrap items-center gap-2">
+          <div className="flex flex-wrap items-center gap-1.5">
             {cabinets.length > 1 ? (
-              <span className="journal-chip">{cabinets.length} 天</span>
+              <span className="journal-chip py-0.5 text-[10px]">{cabinets.length} 天</span>
             ) : null}
             {showEditActions && onAddDay ? (
               <button
                 type="button"
                 onClick={handleAddDayClick}
-                className="journal-chip border-[var(--ink)] text-[var(--ink)] transition-colors hover:border-[var(--clay-deep)] hover:text-[var(--clay-deep)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)]"
+                className="journal-chip border-[var(--ink)] py-0.5 text-[10px] text-[var(--ink)] transition-colors hover:border-[var(--clay-deep)] hover:text-[var(--clay-deep)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)]"
               >
                 添加一天
               </button>
@@ -64,8 +64,8 @@ export function WorkspaceDayTabs({
           compactEmptyEditMode
             ? "flex flex-wrap items-center gap-1.5"
             : compactTabs
-              ? "mt-2 flex flex-wrap gap-1.5"
-            : "mt-3 flex flex-wrap gap-2"
+              ? "mt-1.5 flex flex-wrap gap-1.5"
+            : "mt-2 flex flex-wrap gap-1.5"
         }
       >
         {cabinets.map((cabinet) => {
@@ -78,7 +78,7 @@ export function WorkspaceDayTabs({
               onClick={() => onSelect(cabinet.dayNumber)}
               aria-pressed={active}
               data-active={active ? "true" : "false"}
-              className="journal-tab focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)]"
+              className="workbench-day-tab journal-tab min-h-[2rem] px-3 py-1 text-[12px] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)]"
             >
               {`第 ${cabinet.dayNumber} 天`}
             </button>
@@ -89,7 +89,7 @@ export function WorkspaceDayTabs({
             type="button"
             onClick={handleAddDayClick}
             aria-label="添加一天"
-            className="journal-tab min-w-9 px-3 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)]"
+            className="workbench-day-tab journal-tab min-h-[2rem] min-w-9 px-3 py-1 text-[12px] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)]"
           >
             +
           </button>

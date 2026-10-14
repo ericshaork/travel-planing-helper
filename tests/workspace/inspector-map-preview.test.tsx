@@ -29,14 +29,14 @@ describe("InspectorMapPreview", () => {
       <InspectorMapPreview insight={unresolvedOnlyInsight} />,
     );
 
-    expect(markup).toContain("现在只显示当前 Day 已确认的点位");
-    expect(markup).toContain("待确认 1");
+    expect(markup).toContain("地图加载中");
+    expect(markup).toContain("不影响行程阅读");
   });
 
   it("loading 时会显示稳定占位，不影响其他模块理解", () => {
     const markup = renderToStaticMarkup(<InspectorMapPreview loading />);
 
-    expect(markup).toContain("地图预览");
-    expect(markup).toContain("正在整理当前 Day 的点位和路线");
+    expect(markup).toContain("animate-pulse");
+    expect(markup).toContain("linear-gradient");
   });
 });

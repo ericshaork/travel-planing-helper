@@ -427,7 +427,7 @@ describe("explore source integration", () => {
     });
   });
 
-  it("logs Project request and response diagnostics without exposing the token", async () => {
+  it("creates the Project without logging the source payload or response", async () => {
     const storage = new MemoryStorage();
     const infoSpy = vi.spyOn(console, "info").mockImplementation(() => {});
     const fetcher = vi
@@ -454,32 +454,17 @@ describe("explore source integration", () => {
         getAccessToken: async () => "secret-token-value",
       });
 
-      expect(infoSpy).toHaveBeenCalledWith(
-        "[Explore Project Create] Request",
-        expect.objectContaining({
-          hasAccessToken: true,
-          payload: expect.objectContaining({
-            sourceType: "explore_archive",
-          }),
-        }),
+      expect(fetcher).toHaveBeenCalledWith(
+        "/api/projects",
+        expect.objectContaining({ method: "POST" }),
       );
-      expect(infoSpy).toHaveBeenCalledWith(
-        "[Explore Project Create] Response",
-        expect.objectContaining({
-          status: 200,
-          contentType: expect.stringContaining("application/json"),
-          rawBody: expect.stringContaining("project-diagnostic"),
-        }),
-      );
-      expect(JSON.stringify(infoSpy.mock.calls)).not.toContain(
-        "secret-token-value",
-      );
+      expect(infoSpy).not.toHaveBeenCalled();
     } finally {
       infoSpy.mockRestore();
     }
   });
 
-  it("logs an HTML error response before preserving the generic failure", async () => {
+  it("shows a readable failure for an HTML Project API response", async () => {
     const infoSpy = vi.spyOn(console, "info").mockImplementation(() => {});
     const htmlBody = "<!doctype html><html><body>Not Found</body></html>";
     const fetcher = vi.fn().mockResolvedValue(
@@ -497,22 +482,14 @@ describe("explore source integration", () => {
           fetcher,
           getAccessToken: async () => "token-123",
         }),
-      ).rejects.toThrow();
-
-      expect(infoSpy).toHaveBeenCalledWith(
-        "[Explore Project Create] Response",
-        {
-          status: 404,
-          contentType: "text/html; charset=utf-8",
-          rawBody: htmlBody,
-        },
-      );
+      ).rejects.toThrow("旅行项目创建失败，请稍后再试。");
+      expect(infoSpy).not.toHaveBeenCalled();
     } finally {
       infoSpy.mockRestore();
     }
   });
 
-  it("logs fetch error details and rethrows the original error", async () => {
+  it("rethrows a network error without logging the raw error", async () => {
     const errorSpy = vi.spyOn(console, "error").mockImplementation(() => {});
     const fetchError = new Error("Failed to fetch Project API");
     const fetcher = vi.fn().mockRejectedValue(fetchError);
@@ -525,29 +502,57 @@ describe("explore source integration", () => {
         }),
       ).rejects.toBe(fetchError);
 
-      expect(errorSpy).toHaveBeenCalledWith(
-        "[Explore Project Create] Fetch failed",
-        expect.objectContaining({
-          message: "Failed to fetch Project API",
-          stack: expect.stringContaining("Failed to fetch Project API"),
-          error: fetchError,
-        }),
-      );
+      expect(errorSpy).not.toHaveBeenCalled();
     } finally {
       errorSpy.mockRestore();
     }
   });
 
-  it("does not create legacy local state when Project creation fails", async () => {    const storage = new MemoryStorage();
+  it("keeps an Explore draft local when no auth is available", async () => {
+    const storage = new MemoryStorage();
+    const fetcher = vi.fn();
 
-    await expect(
-      startExploreProjectCreateFlow(createExploreDraft(), storage, {
-        fetcher: vi.fn(),
+    const session = await startExploreProjectCreateFlow(
+      createExploreDraft(),
+      storage,
+      {
+        fetcher,
         getAccessToken: async () => null,
-      }),
-    ).rejects.toThrow();
+      },
+    );
 
-    expect(loadTripPlanDraft(storage)).toBeNull();
+    expect(session).toBeNull();
+    expect(fetcher).not.toHaveBeenCalled();
+    expect(loadTripPlanDraft(storage)).toEqual(createExploreDraft());
+    expect(getProjectSession(storage)).toBeNull();
+  });
+
+  it("keeps an Explore draft local when the stored auth token is expired", async () => {
+    const storage = new MemoryStorage();
+    const fetcher = vi.fn().mockResolvedValueOnce(
+      createJsonResponse(
+        {
+          error: {
+            code: "UNAUTHORIZED",
+            message: "当前登录状态已经失效，请重新登录后再试。",
+          },
+        },
+        { status: 401 },
+      ),
+    );
+
+    const session = await startExploreProjectCreateFlow(
+      createExploreDraft(),
+      storage,
+      {
+        fetcher,
+        getAccessToken: async () => "expired-token",
+      },
+    );
+
+    expect(session).toBeNull();
+    expect(fetcher).toHaveBeenCalledTimes(1);
+    expect(loadTripPlanDraft(storage)).toEqual(createExploreDraft());
     expect(getProjectSession(storage)).toBeNull();
   });
 
@@ -652,6 +657,26 @@ describe("explore entry URL routing", () => {
 
     expect(router.push).toHaveBeenCalledTimes(1);
     expect(router.push).toHaveBeenCalledWith("/create?source=ai&continue=1");
+  });
+
+  it("AI creation card routes to /plan when project creation falls back to a local draft", async () => {
+    const storage = new MemoryStorage();
+    const router = createMockRouter();
+
+    await startExploreCreateFlow(
+      createExploreDraft(),
+      router,
+      { source: "ai" },
+      storage,
+      {
+        fetcher: vi.fn(),
+        getAccessToken: async () => null,
+      },
+    );
+
+    expect(router.push).toHaveBeenCalledTimes(1);
+    expect(router.push).toHaveBeenCalledWith("/plan");
+    expect(loadTripPlanDraft(storage)).toEqual(createExploreDraft());
   });
 
   it("archive '用此行程创建' routes to /create?source=explore_archive&archiveSlug=...", async () => {

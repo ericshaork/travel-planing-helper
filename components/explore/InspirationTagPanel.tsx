@@ -4,6 +4,7 @@ import Image from "next/image";
 import type { CSSProperties } from "react";
 
 import { getInspirationCardImageCandidates } from "@/lib/explore/image-resolver";
+import { getInspirationCardAsset } from "@/lib/explore/inspiration-assets";
 import type { InspirationFacetKey } from "@/lib/explore/types";
 
 import { ResolvedImage } from "./ResolvedImage";
@@ -16,82 +17,9 @@ interface InspirationTagPanelProps {
   onToggle: (label: string) => void;
 }
 
-interface StackedCardAsset {
-  slug: string;
-  image: string;
-}
-
-type StackedCardAssetMap = Partial<
-  Record<InspirationFacetKey, Record<string, StackedCardAsset>>
->;
-
 function cardTilt(index: number) {
   const tilts = [-2.2, 1.2, -0.8, 1.8, -1.4, 1.4, -1, 1.7, -1.2, 0.9];
   return tilts[index % tilts.length];
-}
-
-const STACKED_CARD_ASSETS: StackedCardAssetMap = {
-  location: {
-    海边: { slug: "seaside", image: "/images/explore/inspiration/location/location-seaside.png" },
-    古城: { slug: "ancient-town", image: "/images/explore/inspiration/location/location-ancient-town.png" },
-    山谷: { slug: "valley", image: "/images/explore/inspiration/location/location-valley.png" },
-    草原: { slug: "grassland", image: "/images/explore/inspiration/location/location-grassland.png" },
-    雨林: { slug: "rainforest", image: "/images/explore/inspiration/location/location-rainforest.png" },
-    湖泊: { slug: "lake", image: "/images/explore/inspiration/location/location-lake.png" },
-    雪山: { slug: "snow-mountain", image: "/images/explore/inspiration/location/location-snow-mountain.png" },
-    城市漫步: { slug: "city-walk", image: "/images/explore/inspiration/location/location-city-walk.png" },
-    海岛: { slug: "island", image: "/images/explore/inspiration/location/location-island.png" },
-    江南水乡: {
-      slug: "jiangnan-water-town",
-      image: "/images/explore/inspiration/location/location-jiangnan-water-town.png",
-    },
-  },
-  food: {
-    小吃: { slug: "snacks", image: "/images/explore/inspiration/food/food-snacks.png" },
-    火锅: { slug: "hot-pot", image: "/images/explore/inspiration/food/food-hot-pot.png" },
-    早茶: { slug: "morning-tea", image: "/images/explore/inspiration/food/food-morning-tea.png" },
-    面食: { slug: "noodles", image: "/images/explore/inspiration/food/food-noodles.png" },
-    米粉: { slug: "rice-noodles", image: "/images/explore/inspiration/food/food-rice-noodles.png" },
-    海鲜: { slug: "seafood", image: "/images/explore/inspiration/food/food-seafood.png" },
-    夜市: { slug: "night-market", image: "/images/explore/inspiration/food/food-night-market.png" },
-    甜品: { slug: "desserts", image: "/images/explore/inspiration/food/food-desserts.png" },
-    茶馆: { slug: "teahouse", image: "/images/explore/inspiration/food/food-teahouse.png" },
-    市集: { slug: "market", image: "/images/explore/inspiration/food/food-market.png" },
-  },
-  season: {
-    春: { slug: "spring", image: "/images/explore/inspiration/season/season-spring.png" },
-    夏: { slug: "summer", image: "/images/explore/inspiration/season/season-summer.png" },
-    秋: { slug: "autumn", image: "/images/explore/inspiration/season/season-autumn.png" },
-    冬: { slug: "winter", image: "/images/explore/inspiration/season/season-winter.png" },
-  },
-  companion: {
-    独游: { slug: "solo", image: "/images/explore/inspiration/companion/companion-solo.png" },
-    情侣: { slug: "couple", image: "/images/explore/inspiration/companion/companion-couple.png" },
-    朋友: { slug: "friends", image: "/images/explore/inspiration/companion/companion-friends.png" },
-    亲子: {
-      slug: "parent-child",
-      image: "/images/explore/inspiration/companion/companion-parent-child.png",
-    },
-    家庭: { slug: "family", image: "/images/explore/inspiration/companion/companion-family.png" },
-    同学: {
-      slug: "classmates",
-      image: "/images/explore/inspiration/companion/companion-classmates.png",
-    },
-    闺蜜: { slug: "besties", image: "/images/explore/inspiration/companion/companion-besties.png" },
-    团建: { slug: "team", image: "/images/explore/inspiration/companion/companion-team.png" },
-    摄影: {
-      slug: "photography",
-      image: "/images/explore/inspiration/companion/companion-photography.png",
-    },
-    长辈同行: {
-      slug: "elders",
-      image: "/images/explore/inspiration/companion/companion-elders.png",
-    },
-  },
-};
-
-function getStackedCardAsset(categoryKey: InspirationFacetKey, label: string) {
-  return STACKED_CARD_ASSETS[categoryKey]?.[label];
 }
 
 export function InspirationTagPanel({
@@ -102,7 +30,7 @@ export function InspirationTagPanel({
   onToggle,
 }: InspirationTagPanelProps) {
   const hasStackedCards = options.every((option) =>
-    Boolean(getStackedCardAsset(categoryKey, option)),
+    Boolean(getInspirationCardAsset(categoryKey, option)),
   );
 
   return (
@@ -117,7 +45,7 @@ export function InspirationTagPanel({
         {options.map((option, index) => {
           const active = selected.includes(option);
           const tilt = cardTilt(index);
-          const stackedAsset = getStackedCardAsset(categoryKey, option);
+          const stackedAsset = getInspirationCardAsset(categoryKey, option);
 
           if (stackedAsset) {
             const overlap =
@@ -149,7 +77,7 @@ export function InspirationTagPanel({
                       : "0 8px 18px rgba(83, 70, 51, 0.08)",
                   } as CSSProperties
                 }
-                className={`group relative h-[5.65rem] shrink-0 cursor-pointer overflow-hidden rounded-[14px] border bg-[var(--paper)] text-left transition-all duration-200 ease-out [box-shadow:var(--active-ring)] [transform:translateX(var(--selected-x))_translateX(var(--hover-x))_translateY(var(--hover-y))_rotate(var(--base-tilt))] hover:z-30 hover:[--base-tilt:0deg] hover:[--hover-x:12px] hover:[--hover-y:-3px] focus-visible:z-30 focus-visible:[--base-tilt:0deg] focus-visible:[--hover-x:12px] focus-visible:[--hover-y:-3px] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--sage-deep)] ${
+                className={`group relative h-[5.65rem] shrink-0 cursor-pointer overflow-hidden rounded-[10px] border bg-[var(--paper)] text-left transition-all duration-200 ease-out [box-shadow:var(--active-ring)] [transform:translateX(var(--selected-x))_translateX(var(--hover-x))_translateY(var(--hover-y))_rotate(var(--base-tilt))] hover:z-30 hover:[--base-tilt:0deg] hover:[--hover-x:12px] hover:[--hover-y:-3px] focus-visible:z-30 focus-visible:[--base-tilt:0deg] focus-visible:[--hover-x:12px] focus-visible:[--hover-y:-3px] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--sage-deep)] ${
                   active
                     ? "z-20 border-[rgba(71,96,72,0.58)]"
                     : "border-[rgba(214,205,187,0.82)] hover:border-[rgba(88,69,52,0.34)]"
@@ -202,7 +130,7 @@ export function InspirationTagPanel({
                 marginLeft: index === 0 ? 0 : -16,
                 "--card-tilt": `${tilt}deg`,
               } as CSSProperties}
-              className={`group relative h-[5.65rem] w-[7.2rem] shrink-0 overflow-hidden rounded-[14px] border px-3 py-2.5 text-left shadow-[0_8px_18px_rgba(83,70,51,0.08)] transition-all duration-200 [transform:rotate(var(--card-tilt))] hover:z-20 hover:[transform:translateY(-0.3rem)_rotate(0deg)] focus-visible:z-20 focus-visible:[transform:translateY(-0.3rem)_rotate(0deg)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)] ${
+              className={`group relative h-[5.65rem] w-[7.2rem] shrink-0 overflow-hidden rounded-[10px] border px-3 py-2.5 text-left shadow-[0_4px_12px_rgba(83,70,51,0.06)] transition-all duration-200 [transform:rotate(var(--card-tilt))] hover:z-20 hover:[transform:translateY(-0.3rem)_rotate(0deg)] focus-visible:z-20 focus-visible:[transform:translateY(-0.3rem)_rotate(0deg)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)] ${
                 active
                   ? "z-10 border-[rgba(88,69,52,0.42)] bg-[rgba(255,253,247,0.98)] text-[var(--ink)] ring-1 ring-[rgba(88,69,52,0.14)]"
                   : "border-[rgba(214,205,187,0.86)] bg-[rgba(255,253,247,0.82)] text-[var(--ink-muted)]"

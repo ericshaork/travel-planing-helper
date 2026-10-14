@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
+import { useEffect, useMemo, useState } from "react";
 
 import {
   AUTH_LOADING_STATE,
@@ -32,12 +33,26 @@ export function LoginForm({
   initialState = AUTH_LOADING_STATE,
 }: LoginFormProps) {
   const state = useAuthStatus(initialState);
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [successMessage, setSuccessMessage] = useState<string>();
   const [errorMessage, setErrorMessage] = useState<string>();
   const resolvedReturnTo = useMemo(() => normalizeReturnToPath(returnTo), [returnTo]);
   const returnLabel = resolvedReturnTo === "/" ? "首页" : resolvedReturnTo;
+
+  // 已登录的人不该停在登录页：自动送回 returnTo，避免被误跳转后卡住。
+  useEffect(() => {
+    if (state.status !== "authenticated") {
+      return;
+    }
+
+    const timer = window.setTimeout(() => {
+      router.replace(resolvedReturnTo);
+    }, 800);
+
+    return () => window.clearTimeout(timer);
+  }, [resolvedReturnTo, router, state.status]);
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -74,7 +89,7 @@ export function LoginForm({
           <p className="workspace-kicker">已登录</p>
           <h2 className="mt-2 text-2xl font-semibold">你已经登录了。</h2>
           <p className="mt-3 text-sm leading-6 text-[var(--ink-muted)]">
-            当前账号是 {state.user.email ?? "已登录用户"}。继续回到刚才的页面就行。
+            当前账号是 {state.user.email ?? "已登录用户"}。正在带你回到{returnLabel}，不用手动点。
           </p>
           <div className="mt-5 flex flex-wrap gap-3">
             <Link

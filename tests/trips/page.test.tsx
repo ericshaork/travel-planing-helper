@@ -29,7 +29,7 @@ describe("TripsPage SSR", () => {
   it("keeps the login protection copy for anonymous users", () => {
     const markup = renderToStaticMarkup(<TripsPage />);
 
-    expect(markup).toContain("登录后查看“我的行程”");
+    expect(markup).toContain("登录后查看你的旅行档案");
     expect(markup).toContain("去登录");
   });
 });

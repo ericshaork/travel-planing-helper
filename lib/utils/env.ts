@@ -24,7 +24,7 @@ const booleanEnvironmentValue = (defaultValue: boolean) =>
     .default(defaultValue ? "true" : "false")
     .transform((value) => value === "true");
 
-const timeoutEnvironmentValue = z.preprocess((value) => {
+const optionalTimeoutEnvironmentValue = z.preprocess((value) => {
   if (typeof value === "number" && Number.isFinite(value) && value > 0) {
     return value;
   }
@@ -33,7 +33,7 @@ const timeoutEnvironmentValue = z.preprocess((value) => {
     const trimmed = value.trim();
 
     if (!trimmed) {
-      return DEFAULT_LLM_TIMEOUT_MS;
+      return undefined;
     }
 
     const parsed = Number.parseInt(trimmed, 10);
@@ -43,8 +43,8 @@ const timeoutEnvironmentValue = z.preprocess((value) => {
     }
   }
 
-  return DEFAULT_LLM_TIMEOUT_MS;
-}, z.number().int().positive().default(DEFAULT_LLM_TIMEOUT_MS));
+  return undefined;
+}, z.number().int().positive().optional());
 
 const serverEnvironmentSchema = z.object({
   AI_PROVIDER: z
@@ -53,11 +53,11 @@ const serverEnvironmentSchema = z.object({
   AI_BASE_URL: optionalUrl,
   AI_API_KEY: optionalEnvironmentValue,
   AI_MODEL: optionalEnvironmentValue,
-  AI_TIMEOUT_MS: timeoutEnvironmentValue,
+  AI_TIMEOUT_MS: optionalTimeoutEnvironmentValue,
   LLM_BASE_URL: optionalUrl,
   LLM_API_KEY: optionalEnvironmentValue,
   LLM_MODEL: optionalEnvironmentValue,
-  LLM_TIMEOUT_MS: timeoutEnvironmentValue,
+  LLM_TIMEOUT_MS: optionalTimeoutEnvironmentValue,
   USE_MOCK_AI: booleanEnvironmentValue(true),
   USE_MOCK_POI: booleanEnvironmentValue(true),
   USE_MOCK_ROUTE: booleanEnvironmentValue(true),
@@ -97,7 +97,10 @@ export function resolveAiRuntimeConfig(
   if (shouldUseMockAi(environment)) {
     return {
       providerName: "mock",
-      timeoutMs: environment.AI_TIMEOUT_MS ?? environment.LLM_TIMEOUT_MS,
+      timeoutMs:
+        environment.AI_TIMEOUT_MS ??
+        environment.LLM_TIMEOUT_MS ??
+        DEFAULT_LLM_TIMEOUT_MS,
     };
   }
 
@@ -106,7 +109,10 @@ export function resolveAiRuntimeConfig(
     baseUrl: environment.AI_BASE_URL ?? environment.LLM_BASE_URL,
     apiKey: environment.AI_API_KEY ?? environment.LLM_API_KEY,
     model: environment.AI_MODEL ?? environment.LLM_MODEL,
-    timeoutMs: environment.AI_TIMEOUT_MS ?? environment.LLM_TIMEOUT_MS,
+    timeoutMs:
+      environment.AI_TIMEOUT_MS ??
+      environment.LLM_TIMEOUT_MS ??
+      DEFAULT_LLM_TIMEOUT_MS,
   };
 }
 

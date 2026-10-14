@@ -1,10 +1,8 @@
 import type {
   CreateProjectInput,
-  CreateSourceInput,
   UpdateProjectStateInput,
 } from "../schema";
 import type { ProjectDetail, ProjectService } from "../service";
-import type { TravelProject, TravelProjectSource } from "../types";
 import { AppError } from "../../utils/errors";
 import { createFlowContext } from "./flow-context";
 import { transitionStage } from "./flow-transition";

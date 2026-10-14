@@ -1,0 +1,12 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="iconGlow" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="0" stdDeviation="1.2" flood-color="#B9893E" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+  <g filter="url(#iconGlow)" stroke="#EBD5A0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M46 20C42 15 36 12 30 13C19 14 12 24 15 35C18 46 30 52 40 46C45 43 48 38 49 33"/>
+    <path d="M46 12V20H38"/>
+  </g>
+  <path d="M8 56H56" stroke="#8D6834" stroke-opacity="0.18"/>
+</svg>

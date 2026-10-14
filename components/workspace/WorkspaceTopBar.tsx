@@ -2,7 +2,6 @@ import type { ReactNode } from "react";
 
 import type { WorkspaceMode } from "@/hooks/useTripWorkspaceState";
 import type { DayCabinetView } from "@/lib/trip/itinerary-view";
-import { safeDisplayText } from "@/lib/trip/result-overview";
 import type { TripPlan, TripRequest } from "@/lib/trip/types";
 import {
   formatWorkspaceDateRange,
@@ -25,7 +24,7 @@ interface WorkspaceTopBarProps {
 
 function FactChip({ label, value }: { label: string; value: string }) {
   return (
-    <span className="journal-chip py-1 text-[11px]">
+    <span className="workbench-metadata-chip journal-chip py-0.5 text-[10px]">
       <span>{label}</span>
       <span className="text-[var(--ink)]">{value}</span>
     </span>
@@ -37,12 +36,12 @@ function ModeToggle({
   onWorkspaceModeChange,
 }: Pick<WorkspaceTopBarProps, "workspaceMode" | "onWorkspaceModeChange">) {
   return (
-    <div className="inline-flex rounded-full border border-[var(--line)] bg-[rgba(255,253,247,0.78)] p-0.5">
+    <div className="workbench-mode-toggle inline-flex rounded-full p-0.5">
       <button
         type="button"
         aria-pressed={workspaceMode === "read"}
         onClick={() => onWorkspaceModeChange("read")}
-        className={`min-h-8 rounded-full px-3 text-xs font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)] ${
+        className={`workbench-mode-button min-h-6 rounded-full px-2.5 text-[11px] font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)] ${
           workspaceMode === "read"
             ? "bg-[var(--ink)] text-[var(--paper-bright)]"
             : "text-[var(--ink-muted)]"
@@ -54,7 +53,7 @@ function ModeToggle({
         type="button"
         aria-pressed={workspaceMode === "edit"}
         onClick={() => onWorkspaceModeChange("edit")}
-        className={`min-h-8 rounded-full px-3 text-xs font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)] ${
+        className={`workbench-mode-button min-h-6 rounded-full px-2.5 text-[11px] font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)] ${
           workspaceMode === "edit"
             ? "bg-[var(--ink)] text-[var(--paper-bright)]"
             : "text-[var(--ink-muted)]"
@@ -64,10 +63,13 @@ function ModeToggle({
       </button>
       <button
         type="button"
-        disabled
-        aria-disabled="true"
-        title="地图探索会在 2.0 开放"
-        className="min-h-8 rounded-full px-3 text-xs font-semibold text-[var(--ink-faint)] disabled:cursor-not-allowed disabled:opacity-70"
+        aria-pressed={workspaceMode === "map"}
+        onClick={() => onWorkspaceModeChange("map")}
+        className={`workbench-mode-button min-h-6 rounded-full px-2.5 text-[11px] font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)] ${
+          workspaceMode === "map"
+            ? "bg-[var(--ink)] text-[var(--paper-bright)]"
+            : "text-[var(--ink-muted)]"
+        }`}
       >
         地图探索
       </button>
@@ -97,68 +99,57 @@ export function WorkspaceTopBar({
 
   return (
     <section
-      className={`rounded-[18px] border border-[rgba(158,136,110,0.16)] bg-[linear-gradient(180deg,rgba(255,253,247,0.82)_0%,rgba(248,241,228,0.62)_100%)] px-3 shadow-[0_8px_18px_rgba(84,71,53,0.04)] ${
-        compactBlankReadMode ? "py-2" : "py-2.5"
+      className={`workbench-command-bar rounded-none px-4 ${
+        compactBlankReadMode ? "py-1.5" : "py-1.5"
       }`}
     >
-      <div className="space-y-2">
-        <div className="flex min-w-0 flex-wrap items-center justify-between gap-2">
-          <div className="flex min-w-0 flex-1 flex-wrap items-center gap-x-3 gap-y-1.5">
-            <span className="workspace-kicker shrink-0">旅行档案</span>
-            <h1 className="min-w-[12rem] max-w-[34rem] truncate text-base font-semibold tracking-[-0.03em] text-[var(--ink)] xl:text-lg">
-              {tripPlan.tripTitle}
-            </h1>
-            <div className="flex flex-wrap items-center gap-1.5">
-              <span className="journal-chip py-1 text-[11px]">
-                {tripPlan.destination || "目的地待定"}
-              </span>
-              <span className={statusClassName}>{status.label}</span>
-              <FactChip
-                label="当前"
-                value={activeCabinet ? `第 ${activeCabinet.dayNumber} 天` : "第 1 天"}
-              />
-              <FactChip
-                label="日期"
-                value={formatWorkspaceDateRange(tripRequest, tripPlan)}
-              />
-              <FactChip label="天数" value={`${tripPlan.days} 天`} />
-              {activeCabinet?.theme ? (
-                <FactChip label="主题" value={activeCabinet.theme} />
-              ) : null}
-            </div>
-          </div>
-
-          <div className="flex shrink-0 flex-wrap items-center justify-end gap-1.5">
-            <ModeToggle
-              workspaceMode={workspaceMode}
-              onWorkspaceModeChange={onWorkspaceModeChange}
+      <div className="flex min-w-0 flex-wrap items-center justify-between gap-2">
+        <div className="flex min-w-0 flex-1 flex-wrap items-center gap-x-3 gap-y-1">
+          <span className="workspace-kicker shrink-0">旅行档案</span>
+          <h1 className="min-w-[10rem] max-w-[28rem] truncate text-sm font-semibold tracking-[-0.02em] text-[var(--ink)]">
+            {tripPlan.tripTitle}
+          </h1>
+          <div className="flex flex-wrap items-center gap-1">
+            <span className="workbench-metadata-chip journal-chip py-0.5 text-[10px]">
+              {tripPlan.destination || "目的地待定"}
+            </span>
+            <span className={statusClassName}>{status.label}</span>
+            <FactChip
+              label="当前"
+              value={activeCabinet ? `第 ${activeCabinet.dayNumber} 天` : "第 1 天"}
             />
-            {saveAction}
-            <button
-              type="button"
-              onClick={onFocusRegenerate}
-              className="inline-flex min-h-9 items-center justify-center rounded-full border border-[var(--line-strong)] bg-[rgba(255,253,247,0.92)] px-3 py-1.5 text-xs font-semibold text-[var(--ink)] transition-colors hover:bg-[var(--paper)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)]"
-            >
-              AI 调整
-            </button>
-            <button
-              type="button"
-              onClick={onFocusExport}
-              className="inline-flex min-h-9 items-center justify-center rounded-full border border-[var(--line-strong)] bg-[rgba(255,253,247,0.92)] px-3 py-1.5 text-xs font-semibold text-[var(--ink)] transition-colors hover:bg-[var(--paper)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)]"
-            >
-              分享
-            </button>
+            <FactChip
+              label="日期"
+              value={formatWorkspaceDateRange(tripRequest, tripPlan)}
+            />
+            <FactChip label="天数" value={`${tripPlan.days} 天`} />
+            {activeCabinet?.theme ? (
+              <FactChip label="主题" value={activeCabinet.theme} />
+            ) : null}
           </div>
         </div>
 
-        <p className="line-clamp-1 max-w-5xl text-xs leading-5 text-[var(--ink-muted)]">
-          {safeDisplayText(
-            tripPlan.summary,
-            compactBlankReadMode
-              ? "空白旅行草稿，先放进第一个想去的地方。"
-              : "先顺着这一页往下看，看看这一天准备怎么走。",
-          )}
-        </p>
+        <div className="flex shrink-0 flex-wrap items-center justify-end gap-1">
+          <ModeToggle
+            workspaceMode={workspaceMode}
+            onWorkspaceModeChange={onWorkspaceModeChange}
+          />
+          {saveAction}
+          <button
+            type="button"
+            onClick={onFocusRegenerate}
+            className="workbench-action-pill inline-flex min-h-7 items-center justify-center rounded-full px-2.5 py-1 text-[11px] font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)]"
+          >
+            AI 调整
+          </button>
+          <button
+            type="button"
+            onClick={onFocusExport}
+            className="workbench-action-pill inline-flex min-h-7 items-center justify-center rounded-full px-2.5 py-1 text-[11px] font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)]"
+          >
+            分享
+          </button>
+        </div>
       </div>
     </section>
   );

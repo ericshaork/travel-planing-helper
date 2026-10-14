@@ -4,9 +4,11 @@ vi.mock("server-only", () => ({}));
 
 import {
   buildCreateFlowParseText,
+  buildInterviewBootstrapPlan,
   submitCreateFlow,
   submitInterviewParseTrip,
 } from "../lib/projects/create-flow-client";
+import { resolveBootstrapNotice } from "../components/create/CreateChatWorkspace";
 import { getProjectSession } from "../lib/projects/session";
 import { type StorageLike } from "../lib/trip/storage";
 import type { ParseTripResponse } from "../lib/trip/types";
@@ -164,6 +166,38 @@ describe("create flow project integration", () => {
     expect(getProjectSession(storage)).toBeNull();
   });
 
+  it("returns a null projectSession when the stored auth token is expired", async () => {
+    const storage = new MemoryStorage();
+    const fetcher = vi.fn().mockResolvedValueOnce(
+      createJsonResponse(
+        {
+          error: {
+            code: "UNAUTHORIZED",
+            message: "当前登录状态已经失效，请重新登录后再试。",
+          },
+        },
+        { status: 401 },
+      ),
+    );
+
+    const result = await submitCreateFlow(
+      {
+        rawInput: "I want a relaxed 2-day Hangzhou trip",
+        selectedInterests: [],
+        selectedTravelStyles: ["relaxed"],
+        storage,
+      },
+      {
+        fetcher,
+        getAccessToken: async () => "expired-token",
+      },
+    );
+
+    expect(result.projectSession).toBeNull();
+    expect(fetcher).toHaveBeenCalledTimes(1);
+    expect(getProjectSession(storage)).toBeNull();
+  });
+
   it("keeps the flow stage returned by the create-project response and persists the first user message", async () => {
     const storage = new MemoryStorage();
     const requestedUrls: string[] = [];
@@ -316,5 +350,133 @@ describe("submitInterviewParseTrip", () => {
     await expect(
       submitInterviewParseTrip({ text: "test" }, { fetcher }),
     ).rejects.toThrow("上游解析失败");
+  });
+});
+
+describe("五问提交不得触发登录跳转", () => {
+  it("拿不到 token 时报告 no_auth，让调用方留在本页而不是跳登录", async () => {
+    const storage = new MemoryStorage();
+
+    const result = await submitCreateFlow(
+      {
+        rawInput: "想去厦门玩 3 天",
+        selectedInterests: [],
+        selectedTravelStyles: [],
+        storage,
+      },
+      { fetcher: vi.fn(), getAccessToken: async () => null },
+    );
+
+    expect(result.projectSession).toBeNull();
+    expect(result.failureReason).toBe("no_auth");
+  });
+
+  it("已登录但接口 401 时报告 unauthorized，并保留服务端原因", async () => {
+    const storage = new MemoryStorage();
+    const fetcher = vi.fn().mockResolvedValueOnce(
+      createJsonResponse(
+        {
+          error: {
+            code: "UNAUTHORIZED",
+            message: "当前登录状态已经失效，请重新登录后再试。",
+          },
+        },
+        { status: 401 },
+      ),
+    );
+
+    const result = await submitCreateFlow(
+      {
+        rawInput: "想去厦门玩 3 天",
+        selectedInterests: [],
+        selectedTravelStyles: [],
+        storage,
+      },
+      { fetcher, getAccessToken: async () => "valid-token" },
+    );
+
+    expect(result.projectSession).toBeNull();
+    expect(result.failureReason).toBe("unauthorized");
+    expect(result.failureMessage).toBe("当前登录状态已经失效，请重新登录后再试。");
+  });
+
+  it("建项目成功时不带 failureReason", async () => {
+    const storage = new MemoryStorage();
+    const fetcher = vi
+      .fn()
+      .mockResolvedValueOnce(
+        createJsonResponse({
+          project: { id: "project-ok", currentFlowStage: "source_received" },
+        }),
+      )
+      .mockResolvedValueOnce(createJsonResponse({ messages: [] }));
+
+    const result = await submitCreateFlow(
+      {
+        rawInput: "想去厦门玩 3 天",
+        selectedInterests: [],
+        selectedTravelStyles: [],
+        storage,
+      },
+      { fetcher, getAccessToken: async () => "valid-token" },
+    );
+
+    expect(result.projectSession?.projectId).toBe("project-ok");
+    expect(result.failureReason).toBeUndefined();
+  });
+
+  it("已登录被 401 时提示登录失效，而不是笼统地要求登录", () => {
+    const notice = resolveBootstrapNotice(
+      { reason: "unauthorized", message: "当前登录状态已经失效，请重新登录后再试。" },
+      false,
+    );
+
+    expect(notice.text).toBe("当前登录状态已经失效，请重新登录后再试。");
+    expect(notice.showLoginLink).toBe(true);
+  });
+
+  it("未登录且五问还没答完时不展示登录入口，避免打断收集", () => {
+    const notice = resolveBootstrapNotice({ reason: "no_auth" }, false);
+
+    expect(notice.showLoginLink).toBe(false);
+    expect(notice.text).toContain("答案已经留在本页");
+  });
+
+  it("未登录但五问已答完时才提示登录，进入阶段 B", () => {
+    const notice = resolveBootstrapNotice({ reason: "no_auth" }, true);
+
+    expect(notice.showLoginLink).toBe(true);
+    expect(notice.text).toContain("生成方案需要先登录");
+  });
+});
+
+describe("buildInterviewBootstrapPlan", () => {
+  it("用第一个答案建项目，其余答案按原顺序补写", () => {
+    const plan = buildInterviewBootstrapPlan("想去厦门玩 3 天", [
+      "预算 2500",
+      "喜欢海边和美食",
+      "不想太累",
+    ]);
+
+    expect(plan.rawInput).toBe("想去厦门玩 3 天");
+    expect(plan.followUpAnswers).toEqual([
+      "预算 2500",
+      "喜欢海边和美食",
+      "不想太累",
+    ]);
+  });
+
+  it("没有第一个答案时不建项目", () => {
+    expect(buildInterviewBootstrapPlan(null, ["预算 2500"])).toEqual({
+      rawInput: null,
+      followUpAnswers: [],
+    });
+  });
+
+  it("过滤空白答案并去掉首尾空格", () => {
+    const plan = buildInterviewBootstrapPlan("  想去厦门  ", ["  ", "预算 2500 "]);
+
+    expect(plan.rawInput).toBe("想去厦门");
+    expect(plan.followUpAnswers).toEqual(["预算 2500"]);
   });
 });

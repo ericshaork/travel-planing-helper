@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import {
   FormEvent,
@@ -10,6 +11,8 @@ import {
   useState,
 } from "react";
 
+import { JourneyDirectory } from "@/components/create/JourneyDirectory";
+import { TripDossier } from "@/components/create/TripDossier";
 import {
   GenerationLoadingPage,
 } from "@/components/create/GenerationLoadingPage";
@@ -55,7 +58,11 @@ import {
   persistProjectMessage,
   sendCreateCopilotMessage,
 } from "@/lib/projects/create-copilot-client";
-import { submitCreateFlow } from "@/lib/projects/create-flow-client";
+import {
+  buildInterviewBootstrapPlan,
+  submitCreateFlow,
+  type CreateFlowFailureReason,
+} from "@/lib/projects/create-flow-client";
 import type { CreateEntrySource } from "@/lib/projects/create-entry";
 import {
   DEVELOPMENT_GUEST_PROJECT_HEADER,
@@ -410,6 +417,29 @@ function resolveInterviewQuestionHint(step: number) {
   return hints[Math.min(Math.max(step, 1), hints.length) - 1];
 }
 
+export function resolveBootstrapNotice(
+  failure: { reason: CreateFlowFailureReason; message?: string } | null,
+  interviewComplete: boolean,
+) {
+  // 「已登录但接口 401」和「本来就没登录」是两件事，文案必须分开，
+  // 否则已登录用户会看到莫名其妙的登录提示。
+  if (failure?.reason === "unauthorized") {
+    return {
+      text:
+        failure.message?.trim() ||
+        "当前登录状态刚刚失效了，重新登录后就能继续生成方案。",
+      showLoginLink: true,
+    };
+  }
+
+  return {
+    text: interviewComplete
+      ? "线索都收齐了。生成方案需要先登录，答案已经留在本页，不会丢。"
+      : "答案已经留在本页，你可以继续回答。生成方案时再登录也不迟。",
+    showLoginLink: interviewComplete,
+  };
+}
+
 function InterviewProgress({
   step,
   complete,
@@ -494,7 +524,7 @@ function ChatMessageList({
   }, [messages.length, isSending, interviewQuestion]);
 
   return (
-    <div className="flex min-h-0 flex-1 flex-col gap-4">
+    <div className="flex min-h-0 flex-1 flex-col gap-3">
       {typeof interviewStep === "number" ? (
         <InterviewProgress
           step={interviewStep}
@@ -510,8 +540,8 @@ function ChatMessageList({
             {interviewProgressLabel ?? statusLabel}
           </p>
         </div>
-        <span className="text-[11px] text-[var(--ink-faint)]">
-          {messages.length > 0 ? `${messages.length} 条记录` : "新的一页"}
+        <span className="text-[10px] text-[var(--ink-faint)]">
+          {messages.length > 0 ? `${messages.length} 条记录` : ""}
         </span>
       </div>
 
@@ -554,13 +584,13 @@ function ChatMessageList({
                 )}
               </div>
             </div>
-            <div className="flex flex-wrap gap-x-4 gap-y-2 pl-10">
+            <div className="flex flex-wrap gap-x-4 gap-y-1.5 pl-10">
               {quickStarts.map((quickStart) => (
                 <button
                   key={quickStart}
                   type="button"
                   onClick={() => onQuickStart(quickStart)}
-                  className="border-b border-[var(--line)] pb-0.5 text-left text-xs font-semibold text-[var(--ink-muted)] transition-colors hover:border-[var(--clay)] hover:text-[var(--ink)]"
+                  className="border-b border-dashed border-[var(--line-strong)] pb-0.5 text-left text-[11px] font-semibold text-[var(--ink-muted)] transition-colors hover:border-[var(--clay)] hover:text-[var(--ink)]"
                 >
                   {quickStart}
                 </button>
@@ -724,7 +754,7 @@ function ChatComposer({
           className="min-h-14 w-full resize-none bg-transparent px-0.5 py-1 text-sm leading-6 text-[var(--ink)] outline-none placeholder:text-[var(--ink-faint)]"
         />
         <div className="flex flex-wrap items-center justify-between gap-2 pt-1.5">
-          <p className="text-[11px] text-[var(--ink-faint)]">
+          <p className="text-[10px] tracking-[0.04em] text-[var(--ink-faint)]">
             Enter 发送 · Shift + Enter 换行
           </p>
           <div className="flex flex-wrap justify-end gap-2">
@@ -852,6 +882,16 @@ export function CreateChatWorkspace({
   const [isRevisionMode, setIsRevisionMode] = useState(false);
   const [currentTripPlan, setCurrentTripPlan] = useState<TripPlan | null>(null);
   const pendingMessagePersistenceRef = useRef<Promise<unknown>[]>([]);
+  // 五问收集阶段完全本地：答案只进本地状态，不调任何后端 API。
+  // 答完 5 问后显示"生成方案"按钮，点击时才建项目。
+  const firstAnswerRef = useRef<string | null>(null);
+  const followUpAnswersRef = useRef<string[]>([]);
+  const [needsAccountForGeneration, setNeedsAccountForGeneration] =
+    useState(false);
+  const [bootstrapFailure, setBootstrapFailure] = useState<{
+    reason: CreateFlowFailureReason;
+    message?: string;
+  } | null>(null);
   const [revisionSuggestion, setRevisionSuggestion] =
     useState<RevisionModificationSuggestion | null>(null);
   const [isRevisionSending, setIsRevisionSending] = useState(false);
@@ -929,6 +969,66 @@ export function CreateChatWorkspace({
     },
     [],
   );
+
+  // 答完 5 问后，用户点击"生成方案"时才建项目。
+  // 失败时显示内联提示，不跳转。
+  const createProjectForGeneration = useCallback(async (): Promise<string | null> => {
+    const plan = buildInterviewBootstrapPlan(
+      firstAnswerRef.current,
+      followUpAnswersRef.current,
+    );
+
+    if (!plan.rawInput) {
+      return null;
+    }
+
+    try {
+      const result = await submitCreateFlow({
+        rawInput: plan.rawInput,
+        selectedInterests: [],
+        selectedTravelStyles: [],
+        entrySource,
+        archiveSlug,
+      });
+
+      const nextProjectId = result.projectSession?.projectId;
+      if (!nextProjectId) {
+        setBootstrapFailure({
+          reason: result.failureReason ?? "no_auth",
+          message: result.failureMessage,
+        });
+        setNeedsAccountForGeneration(true);
+        return null;
+      }
+
+      setProjectId(nextProjectId);
+      setFlowStage(result.projectSession?.flowStage ?? "source_received");
+      setNeedsAccountForGeneration(false);
+      setBootstrapFailure(null);
+
+      // 建项目成功后，把 2-5 问的答案补写到项目消息里
+      pendingMessagePersistenceRef.current.push(
+        ...plan.followUpAnswers.map((content) =>
+          persistProjectMessage(nextProjectId, {
+            role: "user",
+            content,
+          }).catch((error: unknown) => {
+            console.warn("[create-chat] flush follow-up answer failed", error);
+          }),
+        ),
+      );
+
+      return nextProjectId;
+    } catch (error) {
+      console.warn("[create-chat] project creation failed", error);
+      setBootstrapFailure({
+        reason: "no_auth",
+        message: error instanceof Error ? error.message : undefined,
+      });
+      setNeedsAccountForGeneration(true);
+      return null;
+    }
+  }, [archiveSlug, entrySource]);
 
   const runFirstGeneration = useCallback(
     async (overrideProjectId?: string) => {
@@ -1104,59 +1204,32 @@ export function CreateChatWorkspace({
     };
   }, [forceRevisionMode, initialProjectId, initialVersionId, refreshSnapshot]);
 
-  async function handleStartConversation(event: FormEvent<HTMLFormElement>) {
+  function handleStartConversation(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setErrorMessage(undefined);
 
-    if (!text.trim()) {
+    const submittedText = text.trim();
+
+    if (!submittedText) {
       setErrorMessage("先写一句吧。知道多少写多少。");
       return;
     }
 
-    setIsSending(true);
-
-    try {
-      const submittedText = text.trim();
-      const result = await submitCreateFlow({
-        rawInput: submittedText,
-        selectedInterests: [],
-        selectedTravelStyles: [],
-        entrySource,
-        archiveSlug,
-      });
-
-      if (!result.projectSession?.projectId) {
-        router.push(buildLoginHref("/create"));
-        return;
-      }
-
-      const nextProjectId = result.projectSession.projectId;
-      const nextFlowStage = result.projectSession.flowStage ?? "source_received";
-      const bootstrapReply =
-        result.bootstrapReply ?? resolveInterviewTransitionReply(1);
-      const nextMessages: TravelProjectMessage[] = [
-        createLocalMessage("user", submittedText),
-        createLocalMessage("assistant", bootstrapReply),
-      ];
-
-      setProjectId(nextProjectId);
-      setFlowStage(nextFlowStage);
-      setMessages(nextMessages);
-      setVersions([]);
-      setActiveEntryId(INITIAL_REQUIREMENTS_ID);
-      setInterviewStep(2);
-      setInterviewComplete(false);
-      setText("");
-      pendingMessagePersistenceRef.current = [];
-    } catch (error) {
-      setErrorMessage(
-        error instanceof Error
-          ? error.message
-          : "刚才没接上，先检查一下输入，再试一次。",
-      );
-    } finally {
-      setIsSending(false);
-    }
+    // 阶段 A 完全本地：答案只进本地状态，不调任何后端 API。
+    firstAnswerRef.current = submittedText;
+    followUpAnswersRef.current = [];
+    pendingMessagePersistenceRef.current = [];
+    setNeedsAccountForGeneration(false);
+    setBootstrapFailure(null);
+    setMessages([
+      createLocalMessage("user", submittedText),
+      createLocalMessage("assistant", resolveInterviewTransitionReply(1)),
+    ]);
+    setVersions([]);
+    setActiveEntryId(INITIAL_REQUIREMENTS_ID);
+    setInterviewStep(2);
+    setInterviewComplete(false);
+    setText("");
   }
 
   async function handleSendConversationMessage(
@@ -1222,11 +1295,7 @@ export function CreateChatWorkspace({
       return;
     }
 
-    if (!projectId) {
-      setErrorMessage("当前还没有创建出对话项目，请重新开始。");
-      return;
-    }
-
+    // 五问收集阶段放在 projectId 守卫之前：项目还没建起来也要能继续答题。
     if (workspaceMode === "first-time") {
       const answeredStep = interviewStep;
       const isFifthAnswerSubmit = answeredStep >= FIRST_TIME_INTERVIEW_TOTAL;
@@ -1237,48 +1306,21 @@ export function CreateChatWorkspace({
       setText("");
       setMessages((current) => [...current, userMessage, assistantMessage]);
       setInterviewStep(nextStep);
+
+      // 2-5 问的答案存到 followUpAnswersRef，等用户点击"生成方案"时再一起建项目
+      if (answeredStep >= 2 && answeredStep <= 5) {
+        followUpAnswersRef.current.push(submittedText);
+      }
+
       if (isFifthAnswerSubmit) {
         setInterviewComplete(true);
+        // 答完 5 问后不自动生成，等用户点击"生成方案"按钮
       }
+      return;
+    }
 
-      const persistPromise = persistProjectMessage(projectId, {
-        role: "user",
-        content: submittedText,
-      }).catch((error: unknown) => {
-        console.warn("[create-chat] persist user message failed", error);
-      });
-      pendingMessagePersistenceRef.current.push(persistPromise);
-
-      if (isFifthAnswerSubmit && firstGenerationPhase === "collecting") {
-        setFirstGenerationError(undefined);
-        setFirstGenerationPhase("generating");
-
-        const pending = pendingMessagePersistenceRef.current;
-        pendingMessagePersistenceRef.current = [];
-
-        void (async () => {
-          try {
-            await Promise.allSettled(pending);
-            try {
-              await patchProjectFlowStage(projectId, "clarifying");
-              setFlowStage("clarifying");
-            } catch (error: unknown) {
-              console.warn(
-                "[create-chat] patch flow stage to clarifying failed",
-                error,
-              );
-            }
-            await runFirstGenerationRef.current(projectId);
-          } catch (error) {
-            setFirstGenerationError(
-              error instanceof Error
-                ? error.message
-                : "完整计划暂时还没生成出来，可以稍后再试一次。",
-            );
-            setFirstGenerationPhase("error");
-          }
-        })();
-      }
+    if (!projectId) {
+      setErrorMessage("当前还没有创建出对话项目，请重新开始。");
       return;
     }
 
@@ -1326,6 +1368,10 @@ export function CreateChatWorkspace({
     setIsEnteringWorkspace(false);
     setWorkspaceHandoffError(undefined);
     pendingMessagePersistenceRef.current = [];
+    firstAnswerRef.current = null;
+    followUpAnswersRef.current = [];
+    setNeedsAccountForGeneration(false);
+    setBootstrapFailure(null);
   }
 
   async function handleGenerateNewVersion() {
@@ -1434,12 +1480,12 @@ export function CreateChatWorkspace({
 
   async function handleApplyRevisionSuggestion() {
     if (!revisionSuggestion) {
-      setRevisionApplyError("鍏堢瓑 AI 缁欏嚭鍙互搴旂敤鐨勪慨鏀瑰缓璁€?");
+      setRevisionApplyError("先等 AI 给出可以应用的修改建议。");
       return;
     }
 
     if (!projectId || !selectedRevisionVersion?.id) {
-      setRevisionApplyError("鏆傛椂鎵句笉鍒板綋鍓嶇増鏈殑淇℃伅锛岃鍒锋柊鍚庡啀璇曘€?");
+      setRevisionApplyError("暂时找不到当前版本的信息，请刷新后再试。");
       return;
     }
 
@@ -1458,14 +1504,6 @@ export function CreateChatWorkspace({
       });
       const snapshot = await refreshSnapshot(projectId);
 
-      console.info("[revision-suggestion] workspace ai preview result", {
-        projectId: result.projectId,
-        previousVersionId: result.previousVersionId,
-        versionId: result.versionId,
-        modificationRequest,
-        appliedChanges: result.appliedChanges,
-      });
-
       if (snapshot) {
         setVersions(snapshot.versions);
         setFlowStage(snapshot.flowStage);
@@ -1480,9 +1518,6 @@ export function CreateChatWorkspace({
       setRevisionSuggestion(null);
       setWorkspaceHandoffError(undefined);
 
-      setRevisionApplySuccessMessage(
-        `AI 宸茬粡杩斿洖鏂扮増鏈?${result.versionId} 鐨勭敓鎴愮粨鏋滐紝褰撳墠椤甸潰鏆傛椂淇濇寔 V1 涓嶅垏鎹€?`,
-      );
       const refreshedVersion = snapshot?.versions.find(
         (version) => version.id === result.versionId,
       );
@@ -1494,7 +1529,7 @@ export function CreateChatWorkspace({
       setRevisionApplyError(
         error instanceof Error
           ? error.message
-          : "搴旂敤淇敼鏆傛椂澶辫触锛岃绋嶅悗鍐嶈瘯銆?",
+          : "应用修改暂时失败，请稍后再试。",
       );
     } finally {
       setIsApplyingRevisionSuggestion(false);
@@ -1631,17 +1666,6 @@ export function CreateChatWorkspace({
   const revisionDays =
     selectedRevisionVersion?.days || currentTripPlan?.days || 0;
   const revisionDailyOutline = buildRevisionDailyOutline(selectedRevisionPlan);
-  const revisionDisplayTitle =
-    selectedRevisionVersion?.title?.trim() ||
-    selectedRevisionPlan?.tripTitle?.trim() ||
-    "当前方案";
-  const revisionDisplayDestination =
-    selectedRevisionVersion?.destination?.trim() ||
-    selectedRevisionPlan?.destination?.trim() ||
-    "";
-  const revisionDisplayDays =
-    selectedRevisionVersion?.days || selectedRevisionPlan?.days || 0;
-
   const showArchiveContext =
     !isRevisionMode && entrySource === "explore_archive" && Boolean(initialDraft);
   const archiveDestinationLabel = initialDraft?.tripRequestDraft.destinationCity?.trim();
@@ -1655,29 +1679,44 @@ export function CreateChatWorkspace({
       ? resolveInterviewQuestion(interviewStep)
       : undefined;
 
+  const showThreeColumn = !isRevisionMode && workspaceMode === "first-time";
+
   return (
     <div
       data-testid="create-chat-workspace"
       data-workspace-mode={workspaceMode}
       data-revision-mode={isRevisionMode ? "on" : "off"}
-      className={`grid min-h-[560px] grid-cols-1 gap-0 lg:grid-cols-[minmax(0,240px)_minmax(0,1fr)] ${
+      className={`grid min-h-[560px] grid-cols-1 gap-0 ${
+        showThreeColumn
+          ? "md:grid-cols-[minmax(0,200px)_minmax(0,1fr)] lg:grid-cols-[minmax(0,260px)_minmax(0,1fr)_minmax(0,280px)]"
+          : isRevisionMode
+            ? "h-[calc(100vh-5.5rem)] max-h-[calc(100vh-5.5rem)] overflow-hidden lg:grid-cols-[minmax(0,240px)_minmax(0,1fr)]"
+            : "lg:grid-cols-[minmax(0,240px)_minmax(0,1fr)]"
+      } ${
         isRevisionMode
           ? "h-[calc(100vh-5.5rem)] max-h-[calc(100vh-5.5rem)] overflow-hidden"
           : "h-full"
       }`}
     >
-      <Sidebar
-        entries={effectiveSidebarEntries}
-        activeEntryId={
-          isRevisionMode
-            ? selectedRevisionVersion?.id ?? activeEntryId
-            : activeEntryId
-        }
-        onSelectEntry={handleSelectEntry}
-        isLoading={false}
-        variant={isRevisionMode ? "revision" : "history"}
-        revisionMode={isRevisionMode ? revisionMode : undefined}
-      />
+      {showThreeColumn ? (
+        <JourneyDirectory
+          currentStep={interviewStep}
+          interviewComplete={interviewComplete}
+        />
+      ) : (
+        <Sidebar
+          entries={effectiveSidebarEntries}
+          activeEntryId={
+            isRevisionMode
+              ? selectedRevisionVersion?.id ?? activeEntryId
+              : activeEntryId
+          }
+          onSelectEntry={handleSelectEntry}
+          isLoading={false}
+          variant={isRevisionMode ? "revision" : "history"}
+          revisionMode={isRevisionMode ? revisionMode : undefined}
+        />
+      )}
 
       <section
         data-testid="chat-workspace-panel"
@@ -1802,22 +1841,22 @@ export function CreateChatWorkspace({
             </div>
           </>
         ) : (
-          <header className="flex items-end justify-between gap-3 border-b border-[var(--line)]/70 pb-3">
+          <header className="flex items-end justify-between gap-3 border-b border-[var(--line)]/70 pb-2.5">
             <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.1em] text-[var(--ink-muted)]">
-                {workspaceMode === "first-time" ? "第一次见面" : "继续整理这段旅程"}
+              <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--ink-faint)]">
+                {workspaceMode === "first-time" ? "一次见面 · 初始需求" : "继续整理这段旅程"}
               </p>
-              <p className="mt-1 font-serif text-lg font-semibold text-[var(--ink)]">
+              <p className="mt-1 font-serif text-[17px] font-semibold text-[var(--ink)]">
                 {activeEntry?.title ?? "初始需求"}
               </p>
               {activeEntry?.id !== INITIAL_REQUIREMENTS_ID ? (
-                <p className="mt-1 text-xs leading-5 text-[var(--ink-muted)]">
+                <p className="mt-0.5 text-xs leading-5 text-[var(--ink-muted)]">
                   {activeEntry?.destination}
                   {activeEntry?.days ? ` · ${activeEntry.days} 天` : ""}
                 </p>
               ) : null}
             </div>
-            <p className="hidden max-w-[220px] text-right text-xs leading-5 text-[var(--ink-muted)] sm:block">
+            <p className="hidden max-w-[200px] text-right text-[11px] leading-5 text-[var(--ink-faint)] sm:block">
               一起把想去的地方，慢慢整理成值得出发的旅程。
             </p>
           </header>
@@ -1878,6 +1917,61 @@ export function CreateChatWorkspace({
                 onQuickStart={handleQuickStart}
               />
             </div>
+            {!isRevisionMode && interviewComplete && firstGenerationPhase === "collecting" ? (
+              <div className="flex flex-col gap-2 border-t border-dashed border-[var(--line)]/60 pt-3">
+                <p className="text-xs leading-5 text-[var(--ink-muted)]">
+                  五问线索都收齐了。点击下方按钮，我会帮你生成第一版旅行方案。
+                </p>
+                <button
+                  type="button"
+                  data-testid="generate-plan-button"
+                  onClick={async () => {
+                    setFirstGenerationError(undefined);
+                    setFirstGenerationPhase("generating");
+
+                    const nextProjectId = await createProjectForGeneration();
+                    if (!nextProjectId) {
+                      setFirstGenerationPhase("error");
+                      setFirstGenerationError(
+                        bootstrapFailure?.message ??
+                          (bootstrapFailure?.reason === "unauthorized"
+                            ? "当前登录状态已经失效，请重新登录后再试。"
+                            : "暂时还没建起这份旅行计划，请稍后再试一次。"),
+                      );
+                      return;
+                    }
+
+                    try {
+                      await patchProjectFlowStage(nextProjectId, "clarifying");
+                      setFlowStage("clarifying");
+                    } catch (error: unknown) {
+                      console.warn(
+                        "[create-chat] patch flow stage to clarifying failed",
+                        error,
+                      );
+                    }
+
+                    const pending = pendingMessagePersistenceRef.current;
+                    pendingMessagePersistenceRef.current = [];
+
+                    try {
+                      await Promise.allSettled(pending);
+                      await runFirstGenerationRef.current(nextProjectId);
+                    } catch (error) {
+                      setFirstGenerationError(
+                        error instanceof Error
+                          ? error.message
+                          : "完整计划暂时还没生成出来，可以稍后再试一次。",
+                      );
+                      setFirstGenerationPhase("error");
+                    }
+                  }}
+                  className="self-start rounded-full bg-[var(--ink)] px-4 py-2 text-sm font-semibold text-[var(--paper-bright)] transition-colors hover:bg-[var(--ink)]/90"
+                >
+                  生成旅行方案
+                </button>
+              </div>
+            ) : null}
             {isRevisionMode && revisionSuggestion ? (
               <RevisionSuggestionCard
                 suggestion={revisionSuggestion}
@@ -1914,26 +2008,70 @@ export function CreateChatWorkspace({
                 ))}
               </div>
             ) : null}
-            <ChatComposer
-              isFirstTimeMode={workspaceMode === "first-time"}
-              interviewComplete={interviewComplete}
-              inputValue={text}
-              onInputChange={setText}
-              onSubmit={
-                isRevisionMode || messages.length > 0
-                  ? handleSendConversationMessage
-                  : handleStartConversation
-              }
-              isSending={isSending || (isRevisionMode && isRevisionSending)}
-              canSend={Boolean(text.trim())}
-              onGenerateNewVersion={() => void handleGenerateNewVersion()}
-              isGeneratingVersion={isGeneratingVersion}
-              showGenerateButton={showGenerateButton && !isRevisionMode}
-              onAdjustProposal={() => void handleAdjustProposal()}
-              isAdjusting={isAdjusting}
-              showAdjustButton={showAdjustButton && !isRevisionMode}
-              isRevisionMode={isRevisionMode}
-            />
+            {!isRevisionMode && needsAccountForGeneration ? (
+              (() => {
+                const notice = resolveBootstrapNotice(
+                  bootstrapFailure,
+                  interviewComplete,
+                );
+
+                return (
+                  <div
+                    data-testid="chat-workspace-account-notice"
+                    data-bootstrap-failure={bootstrapFailure?.reason ?? "none"}
+                    className="flex flex-wrap items-center gap-x-3 gap-y-1.5 border-l-2 border-[var(--clay)] bg-[var(--clay-soft)]/25 px-3 py-2"
+                  >
+                    <p className="min-w-0 flex-1 text-xs leading-5 text-[var(--ink-muted)]">
+                      {notice.text}
+                    </p>
+                    {notice.showLoginLink ? (
+                      <Link
+                        href={buildLoginHref("/create?source=ai")}
+                        className="shrink-0 rounded-full border border-[var(--line-strong)] bg-[var(--paper)] px-3 py-1 text-xs font-semibold text-[var(--ink-muted)] hover:bg-[var(--paper-bright)]"
+                      >
+                        登录 / 注册
+                      </Link>
+                    ) : null}
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setNeedsAccountForGeneration(false);
+                        void createProjectForGeneration().then((nextProjectId) => {
+                          if (!nextProjectId) {
+                            setNeedsAccountForGeneration(true);
+                          }
+                        });
+                      }}
+                      className="shrink-0 rounded-full px-2 py-1 text-xs font-semibold text-[var(--ink-muted)] hover:bg-[var(--paper-bright)]"
+                    >
+                      再试一次
+                    </button>
+                  </div>
+                );
+              })()
+            ) : null}
+            {!isRevisionMode && interviewComplete && firstGenerationPhase === "collecting" ? null : (
+              <ChatComposer
+                isFirstTimeMode={workspaceMode === "first-time"}
+                interviewComplete={interviewComplete}
+                inputValue={text}
+                onInputChange={setText}
+                onSubmit={
+                  isRevisionMode || messages.length > 0
+                    ? handleSendConversationMessage
+                    : handleStartConversation
+                }
+                isSending={isSending || (isRevisionMode && isRevisionSending)}
+                canSend={Boolean(text.trim())}
+                onGenerateNewVersion={() => void handleGenerateNewVersion()}
+                isGeneratingVersion={isGeneratingVersion}
+                showGenerateButton={showGenerateButton && !isRevisionMode}
+                onAdjustProposal={() => void handleAdjustProposal()}
+                isAdjusting={isAdjusting}
+                showAdjustButton={showAdjustButton && !isRevisionMode}
+                isRevisionMode={isRevisionMode}
+              />
+            )}
             <div className="flex justify-end">
               <button
                 type="button"
@@ -1946,6 +2084,13 @@ export function CreateChatWorkspace({
           </>
         )}
       </section>
+
+      {showThreeColumn ? (
+        <TripDossier
+          messages={chatMessages}
+          interviewComplete={interviewComplete}
+        />
+      ) : null}
     </div>
   );
 }

@@ -179,7 +179,7 @@ export function InspectorPointDetailCard({
 
   if (!activePoint && !selectedSearchCandidate) {
     return (
-      <section>
+      <section className="workbench-map-status-card">
         <div
           className={`edit-gear-card ${
             compactBlankReadMode ? "px-3 py-1.5" : "px-3 py-2"
@@ -208,7 +208,7 @@ export function InspectorPointDetailCard({
   }
 
   return (
-    <section>
+    <section className="workbench-map-detail-card">
       <div className="edit-gear-card max-h-[36vh] overflow-y-auto px-3 py-3">
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div className="min-w-0">

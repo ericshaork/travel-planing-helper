@@ -1,8 +1,11 @@
 import { describe, expect, it, vi } from "vitest";
 
 import {
+  buildAmapMapOptions,
   buildAmapMarkerLayer,
   buildAmapMarkerOptions,
+  buildAmapRegionLabelContent,
+  buildAmapRegionLabelOptions,
   clearAmapMarkerInstances,
   createAmapMarkerInstances,
   getMarkerViewportCenter,
@@ -81,6 +84,92 @@ describe("amap marker helpers", () => {
     expect(options.label?.content).toContain(">1<");
   });
 
+  it("Map Studio marker 使用自定义 SVG 图标和轻量地点 label", () => {
+    const markerPoint = {
+      ...buildAmapMarkerLayer(dayPoints).markerPoints[0]!,
+      iconUrl: "/assets/map-studio/markers/markers/marker-attraction.svg",
+      iconAlt: "景点 marker",
+      showLabel: true,
+    };
+    const options = buildAmapMarkerOptions(markerPoint, true);
+
+    expect(options.content).toContain("marker-attraction.svg");
+    expect(options.anchor).toBe("bottom-center");
+    expect(options.label?.content).toContain("rgba(18,17,14");
+    expect(options.label?.content).not.toContain(">1<");
+  });
+
+  it("Map Studio 普通地点 marker 使用小型 dot 而不是默认大 pin", () => {
+    const markerPoint = {
+      ...buildAmapMarkerLayer(dayPoints).markerPoints[0]!,
+      markerVariant: "dot" as const,
+      markerTone: "attraction" as const,
+      showLabel: false,
+    };
+    const options = buildAmapMarkerOptions(markerPoint, true);
+
+    expect(options.content).toContain("width:10px");
+    expect(options.content).toContain("border-radius:999px");
+    expect(options.content).not.toContain("marker-attraction.svg");
+    expect(options.label).toBeUndefined();
+  });
+
+  it("Map Studio dot marker 的交互 label 使用轻量地点 pill", () => {
+    const markerPoint = {
+      ...buildAmapMarkerLayer(dayPoints).markerPoints[0]!,
+      markerVariant: "dot" as const,
+      markerTone: "attraction" as const,
+      showLabel: true,
+    };
+    const options = buildAmapMarkerOptions(markerPoint, true);
+
+    expect(options.label?.content).toContain("rgba(18,17,14");
+    expect(options.label?.content).toContain("border-radius:999px");
+    expect(options.label?.content).not.toContain(">1<");
+  });
+
+  it("AMap options can carry Map Studio base-map denoise settings", () => {
+    expect(
+      buildAmapMapOptions({
+        center: { lat: 22.5431, lng: 114.0579 },
+        zoom: 11,
+        mapStyle: "amap://styles/whitesmoke",
+        features: ["bg", "road", "building"],
+        showLabel: false,
+      }),
+    ).toEqual({
+      center: [114.0579, 22.5431],
+      zoom: 11,
+      mapStyle: "amap://styles/whitesmoke",
+      features: ["bg", "road", "building"],
+      showLabel: false,
+    });
+  });
+
+  it("区域 label 使用轻量地图文字 content，不带地点编号徽章", () => {
+    const label = {
+      id: "region-label",
+      name: "福田中心区",
+      shortName: "福田",
+      coordinates: { lat: 22.548, lng: 114.06 },
+      priority: 1,
+      active: true,
+    };
+    const options = buildAmapRegionLabelOptions(label);
+    const content = buildAmapRegionLabelContent(label);
+
+    expect(options.position).toEqual([114.06, 22.548]);
+    expect(options.anchor).toBe("top-left");
+    expect(options.content).toContain("福田");
+    expect(content).toContain("wanderly-admin-label-plain");
+    expect(content).toContain("translate(-50%,-50%)");
+    expect(content).toContain("text-align:center");
+    expect(content).toContain("text-shadow");
+    expect(content).not.toContain("border-radius");
+    expect(content).not.toContain("background:");
+    expect(content).not.toContain(">1<");
+  });
+
   it("多点时优先调用 setFitView", () => {
     const map: AMapMapInstance = {
       destroy: vi.fn(),
@@ -101,6 +190,28 @@ describe("amap marker helpers", () => {
     );
 
     expect(map.setFitView).toHaveBeenCalledWith(markers);
+    expect(map.setZoomAndCenter).not.toHaveBeenCalled();
+  });
+
+  it("fitToMarkers 为 false 时不会因 marker 集合变化同步视口", () => {
+    const map: AMapMapInstance = {
+      destroy: vi.fn(),
+      setFitView: vi.fn(),
+      setZoomAndCenter: vi.fn(),
+    };
+
+    syncAmapViewportForMarkerPoints(
+      map,
+      buildAmapMarkerLayer(dayPoints).markerPoints,
+      [{ setMap: vi.fn() }, { setMap: vi.fn() }],
+      {
+        center: { lat: 22.5431, lng: 114.0579 },
+        zoom: 10,
+      },
+      false,
+    );
+
+    expect(map.setFitView).not.toHaveBeenCalled();
     expect(map.setZoomAndCenter).not.toHaveBeenCalled();
   });
 

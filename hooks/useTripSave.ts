@@ -1,6 +1,9 @@
 import { useState } from "react";
 
-import { touchWorkspaceProjectContext } from "@/lib/projects/workspace-context-client";
+import {
+  markWorkspaceProjectDraft,
+  touchWorkspaceProjectContext,
+} from "@/lib/projects/workspace-context-client";
 import { saveTripPlan } from "@/lib/trip/storage";
 import type { GenerateTripResponse, TripPlan } from "@/lib/trip/types";
 
@@ -23,6 +26,7 @@ export function useTripSave(initialTripPlan: TripPlan): UseTripSaveResult {
   function persistTripPlan(nextTripPlan: TripPlan) {
     const savedTripPlan = saveTripPlan(nextTripPlan);
     touchWorkspaceProjectContext();
+    markWorkspaceProjectDraft();
     setPersistedState({
       sourceTripPlan: initialTripPlan,
       currentTripPlan: savedTripPlan,

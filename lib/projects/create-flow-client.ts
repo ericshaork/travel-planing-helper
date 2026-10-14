@@ -35,7 +35,15 @@ export interface CreateFlowInput {
 export interface CreateFlowResult {
   projectSession: TravelProjectSession | null;
   bootstrapReply?: string;
+  /**
+   * 建项目失败的真实原因。以前这里一律折叠成 null，
+   * 调用方分不清「没登录」和「已登录但接口 401」，于是把已登录用户也送去登录页。
+   */
+  failureReason?: CreateFlowFailureReason;
+  failureMessage?: string;
 }
+
+export type CreateFlowFailureReason = "no_auth" | "unauthorized";
 
 interface ProjectCreatePayload {
   title: string;
@@ -99,6 +107,12 @@ function buildResponseErrorMessage(payload: unknown, fallback: string) {
   return response.error?.message ?? fallback;
 }
 
+function isUnauthorizedApiResponse(response: Response, payload: unknown) {
+  const apiError = payload as Partial<ApiErrorResponse> | null;
+
+  return response.status === 401 || apiError?.error?.code === "UNAUTHORIZED";
+}
+
 export function buildCreateFlowParseText(
   text: string,
   interests: string[],
@@ -129,10 +143,24 @@ function buildSourceTitle(rawInput: string) {
   return normalized ? normalized.slice(0, 160) : null;
 }
 
+type ProjectBootstrapOutcome =
+  | {
+      projectSession: TravelProjectSession;
+      bootstrapReply: undefined;
+      failureReason?: undefined;
+      failureMessage?: undefined;
+    }
+  | {
+      projectSession: null;
+      bootstrapReply?: undefined;
+      failureReason: CreateFlowFailureReason;
+      failureMessage?: string;
+    };
+
 async function createProjectAndPersistFirstAnswer(
   input: CreateFlowInput & { parseText: string },
   dependencies: CreateFlowDependencies,
-) {
+): Promise<ProjectBootstrapOutcome> {
   const getAccessToken = dependencies.getAccessToken ?? getBrowserAccessToken;
   const fetcher = dependencies.fetcher ?? fetch;
   const allowGuestProjectAccess =
@@ -141,7 +169,10 @@ async function createProjectAndPersistFirstAnswer(
   const accessToken = await getAccessToken().catch(() => null);
 
   if (!accessToken && !allowGuestProjectAccess) {
-    return null;
+    return {
+      projectSession: null,
+      failureReason: "no_auth",
+    };
   }
 
   const projectPayload: ProjectCreatePayload = {
@@ -170,6 +201,17 @@ async function createProjectAndPersistFirstAnswer(
   const createPayload = (await createResponse.json()) as ProjectCreateResponse;
 
   if (!createResponse.ok) {
+    if (isUnauthorizedApiResponse(createResponse, createPayload)) {
+      return {
+        projectSession: null,
+        failureReason: "unauthorized",
+        failureMessage: buildResponseErrorMessage(
+          createPayload,
+          "当前登录状态已经失效，请重新登录后再试。",
+        ),
+      };
+    }
+
     throw new Error(
       buildResponseErrorMessage(
         createPayload,
@@ -236,8 +278,38 @@ export async function submitCreateFlow(
   );
 
   return {
-    projectSession: bootstrap?.projectSession ?? null,
-    bootstrapReply: bootstrap?.bootstrapReply,
+    projectSession: bootstrap.projectSession,
+    bootstrapReply: bootstrap.bootstrapReply,
+    failureReason: bootstrap.failureReason,
+    failureMessage: bootstrap.failureMessage,
+  };
+}
+
+export interface InterviewBootstrapPlan {
+  rawInput: string | null;
+  followUpAnswers: string[];
+}
+
+/**
+ * 五问收集是本地先行的：项目可能还没建起来，答案先在队列里排队。
+ * 建项目必须用第一个答案作为 rawInput，其余答案按原顺序补写，
+ * 否则服务端的消息顺序会和用户真实的答题顺序错位。
+ */
+export function buildInterviewBootstrapPlan(
+  firstAnswer: string | null,
+  queuedAnswers: readonly string[],
+): InterviewBootstrapPlan {
+  const normalizedFirst = firstAnswer?.trim() ?? "";
+
+  if (!normalizedFirst) {
+    return { rawInput: null, followUpAnswers: [] };
+  }
+
+  return {
+    rawInput: normalizedFirst,
+    followUpAnswers: queuedAnswers
+      .map((answer) => answer.trim())
+      .filter((answer) => answer.length > 0),
   };
 }
 

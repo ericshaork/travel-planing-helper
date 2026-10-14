@@ -1,67 +1,51 @@
 "use client";
 
-import Link from "next/link";
-import type { MouseEvent } from "react";
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useMemo, useState } from "react";
 
-import {
-  cleanDisplayText,
-  formatDaysText,
-  formatTripTypeLabel,
-} from "@/lib/explore/archive-display";
 import { fetchExploreList } from "@/lib/explore/client";
+import {
+  CURATED_ARCHIVE_ENTRIES,
+  getStandardArchives,
+  splitFeaturedArchives,
+  type CuratedArchiveEntry,
+} from "@/lib/explore/curated-archives";
 import { displayCityName } from "@/lib/explore/display-city";
-import { getFeaturedImageCandidates } from "@/lib/explore/image-resolver";
 import type { ExploreTripListItem } from "@/lib/explore/types";
 
-import { ExploreCard } from "./ExploreCard";
-import { ResolvedImage } from "./ResolvedImage";
+import { ArchiveSheetCard } from "./ArchiveSheetCard";
+import { CuratedArchiveCard } from "./CuratedArchiveCard";
 
 interface FeaturedSectionProps {
   onOpenArchive?: (archiveId: string) => void;
   onCreateFromArchive?: (archiveId: string) => void | Promise<void>;
 }
 
-function visibleTags(item: ExploreTripListItem) {
-  return [...(item.highlights ?? []), ...(item.tags ?? [])]
-    .map((tag) => cleanDisplayText(tag))
-    .filter(Boolean)
-    .slice(0, 5);
-}
-
 export function FeaturedSection({
   onOpenArchive,
   onCreateFromArchive,
 }: FeaturedSectionProps) {
-  const [archiveWallCards, setArchiveWallCards] = useState<ExploreTripListItem[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [errorText, setErrorText] = useState("");
+  const [realByCity, setRealByCity] = useState<Record<string, ExploreTripListItem>>(
+    {},
+  );
 
   useEffect(() => {
     let active = true;
 
     async function load() {
-      setLoading(true);
-      setErrorText("");
-
       try {
-        const items = await fetchExploreList({
-          featured: true,
-          limit: 9,
-        });
+        const items = await fetchExploreList({ featured: true, limit: 12 });
 
-        if (active) {
-          setArchiveWallCards(items);
+        if (!active) {
+          return;
         }
+
+        const map: Record<string, ExploreTripListItem> = {};
+        for (const item of items) {
+          map[displayCityName(item.city, item.cityCode)] = item;
+        }
+        setRealByCity(map);
       } catch {
-        if (active) {
-          setArchiveWallCards([]);
-          setErrorText("这批旅行档案刚刚没读出来，先别急，刷新后会再试一次。");
-        }
-      } finally {
-        if (active) {
-          setLoading(false);
-        }
+        // 真实档案读不出来时保留 mock 数据，点击走抽屉兜底提示
       }
     }
 
@@ -72,169 +56,173 @@ export function FeaturedSection({
     };
   }, []);
 
-  const [heroCard, ...gridCards] = archiveWallCards;
-  const heroCityName = heroCard ? displayCityName(heroCard.city, heroCard.cityCode) : "";
+  const entries = useMemo(
+    () =>
+      CURATED_ARCHIVE_ENTRIES.map((entry) => {
+        const real = realByCity[entry.city];
 
-  function handleOpenArchive(
-    event: MouseEvent<HTMLAnchorElement>,
-    archiveId: string,
-  ) {
-    if (!onOpenArchive) {
-      return;
-    }
+        return real
+          ? {
+              ...entry,
+              slug: real.slug,
+              coverImageUrl: real.coverImageUrl ?? entry.coverImageUrl,
+            }
+          : entry;
+      }),
+    [realByCity],
+  );
 
-    event.preventDefault();
-    onOpenArchive(archiveId);
+  const { main, secondary, mini } = splitFeaturedArchives(entries);
+  const standard = getStandardArchives(entries);
+
+  function handleOpen(entry: CuratedArchiveEntry) {
+    onOpenArchive?.(entry.slug ?? entry.id);
   }
 
-  function handleCreateFromArchive(
-    event: MouseEvent<HTMLAnchorElement>,
-    archiveId: string,
-  ) {
+  function handleCreate(entry: CuratedArchiveEntry) {
     if (!onCreateFromArchive) {
-      handleOpenArchive(event, archiveId);
+      handleOpen(entry);
       return;
     }
 
-    event.preventDefault();
-    void onCreateFromArchive(archiveId);
-  }
-
-  if (loading) {
-    return (
-      <section className="workspace-panel px-4 py-5 sm:px-5">
-        <p className="workspace-kicker">精选档案</p>
-        <p className="mt-2 text-sm leading-6 text-[var(--ink-muted)]">
-          正在翻开五座城市的旅行档案...
-        </p>
-      </section>
-    );
-  }
-
-  if (!heroCard) {
-    return (
-      <section className="workspace-panel px-4 py-5 sm:px-5">
-        <p className="workspace-kicker">精选档案</p>
-        <h2 className="mt-2 text-lg font-semibold text-[var(--ink)]">
-          暂时没有可展示的旅行档案
-        </h2>
-        <p className="mt-2 text-sm leading-6 text-[var(--ink-muted)]">
-          {errorText || "如果 Trip Package 暂时不可用，Explore 会继续保留旧档案作为兜底。"}
-        </p>
-      </section>
-    );
+    void onCreateFromArchive(entry.slug ?? entry.id);
   }
 
   return (
-    <section className="workspace-panel px-4 py-4 sm:px-5 sm:py-5">
-      <div className="relative z-[1] space-y-5">
-        <div className="max-w-2xl">
-          <p className="workspace-kicker">精选档案</p>
-          <h2 className="mt-2 text-2xl font-semibold tracking-[-0.04em] text-[var(--ink)] sm:text-[2rem]">
-            先翻开五座城市的旅行手帐
-          </h2>
-          <p className="mt-2 text-sm leading-6 text-[var(--ink-muted)]">
-            北京、杭州、成都、上海和西安已经接入 Trip Package。先看一眼路线气质，再决定要不要把它带进工作台。
-          </p>
-        </div>
-
-        <article className="overflow-hidden rounded-[24px] border border-[var(--line)] bg-[rgba(255,253,247,0.84)] shadow-[0_18px_38px_rgba(84,71,53,0.08)]">
-          <div className="grid gap-0 lg:grid-cols-[1.25fr_0.75fr]">
-            <Link
-              href={`/explore/${heroCard.slug}`}
-              onClick={(event) => handleOpenArchive(event, heroCard.slug)}
-              className="group relative min-h-[26rem] overflow-hidden"
-              aria-label={`打开 ${heroCard.title}`}
-            >
-              <ResolvedImage
-                sources={getFeaturedImageCandidates(heroCard)}
-                alt={`${heroCityName} ${heroCard.title} 封面`}
-                sizes="(min-width: 1024px) 56vw, 100vw"
-                priority
-                wrapperClassName="absolute inset-0 bg-[var(--paper)]"
-                imageClassName="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-              />
-              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(18,21,18,0.03)_0%,rgba(18,21,18,0.12)_48%,rgba(18,21,18,0.44)_100%)]" />
-              <div className="absolute inset-x-6 bottom-6 text-[var(--paper-bright)]">
-                <p className="text-[11px] font-semibold tracking-[0.16em] text-[rgba(255,253,247,0.82)]">
-                  五城 Trip Package
-                </p>
-                <h3 className="mt-2 text-3xl font-semibold tracking-[-0.05em] sm:text-[2.8rem]">
-                  {cleanDisplayText(heroCityName, "目的地")}
-                </h3>
-                <p className="mt-3 max-w-2xl text-sm leading-6 text-[rgba(255,253,247,0.92)] sm:text-[15px]">
-                  {cleanDisplayText(heroCard.summary)}
-                </p>
-              </div>
-            </Link>
-
-            <div className="flex flex-col justify-between px-5 py-5 sm:px-6 sm:py-6">
+    <>
+      <section className="explore-zone relative px-2 pb-3 pt-2 sm:px-3 sm:pb-4">
+        <div className="relative z-[1] space-y-4">
+          <div className="space-y-2">
+            <div className="flex flex-wrap items-end justify-between gap-x-4 gap-y-1">
               <div>
-                <p className="workspace-kicker">封面城市</p>
-                <h3 className="mt-2 text-2xl font-semibold tracking-[-0.04em] text-[var(--ink)]">
-                  {cleanDisplayText(heroCard.title, "旅行计划")}
-                </h3>
-                <p className="mt-3 text-sm leading-6 text-[var(--ink-muted)]">
-                  {cleanDisplayText(heroCard.archiveIntro || heroCard.summary)}
+                <p className="workspace-kicker">策展精选 · CURATED ARCHIVES</p>
+                <h2
+                  className="mt-1.5 text-[1.35rem] font-semibold tracking-[-0.03em] text-[var(--ink)] sm:text-[1.5rem]"
+                  style={{ fontFamily: "var(--font-serif-display)" }}
+                >
+                  精选旅行档案
+                </h2>
+                <p className="mt-1.5 text-[12.5px] leading-6 text-[var(--ink-muted)]">
+                  编辑先翻一遍档案箱，把最值得走的路线放在最前面。
                 </p>
               </div>
-
-              <div className="mt-5 flex flex-wrap gap-2 text-xs font-medium text-[var(--ink-muted)]">
-                <span className="rounded-full border border-[var(--line)] bg-[rgba(255,253,247,0.82)] px-2.5 py-1">
-                  {formatDaysText(heroCard.days, "天数待定")}
-                </span>
-                <span className="rounded-full border border-[var(--line)] bg-[rgba(255,253,247,0.82)] px-2.5 py-1">
-                  {formatTripTypeLabel(heroCard.tripType)}
-                </span>
-                {heroCard.pace ? (
-                  <span className="rounded-full border border-[var(--line)] bg-[rgba(255,253,247,0.82)] px-2.5 py-1">
-                    {cleanDisplayText(heroCard.pace)}
-                  </span>
-                ) : null}
-              </div>
-
-              <div className="mt-4 flex flex-wrap gap-2">
-                {visibleTags(heroCard).map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-full bg-[rgba(223,232,216,0.54)] px-3 py-1 text-xs text-[var(--sage-deep)]"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-
-              <div className="mt-6 flex flex-wrap gap-3">
-                <Link
-                  href={`/explore/${heroCard.slug}`}
-                  onClick={(event) => handleOpenArchive(event, heroCard.slug)}
-                  className="inline-flex min-h-11 items-center justify-center rounded-full border border-[var(--ink)] bg-[rgba(255,253,247,0.92)] px-5 py-2.5 text-sm font-semibold text-[var(--ink)]"
-                >
-                  阅读档案
-                </Link>
-                <Link
-                  href={`/explore/${heroCard.slug}`}
-                  onClick={(event) => handleCreateFromArchive(event, heroCard.slug)}
-                  className="inline-flex min-h-11 items-center justify-center rounded-full border border-[var(--line-strong)] bg-[rgba(248,241,228,0.78)] px-5 py-2.5 text-sm font-semibold text-[var(--clay-deep)]"
-                >
-                  用此行程创建
-                </Link>
-              </div>
+              <p className="archive-more-note" aria-hidden="true">
+                picked by editors · 手帖摘录 No.7
+              </p>
+            </div>
+            <div className="flex items-center gap-2.5" aria-hidden="true">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 16 16"
+                fill="none"
+                className="text-[rgba(122,63,49,0.5)]"
+              >
+                <circle
+                  cx="8"
+                  cy="8"
+                  r="5.6"
+                  stroke="currentColor"
+                  strokeWidth="0.9"
+                  strokeDasharray="2.4 2.2"
+                />
+                <path
+                  d="M8 5.6v4.8M5.6 8h4.8"
+                  stroke="currentColor"
+                  strokeWidth="0.9"
+                  strokeLinecap="round"
+                />
+              </svg>
+              <span className="h-px flex-1 bg-[linear-gradient(90deg,rgba(139,105,62,0.3),rgba(139,105,62,0.05))]" />
             </div>
           </div>
-        </article>
 
-        <div className="grid gap-4 lg:grid-cols-4">
-          {gridCards.map((item) => (
-            <ExploreCard
-              key={item.slug}
-              item={item}
-              onOpenArchive={onOpenArchive}
-              onCreateFromArchive={onCreateFromArchive}
+          <div className="grid gap-4 lg:grid-cols-[minmax(0,1.62fr)_minmax(0,1fr)]">
+            {main ? (
+              <CuratedArchiveCard
+                variant="main"
+                entry={main}
+                onOpen={handleOpen}
+                onCreate={handleCreate}
+              />
+            ) : null}
+            <div className="grid content-stretch gap-4 sm:grid-cols-2 lg:grid-cols-1">
+              {secondary.map((entry) => (
+                <CuratedArchiveCard
+                  key={entry.id}
+                  variant="secondary"
+                  entry={entry}
+                  onOpen={handleOpen}
+                />
+              ))}
+            </div>
+          </div>
+
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {mini.map((entry) => (
+              <CuratedArchiveCard
+                key={entry.id}
+                variant="mini"
+                entry={entry}
+                onOpen={handleOpen}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="archive-more-section relative px-1 pt-1 sm:px-2">
+        <div className="explore-zone-divider" aria-hidden="true">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path
+              d="M6 1.5v9M1.5 6h9M2.9 2.9l6.2 6.2M9.1 2.9 2.9 9.1"
+              stroke="currentColor"
+              strokeWidth="0.8"
+              strokeLinecap="round"
             />
+          </svg>
+        </div>
+        <div className="relative z-[1] space-y-2">
+          <div className="flex flex-wrap items-end justify-between gap-x-4 gap-y-1">
+            <p className="workspace-kicker">更多旅行档案 · MORE ARCHIVES</p>
+            <p className="archive-more-note" aria-hidden="true">
+              field notes · city walks · keep turning the pages
+            </p>
+          </div>
+          <div className="flex items-center gap-2.5" aria-hidden="true">
+            <svg
+              width="15"
+              height="15"
+              viewBox="0 0 16 16"
+              fill="none"
+              className="text-[rgba(122,63,49,0.55)]"
+            >
+              <circle cx="8" cy="8" r="6.2" stroke="currentColor" strokeWidth="0.9" />
+              <path
+                d="M8 3.4 9.2 6.8 12.6 8 9.2 9.2 8 12.6 6.8 9.2 3.4 8 6.8 6.8Z"
+                stroke="currentColor"
+                strokeWidth="0.9"
+                strokeLinejoin="round"
+              />
+            </svg>
+            <span className="h-px flex-1 bg-[linear-gradient(90deg,rgba(139,105,62,0.32),rgba(139,105,62,0.06))]" />
+          </div>
+        </div>
+
+        <div className="relative z-[1] mt-4 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {standard.map((entry, index) => (
+            <Fragment key={entry.id}>
+              <ArchiveSheetCard entry={entry} onOpen={handleOpen} />
+              {(index + 1) % 3 === 0 && index + 1 < standard.length ? (
+                <div
+                  aria-hidden="true"
+                  className="archive-sheet-divider col-span-full hidden lg:block"
+                />
+              ) : null}
+            </Fragment>
           ))}
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }

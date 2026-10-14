@@ -20,10 +20,9 @@ describe("server environment", () => {
       POI_PROVIDER: "mock",
       ROUTE_PROVIDER: "mock",
       WEATHER_PROVIDER: "mock",
-      LLM_TIMEOUT_MS: 120000,
-      AI_TIMEOUT_MS: 120000,
     });
     expect(shouldUseMockAi(environment)).toBe(true);
+    expect(resolveAiRuntimeConfig(environment).timeoutMs).toBe(120000);
   });
 
   it("accepts the new AI_* variables for real provider configuration", () => {

@@ -183,6 +183,12 @@ describe("Workspace read display adapter", () => {
         compactBlankReadMode: false,
       }),
     ).toBe(false);
+    expect(
+      shouldUseWorkspaceReadView({
+        workspaceMode: "map",
+        compactBlankReadMode: false,
+      }),
+    ).toBe(false);
   });
 
   it("builds a read view model from TripPlan", () => {

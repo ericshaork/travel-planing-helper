@@ -1,0 +1,9 @@
+<svg width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>导入已有计划</title>
+  <rect x="18" y="20" width="60" height="56" rx="6" fill="#F6EEDB" stroke="#6D5132" stroke-width="2"/>
+  <path d="M28 34H44L49 40H68V68H28V34Z" fill="#EFE2C7" stroke="#6D5132" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M48 48V62" stroke="#2F4E35" stroke-width="3" stroke-linecap="round"/>
+  <path d="M41 55L48 62L55 55" stroke="#2F4E35" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M34 27H62" stroke="#B85C49" stroke-width="2" stroke-linecap="round" stroke-dasharray="3 4"/>
+  <circle cx="68" cy="26" r="4" fill="#B85C49" opacity=".85"/>
+</svg>

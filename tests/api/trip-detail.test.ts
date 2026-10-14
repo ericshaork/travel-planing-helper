@@ -191,7 +191,7 @@ describe("GET /api/trips/[tripId]", () => {
     expect(response.status).toBe(200);
     expect(getUser).toHaveBeenCalledWith("token-123");
     expect(select).toHaveBeenCalledWith(
-      "id,title,destination_city,start_date,end_date,days,budget,trip_request_json,trip_plan_json,enrichment_json,weather_summary_json,cover_image_url,created_at,updated_at",
+      "id,title,destination_city,start_date,end_date,days,budget,trip_request_json,trip_plan_json,enrichment_json,weather_summary_json,cover_image_url,source_type,status,trip_preferences_json,local_draft_id,last_opened_at,created_at,updated_at",
     );
     expect(eqTrip).toHaveBeenCalledWith("id", "trip-1");
     expect(eqUser).toHaveBeenCalledWith("user_id", "user-1");

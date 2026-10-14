@@ -24,6 +24,7 @@ import {
   type TravelProjectSession,
   type TravelProjectSessionSourceType,
 } from "./session";
+import { markWorkspaceProjectLocalFallback } from "./workspace-context-client";
 
 type FetchLike = (input: string | URL | Request, init?: RequestInit) => Promise<Response>;
 
@@ -44,6 +45,14 @@ function getDefaultFetcher(): FetchLike {
 function getApiErrorMessage(payload: unknown, fallback: string) {
   return (payload as Partial<ApiErrorResponse> | null)?.error?.message ?? fallback;
 }
+
+function isUnauthorizedApiResponse(response: Response, payload: unknown) {
+  const apiError = payload as Partial<ApiErrorResponse> | null;
+
+  return response.status === 401 || apiError?.error?.code === "UNAUTHORIZED";
+}
+
+class ProjectEntryUnauthorizedError extends Error {}
 
 function mapSessionSourceToProjectSource(
   sourceType: TravelProjectSessionSourceType,
@@ -191,6 +200,15 @@ async function createOrReuseProject(
     !("project" in payload) ||
     !payload.project?.id
   ) {
+    if (isUnauthorizedApiResponse(response, payload)) {
+      throw new ProjectEntryUnauthorizedError(
+        getApiErrorMessage(
+          payload,
+          "当前登录状态已经失效，请重新登录后再试。",
+        ),
+      );
+    }
+
     throw new Error(
       getApiErrorMessage(
         payload,
@@ -215,86 +233,104 @@ export async function ensureWorkspaceProjectEntry(
     return null;
   }
 
-  const project = await createOrReuseProject(input, client);
-  const versionResponse = await client.fetcher(
-    `/api/projects/${project.projectId}/versions`,
-    {
-      method: "POST",
+  try {
+    const project = await createOrReuseProject(input, client);
+    const versionResponse = await client.fetcher(
+      `/api/projects/${project.projectId}/versions`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${client.accessToken}`,
+        },
+        body: JSON.stringify({
+          versionStatus: "accepted",
+          createdFrom: input.createdFrom,
+          tripPlan: input.tripPlan,
+          tripRequestSnapshot: input.tripRequest ?? null,
+          createdBy: input.createdBy ?? "user",
+          setAsCurrent: true,
+        }),
+      },
+    );
+    const versionPayload = (await versionResponse
+      .json()
+      .catch(() => null)) as EntryProjectVersionPayload | ApiErrorResponse | null;
+
+    if (
+      !versionResponse.ok ||
+      !versionPayload ||
+      !("version" in versionPayload) ||
+      !versionPayload.version?.id
+    ) {
+      if (isUnauthorizedApiResponse(versionResponse, versionPayload)) {
+        throw new ProjectEntryUnauthorizedError(
+          getApiErrorMessage(
+            versionPayload,
+            "当前登录状态已经失效，请重新登录后再试。",
+          ),
+        );
+      }
+
+      throw new Error(
+        getApiErrorMessage(
+          versionPayload,
+          "Unable to create a TravelProject version for this workspace entry.",
+        ),
+      );
+    }
+
+    await client.fetcher(`/api/projects/${project.projectId}/state`, {
+      method: "PATCH",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${client.accessToken}`,
       },
       body: JSON.stringify({
-        versionStatus: "accepted",
-        createdFrom: input.createdFrom,
-        tripPlan: input.tripPlan,
-        tripRequestSnapshot: input.tripRequest ?? null,
-        createdBy: input.createdBy ?? "user",
-        setAsCurrent: true,
+        lifecycleState: input.lifecycleState ?? "workspace",
+        currentFlowStage: "workspace_ready",
+        currentVersionId: versionPayload.version.id,
+        touchActivity: true,
       }),
-    },
-  );
-  const versionPayload = (await versionResponse
-    .json()
-    .catch(() => null)) as EntryProjectVersionPayload | ApiErrorResponse | null;
+    }).catch(() => null);
 
-  if (
-    !versionResponse.ok ||
-    !versionPayload ||
-    !("version" in versionPayload) ||
-    !versionPayload.version?.id
-  ) {
-    throw new Error(
-      getApiErrorMessage(
-        versionPayload,
-        "Unable to create a TravelProject version for this workspace entry.",
-      ),
+    saveTripPlan(input.tripPlan, input.storage);
+
+    if (input.tripRequest) {
+      saveTripRequest(input.tripRequest, input.storage);
+    }
+
+    ensureWorkspaceSessionMetadata(
+      {
+        sourceType: mapSessionSourceToWorkspaceSource(input.sessionSourceType),
+        workspaceModeDefault: input.workspaceModeDefault ?? "read",
+      },
+      input.storage,
     );
-  }
 
-  await client.fetcher(`/api/projects/${project.projectId}/state`, {
-    method: "PATCH",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${client.accessToken}`,
-    },
-    body: JSON.stringify({
-      lifecycleState: input.lifecycleState ?? "workspace",
-      currentFlowStage: "workspace_ready",
-      currentVersionId: versionPayload.version.id,
-      touchActivity: true,
-    }),
-  }).catch(() => null);
+    const projectSession = setProjectSession(
+      {
+        projectId: project.projectId,
+        versionId: versionPayload.version.id,
+        sourceType: input.sessionSourceType,
+        flowStage: "workspace_ready",
+      },
+      input.storage,
+    );
+    markWorkspaceProjectLocalFallback(input.storage);
 
-  saveTripPlan(input.tripPlan, input.storage);
-
-  if (input.tripRequest) {
-    saveTripRequest(input.tripRequest, input.storage);
-  }
-
-  ensureWorkspaceSessionMetadata(
-    {
-      sourceType: mapSessionSourceToWorkspaceSource(input.sessionSourceType),
-      workspaceModeDefault: input.workspaceModeDefault ?? "read",
-    },
-    input.storage,
-  );
-
-  const projectSession = setProjectSession(
-    {
+    return {
+      projectSession,
       projectId: project.projectId,
       versionId: versionPayload.version.id,
-      sourceType: input.sessionSourceType,
-      flowStage: "workspace_ready",
-    },
-    input.storage,
-  );
+    };
+  } catch (error) {
+    if (error instanceof ProjectEntryUnauthorizedError) {
+      return null;
+    }
 
-  return {
-    projectSession,
-    projectId: project.projectId,
-    versionId: versionPayload.version.id,
-  };
+    throw error;
+  }
 }
 
 export async function createBlankWorkspaceProjectEntry(

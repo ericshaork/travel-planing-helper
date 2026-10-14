@@ -67,12 +67,18 @@ describe("AmapBaseMap helpers", () => {
     const created = createAmapMapInstance(amap, container, {
       center: { lat: 31.2304, lng: 121.4737 },
       zoom: 12,
+      mapStyle: "amap://styles/whitesmoke",
+      features: ["bg", "road", "building"],
+      showLabel: false,
     });
 
     expect(created).toBe(instance);
     expect(Map).toHaveBeenCalledWith(container, {
       center: [121.4737, 31.2304],
       zoom: 12,
+      mapStyle: "amap://styles/whitesmoke",
+      features: ["bg", "road", "building"],
+      showLabel: false,
     });
   });
 

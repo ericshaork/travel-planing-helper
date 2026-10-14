@@ -1,0 +1,28 @@
+<svg width="64" height="76" viewBox="0 0 64 76" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="metal" x1="12" y1="8" x2="52" y2="60" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#D4A95A"/>
+      <stop offset="0.45" stop-color="#6A4A25"/>
+      <stop offset="1" stop-color="#251A12"/>
+    </linearGradient>
+    <radialGradient id="core" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(25 22) rotate(58) scale(32 42)">
+      <stop stop-color="#E8C46B" stop-opacity="0.35"/>
+      <stop offset="0.62" stop-color="#141412" stop-opacity="0.92"/>
+      <stop offset="1" stop-color="#5A3D1E"/>
+    </radialGradient>
+    <filter id="drop" x="2" y="0" width="60" height="76" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="5" stdDeviation="4" flood-color="#000000" flood-opacity="0.42"/>
+    </filter>
+    <filter id="glow" x="6" y="5" width="52" height="55" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="0" stdDeviation="1.3" flood-color="#E8C46B" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+  <g filter="url(#drop)">
+    <path d="M32 70C32 70 53 47 53 28C53 15.3 43.6 6 32 6C20.4 6 11 15.3 11 28C11 47 32 70 32 70Z" fill="#121210"/>
+    <path d="M32 69C32 69 52 46.5 52 28C52 16 43 7 32 7C21 7 12 16 12 28C12 46.5 32 69 32 69Z" stroke="url(#metal)" stroke-width="2.4"/>
+    <circle cx="32" cy="28" r="18" fill="url(#core)" stroke="#E8C46B" stroke-opacity="0.55" stroke-width="1.2"/>
+    <g filter="url(#glow)" stroke="#F2E2B6" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M24 14L30 26H18L24 14Z"/><path d="M18 26H30V42H18V26Z"/><path d="M15 42H33"/>
+    </g>
+  </g>
+</svg>

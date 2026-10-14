@@ -1,7 +1,10 @@
 import { describe, expect, it, vi } from "vitest";
 
 import {
+  applyWorkspaceVersionHandoff,
   loadWorkspaceLocalTripState,
+  loadWorkspaceProjectLocalFallbackContext,
+  markWorkspaceProjectDraft,
   restoreWorkspaceProjectVersionContext,
   touchWorkspaceProjectContext,
 } from "../lib/projects/workspace-context-client";
@@ -9,7 +12,7 @@ import {
   getProjectSession,
   setProjectSession,
 } from "../lib/projects/session";
-import { loadTripPlan, loadTripRequest, type StorageLike } from "../lib/trip/storage";
+import { loadTripPlan, loadTripRequest, saveTripPlan, saveTripRequest, type StorageLike } from "../lib/trip/storage";
 
 class MemoryStorage implements StorageLike {
   private readonly store = new Map<string, string>();
@@ -208,6 +211,192 @@ describe("workspace project context", () => {
     expect(fetcher).toHaveBeenCalledTimes(2);
     expect(restored?.versionId).toBe("version-2");
     expect(restored?.tripPlan.tripTitle).toBe("Yunnan 5 days v2");
+  });
+
+  it("preserves unsaved manual edits on refresh for the same project version", async () => {
+    const storage = new MemoryStorage();
+    setProjectSession(
+      {
+        projectId: "project-1",
+        versionId: "version-1",
+        sourceType: "blank_input",
+        flowStage: "workspace_ready",
+      },
+      storage,
+    );
+    const editedPlan = { ...tripPlan, tripTitle: "Local manual draft" };
+    saveTripPlan(editedPlan, storage);
+    markWorkspaceProjectDraft(storage);
+    const fetcher = vi.fn().mockResolvedValueOnce(
+      createJsonResponse({
+        project: { id: "project-1", currentFlowStage: "workspace_ready" },
+        currentVersion: {
+          id: "version-1",
+          tripPlan,
+          tripRequestSnapshot: tripRequest,
+        },
+      }),
+    );
+
+    const restored = await restoreWorkspaceProjectVersionContext({
+      fetcher,
+      getAccessToken: async () => "token-123",
+      storage,
+    });
+
+    expect(restored?.tripPlan.tripTitle).toBe("Local manual draft");
+    expect(restored?.versionId).toBe("version-1");
+    expect(loadTripPlan(storage)?.tripTitle).toBe("Local manual draft");
+    expect(getProjectSession(storage)?.versionId).toBe("version-1");
+  });
+
+  it("drops the draft marker when opening another version", async () => {
+    const storage = new MemoryStorage();
+    setProjectSession(
+      {
+        projectId: "project-1",
+        versionId: "version-1",
+        sourceType: "blank_input",
+        flowStage: "workspace_ready",
+      },
+      storage,
+    );
+    saveTripPlan({ ...tripPlan, tripTitle: "Local manual draft" }, storage);
+    markWorkspaceProjectDraft(storage);
+    applyWorkspaceVersionHandoff(
+      { versionId: "version-2", tripPlan: { ...tripPlan, tripTitle: "Version 2" } },
+      storage,
+    );
+    const fetcher = vi.fn().mockResolvedValueOnce(
+      createJsonResponse({
+        project: { id: "project-1", currentFlowStage: "workspace_ready" },
+        currentVersion: {
+          id: "version-2",
+          tripPlan: { ...tripPlan, tripTitle: "Version 2" },
+          tripRequestSnapshot: tripRequest,
+        },
+      }),
+    );
+
+    const restored = await restoreWorkspaceProjectVersionContext({
+      fetcher,
+      getAccessToken: async () => "token-123",
+      storage,
+    });
+
+    expect(restored?.tripPlan.tripTitle).toBe("Version 2");
+    expect(loadTripPlan(storage)?.tripTitle).toBe("Version 2");
+    expect(storage.getItem("travel-planning:workspace-project-draft")).toBeNull();
+  });
+
+  it("does not use an unmarked local trip plan as a project fallback", () => {
+    const storage = new MemoryStorage();
+    setProjectSession(
+      {
+        projectId: "project-1",
+        versionId: "version-1",
+        sourceType: "blank_input",
+        flowStage: "workspace_ready",
+      },
+      storage,
+    );
+    saveTripPlan({ ...tripPlan, tripTitle: "Stale unrelated local plan" }, storage);
+
+    const fallback = loadWorkspaceProjectLocalFallbackContext(storage);
+
+    expect(fallback).toBeNull();
+  });
+
+  it("allows revision handoff state to act as a same-version local fallback", () => {
+    const storage = new MemoryStorage();
+    setProjectSession(
+      {
+        projectId: "project-1",
+        versionId: "version-1",
+        sourceType: "blank_input",
+        flowStage: "workspace_ready",
+      },
+      storage,
+    );
+    applyWorkspaceVersionHandoff(
+      { versionId: "version-2", tripPlan: { ...tripPlan, tripTitle: "Version 2" } },
+      storage,
+    );
+
+    const fallback = loadWorkspaceProjectLocalFallbackContext(storage);
+
+    expect(fallback).toMatchObject({
+      projectId: "project-1",
+      versionId: "version-2",
+      flowStage: "workspace_ready",
+    });
+    expect(fallback?.tripPlan.tripTitle).toBe("Version 2");
+  });
+
+  it("marks a restored server version as safe for later local project fallback", async () => {
+    const storage = new MemoryStorage();
+    setProjectSession(
+      {
+        projectId: "project-1",
+        versionId: "version-1",
+        sourceType: "blank_input",
+        flowStage: "workspace_ready",
+      },
+      storage,
+    );
+    const fetcher = vi.fn().mockResolvedValueOnce(
+      createJsonResponse({
+        project: { id: "project-1", currentFlowStage: "workspace_ready" },
+        currentVersion: {
+          id: "version-1",
+          tripPlan: { ...tripPlan, tripTitle: "Server restored version" },
+          tripRequestSnapshot: tripRequest,
+        },
+      }),
+    );
+
+    await restoreWorkspaceProjectVersionContext({
+      fetcher,
+      getAccessToken: async () => "token-123",
+      storage,
+    });
+    const fallback = loadWorkspaceProjectLocalFallbackContext(storage);
+
+    expect(fallback?.versionId).toBe("version-1");
+    expect(fallback?.tripPlan.tripTitle).toBe("Server restored version");
+  });
+
+  it("clears a stale request when the selected version has no request snapshot", async () => {
+    const storage = new MemoryStorage();
+    setProjectSession(
+      {
+        projectId: "project-1",
+        versionId: "version-2",
+        sourceType: "blank_manual",
+        flowStage: "workspace_ready",
+      },
+      storage,
+    );
+    saveTripRequest(tripRequest, storage);
+    const fetcher = vi.fn().mockResolvedValueOnce(
+      createJsonResponse({
+        project: { id: "project-1", currentFlowStage: "workspace_ready" },
+        currentVersion: {
+          id: "version-2",
+          tripPlan,
+          tripRequestSnapshot: null,
+        },
+      }),
+    );
+
+    const restored = await restoreWorkspaceProjectVersionContext({
+      fetcher,
+      getAccessToken: async () => "token-123",
+      storage,
+    });
+
+    expect(restored?.tripRequest).toBeNull();
+    expect(loadTripRequest(storage)).toBeNull();
   });
 
   it("touches and preserves project/version context during workspace saves", () => {

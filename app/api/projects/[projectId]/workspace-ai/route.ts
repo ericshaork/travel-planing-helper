@@ -49,17 +49,8 @@ export function createProjectWorkspaceAiPostHandler(
       const workspaceAiService = createWorkspaceAi(projectContext.service, {
         resolveUserSettings: async () => {
           if (projectContext.isDevelopmentGuest || !projectContext.client) {
-            console.info("[workspace-ai] using default settings for development guest", {
-              projectId: params.projectId,
-              userId: projectContext.user.id,
-            });
             return cloneDefaultUserSettings();
           }
-
-          console.info("[workspace-ai] loading user settings", {
-            projectId: params.projectId,
-            userId: projectContext.user.id,
-          });
 
           try {
             const row = await loadOrCreateUserSettingsRow(
@@ -67,26 +58,11 @@ export function createProjectWorkspaceAiPostHandler(
               projectContext.user.id,
             );
 
-            console.info("[workspace-ai] user settings loaded", {
-              projectId: params.projectId,
-              userId: projectContext.user.id,
-            });
-
             return mapUserSettingsRowToSettings(row as never);
-          } catch (error) {
-            console.error("[workspace-ai] user settings load failed, falling back to defaults", {
-              projectId: params.projectId,
-              userId: projectContext.user.id,
-              error,
-            });
+          } catch {
             return cloneDefaultUserSettings();
           }
         },
-      });
-
-      console.info("[workspace-ai] applyModification starting", {
-        projectId: params.projectId,
-        versionId: body.versionId,
       });
 
       const result = await workspaceAiService.applyModification(
@@ -95,25 +71,8 @@ export function createProjectWorkspaceAiPostHandler(
         body.modificationRequest,
       );
 
-      console.info("[workspace-ai] applyModification succeeded", {
-        projectId: params.projectId,
-        versionId: result.versionId,
-        previousVersionId: result.previousVersionId,
-      });
-
       return NextResponse.json(result satisfies WorkspaceAiGenerationResult);
     } catch (error) {
-      console.error("[workspace-ai] request failed", {
-        error:
-          error instanceof Error
-            ? {
-                name: error.name,
-                message: error.message,
-                stack: error.stack,
-              }
-            : error,
-      });
-
       if (error instanceof z.ZodError) {
         return NextResponse.json(
           toApiErrorResponse(

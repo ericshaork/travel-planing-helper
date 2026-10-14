@@ -10,6 +10,19 @@ import { generateTripWithProvider } from "../ai/generateTrip";
 import { getLLMProvider } from "../ai/client";
 import type { LLMProvider } from "../ai/provider";
 import type { UserSettings } from "../settings/types";
+import {
+  buildEvidenceAwarePlanInput,
+  type EvidenceAwarePlanInput,
+} from "../../src/server/planning/evidenceAwarePlanInput";
+import {
+  createAiEvidenceRecorder,
+  type AiEvidenceRecorder,
+} from "../../src/server/planning/aiEvidenceRecorder";
+import {
+  createEvidencePackService,
+  type BuildEvidencePackInput,
+  type EvidencePack,
+} from "../../src/server/data-hub/evidencePackService";
 import { getWeatherForecast, getWeatherProvider } from "../weather/client";
 import type { WeatherProvider } from "../weather/provider";
 import type { WeatherForecast } from "../weather/types";
@@ -22,6 +35,7 @@ import type {
   GenerateTripResponse,
   ItineraryItem,
   TripPlan,
+  TripRequest,
   WeatherSummary,
 } from "./types";
 
@@ -29,6 +43,10 @@ export interface TripPlannerDependencies {
   llmProvider?: LLMProvider;
   weatherProvider?: WeatherProvider;
   userSettings?: UserSettings | null;
+  evidencePackService?: {
+    buildEvidencePack(input: BuildEvidencePackInput): Promise<EvidencePack>;
+  };
+  evidenceRecorder?: AiEvidenceRecorder;
 }
 
 const WEATHER_KEYWORDS = [
@@ -432,6 +450,70 @@ function applyTrustedWeather(
   });
 }
 
+function buildDataHubEvidenceInput(request: { tripRequest: TripRequest }) {
+  const tripRequest = request.tripRequest;
+  const namedPlaces = [
+    ...tripRequest.mustVisitPlaces.map((name) => ({ name })),
+  ];
+
+  return {
+    destination: tripRequest.destinationCity,
+    city: tripRequest.destinationCity,
+    selectedPlaces: namedPlaces,
+    candidatePlaces: [],
+    travelDates: {
+      startDate: tripRequest.startDate ?? null,
+      endDate: tripRequest.endDate ?? null,
+    },
+    userPreferences: [
+      ...tripRequest.interests,
+      ...tripRequest.travelStyles,
+    ],
+  } satisfies BuildEvidencePackInput;
+}
+
+async function buildPlanningEvidence(
+  tripRequest: TripRequest,
+  dependencies: TripPlannerDependencies,
+): Promise<EvidenceAwarePlanInput> {
+  let evidencePack: EvidencePack | null = null;
+
+  try {
+    const service =
+      dependencies.evidencePackService ?? createEvidencePackService();
+    evidencePack = await service.buildEvidencePack(
+      buildDataHubEvidenceInput({ tripRequest }),
+    );
+  } catch {
+    evidencePack = null;
+  }
+
+  return buildEvidenceAwarePlanInput({
+    tripRequest,
+    evidencePack,
+  });
+}
+
+async function recordPlanningEvidence(
+  evidence: EvidenceAwarePlanInput,
+  dependencies: TripPlannerDependencies,
+): Promise<string[]> {
+  if (!evidence.evidencePack) {
+    return [];
+  }
+
+  try {
+    const recorder = dependencies.evidenceRecorder ?? createAiEvidenceRecorder();
+    await recorder.recordAiPlanEvidence({
+      evidencePack: evidence.evidencePack,
+      reason: "generate_trip",
+    });
+    return [];
+  } catch {
+    return ["Data Hub evidence 使用记录暂时没有写入，不影响本次方案生成。"];
+  }
+}
+
 export async function planTrip(
   input: unknown,
   dependencies: TripPlannerDependencies = {},
@@ -464,15 +546,33 @@ export async function planTrip(
     tripSpecificPreferences,
     effectivePreferences,
   });
+  const evidenceInput = await buildPlanningEvidence(
+    request.tripRequest,
+    dependencies,
+  );
   const generated = await generateTripWithProvider(
     {
       ...request,
       weatherForecast: forecast,
       weatherWarning: weatherWarning(forecast),
       preferenceSummary,
+      evidencePromptSection: evidenceInput.evidencePromptSection,
+      evidenceWarnings: evidenceInput.evidenceWarnings,
     },
     llmProvider,
   );
+  const recordWarnings = await recordPlanningEvidence(evidenceInput, dependencies);
 
-  return applyTrustedWeather(generated, forecast);
+  return applyTrustedWeather(
+    {
+      ...generated,
+      warnings: uniqueMessages([
+        ...(generated.warnings ?? []),
+        ...evidenceInput.evidenceWarnings,
+        ...recordWarnings,
+      ]),
+      evidenceMetadata: evidenceInput.evidenceMetadata,
+    },
+    forecast,
+  );
 }

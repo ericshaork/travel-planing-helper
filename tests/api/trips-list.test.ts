@@ -188,6 +188,10 @@ describe("GET /api/trips", () => {
   });
 
   it("supports status and source_type filters plus title search", async () => {
+    const orderProjects = vi.fn().mockResolvedValue({
+      data: [],
+      error: null,
+    });
     const orderCreatedAt = vi.fn().mockResolvedValue({
       data: [],
       error: null,
@@ -197,7 +201,10 @@ describe("GET /api/trips", () => {
     const ilike = vi.fn().mockReturnValue({ order: orderLastOpenedAt });
     const eqSourceType = vi.fn().mockReturnValue({ ilike });
     const eqStatus = vi.fn().mockReturnValue({ eq: eqSourceType });
-    const eqUser = vi.fn().mockReturnValue({ eq: eqStatus });
+    const eqUser = vi.fn().mockReturnValue({
+      eq: eqStatus,
+      order: orderProjects,
+    });
     const select = vi.fn().mockReturnValue({ eq: eqUser });
     const GET = createTripsGetHandler(
       () =>

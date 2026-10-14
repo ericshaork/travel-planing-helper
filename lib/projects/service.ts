@@ -97,7 +97,7 @@ export function createProjectService(
 
         return projectRowToDomain(projectRow);
       } catch (error) {
-        throw toUnknownError(error, "鏆傛椂杩樻病鍒涘缓鎴愬姛杩欎釜鏃呰椤圭洰銆?");
+        throw toUnknownError(error, "这个旅行项目暂时还没创建成功。");
       }
     },
 
@@ -122,7 +122,7 @@ export function createProjectService(
           sources: sourceRows.map(sourceRowToDomain),
         };
       } catch (error) {
-        throw toUnknownError(error, "鏆傛椂鎷夸笉鍒拌繖涓棶琛岄」鐩€?");
+        throw toUnknownError(error, "暂时拿不到这个旅行项目。");
       }
     },
 
@@ -145,7 +145,7 @@ export function createProjectService(
 
         return row ? projectRowToDomain(row) : null;
       } catch (error) {
-        throw toUnknownError(error, "鏆傛椂鏇存柊涓嶄簡杩欎釜鏃呰椤圭洰鐨勭姸鎬併€?");
+        throw toUnknownError(error, "暂时更新不了这个旅行项目的状态。");
       }
     },
 
@@ -154,7 +154,7 @@ export function createProjectService(
         const projectRow = await repository.getProjectById(projectId);
 
         if (!projectRow) {
-          throw new AppError("UNKNOWN_ERROR", "杩欎釜鏃呰椤圭洰鏆傛椂涓嶅瓨鍦ㄣ€?");
+          throw new AppError("UNKNOWN_ERROR", "这个旅行项目暂时不存在。");
         }
 
         const versions = await repository.listVersions(projectId);
@@ -185,7 +185,7 @@ export function createProjectService(
 
         return versionRowToDomain(versionRow);
       } catch (error) {
-        throw toUnknownError(error, "鏆傛椂杩樻病淇濆瓨鎴愬姛杩欎釜鏃呰鐗堟湰銆?");
+        throw toUnknownError(error, "这个旅行版本暂时还没保存成功。");
       }
     },
 
@@ -194,7 +194,7 @@ export function createProjectService(
         const rows = await repository.listVersions(projectId);
         return rows.map(versionRowToDomain);
       } catch (error) {
-        throw toUnknownError(error, "鏆傛椂鎷夸笉鍒拌繖涓」鐩殑鐗堟湰鍘嗗彶銆?");
+        throw toUnknownError(error, "暂时拿不到这个项目的版本历史。");
       }
     },
 
@@ -203,7 +203,7 @@ export function createProjectService(
         const row = await repository.getVersionById(projectId, versionId);
         return row ? versionRowToDomain(row) : null;
       } catch (error) {
-        throw toUnknownError(error, "鏆傛椂鎵撲笉寮€杩欎釜鏃呰鐗堟湰銆?");
+        throw toUnknownError(error, "暂时打不开这个旅行版本。");
       }
     },
 
@@ -220,7 +220,7 @@ export function createProjectService(
 
         return sourceRowToDomain(row);
       } catch (error) {
-        throw toUnknownError(error, "鏆傛椂杩樻病璁板綍鎴愬姛杩欐潯鏉ユ簮淇℃伅銆?");
+        throw toUnknownError(error, "这条来源信息暂时还没记录成功。");
       }
     },
 
@@ -229,7 +229,7 @@ export function createProjectService(
         const rows = await repository.listSources(projectId);
         return rows.map(sourceRowToDomain);
       } catch (error) {
-        throw toUnknownError(error, "鏆傛椂鎷夸笉鍒拌繖涓」鐩殑鏉ユ簮璁板綍銆?");
+        throw toUnknownError(error, "暂时拿不到这个项目的来源记录。");
       }
     },
 
@@ -249,7 +249,7 @@ export function createProjectService(
 
         return messageRowToDomain(row);
       } catch (error) {
-        throw toUnknownError(error, "鏆傛椂杩樻病淇濆瓨鎴愬姛杩欐潯椤圭洰瀵硅瘽銆?");
+        throw toUnknownError(error, "这条项目对话暂时还没保存成功。");
       }
     },
 
@@ -258,7 +258,7 @@ export function createProjectService(
         const rows = await repository.listMessages(projectId, options);
         return rows.map(messageRowToDomain);
       } catch (error) {
-        throw toUnknownError(error, "鏆傛椂鎷夸笉鍒拌繖涓」鐩殑瀵硅瘽璁板綍銆?");
+        throw toUnknownError(error, "暂时拿不到这个项目的对话记录。");
       }
     },
   };

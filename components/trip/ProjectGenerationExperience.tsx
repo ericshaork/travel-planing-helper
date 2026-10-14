@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 
 import {
@@ -44,11 +45,14 @@ export function ProjectGenerationExperience({
       }),
     [destinationLabel, latestUserMessage],
   );
+  const effectiveStageIndex =
+    status === "success"
+      ? GENERATION_PROGRESS_STAGES.length - 1
+      : Math.min(stageIndex, GENERATION_PROGRESS_STAGES.length - 1);
+  const effectiveProgress = status === "success" ? 100 : progress;
 
   const stage =
-    GENERATION_PROGRESS_STAGES[
-      Math.min(stageIndex, GENERATION_PROGRESS_STAGES.length - 1)
-    ]!;
+    GENERATION_PROGRESS_STAGES[effectiveStageIndex]!;
   const themeMessages =
     LOADING_MESSAGES_DATA[theme]?.length > 0
       ? LOADING_MESSAGES_DATA[theme]
@@ -58,7 +62,9 @@ export function ProjectGenerationExperience({
       ? TRAVEL_QUOTES_DATA[theme]
       : TRAVEL_QUOTES_DATA.general;
   const topMessage =
-    themeMessages[stageIndex % themeMessages.length] ?? themeMessages[0] ?? "";
+    themeMessages[effectiveStageIndex % themeMessages.length] ??
+    themeMessages[0] ??
+    "";
   const quote: GenerationQuoteItem =
     themeQuotes[quoteIndex % themeQuotes.length] ??
     themeQuotes[0] ??
@@ -99,12 +105,6 @@ export function ProjectGenerationExperience({
       return;
     }
 
-    if (status === "success") {
-      setStageIndex(GENERATION_PROGRESS_STAGES.length - 1);
-      setProgress(100);
-      return;
-    }
-
     const target = stage.progressTarget;
     const timer = window.setInterval(() => {
       setProgress((current) => {
@@ -128,9 +128,11 @@ export function ProjectGenerationExperience({
       <div className="relative z-[1] mx-auto flex w-full max-w-6xl flex-col items-center space-y-5">
         <div className="relative mx-auto w-full max-w-4xl">
           <div className="relative mx-auto aspect-[5/1.55] w-full max-w-[780px] drop-shadow-[0_16px_26px_rgba(80,58,35,0.16)]">
-            <img
+            <Image
               src={GENERATION_TOP_FRAME_SRC}
               alt=""
+              fill
+              sizes="(min-width: 640px) 780px, 100vw"
               className="block h-full w-full object-contain"
             />
             <div className="absolute inset-[10%_7%_16%_7%] flex flex-col justify-center">
@@ -156,10 +158,13 @@ export function ProjectGenerationExperience({
         <div className="w-full max-w-5xl space-y-5">
           <div className="relative mx-auto w-full overflow-hidden rounded-[28px] border border-[var(--line)] bg-[rgb(255_251_243/0.96)] p-3 shadow-[0_18px_32px_rgba(60,42,24,0.14)] sm:p-4">
             <div className="relative">
-              <img
+              <Image
                 key={activeIllustration}
                 src={activeIllustration}
                 alt="Travel watercolor illustration"
+                width={1200}
+                height={840}
+                sizes="(min-width: 1024px) 960px, 100vw"
                 className="block h-auto min-h-[360px] w-full rounded-[22px] object-cover shadow-[0_12px_28px_rgba(76,56,38,0.18)] sm:min-h-[460px] lg:min-h-[560px]"
               />
               <div className="absolute left-4 top-4 rounded-full border border-[rgba(255,251,243,0.92)] bg-[rgba(255,251,243,0.92)] px-3 py-1.5 text-[11px] font-semibold tracking-[0.04em] text-[var(--ink-muted)] shadow-[0_6px_18px_rgba(0,0,0,0.08)]">
@@ -171,7 +176,7 @@ export function ProjectGenerationExperience({
                     {stage.label}
                   </span>
                   <span className="rounded-full border border-[var(--line)] bg-[rgb(255_251_243/0.95)] px-2.5 py-1 text-[11px] font-semibold text-[var(--ink-muted)]">
-                    {Math.round(progress)}%
+                    {Math.round(effectiveProgress)}%
                   </span>
                 </div>
 
@@ -184,7 +189,7 @@ export function ProjectGenerationExperience({
                           ? "bg-[var(--sage-deep)]"
                           : "bg-[var(--clay)]"
                     }`}
-                    style={{ width: `${Math.round(progress)}%` }}
+                    style={{ width: `${Math.round(effectiveProgress)}%` }}
                   />
                 </div>
 
@@ -206,8 +211,10 @@ export function ProjectGenerationExperience({
               </p>
               <div className="mt-2 space-y-2">
                 {GENERATION_PROGRESS_STAGES.map((item, index) => {
-                  const isActive = index === stageIndex;
-                  const isDone = index < stageIndex || progress >= item.progressTarget;
+                  const isActive = index === effectiveStageIndex;
+                  const isDone =
+                    index < effectiveStageIndex ||
+                    effectiveProgress >= item.progressTarget;
 
                   return (
                     <div
@@ -234,9 +241,11 @@ export function ProjectGenerationExperience({
 
             <div className="space-y-3">
               <div className="relative mx-auto aspect-[5/1.7] w-full max-w-[560px] drop-shadow-[0_16px_26px_rgba(80,58,35,0.14)]">
-                <img
+                <Image
                   src={GENERATION_BOTTOM_FRAME_SRC}
                   alt=""
+                  fill
+                  sizes="(min-width: 640px) 560px, 100vw"
                   className="block h-full w-full object-contain"
                 />
                 <div className="absolute inset-[16%_9%_18%_9%] flex flex-col justify-center">
@@ -244,7 +253,7 @@ export function ProjectGenerationExperience({
                     Travel note
                   </p>
                   <p className="mt-1 text-sm leading-6 text-[var(--ink)] sm:text-[15px]">
-                    "{quote.text}"
+                    &quot;{quote.text}&quot;
                   </p>
                   <p className="mt-2 text-[11px] font-semibold text-[var(--ink-muted)]">
                     {quote.author}

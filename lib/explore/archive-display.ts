@@ -78,6 +78,59 @@ export function formatTripTypeLabel(tripType: string | undefined) {
   }
 }
 
+const TAG_LABELS: Record<string, string> = {
+  food: "美食",
+  citywalk: "城市漫步",
+  city: "城市",
+  coast: "海边",
+  beach: "海边",
+  island: "海岛",
+  mountain: "山野",
+  nature: "自然",
+  spicy: "辛香",
+  hotpot: "火锅",
+  seafood: "海鲜",
+  dessert: "甜品",
+  tea: "茶",
+  couple: "情侣",
+  family: "亲子",
+  friends: "朋友",
+  solo: "独行",
+  spring: "春天",
+  summer: "夏天",
+  autumn: "秋天",
+  winter: "冬天",
+  nightlife: "夜景",
+  museum: "展馆",
+  park: "公园",
+  hiking: "徒步",
+};
+
+export function formatTagLabel(value: string) {
+  const normalized = cleanDisplayText(value).toLowerCase();
+
+  return TAG_LABELS[normalized] ?? cleanDisplayText(value, "");
+}
+
+export function formatPaceLabel(pace: string | undefined) {
+  const normalized = cleanDisplayText(pace).toLowerCase();
+
+  switch (normalized) {
+    case "slow":
+      return "慢节奏";
+    case "balanced":
+      return "节奏均衡";
+    case "relaxed":
+      return "轻松";
+    case "fast":
+      return "紧凑";
+    case "intense":
+      return "高强度";
+    default:
+      return cleanDisplayText(pace, "");
+  }
+}
+
 export function formatCreatorTypeLabel(creatorType: ExploreCreatorType | undefined) {
   switch (creatorType) {
     case "editorial":

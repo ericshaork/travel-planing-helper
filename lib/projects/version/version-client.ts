@@ -166,6 +166,9 @@ export async function saveWorkspacePlanAsNewVersion(
           dependencies,
         )
       : null;
+  if (session.versionId && !currentVersion) {
+    return null;
+  }
   const tripRequestSnapshot =
     input.tripRequest ?? currentVersion?.tripRequestSnapshot ?? null;
 

@@ -73,7 +73,7 @@ function ToolbarButton({
     <button
       type="button"
       onClick={onClick}
-      className={`map-desk-toolbar ${
+      className={`map-desk-toolbar min-h-[1.8rem] px-2 py-0.5 text-[10px] ${
         active
           ? "!border-[var(--clay-deep)] !bg-[rgb(255_253_247_/_0.96)] !text-[var(--ink)]"
           : ""
@@ -211,7 +211,7 @@ export function MapPanel({
   return (
     <section
       id="workspace-route-insight"
-      className="map-workspace-shell relative h-full min-h-0 overflow-hidden"
+      className="workbench-map-frame map-workspace-shell relative h-full min-h-0 overflow-hidden"
     >
       <div className="absolute inset-0 overflow-hidden">
         <InspectorMapPreview
@@ -227,59 +227,25 @@ export function MapPanel({
         />
       </div>
 
-      <div className="pointer-events-none absolute inset-x-3 top-3 z-[5] sm:inset-x-4">
-        <div className="pointer-events-auto flex flex-wrap items-start justify-between gap-3">
-          <div
-            className={`map-desk-overlay ${
-              compactBlankReadMode
-                ? "max-w-[14rem] px-2.5 py-2 opacity-90"
-                : "max-w-[18rem] px-3 py-2"
+      <div className="pointer-events-none absolute inset-x-3 top-2 z-[5] sm:inset-x-4">
+        <div className="pointer-events-auto flex flex-wrap items-start justify-between gap-2">
+          <div className="sr-only" aria-live="polite">
+            {`桌面地图，${buildPaneDescription({
+              insight,
+              isBlankWorkspace,
+              activeCabinet,
+              hasStops,
+            })}，${workspaceMode === "edit" ? "编辑中" : "阅读中"}，${
+              insight?.mapPoints.length ?? 0
+            } 个地点，${
+              insight?.routeSummary
+                ? formatRouteDistance(stats.totalDistanceMeters)
+                : "等待路线"
             }`}
-          >
-            <p className="map-desk-kicker">桌面地图</p>
-            <div className="mt-1 flex flex-wrap items-center gap-2">
-              <h2
-                className={
-                  compactBlankReadMode
-                    ? "text-sm font-semibold text-[var(--ink)]"
-                    : "text-base font-semibold text-[var(--ink)] sm:text-lg"
-                }
-              >
-                这天的路线
-              </h2>
-              <span className="map-desk-chip">
-                {buildPaneDescription({
-                  insight,
-                  isBlankWorkspace,
-                  activeCabinet,
-                  hasStops,
-                })}
-              </span>
-              {!compactBlankReadMode ? (
-                <>
-                  <span className="map-desk-chip">
-                    {workspaceMode === "edit" ? "编辑中" : "阅读中"}
-                  </span>
-                  <span className="map-desk-chip">
-                    {insight?.mapPoints.length ?? 0} 个地点
-                  </span>
-                  <span className="map-desk-chip">
-                    {insight?.routeSummary
-                      ? formatRouteDistance(stats.totalDistanceMeters)
-                      : "等待路线"}
-                  </span>
-                </>
-              ) : null}
-            </div>
-            {compactBlankReadMode ? (
-              <p className="mt-1.5 text-xs leading-5 text-[var(--ink-muted)]">
-                添加第一站后，这里会开始标记路线。
-              </p>
-            ) : null}
           </div>
 
           {showMapTools ? (
-            <div className="flex flex-wrap items-center justify-end gap-1.5">
+            <div className="flex flex-wrap items-center justify-end gap-1">
               <ToolbarButton
                 label="搜搜地点"
                 active={isSearchOpen}

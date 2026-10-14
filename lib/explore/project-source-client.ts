@@ -110,10 +110,7 @@ async function createExploreProject(
   const accessToken = await getAccessToken().catch(() => null);
 
   if (!accessToken) {
-    console.error("[Explore Project Create] Missing access token", {
-      hasAccessToken: false,
-    });
-    throw new Error("璇峰厛鐧诲綍锛屽啀浠?Explore 鍒涘缓鏃呰椤圭洰銆?");
+    return null;
   }
 
   const projectPayload = {
@@ -127,39 +124,15 @@ async function createExploreProject(
     },
   };
 
-  console.info("[Explore Project Create] Request", {
-    hasAccessToken: true,
-    payload: projectPayload,
+  const response = await fetcher("/api/projects", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${accessToken}`,
+    },
+    body: JSON.stringify(projectPayload),
   });
-
-  let response: Response;
-
-  try {
-    response = await fetcher("/api/projects", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${accessToken}`,
-      },
-      body: JSON.stringify(projectPayload),
-    });
-  } catch (error) {
-    console.error("[Explore Project Create] Fetch failed", {
-      message: error instanceof Error ? error.message : String(error),
-      stack: error instanceof Error ? error.stack : undefined,
-      error,
-    });
-    throw error;
-  }
-
-  const contentType = response.headers.get("content-type");
   const rawBody = await response.text();
-
-  console.info("[Explore Project Create] Response", {
-    status: response.status,
-    contentType,
-    rawBody,
-  });
 
   let payload: ExploreProjectCreateResponse | ApiErrorResponse | null = null;
 
@@ -172,8 +145,16 @@ async function createExploreProject(
   }
 
   if (!response.ok || !payload || !("project" in payload) || !payload.project?.id) {
+    if (
+      response.status === 401 ||
+      (payload as Partial<ApiErrorResponse> | null)?.error?.code ===
+        "UNAUTHORIZED"
+    ) {
+      return null;
+    }
+
     throw new Error(
-      getApiErrorMessage(payload, "鏃呰椤圭洰鍒涘缓澶辫触锛岃绋嶅悗鍐嶈瘯銆?"),
+      getApiErrorMessage(payload, "旅行项目创建失败，请稍后再试。"),
     );
   }
 
@@ -198,6 +179,12 @@ export async function startExploreProjectCreateFlow(
     },
     dependencies,
   );
+
+  if (!created) {
+    markCurrentTripAsUnsaved(storage);
+    saveTripPlanDraft(draft, storage);
+    return null;
+  }
 
   const fetcher = dependencies.fetcher ?? getDefaultFetcher();
   let flowStage = created.flowStage;
@@ -278,7 +265,7 @@ export async function prepareExploreProjectWorkspaceFlow(
   );
 
   if (!created) {
-    throw new Error("璇峰厛鐧诲綍锛屽啀灏嗚繖浠借绋嬪鍏ュ伐浣滃彴銆?");
+    throw new Error("请先登录，再将这份行程导入工作台。");
   }
 
   markCurrentTripAsUnsaved(storage);

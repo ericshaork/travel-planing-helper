@@ -94,11 +94,11 @@ export function TripEditor({
         id="workspace-editor"
         className={`${
           compactEmptyEditMode
-            ? "flex h-full min-h-0 flex-col overflow-hidden p-0"
-            : `journal-sheet ${
+            ? "workbench-cabinet-panel workbench-cabinet-panel--compact flex h-full min-h-0 flex-col overflow-hidden p-0"
+            : `workbench-cabinet-panel cabinet-wood-surface ${
                 compactBlankReadMode
                   ? "flex h-full min-h-0 flex-col overflow-hidden px-3 py-3 sm:px-4 sm:py-3"
-                  : "px-5 py-5 sm:px-6 sm:py-6"
+                  : "px-4 py-4 sm:px-5 sm:py-5"
               }`
         }`}
       >

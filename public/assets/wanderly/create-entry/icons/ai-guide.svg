@@ -1,0 +1,9 @@
+<svg width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>AI 创建</title>
+  <rect x="18" y="18" width="60" height="60" rx="8" fill="#F6EEDB" stroke="#2F4E35" stroke-width="2.5"/>
+  <path d="M48 28L52.6 42.4L67 47L52.6 51.6L48 66L43.4 51.6L29 47L43.4 42.4L48 28Z" fill="#D8B46A" stroke="#6D5132" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M30 27C35 22 43 21 48 24" stroke="#B85C49" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 5"/>
+  <path d="M66 67C61 72 53 73 48 70" stroke="#B85C49" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 5"/>
+  <circle cx="29" cy="27" r="3" fill="#B85C49"/>
+  <circle cx="67" cy="67" r="3" fill="#B85C49"/>
+</svg>

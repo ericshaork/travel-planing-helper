@@ -68,6 +68,7 @@ export function Header({
                 height={102}
                 priority
                 className="h-auto w-[9.8rem]"
+                style={{ height: "auto" }}
               />
             </Link>
 
@@ -81,10 +82,10 @@ export function Header({
     }
 
     return (
-      <header className="mx-auto flex w-full max-w-[clamp(1280px,88vw,1680px)] items-start justify-between gap-6 px-4 py-5 sm:px-6 sm:py-7 lg:px-8">
+      <header className="mx-auto flex w-full max-w-[clamp(1280px,88vw,1680px)] items-center justify-between gap-6 px-4 py-2.5 sm:px-6 sm:py-3 lg:px-8">
         <Link
           href="/"
-          className="inline-flex shrink-0 rounded-[20px] border border-[rgba(193,181,158,0.18)] bg-[rgba(255,249,239,0.32)] px-2.5 py-1.5 text-[var(--ink)] shadow-[0_4px_10px_rgba(65,58,45,0.025)] backdrop-blur-[5px] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--clay)]"
+          className="inline-flex shrink-0 rounded-[20px] border border-[rgba(193,181,158,0.18)] bg-[rgba(255,249,239,0.32)] px-2 py-1 text-[var(--ink)] shadow-[0_4px_10px_rgba(65,58,45,0.025)] backdrop-blur-[5px] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--clay)]"
         >
           <Image
             src="/images/brand/logo/logo-horizontal-transparent.svg"
@@ -92,7 +93,8 @@ export function Header({
             width={182}
             height={102}
             priority
-            className="h-auto w-[9.8rem]"
+            className="h-auto w-[8rem]"
+            style={{ height: "auto" }}
           />
         </Link>
 
@@ -105,29 +107,32 @@ export function Header({
   }
 
   return (
-    <header className="mx-auto flex w-full max-w-6xl items-center justify-between gap-3 px-5 py-5 sm:px-8 sm:py-7">
-      <div className="flex min-w-0 items-center gap-3" aria-label="漫游草签">
+    <header className="mx-auto flex w-full max-w-[1120px] items-center justify-between gap-3 px-4 py-3 sm:px-6 sm:py-4">
+      <div
+        className="flex min-w-0 items-center gap-3"
+        aria-label="Wanderly 旅行计划工作台"
+      >
         <span
           aria-hidden="true"
-          className="grid size-8 shrink-0 -rotate-3 place-items-center border border-[var(--ink)] bg-[var(--paper)] shadow-[3px_3px_0_var(--sand-deep)]"
+          className="grid size-8 shrink-0 -rotate-3 place-items-center border border-[var(--ink)] bg-[var(--paper)] text-xs font-black text-[var(--ink)] shadow-[3px_3px_0_var(--sand-deep)]"
         >
-          <span className="size-2 rounded-full bg-[var(--clay)]" />
+          W
         </span>
         <div className="min-w-0">
           <p className="break-words text-sm font-bold tracking-[0.14em]">
-            漫游草签
+            Wanderly
           </p>
           <p className="break-words text-[11px] text-[var(--ink-muted)]">
-            自由行路线整理
+            旅行计划工作台
           </p>
         </div>
       </div>
 
-      <div className="flex max-w-full items-center gap-3">
-        <p className="text-right text-xs leading-5 text-[var(--ink-muted)] sm:block">
-          不卖课，只帮你先想清楚
+      <div className="flex max-w-full items-center gap-2">
+        <p className="hidden text-right text-[11px] leading-5 text-[var(--ink-muted)] sm:block">
+          把旅行想法整理成可执行行程
         </p>
-        <UserMenu />
+        <UserMenu minimal />
       </div>
     </header>
   );

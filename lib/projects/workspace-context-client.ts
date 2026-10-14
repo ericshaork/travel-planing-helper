@@ -2,6 +2,7 @@
 
 import { getBrowserAccessToken } from "../supabase/auth-client";
 import {
+  clearTripRequest,
   loadTripPlan,
   loadTripRequest,
   saveTripPlan,
@@ -11,6 +12,10 @@ import {
 import type { TripPlan, TripRequest } from "../trip/types";
 import { getProjectSession, mergeProjectSession } from "./session";
 import type { TravelProjectFlowStage } from "./types";
+
+const WORKSPACE_PROJECT_DRAFT_STORAGE_KEY = "travel-planning:workspace-project-draft";
+const WORKSPACE_PROJECT_FALLBACK_STORAGE_KEY =
+  "travel-planning:workspace-project-fallback";
 
 type FetchLike = (input: string | URL | Request, init?: RequestInit) => Promise<Response>;
 
@@ -88,6 +93,105 @@ export function touchWorkspaceProjectContext(storage?: StorageLike) {
   );
 }
 
+export function markWorkspaceProjectDraft(storage?: StorageLike) {
+  const session = getProjectSession(storage);
+  const targetStorage = storage ?? (typeof window === "undefined" ? undefined : window.localStorage);
+
+  if (!session?.projectId || !session.versionId || !targetStorage) {
+    return;
+  }
+
+  targetStorage.setItem(
+    WORKSPACE_PROJECT_DRAFT_STORAGE_KEY,
+    JSON.stringify({ projectId: session.projectId, versionId: session.versionId }),
+  );
+}
+
+function clearWorkspaceProjectDraft(storage?: StorageLike) {
+  const targetStorage = storage ?? (typeof window === "undefined" ? undefined : window.localStorage);
+  targetStorage?.removeItem(WORKSPACE_PROJECT_DRAFT_STORAGE_KEY);
+}
+
+function writeWorkspaceProjectMarker(
+  key: string,
+  projectId: string,
+  versionId: string,
+  storage?: StorageLike,
+) {
+  const targetStorage = storage ?? (typeof window === "undefined" ? undefined : window.localStorage);
+
+  targetStorage?.setItem(
+    key,
+    JSON.stringify({ projectId, versionId }),
+  );
+}
+
+function readWorkspaceProjectMarker(
+  key: string,
+  projectId: string,
+  versionId: string,
+  storage?: StorageLike,
+) {
+  const targetStorage = storage ?? (typeof window === "undefined" ? undefined : window.localStorage);
+  const serialized = targetStorage?.getItem(key);
+
+  if (!serialized) {
+    return false;
+  }
+
+  try {
+    const draft = JSON.parse(serialized) as { projectId?: unknown; versionId?: unknown };
+    if (draft.projectId === projectId && draft.versionId === versionId) {
+      return true;
+    }
+  } catch {
+    // Ignore stale or invalid browser state.
+  }
+
+  targetStorage?.removeItem(key);
+  return false;
+}
+
+function loadWorkspaceProjectLocalPlan(
+  projectId: string,
+  versionId: string,
+  storage?: StorageLike,
+) {
+  const hasDraft = readWorkspaceProjectMarker(
+    WORKSPACE_PROJECT_DRAFT_STORAGE_KEY,
+    projectId,
+    versionId,
+    storage,
+  );
+  const hasFallback = readWorkspaceProjectMarker(
+    WORKSPACE_PROJECT_FALLBACK_STORAGE_KEY,
+    projectId,
+    versionId,
+    storage,
+  );
+
+  if (!hasDraft && !hasFallback) {
+    return null;
+  }
+
+  return loadTripPlan(storage);
+}
+
+export function markWorkspaceProjectLocalFallback(storage?: StorageLike) {
+  const session = getProjectSession(storage);
+
+  if (!session?.projectId || !session.versionId) {
+    return;
+  }
+
+  writeWorkspaceProjectMarker(
+    WORKSPACE_PROJECT_FALLBACK_STORAGE_KEY,
+    session.projectId,
+    session.versionId,
+    storage,
+  );
+}
+
 export interface WorkspaceVersionHandoffInput {
   versionId: string;
   tripPlan?: TripPlan | null;
@@ -109,9 +213,17 @@ export function applyWorkspaceVersionHandoff(
     return null;
   }
 
+  clearWorkspaceProjectDraft(storage);
+
   if (input.tripPlan) {
     try {
       saveTripPlan(input.tripPlan, storage);
+      writeWorkspaceProjectMarker(
+        WORKSPACE_PROJECT_FALLBACK_STORAGE_KEY,
+        session.projectId,
+        input.versionId.trim(),
+        storage,
+      );
     } catch (error) {
       // 本地落盘失败（例如该版本 tripPlan 结构不合当前 schema）不应挡住跳转，
       // 已登录场景下 Workspace 仍会按 session.versionId 重新拉取这一版。
@@ -133,6 +245,34 @@ export function applyWorkspaceVersionHandoff(
 export function loadWorkspaceLocalTripState(storage?: StorageLike) {
   return {
     tripPlan: loadTripPlan(storage),
+    tripRequest: loadTripRequest(storage),
+  };
+}
+
+export function loadWorkspaceProjectLocalFallbackContext(
+  storage?: StorageLike,
+): WorkspaceProjectContext | null {
+  const session = getProjectSession(storage);
+
+  if (!session?.projectId || !session.versionId) {
+    return null;
+  }
+
+  const tripPlan = loadWorkspaceProjectLocalPlan(
+    session.projectId,
+    session.versionId,
+    storage,
+  );
+
+  if (!tripPlan) {
+    return null;
+  }
+
+  return {
+    projectId: session.projectId,
+    versionId: session.versionId,
+    flowStage: resolveFlowStage(session.flowStage),
+    tripPlan,
     tripRequest: loadTripRequest(storage),
   };
 }
@@ -198,10 +338,24 @@ export async function restoreWorkspaceProjectVersionContext(
     return null;
   }
 
-  saveTripPlan(tripPlan, dependencies.storage);
+  const localDraft = loadWorkspaceProjectLocalPlan(
+    session.projectId,
+    versionId,
+    dependencies.storage,
+  );
+  const restoredPlan = localDraft ?? tripPlan;
+  saveTripPlan(restoredPlan, dependencies.storage);
+  writeWorkspaceProjectMarker(
+    WORKSPACE_PROJECT_FALLBACK_STORAGE_KEY,
+    session.projectId,
+    versionId,
+    dependencies.storage,
+  );
 
   if (tripRequest) {
     saveTripRequest(tripRequest, dependencies.storage);
+  } else {
+    clearTripRequest(dependencies.storage);
   }
 
   mergeProjectSession(
@@ -218,7 +372,7 @@ export async function restoreWorkspaceProjectVersionContext(
     projectId: session.projectId,
     versionId,
     flowStage,
-    tripPlan,
+    tripPlan: restoredPlan,
     tripRequest,
   };
 }

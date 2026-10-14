@@ -8,9 +8,9 @@ import {
 import {
   getProjectSession,
   mergeProjectSession,
-  type TravelProjectSession,
   type TravelProjectSessionSourceType,
 } from "./session";
+import { markWorkspaceProjectLocalFallback } from "./workspace-context-client";
 import type { TravelProjectFlowStage, TravelProjectMessage } from "./types";
 import type { ApiErrorResponse } from "../utils/errors";
 import {
@@ -363,6 +363,7 @@ export async function generateCreateProposal(
     },
     dependencies.storage,
   );
+  markWorkspaceProjectLocalFallback(dependencies.storage);
 
   return {
     projectId,

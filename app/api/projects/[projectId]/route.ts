@@ -50,7 +50,7 @@ export function createProjectDetailGetHandler(
           {
             error: {
               code: "UNKNOWN_ERROR",
-              message: "杩欎釜鏃呰椤圭洰鏆傛椂涓嶅瓨鍦ㄦ垨浣犳病鏈夋潈闄愭墦寮€瀹冦€?",
+              message: "这个旅行项目暂时不存在，或你没有权限打开它。",
             },
           },
           { status: 404 },
@@ -121,7 +121,7 @@ export function createProjectPatchHandler(
           {
             error: {
               code: "UNKNOWN_ERROR",
-              message: "Travel project not found.",
+              message: "这个旅行项目暂时不存在。",
             },
           },
           { status: 404 },
@@ -135,7 +135,7 @@ export function createProjectPatchHandler(
       if (error instanceof z.ZodError) {
         return NextResponse.json(
           toApiErrorResponse(
-            new AppError("INVALID_INPUT", "Project update payload is invalid."),
+            new AppError("INVALID_INPUT", "项目更新信息不完整，请检查后再试。"),
           ),
           { status: 400 },
         );

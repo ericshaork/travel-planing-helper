@@ -1,0 +1,7 @@
+<svg width="420" height="120" viewBox="0 0 420 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>虚线路线装饰</title>
+  <path d="M22 90C84 20 142 132 206 58C260 -4 308 66 398 20" stroke="#B85C49" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="4 12" opacity=".62"/>
+  <circle cx="22" cy="90" r="7" fill="#F6EEDB" stroke="#B85C49" stroke-width="2" opacity=".85"/>
+  <circle cx="206" cy="58" r="5" fill="#F6EEDB" stroke="#6D5132" stroke-width="2" opacity=".78"/>
+  <path d="M398 20L384 25L392 34L398 20Z" fill="#B85C49" opacity=".78"/>
+</svg>

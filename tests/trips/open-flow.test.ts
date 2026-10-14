@@ -1,6 +1,7 @@
 import { describe, expect, it, vi } from "vitest";
 
 import { getProjectSession } from "../../lib/projects/session";
+import { loadTripPlan } from "../../lib/trip/storage";
 import { openSavedTripIntoWorkspace } from "../../lib/trips/open-flow";
 import type { SavedTripDetail } from "../../lib/trips/types";
 
@@ -162,6 +163,23 @@ describe("openSavedTripIntoWorkspace", () => {
     expect(openTrip).toHaveBeenCalledWith("trip-1");
     expect(restoreTrip).toHaveBeenCalled();
     expect(navigate).toHaveBeenCalledWith("/workspace");
+  });
+
+  it("opens a legacy saved trip without writing project version session", async () => {
+    const storage = new MemoryStorage();
+    const openTrip = vi.fn().mockResolvedValue(savedTrip);
+    const navigate = vi.fn();
+
+    await openSavedTripIntoWorkspace("trip-1", {
+      storage,
+      openTrip,
+      markTripOpened: vi.fn().mockResolvedValue(undefined),
+      navigate,
+    });
+
+    expect(navigate).toHaveBeenCalledWith("/workspace");
+    expect(getProjectSession(storage)).toBeNull();
+    expect(loadTripPlan(storage)?.tripTitle).toBe("厦门 3 天慢慢玩");
   });
 
   it("opens a project item with file import source using version context", async () => {

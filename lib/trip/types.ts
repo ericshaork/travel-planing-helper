@@ -186,8 +186,27 @@ export interface GenerateTripRequest {
   previousPlan?: TripPlan;
 }
 
+export interface TripEvidenceSourceMetadata {
+  provider: string;
+  fieldName?: string;
+  sourceUrl?: string | null;
+  externalId?: string | null;
+  confidence: number | null;
+  fetchedAt?: string | null;
+  lastVerifiedAt?: string | null;
+}
+
+export interface TripEvidenceMetadata {
+  sources: TripEvidenceSourceMetadata[];
+  confidence: number | null;
+  lastVerifiedAt: string | null;
+  missingFields: string[];
+  warnings: string[];
+}
+
 export interface GenerateTripResponse {
   tripPlan: TripPlan;
   appliedChanges?: string[];
   warnings?: string[];
+  evidenceMetadata?: TripEvidenceMetadata;
 }

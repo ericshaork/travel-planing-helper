@@ -39,6 +39,8 @@
     "hooks/**/*.tsx",
     "lib/**/*.ts",
     "lib/**/*.tsx",
+    "src/**/*.ts",
+    "src/**/*.tsx",
     "styles/**/*.ts",
     "styles/**/*.tsx",
     "supabase/**/*.ts",

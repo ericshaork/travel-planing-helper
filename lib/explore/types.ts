@@ -38,6 +38,7 @@ export interface ExploreTripPoi {
   type?: string;
   reason: string;
   recommendedDurationMinutes?: number;
+  imageUrl?: string;
 }
 
 export interface ExploreTripFood {
@@ -46,6 +47,7 @@ export interface ExploreTripFood {
   district?: string;
   category?: string;
   reason: string;
+  imageUrl?: string;
 }
 
 export interface ExploreTripSourceMeta {

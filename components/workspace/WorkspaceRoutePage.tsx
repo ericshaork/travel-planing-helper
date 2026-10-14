@@ -9,13 +9,20 @@ import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { createBlankWorkspaceProjectEntry } from "@/lib/projects/entry-client";
 import { getUserSettings } from "@/lib/settings/client";
-import { restoreWorkspaceProjectVersionContext } from "@/lib/projects/workspace-context-client";
+import {
+  loadWorkspaceProjectLocalFallbackContext,
+  restoreWorkspaceProjectVersionContext,
+} from "@/lib/projects/workspace-context-client";
+import { getProjectSession } from "@/lib/projects/session";
 import {
   loadTripPlan,
   loadTripRequest,
 } from "@/lib/trip/storage";
 import type { TripPlan, TripRequest } from "@/lib/trip/types";
-import type { WorkspaceMode } from "@/hooks/useTripWorkspaceState";
+import type {
+  WorkspaceDefaultMode,
+  WorkspaceMode,
+} from "@/hooks/useTripWorkspaceState";
 
 import { TripWorkspace } from "./TripWorkspace";
 
@@ -27,16 +34,16 @@ interface WorkspaceRoutePageProps {
 }
 
 const chromeLinkClass =
-  "inline-flex min-h-8 items-center rounded-full border border-[rgba(204,193,171,0.28)] bg-[rgba(255,251,243,0.38)] px-2.5 py-1 text-xs font-semibold text-[rgba(88,69,52,0.92)] transition-colors hover:bg-[rgba(255,251,243,0.58)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[rgba(88,69,52,0.4)]";
+  "workbench-top-link inline-flex min-h-6 items-center rounded-full px-2 py-0.5 text-[11px] font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[rgba(88,69,52,0.4)]";
 
 export function WorkspaceChromeHeader() {
   return (
-    <header className="shrink-0 border-b border-[rgba(158,136,110,0.16)] bg-[rgba(250,245,234,0.82)] px-3 py-1.5 backdrop-blur-[4px] sm:px-4">
-      <div className="mx-auto flex w-full max-w-[clamp(1280px,92vw,1760px)] items-center justify-between gap-3">
+    <header className="workbench-chrome-header shrink-0 px-3 py-1 sm:px-4">
+      <div className="mx-auto flex w-full max-w-[clamp(1280px,92vw,1760px)] items-center justify-between gap-2">
         <Link
           href="/"
           aria-label="Wanderly 首页"
-          className="inline-flex shrink-0 items-center rounded-[14px] border border-[rgba(193,181,158,0.18)] bg-[rgba(255,249,239,0.38)] px-2 py-1 shadow-[0_4px_10px_rgba(65,58,45,0.025)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)]"
+          className="workbench-logo-card inline-flex shrink-0 items-center rounded-[10px] px-1.5 py-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)]"
         >
           <Image
             src="/images/brand/logo/logo-horizontal-transparent.svg"
@@ -44,15 +51,16 @@ export function WorkspaceChromeHeader() {
             width={146}
             height={82}
             priority
-            className="h-auto w-[7.2rem]"
+            className="h-8 w-auto"
+            style={{ width: "auto" }}
           />
         </Link>
 
-        <div className="flex min-w-0 items-center justify-end gap-2">
+        <div className="flex min-w-0 items-center justify-end gap-1.5">
           <Link href="/explore" className={chromeLinkClass}>
             返回探索
           </Link>
-          <span className="hidden rounded-full border border-[rgba(158,136,110,0.16)] bg-[rgba(255,253,247,0.62)] px-3 py-1 text-xs font-semibold text-[var(--ink-muted)] lg:inline-flex">
+          <span className="workbench-top-link hidden rounded-full px-2.5 py-0.5 text-[11px] font-semibold lg:inline-flex">
             工作台
           </span>
           <UserMenu minimal />
@@ -133,6 +141,8 @@ export function WorkspaceRoutePage({ mode }: WorkspaceRoutePageProps) {
   const [tripPlan, setTripPlan] = useState<TripPlan | null>(null);
   const [tripRequest, setTripRequest] = useState<TripRequest | null>(null);
   const [initialWorkspaceModeDefault, setInitialWorkspaceModeDefault] =
+    useState<WorkspaceDefaultMode>("read");
+  const [activeWorkspaceMode, setActiveWorkspaceMode] =
     useState<WorkspaceMode>("read");
 
   useEffect(() => {
@@ -140,10 +150,20 @@ export function WorkspaceRoutePage({ mode }: WorkspaceRoutePageProps) {
       void (async () => {
         const restoredProjectContext =
           await restoreWorkspaceProjectVersionContext().catch(() => null);
-        const savedTripPlan =
-          restoredProjectContext?.tripPlan ?? loadTripPlan();
-        const savedTripRequest =
-          restoredProjectContext?.tripRequest ?? loadTripRequest();
+        const projectSession = getProjectSession();
+        const projectFallbackContext =
+          restoredProjectContext ??
+          loadWorkspaceProjectLocalFallbackContext();
+        const savedTripPlan = projectFallbackContext
+          ? projectFallbackContext.tripPlan
+          : projectSession?.projectId
+            ? null
+            : loadTripPlan();
+        const savedTripRequest = projectFallbackContext
+          ? projectFallbackContext.tripRequest
+          : projectSession?.projectId
+            ? null
+            : loadTripRequest();
 
         setTripRequest(savedTripRequest);
 
@@ -186,14 +206,27 @@ export function WorkspaceRoutePage({ mode }: WorkspaceRoutePageProps) {
     return <MissingWorkspaceState />;
   }
 
+  const isMapStudioMode = activeWorkspaceMode === "map";
+
   return (
-    <div className="paper-texture flex h-[100dvh] min-h-[100dvh] flex-col overflow-hidden text-[var(--ink)]">
-      <WorkspaceChromeHeader />
-      <main className="flex min-h-0 w-full flex-1 flex-col overflow-hidden px-3 pb-3 pt-1 sm:px-4 sm:pb-4 lg:px-4">
+    <div
+      className={`paper-texture flex h-[100dvh] min-h-[100dvh] flex-col overflow-hidden text-[var(--ink)] ${
+        isMapStudioMode ? "bg-[#050706]" : "workbench-shell"
+      }`}
+    >
+      {isMapStudioMode ? null : <WorkspaceChromeHeader />}
+      <main
+        className={
+          isMapStudioMode
+            ? "flex min-h-0 w-full flex-1 flex-col overflow-hidden"
+            : "flex min-h-0 w-full flex-1 flex-col overflow-hidden px-2 pb-2 pt-0.5 sm:px-3 sm:pb-3 lg:px-3"
+        }
+      >
         <TripWorkspace
           tripPlan={tripPlan}
           tripRequest={tripRequest}
           initialWorkspaceModeDefault={initialWorkspaceModeDefault}
+          onWorkspaceModeChange={setActiveWorkspaceMode}
         />
       </main>
     </div>
