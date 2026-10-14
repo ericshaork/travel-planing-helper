@@ -1,0 +1,56 @@
+<svg width="220" height="92" viewBox="0 0 220 92" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="outerMetalCn" x1="15" y1="8" x2="205" y2="84" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#6A4A22"/>
+      <stop offset="0.24" stop-color="#C69B50"/>
+      <stop offset="0.52" stop-color="#4A3219"/>
+      <stop offset="0.82" stop-color="#A87938"/>
+      <stop offset="1" stop-color="#2D2117"/>
+    </linearGradient>
+    <linearGradient id="innerPaperCn" x1="30" y1="18" x2="190" y2="74" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#30291F"/>
+      <stop offset="0.48" stop-color="#181816"/>
+      <stop offset="1" stop-color="#2A231B"/>
+    </linearGradient>
+    <radialGradient id="softSheenCn" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(58 25) rotate(25) scale(120 48)">
+      <stop stop-color="#F0D89D" stop-opacity="0.18"/>
+      <stop offset="0.56" stop-color="#B1843F" stop-opacity="0.05"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadowCn" x="0" y="0" width="220" height="92" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#000000" flood-opacity="0.38"/>
+    </filter>
+    <filter id="fineGlowCn" x="26" y="20" width="60" height="54" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="0" stdDeviation="1.4" flood-color="#B9893E" flood-opacity="0.26"/>
+    </filter>
+    <pattern id="paperGrainCn" width="18" height="18" patternUnits="userSpaceOnUse">
+      <path d="M3 5H4M12 4H13M8 13H9M15 15H16M2 16H3" stroke="#E6D2A2" stroke-opacity="0.052" stroke-width="1"/>
+      <path d="M0 9H18" stroke="#000000" stroke-opacity="0.04" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <g filter="url(#shadowCn)">
+    <path d="M28 7H192L213 28V64L192 85H28L7 64V28L28 7Z" fill="#151514"/>
+    <path d="M29 7.5H191L212.5 29V63L191 84.5H29L7.5 63V29L29 7.5Z" stroke="url(#outerMetalCn)" stroke-width="2.4"/>
+    <path d="M38 18H182L199 35V57L182 74H38L21 57V35L38 18Z" fill="url(#innerPaperCn)" stroke="#85602D" stroke-width="1.1"/>
+    <path d="M38 18H182L199 35V57L182 74H38L21 57V35L38 18Z" fill="url(#softSheenCn)"/>
+    <path d="M38 18H182L199 35V57L182 74H38L21 57V35L38 18Z" fill="url(#paperGrainCn)" opacity="0.85"/>
+
+    <g opacity="0.62">
+      <path d="M40 26H62M158 26H180M40 66H62M158 66H180" stroke="#C49A52" stroke-width="0.9" stroke-linecap="round"/>
+      <path d="M34 35L26 43M186 24L194 32M34 57L26 49M186 68L194 60" stroke="#664722" stroke-width="0.9" stroke-linecap="round"/>
+    </g>
+
+    <g filter="url(#fineGlowCn)">
+      <path d="M46 35L64 30L82 35V56L64 62L46 56V35Z" stroke="#D6B264" stroke-width="1.8" stroke-linejoin="round"/>
+      <path d="M64 30V62" stroke="#F0DEAE" stroke-opacity="0.82" stroke-width="1.35" stroke-linecap="round"/>
+      <path d="M46 35L64 41L82 35" stroke="#F0DEAE" stroke-opacity="0.82" stroke-width="1.35" stroke-linejoin="round"/>
+      <path d="M52 49C56 45 60 45 64 48C69 52 74 51 79 47" stroke="#B9863D" stroke-width="1.5" stroke-linecap="round"/>
+      <circle cx="64" cy="45.5" r="3" fill="#EBD5A0"/>
+    </g>
+
+    <path d="M98 27V65" stroke="#6D4B24" stroke-width="1"/>
+    <path d="M100 27V65" stroke="#D1A553" stroke-opacity="0.34" stroke-width="1"/>
+    <text x="125" y="56" text-anchor="middle" fill="#F0E6CF" font-family="'Noto Serif SC','Songti SC','SimSun',serif" font-size="25" font-weight="700" letter-spacing="3">区域</text>
+  </g>
+</svg>

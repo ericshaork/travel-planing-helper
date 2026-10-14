@@ -1,0 +1,8 @@
+<svg width="180" height="120" viewBox="0 0 180 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>票据角标装饰</title>
+  <path d="M16 42V18H42" stroke="#6D5132" stroke-width="2" opacity=".55" stroke-linecap="round"/>
+  <path d="M164 42V18H138" stroke="#6D5132" stroke-width="2" opacity=".55" stroke-linecap="round"/>
+  <path d="M16 78V102H42" stroke="#6D5132" stroke-width="2" opacity=".55" stroke-linecap="round"/>
+  <path d="M164 78V102H138" stroke="#6D5132" stroke-width="2" opacity=".55" stroke-linecap="round"/>
+  <path d="M58 60H122" stroke="#B85C49" stroke-width="2" opacity=".45" stroke-linecap="round" stroke-dasharray="4 7"/>
+</svg>

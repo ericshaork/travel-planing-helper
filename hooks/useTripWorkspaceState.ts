@@ -4,6 +4,11 @@ import type { WorkspaceSidebarItemId } from "@/components/workspace/WorkspaceSid
 import type { PoiCandidate, Coordinates } from "@/lib/poi/types";
 import type { RouteEstimateResult } from "@/lib/route/types";
 import type { WorkspacePreferences } from "@/lib/settings/types";
+import {
+  applyCandidateToTripPlan,
+  revertCandidateFromTripPlan,
+} from "@/lib/map-studio/trip-adapter";
+import type { CandidatePlace } from "@/lib/map-studio/types";
 import type { TripResultEnrichment } from "@/lib/trip/enrichment-types";
 import {
   mapTripPlanToCabinets,
@@ -55,7 +60,8 @@ export interface WorkspaceNavItem {
   badge?: number;
 }
 
-export type WorkspaceMode = "read" | "edit";
+export type WorkspaceMode = "read" | "edit" | "map";
+export type WorkspaceDefaultMode = Extract<WorkspaceMode, "read" | "edit">;
 export interface WorkspaceDistanceSummary {
   fromName: string;
   toName: string;
@@ -81,11 +87,11 @@ type MobilePageKey =
 interface UseTripWorkspaceStateOptions {
   tripPlan: TripPlan;
   tripRequest: TripRequest | null;
-  initialWorkspaceModeDefault?: WorkspaceMode;
+  initialWorkspaceModeDefault?: WorkspaceDefaultMode;
 }
 
 export function resolveInitialWorkspaceModeDefault(input: {
-  sessionModeDefault?: WorkspaceMode;
+  sessionModeDefault?: WorkspaceDefaultMode;
   settingsDefaultMode?: WorkspacePreferences["defaultMode"];
 }) {
   return input.sessionModeDefault ?? input.settingsDefaultMode ?? "read";
@@ -638,6 +644,9 @@ export function useTripWorkspaceState({
   function handleWorkspaceModeChange(mode: WorkspaceMode) {
     setWorkspaceMode(mode);
     setActiveWorkspaceNav(mode === "edit" ? "edit" : "route");
+    if (mode === "map") {
+      setActiveMobilePage("route");
+    }
     setSidebarNotice(null);
   }
 
@@ -675,6 +684,75 @@ export function useTripWorkspaceState({
     map.clearMapSelection();
 
     return nextTripPlan;
+  }
+
+  function handleMapStudioCandidateAssign(input: {
+    candidate: CandidatePlace;
+    dayNumber: number;
+    slot: TimeSlotKey;
+  }) {
+    const result = applyCandidateToTripPlan({
+      tripPlan: currentTripPlan,
+      candidate: input.candidate,
+      dayNumber: input.dayNumber,
+      slot: input.slot,
+    });
+    const nextTripPlan = persistWorkspaceTripPlan(result.tripPlan);
+
+    setActiveWorkspaceDayNumber(input.dayNumber);
+    setSelectedInsightDay(input.dayNumber);
+    setActiveWorkspaceNav("route");
+    setActiveMobilePage(`day-${input.dayNumber}`);
+    setSidebarNotice({
+      title: "已写入行程",
+      message: `${result.item.placeName} 已加入 Day ${input.dayNumber} 的${result.item.timeLabel ?? "时段"}。`,
+    });
+    setMapActionMessage(
+      `${result.item.placeName} 已加入 Day ${input.dayNumber} 的${result.item.timeLabel ?? "时段"}。`,
+    );
+    map.clearMapSelection();
+
+    return {
+      ...result,
+      tripPlan: nextTripPlan,
+    };
+  }
+
+  function handleMapStudioCandidateUndo(input: {
+    candidate: CandidatePlace;
+    dayNumber: number;
+    slot: TimeSlotKey;
+  }) {
+    const result = revertCandidateFromTripPlan({
+      tripPlan: currentTripPlan,
+      candidate: input.candidate,
+      dayNumber: input.dayNumber,
+      slot: input.slot,
+    });
+
+    if (!result.removed) {
+      return {
+        ...result,
+        tripPlan: currentTripPlan,
+      };
+    }
+
+    const nextTripPlan = persistWorkspaceTripPlan(result.tripPlan);
+
+    setActiveWorkspaceDayNumber(input.dayNumber);
+    setSelectedInsightDay(input.dayNumber);
+    setActiveWorkspaceNav("route");
+    setWorkspaceMode("map");
+    setSidebarNotice(null);
+    setMapActionMessage(
+      `${input.candidate.place.displayName} 已从 Day ${input.dayNumber} 撤销。`,
+    );
+    map.clearMapSelection();
+
+    return {
+      ...result,
+      tripPlan: nextTripPlan,
+    };
   }
 
   function handleWorkspaceAddPlace(
@@ -1496,6 +1574,8 @@ export function useTripWorkspaceState({
     handleWorkspaceDaySelect,
     handleWorkspaceAddDay,
     handleWorkspaceAddPlace,
+    handleMapStudioCandidateAssign,
+    handleMapStudioCandidateUndo,
     handleWorkspaceAddNote,
     handleDesktopMapPointSelect,
     handleWorkspaceBlockSelect,

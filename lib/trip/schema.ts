@@ -18,6 +18,8 @@ import type {
   TripRequest,
   TripRequestDraft,
   TripSourceMeta,
+  TripEvidenceMetadata,
+  TripEvidenceSourceMetadata,
   WeatherSummary,
 } from "./types";
 import {
@@ -436,5 +438,27 @@ export const generateTripResponseSchema: z.ZodType<GenerateTripResponse> = z
     tripPlan: tripPlanSchema,
     appliedChanges: stringList.optional(),
     warnings: stringList.optional(),
+    evidenceMetadata: z
+      .object({
+        sources: z.array(
+          z
+            .object({
+              provider: requiredShortText,
+              fieldName: optionalText(TRIP_INPUT_LIMITS.shortText),
+              sourceUrl: optionalText(TRIP_INPUT_LIMITS.longText).nullable(),
+              externalId: optionalText(TRIP_INPUT_LIMITS.shortText).nullable(),
+              confidence: z.number().min(0).max(1).nullable(),
+              fetchedAt: z.string().trim().min(1).max(TRIP_INPUT_LIMITS.shortText).nullable().optional(),
+              lastVerifiedAt: z.string().trim().min(1).max(TRIP_INPUT_LIMITS.shortText).nullable().optional(),
+            })
+            .strict() satisfies z.ZodType<TripEvidenceSourceMetadata>,
+        ),
+        confidence: z.number().min(0).max(1).nullable(),
+        lastVerifiedAt: z.string().trim().min(1).max(TRIP_INPUT_LIMITS.shortText).nullable(),
+        missingFields: stringList,
+        warnings: stringList,
+      })
+      .strict()
+      .optional() satisfies z.ZodType<TripEvidenceMetadata | undefined>,
   })
   .strict();

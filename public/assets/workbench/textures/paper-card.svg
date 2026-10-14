@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="180" viewBox="0 0 420 180">
+  <filter id="paperNoise">
+    <feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="3" seed="31"/>
+    <feColorMatrix type="saturate" values="0"/>
+    <feComponentTransfer>
+      <feFuncA type="table" tableValues="0 0.07"/>
+    </feComponentTransfer>
+  </filter>
+  <rect width="420" height="180" rx="18" fill="#f7e7c6"/>
+  <rect width="420" height="180" rx="18" filter="url(#paperNoise)" opacity="0.7"/>
+  <path d="M16 20 C86 8 143 25 206 16 C277 5 339 29 404 17" fill="none" stroke="#fff7e4" stroke-width="2" opacity="0.45"/>
+  <path d="M26 154 C97 171 168 145 232 160 C300 176 350 151 397 165" fill="none" stroke="#caa06a" stroke-width="2" opacity="0.2"/>
+</svg>
+

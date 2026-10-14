@@ -137,6 +137,8 @@ export const TRIP_PLAN_SYSTEM_PROMPT = `
 - 面向自由行新手，文案口语化、好执行
 - 预算只能写估算，不得冒充实时票价、实时酒店价格或库存
 - 不得编造景点开放状态、排队情况、实时天气预警
+- 如果提供了 Data Hub Evidence Pack，已知事实只能来自 evidence pack；openingHours / ticketInfo / weather / route 若缺失，必须写“待确认”或提示出行前核实，不得编造开放时间、门票、路线耗时
+- 如果 evidence pack 与模型常识冲突，以 evidence pack 为准；如果 evidence pack 没覆盖某个地点，只能用保守建议，不能伪装成已核实事实
 - 天气不可用时明确写“未接入实时天气”，不要假装引用了实时天气
 - weatherSummary.dailyForecast 的每一项都必须包含 summary 字符串
 - transportAdvice.options[].mode 只能使用 flight、train、high_speed_rail、bus、ship、other
@@ -283,11 +285,39 @@ function buildUserRequirementsSection(
   ];
 }
 
+function buildEvidenceSection(input: GenerateTripInput): string[] {
+  const evidenceLines = input.evidencePromptSection?.trim();
+  const warningLines = (input.evidenceWarnings ?? [])
+    .map((warning) => warning.trim())
+    .filter(Boolean);
+
+  if (!evidenceLines) {
+    return [
+      "Data Hub Evidence Pack：",
+      "- 当前没有可用的 Data Hub evidence pack；不要编造开放时间、门票、实时天气或路线耗时。",
+      "- openingHours / ticketInfo / weather / route 如需出现，请写“待确认”或提醒出行前核实。",
+    ];
+  }
+
+  return [
+    "Data Hub Evidence Pack（可信事实边界）：",
+    evidenceLines,
+    "Evidence 使用规则：",
+    "- 已知事实来自 evidence pack；不要直接使用未被 evidence pack 支持的开放时间、门票、天气或路线耗时。",
+    "- openingHours / ticketInfo / weather / route 如果缺失，必须标记“待确认”或提示出行前核实。",
+    "- 不允许编造开放时间、门票、交通耗时、实时天气、实时交通或库存。",
+    ...(warningLines.length > 0
+      ? ["Evidence warnings：", ...warningLines.map((warning) => `- ${warning}`)]
+      : []),
+  ];
+}
+
 export function buildGenerateTripPrompt(input: GenerateTripInput): string {
   const groundingLines = buildGroundingLines(
     input.tripRequest.destinationCity,
   );
   const requirementsSection = buildUserRequirementsSection(input);
+  const evidenceSection = buildEvidenceSection(input);
 
   return [
     "请根据以下旅行需求生成完整行程。",
@@ -299,6 +329,7 @@ export function buildGenerateTripPrompt(input: GenerateTripInput): string {
     JSON.stringify(input.weatherForecast ?? null),
     "天气说明：",
     input.weatherWarning ?? "无额外天气说明。",
+    ...evidenceSection,
     ...groundingLines,
     "生成质量硬要求：",
     "- 默认每天生成上午 1 + 下午 1 + 晚上 1 共 3 个 block；只有当用户明确说「轻松/不想早起/少走路」时才允许降到 2 个 block，并在 routeReason 里说明这一让步。",
@@ -326,6 +357,7 @@ export function buildRegenerateTripPrompt(
     input.tripRequest.destinationCity,
   );
   const requirementsSection = buildUserRequirementsSection(input);
+  const evidenceSection = buildEvidenceSection(input);
 
   return [
     "请根据修改要求返回一份完整的新行程，不要返回局部 patch。",
@@ -342,6 +374,7 @@ export function buildRegenerateTripPrompt(
     JSON.stringify(input.weatherForecast ?? null),
     "天气说明：",
     input.weatherWarning ?? "无额外天气说明。",
+    ...evidenceSection,
     ...groundingLines,
     "请保持结构稳定、内容简短、不要生成过多地点。",
     "调整后仍需满足：所有 attraction / food / experience / shopping block 的 placeName 是真实、可搜索的具体地点全名（≤ 24 字），禁止泛化描述；非当日第一站给出 transportFromPrevious（≤ 22 字），attraction / food / experience / shopping block 给出 suggestedDuration（≤ 10 字）。",

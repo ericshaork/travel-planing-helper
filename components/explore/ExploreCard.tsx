@@ -6,6 +6,8 @@ import type { MouseEvent } from "react";
 import {
   cleanDisplayText,
   formatDaysText,
+  formatPaceLabel,
+  formatTagLabel,
   formatTripTypeLabel,
 } from "@/lib/explore/archive-display";
 import { displayCityName } from "@/lib/explore/display-city";
@@ -14,34 +16,6 @@ import type { ExploreTripListItem } from "@/lib/explore/types";
 import { getExploreFeedImageCandidates } from "../../lib/explore/image-resolver";
 
 import { ResolvedImage } from "./ResolvedImage";
-
-const tagTranslations: Record<string, string> = {
-  food: "美食",
-  citywalk: "城市漫步",
-  city: "城市",
-  coast: "海边",
-  beach: "海边",
-  island: "海岛",
-  mountain: "山野",
-  nature: "自然",
-  spicy: "辛香",
-  hotpot: "火锅",
-  seafood: "海鲜",
-  dessert: "甜品",
-  tea: "茶",
-  couple: "情侣",
-  family: "亲子",
-  friends: "朋友",
-  solo: "独行",
-  spring: "春天",
-  summer: "夏天",
-  autumn: "秋天",
-  winter: "冬天",
-};
-
-function translateLabel(value: string) {
-  return tagTranslations[value.toLowerCase()] ?? cleanDisplayText(value, "");
-}
 
 interface ExploreCardProps {
   item: ExploreTripListItem;
@@ -79,7 +53,7 @@ export function ExploreCard({
     ...(item.highlights ?? []),
     ...(item.tags ?? []),
   ]
-    .map(translateLabel)
+    .map(formatTagLabel)
     .filter(Boolean)
     .slice(0, 4);
   const cityName = displayCityName(item.city, item.cityCode);
@@ -133,7 +107,7 @@ export function ExploreCard({
           </span>
           {item.pace ? (
             <span className="rounded-full border border-[var(--line)] bg-[rgba(255,253,247,0.82)] px-2.5 py-1">
-              {cleanDisplayText(item.pace)}
+              {formatPaceLabel(item.pace)}
             </span>
           ) : null}
         </div>

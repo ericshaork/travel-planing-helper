@@ -1,0 +1,7 @@
+<svg width="220" height="140" viewBox="0 0 220 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>行李牌线稿</title>
+  <path d="M36 28H150L190 68L150 108H36C27.2 108 20 100.8 20 92V44C20 35.2 27.2 28 36 28Z" fill="#F6EEDB" stroke="#2F4E35" stroke-width="2" opacity=".72"/>
+  <circle cx="153" cy="68" r="8" fill="#F6EEDB" stroke="#6D5132" stroke-width="2" opacity=".72"/>
+  <path d="M42 54H115M42 70H126M42 86H92" stroke="#6D5132" stroke-width="2" stroke-linecap="round" opacity=".45"/>
+  <path d="M29 36L14 21" stroke="#B85C49" stroke-width="2" stroke-linecap="round" opacity=".45"/>
+</svg>

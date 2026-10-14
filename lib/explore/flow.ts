@@ -147,7 +147,8 @@ export async function startExploreCreateFlow(
   );
 
   if (!projectSession?.projectId) {
-    throw new Error("旅行项目创建失败，请稍后再试。");
+    router.push("/plan");
+    return;
   }
 
   const searchParams = new URLSearchParams({

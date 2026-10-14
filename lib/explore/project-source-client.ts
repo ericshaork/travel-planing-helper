@@ -110,7 +110,7 @@ async function createExploreProject(
   const accessToken = await getAccessToken().catch(() => null);
 
   if (!accessToken) {
-    throw new Error("请先登录，再从 Explore 创建旅行项目。");
+    return null;
   }
 
   const projectPayload = {
@@ -145,6 +145,14 @@ async function createExploreProject(
   }
 
   if (!response.ok || !payload || !("project" in payload) || !payload.project?.id) {
+    if (
+      response.status === 401 ||
+      (payload as Partial<ApiErrorResponse> | null)?.error?.code ===
+        "UNAUTHORIZED"
+    ) {
+      return null;
+    }
+
     throw new Error(
       getApiErrorMessage(payload, "旅行项目创建失败，请稍后再试。"),
     );
@@ -171,6 +179,12 @@ export async function startExploreProjectCreateFlow(
     },
     dependencies,
   );
+
+  if (!created) {
+    markCurrentTripAsUnsaved(storage);
+    saveTripPlanDraft(draft, storage);
+    return null;
+  }
 
   const fetcher = dependencies.fetcher ?? getDefaultFetcher();
   let flowStage = created.flowStage;

@@ -3,6 +3,7 @@ import type { InspirationFacetKey, InspirationSelection } from "./types";
 export interface InspirationOption {
   label: string;
   keywords: string[];
+  ribbonLabel?: string;
 }
 
 export interface InspirationCategoryConfig {
@@ -32,9 +33,13 @@ export const INSPIRATION_CATEGORY_CONFIG: InspirationCategoryConfig[] = [
       { label: "雨林", keywords: ["雨林", "森林", "rainforest", "forest"] },
       { label: "湖泊", keywords: ["湖泊", "湖", "lake"] },
       { label: "雪山", keywords: ["雪山", "snow mountain", "snow-mountain"] },
-      { label: "城市漫步", keywords: ["城市漫步", "citywalk", "city walk", "city"] },
+      { label: "城市漫步", ribbonLabel: "城漫", keywords: ["城市漫步", "citywalk", "city walk", "city"] },
       { label: "海岛", keywords: ["海岛", "island"] },
-      { label: "江南水乡", keywords: ["江南水乡", "水乡", "jiangnan", "canal", "waterside"] },
+      {
+        label: "江南水乡",
+        ribbonLabel: "水乡",
+        keywords: ["江南水乡", "水乡", "jiangnan", "canal", "waterside"],
+      },
     ],
   },
   {
@@ -91,7 +96,11 @@ export const INSPIRATION_CATEGORY_CONFIG: InspirationCategoryConfig[] = [
       { label: "闺蜜", keywords: ["闺蜜", "besties", "friends"] },
       { label: "团建", keywords: ["团建", "team", "company trip"] },
       { label: "摄影", keywords: ["摄影", "摄影旅行", "photo", "camera"] },
-      { label: "长辈同行", keywords: ["长辈同行", "长辈", "elders", "parents"] },
+      {
+        label: "长辈同行",
+        ribbonLabel: "长辈",
+        keywords: ["长辈同行", "长辈", "elders", "parents"],
+      },
     ],
   },
 ];

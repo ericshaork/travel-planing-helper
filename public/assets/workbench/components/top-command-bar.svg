@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="128" viewBox="0 0 1600 128">
+  <defs>
+    <linearGradient id="bar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff8e7"/>
+      <stop offset="1" stop-color="#ead5ad"/>
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-40%" width="110%" height="180%">
+      <feDropShadow dx="0" dy="8" stdDeviation="7" flood-color="#4d2f12" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+  <rect x="8" y="8" width="1584" height="112" rx="18" fill="url(#bar)" filter="url(#shadow)"/>
+  <rect x="10" y="10" width="1580" height="108" rx="16" fill="none" stroke="#9d7443" stroke-opacity="0.28"/>
+  <path d="M36 24 C180 8 268 31 392 21 C521 11 648 30 790 20 C959 8 1088 30 1236 19 C1396 8 1492 28 1564 20" fill="none" stroke="#fff8e5" stroke-width="2" opacity="0.45"/>
+  <circle cx="22" cy="22" r="7" fill="#c79545" stroke="#684218" stroke-width="2"/>
+  <circle cx="1578" cy="22" r="7" fill="#c79545" stroke="#684218" stroke-width="2"/>
+  <circle cx="22" cy="106" r="7" fill="#c79545" stroke="#684218" stroke-width="2"/>
+  <circle cx="1578" cy="106" r="7" fill="#c79545" stroke="#684218" stroke-width="2"/>
+</svg>
+

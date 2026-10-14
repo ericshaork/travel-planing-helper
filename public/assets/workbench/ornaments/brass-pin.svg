@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+  <defs>
+    <radialGradient id="pin" cx="38%" cy="28%" r="65%">
+      <stop offset="0" stop-color="#fff1a9"/>
+      <stop offset="0.32" stop-color="#d3a04d"/>
+      <stop offset="0.76" stop-color="#6d4216"/>
+      <stop offset="1" stop-color="#321b08"/>
+    </radialGradient>
+  </defs>
+  <circle cx="24" cy="24" r="16" fill="url(#pin)"/>
+  <circle cx="24" cy="24" r="15" fill="none" stroke="#fff2bf" stroke-opacity="0.42"/>
+</svg>
+

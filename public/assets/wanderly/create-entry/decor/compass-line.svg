@@ -1,0 +1,12 @@
+<svg width="320" height="220" viewBox="0 0 320 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>轻量罗盘线稿</title>
+  <circle cx="160" cy="110" r="62" stroke="#2F4E35" stroke-width="2" opacity=".55"/>
+  <circle cx="160" cy="110" r="46" stroke="#6D5132" stroke-width="1.5" opacity=".32" stroke-dasharray="3 6"/>
+  <path d="M160 42V24M160 196V178M92 110H74M246 110H228" stroke="#6D5132" stroke-width="1.5" opacity=".42" stroke-linecap="round"/>
+  <path d="M160 57L177 110L160 163L143 110L160 57Z" fill="#F6EEDB" stroke="#2F4E35" stroke-width="2" opacity=".82"/>
+  <path d="M143 110H177" stroke="#B85C49" stroke-width="2" opacity=".55" stroke-linecap="round"/>
+  <text x="154" y="18" font-family="Georgia, serif" font-size="14" fill="#2F4E35" opacity=".7">N</text>
+  <text x="154" y="214" font-family="Georgia, serif" font-size="14" fill="#2F4E35" opacity=".7">S</text>
+  <text x="52" y="115" font-family="Georgia, serif" font-size="14" fill="#2F4E35" opacity=".7">W</text>
+  <text x="258" y="115" font-family="Georgia, serif" font-size="14" fill="#2F4E35" opacity=".7">E</text>
+</svg>

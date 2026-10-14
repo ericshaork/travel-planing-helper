@@ -766,18 +766,18 @@ export function EditEmptyCabinet({
   return (
     <article className={compact ? "min-h-0 flex-1 pt-0" : "pt-1"}>
       <div
-        className={`relative overflow-hidden bg-cover bg-center ${
+        className={`workbench-empty-cabinet relative overflow-hidden bg-cover bg-center ${
           compact
             ? "h-full min-h-0 rounded-none border-0 shadow-none"
             : "min-h-[30rem] rounded-[22px] border border-[rgba(158,136,110,0.12)] shadow-[4px_5px_0_var(--sand-soft)]"
         }`}
         data-testid="edit-empty-cabinet"
         style={{
-          backgroundImage: `url('${EDIT_EMPTY_CABINET_IMAGE}')`,
+          backgroundImage: `url('/assets/workbench/components/cabinet-frame.svg'), url('/assets/workbench/textures/wood-panel.svg'), url('${EDIT_EMPTY_CABINET_IMAGE}')`,
         }}
       >
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,253,247,0.58)_0%,rgba(255,253,247,0.22)_26%,rgba(255,253,247,0.03)_58%,rgba(255,253,247,0)_100%)]" />
-        <div className="absolute inset-y-4 left-4 z-[1] flex flex-col border-r border-dashed border-[rgba(88,69,52,0.16)] pr-2">
+        <div className="workbench-cabinet-wash absolute inset-0 bg-[linear-gradient(90deg,rgba(255,253,247,0.58)_0%,rgba(255,253,247,0.22)_26%,rgba(255,253,247,0.03)_58%,rgba(255,253,247,0)_100%)]" />
+        <div className="workbench-time-rail absolute inset-y-4 left-4 z-[1] flex flex-col border-r border-dashed border-[rgba(88,69,52,0.16)] pr-2">
           <span className="mb-2 text-[11px] font-semibold tracking-[0.16em] text-[rgba(84,71,53,0.62)]">
             {"\u65f6\u95f4"}
           </span>
@@ -802,27 +802,27 @@ export function EditEmptyCabinet({
             compact ? "h-full min-h-0" : "min-h-[30rem]"
           } px-3 py-3 sm:px-4 sm:py-4`}
         >
-          <div className="flex flex-wrap items-center justify-between gap-2">
+          <div className="workbench-cabinet-toolbar flex flex-wrap items-center justify-between gap-2">
             <div className="flex flex-wrap items-center gap-2">
-              <span className="journal-chip bg-[rgba(255,253,247,0.58)] py-1 text-[11px]">{`\u7b2c ${dayNumber} \u5929`}</span>
+              <span className="workbench-cabinet-day-chip journal-chip bg-[rgba(255,253,247,0.58)] py-1 text-[11px]">{`\u7b2c ${dayNumber} \u5929`}</span>
               <button
                 type="button"
                 onClick={() => onOpenCreateEvent?.(slots[0]?.id ?? "morning")}
-                className="inline-flex min-h-8 items-center justify-center rounded-full border border-[rgba(88,69,52,0.38)] bg-[rgba(255,253,247,0.72)] px-3 py-1 text-xs font-semibold text-[var(--ink)] shadow-[2px_2px_0_var(--sand-soft)] transition-colors hover:bg-[var(--paper-bright)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)]"
+                className="workbench-cabinet-button workbench-cabinet-button--primary inline-flex min-h-8 items-center justify-center rounded-full px-3 py-1 text-xs font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)]"
               >
                 {"\u002b \u6dfb\u52a0\u5730\u70b9"}
               </button>
               <button
                 type="button"
                 onClick={handleAddDivider}
-                className="inline-flex min-h-8 items-center justify-center rounded-full border border-[rgba(88,69,52,0.28)] bg-[rgba(255,253,247,0.62)] px-3 py-1 text-xs font-semibold text-[var(--ink)] transition-colors hover:bg-[var(--paper-bright)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)]"
+                className="workbench-cabinet-button inline-flex min-h-8 items-center justify-center rounded-full px-3 py-1 text-xs font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)]"
               >
                 {"\u002b \u589e\u52a0\u9694\u677f"}
               </button>
               <button
                 type="button"
                 onClick={() => onAddNote?.("\u8fd9\u91cc\u5148\u7559\u7ed9\u5f53\u5929\u5907\u6ce8\u3002")}
-                className="inline-flex min-h-8 items-center justify-center rounded-full border border-[rgba(158,136,110,0.26)] bg-[rgba(255,253,247,0.54)] px-3 py-1 text-xs font-semibold text-[var(--ink-muted)] transition-colors hover:bg-[var(--paper-bright)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)]"
+                className="workbench-cabinet-button workbench-cabinet-button--muted inline-flex min-h-8 items-center justify-center rounded-full px-3 py-1 text-xs font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--clay)]"
               >
                 {"\u5199\u5907\u6ce8"}
               </button>
@@ -872,7 +872,7 @@ export function EditEmptyCabinet({
 
           <div
             ref={cabinetSurfaceRef}
-            className="relative mt-3 min-h-0 flex-1"
+            className="workbench-cabinet-surface relative mt-3 min-h-0 flex-1"
             data-testid="cabinet-surface"
           >
               {dividerDescriptors.map((divider) => (
@@ -1045,7 +1045,7 @@ function CabinetDivider({
   }
 
   return (
-    <div className="absolute left-0 right-4 z-[3]" style={{ top: `${value}%` }}>
+    <div className="workbench-brass-divider absolute left-0 right-4 z-[3]" style={{ top: `${value}%` }}>
       <div
         aria-label={label}
         aria-orientation="horizontal"
@@ -1163,12 +1163,10 @@ function CabinetEventLayer({
     block: ItineraryBlockView,
   ) => void;
 }) {
-  const orderedGroups = slots
-    .map((slot) => ({
-      slot,
-      items: slot.items,
-    }))
-    .filter((group) => group.items.length > 0 || draggingBlockId);
+  const orderedGroups = slots.map((slot) => ({
+    slot,
+    items: slot.items,
+  }));
 
   const hasAnyItems = slots.some((slot) => slot.items.length > 0);
 
@@ -1209,7 +1207,11 @@ function CabinetEventLayer({
               onDragOver={handleDragOver}
               onDrop={handleDrop}
             >
-              <div className="mb-2 flex items-center gap-2">
+              <div className="mb-2 flex items-center justify-between gap-2">
+                <div className="flex min-w-0 items-center gap-2">
+                  <span className="workbench-slot-icon" aria-hidden="true" data-slot={slot.key} />
+                  <span className="workbench-slot-title truncate">{slot.label}</span>
+                </div>
                 <span className="edit-time-label">
                   {slot.startTime || "--:--"}-{slot.endTime || "--:--"}
                 </span>
@@ -1252,8 +1254,10 @@ function CabinetEventLayer({
                     );
                   })
                 ) : (
-                  <div className="edit-drawer--empty px-3 py-3">
-                    可以把事件拖到这里
+                  <div className="edit-drawer--empty workbench-slot-empty-card px-3 py-3">
+                    <span className="workbench-slot-empty-title">添加一段行程</span>
+                    <span className="workbench-slot-empty-hint">从顶部添加地点，或让 AI 帮你补全这段。</span>
+                    <span className="workbench-slot-empty-plus">+</span>
                   </div>
                 )}
               </div>
@@ -1261,7 +1265,7 @@ function CabinetEventLayer({
           );
         })}
 
-        {!hasAnyItems ? (
+        {!hasAnyItems && slots.length === 0 ? (
           <div
             className="edit-drawer--empty flex min-h-[12rem] flex-1 items-center justify-center"
             data-testid="cabinet-event-empty-layer"

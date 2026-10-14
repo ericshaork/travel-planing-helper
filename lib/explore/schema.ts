@@ -64,6 +64,7 @@ export const exploreTripPoiSchema: z.ZodType<ExploreTripPoi> = z
     type: optionalText,
     reason: requiredText,
     recommendedDurationMinutes: z.number().int().positive().optional(),
+    imageUrl: optionalText,
   })
   .strict();
 
@@ -74,6 +75,7 @@ export const exploreTripFoodSchema: z.ZodType<ExploreTripFood> = z
     district: optionalText,
     category: optionalText,
     reason: requiredText,
+    imageUrl: optionalText,
   })
   .strict();
 

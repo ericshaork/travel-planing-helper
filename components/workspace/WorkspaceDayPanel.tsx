@@ -90,32 +90,32 @@ export function WorkspaceDayPanel({
       className={
         compactBlankReadMode || compactEmptyEditMode
           ? "flex min-h-0 flex-1 flex-col gap-1 overflow-hidden"
-          : "space-y-4"
+          : "space-y-3"
       }
     >
       {!compactEmptyEditMode ? (
         <div
-          className={`px-1 ${compactBlankReadMode ? "flex-none pt-0" : "pt-1"}`}
+          className={`px-1 ${compactBlankReadMode ? "flex-none pt-0" : "pt-0.5"}`}
         >
-          <div className="flex flex-wrap items-end justify-between gap-3">
+          <div className="flex flex-wrap items-end justify-between gap-2">
             <div className="max-w-2xl">
               <p className="workspace-kicker">当天档案</p>
               <h2
                 className={
                   compactBlankReadMode
-                    ? "mt-1 text-xl font-semibold tracking-[-0.02em] sm:text-2xl"
-                    : "mt-1.5 text-2xl font-semibold tracking-[-0.03em] sm:text-3xl"
+                    ? "mt-0.5 text-xl font-semibold tracking-[-0.02em] sm:text-2xl"
+                    : "mt-1 text-2xl font-semibold tracking-[-0.03em] sm:text-3xl"
                 }
               >
                 {`第 ${cabinet.dayNumber} 天`}
               </h2>
               {!isEmptyDay && cabinet.theme ? (
-                <p className="mt-2 text-base leading-7 text-[var(--ink)]">
+                <p className="mt-1.5 text-base leading-7 text-[var(--ink)]">
                   {cabinet.theme}
                 </p>
               ) : null}
               {!compactBlankReadMode ? (
-                <p className="mt-2 text-sm leading-6 text-[var(--ink-muted)]">
+                <p className="mt-1.5 text-sm leading-6 text-[var(--ink-muted)]">
                   {isEmptyDay
                     ? "这一页还在等待第一站。"
                     : cabinet.routeReason || "把今天想去的地方顺着路线记在这一页。"}
@@ -124,7 +124,7 @@ export function WorkspaceDayPanel({
             </div>
 
             {!isEmptyDay ? (
-              <div className="journal-chip">
+              <div className="journal-chip py-0.5 text-[10px]">
                 {insight?.mapPoints.length ?? cabinet.itemCount} 个地点
               </div>
             ) : null}

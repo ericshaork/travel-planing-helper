@@ -30,6 +30,8 @@ export interface GenerateTripWithContextInput extends GenerateTripRequest {
   weatherForecast?: WeatherForecast;
   weatherWarning?: string;
   preferenceSummary?: string;
+  evidencePromptSection?: string;
+  evidenceWarnings?: string[];
 }
 
 type GeneratePhase = "generate-trip" | "regenerate-trip";
@@ -852,11 +854,17 @@ export async function generateTripWithProvider(
             modificationRequest: input.modificationRequest!,
             weatherForecast: input.weatherForecast,
             weatherWarning: input.weatherWarning,
+            preferenceSummary: input.preferenceSummary,
+            evidencePromptSection: input.evidencePromptSection,
+            evidenceWarnings: input.evidenceWarnings,
           })
         : await provider.generateTrip({
             tripRequest: input.tripRequest,
             weatherForecast: input.weatherForecast,
             weatherWarning: input.weatherWarning,
+            preferenceSummary: input.preferenceSummary,
+            evidencePromptSection: input.evidencePromptSection,
+            evidenceWarnings: input.evidenceWarnings,
           });
   } catch (error) {
     if (error instanceof AppError) {

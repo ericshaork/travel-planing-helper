@@ -213,24 +213,24 @@ export function DesktopWorkspaceShell({
   const compactLeftPane = compactBlankReadMode || compactEmptyEditMode;
 
   return (
-    <section className="hidden min-h-0 flex-1 flex-col overflow-hidden lg:flex">
+    <section className="workbench-desktop-shell hidden min-h-0 flex-1 flex-col overflow-hidden lg:flex">
       <div className="min-w-0 flex-none">{topBar}</div>
 
       <div
         ref={splitRef}
         data-testid="desktop-workspace-split"
-        className={`grid min-h-0 min-w-0 flex-1 ${
-          compactLeftPane ? "mt-2 gap-0" : "mt-2.5 gap-0"
+        className={`workbench-split grid min-h-0 min-w-0 flex-1 ${
+          compactLeftPane ? "mt-1 gap-0" : "mt-1.5 gap-0"
         }`}
         style={{ gridTemplateColumns }}
       >
         <div
           className={`min-h-0 min-w-0 overflow-hidden ${
-            compactLeftPane ? "pr-0" : "pr-1"
+            compactLeftPane ? "pr-0" : "pr-0.5"
           }`}
         >
           <div
-            className={`h-full min-h-0 overflow-x-hidden pr-1 ${
+            className={`h-full min-h-0 overflow-x-hidden pr-0.5 ${
               compactLeftPane ? "overflow-hidden pr-0" : "overflow-y-auto"
             }`}
           >
@@ -238,7 +238,7 @@ export function DesktopWorkspaceShell({
           </div>
         </div>
 
-        <div className="relative flex min-h-0 items-stretch justify-center">
+        <div className="workbench-resizer relative flex min-h-0 items-stretch justify-center">
           <button
             type="button"
             aria-label="拖动调整计划和地图宽度"
@@ -256,13 +256,13 @@ export function DesktopWorkspaceShell({
               }`}
             />
             <span
-              className={`absolute inline-flex h-14 w-2 items-center justify-center rounded-full border border-[var(--line)] bg-[rgba(255,253,247,0.92)] shadow-[2px_2px_0_var(--sand-soft)] transition-all ${
+              className={`absolute inline-flex h-12 w-1.5 items-center justify-center rounded-full border border-[var(--line)] bg-[rgba(255,253,247,0.92)] shadow-[1px_1px_0_var(--sand-soft)] transition-all ${
                 isDragging
                   ? "border-[var(--clay-deep)] bg-[var(--paper-bright)]"
                   : "group-hover:border-[var(--clay)]"
               }`}
             >
-              <span className="h-5 w-[2px] rounded-full bg-[var(--clay)]" />
+              <span className="h-4 w-[1.5px] rounded-full bg-[var(--clay)]" />
             </span>
           </button>
         </div>

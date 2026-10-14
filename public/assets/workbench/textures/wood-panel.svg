@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="240" viewBox="0 0 360 240">
+  <defs>
+    <linearGradient id="wood" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#7c4924"/>
+      <stop offset="0.22" stop-color="#b1793e"/>
+      <stop offset="0.52" stop-color="#d29a59"/>
+      <stop offset="0.78" stop-color="#9a5f30"/>
+      <stop offset="1" stop-color="#623518"/>
+    </linearGradient>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.045 0.36" numOctaves="4" seed="7"/>
+      <feColorMatrix values="0.55 0 0 0 0.24  0 0.38 0 0 0.13  0 0 0.24 0 0.06  0 0 0 0.22 0"/>
+    </filter>
+  </defs>
+  <rect width="360" height="240" fill="url(#wood)"/>
+  <rect width="360" height="240" filter="url(#grain)" opacity="0.48"/>
+  <path d="M0 34 C66 21 118 48 174 32 C234 15 289 43 360 26" fill="none" stroke="#6d3b19" stroke-width="2" opacity="0.22"/>
+  <path d="M0 112 C70 90 130 126 190 105 C252 84 302 120 360 103" fill="none" stroke="#f2c77b" stroke-width="1.5" opacity="0.16"/>
+  <path d="M0 196 C58 174 116 212 169 190 C230 164 298 206 360 181" fill="none" stroke="#4e2a12" stroke-width="2" opacity="0.2"/>
+</svg>
+

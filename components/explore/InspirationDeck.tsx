@@ -9,15 +9,13 @@ import {
   getInspirationSearchKeywords,
   getInspirationSelectionCount,
   getSelectedInspirationLabels,
-  INSPIRATION_CATEGORY_CONFIG,
   toggleInspirationSelection,
 } from "@/lib/explore/inspiration";
 import type { ExploreTripListItem, InspirationSelection } from "@/lib/explore/types";
 
 import { ExploreCard } from "./ExploreCard";
 import { InspirationActionBar } from "./InspirationActionBar";
-import { InspirationCategory } from "./InspirationCategory";
-import { InspirationTagPanel } from "./InspirationTagPanel";
+import { InspirationBrowser } from "./InspirationBrowser";
 
 interface InspirationDeckProps {
   selection: InspirationSelection;
@@ -129,34 +127,7 @@ export function InspirationDeck({
 
   return (
     <div className="space-y-2.5">
-      <div className="space-y-1.5 rounded-[24px] bg-[rgba(255,250,241,0.38)] px-2 py-2">
-        {INSPIRATION_CATEGORY_CONFIG.map((category) => (
-          <div
-            key={category.key}
-            className="grid gap-3 border-b border-[rgba(214,205,187,0.48)] py-1.5 last:border-b-0 xl:grid-cols-[18.25rem_minmax(0,1fr)] xl:items-center"
-          >
-            <div className="xl:w-[18.25rem]">
-              <InspirationCategory
-                title={category.title}
-                description={category.description}
-                categoryKey={category.key}
-                previewItems={category.options.slice(0, 4).map((option) => option.label)}
-                selectedCount={selection[category.key]?.length ?? 0}
-              />
-            </div>
-
-            <div className="min-w-0 flex-1">
-              <InspirationTagPanel
-                title={category.title}
-                categoryKey={category.key}
-                options={category.options.map((option) => option.label)}
-                selected={selection[category.key] ?? []}
-                onToggle={(label) => handleToggleOption(category.key, label)}
-              />
-            </div>
-          </div>
-        ))}
-      </div>
+      <InspirationBrowser selection={selection} onToggle={handleToggleOption} />
 
       <InspirationActionBar
         selectedLabels={selectedLabels}
@@ -167,7 +138,7 @@ export function InspirationDeck({
       />
 
       {hasSearchedArchives ? (
-        <section className="workspace-panel px-4 py-4 sm:px-5 sm:py-5">
+        <section className="px-1 py-2 sm:px-2">
           <div className="relative z-[1] space-y-4">
             <div className="max-w-2xl">
               <p className="workspace-kicker">RELATED ARCHIVES</p>
@@ -184,7 +155,7 @@ export function InspirationDeck({
             ) : null}
 
             {!searchError && archiveResults.length === 0 ? (
-              <div className="rounded-[18px] border border-dashed border-[var(--line)] px-4 py-4">
+              <div className="rounded-[8px] border border-dashed border-[var(--line)] px-4 py-4">
                 <p className="text-base font-semibold text-[var(--ink)]">
                   这组灵感暂时还没在现有档案里撞到特别近的结果
                 </p>

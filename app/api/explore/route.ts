@@ -137,8 +137,9 @@ function mergeExploreContents(items: ExploreTripContent[]) {
     const keys = [item.id, item.externalId, item.slug].filter(Boolean);
     const cityKey = getExploreCityKey(item.city, item.cityCode);
     const isTripPackage = item.source.batchId === "trip-package-v1.9";
+    const isOlderNormalizedFallback = item.source.batchId === "normalized-v1";
 
-    if (!isTripPackage && packageCityKeys.has(cityKey)) {
+    if (isOlderNormalizedFallback && !isTripPackage && packageCityKeys.has(cityKey)) {
       continue;
     }
 
@@ -172,21 +173,23 @@ export function createExploreListHandler(
         ...packageResult.items,
         ...normalizedItems.map((item) => mapNormalizedArchiveToExploreContent(item)),
       ]);
+      let repositoryItems: ExploreTripContent[] = [];
 
-      if (staticItems.length > 0) {
-        return NextResponse.json({
-          ok: true,
-          items: staticItems.slice(0, filters.limit).map(toListItem),
-        } satisfies ExploreListResponse);
+      try {
+        const resolvedRepository = repository ?? createExploreRepository();
+        repositoryItems = await resolvedRepository.listPublished(filters);
+      } catch (error) {
+        if (staticItems.length === 0) {
+          throw error;
+        }
       }
 
-      const resolvedRepository = repository ?? createExploreRepository();
-      const items = await resolvedRepository.listPublished(filters);
+      const items = mergeExploreContents([...repositoryItems, ...staticItems]);
 
       if (items.length > 0) {
         return NextResponse.json({
           ok: true,
-          items: items.map(toListItem),
+          items: items.slice(0, filters.limit).map(toListItem),
         } satisfies ExploreListResponse);
       }
 

@@ -508,17 +508,51 @@ describe("explore source integration", () => {
     }
   });
 
-  it("does not create legacy local state when Project creation fails", async () => {
+  it("keeps an Explore draft local when no auth is available", async () => {
     const storage = new MemoryStorage();
+    const fetcher = vi.fn();
 
-    await expect(
-      startExploreProjectCreateFlow(createExploreDraft(), storage, {
-        fetcher: vi.fn(),
+    const session = await startExploreProjectCreateFlow(
+      createExploreDraft(),
+      storage,
+      {
+        fetcher,
         getAccessToken: async () => null,
-      }),
-    ).rejects.toThrow("请先登录，再从 Explore 创建旅行项目。");
+      },
+    );
 
-    expect(loadTripPlanDraft(storage)).toBeNull();
+    expect(session).toBeNull();
+    expect(fetcher).not.toHaveBeenCalled();
+    expect(loadTripPlanDraft(storage)).toEqual(createExploreDraft());
+    expect(getProjectSession(storage)).toBeNull();
+  });
+
+  it("keeps an Explore draft local when the stored auth token is expired", async () => {
+    const storage = new MemoryStorage();
+    const fetcher = vi.fn().mockResolvedValueOnce(
+      createJsonResponse(
+        {
+          error: {
+            code: "UNAUTHORIZED",
+            message: "当前登录状态已经失效，请重新登录后再试。",
+          },
+        },
+        { status: 401 },
+      ),
+    );
+
+    const session = await startExploreProjectCreateFlow(
+      createExploreDraft(),
+      storage,
+      {
+        fetcher,
+        getAccessToken: async () => "expired-token",
+      },
+    );
+
+    expect(session).toBeNull();
+    expect(fetcher).toHaveBeenCalledTimes(1);
+    expect(loadTripPlanDraft(storage)).toEqual(createExploreDraft());
     expect(getProjectSession(storage)).toBeNull();
   });
 
@@ -623,6 +657,26 @@ describe("explore entry URL routing", () => {
 
     expect(router.push).toHaveBeenCalledTimes(1);
     expect(router.push).toHaveBeenCalledWith("/create?source=ai&continue=1");
+  });
+
+  it("AI creation card routes to /plan when project creation falls back to a local draft", async () => {
+    const storage = new MemoryStorage();
+    const router = createMockRouter();
+
+    await startExploreCreateFlow(
+      createExploreDraft(),
+      router,
+      { source: "ai" },
+      storage,
+      {
+        fetcher: vi.fn(),
+        getAccessToken: async () => null,
+      },
+    );
+
+    expect(router.push).toHaveBeenCalledTimes(1);
+    expect(router.push).toHaveBeenCalledWith("/plan");
+    expect(loadTripPlanDraft(storage)).toEqual(createExploreDraft());
   });
 
   it("archive '用此行程创建' routes to /create?source=explore_archive&archiveSlug=...", async () => {

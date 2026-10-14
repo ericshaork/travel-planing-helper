@@ -1,6 +1,6 @@
 "use client";
 
-import type { ReactNode } from "react";
+import { useEffect, type ReactNode } from "react";
 
 import { AttractionCard } from "@/components/trip/AttractionCard";
 import { BudgetSummaryCard } from "@/components/trip/BudgetSummaryCard";
@@ -11,11 +11,14 @@ import { ResultDayNav } from "@/components/trip/ResultDayNav";
 import { RouteInsightPanel } from "@/components/trip/RouteInsightPanel";
 import { TransportAdvice } from "@/components/trip/TransportAdvice";
 import { WeatherAlertCard } from "@/components/trip/WeatherAlertCard";
+import { MapStudio } from "@/components/map-studio/MapStudio";
 import {
   useTripWorkspaceState,
   type AttractionEntry,
+  type WorkspaceDefaultMode,
   type WorkspaceMode,
 } from "@/hooks/useTripWorkspaceState";
+import { buildMapProjectFromTripPlan } from "@/lib/map-studio/trip-adapter";
 import {
   getMobileOverviewAccentText,
   MOBILE_OVERVIEW_FALLBACK,
@@ -42,7 +45,8 @@ interface MobilePageShellProps {
 interface TripWorkspaceProps {
   tripPlan: TripPlan;
   tripRequest: TripRequest | null;
-  initialWorkspaceModeDefault?: WorkspaceMode;
+  initialWorkspaceModeDefault?: WorkspaceDefaultMode;
+  onWorkspaceModeChange?: (mode: WorkspaceMode) => void;
 }
 
 export function shouldUseCompactBlankEditMode(input: {
@@ -153,6 +157,7 @@ export function TripWorkspace({
   tripPlan,
   tripRequest,
   initialWorkspaceModeDefault,
+  onWorkspaceModeChange,
 }: TripWorkspaceProps) {
   const {
     currentTripPlan,
@@ -204,6 +209,8 @@ export function TripWorkspace({
     handleClearPendingChanges,
     handleWritePendingChangesToDraft,
     handleWorkspaceModeChange,
+    handleMapStudioCandidateAssign,
+    handleMapStudioCandidateUndo,
     handleWorkspaceAddDay,
     handleWorkspaceAddPlace,
     handleWorkspaceAddNote,
@@ -236,6 +243,10 @@ export function TripWorkspace({
     initialWorkspaceModeDefault,
   });
 
+  useEffect(() => {
+    onWorkspaceModeChange?.(workspaceMode);
+  }, [onWorkspaceModeChange, workspaceMode]);
+
   const compactBlankReadMode =
     workspaceMode === "read" &&
     isBlankWorkspace &&
@@ -254,6 +265,13 @@ export function TripWorkspace({
   const readViewModel = useWorkspaceReadView
     ? buildWorkspaceReadViewModel(currentTripPlan)
     : null;
+  const mapProject = isBlankWorkspace
+    ? null
+    : buildMapProjectFromTripPlan({
+        tripPlan: currentTripPlan,
+        tripRequest,
+        mapPoints: tripEnrichment?.enrichment.mapPoints,
+      });
 
   function renderAttractionsContent(columnClassName = "grid gap-4 lg:grid-cols-2") {
     if (attractions.length === 0) {
@@ -552,6 +570,50 @@ export function TripWorkspace({
       </div>
     </>
   );
+
+  if (workspaceMode === "map") {
+    return (
+      <>
+        <div className="flex min-h-0 flex-1 flex-col lg:hidden">
+          <MobilePageShell
+            title="地图探索先在桌面端使用"
+            description="v2.0 Phase 1 会先把 PC 端全屏地图操作台跑通，手机端后续再单独整理。"
+          >
+            <div className="edit-gear-card p-4">
+              <p className="text-sm leading-6 text-[var(--ink-muted)]">
+                现在可以先切回阅读或编辑模式继续查看行程。
+              </p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                <button
+                  type="button"
+                  onClick={() => handleWorkspaceModeChange("read")}
+                  className="rounded-full border border-[var(--line-strong)] bg-[var(--paper)] px-3 py-1.5 text-sm font-semibold text-[var(--ink)]"
+                >
+                  回到阅读
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handleWorkspaceModeChange("edit")}
+                  className="rounded-full border border-[var(--ink)] bg-[var(--ink)] px-3 py-1.5 text-sm font-semibold text-[var(--paper-bright)]"
+                >
+                  进入编辑
+                </button>
+              </div>
+            </div>
+          </MobilePageShell>
+        </div>
+        <MapStudio
+          tripPlan={currentTripPlan}
+          tripRequest={tripRequest}
+          mapProject={mapProject}
+          requiresDestinationSelection={isBlankWorkspace}
+          onWorkspaceModeChange={handleWorkspaceModeChange}
+          onAssignCandidate={handleMapStudioCandidateAssign}
+          onUndoCandidateAssignment={handleMapStudioCandidateUndo}
+        />
+      </>
+    );
+  }
 
   const desktopTopBar = (
     <WorkspaceTopBar

@@ -9,7 +9,11 @@ import {
   ensureWorkspaceProjectEntry,
 } from "../lib/projects/entry-client";
 import { getProjectSession } from "../lib/projects/session";
-import { loadTripPlan, type StorageLike } from "../lib/trip/storage";
+import {
+  getWorkspaceSessionMetadata,
+  loadTripPlan,
+  type StorageLike,
+} from "../lib/trip/storage";
 import type { TripPlan, TripPlanDraft, TripRequest } from "../lib/trip/types";
 import { openSavedTripIntoWorkspace } from "../lib/trips/open-flow";
 
@@ -247,6 +251,38 @@ describe("project entry unification", () => {
       updatedAt: expect.any(String),
     });
     expect(loadTripPlan(storage)?.tripTitle).toBe("未命名旅行");
+  });
+
+  it("keeps blank workspace creation local when the stored auth token is expired", async () => {
+    const storage = new MemoryStorage();
+    const fetcher = vi.fn().mockResolvedValueOnce(
+      createJsonResponse(
+        {
+          error: {
+            code: "UNAUTHORIZED",
+            message: "当前登录状态已经失效，请重新登录后再试。",
+          },
+        },
+        { status: 401 },
+      ),
+    );
+
+    const result = await createBlankWorkspaceProjectEntry({
+      storage,
+      fetcher,
+      getAccessToken: async () => "expired-token",
+    });
+
+    expect(fetcher).toHaveBeenCalledTimes(1);
+    expect(result.projectSession).toBeNull();
+    expect(getProjectSession(storage)).toBeNull();
+    expect(loadTripPlan(storage)?.tripTitle).toBe("未命名旅行");
+    expect(getWorkspaceSessionMetadata(storage)).toEqual(
+      expect.objectContaining({
+        sourceType: "blank_manual",
+        workspaceModeDefault: "edit",
+      }),
+    );
   });
 
   it("keeps legacy saved-trip fallback isolated from project session writes", async () => {

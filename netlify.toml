@@ -1,0 +1,8 @@
+[build]
+command = "npm run build && node netlify/plugins/exclude-images-zip/capture-traces.js"
+
+[[plugins]]
+package = "@netlify/plugin-nextjs"
+
+[[plugins]]
+package = "./netlify/plugins/exclude-images-zip"

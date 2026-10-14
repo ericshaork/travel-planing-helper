@@ -119,6 +119,21 @@ describe("AI prompts", () => {
     expect(prompt).not.toContain("偏好参考说明");
   });
 
+  it("generate prompt 注入 evidence pack 事实边界并禁止编造缺失事实", () => {
+    const prompt = buildGenerateTripPrompt({
+      tripRequest,
+      evidencePromptSection:
+        "- place: 深圳湾公园 | openingHours=待确认 | ticketInfo=待确认",
+      evidenceWarnings: ["部分地点缺少开放时间，建议出行前确认。"],
+    });
+
+    expect(prompt).toContain("Data Hub Evidence Pack");
+    expect(prompt).toContain("已知事实来自 evidence pack");
+    expect(prompt).toContain("openingHours / ticketInfo / weather / route 如果缺失");
+    expect(prompt).toContain("不允许编造开放时间、门票、交通耗时");
+    expect(prompt).toContain("部分地点缺少开放时间");
+  });
+
   it("重新生成时也会带上偏好参考说明", () => {
     const prompt = buildRegenerateTripPrompt({
       tripRequest,
@@ -233,5 +248,7 @@ describe("AI prompts", () => {
     expect(TRIP_PLAN_SYSTEM_PROMPT).toContain(
       "禁止只写「体验当地文化」「感受城市氛围」「适合放松」这类空话",
     );
+    expect(TRIP_PLAN_SYSTEM_PROMPT).toContain("已知事实只能来自 evidence pack");
+    expect(TRIP_PLAN_SYSTEM_PROMPT).toContain("不得编造开放时间、门票、路线耗时");
   });
 });
