@@ -22,6 +22,12 @@ const exploreProductionTraceExcludes = [
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   outputFileTracingExcludes: {
+    "*": [
+      "./public/**/*",
+      "./.next/cache/**/*",
+      "./image-pipeline/image-pipeline/assets/**/*",
+      "./trip_packages/**/images/**/*.{png,jpg,jpeg,webp,gif,avif,svg}",
+    ],
     "/admin/explore-production": exploreProductionTraceExcludes,
     "/api/admin/explore-production/**": exploreProductionTraceExcludes,
   },

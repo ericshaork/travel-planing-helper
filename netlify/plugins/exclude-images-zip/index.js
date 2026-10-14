@@ -2,6 +2,7 @@ const fs = require("node:fs/promises");
 const path = require("node:path");
 const {
   isValidAuditManifest,
+  isExcludedAsset,
   readAuditManifest,
 } = require("./trace-audit");
 
@@ -28,6 +29,27 @@ async function findNamedFiles(directory) {
     }
   }
 
+  return matches;
+}
+
+async function findFunctionAssets(directory) {
+  let entries;
+  try {
+    entries = await fs.readdir(directory, { withFileTypes: true });
+  } catch (error) {
+    if (error.code === "ENOENT") return [];
+    throw error;
+  }
+
+  const matches = [];
+  for (const entry of entries) {
+    const entryPath = path.join(directory, entry.name);
+    if (entry.isDirectory()) {
+      matches.push(...(await findFunctionAssets(entryPath)));
+    } else if (isExcludedAsset(entryPath)) {
+      matches.push(entryPath);
+    }
+  }
   return matches;
 }
 
@@ -61,13 +83,17 @@ module.exports = {
       await fs.unlink(copy.path);
     }
 
-    const functionCopies = await findNamedFiles(absoluteFunctionsDist);
+    const internalFunctionsDir = path.resolve(process.cwd(), ".netlify/functions-internal");
+    const functionCopies = [
+      ...(await findFunctionAssets(absoluteFunctionsDist)),
+      ...(await findFunctionAssets(internalFunctionsDir)),
+    ];
     console.log(
-      `[asset-audit] FUNCTIONS_DIST=${functionsDist}; ${excludedFileName} found=${functionCopies.length}.`,
+      `[asset-audit] FUNCTIONS_DIST and functions-internal; excluded assets found=${functionCopies.length}.`,
     );
     if (functionCopies.length) {
       failures.push(
-        `${excludedFileName} unexpectedly appears in the Netlify Functions output; refusing to deploy it.`,
+        "Excluded assets unexpectedly appear in the Netlify Functions output; refusing to deploy them.",
       );
     }
 
@@ -86,7 +112,7 @@ module.exports = {
       console.log("[asset-audit] traceAuditStatus=unavailable; manifest=invalid.");
     } else {
       console.log(
-        `[asset-audit] traceAuditStatus=${traceAudit.status}; prepackTraceFiles=${traceAudit.traceCount}; images.zip references=${traceAudit.referenceCount}.`,
+        `[asset-audit] traceAuditStatus=${traceAudit.status}; prepackTraceFiles=${traceAudit.traceCount}; excluded asset references=${traceAudit.referenceCount}.`,
       );
       if (traceAudit.status !== "available" || traceAudit.traceCount === 0) {
         failures.push(
@@ -94,7 +120,7 @@ module.exports = {
         );
       } else if (traceAudit.referenceCount > 0) {
         failures.push(
-          `${excludedFileName} appears in ${traceAudit.referenceCount} pre-package Next.js function trace reference(s).`,
+          `Excluded assets appear in ${traceAudit.referenceCount} pre-package Next.js function trace reference(s).`,
         );
       }
     }

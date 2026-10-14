@@ -5,6 +5,17 @@ const excludedFileName = "images.zip";
 const manifestRelativePath = path.join(".netlify", "asset-audit", "trace-audit.json");
 const manifestVersion = 1;
 
+function isExcludedAsset(filePath) {
+  const normalized = filePath.replaceAll("\\", "/").toLowerCase();
+  return (
+    normalized.split("/").at(-1) === excludedFileName ||
+    /(?:^|\/)public\//.test(normalized) ||
+    /(?:^|\/)\.next\/cache\//.test(normalized) ||
+    /(?:^|\/)image-pipeline\/image-pipeline\/assets\//.test(normalized) ||
+    /(?:^|\/)trip_packages\/[^/]+\/images\/.*\.(png|jpe?g|webp|gif|avif|svg)$/.test(normalized)
+  );
+}
+
 async function findTraceFiles(roots) {
   const pending = [...new Set(roots.map((root) => path.resolve(root)))];
   const traceFiles = [];
@@ -40,10 +51,12 @@ async function auditTraceFiles(roots) {
 
   for (const traceFile of traceFiles) {
     const trace = JSON.parse(await fs.readFile(traceFile, "utf8"));
-    if (!Array.isArray(trace.files)) continue;
+    if (!Array.isArray(trace.files) || trace.files.some((file) => typeof file !== "string")) {
+      throw new Error("Next.js trace contains an invalid files list.");
+    }
 
     referenceCount += trace.files.filter(
-      (file) => path.basename(file).toLowerCase() === excludedFileName,
+      (file) => isExcludedAsset(path.resolve(path.dirname(traceFile), file)),
     ).length;
   }
 
@@ -100,6 +113,7 @@ module.exports = {
   clearAuditManifest,
   getManifestPath,
   isValidAuditManifest,
+  isExcludedAsset,
   readAuditManifest,
   writeAuditManifest,
 };

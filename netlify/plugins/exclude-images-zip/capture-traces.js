@@ -11,8 +11,13 @@ async function captureTraceAudit(root = process.cwd()) {
   const summary = await auditTraceFiles([traceRoot]);
   await writeAuditManifest(summary, root);
   console.log(
-    `[asset-audit:prepack] build command completed before Netlify plugins; root=${traceRoot}; status=${summary.status}; traceFiles=${summary.traceCount}; images.zip references=${summary.referenceCount}.`,
+    `[asset-audit:prepack] build command completed before Netlify plugins; root=${traceRoot}; status=${summary.status}; traceFiles=${summary.traceCount}; excluded asset references=${summary.referenceCount}.`,
   );
+  if (summary.referenceCount > 0) {
+    throw new Error(
+      `Found ${summary.referenceCount} excluded asset reference(s) in Next.js traces. Check outputFileTracingExcludes before packaging Netlify Functions.`,
+    );
+  }
   return summary;
 }
 
